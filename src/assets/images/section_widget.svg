@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="100px" viewBox="0 0 150 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>section</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="section" stroke="#FF6B6B">
+            <rect id="Rectangle" stroke-width="2" x="26" y="18" width="99" height="65"></rect>
+            <g id="Group-2" transform="translate(68.000000, 43.833333)" stroke-linecap="square">
+                <path d="M7,0.722222222 L7,12.2777778" id="Line"></path>
+                <g id="Group" transform="translate(7.000000, 6.500000) rotate(90.000000) translate(-7.000000, -6.500000) translate(5.000000, 0.000000)">
+                    <path d="M2,0.722222222 L2,12.2777778" id="Line"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

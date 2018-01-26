@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="100px" viewBox="0 0 150 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>job</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="job">
+            <g id="Group" transform="translate(30.000000, 23.000000)">
+                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-width="2" x="-1" y="-1" width="93" height="57"></rect>
+                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-width="2" x="-1" y="-1" width="93" height="57"></rect>
+                <rect id="Rectangle" fill="#FF6B6B" x="7" y="39" width="43" height="5"></rect>
+                <path d="M41.3338281,9.19310353 L47.6660188,19.8787614 C47.7439385,20.0102523 47.9122325,20.0446014 48.0371438,19.9587608 L53.4086848,16.267365 C53.6601104,16.0945818 53.994921,16.1548591 54.1628156,16.4116494 L63.9251372,27.542864 C64.0902065,27.7953331 63.9708563,28 63.6793965,28 L29.3478045,28 C29.0462136,28 28.9151779,27.7862344 29.0575939,27.5178957 L40.7963091,9.19991816 C40.9376212,8.93365932 41.181084,8.93534599 41.3338281,9.19310353 Z" id="path-1-path" fill="#FF6B6B"></path>
+                <path d="M60,11 C61.6568542,11 63,9.6568543 63,8 C63,6.34314568 61.6568542,5 60,5 C58.3431458,5 57,6.34314568 57,8 C57,9.6568543 58.3431458,11 60,11 Z" id="path-1-path" fill="#FF6B6B"></path>
+                <polyline id="Path-3" stroke="#FF6B6B" stroke-width="2" points="79 40 83 44.5 79 49"></polyline>
+            </g>
+            <path d="M37.5,69.5 L72.5,69.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+            <path d="M37.5,72.5 L61.5,72.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>

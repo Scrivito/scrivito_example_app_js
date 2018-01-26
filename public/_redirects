@@ -1,0 +1,8 @@
+##
+# Netlify redirect rules. See https://www.netlify.com/docs/redirects/ for details.
+##
+
+# Scrivito routes
+/scrivito/:slug/* /scrivito/index.html 200
+/scrivito /scrivito/index.html 200
+/* /index.html 200

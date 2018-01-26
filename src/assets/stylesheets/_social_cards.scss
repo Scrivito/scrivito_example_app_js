@@ -1,0 +1,80 @@
+[data-remaining-char-count] {
+  position: relative;
+  &:before {
+    position: absolute;
+    display: inline-block;
+    top: -1.3em;
+    right: 0;
+    width: 10em;
+    line-height: 1.5em;
+    padding: 0 1em;
+    margin: 0;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    font-size: 70%;
+    background: #ccc;
+    color: #000;
+    opacity: 0.7;
+    content: "Remaining: " attr(data-remaining-char-count);
+  }
+}
+
+[data-exceeds-char-count=true]:before {
+  background: #c5463f;
+  color: #fff;
+  content: "Limit exceeded";
+}
+
+// -- forms -- //
+
+.seo_card_input .input {
+  background: #f3f3f3;
+  border-radius: 3px;
+  box-shadow: 0 0 3px rgba(0,0,0,.1);
+  color: #555;
+  display: block;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  margin-bottom: 5px;
+  padding: 6px 8px;
+  min-height: 30px;
+}
+[data-scrivito-display-mode="editing"] [data-scrivito-editors-placeholder]:empty:not(:focus)::before {
+  line-height: 18px!important;
+}
+
+.scrivito_detail_content {
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  margin: 0; padding: 15px;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.scrivito_detail_content:first-of-type { border-top: medium none;}
+.scrivito_detail_label { display: block; padding: 0; width: 100%; }
+.scrivito_detail_label span {
+  color: #444; display: block; font-size: 13px;
+  font-weight: 700; padding: 2px 3px 2px;
+}
+.scrivito_detail_label span.headline { font-size: 18px; color: #777; }
+.scrivito_notice_body {
+  color: #666; font-weight: 700;
+  font-size: 12px;  padding: 0 0 10px;
+}
+.seo_card_img { max-height: 150px; margin-bottom: 10px; }
+
+// -- previews -- //
+
+.seo_card_preview {
+  .creator { font-size: 13px; font-weight: bold; padding: 6px 3px 0 3px; color: #2b7bb9; }
+  .card {
+    border-radius: 4px; box-shadow: 0 0 3px rgba(0,0,0,.1);
+    overflow: hidden; background: #fff; margin: 0;
+    }
+  .card_text { padding: 10px 10px 5px 10px; font-size: 14px; }
+  .card_text h5 { margin: 0 0 3px 0; font-weight: bold; font-size: 17px; }
+  .card_text p { margin: 0 0 5px 0; font-weight: normal; font-size: 14px; line-height: 1.5; }
+  .seo_card_preview_img { max-height: 240px; overflow: hidden; padding: 0; margin: 0; border-radius: 0; }
+  .twitter_card { max-width: 506px; min-height: 125px; }
+  .fb_card { max-width: 470px; min-height: 157px; }
+}

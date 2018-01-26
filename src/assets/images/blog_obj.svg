@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="100px" viewBox="0 0 150 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>blog</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="blog">
+            <rect id="Rectangle-11" stroke="#FF6B6B" stroke-linecap="square" x="82.5" y="21.5" width="45" height="27"></rect>
+            <rect id="Rectangle-11" stroke="#FF6B6B" stroke-linecap="square" x="82.5" y="55.5" width="45" height="27"></rect>
+            <rect id="Rectangle" fill="#FF6B6B" x="88" y="25" width="32" height="4"></rect>
+            <rect id="Rectangle" fill="#FF6B6B" x="88" y="59" width="32" height="4"></rect>
+            <path d="M88.375,33 L114.625,33" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+            <path d="M88.375,67 L114.625,67" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+            <path d="M88.38,37 L106.62,37" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+            <path d="M88.38,71 L106.62,71" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+            <path d="M88.3709677,41 L110.629032,41" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+            <path d="M88.3709677,75 L110.629032,75" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+            <rect id="Rectangle-11" stroke="#FF6B6B" stroke-linecap="square" x="22.5" y="33.5" width="45" height="27"></rect>
+            <rect id="Rectangle" fill="#FF6B6B" x="28" y="39" width="32" height="4"></rect>
+            <path d="M28.375,47 L54.625,47" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+            <path d="M28.38,51 L46.62,51" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+            <path d="M28.3709677,55 L50.6290323,55" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+            <path d="M74.5,26.5 L74.5,82.5" id="Line-2" stroke="#FF6B6B" stroke-linecap="square"></path>
+            <g id="Group" transform="translate(70.000000, 18.000000)" stroke="#FFFFFF" fill="#FF6B6B">
+                <circle id="Oval-4" cx="4.5" cy="4.5" r="4.5"></circle>
+                <circle id="Oval-4" cx="4.5" cy="25.5" r="4.5"></circle>
+                <circle id="Oval-4" cx="4.5" cy="41.5" r="4.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

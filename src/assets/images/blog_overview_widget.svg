@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="100px" viewBox="0 0 150 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>blog post</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="blog-post">
+            <g id="Group-2" transform="translate(34.000000, 23.000000)">
+                <g id="Group" transform="translate(10.000000, 7.000000)">
+                    <rect id="Rectangle" fill="#FF6B6B" x="19" y="5" width="43" height="5"></rect>
+                    <path d="M19.5,13.5 L54.5,13.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+                    <path d="M6.5,16.5 L6.5,39.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+                    <path d="M19.5,28.5 L54.5,28.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+                    <path d="M19.5,18.5 L43.5,18.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+                    <path d="M19.5,33.5 L43.5,33.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+                    <path d="M19.5,23.5 L49.5,23.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+                    <path d="M19.5,38.5 L49.5,38.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+                    <circle id="Oval-2" fill="#FF6B6B" cx="6.5" cy="6.5" r="6.5"></circle>
+                </g>
+                <rect id="Rectangle-2" stroke="#FF6B6B" stroke-width="2" x="-1" y="-1" width="85" height="57"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

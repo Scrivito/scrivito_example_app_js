@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="100px" viewBox="0 0 150 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>divider</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="divider">
+            <g id="Group-2" transform="translate(31.000000, 22.000000)">
+                <path d="M0.5,27.5 L87.5517088,27.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+                <circle id="Oval" stroke="#FFFFFF" fill="#FFFFFF" cx="44.5" cy="27.5" r="5.5"></circle>
+            </g>
+            <circle id="Oval-3" fill="#FF6B6B" cx="75.5" cy="49.5" r="4.5"></circle>
+        </g>
+    </g>
+</svg>

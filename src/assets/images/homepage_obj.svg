@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="100px" viewBox="0 0 150 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>homepage</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="homepage">
+            <g id="Group-5" transform="translate(50.000000, 18.000000)">
+                <g id="Group-2">
+                    <g id="Group-6" transform="translate(8.000000, 49.000000)">
+                        <path d="M1.45454545,10.3541667 L6.90909091,10.3541667" id="Line" stroke="#FF6B6B" stroke-width="0.9" stroke-linecap="square"></path>
+                        <path d="M14.2727273,10.7847222 L19.7272727,10.7847222" id="Line" stroke="#FF6B6B" stroke-width="0.9" stroke-linecap="square"></path>
+                        <path d="M27,10.7847222 L32.4545455,10.7847222" id="Line" stroke="#FF6B6B" stroke-width="0.9" stroke-linecap="square"></path>
+                        <ellipse id="Oval" fill="#FF6B6B" cx="4.27272727" cy="4.46527778" rx="4.09090909" ry="4.0625"></ellipse>
+                        <ellipse id="Oval" fill="#FF6B6B" cx="17" cy="4.46527778" rx="4.09090909" ry="4.0625"></ellipse>
+                        <ellipse id="Oval" fill="#FF6B6B" cx="29.7272727" cy="4.46527778" rx="4.09090909" ry="4.0625"></ellipse>
+                    </g>
+                    <rect id="Rectangle-2" stroke="#FF6B6B" stroke-width="2" x="-1" y="-1" width="52" height="67"></rect>
+                    <g id="Group-7" transform="translate(5.000000, 35.000000)">
+                        <rect id="Rectangle" fill="#FF6B6B" x="0.454545455" y="0.75" width="39.0909091" height="4.51388889"></rect>
+                        <path d="M3.63636364,9.32638889 L35.4545455,9.32638889" id="Line" stroke="#FF6B6B" stroke-width="0.9" stroke-linecap="square"></path>
+                    </g>
+                    <path d="M9.45454545,3.35416667 L13.5,3.35416667" id="Line" stroke="#FF6B6B" stroke-width="0.9" stroke-linecap="square"></path>
+                    <path d="M44.4946902,3.35416667 L46.5,3.35416667" id="Line" stroke="#FF6B6B" stroke-width="0.9" stroke-linecap="square"></path>
+                    <path d="M40.4946902,3.35416667 L42.5,3.35416667" id="Line" stroke="#FF6B6B" stroke-width="0.9" stroke-linecap="square"></path>
+                    <path d="M36.4946902,3.35416667 L38.5,3.35416667" id="Line" stroke="#FF6B6B" stroke-width="0.9" stroke-linecap="square"></path>
+                    <path d="M32.4946902,3.35416667 L34.5,3.35416667" id="Line" stroke="#FF6B6B" stroke-width="0.9" stroke-linecap="square"></path>
+                    <g id="Group" transform="translate(8.000000, 49.000000)"></g>
+                    <g id="Group-3" transform="translate(2.000000, 1.000000)" fill="#FF6B6B">
+                        <path d="M2.11437052,1.03049003 L3.19988894,2.71769918 C3.21324661,2.73846089 3.24209701,2.74388444 3.26351037,2.73033065 L4.18434597,2.14747868 C4.22744751,2.12019713 4.28484361,2.1297146 4.31362554,2.17026044 L5.98716637,3.92782063 C6.01546397,3.96768418 5.99500394,4 5.9450394,4 L0.0596236295,4 C0.00792232292,4 -0.0145409271,3.96624754 0.00987323625,3.92387827 L2.02222442,1.03156603 C2.04644934,0.989525157 2.08818583,0.989791473 2.11437052,1.03049003 Z" id="path-1-path"></path>
+                        <path d="M5.5,1 C5.77614237,1 6,0.776142383 6,0.5 C6,0.223857613 5.77614237,0 5.5,0 C5.22385763,0 5,0.223857613 5,0.5 C5,0.776142383 5.22385763,1 5.5,1 Z" id="path-1-path"></path>
+                    </g>
+                </g>
+                <rect id="Rectangle-12" fill="#FF6B6B" x="0" y="7" width="51" height="23"></rect>
+                <g id="Group-4" transform="translate(14.000000, 11.000000)" fill="#FFFFFF">
+                    <path d="M7.61494355,2.78741211 L11.4777849,9.26074138 C11.5253185,9.34039801 11.6279833,9.36120659 11.7041832,9.30920465 L14.9809971,7.07297169 C15.1343749,6.96830034 15.3386202,7.00481609 15.4410414,7.16037865 L21.3963736,13.9036244 C21.4970712,14.0565692 21.4242637,14.1805556 21.2464638,14.1805556 L0.303081101,14.1805556 C0.119100853,14.1805556 0.0391648791,14.0510572 0.126043221,13.8884987 L7.2870396,2.79154039 C7.37324451,2.63024184 7.52176475,2.63126361 7.61494355,2.78741211 Z" id="path-1-path"></path>
+                    <path d="M19.0019128,3.88202284 C20.0126475,3.88202284 20.8320099,3.06835049 20.8320099,2.06463471 C20.8320099,1.06091892 20.0126475,0.247246588 19.0019128,0.247246588 C17.9911781,0.247246588 17.1718157,1.06091892 17.1718157,2.06463471 C17.1718157,3.06835049 17.9911781,3.88202284 19.0019128,3.88202284 Z" id="path-1-path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

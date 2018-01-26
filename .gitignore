@@ -1,0 +1,5 @@
+build
+build.zip
+node_modules
+tmp
+.env

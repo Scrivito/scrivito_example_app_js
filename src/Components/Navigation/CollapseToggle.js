@@ -1,0 +1,23 @@
+function CollapseToggle({ expanded, toggleExpanded }) {
+  const classNames = ['navbar-toggle'];
+  if (!expanded) {
+    classNames.push('collapsed');
+  }
+
+  return (
+    <button
+      type="button"
+      className={ classNames.join(' ') }
+      aria-expanded={ expanded }
+      aria-controls="navbar"
+      onClick={ toggleExpanded }
+    >
+      <span className="sr-only">Toggle navigation</span>
+      <span className="icon-bar"></span>
+      <span className="icon-bar"></span>
+      <span className="icon-bar"></span>
+    </button>
+  );
+}
+
+export default CollapseToggle;

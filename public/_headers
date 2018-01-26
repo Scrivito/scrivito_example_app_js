@@ -1,0 +1,2 @@
+/*
+Content-Security-Policy: base-uri 'none'; default-src 'self' 'unsafe-inline' data: https:; script-src 'self' https://assets.scrivito.com; object-src 'none'; block-all-mixed-content;

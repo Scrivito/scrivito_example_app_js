@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="100px" viewBox="0 0 150 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>testimonial slider</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="testimonial-slider">
+            <g id="Group-8" transform="translate(24.000000, 33.000000)">
+                <g id="Group-6">
+                    <g id="Group-5" transform="translate(9.000000, 7.000000)">
+                        <g id="Group-4" transform="translate(16.000000, 0.000000)" fill="#FF6B6B">
+                            <g id="Group">
+                                <rect id="Rectangle" x="0" y="0" width="52" height="3.72857143"></rect>
+                            </g>
+                        </g>
+                        <g id="Group-3" transform="translate(0.135135, 7.642857)">
+                            <g id="Group-7" fill="#FF6B6B">
+                                <ellipse id="Oval" cx="30.1609185" cy="10.9500602" rx="2.66527981" ry="2.68808504"></ellipse>
+                                <ellipse id="Oval" cx="37.6237019" cy="10.9500602" rx="2.66527981" ry="2.68808504"></ellipse>
+                                <ellipse id="Oval" cx="45.6652798" cy="10.688085" rx="2.66527981" ry="2.68808504"></ellipse>
+                                <ellipse id="Oval" cx="80.6652798" cy="2.68808504" rx="2.66527981" ry="2.68808504"></ellipse>
+                                <ellipse id="Oval" cx="2.66527981" cy="2.68808504" rx="2.66527981" ry="2.68808504"></ellipse>
+                                <ellipse id="Oval" cx="53.0823248" cy="10.9500602" rx="2.66527981" ry="2.68808504"></ellipse>
+                            </g>
+                            <g id="Group-2" transform="translate(52.000000, 8.000000)"></g>
+                        </g>
+                    </g>
+                    <rect id="Rectangle-6" stroke="#FF6B6B" stroke-width="2" x="-1" y="-1" width="104" height="37"></rect>
+                </g>
+                <path d="M34.5,13.5 L66.5156212,13.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+                <path d="M39.5,16.5 L62.5217289,16.5" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
+            </g>
+        </g>
+    </g>
+</svg>

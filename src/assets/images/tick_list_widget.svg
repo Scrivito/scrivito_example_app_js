@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="100px" viewBox="0 0 150 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>ticklist</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ticklist">
+            <rect id="Rectangle" fill="#FF6B6B" x="53" y="32" width="64" height="8"></rect>
+            <rect id="Rectangle" fill="#FF6B6B" x="53" y="47" width="64" height="8"></rect>
+            <rect id="Rectangle" fill="#FF6B6B" x="53" y="62" width="64" height="8"></rect>
+            <polyline id="Path-4" stroke="#FF6B6B" points="34 68.5 37.75 71 44 61"></polyline>
+            <polyline id="Path-4" stroke="#FF6B6B" points="34 52.5 37.75 55 44 45"></polyline>
+            <polyline id="Path-4" stroke="#FF6B6B" points="34 37.5 37.75 40 44 30"></polyline>
+        </g>
+    </g>
+</svg>

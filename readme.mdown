@@ -1,0 +1,51 @@
+# Scrivito Example App JS
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![CMS: Scrivito](https://img.shields.io/badge/CMS-Scrivito-brightgreen.svg)](https://scrivito.com)
+
+This is a showcase app, how [Scrivito](https://scrivito.com) is working as a JavaScript application.
+
+## Prerequisites
+
+* [node](https://nodejs.org/en/) >= 8.0.0
+* [npm](https://www.npmjs.com/get-npm) >= 5.0.0 (already part of nodejs 8.x).
+
+Now simply call `npm install` in the commandline to install all js dependencies (which are places in the folder `node_modules/`).
+
+## Specify the Scrivito CMS to use
+
+The ScrivitoJS example app requires the tenant ID of your CMS. The ID is read from the environment variable `SCRIVITO_TENANT`. The environment variable can also be set via [`.env`](https://github.com/motdotla/dotenv).
+
+To specify it, proceed as follows:
+
+* Go to your [Scrivito account](https://my.scrivito.com/account).
+* If you don’t have a CMS, create one.
+* Navigate to your [CMS instances](https://my.scrivito.com/tenants).
+* Click the CMS to use.
+* Open the “Settings” tab.
+* Scroll down to the “API Keys” section.
+* Copy the value after SCRIVITO_TENANT= to the clipboard.
+* In the project directory, open/create the file `.env` and paste the ID after the `SCRIVITO_TENANT` key. The file should then look like this:
+
+```
+SCRIVITO_TENANT=0123456789ABCDEF0123456789ABCDEF
+```
+
+See `.env.example` for an concrete example.
+
+## Set the CORS origin(s)
+
+To enable resource sharing between your CMS and your web application, specify the URL of your app in the CMS settings.
+
+* Like above, navigate to the “Settings” tab of the CMS to use with your app.
+* Scroll down to the “Development” section.
+* Click “Edit” to change the additional CORS origins and add the local URL under which your app will be accessed: `http://localhost:8080`.
+
+See [Getting Started with ScrivitoJS](https://scrivito.com/private-beta/getting-started-with-scrivitojs-f729f073bf4672d8) for more information.
+
+## How to build/compile
+
+Calling `npm run build` will compile all js, html and css and place it in the `build/` folder.
+
+## How to develop
+
+Calling `npm start` will start a webserver, which listens to [localhost:8080](http://localhost:8080/) and opens that site in your browser. It should also automatically reload the page, once changes to the code (in `src/`) have been made.

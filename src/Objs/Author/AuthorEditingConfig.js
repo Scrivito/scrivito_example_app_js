@@ -11,13 +11,7 @@ Scrivito.provideEditingConfig('Author', {
   thumbnail: `/${authorObjIcon}`,
   attributes: {
     ...metaDataEditingConfigAttributes,
-    image: {
-      title: 'Image',
-    },
   },
-  properties: [
-    'image',
-  ],
   propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],
   initialContent: {
     ...metaDataInitialContent,

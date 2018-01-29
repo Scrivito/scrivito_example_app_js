@@ -4,7 +4,7 @@ function AuthorImage({ image }) {
   if (!image) {
     return (
       <InPlaceEditingPlaceholder center={ true }>
-        Select an image in the author page properties.
+        Click here to select an author image.
       </InPlaceEditingPlaceholder>
     );
   }

@@ -1,8 +1,5 @@
 Scrivito.provideEditingConfig('Download', {
   attributes: {
-    blob: {
-      title: 'Download',
-    },
     tags: {
       title: 'Tags',
       description: 'Make it easier to find this download by adding some tags.',
@@ -13,7 +10,6 @@ Scrivito.provideEditingConfig('Download', {
     },
   },
   properties: [
-    'blob',
     'title',
     'tags',
   ],

@@ -7,7 +7,9 @@ Scrivito.provideComponent('Author', ({ page }) =>
       <div className="container">
         <div className="row">
           <div className="col-md-2 col-sm-4 col-xs-4">
-            <AuthorImage image={ page.get('image') } />
+            <Scrivito.ContentTag content={ page } attribute="image">
+              <AuthorImage image={ page.get('image') } />
+            </Scrivito.ContentTag>
           </div>
           <div className="col-md-10 col-sm-8 col-xs-8">
             <Scrivito.ContentTag content={ page } attribute="title" tag="h1" className="h1" />

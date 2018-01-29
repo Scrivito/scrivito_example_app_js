@@ -19,13 +19,8 @@ Scrivito.provideEditingConfig('Job', {
       title: 'Location',
       description: 'Where is this job located?',
     },
-    title: {
-      title: 'Title',
-      description: 'Limit to 55 characters.',
-    },
   },
   properties: [
-    'title',
     'location',
     'image',
   ],

@@ -13,18 +13,12 @@ Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
           testimonials.map(testimonial =>
             <div key={ testimonial.id() }>
               <h1 className="quote-headline text-center">&quot;</h1>
-              <Scrivito.ContentTag
-                content={ testimonial }
-                attribute="testimonial"
-                tag="p"
-                className="h4 text-center"
-              />
-              <Scrivito.ContentTag
-                content={ testimonial }
-                attribute="author"
-                tag="p"
-                className="small text-center"
-              />
+              <p className="h4 text-center">
+                { testimonial.get('testimonial') }
+              </p>
+              <p className="small text-center">
+                { testimonial.get('author') }
+              </p>
             </div>
           )
         }

@@ -11,19 +11,11 @@ Scrivito.provideEditingConfig('Author', {
   thumbnail: `/${authorObjIcon}`,
   attributes: {
     ...metaDataEditingConfigAttributes,
-    title: {
-      title: 'Name',
-    },
-    description: {
-      title: 'Description',
-    },
     image: {
       title: 'Image',
     },
   },
   properties: [
-    'title',
-    'description',
     'image',
   ],
   propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],

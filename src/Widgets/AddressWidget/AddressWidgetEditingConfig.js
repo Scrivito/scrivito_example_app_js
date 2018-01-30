@@ -1,14 +1,9 @@
 import addressWidgetIcon from 'assets/images/address_widget.svg';
-import AddressListItemWidget from 'Widgets/AddressListItemWidget/AddressListItemWidgetClass';
 
 Scrivito.provideEditingConfig('AddressWidget', {
   title: 'Address',
   thumbnail: `/${addressWidgetIcon}`,
   attributes: {
-    listItems: {
-      title: 'Address list items',
-      description: 'E.g. phone numbers.',
-    },
     showBorderBottom: {
       title: 'Show border at the bottom?',
       description: 'Default: No',
@@ -25,15 +20,59 @@ Scrivito.provideEditingConfig('AddressWidget', {
         { value: 'no', title: 'No' },
       ],
     },
+
+    locationName: {
+      title: 'Location name',
+      description: 'E.g. New York Convention Center',
+    },
+    locationStreetAddress: {
+      title: 'Street address',
+      description: 'E.g. 655 W. 34th Street',
+    },
+    locationLocality: {
+      title: 'Locality',
+      description: 'E.g. New York',
+    },
+    locationRegion: {
+      title: 'Region',
+      description: 'E.g. NY or CA',
+    },
+    locationPostalCode: {
+      title: 'Postal code',
+      description: 'E.g. 10001',
+    },
+    locationCountry: {
+      title: 'Country',
+      description: 'E.g. USA',
+    },
+    phone: {
+      title: 'Phone',
+    },
+    mobile: {
+      title: 'Mobile',
+    },
+    fax: {
+      title: 'Fax',
+    },
+    eMail: {
+      title: 'E-Mail',
+    },
   },
   properties: [
     'showLogo',
-    'listItems',
     'showBorderBottom',
+    'locationName',
+    'locationStreetAddress',
+    'locationLocality',
+    'locationPostalCode',
+    'locationRegion',
+    'locationCountry',
+    'phone',
+    'mobile',
+    'fax',
+    'eMail',
   ],
   initialContent: {
-    address: 'The actual address.',
-    listItems: [new AddressListItemWidget({})],
     showBorderBottom: 'no',
     showLogo: 'yes',
   },

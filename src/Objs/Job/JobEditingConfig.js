@@ -15,10 +15,6 @@ Scrivito.provideEditingConfig('Job', {
     image: {
       title: 'Image',
     },
-    location: {
-      title: 'Location',
-      description: 'Where is this job located?',
-    },
     title: {
       title: 'Job title',
       description: 'E.g. Software Engineer',
@@ -74,7 +70,7 @@ Scrivito.provideEditingConfig('Job', {
     },
   },
   properties: [
-    'location',
+    'title',
     'image',
     'datePosted',
     'validThrough',

@@ -1,3 +1,4 @@
+import formatDate from 'utils/formatDate';
 import SchemaDotOrg from 'Components/SchemaDotOrg';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 
@@ -6,8 +7,15 @@ Scrivito.provideComponent('Job', ({ page }) => {
     <div>
       <section className="bg-white">
         <div className="container">
+          <Date text="" date={ page.get('datePosted') } />
           <Scrivito.ContentTag tag="h1" className="h2" content={ page } attribute="title" />
           <JobLocation job={ page } />
+          <h3 className="h5">
+            <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />
+            { ' ' }
+            <Date text="Valid through" date={ page.get('validThrough') } />
+          </h3>
+          <Tags employmentTypes={ page.get('employmentType') }/>
           <Scrivito.ContentTag tag="div" content={ page } attribute="description" />
         </div>
       </section>
@@ -18,6 +26,42 @@ Scrivito.provideComponent('Job', ({ page }) => {
   );
 });
 
+function Date({ date, text }) {
+  if (!date) {
+    return (
+      <InPlaceEditingPlaceholder>
+        Select a date in the event page properties.
+      </InPlaceEditingPlaceholder>
+    );
+  }
+
+  return <span>{ text } { formatDate(date, 'mm/dd/yyyy') }</span>;
+}
+
+const Tags = Scrivito.connect(({ employmentTypes }) => {
+  if (!employmentTypes || employmentTypes.length === 0) {
+    return (
+      <InPlaceEditingPlaceholder>
+        Select a date in the job page properties.
+      </InPlaceEditingPlaceholder>
+    );
+  }
+
+  const localizations = {
+    FULL_TIME: 'full-time',
+    PART_TIME: 'part-time',
+    CONTRACTOR: 'contractor',
+    TEMPORARY: 'temporary',
+    INTERN: 'intern',
+    VOLUNTEER: 'volunteer',
+    PER_DIEM: 'per diem',
+    OTHER: 'other',
+  }
+
+  const localizedTypes = employmentTypes.map(type => localizations[type] || type);
+
+  return <b>Employment types { localizedTypes.join(', ') }</b>;
+});
 
 const JobLocation = Scrivito.connect(({ job }) => {
   const locality = job.get('locationLocality');

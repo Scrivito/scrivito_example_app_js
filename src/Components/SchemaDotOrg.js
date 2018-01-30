@@ -1,6 +1,7 @@
 import isEmpty from 'is-empty';
 import isPlainObject from 'lodash/isPlainObject';
 import dataFromEvent from './SchemaDotOrg/dataFromEvent';
+import dataFromJob from './SchemaDotOrg/dataFromJob';
 
 const SchemaDotOrg = Scrivito.connect(({ content }) => {
   const data = pruneEmptyValues(dataFromItem(content));
@@ -15,6 +16,7 @@ const SchemaDotOrg = Scrivito.connect(({ content }) => {
 function dataFromItem(item) {
   switch (item.objClass()) {
     case 'Event': return dataFromEvent(item);
+    case 'Job': return dataFromJob(item);
   }
 
   throw `SchemaDotOrg for objClass ${item.objClass()} not supported!`;

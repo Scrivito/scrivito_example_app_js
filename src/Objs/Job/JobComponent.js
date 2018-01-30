@@ -1,3 +1,5 @@
+import SchemaDotOrg from 'Components/SchemaDotOrg';
+
 Scrivito.provideComponent('Job', ({ page }) => {
   return (
     <div>
@@ -12,6 +14,8 @@ Scrivito.provideComponent('Job', ({ page }) => {
         </div>
       </section>
       <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
+
+      <SchemaDotOrg content={ page } />
     </div>
   );
 });

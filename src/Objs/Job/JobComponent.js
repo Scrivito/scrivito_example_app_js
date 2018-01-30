@@ -11,6 +11,7 @@ Scrivito.provideComponent('Job', ({ page }) => {
             { ' ' }
             <Scrivito.ContentTag tag="span" content={ page } attribute="location" />
           </h2>
+          <Scrivito.ContentTag tag="div" content={ page } attribute="description" />
         </div>
       </section>
       <Scrivito.ContentTag tag="div" content={ page } attribute="body" />

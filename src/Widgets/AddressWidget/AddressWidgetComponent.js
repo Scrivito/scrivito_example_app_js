@@ -1,4 +1,5 @@
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
+import SchemaDotOrg from 'Components/SchemaDotOrg';
 
 Scrivito.provideComponent('AddressWidget', ({ widget }) => {
   return (
@@ -12,6 +13,7 @@ Scrivito.provideComponent('AddressWidget', ({ widget }) => {
             fax={ widget.get('fax') }
             eMail={ widget.get('eMail') }
           />
+        <SchemaDotOrg content={ widget } />
       </address>
       { widget.get('showBorderBottom') === 'yes' && <div className="border-bottom" /> }
     </div>

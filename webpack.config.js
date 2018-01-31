@@ -98,12 +98,6 @@ module.exports = (env = {}) => {
                 cacheDirectory: 'tmp/babel-cache',
               },
             },
-            {
-              loader: 'eslint-loader',
-              options: {
-                emitWarning: !isProduction,
-              },
-            },
           ],
         },
         {

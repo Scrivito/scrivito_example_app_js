@@ -12,12 +12,22 @@ Scrivito.provideEditingConfig('ContactFormWidget', {
       title: 'Submit button text',
       description: 'Default: send message',
     },
+    isTransparent: {
+      title: 'Background color',
+      description: 'Default: White',
+      values: [
+        { value: 'no', title: 'White' },
+        { value: 'yes', title: 'Transparent' },
+      ],
+    },
   },
   properties: [
     'agreementText',
     'buttonText',
+    'isTransparent',
   ],
   initialContent: {
     buttonText: 'send message',
+    isTransparent: 'no',
   },
 });

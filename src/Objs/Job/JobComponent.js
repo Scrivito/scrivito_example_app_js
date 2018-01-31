@@ -56,7 +56,7 @@ const Tags = Scrivito.connect(({ employmentTypes }) => {
     VOLUNTEER: 'volunteer',
     PER_DIEM: 'per diem',
     OTHER: 'other',
-  }
+  };
 
   const localizedTypes = employmentTypes.map(type => localizations[type] || type);
 

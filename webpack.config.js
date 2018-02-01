@@ -54,9 +54,7 @@ module.exports = (env = {}) => {
           ie8: false,
           ecma: 5,
         },
-      })
-    );
-    plugins.push(
+      }),
       new ZipPlugin({
         filename: 'build.zip',
         path: '../',

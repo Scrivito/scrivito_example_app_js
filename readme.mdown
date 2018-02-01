@@ -18,12 +18,13 @@ And because Scrivito is 100% serverless, you'll never have to patch your CMS, so
 
 Sign up for a free trial at [my.scrivito.com/signup](https://my.scrivito.com/signup?utm_source=github&utm_medium=web&utm_campaign=github_example_app).
 
-Now that you do have a Scrivito tenant, it's time to do some development.
+Once you have a Scrivito tenant, it's time to do some development.
 
 ### Clone repository
 
 ```
 git clone https://github.com/Scrivito/scrivito_example_app_js.git
+
 cd scrivito_example_app_js/
 ```
 
@@ -41,7 +42,7 @@ npm -v
 
 ### Install dependencies
 
-Now simply call `npm install` in the commandline to install all js dependencies (which are places in the folder `node_modules/`).
+Now simply call `npm install` in the commandline to install all js dependencies (which are placed in the folder `node_modules/`).
 
 ### Specify the Scrivito CMS to use
 
@@ -49,10 +50,10 @@ The Scrivito example app JS requires the tenant ID of your CMS. The ID is read f
 
 To specify it, proceed as follows:
 
-* Go to your [Scrivito websites](https://my.scrivito.com/tenants/).
+* Go to your [Scrivito Websites](https://my.scrivito.com/tenants/).
 * Click the CMS to use.
 * Open the “Settings” tab.
-* Scroll down to the “API Keys” section.
+* Scroll down to the “Anonymous access for the Scrivito Javascript SDK” section.
 * Copy the value after SCRIVITO_TENANT= to the clipboard.
 * In the project directory, open/create the file `.env` and paste the ID after the `SCRIVITO_TENANT` key. The file should then look like this:
 
@@ -62,7 +63,7 @@ SCRIVITO_TENANT=0123456789ABCDEF0123456789ABCDEF
 
 See `.env.example` for an concrete example.
 
-### Set the authorized URLs
+### Set other authorized URLs
 
 To enable resource sharing between your CMS and your web application, specify the URL of your app in the CMS settings.
 

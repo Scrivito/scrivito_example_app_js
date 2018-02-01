@@ -2,7 +2,7 @@ const ContactFormWidget = Scrivito.provideWidgetClass('ContactFormWidget', {
   attributes: {
     agreementText: 'string',
     buttonText: 'string',
-    isTransparent: ['enum', { values: ['yes', 'no'] }],
+    backgroundColor: ['enum', { values: ['white', 'transparent'] }],
   },
 });
 

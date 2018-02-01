@@ -6,7 +6,7 @@ https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-
 
 Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
   const classNames = ['row'];
-  if (widget.get('isTransparent') === 'yes') {
+  if (widget.get('backgroundColor') === 'transparent') {
     classNames.push('panel-white-transparent');
   } else {
     classNames.push('floating-label');

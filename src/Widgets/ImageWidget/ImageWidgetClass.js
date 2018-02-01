@@ -3,6 +3,7 @@ const ImageWidget = Scrivito.provideWidgetClass('ImageWidget', {
     image: 'reference',
     alignment: ['enum', { values: ['left', 'center', 'right'] }],
     alternativeText: 'string',
+    link: 'link',
   },
 });
 

@@ -79,6 +79,16 @@ Calling `npm run build` will compile all js, html and css and place it in the `b
 
 Calling `npm start` will start a webserver, which listens to [localhost:8080](http://localhost:8080/) and opens that site in your browser. It should also automatically reload the page, once changes to the code (in `src/`) have been made.
 
+## Your first change
+
+To see development in action, let's change the `ButtonWidget`, so that it prefixes all buttons with your favorite emoji.
+
+Open up the react component responsible to render a `ButtonWidget`. It's located at `src/Widgets/ButtonWidget/ButtonWidgetComponent.js`. Now look for the `Scrivito.LinkTag`. Inside add a `{ '🚀 ' }` prior to `{ text }`.
+
+Once you save the file your browser should automatically reload [http://localhost:8080](http://localhost:8080) with your new emoji button. Of cause you can choose another emoji, e.g. by searching [emojipedia.org](https://emojipedia.org).
+
+Have fun!
+
 ## Documentation
 
 Comprehensive documentation is available at [scrivito.com/documentation](https://www.scrivito.com/documentation?utm_source=github&utm_medium=natural&utm_campaign=github_example_app). Feel free to [reach out to us](https://www.scrivito.com/support?utm_source=github&utm_medium=natural&utm_campaign=github_example_app) if you have any questions.

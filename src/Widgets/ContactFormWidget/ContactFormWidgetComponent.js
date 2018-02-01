@@ -9,9 +9,7 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
   if (widget.get('backgroundColor') === 'transparent') {
     classNames.push('panel-white-transparent');
   } else {
-    classNames.push('floating-label');
-    classNames.push('panel');
-    classNames.push('panel-padding');
+    classNames.push('floating-label', 'panel', 'panel-padding');
   }
 
   return (

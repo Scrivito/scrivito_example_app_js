@@ -1,6 +1,6 @@
 # Scrivito Example App JS
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![CMS: Scrivito](https://img.shields.io/badge/CMS-Scrivito-brightgreen.svg)](https://scrivito.com)
+[![CMS: Scrivito](https://img.shields.io/badge/CMS-Scrivito-brightgreen.svg)](https://scrivito.com) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Travis build status](https://img.shields.io/travis/Scrivito/scrivito_example_app_js.svg)](https://travis-ci.org/Scrivito/scrivito_example_app_js) [![GitHub last commit](https://img.shields.io/github/last-commit/Scrivito/scrivito_example_app_js.svg)](https://github.com/Scrivito/scrivito_example_app_js) [![GitHub top language](https://img.shields.io/github/languages/top/Scrivito/scrivito_example_app_js.svg)](https://github.com/Scrivito/scrivito_example_app_js)
 
 This is a showcase app, how [Scrivito](https://scrivito.com) is working as a JavaScript application.
 

@@ -20,7 +20,6 @@ Scrivito.provideEditingConfig('AddressWidget', {
         { value: 'no', title: 'No' },
       ],
     },
-
     locationName: {
       title: 'Location name',
       description: 'E.g. New York Convention Center',
@@ -54,8 +53,8 @@ Scrivito.provideEditingConfig('AddressWidget', {
     fax: {
       title: 'Fax',
     },
-    eMail: {
-      title: 'E-Mail',
+    email: {
+      title: 'Email',
     },
   },
   properties: [
@@ -70,7 +69,7 @@ Scrivito.provideEditingConfig('AddressWidget', {
     'phone',
     'mobile',
     'fax',
-    'eMail',
+    'email',
   ],
   initialContent: {
     showBorderBottom: 'no',

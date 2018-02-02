@@ -11,7 +11,7 @@ Scrivito.provideComponent('AddressWidget', ({ widget }) => {
             phone={ widget.get('phone') }
             mobile={ widget.get('mobile') }
             fax={ widget.get('fax') }
-            eMail={ widget.get('eMail') }
+            email={ widget.get('email') }
           />
         <SchemaDotOrg content={ widget } />
       </address>

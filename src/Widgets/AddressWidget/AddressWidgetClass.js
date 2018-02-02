@@ -20,6 +20,16 @@ const AddressWidget = Scrivito.provideWidgetClass('AddressWidget', {
 });
 
 registerTextExtract('AddressWidget', [
+  { attribute: 'locationName', type: 'string' },
+  { attribute: 'locationStreetAddress', type: 'string' },
+  { attribute: 'locationLocality', type: 'string' },
+  { attribute: 'locationPostalCode', type: 'string' },
+  { attribute: 'locationRegion', type: 'string' },
+  { attribute: 'locationCountry', type: 'string' },
+  { attribute: 'phone', type: 'string' },
+  { attribute: 'mobile', type: 'string' },
+  { attribute: 'fax', type: 'string' },
+  { attribute: 'eMail', type: 'string' },
 ]);
 
 export default AddressWidget;

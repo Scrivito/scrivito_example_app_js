@@ -1,6 +1,20 @@
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import SchemaDotOrg from 'Components/SchemaDotOrg';
 
+const LOCALIZATION = {
+  phone: 'Phone',
+  mobile: 'Mobile',
+  fax: 'Fax',
+  eMail: 'E-Mail',
+};
+
+const LINK_PREFIXES = {
+  phone: 'tel',
+  mobile: 'tel',
+  fax: 'fax',
+  eMail: 'mailto',
+};
+
 Scrivito.provideComponent('AddressWidget', ({ widget }) => {
   return (
     <div>
@@ -91,21 +105,7 @@ function Table(props) {
 }
 
 function TableColumn({ name, value }) {
-  const localization = {
-    phone: 'Phone',
-    mobile: 'Mobile',
-    fax: 'Fax',
-    eMail: 'E-Mail',
-  };
-
-  const linkPrefixes = {
-    phone: 'tel',
-    mobile: 'tel',
-    fax: 'fax',
-    eMail: 'mailto',
-  };
-
-  const prefix = linkPrefixes[name];
+  const prefix = LINK_PREFIXES[name];
 
   if (!value) {
     return null;
@@ -115,7 +115,7 @@ function TableColumn({ name, value }) {
 
   return (
     <tr>
-      <td>{ `${localization[name]}: ` }</td>
+      <td>{ `${LOCALIZATION[name]}: ` }</td>
       <td><a href={ href }>{ value }</a></td>
     </tr>
   );

@@ -1,28 +1,59 @@
 # Scrivito Example App JS
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![CMS: Scrivito](https://img.shields.io/badge/CMS-Scrivito-brightgreen.svg)](https://scrivito.com)
+[![CMS: Scrivito](https://img.shields.io/badge/CMS-Scrivito-brightgreen.svg)](https://scrivito.com) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Travis build status](https://img.shields.io/travis/Scrivito/scrivito_example_app_js/master.svg)](https://travis-ci.org/Scrivito/scrivito_example_app_js) [![GitHub last commit](https://img.shields.io/github/last-commit/Scrivito/scrivito_example_app_js.svg)](https://github.com/Scrivito/scrivito_example_app_js) [![GitHub top language](https://img.shields.io/github/languages/top/Scrivito/scrivito_example_app_js.svg)](https://github.com/Scrivito/scrivito_example_app_js)
 
-This is a showcase app, how [Scrivito](https://scrivito.com) is working as a JavaScript application.
+[Scrivito](https://www.scrivito.com/?utm_source=github&utm_medium=natural&utm_campaign=github_example_app) is the world's most secure, serverless JavaScript CMS. Based on ReactJS, it is completely maintenance-free, cost-effective, and has unprecedented security. Learn more about Scrivito at [scrivito.com](https://www.scrivito.com/?utm_source=github&utm_medium=natural&utm_campaign=github_example_app).
 
-## Prerequisites
+This example app shows Scrivito’s features and is a great basis for your own Scrivito website projects.
 
-* [node](https://nodejs.org/en/) >= 8.0.0
-* [npm](https://www.npmjs.com/get-npm) >= 5.0.0 (already part of nodejs 8.x).
+## Features
 
-Now simply call `npm install` in the commandline to install all js dependencies (which are places in the folder `node_modules/`).
+Scrivito is a SaaS Content Management Service, built for digital agencies and medium to large sized businesses.
 
-## Specify the Scrivito CMS to use
+It is the only CMS that combines unmatched WYSIWYG usability for editors with maximum flexibility for developers – because it is at the forefront of the current [JavaScript web development revolution](https://www.webdevelopmentrevolution.com/).
 
-The ScrivitoJS example app requires the tenant ID of your CMS. The ID is read from the environment variable `SCRIVITO_TENANT`. The environment variable can also be set via [`.env`](https://github.com/motdotla/dotenv).
+And because Scrivito is 100% serverless, you'll never have to patch your CMS, so it's the most secure and cost-effective solution on the market.
+
+## Getting Started
+
+Sign up for a free trial at [my.scrivito.com/signup](https://my.scrivito.com/signup?utm_source=github&utm_medium=web&utm_campaign=github_example_app).
+
+Once you have a Scrivito tenant, it's time to do some development.
+
+### Clone repository
+
+```
+git clone https://github.com/Scrivito/scrivito_example_app_js.git
+
+cd scrivito_example_app_js/
+```
+
+### Install/check prerequisites
+
+Make sure that you have [![node ≥ 8.0](https://img.shields.io/badge/node-≥%208.0-blue.svg)](https://nodejs.org) and [![npm ≥ 5.0](https://img.shields.io/badge/npm-≥%205.0-blue.svg)](https://www.npmjs.com/get-npm) installed.
+
+```
+node -v
+# should output something like v8.9.4
+
+npm -v
+# should output something like 5.6.0
+```
+
+### Install dependencies
+
+Now simply call `npm install` in the commandline to install all JS dependencies (which are placed in the folder `node_modules/`).
+
+### Specify the Scrivito CMS to use
+
+The Scrivito example app JS requires the tenant ID of your CMS. The ID is read from the environment variable `SCRIVITO_TENANT`. The environment variable can also be set via [`.env`](https://github.com/motdotla/dotenv).
 
 To specify it, proceed as follows:
 
-* Go to your [Scrivito account](https://my.scrivito.com/account).
-* If you don’t have a CMS, create one.
-* Navigate to your [CMS instances](https://my.scrivito.com/tenants).
+* Go to your [Scrivito Websites](https://my.scrivito.com/tenants/).
 * Click the CMS to use.
 * Open the “Settings” tab.
-* Scroll down to the “API Keys” section.
+* Scroll down to the “Anonymous access for the Scrivito Javascript SDK” section.
 * Copy the value after SCRIVITO_TENANT= to the clipboard.
 * In the project directory, open/create the file `.env` and paste the ID after the `SCRIVITO_TENANT` key. The file should then look like this:
 
@@ -32,20 +63,33 @@ SCRIVITO_TENANT=0123456789ABCDEF0123456789ABCDEF
 
 See `.env.example` for an concrete example.
 
-## Set the CORS origin(s)
+### Set other authorized URLs
 
 To enable resource sharing between your CMS and your web application, specify the URL of your app in the CMS settings.
 
-* Like above, navigate to the “Settings” tab of the CMS to use with your app.
-* Scroll down to the “Development” section.
-* Click “Edit” to change the additional CORS origins and add the local URL under which your app will be accessed: `http://localhost:8080`.
+* Like above, navigate to the “Deployment” tab of the CMS to use with your app.
+* Make sure, that `http://localhost:8080` is added to the "Other authorized URLs".
 
 See [Getting Started with ScrivitoJS](https://scrivito.com/private-beta/getting-started-with-scrivitojs-f729f073bf4672d8) for more information.
 
 ## How to build/compile
 
-Calling `npm run build` will compile all js, html and css and place it in the `build/` folder.
+Calling `npm run build` will compile all JS, HTML and CSS and place it in the `build/` folder. It also creates a `build.zip` file, which can be deployed via [my.scrivito.com](https://my.scrivito.com).
 
 ## How to develop
 
-Calling `npm start` will start a webserver, which listens to [localhost:8080](http://localhost:8080/) and opens that site in your browser. It should also automatically reload the page, once changes to the code (in `src/`) have been made.
+Calling `npm start` will start a webserver, which listens to [localhost:8080](http://localhost:8080/) and opens that site in your browser. It should also automatically reload the page, after changes to the code (in `src/`) have been made.
+
+## Your first change
+
+To see development in action, let's change the `ButtonWidget`, so that it prefixes all buttons with your favorite emoji.
+
+Open up the react component responsible for rendering a `ButtonWidget`. It's located at `src/Widgets/ButtonWidget/ButtonWidgetComponent.js`. Now look for the `Scrivito.LinkTag`. Inside, add `{ '🚀 ' }` before `{ text }`.
+
+After saving the file, your browser should automatically reload [http://localhost:8080](http://localhost:8080) with your new emoji button. Of course you can choose another emoji, check out [emojipedia.org](https://emojipedia.org).
+
+Have fun!
+
+## Documentation
+
+Comprehensive documentation is available at [scrivito.com/documentation](https://www.scrivito.com/documentation?utm_source=github&utm_medium=natural&utm_campaign=github_example_app). Feel free to [reach out to us](https://www.scrivito.com/support?utm_source=github&utm_medium=natural&utm_campaign=github_example_app) if you have any questions.

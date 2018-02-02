@@ -42,7 +42,7 @@ npm -v
 
 ### Install dependencies
 
-Now simply call `npm install` in the commandline to install all js dependencies (which are placed in the folder `node_modules/`).
+Now simply call `npm install` in the commandline to install all JS dependencies (which are placed in the folder `node_modules/`).
 
 ### Specify the Scrivito CMS to use
 
@@ -74,7 +74,7 @@ See [Getting Started with ScrivitoJS](https://scrivito.com/private-beta/getting-
 
 ## How to build/compile
 
-Calling `npm run build` will compile all js, html and css and place it in the `build/` folder. It also creates a `build.zip` file, which can be deployed via [my.scrivito.com](https://my.scrivito.com).
+Calling `npm run build` will compile all JS, HTML and CSS and place it in the `build/` folder. It also creates a `build.zip` file, which can be deployed via [my.scrivito.com](https://my.scrivito.com).
 
 ## How to develop
 

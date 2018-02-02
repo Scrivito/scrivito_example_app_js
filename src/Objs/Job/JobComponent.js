@@ -41,7 +41,7 @@ const Tags = Scrivito.connect(({ employmentTypes }) => {
   if (!employmentTypes || employmentTypes.length === 0) {
     return (
       <InPlaceEditingPlaceholder>
-        Select a date in the job page properties.
+        Select one or more employment types in the job page properties.
       </InPlaceEditingPlaceholder>
     );
   }

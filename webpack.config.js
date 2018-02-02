@@ -54,9 +54,7 @@ module.exports = (env = {}) => {
           ie8: false,
           ecma: 5,
         },
-      })
-    );
-    plugins.push(
+      }),
       new ZipPlugin({
         filename: 'build.zip',
         path: '../',
@@ -96,12 +94,6 @@ module.exports = (env = {}) => {
                   }],
                 ],
                 cacheDirectory: 'tmp/babel-cache',
-              },
-            },
-            {
-              loader: 'eslint-loader',
-              options: {
-                emitWarning: !isProduction,
               },
             },
           ],

@@ -71,19 +71,20 @@ const Address = Scrivito.connect(({ addressWidget }) => {
   );
 });
 
-function Table(values) {
-  const columns = Object.keys(values).map(name => {
-    return <TableColumn key={ name } name={ name } value={ values[name] } />;
-  });
+function Table(props) {
+  const lines = Object.entries(props).filter(([_prop, value]) => value);
 
-  if (columns.length === 0) {
+  if (!lines.length) {
     return null;
   }
 
   return (
     <table>
       <tbody>
-        { columns }
+        {
+          lines.map(([name, value]) =>
+            <TableColumn key={ name } name={ name } value={ value } />)
+        }
       </tbody>
     </table>
   );

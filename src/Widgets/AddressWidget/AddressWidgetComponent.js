@@ -57,13 +57,18 @@ const Address = Scrivito.connect(({ addressWidget }) => {
     );
   }
 
-  const breakedLines = lines.reduce((array, value) => {
-    array.push(value);
-    array.push(<br key={ value } />);
-    return array;
-  }, []);
-
-  return <p>{ breakedLines }</p>;
+  return (
+    <p>
+      {
+        lines.map((line, index) =>
+          <React.Fragment key={ index }>
+            { line }
+            <br />
+          </React.Fragment>
+        )
+      }
+    </p>
+  );
 });
 
 function Table(values) {

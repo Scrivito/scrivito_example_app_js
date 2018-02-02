@@ -84,9 +84,9 @@ Calling `npm start` will start a webserver, which listens to [localhost:8080](ht
 
 To see development in action, let's change the `ButtonWidget`, so that it prefixes all buttons with your favorite emoji.
 
-Open up the react component responsible to render a `ButtonWidget`. It's located at `src/Widgets/ButtonWidget/ButtonWidgetComponent.js`. Now look for the `Scrivito.LinkTag`. Inside add a `{ '🚀 ' }` prior to `{ text }`.
+Open up the react component responsible for rendering a `ButtonWidget`. It's located at `src/Widgets/ButtonWidget/ButtonWidgetComponent.js`. Now look for the `Scrivito.LinkTag`. Inside, add `{ '🚀 ' }` before `{ text }`.
 
-After saving the file, your browser should automatically reload [http://localhost:8080](http://localhost:8080) with your new emoji button. Of cause you can choose another emoji, e.g. by searching [emojipedia.org](https://emojipedia.org).
+After saving the file, your browser should automatically reload [http://localhost:8080](http://localhost:8080) with your new emoji button. Of course you can choose another emoji, check out [emojipedia.org](https://emojipedia.org).
 
 Have fun!
 

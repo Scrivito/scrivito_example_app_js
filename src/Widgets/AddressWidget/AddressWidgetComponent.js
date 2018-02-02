@@ -107,10 +107,6 @@ function Table(props) {
 function TableColumn({ name, value }) {
   const prefix = LINK_PREFIXES[name];
 
-  if (!value) {
-    return null;
-  }
-
   const href = prefix ? `${prefix}:${value}` : value;
 
   return (

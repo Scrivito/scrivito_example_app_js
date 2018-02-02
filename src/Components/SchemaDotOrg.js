@@ -15,8 +15,8 @@ const SchemaDotOrg = Scrivito.connect(({ content }) => {
 
 function dataFromItem(item) {
   switch (item.objClass()) {
-    case 'Event': return dataFromEvent(item);
     case 'AddressWidget': return dataFromAddressWidget(item);
+    case 'Event': return dataFromEvent(item);
   }
 
   throw `SchemaDotOrg for objClass ${item.objClass()} not supported!`;

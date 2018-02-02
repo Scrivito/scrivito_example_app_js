@@ -1,4 +1,5 @@
 import formatDate from 'utils/formatDate';
+import textExtractFromObj from 'utils/textExtractFromObj';
 
 function dataFromJob(job) {
   return {
@@ -7,7 +8,7 @@ function dataFromJob(job) {
     title: job.get('title'),
     datePosted: formatDate(job.get('datePosted'), 'yyyy-mm-dd'),
     validThrough: formatDate(job.get('validThrough'), 'yyyy-mm-dd'),
-    description: job.get('description'),
+    description: textExtractFromObj(job),
     employmentType: job.get('employmentType'),
     hiringOrganization: {
       '@type': 'Organization',

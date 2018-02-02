@@ -9,7 +9,6 @@ const Job = Scrivito.provideObjClass('Job', {
 
     datePosted: 'date',
     validThrough: 'date',
-    description: 'html',
 
     hiringOrganizationName: 'string',
     hiringOrganizationWebsite: 'string',
@@ -38,7 +37,6 @@ const Job = Scrivito.provideObjClass('Job', {
 });
 
 registerTextExtract('Job', [
-  { attribute: 'location', type: 'string' },
   { attribute: 'body', type: 'widgetlist' },
 ]);
 

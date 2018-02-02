@@ -16,7 +16,6 @@ Scrivito.provideComponent('Job', ({ page }) => {
             <Date text="Valid through" date={ page.get('validThrough') } />
           </h3>
           <Tags employmentTypes={ page.get('employmentType') }/>
-          <Scrivito.ContentTag tag="div" content={ page } attribute="description" />
         </div>
       </section>
       <Scrivito.ContentTag tag="div" content={ page } attribute="body" />

@@ -1339,10 +1339,16 @@ footer {
 
 body, #application {height: 100%; padding: 0; margin: 0; }
 #application > div {
-  display: flex; min-height: 100vh;
+  min-height: 100vh;
+  display: flex;
   flex-direction: column;
   }
 .content-wrapper { flex: 1; }
+
+/* weird stuff for IE11 */
+
+_:-ms-fullscreen, :root #application > div { display: block;}
+_:-ms-fullscreen, :root .content-wrapper { flex: 0; }
 
 
 /* loader

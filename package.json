@@ -58,7 +58,8 @@
   },
   "scripts": {
     "build": "webpack -p",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "eslint": "eslint src/"
   },
   "dependencies": {}
 }

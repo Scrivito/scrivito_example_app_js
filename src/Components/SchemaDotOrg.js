@@ -1,6 +1,7 @@
 import isEmpty from 'is-empty';
 import isPlainObject from 'lodash/isPlainObject';
 import dataFromEvent from './SchemaDotOrg/dataFromEvent';
+import dataFromAddressWidget from './SchemaDotOrg/dataFromAddressWidget';
 
 const SchemaDotOrg = Scrivito.connect(({ content }) => {
   const data = pruneEmptyValues(dataFromItem(content));
@@ -14,6 +15,7 @@ const SchemaDotOrg = Scrivito.connect(({ content }) => {
 
 function dataFromItem(item) {
   switch (item.objClass()) {
+    case 'AddressWidget': return dataFromAddressWidget(item);
     case 'Event': return dataFromEvent(item);
   }
 

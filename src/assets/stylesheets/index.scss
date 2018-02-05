@@ -1340,18 +1340,16 @@ footer {
 body, #application {height: 100%; padding: 0; margin: 0; }
 #application > div {
   min-height: 100vh;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
   flex-direction: column;
   }
-.content-wrapper {
-  -ms-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  }
+.content-wrapper { flex: 1; }
+
+/* weird stuff for IE11 */
+
+_:-ms-fullscreen, :root #application > div { display: block;}
+_:-ms-fullscreen, :root .content-wrapper { flex: 0; }
+
 
 /* loader
 =================================================================== */

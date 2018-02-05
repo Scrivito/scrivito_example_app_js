@@ -9,7 +9,6 @@ Scrivito.provideComponent('AddressWidget', ({ widget }) => {
         <Address addressWidget={ widget } />
         <Table
             phone={ widget.get('phone') }
-            mobile={ widget.get('mobile') }
             fax={ widget.get('fax') }
             email={ widget.get('email') }
           />
@@ -92,14 +91,12 @@ function Table(props) {
 
 const LOCALIZATION = {
   phone: 'Phone',
-  mobile: 'Mobile',
   fax: 'Fax',
   email: 'Email',
 };
 
 const LINK_PREFIXES = {
   phone: 'tel',
-  mobile: 'tel',
   fax: 'fax',
   email: 'mailto',
 };

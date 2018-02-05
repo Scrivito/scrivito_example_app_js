@@ -47,9 +47,6 @@ Scrivito.provideEditingConfig('AddressWidget', {
     phone: {
       title: 'Phone',
     },
-    mobile: {
-      title: 'Mobile',
-    },
     fax: {
       title: 'Fax',
     },
@@ -66,7 +63,6 @@ Scrivito.provideEditingConfig('AddressWidget', {
     'locationRegion',
     'locationCountry',
     'phone',
-    'mobile',
     'fax',
     'email',
     'showBorderBottom',

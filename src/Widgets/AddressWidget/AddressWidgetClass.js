@@ -13,7 +13,6 @@ const AddressWidget = Scrivito.provideWidgetClass('AddressWidget', {
     locationCountry: 'string',
 
     phone: 'string',
-    mobile: 'string',
     fax: 'string',
     email: 'string',
   },
@@ -27,7 +26,6 @@ registerTextExtract('AddressWidget', [
   { attribute: 'locationRegion', type: 'string' },
   { attribute: 'locationCountry', type: 'string' },
   { attribute: 'phone', type: 'string' },
-  { attribute: 'mobile', type: 'string' },
   { attribute: 'fax', type: 'string' },
   { attribute: 'email', type: 'string' },
 ]);

@@ -3,7 +3,7 @@ function dataFromAddressWidget(addressWidget) {
     '@type': 'Place',
     name: addressWidget.get('locationName'),
     address: addressFromAddressWidget(addressWidget),
-    telephone: (addressWidget.get('phone') || addressWidget.get('mobile')),
+    telephone: addressWidget.get('phone'),
     faxNumber: addressWidget.get('fax'),
   };
 }

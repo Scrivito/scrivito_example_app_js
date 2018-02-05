@@ -1339,11 +1339,19 @@ footer {
 
 body, #application {height: 100%; padding: 0; margin: 0; }
 #application > div {
-  display: flex; min-height: 100vh;
+  min-height: 100vh;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
   flex-direction: column;
   }
-.content-wrapper { flex: 1; }
-
+.content-wrapper {
+  -ms-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  }
 
 /* loader
 =================================================================== */

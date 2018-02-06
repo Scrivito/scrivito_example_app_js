@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import placeholderCss from 'utils/placeholderCss';
 
 const InPlaceEditingPlaceholder = ({ children, center }) => {

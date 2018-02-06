@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 
 function PlanButton({ target, className }) {
   const text = target && target.title();

@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import isString from 'utils/isString';
 
 const textExtractRegistry = {};

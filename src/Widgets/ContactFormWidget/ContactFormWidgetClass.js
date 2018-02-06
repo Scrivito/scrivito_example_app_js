@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 const ContactFormWidget = Scrivito.provideWidgetClass('ContactFormWidget', {
   attributes: {
     agreementText: 'string',

@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import linkListWidgetIcon from 'assets/images/link_list_widget.svg';
 import LinkWidget from 'Widgets/LinkWidget/LinkWidgetClass';
 

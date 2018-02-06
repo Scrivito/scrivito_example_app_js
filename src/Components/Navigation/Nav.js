@@ -1,3 +1,5 @@
+import * as React from 'react';
+import * as Scrivito from 'scrivito';
 import NavChild from './NavChild';
 
 class Nav extends React.Component {

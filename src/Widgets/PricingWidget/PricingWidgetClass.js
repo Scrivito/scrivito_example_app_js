@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import { registerTextExtract } from 'utils/textExtractRegistry';
 
 const PricingWidget = Scrivito.provideWidgetClass('PricingWidget', {

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import take from 'lodash/take';
 import fontAwesomeIcons from './fontAwesomeIcons';
 

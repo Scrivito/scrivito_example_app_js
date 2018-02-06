@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import { registerTextExtract } from 'utils/textExtractRegistry';
 import metaDataAttributes from '../_metaDataAttributes';
 

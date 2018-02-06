@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 const IconWidget = Scrivito.provideWidgetClass('IconWidget', {
   attributes: {
     icon: 'string',

@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import eventObjIcon from 'assets/images/event_obj.svg';
 import SectionWidget from 'Widgets/SectionWidget/SectionWidgetClass';
 import {

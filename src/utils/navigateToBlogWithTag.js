@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 function navigateToBlogWithTag(tag) {
   const params = {};
   if (tag) {

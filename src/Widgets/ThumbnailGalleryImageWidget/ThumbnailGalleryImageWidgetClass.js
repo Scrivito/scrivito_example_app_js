@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 const ThumbnailGalleryImageWidget = Scrivito.provideWidgetClass('ThumbnailGalleryImageWidget', {
   onlyInside: 'ThumbnailGalleryWidget',
   attributes: {

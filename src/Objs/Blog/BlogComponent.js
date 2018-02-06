@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import BlogPost from 'Objs/BlogPost/BlogPostObjClass';
 import navigateToBlogWithTag from 'utils/navigateToBlogWithTag';
 import TagList from 'Components/TagList';

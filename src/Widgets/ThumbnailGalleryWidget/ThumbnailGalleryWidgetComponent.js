@@ -1,3 +1,5 @@
+import * as React from 'react';
+import * as Scrivito from 'scrivito';
 import Lightbox from 'react-images';
 import fullScreenWidthPixels from 'utils/fullScreenWidthPixels';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';

@@ -1,3 +1,5 @@
+import * as React from 'react';
+import * as Scrivito from 'scrivito';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 
 class YoutubeVideoWidgetComponent extends React.Component {

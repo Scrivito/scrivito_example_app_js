@@ -1,3 +1,5 @@
+import * as React from 'react';
+import * as Scrivito from 'scrivito';
 import ShowMoreButton from './ShowMoreButton';
 import SearchInput from './SearchInput';
 import SearchResultItem from './SearchResultItem';

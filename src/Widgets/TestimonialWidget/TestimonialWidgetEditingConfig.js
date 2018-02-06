@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import truncate from 'lodash/truncate';
 
 Scrivito.provideEditingConfig('TestimonialWidget', {

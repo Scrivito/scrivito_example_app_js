@@ -1,5 +1,5 @@
 import formatDate from 'utils/formatDate';
-import { textExtractFromWidgetlist } from 'utils/textExtractFromObj';
+import { textExtractFromWidgetlist } from 'utils/textExtract';
 
 function dataFromJob(job) {
   return {

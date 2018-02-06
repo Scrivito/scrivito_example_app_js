@@ -1,6 +1,6 @@
 import formatDate from 'utils/formatDate';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
-import { textExtractFromObj } from 'utils/textExtractFromObj';
+import { textExtractFromObj } from 'utils/textExtract';
 import truncate from 'lodash/truncate';
 import BlogPostDate from './BlogPostDate';
 

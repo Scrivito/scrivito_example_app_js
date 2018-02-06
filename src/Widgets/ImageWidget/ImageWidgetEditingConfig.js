@@ -21,7 +21,7 @@ Scrivito.provideEditingConfig('ImageWidget', {
     link: {
       title: 'Link (optional)',
       description: 'The link where this image should lead.',
-    }
+    },
   },
   properties: [
     'alignment',

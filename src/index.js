@@ -6,7 +6,4 @@ import App from 'App';
 import 'config/scrivito';
 import 'config/scrivitoContentBrowser';
 
-const application = document.getElementById('application');
-if (application) {
-  ReactDOM.render(<App />, application);
-}
+ReactDOM.render(<App />, document.getElementById('application'));

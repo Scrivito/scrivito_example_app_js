@@ -70,7 +70,6 @@ Scrivito.provideEditingConfig('Job', {
     },
   },
   properties: [
-    'title',
     'image',
     'datePosted',
     'validThrough',

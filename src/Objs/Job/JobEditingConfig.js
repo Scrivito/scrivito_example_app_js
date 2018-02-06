@@ -15,10 +15,6 @@ Scrivito.provideEditingConfig('Job', {
     image: {
       title: 'Image',
     },
-    title: {
-      title: 'Job title',
-      description: 'E.g. Software Engineer',
-    },
     datePosted: {
       title: 'Posted at',
       description: 'The job was posted at.',

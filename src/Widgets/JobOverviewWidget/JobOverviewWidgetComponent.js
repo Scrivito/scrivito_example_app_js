@@ -17,18 +17,18 @@ Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
 
   return (
     <div className="row">
-      { jobs.map((job, index) => <Job key={ job.id() } job={ job } index={ index } />) }
+      { jobs.map((job, index) => <JobItem key={ job.id() } job={ job } index={ index } />) }
     </div>
   );
 });
 
-const Job = Scrivito.connect(({ job, index }) => {
-  const location = [job.get('locationRegion'), job.get('locationCountry')]
+const JobItem = Scrivito.connect(({ job, index }) => {
+  const location = [job.get('locationLocality'), job.get('locationCountry')]
     .filter(n => n)
     .join(', ');
 
   return (
-    <div key={ `${job.id()}${index}` } className="col-sm-6">
+    <div className="col-sm-6">
       <Scrivito.LinkTag to={ job } className="box-card">
         <Scrivito.BackgroundImageTag
           tag="span"

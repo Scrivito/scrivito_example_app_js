@@ -1,6 +1,6 @@
 import formatDate from 'utils/formatDate';
-import SchemaDotOrg from 'Components/SchemaDotOrg';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
+import SchemaDotOrg from 'Components/SchemaDotOrg';
 
 Scrivito.provideComponent('Job', ({ page }) => {
   return (
@@ -10,12 +10,8 @@ Scrivito.provideComponent('Job', ({ page }) => {
           <Date text="" date={ page.get('datePosted') } />
           <Scrivito.ContentTag tag="h1" className="h2" content={ page } attribute="title" />
           <JobLocation job={ page } />
-          <h3 className="h5">
-            <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />
-            { ' ' }
-            <Date text="Valid through" date={ page.get('validThrough') } />
-          </h3>
-          <Tags employmentTypes={ page.get('employmentType') }/>
+          <JobValidThrough job={ page } />
+          <JobEmploymentTypes employmentTypes={ page.get('employmentType') }/>
         </div>
       </section>
       <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
@@ -29,7 +25,7 @@ function Date({ date, text }) {
   if (!date) {
     return (
       <InPlaceEditingPlaceholder>
-        Select a date in the event page properties.
+        Select a date in the job page properties.
       </InPlaceEditingPlaceholder>
     );
   }
@@ -37,7 +33,17 @@ function Date({ date, text }) {
   return <span>{ text } { formatDate(date, 'mm/dd/yyyy') }</span>;
 }
 
-const Tags = Scrivito.connect(({ employmentTypes }) => {
+const JobValidThrough = Scrivito.connect(({ job }) => {
+  return (
+    <h2 className="h5">
+      <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />
+      { ' ' }
+      <Date text="Valid through:" date={ job.get('validThrough') } />
+    </h2>
+  );
+});
+
+const JobEmploymentTypes = Scrivito.connect(({ employmentTypes }) => {
   if (!employmentTypes || employmentTypes.length === 0) {
     return (
       <InPlaceEditingPlaceholder>
@@ -59,7 +65,13 @@ const Tags = Scrivito.connect(({ employmentTypes }) => {
 
   const localizedTypes = employmentTypes.map(type => localizations[type] || type);
 
-  return <b>Employment types { localizedTypes.join(', ') }</b>;
+  return (
+    <h2 className="h5">
+      <i className="fa fa-clock-o fa-lg" aria-hidden="true" title="date" />
+      { ' ' }
+      Employment types: { localizedTypes.join(', ') }
+    </h2>
+  );
 });
 
 const JobLocation = Scrivito.connect(({ job }) => {
@@ -74,8 +86,8 @@ const JobLocation = Scrivito.connect(({ job }) => {
     job.get('locationCountry'),
   ].filter(n => n).join(', ');
 
-  if (!address.length) {
-    address = (
+  if (!address) {
+    return (
       <InPlaceEditingPlaceholder>
         Provide the location in the job page properties.
       </InPlaceEditingPlaceholder>
@@ -84,7 +96,7 @@ const JobLocation = Scrivito.connect(({ job }) => {
 
   return (
     <React.Fragment>
-      <h2 className="h4">
+      <h2 className="h5">
         <i className="fa fa-map-marker fa-lg" aria-hidden="true" title="location" />
         { ' ' }
         { address }

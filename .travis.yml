@@ -2,9 +2,13 @@
 language: node_js
 node_js: 8
 sudo: false
-script: npm run build && npm run eslint
 env:
   SCRIVITO_TENANT: "c1bd936ef25b6dcccfd7b72b71fe969d"
 cache:
   directories:
     - "node_modules"
+env:
+  matrix:
+    - TASK=build
+    - TASK=eslint
+script: npm run $TASK

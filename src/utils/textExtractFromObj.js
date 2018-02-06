@@ -6,6 +6,11 @@ function textExtractFromObj(obj) {
   return textExtractFromItem(obj);
 }
 
+function textExtractFromWidgetlist(widgetlist) {
+  const textExtractValues = widgetlist.map(widget => textExtractFromItem(widget));
+  return arrayToString(textExtractValues);
+}
+
 function textExtractFromItem(objOrWidget) {
   const className = objOrWidget.objClass();
   const attributes = lookupTextExtract(className);
@@ -57,11 +62,6 @@ function textExtractFromMetadata(objOrWidget, attribute) {
   return objOrWidget.metadata().get(attribute) || '';
 }
 
-function textExtractFromWidgetlist(widgetlist) {
-  const textExtractValues = widgetlist.map(widget => textExtractFromItem(widget));
-  return arrayToString(textExtractValues);
-}
-
 function arrayToString(array) {
   return array
     .map(value => value.trim())
@@ -69,4 +69,7 @@ function arrayToString(array) {
     .join('\n');
 }
 
-export default textExtractFromObj;
+export {
+  textExtractFromObj,
+  textExtractFromWidgetlist,
+};

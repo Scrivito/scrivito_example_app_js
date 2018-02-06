@@ -1,6 +1,6 @@
 import Highlighter from 'react-highlight-words';
 import fromNow from 'moment-from-now';
-import textExtractFromObj from 'utils/textExtractFromObj';
+import { textExtractFromObj } from 'utils/textExtractFromObj';
 import truncate from 'lodash/truncate';
 
 const PreviewImage = Scrivito.connect(({ item }) => {

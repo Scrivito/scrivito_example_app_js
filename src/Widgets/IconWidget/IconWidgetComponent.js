@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import IconComponent from 'Components/Icon';
 
 function IconWidgetComponent({ widget }) {

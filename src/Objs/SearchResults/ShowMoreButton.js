@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
   if (currentMaxItems >= totalCount) { return null; }
 

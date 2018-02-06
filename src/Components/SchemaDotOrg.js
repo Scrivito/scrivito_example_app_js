@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import isEmpty from 'is-empty';
 import isPlainObject from 'lodash/isPlainObject';
 import dataFromEvent from './SchemaDotOrg/dataFromEvent';

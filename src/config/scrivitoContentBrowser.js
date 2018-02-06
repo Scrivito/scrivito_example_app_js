@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 Scrivito.configureContentBrowser({
   filters: {
     _objClass: {

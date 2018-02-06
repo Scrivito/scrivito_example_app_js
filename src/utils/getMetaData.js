@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import textExtractFromObj from 'utils/textExtractFromObj';
 import truncate from 'lodash/truncate';
 import urlFromBinary from 'utils/urlFromBinary';

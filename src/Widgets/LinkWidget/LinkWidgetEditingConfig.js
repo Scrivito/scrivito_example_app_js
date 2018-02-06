@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 Scrivito.provideEditingConfig('LinkWidget', {
   title: 'Link List item',
   attributes: {

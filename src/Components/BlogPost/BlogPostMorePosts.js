@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import BlogPostPreviewList from 'Components/BlogPost/BlogPostPreviewList';
 
 function BlogPostMorePosts({ author }) {

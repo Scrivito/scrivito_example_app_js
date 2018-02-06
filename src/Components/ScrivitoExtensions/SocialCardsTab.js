@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import getMetaData from 'utils/getMetaData';
 
 Scrivito.registerComponent('SocialCardsTab', ({ obj }) =>

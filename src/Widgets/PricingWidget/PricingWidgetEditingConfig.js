@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import pricingWidgetIcon from 'assets/images/pricing_widget.svg';
 import PricingSpecWidget from 'Widgets/PricingSpecWidget/PricingSpecWidgetClass';
 

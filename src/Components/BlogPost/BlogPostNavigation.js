@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import BlogPostDate from './BlogPostDate';
 
 const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {

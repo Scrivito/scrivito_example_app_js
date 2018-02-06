@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import googleMapsWidgetIcon from 'assets/images/google_maps_widget.svg';
 
 Scrivito.provideEditingConfig('GoogleMapsWidget', {

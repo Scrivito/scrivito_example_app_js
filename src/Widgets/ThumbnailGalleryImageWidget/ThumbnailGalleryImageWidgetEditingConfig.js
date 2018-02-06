@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 Scrivito.provideEditingConfig('ThumbnailGalleryImageWidget', {
   title: 'Thumbnail Gallery Image',
   attributes: {

@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import BlogPostAuthor from 'Components/BlogPost/BlogPostAuthor';
 import BlogPostMorePosts from 'Components/BlogPost/BlogPostMorePosts';
 import BlogPostNavigation from 'Components/BlogPost/BlogPostNavigation';

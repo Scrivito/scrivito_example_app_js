@@ -22,7 +22,7 @@ class ErrorBoundary extends React.Component {
         <div className="container">
           <div className="text-center"><h1 className="hero-bold">Sorry</h1></div>
           <div className="text-center">
-            <h2 className="hero-small">Something went wrong while connecting to our system.</h2>
+            <h2 className="hero-small">Something went wrong.</h2>
           </div>
           <div className="text-center">
             <button

@@ -33,7 +33,7 @@ Scrivito.provideEditingConfig('Job', {
     },
     hiringOrganizationWebsite: {
       title: 'Organization website',
-      description: 'Website of the hiring organization.',
+      description: 'E.g. http://www.example.com',
     },
     locationStreetAddress: {
       title: 'Street address',

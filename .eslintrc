@@ -16,10 +16,7 @@
     "plugin:react/recommended",
   ],
   "globals": {
-    "Blob": true,
-    "console": true,
     "document": true,
-    "DocumentTouch": true,
     "React": true,
     "Scrivito": true,
     "window": true,

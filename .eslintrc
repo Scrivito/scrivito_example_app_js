@@ -1,0 +1,68 @@
+{
+  "plugins": [
+    "import",
+    "react",
+  ],
+  "settings": {
+    "import/resolver": "webpack",
+  },
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb/base",
+    "plugin:react/recommended",
+  ],
+  "globals": {
+    "document": true,
+    "React": true,
+    "Scrivito": true,
+    "window": true,
+  },
+  rules: {
+    "arrow-body-style": 0,
+    "arrow-parens": ["error", "as-needed"],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "ignore",
+    }],
+    "consistent-return": 0,
+    "curly": ["error", "all"],
+    "default-case": 0,
+    "function-paren-newline": 0,
+    "import/no-amd": 1,
+    "import/no-commonjs": 1,
+    "import/no-extraneous-dependencies": "off",
+    "import/no-nodejs-modules": 1,
+    "no-debugger": 1,
+    "no-param-reassign": [2, { "props": false }],
+    "no-shadow": [2, { "allow": ["error", "result"] }],
+    "no-throw-literal": 0,
+    "no-unused-vars": [2, { "args": "all", "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
+    "no-use-before-define": 0,
+    "object-curly-newline": 0,
+    "prefer-destructuring": 0,
+    "react/display-name": 0,
+    "react/jsx-curly-spacing": [2, "always"],
+    "react/jsx-no-undef": ["error", { "allowGlobals": true }],
+    "react/prop-types": 0,
+    "vars-on-top": 0,
+    "wrap-iife": ["error", "any"],
+  },
+  overrides: [
+    {
+      "files": [
+        "src/utils/textExtractFromObj.js",
+        "src/utils/textExtractRegistry.js"
+      ],
+      "rules": {
+        "no-console": 0
+      }
+    }
+  ]
+}

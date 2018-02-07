@@ -7,7 +7,7 @@ Scrivito.provideComponent('Job', ({ page }) => {
     <div>
       <section className="bg-white">
         <div className="container">
-          <Date text="" date={ page.get('datePosted') } />
+          <DatePosted job={ page } />
           <Scrivito.ContentTag tag="h1" className="h2" content={ page } attribute="title" />
           <JobLocation job={ page } />
           <JobValidThrough job={ page } />
@@ -21,24 +21,38 @@ Scrivito.provideComponent('Job', ({ page }) => {
   );
 });
 
-function Date({ date, text }) {
+const DatePosted = Scrivito.connect(({ job }) => {
+  const date = job.get('datePosted');
+
   if (!date) {
     return (
-      <InPlaceEditingPlaceholder>
+      <div>
+        <InPlaceEditingPlaceholder block>
+          Select a date in the job page properties.
+        </InPlaceEditingPlaceholder>
+      </div>
+    );
+  }
+
+  return <span>{ formatDate(date, 'mm/dd/yyyy') }</span>;
+});
+
+const JobValidThrough = Scrivito.connect(({ job }) => {
+  const date = job.get('validThrough');
+
+  if (!date) {
+    return (
+      <InPlaceEditingPlaceholder block>
         Select a date in the job page properties.
       </InPlaceEditingPlaceholder>
     );
   }
 
-  return <span>{ text } { formatDate(date, 'mm/dd/yyyy') }</span>;
-}
-
-const JobValidThrough = Scrivito.connect(({ job }) => {
   return (
     <h2 className="h5">
       <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />
       { ' ' }
-      <Date text="Valid through:" date={ job.get('validThrough') } />
+      <span>Valid through: { formatDate(date, 'mm/dd/yyyy') }</span>
     </h2>
   );
 });
@@ -46,7 +60,7 @@ const JobValidThrough = Scrivito.connect(({ job }) => {
 const JobEmploymentTypes = Scrivito.connect(({ employmentTypes }) => {
   if (!employmentTypes || employmentTypes.length === 0) {
     return (
-      <InPlaceEditingPlaceholder>
+      <InPlaceEditingPlaceholder block>
         Select one or more employment types in the job page properties.
       </InPlaceEditingPlaceholder>
     );
@@ -88,7 +102,7 @@ const JobLocation = Scrivito.connect(({ job }) => {
 
   if (!address) {
     return (
-      <InPlaceEditingPlaceholder>
+      <InPlaceEditingPlaceholder block>
         Provide the location in the job page properties.
       </InPlaceEditingPlaceholder>
     );

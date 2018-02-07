@@ -1,6 +1,6 @@
 import 'Globals';
-import 'Objs/index';
-import 'Widgets/index';
+import 'Objs/';
+import 'Widgets/';
 import 'config/scrivito';
 import 'config/scrivitoContentBrowser';
-import 'Components/ScrivitoExtensions/index';
+import 'Components/ScrivitoExtensions/';

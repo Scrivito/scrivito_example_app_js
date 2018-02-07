@@ -22,7 +22,7 @@ Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
   );
 });
 
-const JobItem = Scrivito.connect(({ job, index }) => {
+const JobItem = Scrivito.connect(({ job }) => {
   const location = [job.get('locationLocality'), job.get('locationCountry')]
     .filter(n => n)
     .join(', ');

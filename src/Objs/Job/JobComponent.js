@@ -94,7 +94,7 @@ const JobLocation = Scrivito.connect(({ job }) => {
   const postalCode = job.get('locationPostalCode');
   const localityRegionPostalCode = [locality, region, postalCode].filter(n => n).join(' ');
 
-  let address = [
+  const address = [
     job.get('locationStreetAddress'),
     localityRegionPostalCode,
     job.get('locationCountry'),

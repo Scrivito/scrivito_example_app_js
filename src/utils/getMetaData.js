@@ -1,4 +1,4 @@
-import textExtractFromObj from 'utils/textExtractFromObj';
+import { textExtractFromObj } from 'utils/textExtract';
 import truncate from 'lodash/truncate';
 import urlFromBinary from 'utils/urlFromBinary';
 

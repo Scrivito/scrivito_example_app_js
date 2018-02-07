@@ -1,6 +1,6 @@
 import placeholderCss from 'utils/placeholderCss';
 
-const InPlaceEditingPlaceholder = ({ children, center }) => {
+const InPlaceEditingPlaceholder = ({ children, center, block }) => {
   if (!Scrivito.isInPlaceEditingActive()) {
     return null;
   }
@@ -9,6 +9,10 @@ const InPlaceEditingPlaceholder = ({ children, center }) => {
 
   if (center) {
     return <div className="text-center">{ innerSpan }</div>;
+  }
+
+  if (block) {
+    return <div>{ innerSpan }</div>;
   }
 
   return innerSpan;

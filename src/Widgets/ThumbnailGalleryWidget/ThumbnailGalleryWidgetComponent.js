@@ -119,7 +119,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   const tags = widget.get('tags');
 
   let optimizedBinary = null;
-  if (image) {
+  if (image && image.objClass() === 'Image') {
     // Optimize image to max. 50% of the screen width
     optimizedBinary = image.get('blob').optimizeFor({ width: fullScreenWidthPixels() / 2 });
   }
@@ -162,7 +162,7 @@ function lightboxOptions(galleryImageWidget) {
   let srcUrl = '';
   let alt = '';
 
-  if (image) {
+  if (image && image.objClass() === 'Image') {
     const binary = image.get('blob');
     srcUrl = binary.optimizeFor({ width: fullScreenWidthPixels() }).url();
     alt = image.get('alternativeText');

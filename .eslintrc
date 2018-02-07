@@ -57,7 +57,7 @@
   overrides: [
     {
       "files": [
-        "src/utils/textExtractFromObj.js",
+        "src/utils/textExtract.js",
         "src/utils/textExtractRegistry.js"
       ],
       "rules": {

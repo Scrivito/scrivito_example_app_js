@@ -1,3 +1,4 @@
+import * as React from 'react';
 import * as Scrivito from 'scrivito';
 
 const SearchBox = Scrivito.connect(class extends React.Component {

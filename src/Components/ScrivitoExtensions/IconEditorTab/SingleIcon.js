@@ -1,3 +1,4 @@
+import * as React from 'react';
 import IconComponent from 'Components/Icon';
 
 function SingleIcon({ icon, setWidgetIcon, currentIcon }) {

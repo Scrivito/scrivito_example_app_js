@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 function TagList({ showTags, tags, currentTag, setTag }) {
   if (!showTags) { return null; }
 

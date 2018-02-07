@@ -1,3 +1,4 @@
+import * as React from 'react';
 import * as Scrivito from 'scrivito';
 
 class SearchInput extends React.Component {

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import placeholderCss from 'utils/placeholderCss';
 import TableRowWidget from 'Widgets/TableRowWidget/TableRowWidgetClass';

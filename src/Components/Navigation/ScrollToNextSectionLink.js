@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 
 function ScrollToNextSectionLink({ heightClassName }) {

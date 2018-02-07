@@ -1,3 +1,4 @@
+import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import Carousel from 'react-bootstrap/lib/Carousel';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';

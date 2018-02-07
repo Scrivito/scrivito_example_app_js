@@ -1,3 +1,4 @@
+import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import ColumnWidget from 'Widgets/ColumnWidget/ColumnWidgetClass';
 import Draggable from 'react-draggable';

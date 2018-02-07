@@ -1,5 +1,5 @@
 Scrivito.provideComponent('HeadlineWidget', ({ widget }) => {
-  const style = widget.get('style') || 'h1';
+  const style = widget.get('style') || 'h2';
   const level = widget.get('level') || style;
   const classNames = [style];
   if (widget.get('alignment')) {

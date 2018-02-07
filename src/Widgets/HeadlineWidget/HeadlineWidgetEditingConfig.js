@@ -6,7 +6,7 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
   attributes: {
     style: {
       title: 'Style',
-      description: 'Size and font of this headline. Default: Heading 1',
+      description: 'Size and font of this headline. Default: Heading 2',
       values: [
         { value: 'h1', title: 'Heading 1' },
         { value: 'h2', title: 'Heading 2' },
@@ -67,7 +67,7 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
     headline: 'Lorem Ipsum',
     showDividingLine: 'no',
     showMargin: 'yes',
-    style: 'h1',
+    style: 'h2',
   },
   titleForContent: widget => widget.get('headline'),
 });

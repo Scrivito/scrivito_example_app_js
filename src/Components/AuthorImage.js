@@ -1,7 +1,7 @@
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 
 function AuthorImage({ image }) {
-  if (!image) {
+  if (!image || image.objClass() !== 'Image') {
     return (
       <InPlaceEditingPlaceholder center={ true }>
         Click here to select an author image.

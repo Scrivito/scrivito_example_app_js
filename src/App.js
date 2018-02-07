@@ -1,3 +1,4 @@
+import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import CurrentPageMetaData from 'Components/CurrentPageMetaData';
 import ErrorBoundary from 'Components/ErrorBoundary';

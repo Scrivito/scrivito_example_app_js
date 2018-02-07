@@ -1,4 +1,5 @@
 import 'Globals';
+import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import 'Objs/';
 import 'Widgets/';

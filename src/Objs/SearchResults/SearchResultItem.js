@@ -1,3 +1,4 @@
+import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import Highlighter from 'react-highlight-words';
 import fromNow from 'moment-from-now';

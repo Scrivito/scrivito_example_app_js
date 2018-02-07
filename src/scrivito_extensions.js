@@ -1,4 +1,3 @@
-import 'Globals';
 import 'Objs/';
 import 'Widgets/';
 import 'config/';

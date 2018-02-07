@@ -1,3 +1,4 @@
+import HeadlineWidget from 'Widgets/HeadlineWidget/HeadlineWidgetClass';
 import SectionWidget from 'Widgets/SectionWidget/SectionWidgetClass';
 
 const defaultPageEditingConfigAttributes = {
@@ -29,7 +30,9 @@ const defaultPageEditingConfigAttributes = {
 };
 
 const defaultPageInitialContent = {
-  body: [new SectionWidget({})],
+  body: [new SectionWidget({
+    content: [new HeadlineWidget({ style: 'h1' })],
+  })],
   navigationHeight: 'small',
   navigationBackgroundImageGradient: 'no',
 };

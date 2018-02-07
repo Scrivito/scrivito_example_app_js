@@ -60,7 +60,7 @@
   "scripts": {
     "build": "webpack -p",
     "start": "webpack-dev-server --open",
-    "eslint": "eslint src/"
+    "eslint": "eslint --max-warnings 1 src/"
   },
   "dependencies": {}
 }

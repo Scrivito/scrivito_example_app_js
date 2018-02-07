@@ -7,10 +7,10 @@ Scrivito.provideComponent('Job', ({ page }) => {
     <div>
       <section className="bg-white">
         <div className="container">
-          <DatePosted job={ page } />
+          <JobDatePosted datePosted={ page.get('datePosted') } />
           <Scrivito.ContentTag tag="h1" className="h2" content={ page } attribute="title" />
           <JobLocation job={ page } />
-          <JobValidThrough job={ page } />
+          <JobValidThrough validThrough={ page.get('validThrough') } />
           <JobEmploymentTypes employmentTypes={ page.get('employmentType') }/>
         </div>
       </section>
@@ -21,26 +21,20 @@ Scrivito.provideComponent('Job', ({ page }) => {
   );
 });
 
-const DatePosted = Scrivito.connect(({ job }) => {
-  const date = job.get('datePosted');
-
-  if (!date) {
+const JobDatePosted = Scrivito.connect(({ datePosted }) => {
+  if (!datePosted) {
     return (
-      <div>
-        <InPlaceEditingPlaceholder block>
-          Select a date in the job page properties.
-        </InPlaceEditingPlaceholder>
-      </div>
+      <InPlaceEditingPlaceholder block>
+        Select a date in the job page properties.
+      </InPlaceEditingPlaceholder>
     );
   }
 
-  return <span>{ formatDate(date, 'mm/dd/yyyy') }</span>;
+  return <span>{ formatDate(datePosted, 'mm/dd/yyyy') }</span>;
 });
 
-const JobValidThrough = Scrivito.connect(({ job }) => {
-  const date = job.get('validThrough');
-
-  if (!date) {
+const JobValidThrough = Scrivito.connect(({ validThrough }) => {
+  if (!validThrough) {
     return (
       <InPlaceEditingPlaceholder block>
         Select a date in the job page properties.
@@ -52,7 +46,7 @@ const JobValidThrough = Scrivito.connect(({ job }) => {
     <h2 className="h5">
       <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />
       { ' ' }
-      <span>Valid through: { formatDate(date, 'mm/dd/yyyy') }</span>
+      <span>Valid through: { formatDate(validThrough, 'mm/dd/yyyy') }</span>
     </h2>
   );
 });

@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 function PlainTableRowWidgetComponent(
   { widget, header2, header3, header4 }
 ) {

@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 Scrivito.provideComponent('FeaturePanelWidget', ({ widget }) => {
   return (
     <div className="panel panel-theme panel-list">

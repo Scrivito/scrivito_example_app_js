@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import AuthorImage from 'Components/AuthorImage';
 
 function BlogPostAuthor({ author }) {

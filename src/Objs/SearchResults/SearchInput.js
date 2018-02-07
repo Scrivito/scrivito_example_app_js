@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 class SearchInput extends React.Component {
   constructor(props) {
     super(props);

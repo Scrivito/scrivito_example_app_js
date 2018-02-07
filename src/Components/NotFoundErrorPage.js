@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 function PlainLinkToRoot() {
   return (
     <Scrivito.LinkTag to={ Scrivito.Obj.root() } className="btn btn-primary">

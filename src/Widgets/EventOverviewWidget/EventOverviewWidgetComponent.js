@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import Event from 'Objs/Event/EventObjClass';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import TagList from 'Components/TagList';

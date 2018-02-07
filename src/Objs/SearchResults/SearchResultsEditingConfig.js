@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import SearchResultsObjIcon from 'assets/images/search_results_obj.svg';
 import {
   metaDataEditingConfigAttributes,

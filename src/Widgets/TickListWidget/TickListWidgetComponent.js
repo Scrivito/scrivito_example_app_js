@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 Scrivito.provideComponent('TickListWidget', ({ widget }) =>
   <Scrivito.ContentTag
     tag="ul"

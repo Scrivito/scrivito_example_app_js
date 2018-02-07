@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import testimonialSliderWidgetIcon from 'assets/images/testimonial_slider_widget.svg';
 import TestimonialWidget from 'Widgets/TestimonialWidget/TestimonialWidgetClass';
 

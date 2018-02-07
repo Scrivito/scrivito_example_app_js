@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import googleMapsApiKey from 'utils/googleMapsApiKey';
 import googleMapsImageUrl from 'utils/googleMapsImageUrl';
 

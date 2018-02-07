@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 Scrivito.provideComponent('HeadlineWidget', ({ widget }) => {
   const style = widget.get('style') || 'h2';
   const level = widget.get('level') || style;

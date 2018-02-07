@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import Slider from 'react-slick';
 import placeholderCss from 'utils/placeholderCss';
 import TestimonialWidget from 'Widgets/TestimonialWidget/TestimonialWidgetClass';

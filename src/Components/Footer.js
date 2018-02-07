@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 function Footer() {
   const root = Scrivito.Obj.root();
 

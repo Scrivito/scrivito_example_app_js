@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import blogOverviewWidgetIcon from 'assets/images/blog_overview_widget.svg';
 
 Scrivito.provideEditingConfig('BlogOverviewWidget', {

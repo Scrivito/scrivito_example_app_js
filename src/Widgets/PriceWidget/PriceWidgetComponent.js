@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 Scrivito.provideComponent('PriceWidget', ({ widget }) =>
   <div className="quantity">
     <Scrivito.ContentTag

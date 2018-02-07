@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import { Element as ScrollElement } from 'react-scroll';
 import currentPageNavigationOptions from './Navigation/currentPageNavigationOptions';
 import FullNavigation from './Navigation/FullNavigation';

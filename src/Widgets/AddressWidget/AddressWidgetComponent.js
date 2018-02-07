@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import SchemaDotOrg from 'Components/SchemaDotOrg';
 

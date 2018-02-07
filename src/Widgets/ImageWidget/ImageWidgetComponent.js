@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 Scrivito.provideComponent('ImageWidget', ({ widget }) => {
   let image = <Scrivito.ImageTag
     content={ widget }

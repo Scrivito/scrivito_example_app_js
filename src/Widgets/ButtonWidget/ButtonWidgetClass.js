@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 const ButtonWidget = Scrivito.provideWidgetClass('ButtonWidget', {
   attributes: {
     target: 'link',

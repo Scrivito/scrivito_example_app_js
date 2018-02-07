@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import IconComponent from 'Components/Icon';
 import AllIcons from './IconEditorTab/AllIcons';
 import IconSearch from './IconEditorTab/IconSearch';

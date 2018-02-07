@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 function currentPageNavigationOptions() {
   if (Scrivito.currentPage()) {
     switch (Scrivito.currentPage().objClass()) {

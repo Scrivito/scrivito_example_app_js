@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 function NavigationSection({ heightClassName }) {
   if (heightClassName !== 'full-height') { return null; }
 

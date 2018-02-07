@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import authorObjIcon from 'assets/images/author_obj.svg';
 import {
   metaDataEditingConfigAttributes,

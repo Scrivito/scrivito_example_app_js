@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import IconWidget from 'Widgets/IconWidget/IconWidgetClass';
 import PriceWidget from 'Widgets/PriceWidget/PriceWidgetClass';
 import TableRowWidget from 'Widgets/TableRowWidget/TableRowWidgetClass';

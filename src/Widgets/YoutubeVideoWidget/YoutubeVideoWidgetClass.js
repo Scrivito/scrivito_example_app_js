@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 const YoutubeVideoWidget = Scrivito.provideWidgetClass('YoutubeVideoWidget', {
   attributes: {
     youtubeVideoId: 'string',

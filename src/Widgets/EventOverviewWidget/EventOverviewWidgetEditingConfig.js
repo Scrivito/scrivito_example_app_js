@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import eventOverviewWidgetIcon from 'assets/images/event_overview_widget.svg';
 
 Scrivito.provideEditingConfig('EventOverviewWidget', {

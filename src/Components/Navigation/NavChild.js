@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 class BaseNavChild extends React.Component {
   constructor(props) {
     super(props);

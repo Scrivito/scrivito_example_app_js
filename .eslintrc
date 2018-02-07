@@ -17,7 +17,6 @@
   ],
   "globals": {
     "document": true,
-    "React": true,
     "window": true,
   },
   rules: {

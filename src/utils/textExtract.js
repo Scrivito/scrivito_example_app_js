@@ -1,6 +1,6 @@
-import isString from 'utils/isString';
-import textExtractFromHtml from 'utils/textExtractFromHtml';
-import { lookupTextExtract } from 'utils/textExtractRegistry';
+import isString from './isString';
+import { lookupTextExtract } from './textExtractRegistry';
+import textExtractFromHtml from './textExtractFromHtml';
 
 function textExtractFromObj(obj) {
   return textExtractFromItem(obj);

@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import PageObjIcon from 'assets/images/page_obj.svg';
+import PageObjIcon from '../../assets/images/page_obj.svg';
 import {
   defaultPageEditingConfigAttributes,
   defaultPageInitialContent,

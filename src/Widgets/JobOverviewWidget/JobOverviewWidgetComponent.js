@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
+import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
 
 Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
   let jobsSearch = Scrivito.getClass('Job').all();

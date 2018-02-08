@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import Lightbox from 'react-images';
-import fullScreenWidthPixels from 'utils/fullScreenWidthPixels';
-import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
-import TagList from 'Components/TagList';
-import isImage from 'utils/isImage';
+import fullScreenWidthPixels from '../../utils/fullScreenWidthPixels';
+import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
+import TagList from '../../Components/TagList';
+import isImage from '../../utils/isImage';
 
 class ThumbnailGalleryComponent extends React.Component {
   constructor(props) {

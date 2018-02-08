@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
+import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
 
 const ButtonWidgetComponent = Scrivito.connect(({ widget }) => {
   const target = widget.get('target');

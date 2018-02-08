@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import dividerWidgetIcon from 'assets/images/divider_widget.svg';
+import dividerWidgetIcon from '../../assets/images/divider_widget.svg';
 
 Scrivito.provideEditingConfig('DividerWidget', {
   title: 'Divider',

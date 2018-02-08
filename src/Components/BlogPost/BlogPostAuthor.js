@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import AuthorImage from 'Components/AuthorImage';
-import isImage from 'utils/isImage';
+import AuthorImage from '../AuthorImage';
+import isImage from '../../utils/isImage';
 
 function BlogPostAuthor({ author }) {
   if (!author) { return null; }

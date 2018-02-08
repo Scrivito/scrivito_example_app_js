@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import contactFormWidgetIcon from 'assets/images/contact_form_widget.svg';
+import contactFormWidgetIcon from '../../assets/images/contact_form_widget.svg';
 
 Scrivito.provideEditingConfig('ContactFormWidget', {
   title: 'Contact Form',

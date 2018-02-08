@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import thumbnailGalleryWidgetIcon from 'assets/images/thumbnail_gallery_widget.svg';
+import thumbnailGalleryWidgetIcon from '../../assets/images/thumbnail_gallery_widget.svg';
 
 Scrivito.provideEditingConfig('ThumbnailGalleryWidget', {
   title: 'Thumbnail Gallery',

@@ -1,6 +1,6 @@
 import * as Scrivito from 'scrivito';
-import linkListWidgetIcon from 'assets/images/link_list_widget.svg';
-import LinkWidget from 'Widgets/LinkWidget/LinkWidgetClass';
+import linkListWidgetIcon from '../../assets/images/link_list_widget.svg';
+import LinkWidget from '../LinkWidget/LinkWidgetClass';
 
 Scrivito.provideEditingConfig('LinkContainerWidget', {
   title: 'Link List',

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import googleMapsApiKey from 'utils/googleMapsApiKey';
-import googleMapsImageUrl from 'utils/googleMapsImageUrl';
+import googleMapsApiKey from '../../utils/googleMapsApiKey';
+import googleMapsImageUrl from '../../utils/googleMapsImageUrl';
 
 const maxWidth = 640;
 

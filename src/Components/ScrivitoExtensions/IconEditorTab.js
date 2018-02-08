@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import IconComponent from 'Components/Icon';
 import AllIcons from './IconEditorTab/AllIcons';
+import IconComponent from '../Icon';
 import IconSearch from './IconEditorTab/IconSearch';
 import IconSearchResults from './IconEditorTab/IconSearchResults';
 

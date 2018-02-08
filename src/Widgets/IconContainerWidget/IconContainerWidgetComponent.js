@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import IconComponent from 'Components/Icon';
-import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
+import IconComponent from '../../Components/Icon';
+import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
 
 Scrivito.provideComponent('IconContainerWidget', ({ widget }) => {
   const icons = widget.get('iconList');

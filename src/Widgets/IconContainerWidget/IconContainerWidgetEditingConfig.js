@@ -1,6 +1,6 @@
 import * as Scrivito from 'scrivito';
-import iconContainerWidgetIcon from 'assets/images/icon_container_widget.svg';
-import IconWidget from 'Widgets/IconWidget/IconWidgetClass';
+import iconContainerWidgetIcon from '../../assets/images/icon_container_widget.svg';
+import IconWidget from '../IconWidget/IconWidgetClass';
 
 Scrivito.provideEditingConfig('IconContainerWidget', {
   title: 'Icon List',

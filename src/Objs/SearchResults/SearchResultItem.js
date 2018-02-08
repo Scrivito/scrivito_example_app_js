@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import Highlighter from 'react-highlight-words';
 import fromNow from 'moment-from-now';
-import { textExtractFromObj } from 'utils/textExtract';
+import Highlighter from 'react-highlight-words';
 import truncate from 'lodash/truncate';
+import { textExtractFromObj } from '../../utils/textExtract';
 
 const PreviewImage = Scrivito.connect(({ item }) => {
   const image = item.get('navigationBackgroundImage')

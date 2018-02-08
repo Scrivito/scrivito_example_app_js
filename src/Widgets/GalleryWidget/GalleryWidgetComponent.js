@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import Slider from 'react-slick';
+import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
 
 function GalleryWidgetComponent({ widget }) {
   const images = widget.get('images');

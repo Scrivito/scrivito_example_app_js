@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import featurePanelWidgetIcon from 'assets/images/feature_panel_widget.svg';
+import featurePanelWidgetIcon from '../../assets/images/feature_panel_widget.svg';
 
 Scrivito.provideEditingConfig('FeaturePanelWidget', {
   title: 'Feature Panel',

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import placeholderCss from 'utils/placeholderCss';
-import TableRowWidget from 'Widgets/TableRowWidget/TableRowWidgetClass';
-import TableRowWidgetComponent from 'Widgets/TableRowWidget/TableRowWidgetComponent';
+import placeholderCss from '../../utils/placeholderCss';
+import TableRowWidget from '../TableRowWidget/TableRowWidgetClass';
+import TableRowWidgetComponent from '../TableRowWidget/TableRowWidgetComponent';
 
 Scrivito.provideComponent('TableWidget', ({ widget }) =>
   <table className="table-features">

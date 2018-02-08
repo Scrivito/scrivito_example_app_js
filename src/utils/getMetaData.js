@@ -1,7 +1,7 @@
 import * as Scrivito from 'scrivito';
-import { textExtractFromObj } from 'utils/textExtract';
 import truncate from 'lodash/truncate';
-import urlFromBinary from 'utils/urlFromBinary';
+import { textExtractFromObj } from './textExtract';
+import urlFromBinary from './urlFromBinary';
 
 function getMetaData(page) {
   const meta = [

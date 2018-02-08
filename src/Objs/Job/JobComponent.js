@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import formatDate from 'utils/formatDate';
-import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
-import SchemaDotOrg from 'Components/SchemaDotOrg';
+import formatDate from '../../utils/formatDate';
+import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
+import SchemaDotOrg from '../../Components/SchemaDotOrg';
 
 Scrivito.provideComponent('Job', ({ page }) => {
   return (

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
-import SchemaDotOrg from 'Components/SchemaDotOrg';
+import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
+import SchemaDotOrg from '../../Components/SchemaDotOrg';
 
 Scrivito.provideComponent('AddressWidget', ({ widget }) => {
   return (

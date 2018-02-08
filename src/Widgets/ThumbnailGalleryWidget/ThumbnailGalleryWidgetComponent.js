@@ -4,6 +4,7 @@ import Lightbox from 'react-images';
 import fullScreenWidthPixels from 'utils/fullScreenWidthPixels';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import TagList from 'Components/TagList';
+import isImage from 'utils/isImage';
 
 class ThumbnailGalleryComponent extends React.Component {
   constructor(props) {
@@ -63,7 +64,7 @@ class ThumbnailGalleryComponent extends React.Component {
 
   render() {
     const widget = this.props.widget;
-    const images = widget.get('images');
+    const images = widget.get('images').filter(subWidget => isImage(subWidget.get('image')));
     const lightboxImages = images.map(image => lightboxOptions(image));
 
     if (!images.length) {
@@ -121,7 +122,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   const tags = widget.get('tags');
 
   let optimizedBinary = null;
-  if (image && image.objClass() === 'Image') {
+  if (isImage(image)) {
     // Optimize image to max. 50% of the screen width
     optimizedBinary = image.get('blob').optimizeFor({ width: fullScreenWidthPixels() / 2 });
   }
@@ -161,14 +162,9 @@ function allTags(images) {
 
 function lightboxOptions(galleryImageWidget) {
   const image = galleryImageWidget.get('image');
-  let srcUrl = '';
-  let alt = '';
-
-  if (image && image.objClass() === 'Image') {
-    const binary = image.get('blob');
-    srcUrl = binary.optimizeFor({ width: fullScreenWidthPixels() }).url();
-    alt = image.get('alternativeText');
-  }
+  const binary = image.get('blob');
+  const srcUrl = binary.optimizeFor({ width: fullScreenWidthPixels() }).url();
+  const alt = image.get('alternativeText');
 
   return {
     src: srcUrl,

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
+import Helmet from 'react-helmet';
 
 function NotFoundErrorPage() {
   const backgroundImage = [
@@ -22,6 +23,7 @@ function NotFoundErrorPage() {
         </div>
       </div>
     </section>
+    <Helmet meta={ [{ name: 'prerender-status-code', content: '404' }] } />
   </Scrivito.NotFoundErrorPage>;
 }
 

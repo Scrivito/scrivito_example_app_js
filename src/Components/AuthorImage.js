@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
+import isImage from 'utils/isImage';
 
 function AuthorImage({ image }) {
-  if (!image || image.objClass() !== 'Image') {
+  if (!isImage(image)) {
     return (
       <InPlaceEditingPlaceholder center={ true }>
         Click here to select an author image.

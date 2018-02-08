@@ -1,3 +1,6 @@
+import * as React from 'react';
+import * as Scrivito from 'scrivito';
+
 function Icon({ icon, size, title }) {
   const actualIcon = icon || 'fa-coffee';
   return <i className= { ['fa', actualIcon, size].join(' ') } aria-hidden="true" title={ title }/>;

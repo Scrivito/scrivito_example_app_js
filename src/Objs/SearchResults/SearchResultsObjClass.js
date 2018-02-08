@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import metaDataAttributes from '../_metaDataAttributes';
 
 const SearchResults = Scrivito.provideObjClass('SearchResults', {

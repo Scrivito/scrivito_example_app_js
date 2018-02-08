@@ -1,3 +1,6 @@
+import * as React from 'react';
+import * as Scrivito from 'scrivito';
+
 Scrivito.provideComponent('BoxWidget', ({ widget }) => {
   const classNames = ['panel', 'panel-theme'];
   if (widget.get('useOffset') === 'yes') { classNames.push('box-offset'); }

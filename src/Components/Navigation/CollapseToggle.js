@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 function CollapseToggle({ expanded, toggleExpanded }) {
   const classNames = ['navbar-toggle'];
   if (!expanded) {

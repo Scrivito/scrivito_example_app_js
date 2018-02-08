@@ -1,3 +1,6 @@
+import * as React from 'react';
+import * as Scrivito from 'scrivito';
+
 Scrivito.provideComponent('TextWidget', ({ widget }) => {
   const classNames = [];
   if (widget.get('alignment')) {

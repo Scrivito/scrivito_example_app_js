@@ -1,3 +1,4 @@
+import * as React from 'react';
 import Fuse from 'fuse.js';
 import fontAwesomeIcons from './fontAwesomeIcons';
 import SingleIcon from './SingleIcon';

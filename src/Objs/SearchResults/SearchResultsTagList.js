@@ -1,3 +1,5 @@
+import * as React from 'react';
+import * as Scrivito from 'scrivito';
 import TagList from 'Components/TagList';
 
 function SearchResultsTagList({ tags, params }) {

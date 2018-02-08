@@ -1,3 +1,4 @@
+import * as React from 'react';
 import BootstrapCollapse from 'react-bootstrap/lib/Collapse';
 import CollapseToggle from './CollapseToggle';
 import Logo from './Logo';

@@ -1,3 +1,5 @@
+import * as Scrivito from 'scrivito';
+
 const VimeoVideoWidget = Scrivito.provideWidgetClass('VimeoVideoWidget', {
   attributes: {
     vimeoVideoId: 'string',

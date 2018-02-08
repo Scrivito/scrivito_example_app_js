@@ -17,8 +17,6 @@
   ],
   "globals": {
     "document": true,
-    "React": true,
-    "Scrivito": true,
     "window": true,
   },
   rules: {

@@ -1,3 +1,5 @@
+import * as React from 'react';
+import * as Scrivito from 'scrivito';
 import urlFromBinary from 'utils/urlFromBinary';
 import videoPlaceholder from './videoPlaceholder';
 

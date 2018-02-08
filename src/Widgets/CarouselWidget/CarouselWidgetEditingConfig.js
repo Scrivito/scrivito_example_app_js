@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import carouselWidgetIcon from 'assets/images/carousel_widget.svg';
 
 Scrivito.provideEditingConfig('CarouselWidget', {

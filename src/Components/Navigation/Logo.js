@@ -1,3 +1,6 @@
+import * as React from 'react';
+import * as Scrivito from 'scrivito';
+
 function logoObj({ scrolled, navigationStyle }) {
   let logoVersion;
   if (scrolled) {

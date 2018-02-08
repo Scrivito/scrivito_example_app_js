@@ -1,3 +1,4 @@
+import * as Scrivito from 'scrivito';
 import iconWidgetIcon from 'assets/images/icon_widget.svg';
 
 Scrivito.provideEditingConfig('IconWidget', {

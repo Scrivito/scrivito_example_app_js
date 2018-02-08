@@ -1,9 +1,9 @@
-import 'Globals';
+import 'reactPolyfills';
+import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import 'Objs/index';
-import 'Widgets/index';
+import 'Objs';
+import 'Widgets';
 import App from 'App';
-import 'config/scrivito';
-import 'config/scrivitoContentBrowser';
+import 'config';
 
 ReactDOM.render(<App />, document.getElementById('application'));

@@ -1,3 +1,5 @@
+import * as React from 'react';
+import * as Scrivito from 'scrivito';
 import navigateToBlogWithTag from 'utils/navigateToBlogWithTag';
 
 function BlogPostTagList({ tags }) {

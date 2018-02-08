@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 function IconSearch({ setSearchValue, searchValue }) {
   return (
     <div id="search">

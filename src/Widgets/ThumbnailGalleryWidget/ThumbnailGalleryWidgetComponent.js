@@ -160,8 +160,10 @@ function lightboxOptions(galleryImageWidget) {
 
   if (image && image.objClass() === 'Image') {
     const binary = image.get('blob');
-    srcUrl = binary.optimizeFor({ width: fullScreenWidthPixels() }).url();
-    alt = image.get('alternativeText');
+    if (binary) {
+      srcUrl = binary.optimizeFor({ width: fullScreenWidthPixels() }).url();
+      alt = image.get('alternativeText');
+    }
   }
 
   return {

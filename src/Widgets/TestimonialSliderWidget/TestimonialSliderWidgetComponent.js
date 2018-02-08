@@ -34,7 +34,7 @@ Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
 function sliderSettings(testimonials) {
   const testimonialAuthorImages = testimonials.map(testimonial => {
     const authorImage = testimonial.get('authorImage');
-    if (isImage(authorImage)) {
+    if (!isImage(authorImage)) {
       return <img className="image" src={ fallbackImageUrl } />;
     }
 

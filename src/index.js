@@ -1,9 +1,9 @@
 import 'reactPolyfills';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import 'Objs/';
-import 'Widgets/';
+import 'Objs';
+import 'Widgets';
 import App from 'App';
-import 'config/';
+import 'config';
 
 ReactDOM.render(<App />, document.getElementById('application'));

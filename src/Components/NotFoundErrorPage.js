@@ -1,16 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
 
-function PlainLinkToRoot() {
-  return (
-    <Scrivito.LinkTag to={ Scrivito.Obj.root() } className="btn btn-primary">
-      Go to mainpage<i className="fa fa-angle-right fa-4" aria-hidden="true" />
-    </Scrivito.LinkTag>
-  );
-}
-
-const LinkToRoot = Scrivito.connect(PlainLinkToRoot);
-
 function NotFoundErrorPage() {
   const backgroundImage = [
     'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))',
@@ -34,5 +24,15 @@ function NotFoundErrorPage() {
     </section>
   </Scrivito.NotFoundErrorPage>;
 }
+
+function PlainLinkToRoot() {
+  return (
+    <Scrivito.LinkTag to={ Scrivito.Obj.root() } className="btn btn-primary">
+      Go to mainpage<i className="fa fa-angle-right fa-4" aria-hidden="true" />
+    </Scrivito.LinkTag>
+  );
+}
+
+const LinkToRoot = Scrivito.connect(PlainLinkToRoot);
 
 export default Scrivito.connect(NotFoundErrorPage);

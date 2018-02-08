@@ -16,7 +16,7 @@
     "@babel/preset-react": "^7.0.0-beta.39",
     "babel-loader": "^8.0.0-beta.0",
     "clean-webpack-plugin": "^0.1.18",
-    "copy-webpack-plugin": "^4.3.1",
+    "copy-webpack-plugin": "^4.4.0",
     "core-js": "^2.5.3",
     "css-loader": "^0.28.9",
     "dateformat": "^3.0.2",

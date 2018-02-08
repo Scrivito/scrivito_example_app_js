@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import BlogPostPreviewList from 'Components/BlogPost/BlogPostPreviewList';
+import BlogPostPreviewList from './BlogPostPreviewList';
 
 function BlogPostMorePosts({ author }) {
   if (!author) { return null; }

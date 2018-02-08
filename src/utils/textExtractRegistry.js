@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import isString from 'utils/isString';
+import isString from './isString';
 
 const textExtractRegistry = {};
 

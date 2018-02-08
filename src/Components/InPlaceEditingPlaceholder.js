@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import placeholderCss from 'utils/placeholderCss';
+import placeholderCss from '../utils/placeholderCss';
 
 const InPlaceEditingPlaceholder = ({ children, center, block }) => {
   if (!Scrivito.isInPlaceEditingActive()) {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import getMetaData from 'utils/getMetaData';
+import getMetaData from '../../utils/getMetaData';
 
 Scrivito.registerComponent('SocialCardsTab', ({ obj }) =>
   <div className=''>

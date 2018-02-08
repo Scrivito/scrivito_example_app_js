@@ -1,9 +1,9 @@
 import * as Scrivito from 'scrivito';
-import IconWidget from 'Widgets/IconWidget/IconWidgetClass';
-import PriceWidget from 'Widgets/PriceWidget/PriceWidgetClass';
-import TableRowWidget from 'Widgets/TableRowWidget/TableRowWidgetClass';
-import tableWidgetIcon from 'assets/images/table_widget.svg';
-import TextWidget from 'Widgets/TextWidget/TextWidgetClass';
+import IconWidget from '../IconWidget/IconWidgetClass';
+import PriceWidget from '../PriceWidget/PriceWidgetClass';
+import TableRowWidget from '../TableRowWidget/TableRowWidgetClass';
+import tableWidgetIcon from '../../assets/images/table_widget.svg';
+import TextWidget from '../TextWidget/TextWidgetClass';
 
 Scrivito.provideEditingConfig('TableWidget', {
   title: 'Table',

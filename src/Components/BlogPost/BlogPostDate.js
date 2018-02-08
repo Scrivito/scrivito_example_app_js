@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import formatDate from 'utils/formatDate';
+import formatDate from '../../utils/formatDate';
 
 function BlogPostDate({ post }) {
   const date = post.get('publishedAt');

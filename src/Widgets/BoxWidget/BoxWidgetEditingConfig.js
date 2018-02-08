@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import boxWidgetIcon from 'assets/images/box_widget.svg';
+import boxWidgetIcon from '../../assets/images/box_widget.svg';
 
 Scrivito.provideEditingConfig('BoxWidget', {
   title: 'Box',

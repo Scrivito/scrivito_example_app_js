@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import addressWidgetIcon from 'assets/images/address_widget.svg';
+import addressWidgetIcon from '../../assets/images/address_widget.svg';
 
 Scrivito.provideEditingConfig('AddressWidget', {
   title: 'Address',

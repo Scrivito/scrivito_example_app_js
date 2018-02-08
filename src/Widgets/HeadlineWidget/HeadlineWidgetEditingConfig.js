@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import headlineWidgetIcon from 'assets/images/headline_widget.svg';
+import headlineWidgetIcon from '../../assets/images/headline_widget.svg';
 
 Scrivito.provideEditingConfig('HeadlineWidget', {
   title: 'Headline',

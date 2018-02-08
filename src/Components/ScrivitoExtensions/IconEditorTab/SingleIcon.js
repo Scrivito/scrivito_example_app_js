@@ -1,5 +1,5 @@
 import * as React from 'react';
-import IconComponent from 'Components/Icon';
+import IconComponent from '../../Icon';
 
 function SingleIcon({ icon, setWidgetIcon, currentIcon }) {
   const cssIcon = `fa-${icon.id}`;

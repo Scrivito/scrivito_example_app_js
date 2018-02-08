@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import videoWidgetIcon from 'assets/images/video_widget.svg';
+import videoWidgetIcon from '../../assets/images/video_widget.svg';
 
 Scrivito.provideEditingConfig('VideoWidget', {
   title: 'Video',

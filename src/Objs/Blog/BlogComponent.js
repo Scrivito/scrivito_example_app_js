@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import BlogPost from 'Objs/BlogPost/BlogPostObjClass';
-import navigateToBlogWithTag from 'utils/navigateToBlogWithTag';
-import TagList from 'Components/TagList';
+import BlogPost from '../BlogPost/BlogPostObjClass';
+import navigateToBlogWithTag from '../../utils/navigateToBlogWithTag';
+import TagList from '../../Components/TagList';
 
 Scrivito.provideComponent('Blog', ({ page, params }) => {
   const tags = [...BlogPost.all().facet('tags')].map(facet => facet.name());

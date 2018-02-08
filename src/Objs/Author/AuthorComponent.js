@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import AuthorImage from 'Components/AuthorImage';
-import BlogPostMorePosts from 'Components/BlogPost/BlogPostMorePosts';
+import AuthorImage from '../../Components/AuthorImage';
+import BlogPostMorePosts from '../../Components/BlogPost/BlogPostMorePosts';
 
 Scrivito.provideComponent('Author', ({ page }) =>
   <React.Fragment>

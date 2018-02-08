@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import Event from 'Objs/Event/EventObjClass';
-import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
-import TagList from 'Components/TagList';
-import formatDate from 'utils/formatDate';
+import Event from '../../Objs/Event/EventObjClass';
+import formatDate from '../../utils/formatDate';
+import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
+import TagList from '../../Components/TagList';
 
 class EventOverviewWidgetComponent extends React.Component {
   constructor(props) {

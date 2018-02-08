@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import { registerTextExtract } from 'utils/textExtractRegistry';
+import { registerTextExtract } from '../../utils/textExtractRegistry';
 
 const SectionWidget = Scrivito.provideWidgetClass('SectionWidget', {
   attributes: {

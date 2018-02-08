@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import IconComponent from 'Components/Icon';
+import IconComponent from '../../Components/Icon';
 
 function IconWidgetComponent({ widget }) {
   const icon = widget.get('icon');

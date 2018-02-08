@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
-import isImage from 'utils/isImage';
+import InPlaceEditingPlaceholder from './InPlaceEditingPlaceholder';
+import isImage from '../utils/isImage';
 
 function AuthorImage({ image }) {
   if (!isImage(image)) {

@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import youtubeVideoWidgetIcon from 'assets/images/youtube_video_widget.svg';
+import youtubeVideoWidgetIcon from '../../assets/images/youtube_video_widget.svg';
 
 Scrivito.provideEditingConfig('YoutubeVideoWidget', {
   title: 'YouTube Video',

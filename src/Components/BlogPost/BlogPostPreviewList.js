@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import formatDate from 'utils/formatDate';
-import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
-import { textExtractFromObj } from 'utils/textExtract';
 import truncate from 'lodash/truncate';
-import isImage from 'utils/isImage';
 import BlogPostDate from './BlogPostDate';
+import formatDate from '../../utils/formatDate';
+import InPlaceEditingPlaceholder from '../InPlaceEditingPlaceholder';
+import isImage from '../../utils/isImage';
+import { textExtractFromObj } from '../../utils/textExtract';
 
 const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag }) => {
   let blogPosts = Scrivito.getClass('BlogPost').all().order('publishedAt', 'desc');

@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import imageWidgetIcon from 'assets/images/image_widget.svg';
+import imageWidgetIcon from '../../assets/images/image_widget.svg';
 
 Scrivito.provideEditingConfig('ImageWidget', {
   title: 'Image',

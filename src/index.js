@@ -11,3 +11,6 @@ import App from './App';
 import './config';
 
 ReactDOM.render(<App />, document.getElementById('application'));
+
+// TODO: Remove once https://github.com/infopark/rails_connector/issues/3829 is resolved.
+window.React = React;

@@ -6,6 +6,7 @@ import urlFromBinary from './urlFromBinary';
 function getMetaData(page) {
   const meta = [
     { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'prerender-status-code', content: '200' },
     { property: 'og:type', content: 'article' },
     { property: 'og:url', content: Scrivito.urlFor(page) },
   ];

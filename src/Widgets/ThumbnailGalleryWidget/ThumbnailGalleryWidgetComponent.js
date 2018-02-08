@@ -120,12 +120,6 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   const image = widget.get('image');
   const tags = widget.get('tags');
 
-  let optimizedBinary = null;
-  if (image && image.objClass() === 'Image') {
-    // Optimize image to max. 50% of the screen width
-    optimizedBinary = image.get('blob').optimizeFor({ width: fullScreenWidthPixels() / 2 });
-  }
-
   const classNames = ['col-md-3', 'col-sm-4', 'col-xs-6', 'gallery-box', 'gutter0'];
   if (currentTag && tags.includes(currentTag)) { classNames.push('squeezed'); }
 
@@ -133,7 +127,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
     <div className={ classNames.join(' ') }>
       <Scrivito.BackgroundImageTag
         className="gallery-box-image"
-        style={ { background: { image: optimizedBinary } } }
+        style={ { background: { image } } }
       />
       <a href="#" className="gallery-box-content-wrapper" onClick={ openLightbox }>
         <span className="gallery-box-content">

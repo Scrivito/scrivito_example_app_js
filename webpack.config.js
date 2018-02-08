@@ -133,7 +133,7 @@ module.exports = (env = {}) => {
     plugins: plugins,
     resolve: {
       extensions: ['.js'],
-      modules: ['src', 'node_modules'],
+      modules: ['node_modules'],
     },
     devServer: {
       port: 8080,

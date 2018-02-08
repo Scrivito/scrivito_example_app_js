@@ -4,6 +4,7 @@ import formatDate from 'utils/formatDate';
 import InPlaceEditingPlaceholder from 'Components/InPlaceEditingPlaceholder';
 import { textExtractFromObj } from 'utils/textExtract';
 import truncate from 'lodash/truncate';
+import isImage from 'utils/isImage';
 import BlogPostDate from './BlogPostDate';
 
 const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag }) => {
@@ -84,7 +85,7 @@ const BlogPostPreview = Scrivito.connect(({ post }) => {
 
 const BlogPostTitleImage = Scrivito.connect(({ post }) => {
   const titleImage = post.get('titleImage');
-  if (!titleImage) { return null; }
+  if (!isImage(titleImage)) { return null; }
 
   return (
     <Scrivito.LinkTag to={ post }>

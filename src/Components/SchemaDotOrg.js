@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import isEmpty from 'is-empty';
 import isPlainObject from 'lodash/isPlainObject';
+import dataFromAuthor from './SchemaDotOrg/dataFromAuthor';
 import dataFromEvent from './SchemaDotOrg/dataFromEvent';
 import dataFromJob from './SchemaDotOrg/dataFromJob';
 import dataFromBlog from './SchemaDotOrg/dataFromBlog';
@@ -21,6 +22,7 @@ const SchemaDotOrg = Scrivito.connect(({ content }) => {
 function dataFromItem(item) {
   switch (item.objClass()) {
     case 'AddressWidget': return dataFromAddressWidget(item);
+    case 'Author': return dataFromAuthor(item);
     case 'Blog': return dataFromBlog(item);
     case 'BlogPost': return dataFromBlogPost(item);
     case 'Event': return dataFromEvent(item);

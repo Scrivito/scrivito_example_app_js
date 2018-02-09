@@ -1,15 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-
-function PlainLinkToRoot() {
-  return (
-    <Scrivito.LinkTag to={ Scrivito.Obj.root() } className="btn btn-primary">
-      Go to mainpage<i className="fa fa-angle-right fa-4" aria-hidden="true" />
-    </Scrivito.LinkTag>
-  );
-}
-
-const LinkToRoot = Scrivito.connect(PlainLinkToRoot);
+import Helmet from 'react-helmet';
 
 function NotFoundErrorPage() {
   const backgroundImage = [
@@ -32,7 +23,18 @@ function NotFoundErrorPage() {
         </div>
       </div>
     </section>
+    <Helmet meta={ [{ name: 'prerender-status-code', content: '404' }] } />
   </Scrivito.NotFoundErrorPage>;
 }
+
+function PlainLinkToRoot() {
+  return (
+    <Scrivito.LinkTag to={ Scrivito.Obj.root() } className="btn btn-primary">
+      Go to mainpage<i className="fa fa-angle-right fa-4" aria-hidden="true" />
+    </Scrivito.LinkTag>
+  );
+}
+
+const LinkToRoot = Scrivito.connect(PlainLinkToRoot);
 
 export default Scrivito.connect(NotFoundErrorPage);

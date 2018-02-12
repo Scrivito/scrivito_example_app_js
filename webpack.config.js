@@ -71,6 +71,7 @@ module.exports = (env = {}) => {
     context: path.join(__dirname, 'src'),
     entry: {
       index: './index.js',
+      google_analytics: './google_analytics.js',
       scrivito_extensions: './scrivito_extensions.js',
       'index.css': './assets/stylesheets/index.scss',
     },
@@ -78,7 +79,7 @@ module.exports = (env = {}) => {
       rules: [
         {
           test: /\.js$/,
-          include: [path.join(__dirname, 'src')],
+          include: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules/autotrack')],
           use: [
             {
               loader: 'babel-loader',

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import CurrentPageMetaData from './Components/CurrentPageMetaData';
+import GoogleAnalytics from './Components/GoogleAnalytics';
 import ErrorBoundary from './Components/ErrorBoundary';
 import Footer from './Components/Footer';
 import Navigation from './Components/Navigation';
@@ -17,6 +18,7 @@ export default function App() {
         </div>
         <Footer />
         <CurrentPageMetaData />
+        <GoogleAnalytics />
       </div>
     </ErrorBoundary>
   );

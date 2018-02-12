@@ -43,6 +43,10 @@ Scrivito.provideEditingConfig('Homepage', {
       title: 'Google Maps API key',
       description: 'Needs to be requested at https://developers.google.com/maps/web/',
     },
+    googleAnalyticsTrackingId: {
+      title: 'Google Analytics tracking ID',
+      description: 'Needs to be requested at https://developers.google.com/analytics/',
+    },
     showAsLandingPage: {
       title: 'Display this page as a landing page?',
       description: 'Removes the header navigation and only centers the logo instead. Default: No',
@@ -66,6 +70,7 @@ Scrivito.provideEditingConfig('Homepage', {
         'facebookAppId',
         'twitterSite',
         'googleMapsApiKey',
+        'googleAnalyticsTrackingId',
       ],
     },
     socialCardsPropertiesGroup,

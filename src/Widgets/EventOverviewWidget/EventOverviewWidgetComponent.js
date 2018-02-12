@@ -29,7 +29,7 @@ class EventOverviewWidgetComponent extends React.Component {
     if (maxItems) {
       events = eventsSearch.take(maxItems);
     } else {
-      events = [...eventsSearch];
+      events = eventsSearch.take(eventsSearch.count());
     }
 
     if (!events.length) {

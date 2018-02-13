@@ -11,9 +11,9 @@
     "private": true
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.39",
-    "@babel/preset-env": "^7.0.0-beta.39",
-    "@babel/preset-react": "^7.0.0-beta.39",
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/preset-react": "^7.0.0-beta.40",
     "babel-loader": "^8.0.0-beta.0",
     "clean-webpack-plugin": "^0.1.18",
     "copy-webpack-plugin": "^4.4.1",
@@ -47,7 +47,7 @@
     "react-highlight-words": "^0.10.0",
     "react-images": "^0.5.17",
     "react-scroll": "^1.7.6",
-    "react-slick": "^0.18.0",
+    "react-slick": "^0.18.1",
     "sass-loader": "^6.0.6",
     "scrivito": "^0.5.1",
     "slick-carousel": "^1.6.0",

@@ -56,11 +56,20 @@
     {
       "files": [
         "src/utils/textExtract.js",
-        "src/utils/textExtractRegistry.js"
+        "src/utils/textExtractRegistry.js",
       ],
       "rules": {
-        "no-console": 0
-      }
-    }
-  ]
+        "no-console": 0,
+      },
+    },
+    {
+      "files": [
+        "src/Objs/Redirect/RedirectComponent.js",
+      ],
+      "rules": {
+        "no-console": 0,
+        "class-methods-use-this": 0,
+      },
+    },
+  ],
 }

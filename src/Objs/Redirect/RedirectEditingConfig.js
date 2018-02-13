@@ -9,9 +9,9 @@ Scrivito.provideEditingConfig('Redirect', {
     link: {
       title: 'Link',
     },
-    openUi: {
-      title: 'Open UI?',
-      description: 'If no link is set, should the Scrivito UI be opened? Default: No',
+    openInUi: {
+      title: 'Open in Scrivito UI?',
+      description: 'Default: No',
       values: [
         { value: 'yes', title: 'Yes' },
         { value: 'no', title: 'No' },
@@ -20,9 +20,9 @@ Scrivito.provideEditingConfig('Redirect', {
   },
   properties: [
     'link',
-    'openUi',
+    'openInUi',
   ],
   initialContent: {
-    openUi: 'no',
+    openInUi: 'no',
   },
 });

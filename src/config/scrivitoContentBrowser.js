@@ -29,6 +29,7 @@ Scrivito.configureContentBrowser({
             'Job',
             'LandingPage',
             'Page',
+            'Redirect',
             'SearchResults',
           ],
           options: {
@@ -55,6 +56,10 @@ Scrivito.configureContentBrowser({
             Job: {
               title: 'Jobs',
               icon: 'suitcase',
+            },
+            Redirect: {
+              title: 'Redirects',
+              icon: 'link',
             },
             Homepage: {
               title: 'Homepage',

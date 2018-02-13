@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
+import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
 
 class RedirectComponent extends React.Component {
   componentDidMount() {
@@ -22,6 +23,16 @@ class RedirectComponent extends React.Component {
   }
 
   render() {
+    const link = this.props.page.get('link');
+
+    if (!link) {
+      return (
+        <InPlaceEditingPlaceholder center>
+          Select a link in the redirect page properties.
+        </InPlaceEditingPlaceholder>
+      );
+    }
+
     return null;
   }
 }

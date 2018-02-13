@@ -13,12 +13,14 @@ class RedirectComponent extends React.Component {
     }).then(({ link, openInUi, url }) => {
       if (!link) { return; }
 
-      if (link.isInternal() && openInUi === 'yes') {
-        window.top.location = url.replace(/(\/\/[^/]+)/, '$1/scrivito');
-        return;
+      if (link.isExternal()) {
+        window.top.location.replace(url);
+      } else if (openInUi === 'yes') {
+        const scrivitoUiUrl = url.replace(/(\/\/[^/]+)/, '$1/scrivito');
+        window.top.location.replace(scrivitoUiUrl);
+      } else {
+        window.location.replace(url);
       }
-
-      Scrivito.navigateTo(link);
     });
   }
 

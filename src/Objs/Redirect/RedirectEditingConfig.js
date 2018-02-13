@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import redirectObjIcon from '../../assets/images/redirect_obj.png';
+import redirectObjIcon from '../../assets/images/redirect_obj.svg';
 
 Scrivito.provideEditingConfig('Redirect', {
   title: 'Redirect',

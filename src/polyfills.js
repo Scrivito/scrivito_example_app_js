@@ -1,5 +1,3 @@
-import 'core-js/modules/es6.map';
-import 'core-js/modules/es6.set';
 import 'core-js/modules/es6.array.find';
 import 'core-js/modules/es6.array.from';
 import 'core-js/modules/es6.array.sort';

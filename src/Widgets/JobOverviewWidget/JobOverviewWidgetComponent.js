@@ -7,7 +7,7 @@ Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
   if (widget.get('location')) {
     jobsSearch = jobsSearch.and('location', 'containsPrefix', widget.get('location'));
   }
-  const jobs = [...jobsSearch];
+  const jobs = jobsSearch.take(jobsSearch.count());
 
   if (!jobs.length) {
     return (

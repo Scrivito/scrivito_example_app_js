@@ -20,7 +20,7 @@ const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag }) => {
   if (maxItems) {
     posts = blogPosts.take(maxItems);
   } else {
-    posts = [...blogPosts];
+    posts = blogPosts.take(blogPosts.count());
   }
 
   if (!posts.length) {

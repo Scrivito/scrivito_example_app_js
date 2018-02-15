@@ -16,20 +16,7 @@ And because Scrivito is 100% serverless, you'll never have to patch your CMS, so
 
 ## Getting Started
 
-Sign up for a free trial at [my.scrivito.com/signup](https://my.scrivito.com/signup?utm_source=github&utm_medium=web&utm_campaign=github_example_app).
-
-Once you have a Scrivito tenant, it's time to do some development.
-
-### Clone repository
-
-```
-git clone https://github.com/Scrivito/scrivito_example_app_js.git
-
-cd scrivito_example_app_js/
-```
-
 ### Install/check prerequisites
-
 Make sure that you have [![node ≥ 8.0](https://img.shields.io/badge/node-≥%208.0-blue.svg)](https://nodejs.org) and [![npm ≥ 5.0](https://img.shields.io/badge/npm-≥%205.0-blue.svg)](https://www.npmjs.com/get-npm) installed.
 
 ```
@@ -44,35 +31,7 @@ npm -v
 
 Now simply call `npm install` in the command line to install all JS dependencies (which are placed in the folder `node_modules/`).
 
-### Specify the Scrivito CMS to use
-
-The Scrivito example app JS requires the tenant ID of your CMS. The ID is taken from the environment variable `SCRIVITO_TENANT`. The environment variable can also be set via [`.env`](https://github.com/motdotla/dotenv).
-
-To specify it, proceed as follows:
-
-* Go to your [Scrivito Websites](https://my.scrivito.com/tenants/).
-* Click the CMS to use.
-* Open the “Settings” tab.
-* Scroll down to the “Anonymous access for the Scrivito Javascript SDK” section.
-* Copy the value after SCRIVITO_TENANT= to the clipboard.
-* In the project directory, open/create the file `.env` and paste the ID after the `SCRIVITO_TENANT` key. The file should then look like this:
-
-```
-SCRIVITO_TENANT=0123456789ABCDEF0123456789ABCDEF
-```
-
-See `.env.example` for an example.
-
-### Set other authorized URLs
-
-To enable resource sharing between your CMS and your web application, specify the URL of your app in the CMS settings.
-
-* Like above, navigate to the “Deployment” tab of the CMS to use with your app.
-* Make sure that `http://localhost:8080` is added to the "Other authorized URLs".
-
-See [Getting Started with ScrivitoJS](https://scrivito.com/getting-started-with-scrivitojs-f729f073bf4672d8) for more information.
-
-## How to develop
+### How to develop
 
 Calling `npm start` will start a webserver, which listens to [localhost:8080](http://localhost:8080/) and opens this URL in your browser. It should also automatically reload the page after changes to the code (in `src/`) have been made.
 
@@ -99,6 +58,10 @@ Have fun!
 ## How to build/compile
 
 Calling `npm run build` will compile all JS, HTML and CSS and place it in the `build/` folder. It also creates a `build.zip` file, which can be deployed via [my.scrivito.com](https://my.scrivito.com).
+
+## Github
+
+This package reflects the latest version of the github repository: [https://github.com/scrivito/scrivito\_example\_app\_js](https://github.com/scrivito/scrivito\_example\_app\_js).
 
 ## Documentation
 

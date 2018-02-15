@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import AuthorImage from '../../Components/AuthorImage';
 import BlogPostMorePosts from '../../Components/BlogPost/BlogPostMorePosts';
+import SchemaDotOrg from '../../Components/SchemaDotOrg';
 
 Scrivito.provideComponent('Author', ({ page }) =>
   <React.Fragment>
@@ -21,5 +22,6 @@ Scrivito.provideComponent('Author', ({ page }) =>
       </div>
     </section>
     <BlogPostMorePosts author={ page } />
+    <SchemaDotOrg content={ page } />
   </React.Fragment>
 );

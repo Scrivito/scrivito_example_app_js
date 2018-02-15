@@ -70,5 +70,4 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
     showMargin: 'yes',
     style: 'h2',
   },
-  titleForContent: widget => widget.get('headline'),
 });

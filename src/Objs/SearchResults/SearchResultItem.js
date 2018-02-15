@@ -47,6 +47,7 @@ function SearchResultItem({ resultItem, q }) {
         <Scrivito.LinkTag to={ resultItem }>
           <h3 className="h3">
             <Highlighter
+              autoEscape={ true }
               highlightTag="mark"
               searchWords={ searchWords }
               textToHighlight={ resultItem.get('title') || '' }
@@ -55,6 +56,7 @@ function SearchResultItem({ resultItem, q }) {
         </Scrivito.LinkTag>
         <p>
           <Highlighter
+            autoEscape={ true }
             highlightTag="mark"
             searchWords={ searchWords }
             textToHighlight={ textToHighlight }

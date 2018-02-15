@@ -64,6 +64,14 @@
     },
     {
       "files": [
+        "src/index.js",
+      ],
+      "rules": {
+        "import/first": 0,
+      },
+    },
+    {
+      "files": [
         "src/Components/GoogleAnalytics.js",
       ],
       "rules": {

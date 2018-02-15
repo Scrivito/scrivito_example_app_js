@@ -94,7 +94,6 @@ module.exports = (env = {}) => {
                     modules: false,
                     shippedProposals: true,
                     targets: { browsers: ['last 2 versions'] },
-                    useBuiltIns: 'usage',
                   }],
                 ],
                 cacheDirectory: 'tmp/babel-cache',

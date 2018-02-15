@@ -70,7 +70,7 @@ To enable resource sharing between your CMS and your web application, specify th
 * Like above, navigate to the “Deployment” tab of the CMS to use with your app.
 * Make sure that `http://localhost:8080` is added to the "Other authorized URLs".
 
-See [Getting Started with ScrivitoJS](https://scrivito.com/private-beta/getting-started-with-scrivitojs-f729f073bf4672d8) for more information.
+See [Getting Started with ScrivitoJS](https://scrivito.com/getting-started-with-scrivitojs-f729f073bf4672d8) for more information.
 
 ## How to build/compile
 

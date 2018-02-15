@@ -1,0 +1,64 @@
+# Scrivito Example App JS
+
+[![CMS: Scrivito](https://img.shields.io/badge/CMS-Scrivito-brightgreen.svg)](https://scrivito.com) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Travis build status](https://img.shields.io/travis/Scrivito/scrivito_example_app_js/master.svg)](https://travis-ci.org/Scrivito/scrivito_example_app_js) [![GitHub last commit](https://img.shields.io/github/last-commit/Scrivito/scrivito_example_app_js.svg)](https://github.com/Scrivito/scrivito_example_app_js) [![GitHub top language](https://img.shields.io/github/languages/top/Scrivito/scrivito_example_app_js.svg)](https://github.com/Scrivito/scrivito_example_app_js)
+
+[Scrivito](https://www.scrivito.com/?utm_source=github&utm_medium=natural&utm_campaign=github_example_app) is the world's most secure, serverless JavaScript CMS. Based on ReactJS, it is completely maintenance-free, cost-effective, and has unprecedented security. Learn more about Scrivito at [scrivito.com](https://www.scrivito.com/?utm_source=github&utm_medium=natural&utm_campaign=github_example_app).
+
+This example app shows Scrivito’s features and is a great basis for your own Scrivito website projects.
+
+## Features
+
+Scrivito is a SaaS Content Management Service, built for digital agencies and medium to large sized businesses.
+
+It is the only CMS that combines unmatched WYSIWYG usability for editors with maximum flexibility for developers – because it is at the forefront of the current [JavaScript web development revolution](https://www.webdevelopmentrevolution.com/).
+
+And because Scrivito is 100% serverless, you'll never have to patch your CMS, so it's the most secure and cost-effective solution on the market.
+
+## Getting Started
+
+### Install/check prerequisites
+Make sure that you have [![node ≥ 8.0](https://img.shields.io/badge/node-≥%208.0-blue.svg)](https://nodejs.org) and [![npm ≥ 5.0](https://img.shields.io/badge/npm-≥%205.0-blue.svg)](https://www.npmjs.com/get-npm) installed.
+
+```
+node -v
+# should output something like v8.9.4
+
+npm -v
+# should output something like 5.6.0
+```
+
+### Install dependencies
+
+Now simply call `npm install` in the command line to install all JS dependencies (which are placed in the folder `node_modules/`).
+
+### How to develop
+
+Calling `npm start` will start a webserver, which listens to [localhost:8080](http://localhost:8080/) and opens this URL in your browser. It should also automatically reload the page after changes to the code (in `src/`) have been made.
+
+## Your first change
+
+To see development in action, let's change the `ButtonWidget` so that it prefixes all buttons with your favorite emoji.
+
+Open up the react component responsible for rendering a `ButtonWidget`. It's located at `src/Widgets/ButtonWidget/ButtonWidgetComponent.js`. Now look for the `Scrivito.LinkTag` and insert
+
+```jsx
+{ '🚀 ' }
+```
+
+before
+
+```jsx
+{ text }<i className="fa fa-angle-right fa-4" aria-hidden="true" />
+```
+
+After saving the file, your browser should automatically reload [http://localhost:8080](http://localhost:8080) with your new emoji button. Of course you can choose another emoji, check out [emojipedia.org](https://emojipedia.org).
+
+Have fun!
+
+## How to build/compile
+
+Calling `npm run build` will compile all JS, HTML and CSS and place it in the `build/` folder. It also creates a `build.zip` file, which can be deployed via [my.scrivito.com](https://my.scrivito.com).
+
+## Documentation
+
+Comprehensive documentation is available at [scrivito.com/documentation](https://www.scrivito.com/documentation?utm_source=github&utm_medium=natural&utm_campaign=github_example_app). Feel free to [reach out to us](https://www.scrivito.com/support?utm_source=github&utm_medium=natural&utm_campaign=github_example_app) if you have any questions.

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import CurrentPageMetaData from './Components/CurrentPageMetaData';
-import GoogleAnalytics from './Components/GoogleAnalytics';
 import ErrorBoundary from './Components/ErrorBoundary';
 import Footer from './Components/Footer';
+import GoogleAnalytics from './Components/GoogleAnalytics';
 import Navigation from './Components/Navigation';
 import NotFoundErrorPage from './Components/NotFoundErrorPage';
 

@@ -59,6 +59,10 @@ Have fun!
 
 Calling `npm run build` will compile all JS, HTML and CSS and place it in the `build/` folder. It also creates a `build.zip` file, which can be deployed via [my.scrivito.com](https://my.scrivito.com).
 
+## Github
+
+This package reflects the latest version of the github repository: [https://github.com/scrivito/scrivito\_example\_app\_js](https://github.com/scrivito/scrivito\_example\_app\_js).
+
 ## Documentation
 
 Comprehensive documentation is available at [scrivito.com/documentation](https://www.scrivito.com/documentation?utm_source=github&utm_medium=natural&utm_campaign=github_example_app). Feel free to [reach out to us](https://www.scrivito.com/support?utm_source=github&utm_medium=natural&utm_campaign=github_example_app) if you have any questions.

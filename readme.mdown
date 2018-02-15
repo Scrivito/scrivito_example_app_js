@@ -72,10 +72,6 @@ To enable resource sharing between your CMS and your web application, specify th
 
 See [Getting Started with ScrivitoJS](https://scrivito.com/getting-started-with-scrivitojs-f729f073bf4672d8) for more information.
 
-## How to build/compile
-
-Calling `npm run build` will compile all JS, HTML and CSS and place it in the `build/` folder. It also creates a `build.zip` file, which can be deployed via [my.scrivito.com](https://my.scrivito.com).
-
 ## How to develop
 
 Calling `npm start` will start a webserver, which listens to [localhost:8080](http://localhost:8080/) and opens this URL in your browser. It should also automatically reload the page after changes to the code (in `src/`) have been made.
@@ -99,6 +95,10 @@ before
 After saving the file, your browser should automatically reload [http://localhost:8080](http://localhost:8080) with your new emoji button. Of course you can choose another emoji, check out [emojipedia.org](https://emojipedia.org).
 
 Have fun!
+
+## How to build/compile
+
+Calling `npm run build` will compile all JS, HTML and CSS and place it in the `build/` folder. It also creates a `build.zip` file, which can be deployed via [my.scrivito.com](https://my.scrivito.com).
 
 ## Documentation
 

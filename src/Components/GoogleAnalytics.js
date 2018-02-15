@@ -3,19 +3,27 @@ import * as Scrivito from 'scrivito';
 import Helmet from 'react-helmet';
 
 class GoogleAnalytics extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { trackingId: '' };
+  }
+
   componentDidMount() {
-    Scrivito.load(() => this.getTrackingId()).then(trackingId => {
+    Scrivito.load(() => this.getTrackingId).then(trackingId => {
       if (trackingId) {
         window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
         window.ga('create', trackingId, 'auto');
         window.ga('require', 'urlChangeTracker');
         window.ga('send', 'pageview');
+
+        this.setState({ trackingId });
       }
     });
   }
 
   render() {
-    if (!this.getTrackingId()) {
+    if (!this.state.trackingId) {
       return null;
     }
 
@@ -28,7 +36,12 @@ class GoogleAnalytics extends React.Component {
   }
 
   getTrackingId() {
-    const rootPage = Scrivito.Obj.getByPath('/');
+    const rootPage = Scrivito.Obj.root();
+
+    if (!rootPage) {
+      return;
+    }
+
     return rootPage.get('googleAnalyticsTrackingId');
   }
 }

@@ -79,7 +79,10 @@ module.exports = (env = {}) => {
       rules: [
         {
           test: /\.js$/,
-          include: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules/autotrack')],
+          include: [
+            path.join(__dirname, 'src'),
+            path.join(__dirname, 'node_modules/autotrack')
+          ],
           use: [
             {
               loader: 'babel-loader',

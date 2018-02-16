@@ -45,7 +45,8 @@ Scrivito.provideEditingConfig('Homepage', {
     },
     googleAnalyticsTrackingId: {
       title: 'Google Analytics tracking ID',
-      description: 'Needs to be requested at https://developers.google.com/analytics/',
+      description: 'Needs to be requested under your GA property settings.' +
+        ' See https://analytics.google.com for details.',
     },
     showAsLandingPage: {
       title: 'Display this page as a landing page?',

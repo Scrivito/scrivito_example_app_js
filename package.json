@@ -55,7 +55,8 @@
     "uglifyjs-webpack-plugin": "^1.1.8",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1",
-    "zip-webpack-plugin": "^2.1.0"
+    "zip-webpack-plugin": "^2.1.0",
+    "autotrack": "^2.4.1"
   },
   "scripts": {
     "build": "webpack -p",

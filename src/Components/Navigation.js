@@ -94,12 +94,12 @@ class Navigation extends React.Component {
             { image: 'radial-gradient(ellipse at center, rgba(61,65,66,.5) 0%,' +
               ' rgba(61,65,66,1) 90%)' },
             { image: 'linear-gradient(to bottom, rgba(61,65,66,0) 0%, rgba(61,65,66,1) 90%)' },
-            { image: backgroundImage, position: 'bottom' },
+            { image: backgroundImage },
           ];
         } else {
           topSectionStyle.background = [
             { image: 'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))' },
-            { image: backgroundImage, position: 'bottom' },
+            { image: backgroundImage },
           ];
         }
       }

@@ -10,11 +10,6 @@ class GoogleAnalytics extends React.Component {
   }
 
   componentDidMount() {
-    if (window.frameElement && window.top.location.pathname.startsWith('/scrivito')) {
-      // do not track scrivito editors
-      return;
-    }
-
     Scrivito.load(() => this.getTrackingId()).then(trackingId => {
       if (trackingId) {
         window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;

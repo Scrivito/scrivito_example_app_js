@@ -8,13 +8,6 @@ const CurrentPageMetaData = Scrivito.connect(() => {
   const htmlAttributes = { lang: 'en' };
   let title = '';
   let meta = [];
-
-  const page = Scrivito.currentPage();
-  if (page) {
-    title = page.get('title') || '';
-    meta = getMetaData(page);
-  }
-
   const links = [
     {
       rel: 'shortcut icon',
@@ -22,6 +15,13 @@ const CurrentPageMetaData = Scrivito.connect(() => {
       href: favicon,
     },
   ];
+
+  const page = Scrivito.currentPage();
+  if (page) {
+    title = page.get('title') || '';
+    meta = getMetaData(page);
+    links.push({ rel: 'canonical', href: Scrivito.urlFor(page) });
+  }
 
   return <Helmet
     meta={ meta }

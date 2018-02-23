@@ -8,12 +8,6 @@
 $grid-columns: 12;
 $grid-gutter-width: 30px;
 
-$grid-float-breakpoint: 993px;
-
-$border-radius-base: 0 !default;
-$border-radius-large: 0 !default;
-$border-radius-small: 0 !default;
-
 // use higher zindex, to avoid edit marker to be shown
 $zindex-modal-background: 100040 !default;
 $zindex-modal: 100050 !default;
@@ -29,6 +23,16 @@ $zindex-modal: 100050 !default;
   -o-transform: translateZ(0);
   transform: translateZ(0);
 }
+
+/* - BS3 variables - */
+
+$screen-xs-min: 0;
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
 
 /* react-slick
 ================================================== */
@@ -48,8 +52,12 @@ $slick-font-path: "~slick-carousel/slick/fonts/";
 /* colors
 ================================================== */
 
-$brand-primary: #4ecdc4 !default;
-$brand-secondary: #ff6b6b !default;
+$primary:       #4ecdc4 !default;
+$secondary:     #ff6b6b !default;
+$success:       #5cb85c !default;
+$info:          #5bc0de !default;
+$warning:       #f0ad4e !default;
+$danger:        #d9534f !default;
 
 $nav-hover: #bbb;
 
@@ -68,37 +76,33 @@ $gray: lighten($gray-base, 33.5%) !default; // #555
 $gray-light: lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
 
-$brand-success: #5cb85c !default;
-$brand-info: #5bc0de !default;
-$brand-warning: #f0ad4e !default;
-$brand-danger: #d9534f !default;
 
 $btn-default-color: #333 !default;
 $btn-default-bg: #fff !default;
 $btn-default-border: #ccc !default;
 
 $btn-primary-color: #fff !default;
-$btn-primary-bg: $brand-primary !default;
+$btn-primary-bg: $primary !default;
 $btn-primary-border: darken($btn-primary-bg, 5%) !default;
 
 $btn-secondary-color: #fff !default;
-$btn-secondary-bg: $brand-secondary !default;
+$btn-secondary-bg: $secondary !default;
 $btn-secondary-border: darken($btn-secondary-bg, 5%) !default;
 
 $btn-success-color: #fff !default;
-$btn-success-bg: $brand-success !default;
+$btn-success-bg: $success !default;
 $btn-success-border: darken($btn-success-bg, 5%) !default;
 
 $btn-info-color: #fff !default;
-$btn-info-bg: $brand-info !default;
+$btn-info-bg: $info !default;
 $btn-info-border: darken($btn-info-bg, 5%) !default;
 
 $btn-warning-color: #fff !default;
-$btn-warning-bg: $brand-warning !default;
+$btn-warning-bg: $warning !default;
 $btn-warning-border: darken($btn-warning-bg, 5%) !default;
 
 $btn-danger-color: #fff !default;
-$btn-danger-bg: $brand-danger !default;
+$btn-danger-bg: $danger !default;
 $btn-danger-border: darken($btn-danger-bg, 5%) !default;
 
 $btn-link-disabled-color: $gray-light !default;
@@ -108,7 +112,7 @@ $input-border-focus: $btn-primary-color !default;
 /* imports
 ================================================== */
 
-@import "_bootstrap";
+@import "bootstrap/bootstrap";
 @import "_fontawesome";
 @import "_social_cards";
 @import "_grid_layout_editor";
@@ -205,23 +209,23 @@ body {
 }
 
 a {
-  color: $brand-primary;
+  color: $primary;
   text-decoration: none;
 }
 a:hover,
 a:active,
 a:focus {
-  color: darken($brand-primary, 5%);
+  color: darken($primary, 5%);
   text-decoration: underline;
 }
 
 ::selection {
   color: #fff;
-  background: $brand-secondary;
+  background: $secondary;
 }
 ::-moz-selection {
   color: #fff;
-  background: $brand-secondary;
+  background: $secondary;
 }
 
 p {
@@ -356,7 +360,7 @@ img,
 
 mark,
 .mark {
-  background-color: $brand-secondary;
+  background-color: $secondary;
   color: #fff;
   padding: 0 0.2em;
 }
@@ -377,7 +381,7 @@ small,
 }
 
 .fa {
-  color: $brand-secondary;
+  color: $secondary;
 }
 
 .text-greymiddle {
@@ -389,12 +393,12 @@ small,
   font-weight: 700;
   font-size: 180px;
   text-transform: uppercase;
-  color: $brand-secondary !important;
+  color: $secondary !important;
   line-height: 1;
   margin: 0 0 20px 0;
 }
 .bg-dark-image .hero-bold {
-  color: $brand-secondary !important;
+  color: $secondary !important;
 }
 .hero-small {
   font-family: "Source Sans Pro", sans-serif;
@@ -419,6 +423,7 @@ small,
 =================================================================== */
 
 .btn {
+  border-radius: 0;
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
@@ -451,7 +456,7 @@ small,
   padding-right: 0;
 }
 .btn-clear .fa {
-  color: $brand-primary;
+  color: $primary;
 }
 .btn-clear:hover,
 .btn-clear:active,
@@ -461,7 +466,7 @@ small,
 
 .btn-white-transparent {
   background: rgba(255, 255, 255, 0.1);
-  color: $brand-secondary;
+  color: $secondary;
 }
 .btn-white-transparent:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -575,10 +580,10 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 }
 
 .bg-brand-primary {
-  background: $brand-primary;
+  background: $primary;
 }
 .bg-brand-secondary {
-  background: $brand-secondary;
+  background: $secondary;
 }
 
 .bg-dark-image {
@@ -744,7 +749,7 @@ footer {
   color: #fff !important;
 }
 .navbar-default .nav > li.active > a {
-  background: $brand-primary !important;
+  background: $primary !important;
   color: #fff !important;
 }
 
@@ -753,7 +758,7 @@ footer {
   background: transparent;
 }
 .nav > li.active > a {
-  background: $brand-primary !important;
+  background: $primary !important;
   color: #fff !important;
 }
 
@@ -805,7 +810,7 @@ footer {
 }
 .navbar-nav .dropdown-menu > li.active > a:hover,
 .navbar-nav .dropdown-menu > li.active > a:focus {
-  background: $brand-primary;
+  background: $primary;
   color: #fff;
 }
 
@@ -855,11 +860,11 @@ footer {
   background: #fff !important;
 }
 .navbar-toggle:not(.collapsed) .icon-bar {
-  background: $brand-secondary !important;
+  background: $secondary !important;
 }
 
 .navbar-toggle .icon-bar {
-  background: $brand-secondary;
+  background: $secondary;
   width: 30px;
 }
 .navbar-toggle .icon-bar + .icon-bar {
@@ -870,7 +875,7 @@ footer {
   background: #fff;
 }
 .scrolled.bg-dark-image .navbar-toggle .icon-bar {
-  background: $brand-secondary;
+  background: $secondary;
 }
 
 /* menu toggle */
@@ -892,11 +897,11 @@ footer {
   font-size: 22px;
   text-align: center;
   margin: 0 auto;
-  color: $brand-primary;
+  color: $primary;
   @include transition(transform 0.2s ease-in-out);
 }
 .menu-toggle:hover .fa {
-  color: darken($brand-primary, 15%);
+  color: darken($primary, 15%);
 }
 .active .menu-toggle .fa {
   color: #fff;
@@ -911,7 +916,7 @@ footer {
   color: #fff !important;
 }
 .navbar-default .nav > li.active > .menu-toggle {
-  background: $brand-primary !important;
+  background: $primary !important;
   color: #fff !important;
 }
 .scrolled.bg-dark-image .navbar-nav > li.active > a,
@@ -941,7 +946,7 @@ footer {
 .navbar-search-toggle .fa {
   font-size: 22px;
   padding: 0;
-  color: $brand-secondary;
+  color: $secondary;
 }
 .navbar-search-toggle.disabled .fa {
   color: $btn-link-disabled-color;
@@ -986,8 +991,8 @@ footer {
 }
 .search-box .btn-search {
   border-radius: 0 50px 50px 0 !important;
-  background: $brand-secondary;
-  border-color: $brand-secondary;
+  background: $secondary;
+  border-color: $secondary;
   padding: 3px 10px;
   min-height: 34px;
 }
@@ -1007,7 +1012,7 @@ footer {
 .search-box .btn-clear-white .fa {
   font-size: 20px;
   padding: 0 0 3px 0;
-  color: $brand-secondary;
+  color: $secondary;
   text-align: center;
 }
 
@@ -1096,7 +1101,7 @@ footer {
   .nav .open > a,
   .nav .open > a:hover,
   .nav .open > a:focus {
-    background: $brand-primary !important;
+    background: $primary !important;
     color: #fff !important;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
@@ -1136,11 +1141,11 @@ footer {
     font-size: 26px;
     text-align: center;
     margin: 0 auto;
-    color: $brand-primary;
+    color: $primary;
     @include transition(all 0.2s ease-in-out);
   }
   .menu-toggle:hover .fa {
-    color: darken($brand-primary, 50%);
+    color: darken($primary, 50%);
   }
   .active .menu-toggle .fa {
     color: #fff;
@@ -1190,7 +1195,7 @@ footer {
   border: 1px solid $theme-greylight;
 }
 .nav-centered .nav .active a {
-  border: 1px solid $brand-primary;
+  border: 1px solid $primary;
 }
 .nav-centered .nav li + li {
   margin-left: 10px;
@@ -1344,7 +1349,7 @@ footer {
 =================================================================== */
 
 .quote-headline {
-  color: $brand-secondary !important;
+  color: $secondary !important;
   font-size: 200px;
   line-height: 0;
   margin: 65px 0 0 0;
@@ -1391,7 +1396,7 @@ footer {
 }
 
 .fact .value {
-  color: $brand-secondary;
+  color: $secondary;
   font-size: 80px;
   line-height: 80px;
   font-family: "PT Sans Narrow";
@@ -1460,7 +1465,7 @@ footer {
   align-items: center;
   width: 100%;
   height: 100%;
-  background: rgba($brand-primary, 0.7);
+  background: rgba($primary, 0.7);
   @include transition(all 0.5s ease-in-out);
 }
 .gallery-box-content-wrapper:hover {
@@ -1634,7 +1639,7 @@ footer {
   position: absolute;
   top: 20px;
   right: -40px;
-  background: $brand-secondary;
+  background: $secondary;
   z-index: 100;
   border-radius: 50%;
 }
@@ -1777,7 +1782,7 @@ footer {
   font-family: "PT Sans Narrow", sans-serif;
   font-weight: 700;
   text-align: center;
-  background: $brand-secondary;
+  background: $secondary;
   border-radius: 50%;
 }
 .bg-nav-content .nav-centered .nav-blog .fa {
@@ -1863,7 +1868,7 @@ footer {
 }
 .box-card:hover {
   text-decoration: none;
-  outline: 4px solid $brand-secondary;
+  outline: 4px solid $secondary;
 }
 .box-card .box-date {
   position: absolute;
@@ -1872,7 +1877,7 @@ footer {
   display: block;
   width: 60px;
   height: 60px;
-  background: $brand-secondary;
+  background: $secondary;
   color: #fff;
   border-radius: 50%;
   line-height: 60px;
@@ -1905,14 +1910,14 @@ footer {
   display: block;
   bottom: 28px;
   right: 30px;
-  color: $brand-secondary !important;
+  color: $secondary !important;
 }
 .box-card .box-topic .h3 {
   margin: 0;
   color: $theme-greydark !important;
 }
 .box-card .box-topic span i {
-  color: $brand-secondary !important;
+  color: $secondary !important;
   padding: 0 10px 0 0;
 }
 .box-card .box-topic span {
@@ -2065,7 +2070,7 @@ footer {
 .charts .chart.featured:after {
   content: "popular";
   color: #fff;
-  background: $brand-secondary;
+  background: $secondary;
   font-size: 12px;
   font-weight: 700;
   padding: 0 8px;
@@ -2104,7 +2109,7 @@ footer {
   vertical-align: middle !important;
 }
 .table-features .fa {
-  color: $brand-secondary;
+  color: $secondary;
   font-size: 25px;
   line-height: 20px;
 }
@@ -2168,7 +2173,7 @@ footer {
 }
 .table-features tfoot th,
 .table-features tfoot td {
-  background: $brand-secondary;
+  background: $secondary;
   color: #fff;
 }
 
@@ -2216,7 +2221,7 @@ footer {
   }
   .table-features tbody tr:nth-child(even) th,
   .table-features tbody tr:nth-child(odd) th {
-    background: $brand-secondary !important;
+    background: $secondary !important;
     color: #fff;
   }
   .table-features tbody tr:nth-child(even) td {
@@ -2266,7 +2271,7 @@ footer {
   height: 40px;
   line-height: 38px;
   color: #fff;
-  background: $brand-primary;
+  background: $primary;
   text-shadow: none;
 }
 .carousel-control.right .fa {
@@ -2473,30 +2478,30 @@ _:-ms-fullscreen,
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  background: $brand-secondary;
+  background: $secondary;
   background: -moz-linear-gradient(
     left,
-    $brand-secondary 10%,
+    $secondary 10%,
     rgba(255, 255, 255, 0) 42%
   );
   background: -webkit-linear-gradient(
     left,
-    $brand-secondary 10%,
+    $secondary 10%,
     rgba(255, 255, 255, 0) 42%
   );
   background: -o-linear-gradient(
     left,
-    $brand-secondary 10%,
+    $secondary 10%,
     rgba(255, 255, 255, 0) 42%
   );
   background: -ms-linear-gradient(
     left,
-    $brand-secondary 10%,
+    $secondary 10%,
     rgba(255, 255, 255, 0) 42%
   );
   background: linear-gradient(
     to right,
-    $brand-secondary 10%,
+    $secondary 10%,
     rgba(255, 255, 255, 0) 42%
   );
   -webkit-animation: load3 1.4s infinite linear;
@@ -2505,7 +2510,7 @@ _:-ms-fullscreen,
 .loader:before {
   width: 50%;
   height: 50%;
-  background: $brand-secondary;
+  background: $secondary;
   border-radius: 100% 0 0 0;
   position: absolute;
   top: 0;
@@ -2666,7 +2671,7 @@ _:-ms-fullscreen,
 
   .slick-dots li button:before {
     content: "";
-    border: 3px solid $brand-secondary;
+    border: 3px solid $secondary;
     display: block;
     width: 100%;
     max-width: 180px;
@@ -2781,7 +2786,7 @@ _:-ms-fullscreen,
   border: 1px solid $theme-greylight;
 }
 .floating-label .form-control:focus {
-  box-shadow: 0 0 0 2px $brand-secondary;
+  box-shadow: 0 0 0 2px $secondary;
 }
 
 .floating-label .checkbox label {
@@ -2848,10 +2853,10 @@ _:-ms-fullscreen,
 }
 
 .bg-brand-primary .hr-icon img {
-  background-color: $brand-primary;
+  background-color: $primary;
 }
 .bg-brand-secondary .hr-icon img {
-  background-color: $brand-secondary;
+  background-color: $secondary;
 }
 
 @media (max-width: 767px) {

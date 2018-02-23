@@ -93,6 +93,7 @@ module.exports = (env = {}) => {
                     debug: false,
                     modules: false,
                     shippedProposals: true,
+                    useBuiltIns: 'usage',
                     targets: { browsers: ['last 2 versions'] },
                   }],
                 ],

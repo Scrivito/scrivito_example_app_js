@@ -4,6 +4,7 @@ import CurrentPageMetaData from './Components/CurrentPageMetaData';
 import ErrorBoundary from './Components/ErrorBoundary';
 import Footer from './Components/Footer';
 import GoogleAnalytics from './Components/GoogleAnalytics';
+import Intercom from './Components/Intercom';
 import Navigation from './Components/Navigation';
 import NotFoundErrorPage from './Components/NotFoundErrorPage';
 
@@ -19,6 +20,7 @@ export default function App() {
         <Footer />
         <CurrentPageMetaData />
         <GoogleAnalytics />
+        <Intercom />
       </div>
     </ErrorBoundary>
   );

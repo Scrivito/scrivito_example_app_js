@@ -72,6 +72,36 @@
     },
     {
       "files": [
+        "src/Components/Intercom.js",
+      ],
+      "rules": {
+        "class-methods-use-this": 0,
+      },
+    },
+    {
+      "files": [
+        "src/intercom.js",
+      ],
+      "rules": {
+        "func-names": 0,
+        "space-before-function-paren": 0,
+        "block-spacing": 0,
+        "space-before-blocks": 0,
+        "no-var": 0,
+        "space-infix-ops": 0,
+        "semi-spacing": 0,
+        "keyword-spacing": 0,
+        "quotes": 0,
+        "comma-spacing": 0,
+        "no-undef": 0,
+        "prefer-rest-params": 0,
+        "semi": 0,
+        "no-inner-declarations": 0,
+        "eol-last": 0,
+      },
+    },
+    {
+      "files": [
         "src/Components/GoogleAnalytics.js",
       ],
       "rules": {

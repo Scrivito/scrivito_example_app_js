@@ -29,7 +29,7 @@ class NotFoundErrorPage extends React.Component {
               <h2 className="hero-small">The page you are looking for does not exist.</h2>
             </div>
             <div className="text-center">
-              <LinkToRoot />
+              <LinkTo obj={ Scrivito.Obj.root() }/>
             </div>
           </div>
         </section>
@@ -39,15 +39,13 @@ class NotFoundErrorPage extends React.Component {
   }
 }
 
-function PlainLinkToRoot() {
+function LinkTo({ obj }) {
   return (
-    <Scrivito.LinkTag to={ Scrivito.Obj.root() } className="btn btn-primary">
+    <Scrivito.LinkTag to={ obj } className="btn btn-primary">
       Go to mainpage<i className="fa fa-angle-right fa-4" aria-hidden="true" />
     </Scrivito.LinkTag>
   );
 }
-
-const LinkToRoot = Scrivito.connect(PlainLinkToRoot);
 
 export default Scrivito.connect(() => {
   return (

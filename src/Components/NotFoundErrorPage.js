@@ -8,8 +8,9 @@ class NotFoundErrorPage extends React.Component {
 
     const path = window.location.pathname;
     this.state = {
+      path,
       needsRedirect: path !== '/404',
-    }
+    };
   }
 
   render() {
@@ -47,9 +48,9 @@ function PlainLinkToRoot() {
   );
 }
 
-function RedirectTo404({ needsRedirect }) {
+function RedirectTo404({ needsRedirect, path }) {
   if (needsRedirect) {
-    window.location.replace(`/404`);
+    window.location.replace(`/404?path=${encodeURIComponent(path)}`);
   }
 
   return null;

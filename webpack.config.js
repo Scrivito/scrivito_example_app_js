@@ -36,6 +36,7 @@ module.exports = (env = {}) => {
     new InlineEnvironmentVariablesPlugin('SCRIVITO_TENANT'),
     new CopyWebpackPlugin([
       { from: '../public' },
+      { from: '../src/intercom.js' },
       { from: '../node_modules/scrivito/scrivito/index.html', to: 'scrivito/index.html' },
     ]),
     new ExtractTextPlugin({

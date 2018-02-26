@@ -47,10 +47,12 @@ function LinkTo({ obj }) {
   );
 }
 
-export default Scrivito.connect(() => {
+const ConnectedNotFoundErrorPage = Scrivito.connect(NotFoundErrorPage);
+
+export default () => {
   return (
     <Scrivito.NotFoundErrorPage>
-      <NotFoundErrorPage />
+      <ConnectedNotFoundErrorPage />
     </Scrivito.NotFoundErrorPage>
   );
-});
+};

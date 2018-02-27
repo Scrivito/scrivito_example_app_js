@@ -49,6 +49,7 @@
     "react-images": "^0.5.17",
     "react-scroll": "^1.7.7",
     "react-slick": "^0.18.1",
+    "reactstrap": "^5.0.0-beta.2",
     "sass-loader": "^6.0.6",
     "scrivito": "^1.0.0",
     "slick-carousel": "^1.6.0",

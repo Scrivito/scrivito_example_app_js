@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BootstrapCollapse from 'react-bootstrap/lib/Collapse';
+import { Collapse } from 'reactstrap';
 import CollapseToggle from './CollapseToggle';
 import Logo from './Logo';
 import Nav from './Nav';
@@ -56,11 +56,11 @@ class FullNavigation extends React.Component {
             <SearchIcon toggleSearch={ toggleSearch } />
           </div>
 
-          <BootstrapCollapse in={ this.state.expanded }>
+          <Collapse isOpen={ this.state.expanded } navbar={ true }>
             <div className="navbar-collapse">
               <Nav closeExpanded={ this.closeExpanded } expanded={ this.state.expanded } />
             </div>
-          </BootstrapCollapse>
+          </Collapse>
         </div>
       </nav>
     );

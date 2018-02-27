@@ -1,6 +1,10 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import Carousel from 'react-bootstrap/lib/Carousel';
+import {
+  Carousel,
+  CarouselControl,
+  CarouselItem,
+} from 'reactstrap';
 import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
 
 Scrivito.provideComponent('CarouselWidget', ({ widget }) => {
@@ -16,26 +20,68 @@ Scrivito.provideComponent('CarouselWidget', ({ widget }) => {
 
   return (
     <div>
-      <Carousel
-        indicators={ false }
-        className="carousel-images"
-        prevIcon={ <span className="fa fa-arrow-left" aria-hidden="true" /> }
-        nextIcon={ <span className="fa fa-arrow-right" aria-hidden="true" /> }
-      >
-        {
-          images.map((image, index) => {
-            return (
-              <Carousel.Item key={ `${image.id()}${index}` }>
-                <Scrivito.ImageTag content={ image } alt={ image.get('alternativeText') } />
-              </Carousel.Item>
-            );
-          })
-        }
-      </Carousel>
+      <ConnectedCarouselComponent images={ images }/>
       <DescriptionBox widget={ widget } />
     </div>
   );
 });
+
+class CarouselComponent extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { activeIndex: 0 };
+
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+  }
+
+  next() {
+    const nextIndex = (this.state.activeIndex + 1) % this.props.images.length;
+    this.setState({ activeIndex: nextIndex });
+  }
+
+  previous() {
+    let nextIndex = (this.state.activeIndex - 1) % this.props.images.length;
+    nextIndex = nextIndex < 0 ? (this.props.images.length - 1) : nextIndex;
+    this.setState({ activeIndex: nextIndex });
+  }
+
+  render() {
+    const { images } = this.props;
+
+    return (
+      <Carousel
+        activeIndex={ this.state.activeIndex }
+        next={ this.next }
+        previous={ this.previous }
+        className="carousel-images"
+      >
+        {
+          images.map((image, index) => {
+            return (
+              <CarouselItem key={ `${image.id()}${index}` }>
+                <Scrivito.ImageTag content={ image } alt={ image.get('alternativeText') } />
+              </CarouselItem>
+            );
+          })
+        }
+        <CarouselControl
+          direction="prev"
+          directionText="Previous"
+          onClickHandler={ this.previous }
+        />
+        <CarouselControl
+          direction="next"
+          directionText="Next"
+          onClickHandler={ this.next }
+        />
+      </Carousel>
+    );
+  }
+}
+
+const ConnectedCarouselComponent = Scrivito.connect(CarouselComponent);
 
 function DescriptionBox({ widget }) {
   if (widget.get('showDescription') !== 'yes') {

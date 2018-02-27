@@ -36,8 +36,9 @@ class FullNavigation extends React.Component {
 
     const classNames = [
       'navbar',
-      'navbar-fixed-top',
+      'fixed-top',
       'navbar-default',
+      'navbar-expand-lg',
       ...bootstrapNavbarClassNames,
     ];
 

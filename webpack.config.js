@@ -143,7 +143,8 @@ module.exports = (env = {}) => {
       port: 8080,
       historyApiFallback: {
         rewrites: [
-          { from: /^\/scrivito/, to: '/scrivito/index.html' },
+          { from: /^\/scrivito$/, to: '/scrivito/index.html' },
+          { from: /^\/scrivito\//, to: '/scrivito/index.html' },
           { from: /./, to: '/index.html' },
         ],
       },

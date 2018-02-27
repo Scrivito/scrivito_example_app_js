@@ -11,26 +11,28 @@ function TagList({ showTags, tags, currentTag, setTag }) {
 
   return (
     <div className="negative-margin-top nav-centered select-icon">
-      <ul className="nav nav-pills hidden-xs">
-        <li role="presentation" className={ !currentTag ? 'active' : '' }>
-          <a onClick={ e => onClick(e, '') } href='#'>All</a>
-        </li>
-        {
-          tags.map(tag =>
-            <li
-              role="presentation"
-              key={ tag }
-              className={ currentTag === tag ? 'active' : '' }
-            >
-              <a onClick={ e => onClick(e, tag) } href='#'>{ tag }</a>
-            </li>
-          )
-        }
-      </ul>
+      <div class="d-none d-sm-block">
+        <ul className="nav nav-pills justify-content-center">
+          <li role="presentation" className={ !currentTag ? 'active nav-item' : 'nav-item'}>
+            <a className='nav-link' onClick={ e => onClick(e, '') } href='#'>All</a>
+          </li>
+          {
+            tags.map(tag =>
+              <li
+                role="presentation"
+                key={ tag }
+                className={ currentTag === tag ? 'active nav-item' : 'nav-item' }
+              >
+                <a className='nav-link' onClick={ e => onClick(e, tag) } href='#'>{ tag }</a>
+              </li>
+            )
+          }
+        </ul>
+      </div>
       <select
         onChange={ e => setTag(e.target.value) }
         value={ currentTag }
-        className="visible-xs"
+        className="d-block d-sm-none"
       >
         <option value="">All</option>
         {

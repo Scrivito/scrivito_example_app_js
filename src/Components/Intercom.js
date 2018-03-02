@@ -3,6 +3,16 @@ import * as Scrivito from 'scrivito';
 import Helmet from 'react-helmet';
 
 class Intercom extends React.Component {
+  static getIntercomAppId() {
+    const rootPage = Scrivito.Obj.root();
+
+    if (!rootPage) {
+      return;
+    }
+
+    return rootPage.get('intercomAppId');
+  }
+
   constructor(props) {
     super(props);
 
@@ -10,7 +20,7 @@ class Intercom extends React.Component {
   }
 
   componentDidMount() {
-    Scrivito.load(() => this.getIntercomAppId()).then(intercomAppId => {
+    Scrivito.load(() => Intercom.getIntercomAppId()).then(intercomAppId => {
       if (intercomAppId) {
         window.intercomSettings = {
           app_id: intercomAppId,
@@ -30,16 +40,6 @@ class Intercom extends React.Component {
         <script async src='/intercom.js'></script>
       </Helmet>
     );
-  }
-
-  getIntercomAppId() {
-    const rootPage = Scrivito.Obj.root();
-
-    if (!rootPage) {
-      return;
-    }
-
-    return rootPage.get('intercomAppId');
   }
 }
 

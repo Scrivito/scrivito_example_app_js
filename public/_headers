@@ -1,2 +1,2 @@
 /*
-Content-Security-Policy: base-uri 'none'; default-src 'self' 'unsafe-inline' data: https:; script-src 'self' https://assets.scrivito.com https://www.google-analytics.com https://widget.intercom.io https://js.intercomcdn.com https://app.intercom.io; object-src 'none'; block-all-mixed-content;
+Content-Security-Policy: base-uri 'none'; default-src 'self' 'unsafe-inline' data: https:; script-src 'self' https://api.scrivito.com https://assets.scrivito.com https://www.google-analytics.com https://widget.intercom.io https://js.intercomcdn.com https://app.intercom.io; object-src 'none'; block-all-mixed-content;

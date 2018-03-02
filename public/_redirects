@@ -3,6 +3,7 @@
 ##
 
 # Scrivito routes
+/404 /index.html 404
 /scrivito/:slug/* /scrivito/index.html 200
 /scrivito /scrivito/index.html 200
 /* /index.html 200

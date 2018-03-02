@@ -36,16 +36,26 @@ const Logo = Scrivito.connect(() => {
 });
 
 const Address = Scrivito.connect(({ addressWidget }) => {
-  const localityRegionPostalCode = [
-    addressWidget.get('locationLocality'),
-    addressWidget.get('locationRegion'),
-    addressWidget.get('locationPostalCode'),
-  ].filter(n => n).join(' ');
+  let localityRegionPostalCode;
+
+  if (addressWidget.get('addressFormat') === 'GER') {
+    localityRegionPostalCode = [
+      addressWidget.get('locationPostalCode'),
+      addressWidget.get('locationLocality'),
+      addressWidget.get('locationRegion'),
+    ];
+  } else {
+    localityRegionPostalCode = [
+      addressWidget.get('locationLocality'),
+      addressWidget.get('locationRegion'),
+      addressWidget.get('locationPostalCode'),
+    ];
+  }
 
   const lines = [
     addressWidget.get('locationName'),
     addressWidget.get('locationStreetAddress'),
-    localityRegionPostalCode,
+    localityRegionPostalCode.filter(n => n).join(' '),
     addressWidget.get('locationCountry'),
   ].filter(n => n);
 

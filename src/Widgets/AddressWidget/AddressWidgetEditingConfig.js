@@ -45,6 +45,13 @@ Scrivito.provideEditingConfig('AddressWidget', {
       title: 'Country',
       description: 'E.g. USA',
     },
+    addressFormat: {
+      title: 'Address format',
+      values: [
+        { value: 'USA', title: 'USA' },
+        { value: 'GER', title: 'Germany' },
+      ],
+    },
     phone: {
       title: 'Phone',
     },
@@ -63,6 +70,7 @@ Scrivito.provideEditingConfig('AddressWidget', {
     'locationPostalCode',
     'locationRegion',
     'locationCountry',
+    'addressFormat',
     'phone',
     'fax',
     'email',
@@ -71,5 +79,6 @@ Scrivito.provideEditingConfig('AddressWidget', {
   initialContent: {
     showBorderBottom: 'no',
     showLogo: 'yes',
+    addressFormat: 'USA',
   },
 });

@@ -8,6 +8,11 @@
 $grid-columns: 12;
 $grid-gutter-width: 30px;
 
+$border-radius:    0 !default;
+$border-radius-lg: 0 !default;
+$border-radius-sm: 0 !default;
+
+
 // use higher zindex, to avoid edit marker to be shown
 $zindex-modal-background: 100040 !default;
 $zindex-modal: 100050 !default;
@@ -148,31 +153,6 @@ $input-border-focus: $btn-primary-color !default;
 .gutter10 .row > [class*=" col-"] {
   padding-left: 5px;
   padding-right: 5px;
-}
-
-/* special vertical alignment by flexbox
-=================================================================== */
-
-.vertical-align {
-  display: flex;
-  flex-direction: row;
-}
-.vertical-align > [class^="col-"],
-.vertical-align > [class*=" col-"] {
-  display: flex;
-  align-items: center; /* Align the flex-items vertically */
-  justify-content: center; /* Optional, to align inner flex-items horizontally within the column  */
-}
-
-.vertical-align > [class^="col-"] > div,
-.vertical-align > [class*=" col-"] > div {
-  width: 100%;
-}
-
-@media (max-width: 767px) {
-  .row.vertical-align {
-    display: block; /* Turn off the flexible box layout */
-  }
 }
 
 /* Style
@@ -336,15 +316,15 @@ ul {
 }
 
 img,
-.img-responsive {
+.img-fluid {
   margin: 0 0 25px 0;
   max-width: 100%;
 }
-.img-responsive.pull-left {
+.img-fluid.pull-left {
   margin: 0 15px 25px 0;
   max-width: 50%;
 }
-.img-responsive.pull-right {
+.img-fluid.pull-right {
   margin: 0 0 25px 15px;
   max-width: 50%;
 }
@@ -638,7 +618,8 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   .h4,
   .h5,
   .h6,
-  .table-features {
+  .table-features,
+  .card.card-theme {
     color: #fff !important;
   }
 }
@@ -1808,11 +1789,29 @@ footer {
   line-height: 60px;
 }
 
-/* card-theme
+/* card + equeal height helper
 =================================================================== */
+
+.row.align-items-stretch .card:only-of-type { @extend .h-100;}
 
 .social-links i {
   padding: 20px;
+}
+
+.card:not(.card-theme) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 { color: $theme-greydark !important; }
+  p { color: $theme-greymiddle !important; }
 }
 
 .card-theme {
@@ -2837,20 +2836,26 @@ _:-ms-fullscreen,
 =================================================================== */
 
 .hr-icon {
-  border-top: 0 solid #fff;
-  border-bottom: 1px solid #ddd;
   clear: both;
   position: relative;
-  margin: 60px 0;
-  border-bottom: 1px solid #666;
+  padding: 60px 0;
   text-align: center;
   height: 0;
 }
+.hr-icon:after {
+  background: #666;
+  content:'';
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  display: block; height: 1px;
+  }
 .hr-icon img {
   display: inline-block;
   padding: 0 15px;
   height: 40px;
+  position: relative;
   transform: translate(0, -50%);
+  z-index: 1;
 }
 
 .bg-grey .hr-icon img {

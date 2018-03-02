@@ -158,40 +158,72 @@ const PresetGrid = Scrivito.connect(({ currentGrid, adjustGrid, title, grid }) =
 
 const VerticalAlignment = Scrivito.connect(({ widget }) => {
   const topAlignmentClasses = ['gle-preview'];
-  const middleAlignmentClasses = ['gle-preview'];
+  const centerAlignmentClasses = ['gle-preview'];
+  const bottomAlignmentClasses = ['gle-preview'];
+  const fullHeightAlignmentClasses = ['gle-preview'];
 
-  if (widget.get('verticallyAligned') === 'yes') {
-    middleAlignmentClasses.push('active');
-  } else {
+  if (widget.get('alignmentSize') === 'align-items-start') {
     topAlignmentClasses.push('active');
+  }
+  if (widget.get('alignmentSize') === 'align-items-center') {
+    centerAlignmentClasses.push('active');
+  }
+  if (widget.get('alignmentSize') === 'align-items-end') {
+    bottomAlignmentClasses.push('active');
+  }
+  if (widget.get('alignmentSize') === 'align-items-stretch') {
+    fullHeightAlignmentClasses.push('active');
   }
 
   return (
     <React.Fragment>
       <div className="scrivito_detail_label">
-        <span>Vertical alignment</span>
+        <span>Vertical alignment or equal height for box widgets</span>
       </div>
       <div className="item_content">
         <div className="gle-preview-list">
           <div className="gle-preview-group">
+
             <div
               className={ topAlignmentClasses.join(' ') }
               title="content top aligned"
-              onClick={ () => widget.update({ verticallyAligned: 'no' }) }
+              onClick={ () => widget.update({ alignmentSize: 'align-items-start' }) }
             >
               <div className="grid-col-12">
                 <span className="alignment"></span>
               </div>
             </div>
+
             <div
-              className={ middleAlignmentClasses.join(' ') }
+              className={ centerAlignmentClasses.join(' ') }
               title="content middle aligned"
-              onClick={ () => widget.update({ verticallyAligned: 'yes' }) }
+              onClick={ () => widget.update({ alignmentSize: 'align-items-center' }) }
             >
               <div className="grid-col-12">
-                <span className="alignment middle"></span>
+                <span className="alignment center"></span>
               </div>
             </div>
+
+            <div
+              className={ bottomAlignmentClasses.join(' ') }
+              title="content bottom aligned"
+              onClick={ () => widget.update({ alignmentSize: 'align-items-end' }) }
+            >
+              <div className="grid-col-12">
+                <span className="alignment bottom"></span>
+              </div>
+            </div>
+
+            <div
+              className={ fullHeightAlignmentClasses.join(' ') }
+              title="content full height"
+              onClick={ () => widget.update({ alignmentSize: 'align-items-stretch' }) }
+            >
+              <div className="grid-col-12">
+                <span className="alignment fullHeight"></span>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

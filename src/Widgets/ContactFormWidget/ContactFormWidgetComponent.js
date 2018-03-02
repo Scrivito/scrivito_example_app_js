@@ -29,7 +29,7 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
           <div className="form-group">
             <label htmlFor="contactName">Your name</label>
             <input
-              className="form-control input-lg"
+              className="form-control form-control-lg"
               id="contactName"
               name="contactName"
               placeholder="Name"
@@ -42,7 +42,7 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
           <div className="form-group">
             <label htmlFor="contactFamilyName">Family name</label>
             <input
-              className="form-control input-lg"
+              className="form-control form-control-lg"
               id="contactFamilyName"
               name="contactFamilyName"
               placeholder="Family name"
@@ -55,7 +55,7 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
           <div className="form-group">
             <label htmlFor="contactEmail">Email address</label>
             <input
-              className="form-control input-lg"
+              className="form-control form-control-lg"
               id="contactEmail"
               name="contactEmail"
               placeholder="Email"
@@ -68,7 +68,7 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
           <div className="form-group">
             <label htmlFor="contactCompany">Company (optional)</label>
             <input
-              className="form-control input-lg"
+              className="form-control form-control-lg"
               id="contactCompany"
               name="contactCompany"
               placeholder="Company"
@@ -80,7 +80,7 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
           <div className="form-group">
             <label htmlFor="contactMessage">Message</label>
             <textarea
-              className="form-control input-lg"
+              className="form-control form-control-lg"
               rows="3"
               id="contactMessage"
               name="contactMessage"

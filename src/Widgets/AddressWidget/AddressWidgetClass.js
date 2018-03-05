@@ -12,6 +12,7 @@ const AddressWidget = Scrivito.provideWidgetClass('AddressWidget', {
     locationPostalCode: 'string',
     locationRegion: 'string',
     locationCountry: 'string',
+    addressFormat: ['enum', { values: ['USA', 'GER'] }],
 
     phone: 'string',
     fax: 'string',

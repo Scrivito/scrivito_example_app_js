@@ -47,6 +47,7 @@ Scrivito.provideEditingConfig('AddressWidget', {
     },
     addressFormat: {
       title: 'Address format',
+      description: 'Default: USA',
       values: [
         { value: 'USA', title: 'USA' },
         { value: 'GER', title: 'Germany' },

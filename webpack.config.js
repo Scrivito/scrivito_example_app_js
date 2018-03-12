@@ -68,6 +68,7 @@ module.exports = (env = {}) => {
   }
 
   return {
+    mode: isProduction ? 'production' : 'development',
     context: path.join(__dirname, 'src'),
     entry: {
       index: './index.js',

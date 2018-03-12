@@ -54,9 +54,10 @@
     "slick-carousel": "^1.6.0",
     "striptags": "^2.2.1",
     "uglifyjs-webpack-plugin": "^1.2.3",
-    "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.2",
-    "zip-webpack-plugin": "^2.1.0"
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11",
+    "webpack-dev-server": "^3.1.1",
+    "zip-webpack-plugin": "^3.0.0"
   },
   "scripts": {
     "build": "webpack -p",

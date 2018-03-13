@@ -40,7 +40,7 @@ Scrivito.provideComponent('PricingWidget', ({ widget }) => {
             />
           </div>
           <Scrivito.ContentTag content={ widget } attribute="smallPlanSpecs" className="specs" />
-          <PlanButton target={ widget.get('smallPlanButton') } className="btn-default" />
+          <PlanButton target={ widget.get('smallPlanButton') } className="btn-light" />
         </div>
       </div>
 
@@ -90,7 +90,7 @@ Scrivito.provideComponent('PricingWidget', ({ widget }) => {
             />
           </div>
           <Scrivito.ContentTag content={ widget } attribute="largePlanSpecs" className="specs" />
-          <PlanButton target={ widget.get('largePlanButton') } className="btn-default" />
+          <PlanButton target={ widget.get('largePlanButton') } className="btn-light" />
         </div>
       </div>
     </div>

@@ -89,14 +89,16 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
             />
           </div>
           {
-            widget.get('agreementText') && <div className="checkbox">
-              <label>
-                <input
-                  type="checkbox"
-                  name="contactAgreement"
-                  value={ widget.get('agreementText') }
-                  required
-                />
+            widget.get('agreementText') && <div className="form-group form-check">
+              <input
+                className="form-check-input"
+                id="agreementTextCheck"
+                type="checkbox"
+                name="contactAgreement"
+                value={ widget.get('agreementText') }
+                required
+              />
+              <label className="form-check-label" htmlFor="agreementTextCheck">
                 { widget.get('agreementText') }
               </label>
             </div>

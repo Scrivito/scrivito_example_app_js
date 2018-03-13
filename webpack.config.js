@@ -68,6 +68,7 @@ module.exports = (env = {}) => {
   }
 
   return {
+    mode: isProduction ? 'production' : 'development',
     context: path.join(__dirname, 'src'),
     entry: {
       index: './index.js',
@@ -143,7 +144,8 @@ module.exports = (env = {}) => {
       port: 8080,
       historyApiFallback: {
         rewrites: [
-          { from: /^\/scrivito/, to: '/scrivito/index.html' },
+          { from: /^\/scrivito$/, to: '/scrivito/index.html' },
+          { from: /^\/scrivito\//, to: '/scrivito/index.html' },
           { from: /./, to: '/index.html' },
         ],
       },

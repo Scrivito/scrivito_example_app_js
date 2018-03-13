@@ -11,7 +11,7 @@ function TagList({ showTags, tags, currentTag, setTag }) {
 
   return (
     <div className="negative-margin-top nav-centered select-icon">
-      <div class="d-none d-sm-block">
+      <div className="d-none d-sm-block">
         <ul className="nav nav-pills justify-content-center">
           <li role="presentation" className={ !currentTag ? 'active nav-item' : 'nav-item'}>
             <a className='nav-link' onClick={ e => onClick(e, '') } href='#'>All</a>

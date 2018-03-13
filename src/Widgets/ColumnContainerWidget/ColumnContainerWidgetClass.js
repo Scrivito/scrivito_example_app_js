@@ -4,7 +4,7 @@ import { registerTextExtract } from '../../utils/textExtractRegistry';
 const ColumnContainerWidget = Scrivito.provideWidgetClass('ColumnContainerWidget', {
   attributes: {
     columns: ['widgetlist', { only: 'ColumnWidget' }],
-    alignmentSize: ['enum', { values: ['align-items-start', 'align-items-center', 'align-items-end', 'align-items-stretch'] }],
+    alignment: ['enum', { values: ['start', 'center', 'end', 'stretch'] }],
   },
 });
 

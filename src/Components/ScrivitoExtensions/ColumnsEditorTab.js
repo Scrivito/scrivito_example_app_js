@@ -162,16 +162,16 @@ const VerticalAlignment = Scrivito.connect(({ widget }) => {
   const bottomAlignmentClasses = ['gle-preview'];
   const fullHeightAlignmentClasses = ['gle-preview'];
 
-  if (widget.get('alignmentSize') === 'align-items-start') {
+  if (widget.get('alignment') === 'start') {
     topAlignmentClasses.push('active');
   }
-  if (widget.get('alignmentSize') === 'align-items-center') {
+  if (widget.get('alignment') === 'center') {
     centerAlignmentClasses.push('active');
   }
-  if (widget.get('alignmentSize') === 'align-items-end') {
+  if (widget.get('alignment') === 'end') {
     bottomAlignmentClasses.push('active');
   }
-  if (widget.get('alignmentSize') === 'align-items-stretch') {
+  if (widget.get('alignment') === 'stretch') {
     fullHeightAlignmentClasses.push('active');
   }
 
@@ -187,7 +187,7 @@ const VerticalAlignment = Scrivito.connect(({ widget }) => {
             <div
               className={ topAlignmentClasses.join(' ') }
               title="content top aligned"
-              onClick={ () => widget.update({ alignmentSize: 'align-items-start' }) }
+              onClick={ () => widget.update({ alignment: 'start' }) }
             >
               <div className="grid-col-12">
                 <span className="alignment"></span>
@@ -197,7 +197,7 @@ const VerticalAlignment = Scrivito.connect(({ widget }) => {
             <div
               className={ centerAlignmentClasses.join(' ') }
               title="content middle aligned"
-              onClick={ () => widget.update({ alignmentSize: 'align-items-center' }) }
+              onClick={ () => widget.update({ alignment: 'center' }) }
             >
               <div className="grid-col-12">
                 <span className="alignment center"></span>
@@ -207,7 +207,7 @@ const VerticalAlignment = Scrivito.connect(({ widget }) => {
             <div
               className={ bottomAlignmentClasses.join(' ') }
               title="content bottom aligned"
-              onClick={ () => widget.update({ alignmentSize: 'align-items-end' }) }
+              onClick={ () => widget.update({ alignment: 'end' }) }
             >
               <div className="grid-col-12">
                 <span className="alignment bottom"></span>
@@ -217,7 +217,7 @@ const VerticalAlignment = Scrivito.connect(({ widget }) => {
             <div
               className={ fullHeightAlignmentClasses.join(' ') }
               title="content full height"
-              onClick={ () => widget.update({ alignmentSize: 'align-items-stretch' }) }
+              onClick={ () => widget.update({ alignment: 'stretch' }) }
             >
               <div className="grid-col-12">
                 <span className="alignment fullHeight"></span>

@@ -24,16 +24,24 @@ Scrivito.provideComponent('ColumnContainerWidget', ({ widget }) => {
   });
 
   const classNames = ['row'];
-  if (widget.get('alignmentSize') === 'align-items-start') {
+
+  if (!widget.get('alignment')) {
     classNames.push('align-items-start');
   }
-  if (widget.get('alignmentSize') === 'align-items-center') {
+
+  if (widget.get('alignment') === 'start') {
+    classNames.push('align-items-start');
+  }
+
+  if (widget.get('alignment') === 'center') {
     classNames.push('align-items-center');
   }
-  if (widget.get('alignmentSize') === 'align-items-end') {
+
+  if (widget.get('alignment') === 'end') {
     classNames.push('align-items-end');
   }
-  if (widget.get('alignmentSize') === 'align-items-stretch') {
+
+  if (widget.get('alignment') === 'stretch') {
     classNames.push('align-items-stretch');
   }
 

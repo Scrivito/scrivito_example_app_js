@@ -673,8 +673,8 @@ footer {
 }
 
 
-.nav > li.active > a,
-.nav > li.active > .menu-toggle {
+.nav li.active > a,
+.nav li.active > .menu-toggle {
   background: $primary !important;
   color: #fff !important;
 }

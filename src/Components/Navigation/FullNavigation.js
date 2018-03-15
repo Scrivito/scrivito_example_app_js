@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Collapse } from 'reactstrap';
+import Collapse from 'reactstrap/lib/Collapse';
 import CollapseToggle from './CollapseToggle';
 import Logo from './Logo';
 import Nav from './Nav';

@@ -1,10 +1,8 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import {
-  Carousel,
-  CarouselControl,
-  CarouselItem,
-} from 'reactstrap';
+import Carousel from 'reactstrap/lib/Carousel';
+import CarouselControl from 'reactstrap/lib/CarouselControl';
+import CarouselItem from 'reactstrap/lib/CarouselItem';
 import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
 
 Scrivito.provideComponent('CarouselWidget', ({ widget }) => {

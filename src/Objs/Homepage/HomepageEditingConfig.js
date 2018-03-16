@@ -49,7 +49,7 @@ Scrivito.provideEditingConfig('Homepage', {
         ' See https://analytics.google.com for details.',
     },
     intercomAppId: {
-      title: 'Intercom App ID',
+      title: 'Intercom app ID',
       description: 'Register at https://www.intercom.com/',
     },
     showAsLandingPage: {

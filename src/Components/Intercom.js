@@ -13,6 +13,13 @@ class Intercom extends React.Component {
     return rootPage.get('intercomAppId');
   }
 
+  static bindFakeIntercom() {
+    const fakeIntercom = (...args) => fakeIntercom.c(args);
+    fakeIntercom.q = [];
+    fakeIntercom.c = args => fakeIntercom.q.push(args);
+    window.Intercom = fakeIntercom;
+  }
+
   constructor(props) {
     super(props);
 
@@ -22,9 +29,10 @@ class Intercom extends React.Component {
   componentDidMount() {
     Scrivito.load(() => Intercom.getIntercomAppId()).then(intercomAppId => {
       if (intercomAppId) {
-        window.intercomSettings = {
-          app_id: intercomAppId,
-        };
+        Intercom.bindFakeIntercom();
+        window.Intercom('reattach_activator');
+        window.Intercom('update', { app_id: intercomAppId });
+
         this.setState({ intercomAppId });
       }
     });
@@ -37,7 +45,7 @@ class Intercom extends React.Component {
 
     return (
       <Helmet>
-        <script async src='/intercom.js'></script>
+        <script async src={ `https://widget.intercom.io/widget/${this.state.intercomAppId}` } />
       </Helmet>
     );
   }

@@ -16,6 +16,7 @@ const Homepage = Scrivito.provideObjClass('Homepage', {
     twitterSite: 'string',
     googleMapsApiKey: 'string',
     googleAnalyticsTrackingId: 'string',
+    intercomAppId: 'string',
     ...metaDataAttributes,
   },
 });

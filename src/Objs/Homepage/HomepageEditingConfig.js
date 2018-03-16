@@ -48,6 +48,10 @@ Scrivito.provideEditingConfig('Homepage', {
       description: 'Needs to be requested under your GA property settings.' +
         ' See https://analytics.google.com for details.',
     },
+    intercomAppId: {
+      title: 'Intercom app ID',
+      description: 'Register at https://www.intercom.com/',
+    },
     showAsLandingPage: {
       title: 'Display this page as a landing page?',
       description: 'Removes the header navigation and only centers the logo instead. Default: No',
@@ -72,6 +76,7 @@ Scrivito.provideEditingConfig('Homepage', {
         'twitterSite',
         'googleMapsApiKey',
         'googleAnalyticsTrackingId',
+        'intercomAppId',
       ],
     },
     socialCardsPropertiesGroup,

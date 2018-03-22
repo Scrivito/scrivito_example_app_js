@@ -1186,7 +1186,8 @@ footer {
 .nav-centered .input-group {
   border: 10px solid #fff;
   max-width: 800px;
-  margin: -25px auto 0;
+  margin: 0 auto ;
+  transform: translate(0, -25px);
 }
 .nav-centered .input-group .form-control {
   height: 51px;
@@ -1933,8 +1934,7 @@ _:-ms-fullscreen,
 ================================================== */
 
 .charts {
-  margin-top: 40px;
-  margin-bottom: 25px;
+  padding: 40px 0;
 }
 .charts .chart {
   background-color: $theme-greywhite;

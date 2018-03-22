@@ -34,7 +34,7 @@ class SearchInput extends React.Component {
                     className="btn btn-primary"
                     type="submit"
                   >
-                    <span className="hidden-xs">Search again</span>
+                    <span className="d-none d-sm-inline">Search again</span>
                     <i className="fa fa-search fa-1" aria-hidden="true" />
                   </button>
                 </span>

@@ -671,10 +671,11 @@ footer {
   display: flex;
   min-height: 100vh;
 }
+.medium-height .container,
 .full-height .container {
   margin: auto !important;
 }
-
+.medium-height,
 .height-center {
   display: flex;
   text-align: center;
@@ -682,6 +683,9 @@ footer {
 .height-center .container {
   margin: auto !important;
 }
+
+/* nav section adaptions */
+section.navbar-fixed { padding-top: 80px; }
 
 /* navbar
 =================================================================== */

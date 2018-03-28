@@ -10,7 +10,11 @@ class GoogleAnalytics extends React.Component {
   }
 
   componentDidMount() {
-    Scrivito.load(() => this.getTrackingId()).then(trackingId => {
+    Scrivito.load(() => {
+      const rootPage = Scrivito.Obj.root();
+      if (!rootPage) { return; }
+      return rootPage.get('googleAnalyticsTrackingId');
+    }).then(trackingId => {
       if (trackingId) {
         window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
         window.ga('create', trackingId, 'auto');
@@ -30,20 +34,10 @@ class GoogleAnalytics extends React.Component {
 
     return (
       <Helmet>
-        <script async src='/google_analytics.js'></script>
-        <script async src='https://www.google-analytics.com/analytics.js'></script>
+        <script async src='/google_analytics.js' />
+        <script async src='https://www.google-analytics.com/analytics.js' />
       </Helmet>
     );
-  }
-
-  getTrackingId() {
-    const rootPage = Scrivito.Obj.root();
-
-    if (!rootPage) {
-      return;
-    }
-
-    return rootPage.get('googleAnalyticsTrackingId');
   }
 }
 

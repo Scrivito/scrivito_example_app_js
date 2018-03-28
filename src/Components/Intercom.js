@@ -6,31 +6,30 @@ class Intercom extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isIntercomInstalled: false,
-    };
+    this.state = { intercomAppId: '' };
   }
 
   componentDidMount() {
-    Scrivito.load(() => getIntercomAppId()).then(intercomAppId => {
+    Scrivito.load(() => {
+      const rootPage = Scrivito.Obj.root();
+      if (!rootPage) { return; }
+      return rootPage.get('intercomAppId');
+    }).then(intercomAppId => {
       if (intercomAppId) {
         installIntercom(intercomAppId);
-        this.setState({ isIntercomInstalled: true });
+        this.setState({ intercomAppId });
       }
     });
   }
 
   render() {
-    if (!this.state.isIntercomInstalled) {
+    if (!this.state.intercomAppId) {
       return null;
     }
 
     return (
       <Helmet>
-        <script
-          async
-          src={ `https://widget.intercom.io/widget/${getIntercomAppId()}` }
-        />
+        <script async src={ `https://widget.intercom.io/widget/${this.state.intercomAppId}` } />
       </Helmet>
     );
   }
@@ -49,16 +48,6 @@ function installIntercom(appId) {
 
     window.Intercom('boot', { app_id: appId });
   }
-}
-
-function getIntercomAppId() {
-  const rootPage = Scrivito.Obj.root();
-
-  if (!rootPage) {
-    return;
-  }
-
-  return rootPage.get('intercomAppId');
 }
 
 export default Scrivito.connect(Intercom);

@@ -18,7 +18,7 @@ Scrivito.provideEditingConfig('BlogPost', {
     },
     publishedAt: {
       title: 'Published at',
-      description: 'When will this blog post be published?',
+      description: 'When was this blog post published?',
     },
     titleImage: {
       title: 'Header image',

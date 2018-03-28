@@ -10,7 +10,11 @@ class Intercom extends React.Component {
   }
 
   componentDidMount() {
-    Scrivito.load(() => getIntercomAppId()).then(intercomAppId => {
+    Scrivito.load(() => {
+      const rootPage = Scrivito.Obj.root();
+      if (!rootPage) { return; }
+      return rootPage.get('intercomAppId');
+    }).then(intercomAppId => {
       if (intercomAppId) {
         installIntercom(intercomAppId);
         this.setState({ intercomAppId });
@@ -44,16 +48,6 @@ function installIntercom(appId) {
 
     window.Intercom('boot', { app_id: appId });
   }
-}
-
-function getIntercomAppId() {
-  const rootPage = Scrivito.Obj.root();
-
-  if (!rootPage) {
-    return;
-  }
-
-  return rootPage.get('intercomAppId');
 }
 
 export default Scrivito.connect(Intercom);

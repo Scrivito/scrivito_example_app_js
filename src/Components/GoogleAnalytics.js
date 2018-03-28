@@ -34,8 +34,8 @@ class GoogleAnalytics extends React.Component {
 
     return (
       <Helmet>
-        <script async src='/google_analytics.js'></script>
-        <script async src='https://www.google-analytics.com/analytics.js'></script>
+        <script async src='/google_analytics.js' />
+        <script async src='https://www.google-analytics.com/analytics.js' />
       </Helmet>
     );
   }

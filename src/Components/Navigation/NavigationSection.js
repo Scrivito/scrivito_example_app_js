@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Scrivito from 'scrivito';
 
 function NavigationSection({ heightClassName }) {
-  if (heightClassName !== 'full-height') { return null; }
+  if (!['full-height', 'medium-height'].includes(heightClassName)) { return null; }
 
   if (!Scrivito.currentPage()) { return null; }
   const obj = Scrivito.currentPage();

@@ -11,14 +11,14 @@
     "private": true
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.40",
-    "@babel/preset-env": "^7.0.0-beta.40",
-    "@babel/preset-react": "^7.0.0-beta.40",
+    "@babel/core": "^7.0.0-beta.42",
+    "@babel/preset-env": "^7.0.0-beta.42",
+    "@babel/preset-react": "^7.0.0-beta.42",
     "autotrack": "^2.4.1",
     "babel-loader": "^8.0.0-beta.2",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
-    "core-js": "^2.5.3",
+    "core-js": "^2.5.4",
     "css-loader": "^0.28.10",
     "dateformat": "^3.0.3",
     "dotenv": "^5.0.1",

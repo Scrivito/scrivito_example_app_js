@@ -10,6 +10,8 @@ class VimeoVideoWidgetComponent extends React.Component {
       elementWidth: 0,
     };
 
+    this.outerDivRef = React.createRef();
+
     this.handleResize = this.handleResize.bind(this);
   }
 
@@ -23,7 +25,7 @@ class VimeoVideoWidgetComponent extends React.Component {
   }
 
   handleResize() {
-    const elementWidth = this.outerDiv.offsetWidth;
+    const elementWidth = this.outerDivRef.current.offsetWidth;
 
     if (this.state.elementWidth !== elementWidth) {
       this.setState({ elementWidth });
@@ -33,7 +35,7 @@ class VimeoVideoWidgetComponent extends React.Component {
   render() {
     return (
       <div
-        ref={ e => { this.outerDiv = e; } }
+        ref={ this.outerDivRef }
         className="text-center"
       >
         <PlaceholderOrVimeoComponent

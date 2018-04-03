@@ -16,6 +16,8 @@ class GoogleMapsWidgetComponent extends React.Component {
       width: null,
     };
 
+    this.outerDivRef = React.createRef();
+
     this.handleResize = this.handleResize.bind(this);
   }
 
@@ -29,8 +31,8 @@ class GoogleMapsWidgetComponent extends React.Component {
   }
 
   handleResize() {
-    const elementWidth = this.outerDiv.offsetWidth;
-    const elementHeight = this.outerDiv.offsetHeight;
+    const elementWidth = this.outerDivRef.current.offsetWidth;
+    const elementHeight = this.outerDivRef.current.offsetHeight;
 
     if (this.state.elementWidth !== elementWidth || this.state.elementHeight !== elementHeight) {
       let width = elementWidth;
@@ -55,7 +57,7 @@ class GoogleMapsWidgetComponent extends React.Component {
   render() {
     return (
       <div
-        ref={ e => { this.outerDiv = e; } }
+        ref={ this.outerDivRef }
         className="bg-map"
         style={
           {

@@ -3,7 +3,7 @@ import * as Scrivito from 'scrivito';
 import Helmet from 'react-helmet';
 
 class NotFoundErrorPage extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     const path = window.location.pathname;
 
     if (path !== '/404') {

@@ -18,6 +18,7 @@
   "globals": {
     "document": true,
     "window": true,
+    "btoa": true,
   },
   rules: {
     "arrow-body-style": 0,

@@ -1,4 +1,4 @@
-import truncate from 'lodash/truncate';
+import { truncate } from 'lodash-es';
 import dataFromAuthor from './dataFromAuthor';
 import formatDate from '../../utils/formatDate';
 import urlFromBinary from '../../utils/urlFromBinary';

@@ -1,0 +1,2 @@
+import './Objs';
+import './config';

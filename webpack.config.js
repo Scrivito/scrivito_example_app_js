@@ -74,6 +74,7 @@ module.exports = (env = {}) => {
       index: './index.js',
       google_analytics: './google_analytics.js',
       scrivito_extensions: './scrivito_extensions.js',
+      sitemap: './sitemap.js',
       'index.css': './assets/stylesheets/index.scss',
     },
     module: {

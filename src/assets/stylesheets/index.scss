@@ -137,8 +137,9 @@ a:active,
 a:focus {
   color: darken($primary, 5%);
   text-decoration: underline;
+  outline: none!important;
 }
-
+button:focus { outline: none!important; }
 ::selection {
   color: #fff;
   background: $secondary;
@@ -1115,8 +1116,9 @@ section.navbar-fixed { padding-top: 80px; }
 .bg-nav-content .nav-centered .nav-item {
   margin-top: -30px;
 }
-.negative-margin-top .nav-item {
-  margin-top: -30px;
+.negative-margin-top .nav {
+ padding: 0;
+ transform: translate(-0,-30px);
 }
 
 
@@ -1160,7 +1162,7 @@ section.navbar-fixed { padding-top: 80px; }
   z-index: 2;
 }
 
-@media (max-width: $screen-xs-max) {
+@media (max-width: 575px) {
   .nav-centered.select-icon { position: relative; }
   .nav-centered.select-icon:after {
     content: "";

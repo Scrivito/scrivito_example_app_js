@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
+import groupBy from 'lodash/groupBy';
 import truncate from 'lodash/truncate';
 import BlogPostDate from './BlogPostDate';
 import formatDate from '../../utils/formatDate';
@@ -31,31 +32,43 @@ const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag }) => {
     );
   }
 
-  let dateHeadline = null;
-  const listElements = [];
-  posts.forEach(post => {
+  const months = groupBy(posts, post => {
     const publishedAt = post.get('publishedAt');
-    if (publishedAt && dateHeadline !== formatDate(publishedAt, 'mmmm yyyy')) {
-      dateHeadline = formatDate(publishedAt, 'mmmm yyyy');
-      listElements.push(<MonthHeadline date={ publishedAt } key={ publishedAt }/>);
-    }
-
-    listElements.push(<BlogPostPreview key={ post.id() } post={ post } />);
+    return publishedAt && formatDate(publishedAt, 'mmmm yyyy');
   });
 
   return (
+    <React.Fragment>
+      {
+        Object.entries(months).map(([month, monthPosts]) =>
+          <React.Fragment key={ `month: ${month}` }>
+            <MonthHeadline date={ monthPosts[0].get('publishedAt') } />
+            <PostsTimeline posts={ monthPosts } />
+          </React.Fragment>
+        )
+      }
+    </React.Fragment>
+  );
+});
+
+const MonthHeadline = Scrivito.connect(({ date }) => {
+  if (!date) { return null; }
+
+  return (
     <ul className="timeline">
-      { listElements }
+      <li className="timeline-divider">
+        <time dateTime={ formatDate(date, 'yyyy-mm') }>
+          { formatDate(date, 'mmmm yyyy') }
+        </time>
+      </li>
     </ul>
   );
 });
 
-const MonthHeadline = Scrivito.connect(({ date }) =>
-  <li className="timeline-divider">
-    <time dateTime={ formatDate(date, 'yyyy-mm') }>
-      { formatDate(date, 'mmmm yyyy') }
-    </time>
-  </li>
+const PostsTimeline = Scrivito.connect(({ posts }) =>
+  <ul className="timeline">
+    { posts.map(post => <BlogPostPreview key={ post.id() } post={ post } />) }
+  </ul>
 );
 
 const BlogPostPreview = Scrivito.connect(({ post }) => {

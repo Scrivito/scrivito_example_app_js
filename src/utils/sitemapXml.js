@@ -16,20 +16,20 @@ const OBJ_CLASSES_WHITELIST = [
 function sitemapXml() {
   const pages = [...Scrivito.Obj.where('_objClass', 'equals', OBJ_CLASSES_WHITELIST)
     .andNot('robotsIndex', 'equals', 'no')];
-  const urls = pages.map(pageToUrl);
+  const sitemapUrls = pages.map(pageToSitemapUrl);
 
   return xml(
     {
       urlset: [
         { _attr: { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' } },
-        ...urls,
+        ...sitemapUrls,
       ],
     },
     { declaration: true }
   );
 }
 
-function pageToUrl(page) {
+function pageToSitemapUrl(page) {
   return {
     url: [
       { loc: Scrivito.urlFor(page) },

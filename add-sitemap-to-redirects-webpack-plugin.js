@@ -11,22 +11,23 @@ function emit(compilation, callback) {
   const url = process.env.DEPLOY_PRIME_URL;
 
   if (url && tenant) {
-    const redirects = compilation.assets['_redirects'].source().toString();
-    const patchedRedirects = redirects.replace(/^\/\* \/.+$/m, rewriteRule(tenant, url));
+    const previousRedirects = compilation.assets['_redirects'].source().toString();
+    const redirects = addSitemapTRedirects(tenant, url, previousRedirects);
 
     compilation.assets['_redirects'] = {
-      source: () => patchedRedirects,
-      size: () => patchedRedirects.length,
+      source: () => redirects,
+      size: () => redirects.length,
     };
   }
 
   callback();
 }
 
-function rewriteRule(tenant, url) {
-  return `/_sitemaphtml /_sitemap.html 200
+function addSitemapTRedirects(tenant, url, previousRedirects) {
+  return `
+/_sitemaphtml /_sitemap.html 200
 /sitemap.xml https://api.scrivito.com/tenants/${tenant}/extract_content?src_url=${encodeURIComponent(url)}%2F_sitemaphtml%3F_escaped_fragment_%3D0 302
-$&`;
+${previousRedirects}`;
 }
 
 module.exports = AddSitemapToRedirectsWebpackPlugin;

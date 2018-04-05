@@ -2,7 +2,7 @@ import * as Scrivito from 'scrivito';
 import xml from 'xml';
 import formatDate from './formatDate';
 
-const OBJ_CLASSES_TO_INDEX = [
+const OBJ_CLASSES_WHITELIST = [
   'Author',
   'Blog',
   'BlogPost',
@@ -14,7 +14,7 @@ const OBJ_CLASSES_TO_INDEX = [
 ];
 
 function sitemapXml() {
-  const pages = [...Scrivito.Obj.where('_objClass', 'equals', OBJ_CLASSES_TO_INDEX)
+  const pages = [...Scrivito.Obj.where('_objClass', 'equals', OBJ_CLASSES_WHITELIST)
     .andNot('robotsIndex', 'equals', 'no')];
   const urls = pages.map(pageToUrl);
 

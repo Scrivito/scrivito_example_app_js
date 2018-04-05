@@ -1,9 +1,6 @@
 function writeXmlContentToExtract(content) {
-  const meta = document.createElement('meta');
-  meta.setAttribute('name', 'scrivito-content-to-extract');
-  meta.setAttribute('content', `data:text/xml;base64,${btoa(content)}`);
-
-  document.head.appendChild(meta);
+  const metaTag = document.getElementsByName('scrivito-content-to-extract')[0];
+  metaTag.setAttribute('content', `data:text/xml;base64,${btoa(content)}`);
 }
 
 export default writeXmlContentToExtract;

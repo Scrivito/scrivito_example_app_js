@@ -8,7 +8,7 @@ function AddSitemapToRedirectsWebpackPlugin() {
 
 function emit(compilation, callback) {
   const tenant = process.env.SCRIVITO_TENANT;
-  const url = process.env.DEPLOY_PRIME_URL;
+  const url = process.env.URL;
 
   if (url && tenant) {
     const previousRedirects = compilation.assets['_redirects'].source().toString();

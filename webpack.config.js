@@ -9,6 +9,7 @@ const InlineEnvironmentVariablesPlugin = require('inline-environment-variables-w
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ZipPlugin = require('zip-webpack-plugin');
+const AddSitemapToRedirectsWebpackPlugin = require('./add-sitemap-to-redirects-webpack-plugin');
 
 // load ".env"
 dotenv.config();
@@ -38,6 +39,7 @@ module.exports = (env = {}) => {
       { from: '../public' },
       { from: '../node_modules/scrivito/scrivito/index.html', to: 'scrivito/index.html' },
     ]),
+    new AddSitemapToRedirectsWebpackPlugin(),
     new ExtractTextPlugin({
       filename: '[name]',
     }),
@@ -74,6 +76,7 @@ module.exports = (env = {}) => {
       index: './index.js',
       google_analytics: './google_analytics.js',
       scrivito_extensions: './scrivito_extensions.js',
+      sitemap: './sitemap.js',
       'index.css': './assets/stylesheets/index.scss',
     },
     module: {

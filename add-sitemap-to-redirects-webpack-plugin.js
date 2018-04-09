@@ -12,7 +12,7 @@ function emit(compilation, callback) {
 
   if (url && tenant) {
     const previousRedirects = compilation.assets['_redirects'].source().toString();
-    const redirects = addSitemapTRedirects(tenant, url, previousRedirects);
+    const redirects = addSitemapToRedirects(tenant, url, previousRedirects);
 
     compilation.assets['_redirects'] = {
       source: () => redirects,
@@ -23,7 +23,7 @@ function emit(compilation, callback) {
   callback();
 }
 
-function addSitemapTRedirects(tenant, url, previousRedirects) {
+function addSitemapToRedirects(tenant, url, previousRedirects) {
   return `
 ##
 # Sitemap redirect rules

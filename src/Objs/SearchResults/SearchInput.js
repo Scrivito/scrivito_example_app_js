@@ -11,12 +11,10 @@ class SearchInput extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (!prevState.params || !nextProps.params || prevState.params.q === nextProps.params.q) {
-      // Return null to indicate no change to state.
-      return null;
-    }
+    const newQ = (nextProps.params || {}).q;
+    if (prevState.q === newQ) { return null; }
 
-    return { q: nextProps.params.q };
+    return { q: newQ };
   }
 
   render() {

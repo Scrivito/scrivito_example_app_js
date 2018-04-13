@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import isEmpty from 'is-empty';
-import isPlainObject from 'lodash/isPlainObject';
+import { isPlainObject } from 'lodash-es';
 import dataFromAuthor from './SchemaDotOrg/dataFromAuthor';
 import dataFromEvent from './SchemaDotOrg/dataFromEvent';
 import dataFromJob from './SchemaDotOrg/dataFromJob';

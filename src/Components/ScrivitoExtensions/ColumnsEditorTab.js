@@ -1,12 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import Draggable from 'react-draggable';
-import flatten from 'lodash/flatten';
-import isEqual from 'lodash/isEqual';
-import last from 'lodash/last';
-import take from 'lodash/take';
-import takeRight from 'lodash/takeRight';
-import times from 'lodash/times';
+import { flatten, isEqual, last, take, takeRight, times } from 'lodash-es';
 import ColumnWidget from '../../Widgets/ColumnWidget/ColumnWidgetClass';
 
 class ColumnsEditorTab extends React.Component {
@@ -239,6 +234,8 @@ class GridLayoutEditor extends React.Component {
       draggableGrid: 0,
     };
 
+    this.gridRulerRef = React.createRef();
+
     this.adjustNumberOfColumns = this.adjustNumberOfColumns.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.onDragStop = this.onDragStop.bind(this);
@@ -254,7 +251,7 @@ class GridLayoutEditor extends React.Component {
   }
 
   handleResize() {
-    const draggableGrid = this.gridRuler.firstChild.getBoundingClientRect().width + 10;
+    const draggableGrid = this.gridRulerRef.current.firstChild.getBoundingClientRect().width + 10;
 
     if (this.state.draggableGrid !== draggableGrid) {
       this.setState({
@@ -352,7 +349,7 @@ class GridLayoutEditor extends React.Component {
 
     return (
       <div className="gle">
-        <div className="grid-ruler" ref={ e => { this.gridRuler = e; } }>
+        <div className="grid-ruler" ref={ this.gridRulerRef }>
           {
             times(12).map(index =>
               <div key={ index } className="grid-col" />

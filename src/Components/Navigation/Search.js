@@ -4,9 +4,12 @@ import * as Scrivito from 'scrivito';
 const SearchBox = Scrivito.connect(class extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       q: '',
     };
+
+    this.inputRef = React.createRef();
   }
 
   componentDidUpdate() {
@@ -23,7 +26,7 @@ const SearchBox = Scrivito.connect(class extends React.Component {
               placeholder="Search..."
               value={ this.state.q }
               onChange={ e => this.onChange(e) }
-              ref={ input => { this.input = input; } }
+              ref={ this.inputRef }
             />
             <div className="input-group-btn">
               <button
@@ -48,7 +51,7 @@ const SearchBox = Scrivito.connect(class extends React.Component {
 
   initFocus() {
     if (this.props.showSearch) {
-      this.input.focus();
+      this.inputRef.current.focus();
     }
   }
 

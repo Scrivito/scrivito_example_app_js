@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import groupBy from 'lodash/groupBy';
-import truncate from 'lodash/truncate';
+import { groupBy, truncate } from 'lodash-es';
 import BlogPostDate from './BlogPostDate';
 import formatDate from '../../utils/formatDate';
 import InPlaceEditingPlaceholder from '../InPlaceEditingPlaceholder';

@@ -89,7 +89,7 @@ const TwitterPreview = Scrivito.connect(({ obj }) =>
 
     <div className='card twitter_card'>
       <div className='seo_card_preview_img'>
-        <img src={ (lookupMetaData(obj, 'twitter:image')) }/>
+        <OptionalImage src={ (lookupMetaData(obj, 'twitter:image')) } />
       </div>
       <div className='card_text'>
         <h5>{ lookupMetaData(obj, 'twitter:title') }</h5>
@@ -109,7 +109,7 @@ const FacebookPreview = Scrivito.connect(({ obj }) =>
     </div>
     <div className='card fb_card'>
       <div className='seo_card_preview_img'>
-        <img src={ lookupMetaData(obj, 'og:image') }/>
+        <OptionalImage src={ lookupMetaData(obj, 'og:image') } />
       </div>
       <div className='card_text'>
         <h5>{ lookupMetaData(obj, 'og:title') }</h5>
@@ -120,6 +120,12 @@ const FacebookPreview = Scrivito.connect(({ obj }) =>
     </div>
   </div>
 );
+
+function OptionalImage({ src }) {
+  if (!src) { return null; }
+
+  return <img src={ src } />;
+}
 
 function lookupMetaData(obj, value) {
   const metaData = getMetaData(obj);

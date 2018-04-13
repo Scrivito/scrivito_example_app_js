@@ -1,12 +1,7 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import Draggable from 'react-draggable';
-import flatten from 'lodash/flatten';
-import isEqual from 'lodash/isEqual';
-import last from 'lodash/last';
-import take from 'lodash/take';
-import takeRight from 'lodash/takeRight';
-import times from 'lodash/times';
+import { flatten, isEqual, last, take, takeRight, times } from 'lodash-es';
 import ColumnWidget from '../../Widgets/ColumnWidget/ColumnWidgetClass';
 
 class ColumnsEditorTab extends React.Component {

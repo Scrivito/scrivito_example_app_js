@@ -1,5 +1,5 @@
 import * as React from 'react';
-import take from 'lodash/take';
+import { take } from 'lodash-es';
 import fontAwesomeIcons from './fontAwesomeIcons';
 
 class AllIcons extends React.Component {

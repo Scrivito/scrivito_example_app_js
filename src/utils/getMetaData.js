@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import truncate from 'lodash/truncate';
+import { truncate } from 'lodash-es';
 import { textExtractFromObj } from './textExtract';
 import urlFromBinary from './urlFromBinary';
 

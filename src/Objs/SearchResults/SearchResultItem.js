@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Scrivito from 'scrivito';
 import fromNow from 'moment-from-now';
 import Highlighter from 'react-highlight-words';
-import truncate from 'lodash/truncate';
+import { truncate } from 'lodash-es';
 import { textExtractFromObj } from '../../utils/textExtract';
 
 const PreviewImage = Scrivito.connect(({ item }) => {

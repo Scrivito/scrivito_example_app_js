@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import truncate from 'lodash/truncate';
+import { truncate } from 'lodash-es';
 import BlogPostDate from './BlogPostDate';
 import formatDate from '../../utils/formatDate';
 import InPlaceEditingPlaceholder from '../InPlaceEditingPlaceholder';

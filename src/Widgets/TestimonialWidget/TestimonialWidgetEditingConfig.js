@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito';
-import truncate from 'lodash/truncate';
+import { truncate } from 'lodash-es';
 
 Scrivito.provideEditingConfig('TestimonialWidget', {
   title: 'Testimonial',

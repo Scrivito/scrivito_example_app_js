@@ -35,7 +35,7 @@
     "inline-environment-variables-webpack-plugin": "^1.2.1",
     "is-empty": "^1.2.0",
     "jquery": "^3.3.1",
-    "lodash": "^4.17.5",
+    "lodash-es": "^4.17.8",
     "moment-from-now": "0.0.4",
     "node-sass": "^4.8.3",
     "progress-bar-webpack-plugin": "^1.11.0",

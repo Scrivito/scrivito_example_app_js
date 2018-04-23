@@ -50,7 +50,7 @@
     "react-scroll": "^1.7.8",
     "react-slick": "^0.23.1",
     "sass-loader": "^6.0.7",
-    "scrivito": "^1.0.0",
+    "scrivito": "^1.1.0",
     "slick-carousel": "^1.6.0",
     "striptags": "^2.2.1",
     "uglifyjs-webpack-plugin": "^1.2.4",

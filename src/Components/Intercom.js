@@ -16,8 +16,10 @@ class Intercom extends React.Component {
       return rootPage.get('intercomAppId');
     }).then(intercomAppId => {
       if (intercomAppId) {
-        installIntercom(intercomAppId);
-        this.setState({ intercomAppId });
+        Scrivito.finishLoading().then(() => {
+          installIntercom(intercomAppId);
+          this.setState({ intercomAppId });
+        });
       }
     });
   }

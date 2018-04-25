@@ -10,7 +10,7 @@
   "repository": {
     "private": true
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.0.0-beta.46",
     "@babel/preset-env": "^7.0.0-beta.46",
     "@babel/preset-react": "^7.0.0-beta.46",
@@ -64,6 +64,5 @@
     "build": "webpack -p",
     "start": "webpack-dev-server --open",
     "eslint": "eslint --max-warnings 1 src/"
-  },
-  "dependencies": {}
+  }
 }

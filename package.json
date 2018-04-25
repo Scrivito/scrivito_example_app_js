@@ -10,7 +10,7 @@
   "repository": {
     "private": true
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.0.0-beta.46",
     "@babel/preset-env": "^7.0.0-beta.46",
     "@babel/preset-react": "^7.0.0-beta.46",
@@ -35,7 +35,7 @@
     "inline-environment-variables-webpack-plugin": "^1.2.1",
     "is-empty": "^1.2.0",
     "jquery": "^3.3.1",
-    "lodash-es": "^4.17.8",
+    "lodash-es": "^4.17.10",
     "moment-from-now": "0.0.4",
     "node-sass": "^4.8.3",
     "progress-bar-webpack-plugin": "^1.11.0",
@@ -64,6 +64,5 @@
     "build": "webpack -p",
     "start": "webpack-dev-server --open",
     "eslint": "eslint --max-warnings 1 src/"
-  },
-  "dependencies": {}
+  }
 }

@@ -152,22 +152,17 @@ const PresetGrid = Scrivito.connect(({ currentGrid, adjustGrid, title, grid }) =
 });
 
 const Alignment = Scrivito.connect(({ widget }) => {
-  const topAlignmentClasses = ['gle-preview'];
+  const startAlignmentClasses = ['gle-preview'];
   const centerAlignmentClasses = ['gle-preview'];
-  const bottomAlignmentClasses = ['gle-preview'];
-  const fullHeightAlignmentClasses = ['gle-preview'];
+  const endAlignmentClasses = ['gle-preview'];
+  const stretchAlignmentClasses = ['gle-preview'];
 
-  if (widget.get('alignment') === 'start') {
-    topAlignmentClasses.push('active');
-  }
-  if (widget.get('alignment') === 'center') {
-    centerAlignmentClasses.push('active');
-  }
-  if (widget.get('alignment') === 'end') {
-    bottomAlignmentClasses.push('active');
-  }
-  if (widget.get('alignment') === 'stretch') {
-    fullHeightAlignmentClasses.push('active');
+  switch (widget.get('alignment')) {
+    case 'start': startAlignmentClasses.push('active'); break;
+    case 'center': centerAlignmentClasses.push('active'); break;
+    case 'end': endAlignmentClasses.push('active'); break;
+    case 'stretch': stretchAlignmentClasses.push('active'); break;
+    default: startAlignmentClasses.push('active'); break;
   }
 
   return (
@@ -180,7 +175,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
           <div className="gle-preview-group">
 
             <div
-              className={ topAlignmentClasses.join(' ') }
+              className={ startAlignmentClasses.join(' ') }
               title="content top aligned"
               onClick={ () => widget.update({ alignment: 'start' }) }
             >
@@ -200,7 +195,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
             </div>
 
             <div
-              className={ bottomAlignmentClasses.join(' ') }
+              className={ endAlignmentClasses.join(' ') }
               title="content bottom aligned"
               onClick={ () => widget.update({ alignment: 'end' }) }
             >
@@ -210,7 +205,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
             </div>
 
             <div
-              className={ fullHeightAlignmentClasses.join(' ') }
+              className={ stretchAlignmentClasses.join(' ') }
               title="content full height"
               onClick={ () => widget.update({ alignment: 'stretch' }) }
             >

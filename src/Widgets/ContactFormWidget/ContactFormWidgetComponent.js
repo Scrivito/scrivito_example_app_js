@@ -7,16 +7,16 @@ https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-
 */
 
 Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
-  let classNames = 'row';
+  const classNames = ['row'];
 
   if (widget.get('backgroundColor') === 'transparent') {
-    classNames += ' card-white-transparent';
+    classNames.push('card-white-transparent');
   } else {
-    classNames += ' floating-label card-theme card card-padding';
+    classNames.push('floating-label', 'card-theme', 'card', 'card-padding');
   }
 
   return (
-    <div className={ classNames }>
+    <div className={ classNames.join(' ') }>
       <form className="row" method="post">
         <input
           type="hidden"

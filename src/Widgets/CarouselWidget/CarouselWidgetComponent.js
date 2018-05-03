@@ -18,13 +18,13 @@ Scrivito.provideComponent('CarouselWidget', ({ widget }) => {
 
   return (
     <div>
-      <ConnectedCarouselComponent images={ images }/>
+      <Carousel images={ images }/>
       <DescriptionBox widget={ widget } />
     </div>
   );
 });
 
-class CarouselComponent extends React.Component {
+class BaseCarousel extends React.Component {
   constructor(props) {
     super(props);
 
@@ -79,7 +79,7 @@ class CarouselComponent extends React.Component {
   }
 }
 
-const ConnectedCarouselComponent = Scrivito.connect(CarouselComponent);
+const Carousel = Scrivito.connect(BaseCarousel);
 
 function DescriptionBox({ widget }) {
   if (widget.get('showDescription') !== 'yes') {

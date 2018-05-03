@@ -32,17 +32,31 @@ class BaseCarousel extends React.Component {
 
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
+    this.onExiting = this.onExiting.bind(this);
+    this.onExited = this.onExited.bind(this);
   }
 
   next() {
+    if (this.animating) { return; }
+
     const nextIndex = (this.state.activeIndex + 1) % this.props.images.length;
     this.setState({ activeIndex: nextIndex });
   }
 
   previous() {
+    if (this.animating) { return; }
+
     let previousIndex = (this.state.activeIndex - 1) % this.props.images.length;
     if (previousIndex < 0) { previousIndex = (this.props.images.length - 1); }
     this.setState({ activeIndex: previousIndex });
+  }
+
+  onExiting() {
+    this.animating = true;
+  }
+
+  onExited() {
+    this.animating = false;
   }
 
   render() {
@@ -58,7 +72,11 @@ class BaseCarousel extends React.Component {
         {
           images.map((image, index) => {
             return (
-              <ReactstrapCarouselItem key={ `${image.id()}${index}` }>
+              <ReactstrapCarouselItem
+                onExiting={ this.onExiting }
+                onExited={ this.onExited }
+                key={ `${image.id()}${index}` }
+              >
                 <Scrivito.ImageTag content={ image } alt={ image.get('alternativeText') } />
               </ReactstrapCarouselItem>
             );

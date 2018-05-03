@@ -81,7 +81,7 @@ class BaseCarousel extends React.Component {
 
 const Carousel = Scrivito.connect(BaseCarousel);
 
-function DescriptionBox({ widget }) {
+const DescriptionBox = Scrivito.connect(({ widget }) => {
   if (widget.get('showDescription') !== 'yes') {
     return null;
   }
@@ -98,4 +98,4 @@ function DescriptionBox({ widget }) {
       </div>
     </div>
   );
-}
+});

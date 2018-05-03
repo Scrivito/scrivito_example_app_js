@@ -40,9 +40,9 @@ class BaseCarousel extends React.Component {
   }
 
   previous() {
-    let nextIndex = (this.state.activeIndex - 1) % this.props.images.length;
-    nextIndex = nextIndex < 0 ? (this.props.images.length - 1) : nextIndex;
-    this.setState({ activeIndex: nextIndex });
+    let previousIndex = (this.state.activeIndex - 1) % this.props.images.length;
+    if (previousIndex < 0) { previousIndex = (this.props.images.length - 1); }
+    this.setState({ activeIndex: previousIndex });
   }
 
   render() {

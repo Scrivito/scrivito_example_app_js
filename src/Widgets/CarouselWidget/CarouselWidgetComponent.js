@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as Scrivito from 'scrivito';
-import Carousel from 'reactstrap/lib/Carousel';
-import CarouselControl from 'reactstrap/lib/CarouselControl';
-import CarouselItem from 'reactstrap/lib/CarouselItem';
+import ReactstrapCarousel from 'reactstrap/lib/Carousel';
+import ReactstrapCarouselControl from 'reactstrap/lib/CarouselControl';
+import ReactstrapCarouselItem from 'reactstrap/lib/CarouselItem';
 import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
 
 Scrivito.provideComponent('CarouselWidget', ({ widget }) => {
@@ -49,7 +49,7 @@ class CarouselComponent extends React.Component {
     const { images } = this.props;
 
     return (
-      <Carousel
+      <ReactstrapCarousel
         activeIndex={ this.state.activeIndex }
         next={ this.next }
         previous={ this.previous }
@@ -58,23 +58,23 @@ class CarouselComponent extends React.Component {
         {
           images.map((image, index) => {
             return (
-              <CarouselItem key={ `${image.id()}${index}` }>
+              <ReactstrapCarouselItem key={ `${image.id()}${index}` }>
                 <Scrivito.ImageTag content={ image } alt={ image.get('alternativeText') } />
-              </CarouselItem>
+              </ReactstrapCarouselItem>
             );
           })
         }
-        <CarouselControl
+        <ReactstrapCarouselControl
           direction="prev"
           directionText="Previous"
           onClickHandler={ this.previous }
         />
-        <CarouselControl
+        <ReactstrapCarouselControl
           direction="next"
           directionText="Next"
           onClickHandler={ this.next }
         />
-      </Carousel>
+      </ReactstrapCarousel>
     );
   }
 }

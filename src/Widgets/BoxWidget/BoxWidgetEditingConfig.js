@@ -6,11 +6,11 @@ Scrivito.provideEditingConfig('BoxWidget', {
   thumbnail: `/${boxWidgetIcon}`,
   attributes: {
     boxStyle: {
-      title: 'Visual style of box widget',
-      description: 'Different style for appearance. Default: transparent',
+      title: 'Background color',
+      description: 'Default: Transparent',
       values: [
-        { value: 'white', title: 'white background' },
-        { value: 'transparent', title: 'transparent' },
+        { value: 'transparent', title: 'Transparent' },
+        { value: 'white', title: 'White with border' },
       ],
     },
     useOffset: {

@@ -4,7 +4,7 @@ import * as Scrivito from 'scrivito';
 Scrivito.provideComponent('BoxWidget', ({ widget }) => {
   const classNames = ['card'];
 
-  if (widget.get('boxStyle') !== 'card') {
+  if (widget.get('boxStyle') !== 'white') {
     classNames.push('card-theme');
   }
 

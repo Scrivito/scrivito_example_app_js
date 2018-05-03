@@ -9,8 +9,8 @@ Scrivito.provideEditingConfig('BoxWidget', {
       title: 'Visual style of box widget',
       description: 'Different style for appearance. Default: transparent',
       values: [
-        { value: 'card', title: 'white background' },
-        { value: 'card-theme', title: 'transparent' },
+        { value: 'white', title: 'white background' },
+        { value: 'transparent', title: 'transparent' },
       ],
     },
     useOffset: {
@@ -27,7 +27,7 @@ Scrivito.provideEditingConfig('BoxWidget', {
     'useOffset',
   ],
   initialContent: {
-    boxStyle: 'card-theme',
+    boxStyle: 'transparent',
     useOffset: 'no',
   },
 });

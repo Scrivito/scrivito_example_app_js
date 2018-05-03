@@ -5,7 +5,7 @@ Scrivito.provideEditingConfig('BoxWidget', {
   title: 'Box',
   thumbnail: `/${boxWidgetIcon}`,
   attributes: {
-    cardStyle: {
+    boxStyle: {
       title: 'Visual style of box widget',
       description: 'Different style for appearance. Default: transparent',
       values: [
@@ -23,11 +23,11 @@ Scrivito.provideEditingConfig('BoxWidget', {
     },
   },
   properties: [
-    'cardStyle',
+    'boxStyle',
     'useOffset',
   ],
   initialContent: {
-    cardStyle: 'card-theme',
+    boxStyle: 'card-theme',
     useOffset: 'no',
   },
 });

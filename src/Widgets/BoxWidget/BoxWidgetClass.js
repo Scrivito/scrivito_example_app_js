@@ -4,7 +4,7 @@ import { registerTextExtract } from '../../utils/textExtractRegistry';
 const BoxWidget = Scrivito.provideWidgetClass('BoxWidget', {
   attributes: {
     body: 'widgetlist',
-    cardStyle: ['enum', { values: ['card-theme', 'card'] }],
+    boxStyle: ['enum', { values: ['card-theme', 'card'] }],
     useOffset: ['enum', { values: ['yes', 'no'] }],
   },
 });

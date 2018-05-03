@@ -18,7 +18,7 @@ class ColumnsEditorTab extends React.Component {
   render() {
     return (
       <div className="scrivito_detail_content">
-        <VerticalAlignment widget={ this.props.widget } />
+        <Alignment widget={ this.props.widget } />
         <div className="scrivito_detail_label">
           <span>Layout (desktop)</span>
         </div>
@@ -151,44 +151,72 @@ const PresetGrid = Scrivito.connect(({ currentGrid, adjustGrid, title, grid }) =
   );
 });
 
-const VerticalAlignment = Scrivito.connect(({ widget }) => {
-  const topAlignmentClasses = ['gle-preview'];
-  const middleAlignmentClasses = ['gle-preview'];
+const Alignment = Scrivito.connect(({ widget }) => {
+  const startAlignmentClasses = ['gle-preview'];
+  const centerAlignmentClasses = ['gle-preview'];
+  const endAlignmentClasses = ['gle-preview'];
+  const stretchAlignmentClasses = ['gle-preview'];
 
-  if (widget.get('verticallyAligned') === 'yes') {
-    middleAlignmentClasses.push('active');
-  } else {
-    topAlignmentClasses.push('active');
+  switch (widget.get('alignment')) {
+    case 'start': startAlignmentClasses.push('active'); break;
+    case 'center': centerAlignmentClasses.push('active'); break;
+    case 'end': endAlignmentClasses.push('active'); break;
+    case 'stretch': stretchAlignmentClasses.push('active'); break;
+    default: startAlignmentClasses.push('active'); break;
   }
 
   return (
     <React.Fragment>
       <div className="scrivito_detail_label">
-        <span>Vertical alignment</span>
+        <span>Alignment</span>
       </div>
       <div className="item_content">
         <div className="gle-preview-list">
           <div className="gle-preview-group">
+
             <div
-              className={ topAlignmentClasses.join(' ') }
-              title="content top aligned"
-              onClick={ () => widget.update({ verticallyAligned: 'no' }) }
+              className={ startAlignmentClasses.join(' ') }
+              title="Content top aligned"
+              onClick={ () => widget.update({ alignment: 'start' }) }
             >
               <div className="grid-col-12">
                 <span className="alignment"></span>
               </div>
             </div>
+
             <div
-              className={ middleAlignmentClasses.join(' ') }
-              title="content middle aligned"
-              onClick={ () => widget.update({ verticallyAligned: 'yes' }) }
+              className={ centerAlignmentClasses.join(' ') }
+              title="Content center aligned"
+              onClick={ () => widget.update({ alignment: 'center' }) }
             >
               <div className="grid-col-12">
-                <span className="alignment middle"></span>
+                <span className="alignment center"></span>
               </div>
             </div>
+
+            <div
+              className={ endAlignmentClasses.join(' ') }
+              title="Content bottom aligned"
+              onClick={ () => widget.update({ alignment: 'end' }) }
+            >
+              <div className="grid-col-12">
+                <span className="alignment bottom"></span>
+              </div>
+            </div>
+
+            <div
+              className={ stretchAlignmentClasses.join(' ') }
+              title="Content stretch (full height) aligned"
+              onClick={ () => widget.update({ alignment: 'stretch' }) }
+            >
+              <div className="grid-col-12">
+                <span className="alignment fullHeight"></span>
+              </div>
+            </div>
+
           </div>
         </div>
+        <AlignmentDescription alignment={ widget.get('alignment') } />
       </div>
     </React.Fragment>
   );
@@ -365,4 +393,14 @@ function adjustColSize(columns, newGrid) {
   newGrid.forEach((colSize, index) => {
     columns[index].update({ colSize });
   });
+}
+
+function AlignmentDescription({ alignment }) {
+  if (alignment !== 'stretch') { return null; }
+
+  return (
+    <div className="scrivito_notice_body">
+      Stretch (full height) only works with one box widget inside a column.
+    </div>
+  );
 }

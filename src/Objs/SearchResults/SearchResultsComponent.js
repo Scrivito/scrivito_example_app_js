@@ -54,7 +54,7 @@ class SearchResultsComponent extends React.Component {
 
         <section className="bg-white">
           <div className="container">
-            <h1 className="h2 border-bottom">
+            <h1 className="h2 b-bottom text-center">
               { totalCount } search result{ totalCount !== 1 && 's' }
             </h1>
             <SearchResultsTagList tags={ tags } params={ this.props.params } />

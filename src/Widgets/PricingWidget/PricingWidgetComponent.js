@@ -17,7 +17,7 @@ Scrivito.provideComponent('PricingWidget', ({ widget }) => {
 
   return (
     <div className="row charts">
-      <div className="col-md-4">
+      <div className="col-lg-4">
         <div className="chart first">
           <Scrivito.ContentTag
             content={ widget }
@@ -40,11 +40,11 @@ Scrivito.provideComponent('PricingWidget', ({ widget }) => {
             />
           </div>
           <Scrivito.ContentTag content={ widget } attribute="smallPlanSpecs" className="specs" />
-          <PlanButton target={ widget.get('smallPlanButton') } className="btn-default" />
+          <PlanButton target={ widget.get('smallPlanButton') } className="btn-light" />
         </div>
       </div>
 
-      <div className="col-md-4">
+      <div className="col-lg-4">
         <div className="chart featured">
           <Scrivito.ContentTag
             content={ widget }
@@ -71,7 +71,7 @@ Scrivito.provideComponent('PricingWidget', ({ widget }) => {
           <PlanButton target={ widget.get('mediumPlanButton') } className="btn-primary" />
         </div>
       </div>
-      <div className="col-md-4">
+      <div className="col-lg-4">
         <div className="chart last">
           <Scrivito.ContentTag content={ widget } attribute="largePlanName" className="plan-name"/>
           <div className="quantity">
@@ -90,7 +90,7 @@ Scrivito.provideComponent('PricingWidget', ({ widget }) => {
             />
           </div>
           <Scrivito.ContentTag content={ widget } attribute="largePlanSpecs" className="specs" />
-          <PlanButton target={ widget.get('largePlanButton') } className="btn-default" />
+          <PlanButton target={ widget.get('largePlanButton') } className="btn-light" />
         </div>
       </div>
     </div>

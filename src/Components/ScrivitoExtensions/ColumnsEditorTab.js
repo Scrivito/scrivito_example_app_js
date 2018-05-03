@@ -18,7 +18,7 @@ class ColumnsEditorTab extends React.Component {
   render() {
     return (
       <div className="scrivito_detail_content">
-        <VerticalAlignment widget={ this.props.widget } />
+        <Alignment widget={ this.props.widget } />
         <div className="scrivito_detail_label">
           <span>Layout (desktop)</span>
         </div>
@@ -151,7 +151,7 @@ const PresetGrid = Scrivito.connect(({ currentGrid, adjustGrid, title, grid }) =
   );
 });
 
-const VerticalAlignment = Scrivito.connect(({ widget }) => {
+const Alignment = Scrivito.connect(({ widget }) => {
   const topAlignmentClasses = ['gle-preview'];
   const centerAlignmentClasses = ['gle-preview'];
   const bottomAlignmentClasses = ['gle-preview'];

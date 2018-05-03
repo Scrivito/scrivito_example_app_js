@@ -168,7 +168,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
   return (
     <React.Fragment>
       <div className="scrivito_detail_label">
-        <span>Vertical alignment or equal height for box widgets</span>
+        <span>Alignment</span>
       </div>
       <div className="item_content">
         <div className="gle-preview-list">
@@ -176,7 +176,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
 
             <div
               className={ startAlignmentClasses.join(' ') }
-              title="content top aligned"
+              title="Content top aligned"
               onClick={ () => widget.update({ alignment: 'start' }) }
             >
               <div className="grid-col-12">
@@ -186,7 +186,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
 
             <div
               className={ centerAlignmentClasses.join(' ') }
-              title="content middle aligned"
+              title="Content center aligned"
               onClick={ () => widget.update({ alignment: 'center' }) }
             >
               <div className="grid-col-12">
@@ -196,7 +196,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
 
             <div
               className={ endAlignmentClasses.join(' ') }
-              title="content bottom aligned"
+              title="Content bottom aligned"
               onClick={ () => widget.update({ alignment: 'end' }) }
             >
               <div className="grid-col-12">
@@ -206,7 +206,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
 
             <div
               className={ stretchAlignmentClasses.join(' ') }
-              title="content full height"
+              title="Content stretch (full height) aligned"
               onClick={ () => widget.update({ alignment: 'stretch' }) }
             >
               <div className="grid-col-12">
@@ -216,6 +216,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
 
           </div>
         </div>
+        <AlignmentDescription alignment={ widget.get('alignment') } />
       </div>
     </React.Fragment>
   );
@@ -392,4 +393,14 @@ function adjustColSize(columns, newGrid) {
   newGrid.forEach((colSize, index) => {
     columns[index].update({ colSize });
   });
+}
+
+function AlignmentDescription({ alignment }) {
+  if (alignment !== 'stretch') { return null; }
+
+  return (
+    <div className="scrivito_notice_body">
+      Stretch (full height) only works with one box widget inside a column.
+    </div>
+  );
 }

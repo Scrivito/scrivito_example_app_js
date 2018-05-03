@@ -2,12 +2,10 @@ import * as React from 'react';
 import * as Scrivito from 'scrivito';
 
 Scrivito.provideComponent('BoxWidget', ({ widget }) => {
-  const classNames = [];
+  const classNames = ['card'];
 
-  if (widget.get('boxStyle') === 'card') {
-    classNames.push('card');
-  } else {
-    classNames.push('card card-theme');
+  if (widget.get('boxStyle') !== 'card') {
+    classNames.push('card-theme');
   }
 
   if (widget.get('useOffset') === 'yes') {

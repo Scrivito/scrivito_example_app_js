@@ -83,7 +83,7 @@ class ThumbnailGalleryComponent extends React.Component {
           currentTag={ this.state.currentTag }
           setTag={ this.setTag }
         />
-        <div className="">
+        <div>
           <div className="row gallery-box-wrapper">
             {
               images.map((image, imageIndex) =>

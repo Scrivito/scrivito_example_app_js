@@ -8,28 +8,29 @@ https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-
 
 Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
   const classNames = ['row'];
+
   if (widget.get('backgroundColor') === 'transparent') {
-    classNames.push('panel-white-transparent');
+    classNames.push('card-white-transparent');
   } else {
-    classNames.push('floating-label', 'panel', 'panel-padding');
+    classNames.push('floating-label', 'card-theme', 'card', 'card-padding');
   }
 
   return (
     <div className={ classNames.join(' ') }>
-      <form method="post">
+      <form className="row" method="post">
         <input
           type="hidden"
           name="form-name"
           value="contact"
         />
-        <div className="hidden">
+        <div className="d-none">
           <label>Don’t fill this out: <input name="bot-field" /></label>
         </div>
         <div className="col-sm-6">
           <div className="form-group">
             <label htmlFor="contactName">Your name</label>
             <input
-              className="form-control input-lg"
+              className="form-control form-control-lg"
               id="contactName"
               name="contactName"
               placeholder="Name"
@@ -42,7 +43,7 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
           <div className="form-group">
             <label htmlFor="contactFamilyName">Family name</label>
             <input
-              className="form-control input-lg"
+              className="form-control form-control-lg"
               id="contactFamilyName"
               name="contactFamilyName"
               placeholder="Family name"
@@ -55,7 +56,7 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
           <div className="form-group">
             <label htmlFor="contactEmail">Email address</label>
             <input
-              className="form-control input-lg"
+              className="form-control form-control-lg"
               id="contactEmail"
               name="contactEmail"
               placeholder="Email"
@@ -68,7 +69,7 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
           <div className="form-group">
             <label htmlFor="contactCompany">Company (optional)</label>
             <input
-              className="form-control input-lg"
+              className="form-control form-control-lg"
               id="contactCompany"
               name="contactCompany"
               placeholder="Company"
@@ -80,7 +81,7 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
           <div className="form-group">
             <label htmlFor="contactMessage">Message</label>
             <textarea
-              className="form-control input-lg"
+              className="form-control form-control-lg"
               rows="3"
               id="contactMessage"
               name="contactMessage"
@@ -89,14 +90,16 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
             />
           </div>
           {
-            widget.get('agreementText') && <div className="checkbox">
-              <label>
-                <input
-                  type="checkbox"
-                  name="contactAgreement"
-                  value={ widget.get('agreementText') }
-                  required
-                />
+            widget.get('agreementText') && <div className="form-group form-check">
+              <input
+                className="form-check-input"
+                id="agreementTextCheck"
+                type="checkbox"
+                name="contactAgreement"
+                value={ widget.get('agreementText') }
+                required
+              />
+              <label className="form-check-label" htmlFor="agreementTextCheck">
                 { widget.get('agreementText') }
               </label>
             </div>

@@ -14,7 +14,7 @@ function AuthorImage({ image }) {
 
   return (
     <Scrivito.BackgroundImageTag
-      className="img-circle"
+      className="rounded-circle"
       style={
         {
           background: { image },

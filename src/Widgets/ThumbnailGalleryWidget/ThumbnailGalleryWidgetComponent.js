@@ -83,8 +83,8 @@ class ThumbnailGalleryComponent extends React.Component {
           currentTag={ this.state.currentTag }
           setTag={ this.setTag }
         />
-        <div className="row">
-          <div className="gallery-box-wrapper">
+        <div>
+          <div className="row gallery-box-wrapper">
             {
               images.map((image, imageIndex) =>
                 <Thumbnail
@@ -121,7 +121,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   const image = widget.get('image');
   const tags = widget.get('tags');
 
-  const classNames = ['col-md-3', 'col-sm-4', 'col-xs-6', 'gallery-box', 'gutter0'];
+  const classNames = ['col-md-3', 'col-sm-4', 'col-6', 'gallery-box', 'gutter0'];
   if (currentTag && tags.includes(currentTag)) { classNames.push('squeezed'); }
 
   return (

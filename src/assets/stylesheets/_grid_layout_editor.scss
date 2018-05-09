@@ -99,9 +99,42 @@
   margin-top: 4px;
   width: 65%;
 }
-.gle-preview > [class*="grid-col-"] .alignment.middle {
+.gle-preview > [class*="grid-col-"] .alignment.center {
   margin: 8px 2px 2px 2px;
 }
+.gle-preview > [class*="grid-col-"] .alignment.bottom {
+  margin: 12px 2px 2px 2px;
+}
+.gle-preview > [class*="grid-col-"] .alignment.fullHeight {
+  background: rgba(222,222,222,.6);
+  box-shadow: 0 0 0 1px #888 inset;
+  margin: 2px; position: relative;
+  height: 81%;
+}
+
+
+.gle-preview > [class*="grid-col-"] .alignment.fullHeight:before {
+  content: '';
+  background: transparent;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 4px;
+  border-bottom-color: #777;
+  width: 0; margin: 0;
+  position: absolute; top: -1px; left: 11px;
+}
+
+.gle-preview > [class*="grid-col-"] .alignment.fullHeight:after {
+  content: '';
+  background: transparent;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 4px;
+  border-top-color: #777;
+  width: 0; margin: 0;
+  position: absolute; bottom: -1px; left: 11px;
+}
+
 
 /* -- grid layout editor - editor -- */
 

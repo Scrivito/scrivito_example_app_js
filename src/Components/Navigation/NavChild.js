@@ -54,7 +54,7 @@ class BaseNavChild extends React.Component {
 const NavChild = Scrivito.connect(BaseNavChild);
 
 const NavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
-  const classNames = [];
+  const classNames = ['nav-item'];
   if (open) { classNames.push('open'); }
   if (isActive(child)) { classNames.push('active'); }
 
@@ -63,7 +63,7 @@ const NavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
       className={ classNames.join(' ') }
       { ...otherProps }
     >
-      <Scrivito.LinkTag to={ child }>
+      <Scrivito.LinkTag to={ child } className="nav-link">
         { child.get('title') || '<untitled>' }
       </Scrivito.LinkTag>
     </li>
@@ -71,7 +71,7 @@ const NavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
 });
 
 const Dropdown = Scrivito.connect(({ child, open, toggleDropdown, ...otherProps }) => {
-  const classNames = [];
+  const classNames = ['nav-item'];
   if (open) { classNames.push('open'); }
   if (isActive(child)) { classNames.push('active'); }
 
@@ -79,7 +79,7 @@ const Dropdown = Scrivito.connect(({ child, open, toggleDropdown, ...otherProps 
     <li className={ classNames.join(' ') } { ...otherProps } >
       <Scrivito.LinkTag
         to={ child }
-        className="dropdown-toggle"
+        className="nav-link"
         role="button"
         aria-haspopup="true"
         aria-expanded={ open }

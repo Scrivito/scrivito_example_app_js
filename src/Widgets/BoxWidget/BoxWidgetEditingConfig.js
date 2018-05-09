@@ -5,6 +5,14 @@ Scrivito.provideEditingConfig('BoxWidget', {
   title: 'Box',
   thumbnail: `/${boxWidgetIcon}`,
   attributes: {
+    boxStyle: {
+      title: 'Background color',
+      description: 'Default: Transparent',
+      values: [
+        { value: 'transparent', title: 'Transparent' },
+        { value: 'white', title: 'White with border' },
+      ],
+    },
     useOffset: {
       title: 'Use offset?',
       description: 'If so, the box will move "up". Default: No',
@@ -15,9 +23,11 @@ Scrivito.provideEditingConfig('BoxWidget', {
     },
   },
   properties: [
+    'boxStyle',
     'useOffset',
   ],
   initialContent: {
+    boxStyle: 'transparent',
     useOffset: 'no',
   },
 });

@@ -9,7 +9,7 @@ Scrivito.provideComponent('HeadlineWidget', ({ widget }) => {
     classNames.push(`text-${widget.get('alignment')}`);
   }
   if (widget.get('showDividingLine') === 'yes') {
-    classNames.push('border-bottom');
+    classNames.push('b-bottom');
   }
   if (widget.get('showMargin') === 'no') {
     classNames.push('no-margin');

@@ -58,13 +58,15 @@ $slick-font-path: "~slick-carousel/slick/fonts/";
 ================================================== */
 @import "_colors";
 @import "bootstrap/bootstrap";
-@import "_fontawesome";
 @import "_social_cards";
 @import "_grid_layout_editor";
 @import "_icon_editor";
 
+/* fonts
+================================================== */
+@import "_fontawesome";
 @import "_pt_sans_narrow";
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700");
+@import "_source_sans_pro";
 
 /* gutter with zero space
 ================================================== */

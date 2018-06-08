@@ -63,7 +63,8 @@ $slick-font-path: "~slick-carousel/slick/fonts/";
 @import "_grid_layout_editor";
 @import "_icon_editor";
 
-@import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Source+Sans+Pro:300,400,600,700");
+@import "_pt_sans_narrow";
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700");
 
 /* gutter with zero space
 ================================================== */

@@ -6,15 +6,21 @@ import SchemaDotOrg from '../../Components/SchemaDotOrg';
 
 Scrivito.provideComponent('Event', ({ page }) =>
   <div>
-    <section className="bg-white">
+    <section className="title-bgc">
       <div className="container">
-        <Scrivito.ContentTag tag="h1" className="h2" content={ page } attribute="title" />
-        <h2 className="h4">
-          <i className="fa fa-calendar fa-lg" aria-hidden="true" title="date" />
-          { ' ' }
-          <EventDate date={ page.get('date') } />
-        </h2>
-        <EventLocation event={ page } />
+        <div className="row">
+            <div className="col-lg-8 d-flex align-items-center">
+                <Scrivito.ContentTag tag="h1" className="h2" content={ page } attribute="title" />
+            </div>
+            <div className="col-lg-4 details-title-box">
+                <h2 className="h5">
+                  <i className="fa fa-calendar fa-lg" aria-hidden="true" title="date" />
+                  { ' ' }
+                  <EventDate date={ page.get('date') } />
+                  <EventLocation event={ page } />
+                </h2>
+            </div>
+        </div>
       </div>
     </section>
     <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
@@ -57,12 +63,12 @@ const EventLocation = Scrivito.connect(({ event }) => {
 
   return (
     <React.Fragment>
-      <h2 className="h4">
-        <i className="fa fa-map-marker fa-lg" aria-hidden="true" title="location" />
-        { ' ' }
-        Location
-      </h2>
-      <div>
+      <div className="location-title">
+          <h2 className="h5 font-weight-bold">
+              <i className="fa fa-map-marker fa-lg" aria-hidden="true" title="location" />
+              { ' ' }
+              Location
+          </h2>
         { address.map((line, index) => <span key={ index }>{ line } <br /></span>) }
       </div>
     </React.Fragment>

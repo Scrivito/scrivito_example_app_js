@@ -7,17 +7,22 @@ import SchemaDotOrg from '../../Components/SchemaDotOrg';
 Scrivito.provideComponent('Job', ({ page }) => {
   return (
     <div>
-      <section className="bg-white">
+      <section className="title-bgc">
         <div className="container">
-          <JobDatePosted datePosted={ page.get('datePosted') } />
-          <Scrivito.ContentTag tag="h1" className="h2" content={ page } attribute="title" />
-          <JobLocation job={ page } />
-          <JobValidThrough validThrough={ page.get('validThrough') } />
-          <JobEmploymentTypes employmentTypes={ page.get('employmentType') }/>
+            <div className="row">
+              <div className="col-lg-7">
+                <JobDatePosted datePosted={ page.get('datePosted') } />
+                <Scrivito.ContentTag tag="h1" className="h2" content={ page } attribute="title" />
+            </div>
+            <div className="col-lg-5 details-title-box">
+                <JobLocation job={ page } />
+                <JobEmploymentTypes employmentTypes={ page.get('employmentType') }/>
+                <JobValidThrough validThrough={ page.get('validThrough') } />
+            </div>
+          </div>
         </div>
       </section>
       <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
-
       <SchemaDotOrg content={ page } />
     </div>
   );

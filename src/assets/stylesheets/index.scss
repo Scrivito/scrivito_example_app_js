@@ -463,6 +463,38 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 }
 
+/* titles of modules
+=================================================================== */
+
+.title-bgc {
+  background-color: $secondary;
+  padding: 3rem;
+  h1 {
+    color: white;
+  }
+  span {
+    color: white;
+  }
+}
+
+.details-title-box {
+  i.fa {
+    margin-right: 10px;
+    font-size: 15px;
+    color: white;
+  }
+  h2 {
+    color: white;
+  }
+  .location-title {
+    margin-top: 10px;
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
 /* sections
 =================================================================== */
 

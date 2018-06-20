@@ -6,18 +6,7 @@ class SearchInput extends React.Component {
     super(props);
 
     this.state = {
-      q: props.params.q,
-    };
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    const prevPropsQ = prevState.prevPropsQ;
-    const nextPropsQ = nextProps.params && nextProps.params.q;
-    if (prevPropsQ === nextPropsQ) { return null; }
-
-    return {
-      prevPropsQ: nextPropsQ,
-      q: nextPropsQ,
+      q: props.params.q || '',
     };
   }
 

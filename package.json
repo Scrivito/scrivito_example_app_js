@@ -21,7 +21,7 @@
     "core-js": "^2.5.6",
     "css-loader": "^0.28.11",
     "dateformat": "^3.0.3",
-    "dotenv": "^5.0.1",
+    "dotenv": "^6.0.0",
     "ent": "^2.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",

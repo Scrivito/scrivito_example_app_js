@@ -75,7 +75,7 @@ function PlaceholderOrYoutubeComponent({ youtubeVideoId, width, height }) {
       height={ height }
       src={ `https://www.youtube.com/embed/${youtubeVideoId}` }
       frameBorder="0"
-      gesture="media"
+      allow="autoplay; encrypted-media"
       allowFullScreen="true"
       webkitallowfullscreen="true"
       mozallowfullscreen="true"

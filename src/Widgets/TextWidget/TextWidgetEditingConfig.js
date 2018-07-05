@@ -14,9 +14,14 @@ Scrivito.provideEditingConfig('TextWidget', {
         { value: 'right', title: 'Right' },
       ],
     },
+    text: {
+      title: 'Text',
+      description: 'The actual source code of this text',
+    },
   },
   properties: [
     'alignment',
+    'text',
   ],
   initialContent: {
     alignment: 'left',

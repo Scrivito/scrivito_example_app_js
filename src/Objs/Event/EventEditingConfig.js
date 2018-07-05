@@ -44,12 +44,17 @@ Scrivito.provideEditingConfig('Event', {
       title: 'Country',
       description: 'E.g. USA',
     },
+    title: {
+      title: 'Title',
+      description: 'Limit to 55 characters.',
+    },
     tags: {
       title: 'Tags',
       description: 'Which tags can be associated with this event?',
     },
   },
   properties: [
+    'title',
     'date',
     'locationName',
     'locationStreetAddress',

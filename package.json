@@ -49,7 +49,7 @@
     "react-slick": "^0.23.1",
     "reactstrap": "^6.1.0",
     "sass-loader": "^7.0.3",
-    "scrivito": "^1.1.0",
+    "scrivito": "^1.2.0",
     "slick-carousel": "^1.6.0",
     "striptags": "^2.2.1",
     "uglifyjs-webpack-plugin": "^1.2.5",

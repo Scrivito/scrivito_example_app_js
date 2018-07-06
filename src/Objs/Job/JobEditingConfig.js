@@ -14,8 +14,8 @@ Scrivito.provideEditingConfig('Job', {
   attributes: {
     ...metaDataEditingConfigAttributes,
     title: {
-      title: 'Title',
-      description: 'Limit to 55 characters.',
+      title: 'Job title',
+      description: 'E.g. Software Engineer',
     },
     image: {
       title: 'Image',

@@ -1,7 +1,8 @@
 {
   "plugins": [
     "import",
-    "react",
+    "prettier",
+    "react"
   ],
   "settings": {
     "import/resolver": "webpack",
@@ -45,6 +46,7 @@
     "no-unused-vars": [2, { "args": "all", "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
     "no-use-before-define": 0,
     "object-curly-newline": 0,
+    "prettier/prettier": "error",
     "prefer-destructuring": 0,
     "react/display-name": 0,
     "react/jsx-curly-spacing": [2, "always"],

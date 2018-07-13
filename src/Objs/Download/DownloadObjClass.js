@@ -9,8 +9,6 @@ const Download = Scrivito.provideObjClass('Download', {
   },
 });
 
-registerTextExtract('Download', [
-  { attribute: 'text', type: 'metadata' },
-]);
+registerTextExtract('Download', [{ attribute: 'text', type: 'metadata' }]);
 
 export default Download;

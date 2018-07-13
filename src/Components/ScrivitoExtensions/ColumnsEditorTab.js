@@ -18,7 +18,7 @@ class ColumnsEditorTab extends React.Component {
   render() {
     return (
       <div className="scrivito_detail_content">
-        <Alignment widget={ this.props.widget } />
+        <Alignment widget={this.props.widget} />
         <div className="scrivito_detail_label">
           <span>Layout (desktop)</span>
         </div>
@@ -26,97 +26,99 @@ class ColumnsEditorTab extends React.Component {
           <div className="gle-preview-list">
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="1 column"
-                grid={ [12] }
+                grid={[12]}
               />
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="2 columns"
-                grid={ [6, 6] }
+                grid={[6, 6]}
               />
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="2 columns"
-                grid={ [3, 9] }
+                grid={[3, 9]}
               />
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="2 columns"
-                grid={ [9, 3] }
+                grid={[9, 3]}
               />
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="3 columns"
-                grid={ [4, 4, 4] }
+                grid={[4, 4, 4]}
               />
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="3 columns"
-                grid={ [2, 8, 2] }
+                grid={[2, 8, 2]}
               />
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="3 columns"
-                grid={ [2, 5, 5] }
+                grid={[2, 5, 5]}
               />
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="3 columns"
-                grid={ [5, 5, 2] }
+                grid={[5, 5, 2]}
               />
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="4 columns"
-                grid={ [3, 3, 3, 3] }
+                grid={[3, 3, 3, 3]}
               />
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="4 columns"
-                grid={ [2, 4, 4, 2] }
+                grid={[2, 4, 4, 2]}
               />
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="5 columns"
-                grid={ [2, 2, 2, 2, 4] }
+                grid={[2, 2, 2, 2, 4]}
               />
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid= { this.state.currentGrid }
-                adjustGrid={ this.adjustGrid }
+                currentGrid={this.state.currentGrid}
+                adjustGrid={this.adjustGrid}
                 title="6 columns"
-                grid={ [2, 2, 2, 2, 2, 2] }
+                grid={[2, 2, 2, 2, 2, 2]}
               />
             </div>
           </div>
-          <GridLayoutEditor currentGrid={ this.state.currentGrid } adjustGrid={ this.adjustGrid } />
+          <GridLayoutEditor currentGrid={this.state.currentGrid} adjustGrid={this.adjustGrid} />
         </div>
       </div>
     );
   }
 
   adjustGrid(newGrid) {
-    if (isEqual(this.state.currentGrid, newGrid)) { return; }
+    if (isEqual(this.state.currentGrid, newGrid)) {
+      return;
+    }
 
     const containerWidget = this.props.widget;
 
@@ -137,16 +139,8 @@ const PresetGrid = Scrivito.connect(({ currentGrid, adjustGrid, title, grid }) =
   }
 
   return (
-    <div
-      className={ classNames.join(' ') }
-      title={ title }
-      onClick={ () => adjustGrid(grid) }
-    >
-      {
-        grid.map((colSize, index) =>
-          <div className={ `grid-col-${colSize}` } key={ index } />
-        )
-      }
+    <div className={classNames.join(' ')} title={title} onClick={() => adjustGrid(grid)}>
+      {grid.map((colSize, index) => <div className={`grid-col-${colSize}`} key={index} />)}
     </div>
   );
 });
@@ -158,11 +152,21 @@ const Alignment = Scrivito.connect(({ widget }) => {
   const stretchAlignmentClasses = ['gle-preview'];
 
   switch (widget.get('alignment')) {
-    case 'start': startAlignmentClasses.push('active'); break;
-    case 'center': centerAlignmentClasses.push('active'); break;
-    case 'end': endAlignmentClasses.push('active'); break;
-    case 'stretch': stretchAlignmentClasses.push('active'); break;
-    default: startAlignmentClasses.push('active'); break;
+    case 'start':
+      startAlignmentClasses.push('active');
+      break;
+    case 'center':
+      centerAlignmentClasses.push('active');
+      break;
+    case 'end':
+      endAlignmentClasses.push('active');
+      break;
+    case 'stretch':
+      stretchAlignmentClasses.push('active');
+      break;
+    default:
+      startAlignmentClasses.push('active');
+      break;
   }
 
   return (
@@ -173,50 +177,48 @@ const Alignment = Scrivito.connect(({ widget }) => {
       <div className="item_content">
         <div className="gle-preview-list">
           <div className="gle-preview-group">
-
             <div
-              className={ startAlignmentClasses.join(' ') }
+              className={startAlignmentClasses.join(' ')}
               title="Content top aligned"
-              onClick={ () => widget.update({ alignment: 'start' }) }
+              onClick={() => widget.update({ alignment: 'start' })}
             >
               <div className="grid-col-12">
-                <span className="alignment"></span>
+                <span className="alignment" />
               </div>
             </div>
 
             <div
-              className={ centerAlignmentClasses.join(' ') }
+              className={centerAlignmentClasses.join(' ')}
               title="Content center aligned"
-              onClick={ () => widget.update({ alignment: 'center' }) }
+              onClick={() => widget.update({ alignment: 'center' })}
             >
               <div className="grid-col-12">
-                <span className="alignment center"></span>
+                <span className="alignment center" />
               </div>
             </div>
 
             <div
-              className={ endAlignmentClasses.join(' ') }
+              className={endAlignmentClasses.join(' ')}
               title="Content bottom aligned"
-              onClick={ () => widget.update({ alignment: 'end' }) }
+              onClick={() => widget.update({ alignment: 'end' })}
             >
               <div className="grid-col-12">
-                <span className="alignment bottom"></span>
+                <span className="alignment bottom" />
               </div>
             </div>
 
             <div
-              className={ stretchAlignmentClasses.join(' ') }
+              className={stretchAlignmentClasses.join(' ')}
               title="Content stretch (full height) aligned"
-              onClick={ () => widget.update({ alignment: 'stretch' }) }
+              onClick={() => widget.update({ alignment: 'stretch' })}
             >
               <div className="grid-col-12">
-                <span className="alignment fullHeight"></span>
+                <span className="alignment fullHeight" />
               </div>
             </div>
-
           </div>
         </div>
-        <AlignmentDescription alignment={ widget.get('alignment') } />
+        <AlignmentDescription alignment={widget.get('alignment')} />
       </div>
     </React.Fragment>
   );
@@ -257,7 +259,9 @@ class GridLayoutEditor extends React.Component {
   }
 
   onDragStop({ colIndex, deltaColSize }) {
-    if (deltaColSize === 0) { return; }
+    if (deltaColSize === 0) {
+      return;
+    }
 
     const newGrid = [...this.props.currentGrid];
     newGrid[colIndex] += deltaColSize;
@@ -283,7 +287,7 @@ class GridLayoutEditor extends React.Component {
     const gridColumns = this.props.currentGrid.map((colSize, colIndex) => {
       const innerContent = [
         <div key="grid-label" className="grid-label">
-          { colSize }
+          {colSize}
         </div>,
       ];
 
@@ -295,17 +299,15 @@ class GridLayoutEditor extends React.Component {
         innerContent.unshift(
           <Draggable
             key="grid-handle"
-            bounds={
-              {
-                left: this.state.draggableGrid * leftBound,
-                right: this.state.draggableGrid * rightBound,
-              }
-            }
+            bounds={{
+              left: this.state.draggableGrid * leftBound,
+              right: this.state.draggableGrid * rightBound,
+            }}
             axis="x"
-            grid={ [this.state.draggableGrid, 0] }
-            position={ { x: 0, y: 0 } }
-            onStop={
-              (_e, { x }) => this.onDragStop({
+            grid={[this.state.draggableGrid, 0]}
+            position={{ x: 0, y: 0 }}
+            onStop={(_e, { x }) =>
+              this.onDragStop({
                 colIndex,
                 deltaColSize: Math.round(x / this.state.draggableGrid),
               })
@@ -320,7 +322,7 @@ class GridLayoutEditor extends React.Component {
             key="grid-handle-plus"
             className="grid-handle grid-handle-plus"
             title="add a column"
-            onClick={ () => this.adjustNumberOfColumns(this.props.currentGrid.length + 1) }
+            onClick={() => this.adjustNumberOfColumns(this.props.currentGrid.length + 1)}
           />
         );
       }
@@ -331,30 +333,24 @@ class GridLayoutEditor extends React.Component {
             key="grid-del"
             className="grid-del"
             title="delete column"
-            onClick={ () => this.adjustNumberOfColumns(this.props.currentGrid.length - 1) }
+            onClick={() => this.adjustNumberOfColumns(this.props.currentGrid.length - 1)}
           />
         );
       }
 
       return (
-        <div key={ `grid-col-${colIndex}` } className={ `grid-col-${colSize} noselect` }>
-          { innerContent }
+        <div key={`grid-col-${colIndex}`} className={`grid-col-${colSize} noselect`}>
+          {innerContent}
         </div>
       );
     });
 
     return (
       <div className="gle">
-        <div className="grid-ruler" ref={ this.gridRulerRef }>
-          {
-            times(12).map(index =>
-              <div key={ index } className="grid-col" />
-            )
-          }
+        <div className="grid-ruler" ref={this.gridRulerRef}>
+          {times(12).map(index => <div key={index} className="grid-col" />)}
         </div>
-        <div className="grid-columns">
-          { gridColumns }
-        </div>
+        <div className="grid-columns">{gridColumns}</div>
       </div>
     );
   }
@@ -366,7 +362,9 @@ function gridOfWidget(containerWidget) {
 
 function adjustNumberOfColumns(containerWidget, desiredLength) {
   const columns = containerWidget.get('columns');
-  if (columns.length === desiredLength) { return; }
+  if (columns.length === desiredLength) {
+    return;
+  }
 
   const newColumns = times(desiredLength).map(index => {
     return columns[index] || new ColumnWidget({});
@@ -396,7 +394,9 @@ function adjustColSize(columns, newGrid) {
 }
 
 function AlignmentDescription({ alignment }) {
-  if (alignment !== 'stretch') { return null; }
+  if (alignment !== 'stretch') {
+    return null;
+  }
 
   return (
     <div className="scrivito_notice_body">

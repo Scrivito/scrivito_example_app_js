@@ -11,8 +11,6 @@ const Author = Scrivito.provideObjClass('Author', {
   },
 });
 
-registerTextExtract('Author', [
-  { attribute: 'description', type: 'string' },
-]);
+registerTextExtract('Author', [{ attribute: 'description', type: 'string' }]);
 
 export default Author;

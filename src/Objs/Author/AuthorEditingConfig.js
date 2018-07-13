@@ -22,11 +22,7 @@ Scrivito.provideEditingConfig('Author', {
       title: 'Image',
     },
   },
-  properties: [
-    'title',
-    'description',
-    'image',
-  ],
+  properties: ['title', 'description', 'image'],
   propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],
   initialContent: {
     ...metaDataInitialContent,

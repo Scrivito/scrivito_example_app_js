@@ -23,12 +23,7 @@ const CurrentPageMetaData = Scrivito.connect(() => {
     links.push({ rel: 'canonical', href: Scrivito.urlFor(page) });
   }
 
-  return <Helmet
-    meta={ meta }
-    htmlAttributes={ htmlAttributes }
-    title={ title }
-    link={ links }
-  />;
+  return <Helmet meta={meta} htmlAttributes={htmlAttributes} title={title} link={links} />;
 });
 
 export default CurrentPageMetaData;

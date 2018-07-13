@@ -4,23 +4,22 @@ import formatDate from '../../utils/formatDate';
 import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
 import SchemaDotOrg from '../../Components/SchemaDotOrg';
 
-Scrivito.provideComponent('Event', ({ page }) =>
+Scrivito.provideComponent('Event', ({ page }) => (
   <div>
     <section className="bg-white">
       <div className="container">
-        <Scrivito.ContentTag tag="h1" className="h2" content={ page } attribute="title" />
+        <Scrivito.ContentTag tag="h1" className="h2" content={page} attribute="title" />
         <h2 className="h4">
-          <i className="fa fa-calendar fa-lg" aria-hidden="true" title="date" />
-          { ' ' }
-          <EventDate date={ page.get('date') } />
+          <i className="fa fa-calendar fa-lg" aria-hidden="true" title="date" />{' '}
+          <EventDate date={page.get('date')} />
         </h2>
-        <EventLocation event={ page } />
+        <EventLocation event={page} />
       </div>
     </section>
-    <Scrivito.ContentTag tag="div" content={ page } attribute="body" />
-    <SchemaDotOrg content={ page } />
+    <Scrivito.ContentTag tag="div" content={page} attribute="body" />
+    <SchemaDotOrg content={page} />
   </div>
-);
+));
 
 function EventDate({ date }) {
   if (!date) {
@@ -58,12 +57,14 @@ const EventLocation = Scrivito.connect(({ event }) => {
   return (
     <React.Fragment>
       <h2 className="h4">
-        <i className="fa fa-map-marker fa-lg" aria-hidden="true" title="location" />
-        { ' ' }
-        Location
+        <i className="fa fa-map-marker fa-lg" aria-hidden="true" title="location" /> Location
       </h2>
       <div>
-        { address.map((line, index) => <span key={ index }>{ line } <br /></span>) }
+        {address.map((line, index) => (
+          <span key={index}>
+            {line} <br />
+          </span>
+        ))}
       </div>
     </React.Fragment>
   );

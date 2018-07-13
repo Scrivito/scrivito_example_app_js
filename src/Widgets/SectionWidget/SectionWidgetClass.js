@@ -25,8 +25,6 @@ const SectionWidget = Scrivito.provideWidgetClass('SectionWidget', {
   },
 });
 
-registerTextExtract('SectionWidget', [
-  { attribute: 'content', type: 'widgetlist' },
-]);
+registerTextExtract('SectionWidget', [{ attribute: 'content', type: 'widgetlist' }]);
 
 export default SectionWidget;

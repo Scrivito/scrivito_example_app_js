@@ -7,7 +7,7 @@ Scrivito.provideComponent('ColumnContainerWidget', ({ widget }) => {
 
   if (!columns.length) {
     return (
-      <InPlaceEditingPlaceholder center={ true }>
+      <InPlaceEditingPlaceholder center={true}>
         Define columns in the widget properties.
       </InPlaceEditingPlaceholder>
     );
@@ -16,9 +16,8 @@ Scrivito.provideComponent('ColumnContainerWidget', ({ widget }) => {
   const content = columns.map((columnWidget, index) => {
     const colSize = columnWidget.get('colSize') || 1;
     return (
-      <div key={ index } className={ `col-lg-${colSize}` }>
-        <Scrivito.ContentTag content={ columnWidget } attribute="content"
-          className="h-100" />
+      <div key={index} className={`col-lg-${colSize}`}>
+        <Scrivito.ContentTag content={columnWidget} attribute="content" className="h-100" />
       </div>
     );
   });
@@ -31,9 +30,5 @@ Scrivito.provideComponent('ColumnContainerWidget', ({ widget }) => {
     classNames.push('align-items-start');
   }
 
-  return (
-    <div className={ classNames.join(' ') }>
-      { content }
-    </div>
-  );
+  return <div className={classNames.join(' ')}>{content}</div>;
 });

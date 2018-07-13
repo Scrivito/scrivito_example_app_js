@@ -11,7 +11,7 @@ Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
 
   if (!jobs.length) {
     return (
-      <InPlaceEditingPlaceholder center={ true }>
+      <InPlaceEditingPlaceholder center={true}>
         There are no job pages. Create one using the page menu.
       </InPlaceEditingPlaceholder>
     );
@@ -19,7 +19,7 @@ Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
 
   return (
     <div className="row">
-      { jobs.map((job, index) => <JobItem key={ job.id() } job={ job } index={ index } />) }
+      {jobs.map((job, index) => <JobItem key={job.id()} job={job} index={index} />)}
     </div>
   );
 });
@@ -31,23 +31,23 @@ const JobItem = Scrivito.connect(({ job }) => {
 
   return (
     <div className="col-sm-6">
-      <Scrivito.LinkTag to={ job } className="box-card">
+      <Scrivito.LinkTag to={job} className="box-card">
         <Scrivito.BackgroundImageTag
           tag="span"
           className="box-image"
-          style={ {
+          style={{
             background: { image: job.get('image') },
-          } }
+          }}
         />
         <span className="box-topic arrow-right">
-          <h3 className="h3">{ job.get('title') }</h3>
+          <h3 className="h3">{job.get('title')}</h3>
           <span>
             <i
-              className={ `fa ${location ? 'fa-map-marker' : ''} fa-2x` }
+              className={`fa ${location ? 'fa-map-marker' : ''} fa-2x`}
               aria-hidden="true"
               title="location"
             />
-            <span>{ location }</span>
+            <span>{location}</span>
           </span>
           <i className="fa fa-angle-right" aria-hidden="true" />
         </span>

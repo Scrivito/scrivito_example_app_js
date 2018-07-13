@@ -7,20 +7,27 @@ import LandingPageNavigation from './Navigation/LandingPageNavigation';
 import NavigationSection from './Navigation/NavigationSection';
 import ScrollToNextSectionLink from './Navigation/ScrollToNextSectionLink';
 
-function ActualNavigation(
-  { isLandingPage, bootstrapNavbarClassNames, toggleSearch, scrolled, navigationStyle, showSearch }
-) {
+function ActualNavigation({
+  isLandingPage,
+  bootstrapNavbarClassNames,
+  toggleSearch,
+  scrolled,
+  navigationStyle,
+  showSearch,
+}) {
   if (isLandingPage) {
-    return <LandingPageNavigation navigationStyle={ navigationStyle } />;
+    return <LandingPageNavigation navigationStyle={navigationStyle} />;
   }
 
-  return <FullNavigation
-    bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
-    toggleSearch={ toggleSearch }
-    showSearch={ showSearch }
-    scrolled={ scrolled }
-    navigationStyle={ navigationStyle }
-  />;
+  return (
+    <FullNavigation
+      bootstrapNavbarClassNames={bootstrapNavbarClassNames}
+      toggleSearch={toggleSearch}
+      showSearch={showSearch}
+      scrolled={scrolled}
+      navigationStyle={navigationStyle}
+    />
+  );
 }
 
 class Navigation extends React.Component {
@@ -91,8 +98,11 @@ class Navigation extends React.Component {
       if (backgroundImage) {
         if (useGradient) {
           topSectionStyle.background = [
-            { image: 'radial-gradient(ellipse at center, rgba(61,65,66,.5) 0%,' +
-              ' rgba(61,65,66,1) 90%)' },
+            {
+              image:
+                'radial-gradient(ellipse at center, rgba(61,65,66,.5) 0%,' +
+                ' rgba(61,65,66,1) 90%)',
+            },
             { image: 'linear-gradient(to bottom, rgba(61,65,66,0) 0%, rgba(61,65,66,1) 90%)' },
             { image: backgroundImage },
           ];
@@ -113,20 +123,20 @@ class Navigation extends React.Component {
       <React.Fragment>
         <Scrivito.BackgroundImageTag
           tag="section"
-          className={ topSectionClassNames.join(' ') }
-          style={ topSectionStyle }
+          className={topSectionClassNames.join(' ')}
+          style={topSectionStyle}
         >
           <ActualNavigation
-            isLandingPage={ isLandingPage }
-            bootstrapNavbarClassNames={ bootstrapNavbarClassNames }
-            toggleSearch={ this.toggleSearch }
-            showSearch={ this.state.showSearch }
-            scrolled={ this.state.scrolled }
-            navigationStyle={ navigationStyle }
+            isLandingPage={isLandingPage}
+            bootstrapNavbarClassNames={bootstrapNavbarClassNames}
+            toggleSearch={this.toggleSearch}
+            showSearch={this.state.showSearch}
+            scrolled={this.state.scrolled}
+            navigationStyle={navigationStyle}
           />
 
-          <NavigationSection heightClassName={ heightClassName } />
-          <ScrollToNextSectionLink heightClassName={ heightClassName } />
+          <NavigationSection heightClassName={heightClassName} />
+          <ScrollToNextSectionLink heightClassName={heightClassName} />
         </Scrivito.BackgroundImageTag>
         <ScrollElement name="nextSection" />
       </React.Fragment>

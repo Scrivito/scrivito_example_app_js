@@ -4,7 +4,7 @@ function IconSearch({ setSearchValue, searchValue }) {
   return (
     <div id="search">
       <label htmlFor="search-input">
-        <i className="fa fa-search" aria-hidden="true"></i>
+        <i className="fa fa-search" aria-hidden="true" />
         <span className="sr-only">Search icons</span>
       </label>
       <input
@@ -15,16 +15,18 @@ function IconSearch({ setSearchValue, searchValue }) {
         spellCheck="false"
         autoCorrect="off"
         tabIndex="1"
-        value={ searchValue }
-        onChange={ e => setSearchValue(e, e.target.value) }
+        value={searchValue}
+        onChange={e => setSearchValue(e, e.target.value)}
       />
-      <ClearSearchButton setSearchValue={ setSearchValue } searchValue={ searchValue } />
-  </div>
+      <ClearSearchButton setSearchValue={setSearchValue} searchValue={searchValue} />
+    </div>
   );
 }
 
 function ClearSearchButton({ setSearchValue, searchValue }) {
-  if (!searchValue.length) { return null; }
+  if (!searchValue.length) {
+    return null;
+  }
 
   return (
     <a
@@ -32,7 +34,7 @@ function ClearSearchButton({ setSearchValue, searchValue }) {
       href="#"
       className="fa fa-times-circle"
       aria-hidden="true"
-      onClick={ e => setSearchValue(e, '') }
+      onClick={e => setSearchValue(e, '')}
     >
       <span className="sr-only">Clear search</span>
     </a>

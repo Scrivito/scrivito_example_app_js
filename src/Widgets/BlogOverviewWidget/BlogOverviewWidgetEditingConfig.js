@@ -15,13 +15,10 @@ Scrivito.provideEditingConfig('BlogOverviewWidget', {
     },
     tags: {
       title: 'Filter by tags',
-      description: 'Only show blog posts, that have one of the given tags.' +
+      description:
+        'Only show blog posts, that have one of the given tags.' +
         ' Leave empty to not filter by tags.',
     },
   },
-  properties: [
-    'maxItems',
-    'author',
-    'tags',
-  ],
+  properties: ['maxItems', 'author', 'tags'],
 });

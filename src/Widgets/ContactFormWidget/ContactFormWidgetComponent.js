@@ -16,15 +16,13 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
   }
 
   return (
-    <div className={ classNames.join(' ') }>
+    <div className={classNames.join(' ')}>
       <form className="row" method="post">
-        <input
-          type="hidden"
-          name="form-name"
-          value="contact"
-        />
+        <input type="hidden" name="form-name" value="contact" />
         <div className="d-none">
-          <label>Don’t fill this out: <input name="bot-field" /></label>
+          <label>
+            Don’t fill this out: <input name="bot-field" />
+          </label>
         </div>
         <div className="col-sm-6">
           <div className="form-group">
@@ -89,25 +87,23 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
               required
             />
           </div>
-          {
-            widget.get('agreementText') && <div className="form-group form-check">
+          {widget.get('agreementText') && (
+            <div className="form-group form-check">
               <input
                 className="form-check-input"
                 id="agreementTextCheck"
                 type="checkbox"
                 name="contactAgreement"
-                value={ widget.get('agreementText') }
+                value={widget.get('agreementText')}
                 required
               />
               <label className="form-check-label" htmlFor="agreementTextCheck">
-                { widget.get('agreementText') }
+                {widget.get('agreementText')}
               </label>
             </div>
-          }
-          <button
-            className="btn btn-primary btn-block"
-            type="submit">
-            { widget.get('buttonText') || 'send message' }
+          )}
+          <button className="btn btn-primary btn-block" type="submit">
+            {widget.get('buttonText') || 'send message'}
           </button>
         </div>
       </form>

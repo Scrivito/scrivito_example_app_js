@@ -22,19 +22,15 @@ Scrivito.provideEditingConfig('BlogPost', {
     },
     titleImage: {
       title: 'Header image',
-      description: 'The background image of the header.' +
+      description:
+        'The background image of the header.' +
         ' If no image is selected, the header image of the blog is shown.',
     },
     tags: {
       title: 'Tags',
     },
   },
-  properties: [
-    'author',
-    'publishedAt',
-    'titleImage',
-    'tags',
-  ],
+  properties: ['author', 'publishedAt', 'titleImage', 'tags'],
   propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],
   initialContent: {
     ...metaDataInitialContent,

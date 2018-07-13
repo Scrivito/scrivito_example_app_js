@@ -10,9 +10,11 @@ Scrivito.provideComponent('BlogOverviewWidget', ({ widget }) => {
     tag = tags;
   }
 
-  return <BlogPostPreviewList
-    maxItems={ widget.get('maxItems') }
-    author={ widget.get('author') }
-    tag={ tag }
-  />;
+  return (
+    <BlogPostPreviewList
+      maxItems={widget.get('maxItems')}
+      author={widget.get('author')}
+      tag={tag}
+    />
+  );
 });

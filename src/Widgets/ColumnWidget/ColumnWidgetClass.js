@@ -9,8 +9,6 @@ const ColumnWidget = Scrivito.provideWidgetClass('ColumnWidget', {
   },
 });
 
-registerTextExtract('ColumnWidget', [
-  { attribute: 'content', type: 'widgetlist' },
-]);
+registerTextExtract('ColumnWidget', [{ attribute: 'content', type: 'widgetlist' }]);
 
 export default ColumnWidget;

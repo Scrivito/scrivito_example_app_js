@@ -11,8 +11,5 @@ Scrivito.provideEditingConfig('Download', {
       description: 'Limit to 55 characters.',
     },
   },
-  properties: [
-    'title',
-    'tags',
-  ],
+  properties: ['title', 'tags'],
 });

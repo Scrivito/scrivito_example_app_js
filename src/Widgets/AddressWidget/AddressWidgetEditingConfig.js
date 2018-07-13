@@ -8,18 +8,12 @@ Scrivito.provideEditingConfig('AddressWidget', {
     showBorderBottom: {
       title: 'Show border at the bottom?',
       description: 'Default: No',
-      values: [
-        { value: 'yes', title: 'Yes' },
-        { value: 'no', title: 'No' },
-      ],
+      values: [{ value: 'yes', title: 'Yes' }, { value: 'no', title: 'No' }],
     },
     showLogo: {
       title: 'Show brand logo?',
       description: 'Default: Yes',
-      values: [
-        { value: 'yes', title: 'Yes' },
-        { value: 'no', title: 'No' },
-      ],
+      values: [{ value: 'yes', title: 'Yes' }, { value: 'no', title: 'No' }],
     },
     locationName: {
       title: 'Location name',
@@ -48,10 +42,7 @@ Scrivito.provideEditingConfig('AddressWidget', {
     addressFormat: {
       title: 'Address format',
       description: 'Default: USA',
-      values: [
-        { value: 'USA', title: 'USA' },
-        { value: 'GER', title: 'Germany' },
-      ],
+      values: [{ value: 'USA', title: 'USA' }, { value: 'GER', title: 'Germany' }],
     },
     phone: {
       title: 'Phone',

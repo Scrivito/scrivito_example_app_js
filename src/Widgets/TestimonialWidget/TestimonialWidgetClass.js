@@ -10,8 +10,6 @@ const TestimonialWidget = Scrivito.provideWidgetClass('TestimonialWidget', {
   },
 });
 
-registerTextExtract('TestimonialWidget', [
-  { attribute: 'testimonial', type: 'string' },
-]);
+registerTextExtract('TestimonialWidget', [{ attribute: 'testimonial', type: 'string' }]);
 
 export default TestimonialWidget;

@@ -15,12 +15,7 @@ class IconSearchResults extends React.Component {
       distance: 100,
       maxPatternLength: 35,
       minMatchCharLength: 1,
-      keys: [
-        'name',
-        'id',
-        'filter',
-        'aliases',
-      ],
+      keys: ['name', 'id', 'filter', 'aliases'],
     };
     this.fuse = new Fuse(fontAwesomeIcons, fuseOptions);
   }
@@ -28,30 +23,30 @@ class IconSearchResults extends React.Component {
   render() {
     const { searchValue, setWidgetIcon, currentIcon } = this.props;
 
-    if (!searchValue.length) { return null; }
+    if (!searchValue.length) {
+      return null;
+    }
 
     const results = this.fuse.search(searchValue);
 
     return (
       <div id="search-results">
         <div className="scrivito_detail_label">
-          <span>
-            { `Search for '${searchValue}'` }
-          </span>
+          <span>{`Search for '${searchValue}'`}</span>
         </div>
         <div className="row">
-          {
-            results.map((result, index) => {
-              const icon = result.item;
+          {results.map((result, index) => {
+            const icon = result.item;
 
-              return <SingleIcon
-                key={ `${icon.id}${index}` }
-                icon={ icon }
-                currentIcon={ currentIcon }
-                setWidgetIcon={ setWidgetIcon }
-              />;
-            })
-          }
+            return (
+              <SingleIcon
+                key={`${icon.id}${index}`}
+                icon={icon}
+                currentIcon={currentIcon}
+                setWidgetIcon={setWidgetIcon}
+              />
+            );
+          })}
         </div>
       </div>
     );

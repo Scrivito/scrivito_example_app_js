@@ -34,14 +34,11 @@ class YoutubeVideoWidgetComponent extends React.Component {
 
   render() {
     return (
-      <div
-        ref={ this.outerDivRef }
-        className="text-center"
-      >
+      <div ref={this.outerDivRef} className="text-center">
         <PlaceholderOrYoutubeComponent
-          youtubeVideoId={ this.props.widget.get('youtubeVideoId') }
-          width={ this.state.elementWidth }
-          height={ this.state.elementWidth / this.aspectRatio() }
+          youtubeVideoId={this.props.widget.get('youtubeVideoId')}
+          width={this.state.elementWidth}
+          height={this.state.elementWidth / this.aspectRatio()}
         />
       </div>
     );
@@ -49,13 +46,20 @@ class YoutubeVideoWidgetComponent extends React.Component {
 
   aspectRatio() {
     switch (this.props.widget.get('aspectRatio')) {
-      case '21:9': return 21 / 9;
-      case '16:9': return 16 / 9;
-      case '4:3': return 4 / 3;
-      case '1:1': return 1;
-      case '3:4': return 3 / 4;
-      case '9:16': return 9 / 16;
-      default: return 16 / 9;
+      case '21:9':
+        return 21 / 9;
+      case '16:9':
+        return 16 / 9;
+      case '4:3':
+        return 4 / 3;
+      case '1:1':
+        return 1;
+      case '3:4':
+        return 3 / 4;
+      case '9:16':
+        return 9 / 16;
+      default:
+        return 16 / 9;
     }
   }
 }
@@ -71,9 +75,9 @@ function PlaceholderOrYoutubeComponent({ youtubeVideoId, width, height }) {
 
   return (
     <iframe
-      width={ width }
-      height={ height }
-      src={ `https://www.youtube.com/embed/${youtubeVideoId}` }
+      width={width}
+      height={height}
+      src={`https://www.youtube.com/embed/${youtubeVideoId}`}
       frameBorder="0"
       allow="autoplay; encrypted-media"
       allowFullScreen="true"

@@ -23,10 +23,7 @@ Scrivito.provideEditingConfig('Blog', {
       description: 'The background image of the header.',
     },
   },
-  properties: [
-    'title',
-    'navigationBackgroundImage',
-  ],
+  properties: ['title', 'navigationBackgroundImage'],
   propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],
   initialContent: {
     ...metaDataInitialContent,

@@ -10,8 +10,8 @@ Scrivito.provideComponent('TextWidget', ({ widget }) => {
   return (
     <Scrivito.ContentTag
       tag="div"
-      className={ classNames.join(' ') }
-      content={ widget }
+      className={classNames.join(' ')}
+      content={widget}
       attribute="text"
     />
   );

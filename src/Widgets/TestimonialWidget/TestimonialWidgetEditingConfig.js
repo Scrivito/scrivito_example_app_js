@@ -15,11 +15,7 @@ Scrivito.provideEditingConfig('TestimonialWidget', {
       title: 'Author image',
     },
   },
-  properties: [
-    'testimonial',
-    'author',
-    'authorImage',
-  ],
+  properties: ['testimonial', 'author', 'authorImage'],
   initialContent: {
     author: 'Someone',
     testimonial: 'This is great!',

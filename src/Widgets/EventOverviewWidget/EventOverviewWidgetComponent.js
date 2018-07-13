@@ -34,7 +34,7 @@ class EventOverviewWidgetComponent extends React.Component {
 
     if (!events.length) {
       return (
-        <InPlaceEditingPlaceholder center={ true }>
+        <InPlaceEditingPlaceholder center={true}>
           There are no event pages. Create one using the page menu.
         </InPlaceEditingPlaceholder>
       );
@@ -43,17 +43,14 @@ class EventOverviewWidgetComponent extends React.Component {
     return (
       <div>
         <TagList
-          showTags={ !filterTags.length && this.props.widget.get('showTags') === 'yes' }
-          currentTag={ this.state.currentTag }
-          setTag={ this.setTag }
-          tags={ tags }
+          showTags={!filterTags.length && this.props.widget.get('showTags') === 'yes'}
+          currentTag={this.state.currentTag}
+          setTag={this.setTag}
+          tags={tags}
         />
         <section className="bg-white">
           <div className="row">
-            {
-              events.map((event, index) =>
-                <EventItem key={ `${event.id}${index}` } event={ event } />)
-            }
+            {events.map((event, index) => <EventItem key={`${event.id}${index}`} event={event} />)}
           </div>
         </section>
       </div>
@@ -69,46 +66,41 @@ class EventOverviewWidgetComponent extends React.Component {
 
 Scrivito.provideComponent('EventOverviewWidget', EventOverviewWidgetComponent);
 
-const EventItem = Scrivito.connect(({ event }) =>
+const EventItem = Scrivito.connect(({ event }) => (
   <div className="col-sm-6">
-    <Scrivito.LinkTag to={ event }>
+    <Scrivito.LinkTag to={event}>
       <Scrivito.BackgroundImageTag
         className="box-card"
-        style={
-          {
-            background: [
-              { image: 'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))' },
-              { image: event.get('image') },
-            ],
-          }
-        }
+        style={{
+          background: [
+            { image: 'linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))' },
+            { image: event.get('image') },
+          ],
+        }}
       >
-        <span className="box-date">
-          { formatDate(event.get('date'), 'mm/dd') }
-        </span>
+        <span className="box-date">{formatDate(event.get('date'), 'mm/dd')}</span>
         <span className="box-topic dark-background">
-          <h3 className="h3">{ event.get('title') }</h3>
-          <EventShortLocation event={ event } />
+          <h3 className="h3">{event.get('title')}</h3>
+          <EventShortLocation event={event} />
         </span>
       </Scrivito.BackgroundImageTag>
     </Scrivito.LinkTag>
   </div>
-);
+));
 
 const EventShortLocation = Scrivito.connect(({ event }) => {
-  const location = [
-    event.get('locationName'),
-    event.get('locationLocality'),
-  ].filter(n => n).join(', ');
+  const location = [event.get('locationName'), event.get('locationLocality')]
+    .filter(n => n)
+    .join(', ');
 
   return (
     <span>
       <i
-        className={ `fa ${location ? 'fa-map-marker' : ''} fa-2x` }
+        className={`fa ${location ? 'fa-map-marker' : ''} fa-2x`}
         aria-hidden="true"
         title="location"
       />
-      <span>{ location }</span>
+      <span>{location}</span>
     </span>
   );
 });

@@ -3,14 +3,22 @@ import * as Scrivito from 'scrivito';
 function currentPageNavigationOptions() {
   if (Scrivito.currentPage()) {
     switch (Scrivito.currentPage().objClass()) {
-      case 'Blog': return blogNavigationOptions(Scrivito.currentPage());
-      case 'BlogPost': return blogPostNavigationOptions(Scrivito.currentPage());
-      case 'Event': return eventNavigationOptions(Scrivito.currentPage());
-      case 'Homepage': return homepageNavigationOptions(Scrivito.currentPage());
-      case 'Job': return jobNavigationOptions(Scrivito.currentPage());
-      case 'LandingPage': return landingPageNavigationOptions(Scrivito.currentPage());
-      case 'Page': return pageNavigationOptions(Scrivito.currentPage());
-      case 'SearchResults': return searchResultsNavigationOptions(Scrivito.currentPage());
+      case 'Blog':
+        return blogNavigationOptions(Scrivito.currentPage());
+      case 'BlogPost':
+        return blogPostNavigationOptions(Scrivito.currentPage());
+      case 'Event':
+        return eventNavigationOptions(Scrivito.currentPage());
+      case 'Homepage':
+        return homepageNavigationOptions(Scrivito.currentPage());
+      case 'Job':
+        return jobNavigationOptions(Scrivito.currentPage());
+      case 'LandingPage':
+        return landingPageNavigationOptions(Scrivito.currentPage());
+      case 'Page':
+        return pageNavigationOptions(Scrivito.currentPage());
+      case 'SearchResults':
+        return searchResultsNavigationOptions(Scrivito.currentPage());
     }
   }
 
@@ -70,10 +78,14 @@ function pageNavigationOptions(obj) {
 
   const navigationHeight = obj.get('navigationHeight') || 'small';
   let heightClassName = null;
-  if (navigationHeight !== 'small') { heightClassName = navigationHeight; }
+  if (navigationHeight !== 'small') {
+    heightClassName = navigationHeight;
+  }
 
   let navigationStyle = 'solidWhite';
-  if (backgroundImage || navigationHeight !== 'small') { navigationStyle = 'transparentDark'; }
+  if (backgroundImage || navigationHeight !== 'small') {
+    navigationStyle = 'transparentDark';
+  }
 
   return {
     navigationStyle,

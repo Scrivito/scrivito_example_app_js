@@ -11,15 +11,14 @@ Scrivito.provideEditingConfig('LinkContainerWidget', {
       description: 'Leave empty to not show a headline.',
     },
   },
-  properties: [
-    'headline',
-  ],
+  properties: ['headline'],
   initialContent: {
     headline: 'Links headline',
-    links: ['Link 1', 'Link 2', 'Link 3'].map(title =>
-      new LinkWidget({
-        link: new Scrivito.Link({ title, url: 'https://scrivito.com', target: '_blank' }),
-      })
+    links: ['Link 1', 'Link 2', 'Link 3'].map(
+      title =>
+        new LinkWidget({
+          link: new Scrivito.Link({ title, url: 'https://scrivito.com', target: '_blank' }),
+        })
     ),
   },
 });

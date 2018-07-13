@@ -9,13 +9,13 @@ function IconWidgetComponent({ widget }) {
 
   if (['center', 'right'].includes(widget.get('alignment'))) {
     return (
-      <div className={ `text-${widget.get('alignment')}` }>
-        <IconComponent icon={ icon } size={ size } link={ link } />
+      <div className={`text-${widget.get('alignment')}`}>
+        <IconComponent icon={icon} size={size} link={link} />
       </div>
     );
   }
 
-  return <IconComponent icon={ icon } size={ size } link={ link } />;
+  return <IconComponent icon={icon} size={size} link={link} />;
 }
 
 Scrivito.provideComponent('IconWidget', IconWidgetComponent);

@@ -8,8 +8,6 @@ const ColumnContainerWidget = Scrivito.provideWidgetClass('ColumnContainerWidget
   },
 });
 
-registerTextExtract('ColumnContainerWidget', [
-  { attribute: 'columns', type: 'widgetlist' },
-]);
+registerTextExtract('ColumnContainerWidget', [{ attribute: 'columns', type: 'widgetlist' }]);
 
 export default ColumnContainerWidget;

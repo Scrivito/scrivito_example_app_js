@@ -11,13 +11,13 @@ class AllIcons extends React.Component {
     };
 
     this.categoryMap = {};
-    fontAwesomeIcons.forEach(
-      icon => icon.categories.forEach(
-        category => {
-          if (!this.categoryMap[category]) { this.categoryMap[category] = []; }
-          this.categoryMap[category].push(icon);
+    fontAwesomeIcons.forEach(icon =>
+      icon.categories.forEach(category => {
+        if (!this.categoryMap[category]) {
+          this.categoryMap[category] = [];
         }
-      )
+        this.categoryMap[category].push(icon);
+      })
     );
   }
 
@@ -30,17 +30,19 @@ class AllIcons extends React.Component {
   render() {
     const { setWidgetIcon, currentIcon, hide } = this.props;
 
-    if (hide) { return null; }
+    if (hide) {
+      return null;
+    }
 
     return (
       <React.Fragment>
         <div id="icons">
           {
             <CategoriesAndIcons
-              initialRender={ this.state.initialRender }
-              categoryMap={ this.categoryMap }
-              currentIcon={ currentIcon }
-              setWidgetIcon={ setWidgetIcon }
+              initialRender={this.state.initialRender}
+              categoryMap={this.categoryMap}
+              currentIcon={currentIcon}
+              setWidgetIcon={setWidgetIcon}
             />
           }
         </div>
@@ -61,61 +63,54 @@ function CategoriesAndIcons({ initialRender, categoryMap, currentIcon, setWidget
 
     return (
       <Category
-        category={ category }
-        icons={ icons }
-        currentIcon={ currentIcon }
-        setWidgetIcon={ setWidgetIcon }
+        category={category}
+        icons={icons}
+        currentIcon={currentIcon}
+        setWidgetIcon={setWidgetIcon}
       />
     );
   }
 
-  return (
-    Object.entries(categoryMap).map(([category, icons]) =>
-      <Category
-        key={ category }
-        category={ category }
-        icons={ icons }
-        currentIcon={ currentIcon }
-        setWidgetIcon={ setWidgetIcon }
-      />
-    )
-  );
+  return Object.entries(categoryMap).map(([category, icons]) => (
+    <Category
+      key={category}
+      category={category}
+      icons={icons}
+      currentIcon={currentIcon}
+      setWidgetIcon={setWidgetIcon}
+    />
+  ));
 }
 
 function Category({ category, icons, currentIcon, setWidgetIcon }) {
   return (
     <section>
-      <span className="headline">{ category }</span>
+      <span className="headline">{category}</span>
       <div className="row">
-        {
-          icons.map((icon, innerIndex) => {
-            const cssIcon = `fa-${icon.id}`;
+        {icons.map((icon, innerIndex) => {
+          const cssIcon = `fa-${icon.id}`;
 
-            const aClassNames = [];
-            if (currentIcon === cssIcon) {
-              aClassNames.push('active');
-            }
+          const aClassNames = [];
+          if (currentIcon === cssIcon) {
+            aClassNames.push('active');
+          }
 
-            // Note: It is up to 10% faster to inline the SingleIcon component,
-            // instead of creating one SingleIcon component for each of the 675 icons.
-            return (
-              <div
-                key={ `${icon.id}${innerIndex}` }
-                className="fa-hover col-md-3 col-sm-4"
+          // Note: It is up to 10% faster to inline the SingleIcon component,
+          // instead of creating one SingleIcon component for each of the 675 icons.
+          return (
+            <div key={`${icon.id}${innerIndex}`} className="fa-hover col-md-3 col-sm-4">
+              <a
+                href="#"
+                className={aClassNames.join(' ')}
+                onClick={e => setWidgetIcon(e, cssIcon)}
               >
-                <a
-                  href="#"
-                  className={ aClassNames.join(' ') }
-                  onClick={ e => setWidgetIcon(e, cssIcon) }
-                >
-                  <i className= { ['fa', cssIcon].join(' ') } aria-hidden="true" />
-                  <span className="sr-only">Example of </span>
-                  { icon.name }
-                </a>
-              </div>
-            );
-          })
-        }
+                <i className={['fa', cssIcon].join(' ')} aria-hidden="true" />
+                <span className="sr-only">Example of </span>
+                {icon.name}
+              </a>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

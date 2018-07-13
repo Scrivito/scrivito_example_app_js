@@ -8,7 +8,7 @@ Scrivito.provideComponent('IconContainerWidget', ({ widget }) => {
 
   if (!icons.length) {
     return (
-      <InPlaceEditingPlaceholder center={ true }>
+      <InPlaceEditingPlaceholder center={true}>
         Select icons in the widget properties.
       </InPlaceEditingPlaceholder>
     );
@@ -16,20 +16,13 @@ Scrivito.provideComponent('IconContainerWidget', ({ widget }) => {
 
   return (
     <div className="social-links text-center">
-      {
-        icons.map(iconListItem => {
-          const icon = iconListItem.get('icon');
-          const link = iconListItem.get('link');
-          const size = iconListItem.get('size');
+      {icons.map(iconListItem => {
+        const icon = iconListItem.get('icon');
+        const link = iconListItem.get('link');
+        const size = iconListItem.get('size');
 
-          return <IconComponent
-            icon={ icon }
-            size={ size }
-            link={ link }
-            key={ iconListItem.id() }
-          />;
-        })
-      }
+        return <IconComponent icon={icon} size={size} link={link} key={iconListItem.id()} />;
+      })}
     </div>
   );
 });

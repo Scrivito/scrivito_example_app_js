@@ -16,16 +16,18 @@ const OBJ_CLASSES_WHITELIST = [
 ];
 
 function sitemapXml() {
-  const pages = [...Scrivito.Obj.where('_objClass', 'equals', OBJ_CLASSES_WHITELIST)
-    .andNot('robotsIndex', 'equals', 'no')];
+  const pages = [
+    ...Scrivito.Obj.where('_objClass', 'equals', OBJ_CLASSES_WHITELIST).andNot(
+      'robotsIndex',
+      'equals',
+      'no'
+    ),
+  ];
   const sitemapUrls = pages.map(pageToSitemapUrl);
 
   return xml(
     {
-      urlset: [
-        { _attr: { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' } },
-        ...sitemapUrls,
-      ],
+      urlset: [{ _attr: { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' } }, ...sitemapUrls],
     },
     { declaration: true }
   );

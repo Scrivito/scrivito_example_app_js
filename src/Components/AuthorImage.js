@@ -6,7 +6,7 @@ import isImage from '../utils/isImage';
 function AuthorImage({ image }) {
   if (!isImage(image)) {
     return (
-      <InPlaceEditingPlaceholder center={ true }>
+      <InPlaceEditingPlaceholder center={true}>
         Click here to select an author image.
       </InPlaceEditingPlaceholder>
     );
@@ -15,15 +15,13 @@ function AuthorImage({ image }) {
   return (
     <Scrivito.BackgroundImageTag
       className="rounded-circle"
-      style={
-        {
-          background: { image },
+      style={{
+        background: { image },
 
-          // relative square in css - https://stackoverflow.com/a/23924580/881759
-          width: '100%',
-          paddingBottom: '100%',
-        }
-      }
+        // relative square in css - https://stackoverflow.com/a/23924580/881759
+        width: '100%',
+        paddingBottom: '100%',
+      }}
     />
   );
 }

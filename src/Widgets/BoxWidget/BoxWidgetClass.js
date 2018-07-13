@@ -9,8 +9,6 @@ const BoxWidget = Scrivito.provideWidgetClass('BoxWidget', {
   },
 });
 
-registerTextExtract('BoxWidget', [
-  { attribute: 'body', type: 'widgetlist' },
-]);
+registerTextExtract('BoxWidget', [{ attribute: 'body', type: 'widgetlist' }]);
 
 export default BoxWidget;

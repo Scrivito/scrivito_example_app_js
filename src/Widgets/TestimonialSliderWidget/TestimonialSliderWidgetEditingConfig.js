@@ -10,9 +10,7 @@ Scrivito.provideEditingConfig('TestimonialSliderWidget', {
       title: 'Testimonials',
     },
   },
-  properties: [
-    'testimonials',
-  ],
+  properties: ['testimonials'],
   initialContent: {
     testimonials: [new TestimonialWidget({})],
   },

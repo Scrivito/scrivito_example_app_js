@@ -8,8 +8,6 @@ const TextWidget = Scrivito.provideWidgetClass('TextWidget', {
   },
 });
 
-registerTextExtract('TextWidget', [
-  { attribute: 'text', type: 'html' },
-]);
+registerTextExtract('TextWidget', [{ attribute: 'text', type: 'html' }]);
 
 export default TextWidget;

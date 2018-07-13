@@ -9,15 +9,15 @@ function CollapseToggle({ expanded, toggleExpanded }) {
   return (
     <button
       type="button"
-      className={ classNames.join(' ') }
-      aria-expanded={ expanded }
+      className={classNames.join(' ')}
+      aria-expanded={expanded}
       aria-controls="navbar"
-      onClick={ toggleExpanded }
+      onClick={toggleExpanded}
     >
       <span className="sr-only">Toggle navigation</span>
-      <span className="icon-bar"></span>
-      <span className="icon-bar"></span>
-      <span className="icon-bar"></span>
+      <span className="icon-bar" />
+      <span className="icon-bar" />
+      <span className="icon-bar" />
     </button>
   );
 }

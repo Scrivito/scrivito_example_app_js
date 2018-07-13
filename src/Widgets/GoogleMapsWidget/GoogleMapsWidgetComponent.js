@@ -57,16 +57,14 @@ class GoogleMapsWidgetComponent extends React.Component {
   render() {
     return (
       <div
-        ref={ this.outerDivRef }
+        ref={this.outerDivRef}
         className="bg-map"
-        style={
-          {
-            background: 'no-repeat center / cover',
-            backgroundImage: `url(${this.googleMapsImageUrl()})`,
-          }
-        }
+        style={{
+          background: 'no-repeat center / cover',
+          backgroundImage: `url(${this.googleMapsImageUrl()})`,
+        }}
       >
-        <Widgets widget={ this.props.widget } />
+        <Widgets widget={this.props.widget} />
       </div>
     );
   }
@@ -99,12 +97,14 @@ class GoogleMapsWidgetComponent extends React.Component {
 }
 
 const Widgets = Scrivito.connect(({ widget }) => {
-  if (widget.get('showWidgets') !== 'yes') { return null; }
+  if (widget.get('showWidgets') !== 'yes') {
+    return null;
+  }
 
   return (
     <div className="container">
       <div className="col-lg-3 col-md-4 col-sm-5">
-        <Scrivito.ContentTag content={ widget } attribute="content" className="card card-theme" />
+        <Scrivito.ContentTag content={widget} attribute="content" className="card card-theme" />
       </div>
     </div>
   );

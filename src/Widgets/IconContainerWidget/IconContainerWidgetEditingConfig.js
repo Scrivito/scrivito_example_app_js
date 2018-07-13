@@ -10,9 +10,7 @@ Scrivito.provideEditingConfig('IconContainerWidget', {
       title: 'Icon list',
     },
   },
-  properties: [
-    'iconList',
-  ],
+  properties: ['iconList'],
   initialContent: {
     iconList: [
       new IconWidget({ icon: 'fa-check-square-o' }),

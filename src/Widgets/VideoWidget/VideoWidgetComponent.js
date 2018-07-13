@@ -21,13 +21,13 @@ Scrivito.provideComponent('VideoWidget', ({ widget }) => {
   return (
     <Scrivito.ContentTag
       tag="video"
-      src={ src }
-      content={ widget }
+      src={src}
+      content={widget}
       attribute="source"
-      poster={ posterUrl }
+      poster={posterUrl}
       controls
-      width='100%'
-      style={ style }
+      width="100%"
+      style={style}
     />
   );
 });

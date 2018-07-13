@@ -11,23 +11,17 @@ Scrivito.provideEditingConfig('EventOverviewWidget', {
     },
     tags: {
       title: 'Filter by tags',
-      description: 'Only show events, that have one of the given tags.' +
+      description:
+        'Only show events, that have one of the given tags.' +
         ' Leave empty to not filter by tags.',
     },
     showTags: {
       title: 'Show list of tags?',
       description: 'Default: No',
-      values: [
-        { value: 'yes', title: 'Yes' },
-        { value: 'no', title: 'No' },
-      ],
+      values: [{ value: 'yes', title: 'Yes' }, { value: 'no', title: 'No' }],
     },
   },
-  properties: [
-    'maxItems',
-    'showTags',
-    'tags',
-  ],
+  properties: ['maxItems', 'showTags', 'tags'],
   initialContent: {
     maxItems: 0,
     showTags: 'no',

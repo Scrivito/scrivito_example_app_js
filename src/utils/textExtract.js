@@ -28,14 +28,18 @@ function textExtractFromItem(objOrWidget) {
 
     if (!assertValidValue(value, type)) {
       console.warn(
-        `Attribute '${attribute}' of className '${className}' is not of type '${type}'!`);
+        `Attribute '${attribute}' of className '${className}' is not of type '${type}'!`
+      );
       return '';
     }
 
     switch (type) {
-      case 'html': return textExtractFromHtml(value);
-      case 'string': return value;
-      case 'widgetlist': return textExtractFromWidgetlist(value);
+      case 'html':
+        return textExtractFromHtml(value);
+      case 'string':
+        return value;
+      case 'widgetlist':
+        return textExtractFromWidgetlist(value);
       default: {
         console.warn('[textExtractFromObj] type is not (yet?) support:', type);
         return '';
@@ -48,16 +52,21 @@ function textExtractFromItem(objOrWidget) {
 
 function assertValidValue(value, type) {
   switch (type) {
-    case 'html': return isString(value);
-    case 'string': return isString(value);
-    case 'widgetlist': return Array.isArray(value);
+    case 'html':
+      return isString(value);
+    case 'string':
+      return isString(value);
+    case 'widgetlist':
+      return Array.isArray(value);
   }
 
   return true;
 }
 
 function textExtractFromMetadata(objOrWidget, attribute) {
-  if (!objOrWidget.metadata) { return ''; }
+  if (!objOrWidget.metadata) {
+    return '';
+  }
 
   return objOrWidget.metadata().get(attribute) || '';
 }
@@ -69,7 +78,4 @@ function arrayToString(array) {
     .join('\n');
 }
 
-export {
-  textExtractFromObj,
-  textExtractFromWidgetlist,
-};
+export { textExtractFromObj, textExtractFromWidgetlist };

@@ -11,14 +11,9 @@ Scrivito.provideComponent('Blog', ({ page, params }) => {
 
   return (
     <div>
-      <TagList
-        tags={ tags }
-        showTags={ true }
-        setTag={ navigateToBlogWithTag }
-        currentTag={ currentTag }
-      />
-      <Scrivito.ContentTag className="div" content={ page } attribute="body" />
-      <SchemaDotOrg content={ page } />
+      <TagList tags={tags} showTags={true} setTag={navigateToBlogWithTag} currentTag={currentTag} />
+      <Scrivito.ContentTag className="div" content={page} attribute="body" />
+      <SchemaDotOrg content={page} />
     </div>
   );
 });

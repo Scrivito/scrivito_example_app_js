@@ -7,8 +7,9 @@ Scrivito.provideEditingConfig('GoogleMapsWidget', {
   attributes: {
     address: {
       title: 'Address',
-      description: 'The address that should be shown on the map.'
-        + ' Default: Brandenburg Gate, Berlin, Germany',
+      description:
+        'The address that should be shown on the map.' +
+        ' Default: Brandenburg Gate, Berlin, Germany',
     },
     zoom: {
       title: 'Zoom level',
@@ -39,17 +40,10 @@ Scrivito.provideEditingConfig('GoogleMapsWidget', {
     showWidgets: {
       title: 'Show widgets?',
       description: 'Should widgets be shown on top of this map? Default: No',
-      values: [
-        { value: 'yes', title: 'Yes' },
-        { value: 'no', title: 'No' },
-      ],
+      values: [{ value: 'yes', title: 'Yes' }, { value: 'no', title: 'No' }],
     },
   },
-  properties: [
-    'address',
-    'zoom',
-    'showWidgets',
-  ],
+  properties: ['address', 'zoom', 'showWidgets'],
   initialContent: {
     address: 'Brandenburg Gate, Berlin, Germany',
     showWidgets: 'no',

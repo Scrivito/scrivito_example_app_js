@@ -16,10 +16,7 @@ Scrivito.provideEditingConfig('TableWidget', {
       title: 'Summary rows',
     },
   },
-  properties: [
-    'rows',
-    'summaryRows',
-  ],
+  properties: ['rows', 'summaryRows'],
   initialContent: {
     header1: 'Column header 1',
     header2: 'Column header 2',

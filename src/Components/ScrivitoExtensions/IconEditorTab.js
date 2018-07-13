@@ -44,22 +44,19 @@ class IconEditorTab extends React.Component {
             <span>Preview</span>
           </div>
           <div className="icon-editor-preview">
-             <IconComponent icon={ widget.get('icon') } />
+            <IconComponent icon={widget.get('icon')} />
           </div>
 
-          <IconSearch
-            searchValue={ this.state.searchValue }
-            setSearchValue={ this.setSearchValue }
-          />
+          <IconSearch searchValue={this.state.searchValue} setSearchValue={this.setSearchValue} />
           <IconSearchResults
-            currentIcon={ currentIcon }
-            searchValue={ this.state.searchValue }
-            setWidgetIcon={ this.setWidgetIcon }
+            currentIcon={currentIcon}
+            searchValue={this.state.searchValue}
+            setWidgetIcon={this.setWidgetIcon}
           />
           <AllIcons
-            currentIcon={ currentIcon }
-            hide={ this.state.searchValue.length }
-            setWidgetIcon={ this.setWidgetIcon }
+            currentIcon={currentIcon}
+            hide={this.state.searchValue.length}
+            setWidgetIcon={this.setWidgetIcon}
           />
         </div>
       </div>

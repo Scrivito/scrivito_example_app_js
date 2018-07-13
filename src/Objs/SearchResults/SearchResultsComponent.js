@@ -23,9 +23,11 @@ class SearchResultsComponent extends React.Component {
       };
     }
 
-    let search = Scrivito.Obj
-      .where('*', 'containsPrefix', this.props.params.q)
-      .andNot('_objClass', 'equals', blacklistObjClasses);
+    let search = Scrivito.Obj.where('*', 'containsPrefix', this.props.params.q).andNot(
+      '_objClass',
+      'equals',
+      blacklistObjClasses
+    );
 
     // make sure, that tags are calculated _before_ limiting to specific tag.
     const tags = search.facet('tags').map(tag => tag.name());
@@ -42,41 +44,31 @@ class SearchResultsComponent extends React.Component {
   }
 
   render() {
-    const {
-      searchResults,
-      totalCount,
-      tags,
-    } = this.calculateResults();
+    const { searchResults, totalCount, tags } = this.calculateResults();
 
     return (
       <div>
-        <SearchInput params={ this.props.params } />
+        <SearchInput params={this.props.params} />
 
         <section className="bg-white">
           <div className="container">
             <h1 className="h2 b-bottom text-center">
-              { totalCount } search result{ totalCount !== 1 && 's' }
+              {totalCount} search result{totalCount !== 1 && 's'}
             </h1>
-            <SearchResultsTagList tags={ tags } params={ this.props.params } />
+            <SearchResultsTagList tags={tags} params={this.props.params} />
           </div>
         </section>
 
         <section className="bg-white no-padding">
           <div className="container">
-            {
-              searchResults.map((resultItem, index) =>
-                <SearchResultItem
-                  resultItem={ resultItem }
-                  q={ this.props.params.q }
-                  key={ index }
-                />
-              )
-            }
+            {searchResults.map((resultItem, index) => (
+              <SearchResultItem resultItem={resultItem} q={this.props.params.q} key={index} />
+            ))}
           </div>
           <ShowMoreButton
-            totalCount={ totalCount }
-            currentMaxItems={ this.state.maxItems }
-            onClick={ this.incrementMaxItems }
+            totalCount={totalCount}
+            currentMaxItems={this.state.maxItems}
+            onClick={this.incrementMaxItems}
           />
           <br />
           <br />
@@ -92,8 +84,4 @@ class SearchResultsComponent extends React.Component {
 
 Scrivito.provideComponent('SearchResults', SearchResultsComponent);
 
-const blacklistObjClasses = [
-  'Image',
-  'SearchResults',
-  'Video',
-];
+const blacklistObjClasses = ['Image', 'SearchResults', 'Video'];

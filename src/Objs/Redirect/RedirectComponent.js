@@ -11,7 +11,9 @@ class RedirectComponent extends React.Component {
 
       return { link, openInUi, url };
     }).then(({ link, openInUi, url }) => {
-      if (!link) { return; }
+      if (!link) {
+        return;
+      }
 
       if (link.isExternal()) {
         window.top.location.replace(url);

@@ -16,16 +16,10 @@ Scrivito.provideEditingConfig('BoxWidget', {
     useOffset: {
       title: 'Use offset?',
       description: 'If so, the box will move "up". Default: No',
-      values: [
-        { value: 'yes', title: 'Yes' },
-        { value: 'no', title: 'No' },
-      ],
+      values: [{ value: 'yes', title: 'Yes' }, { value: 'no', title: 'No' }],
     },
   },
-  properties: [
-    'boxStyle',
-    'useOffset',
-  ],
+  properties: ['boxStyle', 'useOffset'],
   initialContent: {
     boxStyle: 'transparent',
     useOffset: 'no',

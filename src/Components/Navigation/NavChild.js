@@ -44,10 +44,10 @@ class BaseNavChild extends React.Component {
     }
 
     if (this.props.child.children().length === 0) {
-      return <NavSingleChild { ...topLevelProps } />;
+      return <NavSingleChild {...topLevelProps} />;
     }
 
-    return <Dropdown toggleDropdown={ this.toggleDropdown } { ...topLevelProps } />;
+    return <Dropdown toggleDropdown={this.toggleDropdown} {...topLevelProps} />;
   }
 }
 
@@ -55,16 +55,17 @@ const NavChild = Scrivito.connect(BaseNavChild);
 
 const NavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
   const classNames = ['nav-item'];
-  if (open) { classNames.push('open'); }
-  if (isActive(child)) { classNames.push('active'); }
+  if (open) {
+    classNames.push('open');
+  }
+  if (isActive(child)) {
+    classNames.push('active');
+  }
 
   return (
-    <li
-      className={ classNames.join(' ') }
-      { ...otherProps }
-    >
-      <Scrivito.LinkTag to={ child } className="nav-link">
-        { child.get('title') || '<untitled>' }
+    <li className={classNames.join(' ')} {...otherProps}>
+      <Scrivito.LinkTag to={child} className="nav-link">
+        {child.get('title') || '<untitled>'}
       </Scrivito.LinkTag>
     </li>
   );
@@ -72,45 +73,46 @@ const NavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
 
 const Dropdown = Scrivito.connect(({ child, open, toggleDropdown, ...otherProps }) => {
   const classNames = ['nav-item'];
-  if (open) { classNames.push('open'); }
-  if (isActive(child)) { classNames.push('active'); }
+  if (open) {
+    classNames.push('open');
+  }
+  if (isActive(child)) {
+    classNames.push('active');
+  }
 
   return (
-    <li className={ classNames.join(' ') } { ...otherProps } >
+    <li className={classNames.join(' ')} {...otherProps}>
       <Scrivito.LinkTag
-        to={ child }
+        to={child}
         className="nav-link"
         role="button"
         aria-haspopup="true"
-        aria-expanded={ open }
+        aria-expanded={open}
       >
-        { child.get('title') || '<untitled>' }
+        {child.get('title') || '<untitled>'}
       </Scrivito.LinkTag>
       <span
         className="menu-toggle"
-        onClick={
-          e => {
-            toggleDropdown();
-            e.stopPropagation();
-          }
-        }
+        onClick={e => {
+          toggleDropdown();
+          e.stopPropagation();
+        }}
       >
         <i className="fa fa-angle-down" aria-hidden="true" />
       </span>
       <Scrivito.ChildListTag
         className="dropdown-menu"
-        parent={ child }
-        renderChild={
-          innerChild =>
-            <NavSingleChild child={ innerChild } />
-        }
+        parent={child}
+        renderChild={innerChild => <NavSingleChild child={innerChild} />}
       />
     </li>
   );
 });
 
 function isActive(page) {
-  if (!Scrivito.currentPage()) { return false; }
+  if (!Scrivito.currentPage()) {
+    return false;
+  }
 
   const currentPath = Scrivito.currentPage().path();
   if (currentPath) {

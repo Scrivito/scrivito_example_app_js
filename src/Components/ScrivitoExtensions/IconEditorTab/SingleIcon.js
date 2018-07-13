@@ -11,14 +11,10 @@ function SingleIcon({ icon, setWidgetIcon, currentIcon }) {
 
   return (
     <div className="fa-hover col-md-3 col-sm-4">
-      <a
-        href="#"
-        className={ aClassNames.join(' ') }
-        onClick={ e => setWidgetIcon(e, cssIcon) }
-      >
-        <IconComponent icon={ cssIcon } />
+      <a href="#" className={aClassNames.join(' ')} onClick={e => setWidgetIcon(e, cssIcon)}>
+        <IconComponent icon={cssIcon} />
         <span className="sr-only">Example of </span>
-        { icon.name }
+        {icon.name}
       </a>
     </div>
   );

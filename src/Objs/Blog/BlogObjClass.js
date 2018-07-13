@@ -11,8 +11,6 @@ const Blog = Scrivito.provideObjClass('Blog', {
   },
 });
 
-registerTextExtract('Blog', [
-  { attribute: 'body', type: 'widgetlist' },
-]);
+registerTextExtract('Blog', [{ attribute: 'body', type: 'widgetlist' }]);
 
 export default Blog;

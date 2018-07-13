@@ -34,10 +34,10 @@ Scrivito.provideComponent('SectionWidget', ({ widget }) => {
   return (
     <Scrivito.BackgroundImageTag
       tag="section"
-      className={ sectionClassNames.join(' ') }
-      style={ sectionStyle }
+      className={sectionClassNames.join(' ')}
+      style={sectionStyle}
     >
-      <Scrivito.ContentTag className={ contentClassName } content={ widget } attribute="content" />
+      <Scrivito.ContentTag className={contentClassName} content={widget} attribute="content" />
     </Scrivito.BackgroundImageTag>
   );
 });

@@ -38,11 +38,7 @@ Scrivito.provideEditingConfig('IconWidget', {
     },
     {
       title: 'Optional attributes',
-      properties: [
-        'size',
-        'alignment',
-        'link',
-      ],
+      properties: ['size', 'alignment', 'link'],
     },
   ],
   initialContent: {

@@ -10,7 +10,5 @@ Scrivito.provideEditingConfig('JobOverviewWidget', {
       description: 'Leave empty to see all jobs.',
     },
   },
-  properties: [
-    'location',
-  ],
+  properties: ['location'],
 });

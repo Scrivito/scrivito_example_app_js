@@ -9,7 +9,5 @@ Scrivito.provideEditingConfig('GalleryWidget', {
       title: 'Images',
     },
   },
-  properties: [
-    'images',
-  ],
+  properties: ['images'],
 });

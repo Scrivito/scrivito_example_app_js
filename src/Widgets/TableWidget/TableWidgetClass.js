@@ -12,8 +12,6 @@ const TableWidget = Scrivito.provideWidgetClass('TableWidget', {
   },
 });
 
-registerTextExtract('TableWidget', [
-  { attribute: 'rows', type: 'widgetlist' },
-]);
+registerTextExtract('TableWidget', [{ attribute: 'rows', type: 'widgetlist' }]);
 
 export default TableWidget;

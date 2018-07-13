@@ -15,10 +15,12 @@ Scrivito.provideComponent('HeadlineWidget', ({ widget }) => {
     classNames.push('no-margin');
   }
 
-  return <Scrivito.ContentTag
-    tag={ level }
-    content={ widget }
-    attribute="headline"
-    className={ classNames.join(' ') }
-  />;
+  return (
+    <Scrivito.ContentTag
+      tag={level}
+      content={widget}
+      attribute="headline"
+      className={classNames.join(' ')}
+    />
+  );
 });

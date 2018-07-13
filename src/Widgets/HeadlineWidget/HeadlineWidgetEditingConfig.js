@@ -19,7 +19,8 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
     },
     level: {
       title: 'Heading tag (optional)',
-      description: 'May be used for SEO, for generating a table of contents,' +
+      description:
+        'May be used for SEO, for generating a table of contents,' +
         ' or for improving accessibility. Default: Derived from Style',
       values: [
         { value: 'h1', title: 'h1' },
@@ -42,27 +43,15 @@ Scrivito.provideEditingConfig('HeadlineWidget', {
     showDividingLine: {
       title: 'Show dividing line?',
       description: 'Default: No',
-      values: [
-        { value: 'yes', title: 'Yes' },
-        { value: 'no', title: 'No' },
-      ],
+      values: [{ value: 'yes', title: 'Yes' }, { value: 'no', title: 'No' }],
     },
     showMargin: {
       title: 'Show margin?',
       description: 'A margin adds space around this headline. Default: Yes',
-      values: [
-        { value: 'yes', title: 'Yes' },
-        { value: 'no', title: 'No' },
-      ],
+      values: [{ value: 'yes', title: 'Yes' }, { value: 'no', title: 'No' }],
     },
   },
-  properties: [
-    'style',
-    'level',
-    'alignment',
-    'showDividingLine',
-    'showMargin',
-  ],
+  properties: ['style', 'level', 'alignment', 'showDividingLine', 'showMargin'],
   initialContent: {
     alignment: 'left',
     headline: 'Lorem Ipsum',

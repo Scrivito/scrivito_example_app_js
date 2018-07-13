@@ -45,7 +45,8 @@ Scrivito.provideEditingConfig('Homepage', {
     },
     googleAnalyticsTrackingId: {
       title: 'Google Analytics tracking ID',
-      description: 'Needs to be requested under your GA property settings.' +
+      description:
+        'Needs to be requested under your GA property settings.' +
         ' See https://analytics.google.com for details.',
     },
     intercomAppId: {
@@ -55,16 +56,10 @@ Scrivito.provideEditingConfig('Homepage', {
     showAsLandingPage: {
       title: 'Display this page as a landing page?',
       description: 'Removes the header navigation and only centers the logo instead. Default: No',
-      values: [
-        { value: 'yes', title: 'Yes' },
-        { value: 'no', title: 'No' },
-      ],
+      values: [{ value: 'yes', title: 'Yes' }, { value: 'no', title: 'No' }],
     },
   },
-  properties: [
-    ...defaultPageProperties,
-    'showAsLandingPage',
-  ],
+  properties: [...defaultPageProperties, 'showAsLandingPage'],
   propertiesGroups: [
     {
       title: 'Site settings',

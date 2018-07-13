@@ -16,7 +16,8 @@ Scrivito.provideEditingConfig('ImageWidget', {
     },
     alternativeText: {
       title: 'Alternative text (optional)',
-      description: 'Brief description of what the image is about.' +
+      description:
+        'Brief description of what the image is about.' +
         ' If empty, the alternative text of the image is used.',
     },
     link: {
@@ -24,11 +25,7 @@ Scrivito.provideEditingConfig('ImageWidget', {
       description: 'The link where this image should lead.',
     },
   },
-  properties: [
-    'alignment',
-    'alternativeText',
-    'link',
-  ],
+  properties: ['alignment', 'alternativeText', 'link'],
   initialContent: {
     alignment: 'left',
   },

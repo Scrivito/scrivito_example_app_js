@@ -4,4 +4,3 @@ function importAll(r) {
 
 // import all js files under src/Components/ScrivitoExtensions/
 importAll(require.context('./', true, /\.js$/));
-

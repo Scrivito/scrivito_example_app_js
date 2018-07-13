@@ -1,16 +1,16 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
+import * as React from "react";
+import * as Scrivito from "scrivito";
 
-Scrivito.provideComponent('TextWidget', ({ widget }) => {
+Scrivito.provideComponent("TextWidget", ({ widget }) => {
   const classNames = [];
-  if (widget.get('alignment')) {
-    classNames.push(`text-${widget.get('alignment')}`);
+  if (widget.get("alignment")) {
+    classNames.push(`text-${widget.get("alignment")}`);
   }
 
   return (
     <Scrivito.ContentTag
       tag="div"
-      className={classNames.join(' ')}
+      className={classNames.join(" ")}
       content={widget}
       attribute="text"
     />

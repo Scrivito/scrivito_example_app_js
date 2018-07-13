@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 function IconSearch({ setSearchValue, searchValue }) {
   return (
@@ -18,7 +18,10 @@ function IconSearch({ setSearchValue, searchValue }) {
         value={searchValue}
         onChange={e => setSearchValue(e, e.target.value)}
       />
-      <ClearSearchButton setSearchValue={setSearchValue} searchValue={searchValue} />
+      <ClearSearchButton
+        setSearchValue={setSearchValue}
+        searchValue={searchValue}
+      />
     </div>
   );
 }
@@ -34,7 +37,7 @@ function ClearSearchButton({ setSearchValue, searchValue }) {
       href="#"
       className="fa fa-times-circle"
       aria-hidden="true"
-      onClick={e => setSearchValue(e, '')}
+      onClick={e => setSearchValue(e, "")}
     >
       <span className="sr-only">Clear search</span>
     </a>

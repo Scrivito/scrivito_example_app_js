@@ -1,10 +1,10 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
-const LinkWidget = Scrivito.provideWidgetClass('LinkWidget', {
-  onlyInside: 'LinkContainerWidget',
+const LinkWidget = Scrivito.provideWidgetClass("LinkWidget", {
+  onlyInside: "LinkContainerWidget",
   attributes: {
-    link: 'link',
-  },
+    link: "link"
+  }
 });
 
 export default LinkWidget;

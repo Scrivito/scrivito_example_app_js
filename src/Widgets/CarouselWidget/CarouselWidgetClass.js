@@ -1,15 +1,17 @@
-import * as Scrivito from 'scrivito';
-import { registerTextExtract } from '../../utils/textExtractRegistry';
+import * as Scrivito from "scrivito";
+import { registerTextExtract } from "../../utils/textExtractRegistry";
 
-const CarouselWidget = Scrivito.provideWidgetClass('CarouselWidget', {
+const CarouselWidget = Scrivito.provideWidgetClass("CarouselWidget", {
   attributes: {
-    images: 'referencelist',
-    showDescription: ['enum', { values: ['yes', 'no'] }],
-    descriptionLogo: 'reference',
-    description: 'widgetlist',
-  },
+    images: "referencelist",
+    showDescription: ["enum", { values: ["yes", "no"] }],
+    descriptionLogo: "reference",
+    description: "widgetlist"
+  }
 });
 
-registerTextExtract('CarouselWidget', [{ attribute: 'description', type: 'widgetlist' }]);
+registerTextExtract("CarouselWidget", [
+  { attribute: "description", type: "widgetlist" }
+]);
 
 export default CarouselWidget;

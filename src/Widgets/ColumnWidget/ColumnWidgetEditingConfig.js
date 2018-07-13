@@ -1,5 +1,5 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
-Scrivito.provideEditingConfig('ColumnWidget', {
-  title: 'Column',
+Scrivito.provideEditingConfig("ColumnWidget", {
+  title: "Column"
 });

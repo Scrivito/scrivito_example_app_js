@@ -1,12 +1,12 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import Helmet from 'react-helmet';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import Helmet from "react-helmet";
 
 class GoogleAnalytics extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { trackingId: '' };
+    this.state = { trackingId: "" };
   }
 
   componentDidMount() {
@@ -15,7 +15,7 @@ class GoogleAnalytics extends React.Component {
       if (!rootPage) {
         return;
       }
-      return rootPage.get('googleAnalyticsTrackingId');
+      return rootPage.get("googleAnalyticsTrackingId");
     }).then(trackingId => {
       if (trackingId) {
         Scrivito.finishLoading().then(() => {
@@ -25,10 +25,10 @@ class GoogleAnalytics extends React.Component {
               (ga.q = ga.q || []).push(arguments);
             };
           ga.l = +new Date();
-          window.ga('create', trackingId, 'auto');
-          window.ga('set', 'anonymizeIp', true);
-          window.ga('require', 'urlChangeTracker');
-          window.ga('send', 'pageview');
+          window.ga("create", trackingId, "auto");
+          window.ga("set", "anonymizeIp", true);
+          window.ga("require", "urlChangeTracker");
+          window.ga("send", "pageview");
 
           this.setState({ trackingId });
         });

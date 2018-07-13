@@ -1,30 +1,30 @@
-import * as Scrivito from 'scrivito';
-import authorObjIcon from '../../assets/images/author_obj.svg';
+import * as Scrivito from "scrivito";
+import authorObjIcon from "../../assets/images/author_obj.svg";
 import {
   metaDataEditingConfigAttributes,
   metaDataInitialContent,
   metaDataPropertiesGroup,
-  socialCardsPropertiesGroup,
-} from '../_metaDataEditingConfig';
+  socialCardsPropertiesGroup
+} from "../_metaDataEditingConfig";
 
-Scrivito.provideEditingConfig('Author', {
-  title: 'Author',
+Scrivito.provideEditingConfig("Author", {
+  title: "Author",
   thumbnail: `/${authorObjIcon}`,
   attributes: {
     ...metaDataEditingConfigAttributes,
     title: {
-      title: 'Name',
+      title: "Name"
     },
     description: {
-      title: 'Description',
+      title: "Description"
     },
     image: {
-      title: 'Image',
-    },
+      title: "Image"
+    }
   },
-  properties: ['title', 'description', 'image'],
+  properties: ["title", "description", "image"],
   propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],
   initialContent: {
-    ...metaDataInitialContent,
-  },
+    ...metaDataInitialContent
+  }
 });

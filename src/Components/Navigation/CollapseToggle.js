@@ -1,15 +1,15 @@
-import * as React from 'react';
+import * as React from "react";
 
 function CollapseToggle({ expanded, toggleExpanded }) {
-  const classNames = ['navbar-toggler'];
+  const classNames = ["navbar-toggler"];
   if (!expanded) {
-    classNames.push('collapsed');
+    classNames.push("collapsed");
   }
 
   return (
     <button
       type="button"
-      className={classNames.join(' ')}
+      className={classNames.join(" ")}
       aria-expanded={expanded}
       aria-controls="navbar"
       onClick={toggleExpanded}

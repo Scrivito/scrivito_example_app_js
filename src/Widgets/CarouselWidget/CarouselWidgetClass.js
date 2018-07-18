@@ -10,8 +10,6 @@ const CarouselWidget = Scrivito.provideWidgetClass('CarouselWidget', {
   },
 });
 
-registerTextExtract('CarouselWidget', [
-  { attribute: 'description', type: 'widgetlist' },
-]);
+registerTextExtract('CarouselWidget', [{ attribute: 'description', type: 'widgetlist' }]);
 
 export default CarouselWidget;

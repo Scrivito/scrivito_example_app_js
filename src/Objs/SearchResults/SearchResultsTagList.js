@@ -5,17 +5,17 @@ import TagList from '../../Components/TagList';
 function SearchResultsTagList({ tags, params }) {
   return (
     <TagList
-      tags={ tags }
-      showTags={ tags.length }
-      setTag={
-        newTag => {
-          const newParams = { q: params.q };
-          if (newTag) { newParams.tag = newTag; }
-
-          Scrivito.navigateTo(() => Scrivito.currentPage(), newParams);
+      tags={tags}
+      showTags={tags.length}
+      setTag={newTag => {
+        const newParams = { q: params.q };
+        if (newTag) {
+          newParams.tag = newTag;
         }
-      }
-      currentTag={ params.tag }
+
+        Scrivito.navigateTo(() => Scrivito.currentPage(), newParams);
+      }}
+      currentTag={params.tag}
     />
   );
 }

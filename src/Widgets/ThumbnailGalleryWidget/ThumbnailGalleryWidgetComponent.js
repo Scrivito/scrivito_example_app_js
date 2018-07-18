@@ -69,7 +69,7 @@ class ThumbnailGalleryComponent extends React.Component {
 
     if (!images.length) {
       return (
-        <InPlaceEditingPlaceholder center={ true }>
+        <InPlaceEditingPlaceholder center={true}>
           Select images in the widget properties.
         </InPlaceEditingPlaceholder>
       );
@@ -78,32 +78,31 @@ class ThumbnailGalleryComponent extends React.Component {
     return (
       <div>
         <TagList
-          showTags={ widget.get('showTags') === 'yes' }
-          tags={ allTags(images) }
-          currentTag={ this.state.currentTag }
-          setTag={ this.setTag }
+          showTags={widget.get('showTags') === 'yes'}
+          tags={allTags(images)}
+          currentTag={this.state.currentTag}
+          setTag={this.setTag}
         />
         <div>
           <div className="row gallery-box-wrapper">
-            {
-              images.map((image, imageIndex) =>
-                <Thumbnail
-                  key={ image.id() }
-                  widget={ image }
-                  openLightbox={ event => this.openLightbox(imageIndex, event) }
-                  currentTag={ this.state.currentTag }
-                />)
-            }
+            {images.map((image, imageIndex) => (
+              <Thumbnail
+                key={image.id()}
+                widget={image}
+                openLightbox={event => this.openLightbox(imageIndex, event)}
+                currentTag={this.state.currentTag}
+              />
+            ))}
           </div>
           <Lightbox
-            images={ lightboxImages }
-            currentImage={ this.state.currentImage }
-            isOpen={ this.state.lightboxIsOpen }
-            onClickImage={ this.handleClickImage }
-            onClickNext={ this.gotoNext }
-            onClickPrev={ this.gotoPrevious }
-            onClickThumbnail={ this.gotoImage }
-            onClose={ this.closeLightbox }
+            images={lightboxImages}
+            currentImage={this.state.currentImage}
+            isOpen={this.state.lightboxIsOpen}
+            onClickImage={this.handleClickImage}
+            onClickNext={this.gotoNext}
+            onClickPrev={this.gotoPrevious}
+            onClickThumbnail={this.gotoImage}
+            onClose={this.closeLightbox}
             showThumbnails
             backdropClosesModal
           />
@@ -122,19 +121,21 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   const tags = widget.get('tags');
 
   const classNames = ['col-md-3', 'col-sm-4', 'col-6', 'gallery-box', 'gutter0'];
-  if (currentTag && tags.includes(currentTag)) { classNames.push('squeezed'); }
+  if (currentTag && tags.includes(currentTag)) {
+    classNames.push('squeezed');
+  }
 
   return (
-    <div className={ classNames.join(' ') }>
+    <div className={classNames.join(' ')}>
       <Scrivito.BackgroundImageTag
         className="gallery-box-image"
-        style={ { background: { image } } }
+        style={{ background: { image } }}
       />
-      <a href="#" className="gallery-box-content-wrapper" onClick={ openLightbox }>
+      <a href="#" className="gallery-box-content-wrapper" onClick={openLightbox}>
         <span className="gallery-box-content">
           <i className="fa fa-camera" aria-hidden="true" />
-          <span className="title">{ title }</span>
-          <span className="subtitle">{ subtitle }</span>
+          <span className="title">{title}</span>
+          <span className="subtitle">{subtitle}</span>
         </span>
       </a>
     </div>

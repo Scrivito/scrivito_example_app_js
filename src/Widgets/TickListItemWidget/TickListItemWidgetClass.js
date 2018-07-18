@@ -8,8 +8,6 @@ const TickListItemWidget = Scrivito.provideWidgetClass('TickListItemWidget', {
   onlyInside: 'TickListWidget',
 });
 
-registerTextExtract('TickListItemWidget', [
-  { attribute: 'statement', type: 'string' },
-]);
+registerTextExtract('TickListItemWidget', [{ attribute: 'statement', type: 'string' }]);
 
 export default TickListItemWidget;

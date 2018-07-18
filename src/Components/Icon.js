@@ -3,19 +3,19 @@ import * as Scrivito from 'scrivito';
 
 function Icon({ icon, size, title }) {
   const actualIcon = icon || 'fa-coffee';
-  return <i className= { ['fa', actualIcon, size].join(' ') } aria-hidden="true" title={ title }/>;
+  return <i className={['fa', actualIcon, size].join(' ')} aria-hidden="true" title={title} />;
 }
 
 function IconComponent({ icon, size, link }) {
   if (!link) {
-    return <Icon icon={ icon } size={ size } />;
+    return <Icon icon={icon} size={size} />;
   }
 
   const title = link.title() || '';
 
   return (
-    <Scrivito.LinkTag to={ link }>
-      <Icon icon={ icon } size={ size } title={ title } />
+    <Scrivito.LinkTag to={link}>
+      <Icon icon={icon} size={size} title={title} />
     </Scrivito.LinkTag>
   );
 }

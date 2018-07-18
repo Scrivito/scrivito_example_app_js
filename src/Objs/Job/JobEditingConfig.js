@@ -13,6 +13,10 @@ Scrivito.provideEditingConfig('Job', {
   thumbnail: `/${jobObjIcon}`,
   attributes: {
     ...metaDataEditingConfigAttributes,
+    title: {
+      title: 'Job title',
+      description: 'E.g. Software Engineer',
+    },
     image: {
       title: 'Image',
     },
@@ -67,6 +71,7 @@ Scrivito.provideEditingConfig('Job', {
     },
   },
   properties: [
+    'title',
     'image',
     'datePosted',
     'validThrough',

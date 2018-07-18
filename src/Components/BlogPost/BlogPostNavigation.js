@@ -3,7 +3,9 @@ import * as Scrivito from 'scrivito';
 import BlogPostDate from './BlogPostDate';
 
 const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {
-  if (!currentPost || !currentPost.get('publishedAt')) { return null; }
+  if (!currentPost || !currentPost.get('publishedAt')) {
+    return null;
+  }
 
   return (
     <section className="bg-nav-content">
@@ -11,15 +13,15 @@ const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {
         <div className="nav-centered">
           <ul className="nav-blog">
             <li>
-              <BlogPostNextLink currentBlogPost={ currentPost } />
+              <BlogPostNextLink currentBlogPost={currentPost} />
             </li>
             <li>
               <span>
-                <BlogPostDate post={ currentPost } />
+                <BlogPostDate post={currentPost} />
               </span>
             </li>
             <li>
-              <BlogPostPreviousLink currentBlogPost={ currentPost } />
+              <BlogPostPreviousLink currentBlogPost={currentPost} />
             </li>
           </ul>
         </div>
@@ -37,10 +39,12 @@ const BlogPostNextLink = Scrivito.connect(({ currentBlogPost }) => {
     .order('publishedAt', 'asc')
     .take(1);
 
-  if (!newerPost) { return null; }
+  if (!newerPost) {
+    return null;
+  }
 
   return (
-    <Scrivito.LinkTag to={ newerPost }>
+    <Scrivito.LinkTag to={newerPost}>
       <i className="fa fa-chevron-circle-left  " aria-hidden="true" />
     </Scrivito.LinkTag>
   );
@@ -57,10 +61,12 @@ const BlogPostPreviousLink = Scrivito.connect(({ currentBlogPost }) => {
     .order('publishedAt', 'desc')
     .take(1);
 
-  if (!olderPost) { return null; }
+  if (!olderPost) {
+    return null;
+  }
 
   return (
-    <Scrivito.LinkTag to={ olderPost }>
+    <Scrivito.LinkTag to={olderPost}>
       <i className="fa fa-chevron-circle-right " aria-hidden="true" />
     </Scrivito.LinkTag>
   );

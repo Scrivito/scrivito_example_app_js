@@ -7,7 +7,5 @@ Scrivito.provideEditingConfig('Video', {
       description: 'Make it easier to find this video by adding some tags.',
     },
   },
-  properties: [
-    'tags',
-  ],
+  properties: ['tags'],
 });

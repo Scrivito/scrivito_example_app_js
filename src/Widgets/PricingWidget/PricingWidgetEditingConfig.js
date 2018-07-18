@@ -25,12 +25,7 @@ Scrivito.provideEditingConfig('PricingWidget', {
       description: 'Where should the large plan button lead and what should it say?',
     },
   },
-  properties: [
-    'currency',
-    'smallPlanButton',
-    'mediumPlanButton',
-    'largePlanButton',
-  ],
+  properties: ['currency', 'smallPlanButton', 'mediumPlanButton', 'largePlanButton'],
   initialContent: {
     currency: '€',
     smallPlanName: 'Basic Plan',

@@ -11,22 +11,26 @@ Scrivito.provideComponent('TestimonialSliderWidget', ({ widget }) => {
 
   return (
     <React.Fragment>
-      <Slider { ...settings }>
-        {
-          testimonials.map(testimonial =>
-            <div key={ testimonial.id() }>
-              <h1 className="quote-headline text-center">&quot;</h1>
-              <p className="h4 text-center">
-                { testimonial.get('testimonial') }
-              </p>
-              <p className="small text-center">
-                { testimonial.get('author') }
-              </p>
-            </div>
-          )
-        }
+      <Slider {...settings}>
+        {testimonials.map(testimonial => (
+          <div key={testimonial.id()}>
+            <h1 className="quote-headline text-center">&quot;</h1>
+            <Scrivito.ContentTag
+              content={testimonial}
+              attribute="testimonial"
+              tag="p"
+              className="h4 text-center"
+            />
+            <Scrivito.ContentTag
+              content={testimonial}
+              attribute="author"
+              tag="p"
+              className="small text-center"
+            />
+          </div>
+        ))}
       </Slider>
-      <AddTestimonial widget={ widget } />
+      <AddTestimonial widget={widget} />
     </React.Fragment>
   );
 });
@@ -35,18 +39,16 @@ function sliderSettings(testimonials) {
   const testimonialAuthorImages = testimonials.map(testimonial => {
     const authorImage = testimonial.get('authorImage');
     if (!isImage(authorImage)) {
-      return <img className="image" src={ fallbackImageUrl } />;
+      return <img className="image" src={fallbackImageUrl} />;
     }
 
     return (
       <Scrivito.BackgroundImageTag
-        key={ testimonial.id }
+        key={testimonial.id}
         className="image"
-        style={
-          {
-            background: { image: authorImage },
-          }
-        }
+        style={{
+          background: { image: authorImage },
+        }}
       />
     );
   });
@@ -59,13 +61,14 @@ function sliderSettings(testimonials) {
     dotsClass: 'quote-portrait-wrapper',
     customPaging: i => {
       const image = testimonialAuthorImages[i];
-      return (<a>{ image }</a>);
+      return <a>{image}</a>;
     },
   };
 }
 
 // Source: https://unsplash.com/photos/K2u71wv2eI4/
-const fallbackImageUrl = 'https://images.unsplash.com/photo-1481437642641-2f0ae875f836' +
+const fallbackImageUrl =
+  'https://images.unsplash.com/photo-1481437642641-2f0ae875f836' +
   '?dpr=1&auto=compress,format&fit=crop&w=200&h=200&q=80&cs=tinysrgb&crop=&bg=';
 
 const AddTestimonial = ({ widget }) => {
@@ -77,16 +80,14 @@ const AddTestimonial = ({ widget }) => {
     <div className="text-center">
       <a
         href="#"
-        style={ placeholderCss }
-        onClick={
-          e => {
-            e.preventDefault();
-            e.stopPropagation();
+        style={placeholderCss}
+        onClick={e => {
+          e.preventDefault();
+          e.stopPropagation();
 
-            const newTestimonials = [...widget.get('testimonials'), new TestimonialWidget({})];
-            widget.update({ testimonials: newTestimonials });
-          }
-        }
+          const newTestimonials = [...widget.get('testimonials'), new TestimonialWidget({})];
+          widget.update({ testimonials: newTestimonials });
+        }}
       >
         Click to add a testimonial
       </a>

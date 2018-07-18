@@ -27,11 +27,7 @@ Scrivito.provideEditingConfig('ButtonWidget', {
       description: 'The target and text of the button.',
     },
   },
-  properties: [
-    'target',
-    'alignment',
-    'style',
-  ],
+  properties: ['target', 'alignment', 'style'],
   initialContent: {
     alignment: 'left',
     style: 'btn-primary',

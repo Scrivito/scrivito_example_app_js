@@ -8,24 +8,20 @@ function BlogPostTagList({ tags }) {
       <div className="container">
         <div className="nav-centered">
           <ul className="nav nav-pills">
-            {
-              tags.map(tag =>
-                <li key={ tag }>
-                  <a
-                    href="#"
-                    onClick={
-                      e => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        navigateToBlogWithTag(tag);
-                      }
-                    }
-                  >
-                    { tag }
-                  </a>
-                </li>
-              )
-            }
+            {tags.map(tag => (
+              <li key={tag}>
+                <a
+                  href="#"
+                  onClick={e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    navigateToBlogWithTag(tag);
+                  }}
+                >
+                  {tag}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

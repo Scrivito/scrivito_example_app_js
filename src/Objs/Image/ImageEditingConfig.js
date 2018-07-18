@@ -11,9 +11,5 @@ Scrivito.provideEditingConfig('Image', {
       description: 'Brief description of what the image is about.',
     },
   },
-  properties: [
-    'alternativeText',
-    'tags',
-  ],
+  properties: ['alternativeText', 'tags'],
 });
-

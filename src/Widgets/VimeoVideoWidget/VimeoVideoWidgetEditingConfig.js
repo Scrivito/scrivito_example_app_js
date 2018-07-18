@@ -7,9 +7,10 @@ Scrivito.provideEditingConfig('VimeoVideoWidget', {
   attributes: {
     vimeoVideoId: {
       title: 'Vimeo video ID',
-      description: 'Every video at Vimeo has a unique identifier that consists of a series'
-        + ' of digits. In the video URL, the ID usually is the value at the end,'
-        + ' e.g. 15069551 in https://vimeo.com/15069551.',
+      description:
+        'Every video at Vimeo has a unique identifier that consists of a series' +
+        ' of digits. In the video URL, the ID usually is the value at the end,' +
+        ' e.g. 15069551 in https://vimeo.com/15069551.',
     },
     aspectRatio: {
       title: 'Aspect ratio',
@@ -24,10 +25,7 @@ Scrivito.provideEditingConfig('VimeoVideoWidget', {
       ],
     },
   },
-  properties: [
-    'vimeoVideoId',
-    'aspectRatio',
-  ],
+  properties: ['vimeoVideoId', 'aspectRatio'],
   initialContent: {
     aspectRatio: '16:9',
     vimeoVideoId: '15069551',

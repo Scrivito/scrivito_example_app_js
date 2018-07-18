@@ -10,7 +10,7 @@ Scrivito.provideComponent('CarouselWidget', ({ widget }) => {
 
   if (!images.length) {
     return (
-      <InPlaceEditingPlaceholder center={ true }>
+      <InPlaceEditingPlaceholder center={true}>
         Select images in the widget properties.
       </InPlaceEditingPlaceholder>
     );
@@ -18,8 +18,8 @@ Scrivito.provideComponent('CarouselWidget', ({ widget }) => {
 
   return (
     <div>
-      <Carousel images={ images }/>
-      <DescriptionBox widget={ widget } />
+      <Carousel images={images} />
+      <DescriptionBox widget={widget} />
     </div>
   );
 });
@@ -37,17 +37,23 @@ class BaseCarousel extends React.Component {
   }
 
   next() {
-    if (this.animating) { return; }
+    if (this.animating) {
+      return;
+    }
 
     const nextIndex = (this.state.activeIndex + 1) % this.props.images.length;
     this.setState({ activeIndex: nextIndex });
   }
 
   previous() {
-    if (this.animating) { return; }
+    if (this.animating) {
+      return;
+    }
 
     let previousIndex = (this.state.activeIndex - 1) % this.props.images.length;
-    if (previousIndex < 0) { previousIndex = (this.props.images.length - 1); }
+    if (previousIndex < 0) {
+      previousIndex = this.props.images.length - 1;
+    }
     this.setState({ activeIndex: previousIndex });
   }
 
@@ -64,33 +70,31 @@ class BaseCarousel extends React.Component {
 
     return (
       <ReactstrapCarousel
-        activeIndex={ this.state.activeIndex }
-        next={ this.next }
-        previous={ this.previous }
+        activeIndex={this.state.activeIndex}
+        next={this.next}
+        previous={this.previous}
         className="carousel-images"
       >
-        {
-          images.map((image, index) => {
-            return (
-              <ReactstrapCarouselItem
-                onExiting={ this.onExiting }
-                onExited={ this.onExited }
-                key={ `${image.id()}${index}` }
-              >
-                <Scrivito.ImageTag content={ image } alt={ image.get('alternativeText') } />
-              </ReactstrapCarouselItem>
-            );
-          })
-        }
+        {images.map((image, index) => {
+          return (
+            <ReactstrapCarouselItem
+              onExiting={this.onExiting}
+              onExited={this.onExited}
+              key={`${image.id()}${index}`}
+            >
+              <Scrivito.ImageTag content={image} alt={image.get('alternativeText')} />
+            </ReactstrapCarouselItem>
+          );
+        })}
         <ReactstrapCarouselControl
           direction="prev"
           directionText="Previous"
-          onClickHandler={ this.previous }
+          onClickHandler={this.previous}
         />
         <ReactstrapCarouselControl
           direction="next"
           directionText="Next"
-          onClickHandler={ this.next }
+          onClickHandler={this.next}
         />
       </ReactstrapCarousel>
     );
@@ -108,10 +112,10 @@ const DescriptionBox = Scrivito.connect(({ widget }) => {
     <div className="container">
       <div className="client-wrapper">
         <div className="client-logo">
-          <Scrivito.ImageTag content={ widget } attribute="descriptionLogo" alt="Logo" />
+          <Scrivito.ImageTag content={widget} attribute="descriptionLogo" alt="Logo" />
         </div>
         <div className="client-text">
-          <Scrivito.ContentTag content={ widget } attribute="description" />
+          <Scrivito.ContentTag content={widget} attribute="description" />
         </div>
       </div>
     </div>

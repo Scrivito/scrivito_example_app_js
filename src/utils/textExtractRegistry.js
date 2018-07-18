@@ -21,7 +21,4 @@ function lookupTextExtract(className) {
   return textExtractRegistry[className];
 }
 
-export {
-  registerTextExtract,
-  lookupTextExtract,
-};
+export { registerTextExtract, lookupTextExtract };

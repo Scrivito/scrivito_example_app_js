@@ -11,12 +11,10 @@ Scrivito.provideEditingConfig('VideoWidget', {
     },
     poster: {
       title: 'Poster image (optional)',
-      description: 'This poster image is shown, until the video is loaded.' +
+      description:
+        'This poster image is shown, until the video is loaded.' +
         ' Without an poster image, the browser may show the first frame of the video.',
     },
   },
-  properties: [
-    'source',
-    'poster',
-  ],
+  properties: ['source', 'poster'],
 });

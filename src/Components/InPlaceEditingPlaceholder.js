@@ -7,14 +7,14 @@ const InPlaceEditingPlaceholder = ({ children, center, block }) => {
     return null;
   }
 
-  const innerSpan = <span style={ placeholderCss }>{ children }</span>;
+  const innerSpan = <span style={placeholderCss}>{children}</span>;
 
   if (center) {
-    return <div className="text-center">{ innerSpan }</div>;
+    return <div className="text-center">{innerSpan}</div>;
   }
 
   if (block) {
-    return <div>{ innerSpan }</div>;
+    return <div>{innerSpan}</div>;
   }
 
   return innerSpan;

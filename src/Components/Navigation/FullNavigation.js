@@ -43,22 +43,19 @@ class FullNavigation extends React.Component {
     ];
 
     return (
-      <nav className={ classNames.join(' ') } >
+      <nav className={classNames.join(' ')}>
         <div className="container">
-          <SearchBox toggleSearch={ toggleSearch } showSearch={ showSearch } />
+          <SearchBox toggleSearch={toggleSearch} showSearch={showSearch} />
 
           <div className="navbar-header">
-            <CollapseToggle
-              expanded={ this.state.expanded }
-              toggleExpanded={ this.toggleExpanded }
-            />
-            <Logo scrolled={ scrolled } navigationStyle={ navigationStyle } />
-            <SearchIcon toggleSearch={ toggleSearch } />
+            <CollapseToggle expanded={this.state.expanded} toggleExpanded={this.toggleExpanded} />
+            <Logo scrolled={scrolled} navigationStyle={navigationStyle} />
+            <SearchIcon toggleSearch={toggleSearch} />
           </div>
 
-          <Collapse isOpen={ this.state.expanded } navbar={ true }>
+          <Collapse isOpen={this.state.expanded} navbar={true}>
             <div className="navbar-collapse">
-              <Nav closeExpanded={ this.closeExpanded } expanded={ this.state.expanded } />
+              <Nav closeExpanded={this.closeExpanded} expanded={this.state.expanded} />
             </div>
           </Collapse>
         </div>
@@ -66,6 +63,5 @@ class FullNavigation extends React.Component {
     );
   }
 }
-
 
 export default FullNavigation;

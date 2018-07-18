@@ -6,10 +6,6 @@ Scrivito.provideEditingConfig('TickListWidget', {
   title: 'Tick List',
   thumbnail: `/${tickListWidgetIcon}`,
   initialContent: {
-    items: [
-      new TickListItemWidget({}),
-      new TickListItemWidget({}),
-      new TickListItemWidget({}),
-    ],
+    items: [new TickListItemWidget({}), new TickListItemWidget({}), new TickListItemWidget({})],
   },
 });

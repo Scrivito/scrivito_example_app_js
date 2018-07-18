@@ -12,8 +12,6 @@ const HeadlineWidget = Scrivito.provideWidgetClass('HeadlineWidget', {
   },
 });
 
-registerTextExtract('HeadlineWidget', [
-  { attribute: 'headline', type: 'string' },
-]);
+registerTextExtract('HeadlineWidget', [{ attribute: 'headline', type: 'string' }]);
 
 export default HeadlineWidget;

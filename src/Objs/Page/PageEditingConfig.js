@@ -19,9 +19,7 @@ Scrivito.provideEditingConfig('Page', {
     ...defaultPageEditingConfigAttributes,
     ...metaDataEditingConfigAttributes,
   },
-  properties: [
-    ...defaultPageProperties,
-  ],
+  properties: [...defaultPageProperties],
   propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],
   initialContent: {
     ...defaultPageInitialContent,

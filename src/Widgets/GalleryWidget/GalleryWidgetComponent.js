@@ -8,7 +8,7 @@ function GalleryWidgetComponent({ widget }) {
 
   if (!images.length) {
     return (
-      <InPlaceEditingPlaceholder center={ true }>
+      <InPlaceEditingPlaceholder center={true}>
         Select images in the widget properties.
       </InPlaceEditingPlaceholder>
     );
@@ -17,15 +17,14 @@ function GalleryWidgetComponent({ widget }) {
   const settings = sliderSettings(images);
   return (
     <div className="slick-gallary-fluid">
-      <Slider { ...settings } className="slickslide">
-        {
-          images.map((image, index) =>
-            <Scrivito.ImageTag
-              content={ image }
-              key={ `${image.id()}${index}` }
-              alt={ image.get('alternativeText') }
-            />)
-        }
+      <Slider {...settings} className="slickslide">
+        {images.map((image, index) => (
+          <Scrivito.ImageTag
+            content={image}
+            key={`${image.id()}${index}`}
+            alt={image.get('alternativeText')}
+          />
+        ))}
       </Slider>
     </div>
   );
@@ -48,12 +47,14 @@ function sliderSettings(images) {
     slidesToShow: 1,
     speed: 500,
     variableWidth: false,
-    responsive: [{
-      breakpoint: 800,
-      settings: {
-        centerMode: false,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          centerMode: false,
+        },
       },
-    }],
+    ],
     customPaging: i => {
       const image = images[i];
 
@@ -61,11 +62,9 @@ function sliderSettings(images) {
         <button className="tab">
           <Scrivito.BackgroundImageTag
             className="image"
-            style={
-              {
-                background: { image },
-              }
-            }
+            style={{
+              background: { image },
+            }}
           />
         </button>
       );

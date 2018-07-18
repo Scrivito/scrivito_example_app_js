@@ -6,31 +6,31 @@ import SchemaDotOrg from '../../Components/SchemaDotOrg';
 Scrivito.provideComponent('AddressWidget', ({ widget }) => {
   return (
     <div>
-      { widget.get('showLogo') !== 'no' && <Logo /> }
+      {widget.get('showLogo') !== 'no' && <Logo />}
       <address>
-        <Address addressWidget={ widget } />
-        <Table
-            phone={ widget.get('phone') }
-            fax={ widget.get('fax') }
-            email={ widget.get('email') }
-          />
-        <SchemaDotOrg content={ widget } />
+        <Address addressWidget={widget} />
+        <Table phone={widget.get('phone')} fax={widget.get('fax')} email={widget.get('email')} />
+        <SchemaDotOrg content={widget} />
       </address>
-      { widget.get('showBorderBottom') === 'yes' && <div className="b-bottom" /> }
+      {widget.get('showBorderBottom') === 'yes' && <div className="b-bottom" />}
     </div>
   );
 });
 
 const Logo = Scrivito.connect(() => {
   const root = Scrivito.Obj.root();
-  if (!root) { return null; }
+  if (!root) {
+    return null;
+  }
 
   const logo = root.get('logoDark');
-  if (!logo) { return null; }
+  if (!logo) {
+    return null;
+  }
 
   return (
-    <Scrivito.LinkTag to={ root }>
-      <Scrivito.ImageTag content={ logo } className="logo" alt="Logo" />
+    <Scrivito.LinkTag to={root}>
+      <Scrivito.ImageTag content={logo} className="logo" alt="Logo" />
     </Scrivito.LinkTag>
   );
 });
@@ -59,7 +59,6 @@ const Address = Scrivito.connect(({ addressWidget }) => {
     addressWidget.get('locationCountry'),
   ].filter(n => n);
 
-
   if (!lines.length) {
     return (
       <InPlaceEditingPlaceholder>
@@ -70,14 +69,12 @@ const Address = Scrivito.connect(({ addressWidget }) => {
 
   return (
     <p>
-      {
-        lines.map((line, index) =>
-          <React.Fragment key={ index }>
-            { line }
-            <br />
-          </React.Fragment>
-        )
-      }
+      {lines.map((line, index) => (
+        <React.Fragment key={index}>
+          {line}
+          <br />
+        </React.Fragment>
+      ))}
     </p>
   );
 });
@@ -92,10 +89,7 @@ function Table(props) {
   return (
     <table>
       <tbody>
-        {
-          lines.map(([name, value]) =>
-            <TableColumn key={ name } name={ name } value={ value } />)
-        }
+        {lines.map(([name, value]) => <TableColumn key={name} name={name} value={value} />)}
       </tbody>
     </table>
   );
@@ -120,8 +114,10 @@ function TableColumn({ name, value }) {
 
   return (
     <tr>
-      <td>{ `${LOCALIZATION[name]}: ` }</td>
-      <td><a href={ href }>{ value }</a></td>
+      <td>{`${LOCALIZATION[name]}: `}</td>
+      <td>
+        <a href={href}>{value}</a>
+      </td>
     </tr>
   );
 }

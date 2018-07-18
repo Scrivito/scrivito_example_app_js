@@ -40,14 +40,18 @@ function getMetaData(page) {
     meta.push({ name: 'twitter:creator', content: tcCreator });
   }
 
-  const tcDescription = page.get('tcDescription') ||
-    truncate(textExtract, { length: 137, separator: /,? +/ });
+  const tcDescription =
+    page.get('tcDescription') || truncate(textExtract, { length: 137, separator: /,? +/ });
   if (tcDescription) {
     meta.push({ name: 'twitter:description', content: tcDescription });
   }
 
-  const tcImage = firstUrlForAttributes(page,
-    ['tcImage', 'titleImage', 'navigationBackgroundImage', 'image']);
+  const tcImage = firstUrlForAttributes(page, [
+    'tcImage',
+    'titleImage',
+    'navigationBackgroundImage',
+    'image',
+  ]);
   if (tcImage) {
     meta.push({ name: 'twitter:image', content: tcImage });
   }
@@ -57,14 +61,18 @@ function getMetaData(page) {
     meta.push({ name: 'twitter:title', content: tcTitle });
   }
 
-  const ogDescription = page.get('ogDescription') ||
-    truncate(textExtract, { length: 297, separator: /,? +/ });
+  const ogDescription =
+    page.get('ogDescription') || truncate(textExtract, { length: 297, separator: /,? +/ });
   if (ogDescription) {
     meta.push({ property: 'og:description', content: ogDescription });
   }
 
-  const ogImage = firstUrlForAttributes(page,
-    ['ogImage', 'titleImage', 'navigationBackgroundImage', 'image']);
+  const ogImage = firstUrlForAttributes(page, [
+    'ogImage',
+    'titleImage',
+    'navigationBackgroundImage',
+    'image',
+  ]);
   if (ogImage) {
     meta.push({ property: 'og:image', content: ogImage });
   }
@@ -81,7 +89,9 @@ function firstUrlForAttributes(obj, attributes) {
   let url;
 
   attributes.forEach(attribute => {
-    if (url) { return; }
+    if (url) {
+      return;
+    }
     const binary = obj.get(attribute);
     url = urlFromBinary(binary);
   });

@@ -12,12 +12,19 @@ class GoogleAnalytics extends React.Component {
   componentDidMount() {
     Scrivito.load(() => {
       const rootPage = Scrivito.Obj.root();
-      if (!rootPage) { return; }
+      if (!rootPage) {
+        return;
+      }
       return rootPage.get('googleAnalyticsTrackingId');
     }).then(trackingId => {
       if (trackingId) {
         Scrivito.finishLoading().then(() => {
-          window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+          window.ga =
+            window.ga ||
+            function() {
+              (ga.q = ga.q || []).push(arguments);
+            };
+          ga.l = +new Date();
           window.ga('create', trackingId, 'auto');
           window.ga('set', 'anonymizeIp', true);
           window.ga('require', 'urlChangeTracker');
@@ -36,8 +43,8 @@ class GoogleAnalytics extends React.Component {
 
     return (
       <Helmet>
-        <script async src='/google_analytics.js' />
-        <script async src='https://www.google-analytics.com/analytics.js' />
+        <script async src="/google_analytics.js" />
+        <script async src="https://www.google-analytics.com/analytics.js" />
       </Helmet>
     );
   }

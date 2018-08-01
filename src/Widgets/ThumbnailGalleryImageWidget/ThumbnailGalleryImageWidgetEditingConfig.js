@@ -1,21 +1,22 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
-Scrivito.provideEditingConfig('ThumbnailGalleryImageWidget', {
-  title: 'Thumbnail Gallery Image',
+Scrivito.provideEditingConfig("ThumbnailGalleryImageWidget", {
+  title: "Thumbnail Gallery Image",
   attributes: {
     image: {
-      title: 'Image',
+      title: "Image"
     },
     title: {
-      title: 'Title',
+      title: "Title"
     },
     subtitle: {
-      title: 'Subtitle',
+      title: "Subtitle"
     },
     tags: {
-      title: 'Tags',
-    },
+      title: "Tags"
+    }
   },
-  properties: ['image', 'title', 'subtitle', 'tags'],
-  titleForContent: widget => `${widget.get('title')} - ${widget.get('subtitle')}`,
+  properties: ["image", "title", "subtitle", "tags"],
+  titleForContent: widget =>
+    `${widget.get("title")} - ${widget.get("subtitle")}`
 });

@@ -1,9 +1,9 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
-const JobOverviewWidget = Scrivito.provideWidgetClass('JobOverviewWidget', {
+const JobOverviewWidget = Scrivito.provideWidgetClass("JobOverviewWidget", {
   attributes: {
-    location: 'string',
-  },
+    location: "string"
+  }
 });
 
 export default JobOverviewWidget;

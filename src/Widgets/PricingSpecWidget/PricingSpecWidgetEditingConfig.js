@@ -1,5 +1,5 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
-Scrivito.provideEditingConfig('PricingSpecWidget', {
-  title: 'Pricing Spec',
+Scrivito.provideEditingConfig("PricingSpecWidget", {
+  title: "Pricing Spec"
 });

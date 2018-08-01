@@ -1,7 +1,7 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import InPlaceEditingPlaceholder from './InPlaceEditingPlaceholder';
-import isImage from '../utils/isImage';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import InPlaceEditingPlaceholder from "./InPlaceEditingPlaceholder";
+import isImage from "../utils/isImage";
 
 function AuthorImage({ image }) {
   if (!isImage(image)) {
@@ -19,8 +19,8 @@ function AuthorImage({ image }) {
         background: { image },
 
         // relative square in css - https://stackoverflow.com/a/23924580/881759
-        width: '100%',
-        paddingBottom: '100%',
+        width: "100%",
+        paddingBottom: "100%"
       }}
     />
   );

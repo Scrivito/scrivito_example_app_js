@@ -1,12 +1,12 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
 function googleMapsApiKey() {
   const root = Scrivito.Obj.root();
   if (!root) {
-    return '';
+    return "";
   }
 
-  return root.get('googleMapsApiKey');
+  return root.get("googleMapsApiKey");
 }
 
 export default googleMapsApiKey;

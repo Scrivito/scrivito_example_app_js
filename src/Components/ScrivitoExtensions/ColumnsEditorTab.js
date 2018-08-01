@@ -1,15 +1,17 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import Draggable from 'react-draggable';
-import { flatten, isEqual, last, take, takeRight, times } from 'lodash-es';
-import ColumnWidget from '../../Widgets/ColumnWidget/ColumnWidgetClass';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import Draggable from "react-draggable";
+import { flatten, isEqual, last, take, takeRight, times } from "lodash-es";
+import ColumnWidget from "../../Widgets/ColumnWidget/ColumnWidgetClass";
 
 class ColumnsEditorTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      originalContents: props.widget.get('columns').map(column => column.get('content')),
-      currentGrid: gridOfWidget(props.widget),
+      originalContents: props.widget
+        .get("columns")
+        .map(column => column.get("content")),
+      currentGrid: gridOfWidget(props.widget)
     };
 
     this.adjustGrid = this.adjustGrid.bind(this);
@@ -109,7 +111,10 @@ class ColumnsEditorTab extends React.Component {
               />
             </div>
           </div>
-          <GridLayoutEditor currentGrid={this.state.currentGrid} adjustGrid={this.adjustGrid} />
+          <GridLayoutEditor
+            currentGrid={this.state.currentGrid}
+            adjustGrid={this.adjustGrid}
+          />
         </div>
       </div>
     );
@@ -123,49 +128,60 @@ class ColumnsEditorTab extends React.Component {
     const containerWidget = this.props.widget;
 
     adjustNumberOfColumns(containerWidget, newGrid.length);
-    distributeContents(containerWidget.get('columns'), this.state.originalContents);
-    adjustColSize(containerWidget.get('columns'), newGrid);
+    distributeContents(
+      containerWidget.get("columns"),
+      this.state.originalContents
+    );
+    adjustColSize(containerWidget.get("columns"), newGrid);
 
     this.setState({ currentGrid: gridOfWidget(containerWidget) });
   }
 }
 
-Scrivito.registerComponent('ColumnsEditorTab', ColumnsEditorTab);
+Scrivito.registerComponent("ColumnsEditorTab", ColumnsEditorTab);
 
-const PresetGrid = Scrivito.connect(({ currentGrid, adjustGrid, title, grid }) => {
-  const classNames = ['gle-preview'];
-  if (isEqual(currentGrid, grid)) {
-    classNames.push('active');
+const PresetGrid = Scrivito.connect(
+  ({ currentGrid, adjustGrid, title, grid }) => {
+    const classNames = ["gle-preview"];
+    if (isEqual(currentGrid, grid)) {
+      classNames.push("active");
+    }
+
+    return (
+      <div
+        className={classNames.join(" ")}
+        title={title}
+        onClick={() => adjustGrid(grid)}
+      >
+        {grid.map((colSize, index) => (
+          <div className={`grid-col-${colSize}`} key={index} />
+        ))}
+      </div>
+    );
   }
-
-  return (
-    <div className={classNames.join(' ')} title={title} onClick={() => adjustGrid(grid)}>
-      {grid.map((colSize, index) => <div className={`grid-col-${colSize}`} key={index} />)}
-    </div>
-  );
-});
+);
 
 const Alignment = Scrivito.connect(({ widget }) => {
-  const startAlignmentClasses = ['gle-preview'];
-  const centerAlignmentClasses = ['gle-preview'];
-  const endAlignmentClasses = ['gle-preview'];
-  const stretchAlignmentClasses = ['gle-preview'];
+  const startAlignmentClasses = ["gle-preview"];
+  const centerAlignmentClasses = ["gle-preview"];
+  const endAlignmentClasses = ["gle-preview"];
+  const stretchAlignmentClasses = ["gle-preview"];
 
-  switch (widget.get('alignment')) {
-    case 'start':
-      startAlignmentClasses.push('active');
+  switch (widget.get("alignment")) {
+    case "start":
+      startAlignmentClasses.push("active");
       break;
-    case 'center':
-      centerAlignmentClasses.push('active');
+    case "center":
+      centerAlignmentClasses.push("active");
       break;
-    case 'end':
-      endAlignmentClasses.push('active');
+    case "end":
+      endAlignmentClasses.push("active");
       break;
-    case 'stretch':
-      stretchAlignmentClasses.push('active');
+    case "stretch":
+      stretchAlignmentClasses.push("active");
       break;
     default:
-      startAlignmentClasses.push('active');
+      startAlignmentClasses.push("active");
       break;
   }
 
@@ -178,9 +194,9 @@ const Alignment = Scrivito.connect(({ widget }) => {
         <div className="gle-preview-list">
           <div className="gle-preview-group">
             <div
-              className={startAlignmentClasses.join(' ')}
+              className={startAlignmentClasses.join(" ")}
               title="Content top aligned"
-              onClick={() => widget.update({ alignment: 'start' })}
+              onClick={() => widget.update({ alignment: "start" })}
             >
               <div className="grid-col-12">
                 <span className="alignment" />
@@ -188,9 +204,9 @@ const Alignment = Scrivito.connect(({ widget }) => {
             </div>
 
             <div
-              className={centerAlignmentClasses.join(' ')}
+              className={centerAlignmentClasses.join(" ")}
               title="Content center aligned"
-              onClick={() => widget.update({ alignment: 'center' })}
+              onClick={() => widget.update({ alignment: "center" })}
             >
               <div className="grid-col-12">
                 <span className="alignment center" />
@@ -198,9 +214,9 @@ const Alignment = Scrivito.connect(({ widget }) => {
             </div>
 
             <div
-              className={endAlignmentClasses.join(' ')}
+              className={endAlignmentClasses.join(" ")}
               title="Content bottom aligned"
-              onClick={() => widget.update({ alignment: 'end' })}
+              onClick={() => widget.update({ alignment: "end" })}
             >
               <div className="grid-col-12">
                 <span className="alignment bottom" />
@@ -208,9 +224,9 @@ const Alignment = Scrivito.connect(({ widget }) => {
             </div>
 
             <div
-              className={stretchAlignmentClasses.join(' ')}
+              className={stretchAlignmentClasses.join(" ")}
               title="Content stretch (full height) aligned"
-              onClick={() => widget.update({ alignment: 'stretch' })}
+              onClick={() => widget.update({ alignment: "stretch" })}
             >
               <div className="grid-col-12">
                 <span className="alignment fullHeight" />
@@ -218,7 +234,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
             </div>
           </div>
         </div>
-        <AlignmentDescription alignment={widget.get('alignment')} />
+        <AlignmentDescription alignment={widget.get("alignment")} />
       </div>
     </React.Fragment>
   );
@@ -229,7 +245,7 @@ class GridLayoutEditor extends React.Component {
     super(props);
 
     this.state = {
-      draggableGrid: 0,
+      draggableGrid: 0
     };
 
     this.gridRulerRef = React.createRef();
@@ -241,19 +257,20 @@ class GridLayoutEditor extends React.Component {
 
   componentDidMount() {
     this.handleResize();
-    window.addEventListener('resize', this.handleResize);
+    window.addEventListener("resize", this.handleResize);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener("resize", this.handleResize);
   }
 
   handleResize() {
-    const draggableGrid = this.gridRulerRef.current.firstChild.getBoundingClientRect().width + 10;
+    const draggableGrid =
+      this.gridRulerRef.current.firstChild.getBoundingClientRect().width + 10;
 
     if (this.state.draggableGrid !== draggableGrid) {
       this.setState({
-        draggableGrid,
+        draggableGrid
       });
     }
   }
@@ -288,7 +305,7 @@ class GridLayoutEditor extends React.Component {
       const innerContent = [
         <div key="grid-label" className="grid-label">
           {colSize}
-        </div>,
+        </div>
       ];
 
       const nextColSize = this.props.currentGrid[colIndex + 1];
@@ -301,7 +318,7 @@ class GridLayoutEditor extends React.Component {
             key="grid-handle"
             bounds={{
               left: this.state.draggableGrid * leftBound,
-              right: this.state.draggableGrid * rightBound,
+              right: this.state.draggableGrid * rightBound
             }}
             axis="x"
             grid={[this.state.draggableGrid, 0]}
@@ -309,7 +326,7 @@ class GridLayoutEditor extends React.Component {
             onStop={(_e, { x }) =>
               this.onDragStop({
                 colIndex,
-                deltaColSize: Math.round(x / this.state.draggableGrid),
+                deltaColSize: Math.round(x / this.state.draggableGrid)
               })
             }
           >
@@ -322,7 +339,9 @@ class GridLayoutEditor extends React.Component {
             key="grid-handle-plus"
             className="grid-handle grid-handle-plus"
             title="add a column"
-            onClick={() => this.adjustNumberOfColumns(this.props.currentGrid.length + 1)}
+            onClick={() =>
+              this.adjustNumberOfColumns(this.props.currentGrid.length + 1)
+            }
           />
         );
       }
@@ -333,13 +352,18 @@ class GridLayoutEditor extends React.Component {
             key="grid-del"
             className="grid-del"
             title="delete column"
-            onClick={() => this.adjustNumberOfColumns(this.props.currentGrid.length - 1)}
+            onClick={() =>
+              this.adjustNumberOfColumns(this.props.currentGrid.length - 1)
+            }
           />
         );
       }
 
       return (
-        <div key={`grid-col-${colIndex}`} className={`grid-col-${colSize} noselect`}>
+        <div
+          key={`grid-col-${colIndex}`}
+          className={`grid-col-${colSize} noselect`}
+        >
           {innerContent}
         </div>
       );
@@ -357,11 +381,11 @@ class GridLayoutEditor extends React.Component {
 }
 
 function gridOfWidget(containerWidget) {
-  return containerWidget.get('columns').map(column => column.get('colSize'));
+  return containerWidget.get("columns").map(column => column.get("colSize"));
 }
 
 function adjustNumberOfColumns(containerWidget, desiredLength) {
-  const columns = containerWidget.get('columns');
+  const columns = containerWidget.get("columns");
   if (columns.length === desiredLength) {
     return;
   }
@@ -383,7 +407,10 @@ function distributeContents(columns, originalContents) {
   });
 
   // merge last columns into one
-  const colsToMerge = takeRight(originalContents, originalContents.length - splitIndexAt);
+  const colsToMerge = takeRight(
+    originalContents,
+    originalContents.length - splitIndexAt
+  );
   last(columns).update({ content: flatten(colsToMerge) });
 }
 
@@ -394,7 +421,7 @@ function adjustColSize(columns, newGrid) {
 }
 
 function AlignmentDescription({ alignment }) {
-  if (alignment !== 'stretch') {
+  if (alignment !== "stretch") {
     return null;
   }
 

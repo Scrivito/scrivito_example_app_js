@@ -1,16 +1,16 @@
-import * as React from 'react';
-import Collapse from 'reactstrap/lib/Collapse';
-import CollapseToggle from './CollapseToggle';
-import Logo from './Logo';
-import Nav from './Nav';
-import { SearchBox, SearchIcon } from './Search';
+import * as React from "react";
+import Collapse from "reactstrap/lib/Collapse";
+import CollapseToggle from "./CollapseToggle";
+import Logo from "./Logo";
+import Nav from "./Nav";
+import { SearchBox, SearchIcon } from "./Search";
 
 class FullNavigation extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      expanded: false,
+      expanded: false
     };
 
     this.toggleExpanded = this.toggleExpanded.bind(this);
@@ -31,31 +31,37 @@ class FullNavigation extends React.Component {
       toggleSearch,
       scrolled,
       navigationStyle,
-      showSearch,
+      showSearch
     } = this.props;
 
     const classNames = [
-      'navbar',
-      'fixed-top',
-      'navbar-default',
-      'navbar-expand-lg',
-      ...bootstrapNavbarClassNames,
+      "navbar",
+      "fixed-top",
+      "navbar-default",
+      "navbar-expand-lg",
+      ...bootstrapNavbarClassNames
     ];
 
     return (
-      <nav className={classNames.join(' ')}>
+      <nav className={classNames.join(" ")}>
         <div className="container">
           <SearchBox toggleSearch={toggleSearch} showSearch={showSearch} />
 
           <div className="navbar-header">
-            <CollapseToggle expanded={this.state.expanded} toggleExpanded={this.toggleExpanded} />
+            <CollapseToggle
+              expanded={this.state.expanded}
+              toggleExpanded={this.toggleExpanded}
+            />
             <Logo scrolled={scrolled} navigationStyle={navigationStyle} />
             <SearchIcon toggleSearch={toggleSearch} />
           </div>
 
           <Collapse isOpen={this.state.expanded} navbar={true}>
             <div className="navbar-collapse">
-              <Nav closeExpanded={this.closeExpanded} expanded={this.state.expanded} />
+              <Nav
+                closeExpanded={this.closeExpanded}
+                expanded={this.state.expanded}
+              />
             </div>
           </Collapse>
         </div>

@@ -1,8 +1,8 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
-Scrivito.provideEditingConfig('TickListItemWidget', {
-  title: 'Tick List Item',
+Scrivito.provideEditingConfig("TickListItemWidget", {
+  title: "Tick List Item",
   initialContent: {
-    statement: 'Lorem ipsum',
-  },
+    statement: "Lorem ipsum"
+  }
 });

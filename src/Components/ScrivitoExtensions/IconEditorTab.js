@@ -1,16 +1,16 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import AllIcons from './IconEditorTab/AllIcons';
-import IconComponent from '../Icon';
-import IconSearch from './IconEditorTab/IconSearch';
-import IconSearchResults from './IconEditorTab/IconSearchResults';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import AllIcons from "./IconEditorTab/AllIcons";
+import IconComponent from "../Icon";
+import IconSearch from "./IconEditorTab/IconSearch";
+import IconSearchResults from "./IconEditorTab/IconSearchResults";
 
 class IconEditorTab extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      searchValue: '',
+      searchValue: ""
     };
 
     this.setSearchValue = this.setSearchValue.bind(this);
@@ -35,7 +35,7 @@ class IconEditorTab extends React.Component {
 
   render() {
     const widget = this.props.widget;
-    const currentIcon = widget.get('icon');
+    const currentIcon = widget.get("icon");
 
     return (
       <div className="icon-editor-tab">
@@ -44,10 +44,13 @@ class IconEditorTab extends React.Component {
             <span>Preview</span>
           </div>
           <div className="icon-editor-preview">
-            <IconComponent icon={widget.get('icon')} />
+            <IconComponent icon={widget.get("icon")} />
           </div>
 
-          <IconSearch searchValue={this.state.searchValue} setSearchValue={this.setSearchValue} />
+          <IconSearch
+            searchValue={this.state.searchValue}
+            setSearchValue={this.setSearchValue}
+          />
           <IconSearchResults
             currentIcon={currentIcon}
             searchValue={this.state.searchValue}
@@ -64,4 +67,4 @@ class IconEditorTab extends React.Component {
   }
 }
 
-Scrivito.registerComponent('IconEditorTab', IconEditorTab);
+Scrivito.registerComponent("IconEditorTab", IconEditorTab);

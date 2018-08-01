@@ -1,12 +1,12 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import Helmet from 'react-helmet';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import Helmet from "react-helmet";
 
 class Intercom extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { intercomAppId: '' };
+    this.state = { intercomAppId: "" };
   }
 
   componentDidMount() {
@@ -15,7 +15,7 @@ class Intercom extends React.Component {
       if (!rootPage) {
         return;
       }
-      return rootPage.get('intercomAppId');
+      return rootPage.get("intercomAppId");
     }).then(intercomAppId => {
       if (intercomAppId) {
         Scrivito.finishLoading().then(() => {
@@ -33,16 +33,19 @@ class Intercom extends React.Component {
 
     return (
       <Helmet>
-        <script async src={`https://widget.intercom.io/widget/${this.state.intercomAppId}`} />
+        <script
+          async
+          src={`https://widget.intercom.io/widget/${this.state.intercomAppId}`}
+        />
       </Helmet>
     );
   }
 }
 
 function installIntercom(appId) {
-  if (typeof window.Intercom === 'function') {
-    window.Intercom('reattach_activator');
-    window.Intercom('update', { app_id: appId });
+  if (typeof window.Intercom === "function") {
+    window.Intercom("reattach_activator");
+    window.Intercom("update", { app_id: appId });
   } else {
     const intercom = (...args) => intercom.c(args);
     intercom.q = [];
@@ -50,7 +53,7 @@ function installIntercom(appId) {
 
     window.Intercom = intercom;
 
-    window.Intercom('boot', { app_id: appId });
+    window.Intercom("boot", { app_id: appId });
   }
 }
 

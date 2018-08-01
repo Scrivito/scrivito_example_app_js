@@ -1,30 +1,32 @@
-import * as Scrivito from 'scrivito';
-import { registerTextExtract } from '../../utils/textExtractRegistry';
+import * as Scrivito from "scrivito";
+import { registerTextExtract } from "../../utils/textExtractRegistry";
 
-const SectionWidget = Scrivito.provideWidgetClass('SectionWidget', {
+const SectionWidget = Scrivito.provideWidgetClass("SectionWidget", {
   attributes: {
-    content: 'widgetlist',
-    useFullWidth: ['enum', { values: ['yes', 'no'] }],
-    useFullHeight: ['enum', { values: ['yes', 'no'] }],
-    showPadding: ['enum', { values: ['yes', 'no'] }],
+    content: "widgetlist",
+    useFullWidth: ["enum", { values: ["yes", "no"] }],
+    useFullHeight: ["enum", { values: ["yes", "no"] }],
+    showPadding: ["enum", { values: ["yes", "no"] }],
     backgroundColor: [
-      'enum',
+      "enum",
       {
         values: [
-          'white',
-          'greywhite',
-          'greylight',
-          'greymiddle',
-          'greydark',
-          'brand-primary',
-          'brand-secondary',
-        ],
-      },
+          "white",
+          "greywhite",
+          "greylight",
+          "greymiddle",
+          "greydark",
+          "brand-primary",
+          "brand-secondary"
+        ]
+      }
     ],
-    backgroundImage: 'reference',
-  },
+    backgroundImage: "reference"
+  }
 });
 
-registerTextExtract('SectionWidget', [{ attribute: 'content', type: 'widgetlist' }]);
+registerTextExtract("SectionWidget", [
+  { attribute: "content", type: "widgetlist" }
+]);
 
 export default SectionWidget;

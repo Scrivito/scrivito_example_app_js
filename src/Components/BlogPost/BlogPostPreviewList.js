@@ -7,7 +7,7 @@ import InPlaceEditingPlaceholder from '../InPlaceEditingPlaceholder';
 import isImage from '../../utils/isImage';
 import { textExtractFromObj } from '../../utils/textExtract';
 
-const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag }) => {
+const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag, currentPost }) => {
   let blogPosts = Scrivito.getClass('BlogPost')
     .all()
     .order('publishedAt', 'desc');
@@ -43,7 +43,7 @@ const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag }) => {
       {Object.entries(months).map(([month, monthPosts]) => (
         <React.Fragment key={`month: ${month}`}>
           <MonthHeadline date={monthPosts[0].get('publishedAt')} />
-          <PostsTimeline posts={monthPosts} />
+          <PostsTimeline currentPost={currentPost} posts={monthPosts} />
         </React.Fragment>
       ))}
     </React.Fragment>
@@ -64,11 +64,17 @@ const MonthHeadline = Scrivito.connect(({ date }) => {
   );
 });
 
-const PostsTimeline = Scrivito.connect(({ posts }) => (
-  <ul className="timeline">{posts.map(post => <BlogPostPreview key={post.id()} post={post} />)}</ul>
+const PostsTimeline = Scrivito.connect(({ posts, currentPost }) => (
+  <ul className="timeline">
+    {posts.map(post => <BlogPostPreview currentPost={currentPost} key={post.id()} post={post} />)}
+  </ul>
 ));
 
-const BlogPostPreview = Scrivito.connect(({ post }) => {
+const BlogPostPreview = Scrivito.connect(({ post, currentPost }) => {
+  if (currentPost && post.id() === currentPost.id()) {
+    return null;
+  }
+
   return (
     <li>
       <BlogPostDate post={post} />

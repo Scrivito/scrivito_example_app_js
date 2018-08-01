@@ -18,7 +18,7 @@ Scrivito.provideComponent('BlogPost', ({ page }) => (
     <Scrivito.ContentTag tag="div" content={page} attribute="body" />
     <BlogPostAuthor author={page.get('author')} />
     <BlogPostTagList tags={page.get('tags')} />
-    <BlogPostMorePosts author={page.get('author')} />
+    <BlogPostMorePosts author={page.get('author')} currentPost={page} />
     <SchemaDotOrg content={page} />
   </div>
 ));

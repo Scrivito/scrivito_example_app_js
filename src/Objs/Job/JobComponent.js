@@ -9,12 +9,12 @@ Scrivito.provideComponent('Job', ({ page }) => {
     <div>
       <section className="title-bgc">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-7 d-flex flex-column align-self-center">
+          <div className="row align-items-center">
+            <div className="col-lg-7">
               <Scrivito.ContentTag tag="h1" className="h2" content={page} attribute="title" />
               <JobDatePosted datePosted={page.get('datePosted')} />
             </div>
-            <div className="col-lg-5 d-flex flex-column align-content-center details-title-box">
+            <div className="col-lg-5 details-title-box">
               <JobLocation job={page} />
               <JobEmploymentTypes employmentTypes={page.get('employmentType')} />
               <JobValidThrough validThrough={page.get('validThrough')} />
@@ -50,7 +50,7 @@ const JobValidThrough = Scrivito.connect(({ validThrough }) => {
   }
 
   return (
-    <h2 className="h5 d-flex align-items-center">
+    <h2 className="h5">
       <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />{' '}
       <span className="font-weight-bold">Valid through: </span>
       {formatDate(validThrough, 'mm/dd/yyyy')}
@@ -112,7 +112,7 @@ const JobLocation = Scrivito.connect(({ job }) => {
 
   return (
     <React.Fragment>
-      <h2 className="h5 d-flex align-items-center font-weight-bold">
+      <h2 className="h5 font-weight-bold">
         <i className="fa fa-map-marker fa-lg" aria-hidden="true" title="location" /> {address}
       </h2>
     </React.Fragment>

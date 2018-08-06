@@ -8,8 +8,8 @@ Scrivito.provideComponent('Event', ({ page }) => (
   <div>
     <section className="title-bgc">
       <div className="container">
-        <div className="row">
-          <div className="col-lg-9 d-flex align-items-center">
+        <div className="row align-items-center">
+          <div className="col-lg-9">
             <Scrivito.ContentTag tag="h1" className="h2" content={page} attribute="title" />
           </div>
           <div className="col-lg-3 details-title-box">
@@ -63,7 +63,7 @@ const EventLocation = Scrivito.connect(({ event }) => {
   return (
     <React.Fragment>
       <div className="location-title">
-        <h2 className="h5 font-weight-bold d-flex align-items-center">
+        <h2 className="h5 font-weight-bold">
           <i className="fa fa-map-marker fa-lg" aria-hidden="true" title="location" /> Location
         </h2>
         <div className="event-info">

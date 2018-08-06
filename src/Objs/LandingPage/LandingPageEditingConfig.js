@@ -14,7 +14,7 @@ import {
 
 Scrivito.provideEditingConfig('LandingPage', {
   title: 'Landing Page',
-  thumbnail: `/${landingPageObjIcon}`,
+  thumbnail: landingPageObjIcon,
   attributes: {
     ...defaultPageEditingConfigAttributes,
     ...metaDataEditingConfigAttributes,

@@ -4,7 +4,7 @@ import ColumnWidget from '../ColumnWidget/ColumnWidgetClass';
 
 Scrivito.provideEditingConfig('ColumnContainerWidget', {
   title: 'Columns',
-  thumbnail: `/${columnContainerWidgetIcon}`,
+  thumbnail: columnContainerWidgetIcon,
   propertiesGroups: [
     {
       title: 'Columns layout',

@@ -4,7 +4,7 @@ import TickListItemWidget from '../TickListItemWidget/TickListItemWidgetClass';
 
 Scrivito.provideEditingConfig('TickListWidget', {
   title: 'Tick List',
-  thumbnail: `/${tickListWidgetIcon}`,
+  thumbnail: tickListWidgetIcon,
   initialContent: {
     items: [new TickListItemWidget({}), new TickListItemWidget({}), new TickListItemWidget({})],
   },

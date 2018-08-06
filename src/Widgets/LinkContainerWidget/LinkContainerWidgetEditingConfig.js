@@ -4,7 +4,7 @@ import LinkWidget from '../LinkWidget/LinkWidgetClass';
 
 Scrivito.provideEditingConfig('LinkContainerWidget', {
   title: 'Link List',
-  thumbnail: `/${linkListWidgetIcon}`,
+  thumbnail: linkListWidgetIcon,
   attributes: {
     headline: {
       title: 'Headline',

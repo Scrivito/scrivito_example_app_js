@@ -3,7 +3,7 @@ import thumbnailGalleryWidgetIcon from '../../assets/images/thumbnail_gallery_wi
 
 Scrivito.provideEditingConfig('ThumbnailGalleryWidget', {
   title: 'Thumbnail Gallery',
-  thumbnail: `/${thumbnailGalleryWidgetIcon}`,
+  thumbnail: thumbnailGalleryWidgetIcon,
   attributes: {
     images: {
       title: 'Images',

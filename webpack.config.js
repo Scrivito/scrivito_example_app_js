@@ -20,10 +20,9 @@ module.exports = (env = {}) => {
   const isProduction = process.argv.indexOf('-p') !== -1 || env.production;
 
   if (!process.env.SCRIVITO_TENANT || process.env.SCRIVITO_TENANT === 'your_scrivito_tenant_id') {
-    throw('Environment variable "SCRIVITO_TENANT" is not defined!' +
+    throw 'Environment variable "SCRIVITO_TENANT" is not defined!' +
       ' Check if the ".env" file with a proper SCRIVITO_TENANT is set.' +
-      ' See ".env.example" for an example.'
-    );
+      ' See ".env.example" for an example.';
   }
 
   const plugins = [
@@ -61,9 +60,7 @@ module.exports = (env = {}) => {
       })
     );
   } else {
-    plugins.push(
-      new webpack.SourceMapDevToolPlugin({})
-    );
+    plugins.push(new webpack.SourceMapDevToolPlugin({}));
   }
 
   return {
@@ -80,23 +77,23 @@ module.exports = (env = {}) => {
       rules: [
         {
           test: /\.js$/,
-          include: [
-            path.join(__dirname, 'src'),
-            path.join(__dirname, 'node_modules/autotrack')
-          ],
+          include: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules/autotrack')],
           use: [
             {
               loader: 'babel-loader',
               options: {
                 presets: [
                   '@babel/preset-react',
-                  ['@babel/preset-env', {
-                    debug: false,
-                    modules: false,
-                    shippedProposals: true,
-                    useBuiltIns: 'usage',
-                    targets: { browsers: ['last 2 versions'] },
-                  }],
+                  [
+                    '@babel/preset-env',
+                    {
+                      debug: false,
+                      modules: false,
+                      shippedProposals: true,
+                      useBuiltIns: 'usage',
+                      targets: { browsers: ['last 2 versions'] },
+                    },
+                  ],
                 ],
                 cacheDirectory: 'tmp/babel-cache',
               },
@@ -112,7 +109,8 @@ module.exports = (env = {}) => {
                 options: {
                   minimize: isProduction,
                 },
-              }, {
+              },
+              {
                 loader: 'sass-loader',
               },
             ],
@@ -132,10 +130,11 @@ module.exports = (env = {}) => {
       ],
     },
     output: {
+      publicPath: '/',
       filename: '[name].js',
       path: path.join(__dirname, buildPath),
     },
-    plugins: plugins,
+    plugins,
     resolve: {
       extensions: ['.js'],
       modules: ['node_modules'],

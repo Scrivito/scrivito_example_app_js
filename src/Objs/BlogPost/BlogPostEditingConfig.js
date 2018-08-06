@@ -10,7 +10,7 @@ import {
 
 Scrivito.provideEditingConfig('BlogPost', {
   title: 'Blog Post',
-  thumbnail: `/${blogPostObjIcon}`,
+  thumbnail: blogPostObjIcon,
   attributes: {
     ...metaDataEditingConfigAttributes,
     author: {

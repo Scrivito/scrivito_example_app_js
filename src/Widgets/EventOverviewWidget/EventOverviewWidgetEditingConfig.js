@@ -3,7 +3,7 @@ import eventOverviewWidgetIcon from '../../assets/images/event_overview_widget.s
 
 Scrivito.provideEditingConfig('EventOverviewWidget', {
   title: 'Event Overview',
-  thumbnail: `/${eventOverviewWidgetIcon}`,
+  thumbnail: eventOverviewWidgetIcon,
   attributes: {
     maxItems: {
       title: 'Maximum number of events',

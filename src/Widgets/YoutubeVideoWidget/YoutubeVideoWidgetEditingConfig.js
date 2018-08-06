@@ -3,7 +3,7 @@ import youtubeVideoWidgetIcon from '../../assets/images/youtube_video_widget.svg
 
 Scrivito.provideEditingConfig('YoutubeVideoWidget', {
   title: 'YouTube Video',
-  thumbnail: `/${youtubeVideoWidgetIcon}`,
+  thumbnail: youtubeVideoWidgetIcon,
   attributes: {
     youtubeVideoId: {
       title: 'YouTube video ID',

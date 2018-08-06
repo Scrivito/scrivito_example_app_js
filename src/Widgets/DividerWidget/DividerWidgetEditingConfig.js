@@ -3,7 +3,7 @@ import dividerWidgetIcon from '../../assets/images/divider_widget.svg';
 
 Scrivito.provideEditingConfig('DividerWidget', {
   title: 'Divider',
-  thumbnail: `/${dividerWidgetIcon}`,
+  thumbnail: dividerWidgetIcon,
   attributes: {
     showLogo: {
       title: 'Show logo?',

@@ -10,7 +10,7 @@ import {
 
 Scrivito.provideEditingConfig('Blog', {
   title: 'Blog',
-  thumbnail: `/${blogObjIcon}`,
+  thumbnail: blogObjIcon,
   hideInSelectionDialogs: true,
   attributes: {
     ...metaDataEditingConfigAttributes,

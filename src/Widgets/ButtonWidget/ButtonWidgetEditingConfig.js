@@ -3,7 +3,7 @@ import buttonWidgetIcon from '../../assets/images/button_widget.svg';
 
 Scrivito.provideEditingConfig('ButtonWidget', {
   title: 'Button',
-  thumbnail: `/${buttonWidgetIcon}`,
+  thumbnail: buttonWidgetIcon,
   attributes: {
     alignment: {
       title: 'Alignment',

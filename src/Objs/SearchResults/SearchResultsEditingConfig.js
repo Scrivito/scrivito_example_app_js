@@ -9,7 +9,7 @@ import {
 
 Scrivito.provideEditingConfig('SearchResults', {
   title: 'Search Results',
-  thumbnail: `/${SearchResultsObjIcon}`,
+  thumbnail: SearchResultsObjIcon,
   hideInSelectionDialogs: true,
   attributes: {
     ...metaDataEditingConfigAttributes,

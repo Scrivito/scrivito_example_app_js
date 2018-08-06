@@ -10,7 +10,7 @@ import {
 
 Scrivito.provideEditingConfig('Job', {
   title: 'Job',
-  thumbnail: `/${jobObjIcon}`,
+  thumbnail: jobObjIcon,
   attributes: {
     ...metaDataEditingConfigAttributes,
     title: {

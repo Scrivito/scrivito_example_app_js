@@ -7,7 +7,7 @@ import InPlaceEditingPlaceholder from '../InPlaceEditingPlaceholder';
 import isImage from '../../utils/isImage';
 import { textExtractFromObj } from '../../utils/textExtract';
 
-const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag, currentPost }) => {
+const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag, filterBlogPostId }) => {
   let blogPosts = Scrivito.getClass('BlogPost')
     .all()
     .order('publishedAt', 'desc');
@@ -17,8 +17,8 @@ const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag, currentPo
   if (tag) {
     blogPosts = blogPosts.and('tags', 'equals', tag);
   }
-  if (currentPost) {
-    blogPosts = blogPosts.andNot('id', 'equals', currentPost.id());
+  if (filterBlogPostId) {
+    blogPosts = blogPosts.andNot('id', 'equals', filterBlogPostId);
   }
 
   let posts;

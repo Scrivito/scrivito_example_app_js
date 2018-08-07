@@ -17,6 +17,9 @@ const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag, currentPo
   if (tag) {
     blogPosts = blogPosts.and('tags', 'equals', tag);
   }
+  if (currentPost) {
+    blogPosts = blogPosts.andNot('id', 'equals', currentPost.id());
+  }
 
   let posts;
   if (maxItems) {
@@ -43,7 +46,7 @@ const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag, currentPo
       {Object.entries(months).map(([month, monthPosts]) => (
         <React.Fragment key={`month: ${month}`}>
           <MonthHeadline date={monthPosts[0].get('publishedAt')} />
-          <PostsTimeline currentPost={currentPost} posts={monthPosts} />
+          <PostsTimeline posts={monthPosts} />
         </React.Fragment>
       ))}
     </React.Fragment>
@@ -64,17 +67,13 @@ const MonthHeadline = Scrivito.connect(({ date }) => {
   );
 });
 
-const PostsTimeline = Scrivito.connect(({ posts, currentPost }) => (
+const PostsTimeline = Scrivito.connect(({ posts }) => (
   <ul className="timeline">
-    {posts.map(post => <BlogPostPreview currentPost={currentPost} key={post.id()} post={post} />)}
+    {posts.map(post => <BlogPostPreview key={post.id()} post={post} />)}
   </ul>
 ));
 
-const BlogPostPreview = Scrivito.connect(({ post, currentPost }) => {
-  if (currentPost && post.id() === currentPost.id()) {
-    return null;
-  }
-
+const BlogPostPreview = Scrivito.connect(({ post }) => {
   return (
     <li>
       <BlogPostDate post={post} />

@@ -7,22 +7,29 @@ import SchemaDotOrg from "../../Components/SchemaDotOrg";
 Scrivito.provideComponent("Job", ({ page }) => {
   return (
     <div>
-      <section className="bg-white">
+      <section className="title-bgc">
         <div className="container">
-          <JobDatePosted datePosted={page.get("datePosted")} />
-          <Scrivito.ContentTag
-            tag="h1"
-            className="h2"
-            content={page}
-            attribute="title"
-          />
-          <JobLocation job={page} />
-          <JobValidThrough validThrough={page.get("validThrough")} />
-          <JobEmploymentTypes employmentTypes={page.get("employmentType")} />
+          <div className="row align-items-center">
+            <div className="col-lg-7">
+              <Scrivito.ContentTag
+                tag="h1"
+                className="h2"
+                content={page}
+                attribute="title"
+              />
+              <JobDatePosted datePosted={page.get("datePosted")} />
+            </div>
+            <div className="col-lg-5 details-title-box">
+              <JobLocation job={page} />
+              <JobEmploymentTypes
+                employmentTypes={page.get("employmentType")}
+              />
+              <JobValidThrough validThrough={page.get("validThrough")} />
+            </div>
+          </div>
         </div>
       </section>
       <Scrivito.ContentTag tag="div" content={page} attribute="body" />
-
       <SchemaDotOrg content={page} />
     </div>
   );
@@ -52,7 +59,8 @@ const JobValidThrough = Scrivito.connect(({ validThrough }) => {
   return (
     <h2 className="h5">
       <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />{" "}
-      <span>Valid through: {formatDate(validThrough, "mm/dd/yyyy")}</span>
+      <span className="font-weight-bold">Valid through: </span>
+      {formatDate(validThrough, "mm/dd/yyyy")}
     </h2>
   );
 });
@@ -82,9 +90,10 @@ const JobEmploymentTypes = Scrivito.connect(({ employmentTypes }) => {
   );
 
   return (
-    <h2 className="h5">
-      <i className="fa fa-clock-o fa-lg" aria-hidden="true" title="date" />{" "}
-      Employment types: {localizedTypes.join(", ")}
+    <h2 className="h5 ">
+      <i className="fa fa-clock-o fa-lg" aria-hidden="true" title="date" />
+      <span className="font-weight-bold">Employment types: </span>{" "}
+      {localizedTypes.join(", ")}
     </h2>
   );
 });
@@ -115,7 +124,7 @@ const JobLocation = Scrivito.connect(({ job }) => {
 
   return (
     <React.Fragment>
-      <h2 className="h5">
+      <h2 className="h5 font-weight-bold">
         <i
           className="fa fa-map-marker fa-lg"
           aria-hidden="true"

@@ -1,13 +1,13 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import isEmpty from 'is-empty';
-import { isPlainObject } from 'lodash-es';
-import dataFromAuthor from './SchemaDotOrg/dataFromAuthor';
-import dataFromEvent from './SchemaDotOrg/dataFromEvent';
-import dataFromJob from './SchemaDotOrg/dataFromJob';
-import dataFromBlog from './SchemaDotOrg/dataFromBlog';
-import dataFromBlogPost from './SchemaDotOrg/dataFromBlogPost';
-import dataFromAddressWidget from './SchemaDotOrg/dataFromAddressWidget';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import isEmpty from "is-empty";
+import { isPlainObject } from "lodash-es";
+import dataFromAuthor from "./SchemaDotOrg/dataFromAuthor";
+import dataFromEvent from "./SchemaDotOrg/dataFromEvent";
+import dataFromJob from "./SchemaDotOrg/dataFromJob";
+import dataFromBlog from "./SchemaDotOrg/dataFromBlog";
+import dataFromBlogPost from "./SchemaDotOrg/dataFromBlogPost";
+import dataFromAddressWidget from "./SchemaDotOrg/dataFromAddressWidget";
 
 const SchemaDotOrg = Scrivito.connect(({ content }) => {
   const data = pruneEmptyValues(dataFromItem(content));
@@ -17,17 +17,17 @@ const SchemaDotOrg = Scrivito.connect(({ content }) => {
 
 function dataFromItem(item) {
   switch (item.objClass()) {
-    case 'AddressWidget':
+    case "AddressWidget":
       return dataFromAddressWidget(item);
-    case 'Author':
+    case "Author":
       return dataFromAuthor(item);
-    case 'Blog':
+    case "Blog":
       return dataFromBlog(item);
-    case 'BlogPost':
+    case "BlogPost":
       return dataFromBlogPost(item);
-    case 'Event':
+    case "Event":
       return dataFromEvent(item);
-    case 'Job':
+    case "Job":
       return dataFromJob(item);
   }
 
@@ -44,7 +44,9 @@ function pruneEmptyValues(data) {
 
   prunedData = pickBy(prunedData, v => !isEmpty(v));
 
-  const keysWithoutAt = Object.keys(prunedData).filter(sd => !sd.startsWith('@'));
+  const keysWithoutAt = Object.keys(prunedData).filter(
+    sd => !sd.startsWith("@")
+  );
   if (keysWithoutAt.length) {
     return prunedData;
   }
@@ -56,11 +58,15 @@ function arrayToObject(array) {
 }
 
 function mapValues(data, fn) {
-  return arrayToObject(Object.entries(data).map(([key, value]) => [key, fn(value)]));
+  return arrayToObject(
+    Object.entries(data).map(([key, value]) => [key, fn(value)])
+  );
 }
 
 function pickBy(data, fn) {
-  return arrayToObject(Object.entries(data).filter(([_key, value]) => fn(value)));
+  return arrayToObject(
+    Object.entries(data).filter(([_key, value]) => fn(value))
+  );
 }
 
 export default SchemaDotOrg;

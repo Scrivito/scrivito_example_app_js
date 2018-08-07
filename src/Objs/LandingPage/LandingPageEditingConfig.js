@@ -1,20 +1,20 @@
-import * as Scrivito from 'scrivito';
-import landingPageObjIcon from '../../assets/images/landing_page_obj.svg';
+import * as Scrivito from "scrivito";
+import landingPageObjIcon from "../../assets/images/landing_page_obj.svg";
 import {
   defaultPageEditingConfigAttributes,
   defaultPageInitialContent,
   defaultPageProperties,
-} from '../_defaultPageEditingConfig';
+} from "../_defaultPageEditingConfig";
 import {
   metaDataEditingConfigAttributes,
   metaDataInitialContent,
   metaDataPropertiesGroup,
   socialCardsPropertiesGroup,
-} from '../_metaDataEditingConfig';
+} from "../_metaDataEditingConfig";
 
-Scrivito.provideEditingConfig('LandingPage', {
-  title: 'Landing Page',
-  thumbnail: `/${landingPageObjIcon}`,
+Scrivito.provideEditingConfig("LandingPage", {
+  title: "Landing Page",
+  thumbnail: landingPageObjIcon,
   attributes: {
     ...defaultPageEditingConfigAttributes,
     ...metaDataEditingConfigAttributes,

@@ -1,11 +1,11 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
-Scrivito.provideEditingConfig('Video', {
+Scrivito.provideEditingConfig("Video", {
   attributes: {
     tags: {
-      title: 'Tags',
-      description: 'Make it easier to find this video by adding some tags.',
+      title: "Tags",
+      description: "Make it easier to find this video by adding some tags.",
     },
   },
-  properties: ['tags'],
+  properties: ["tags"],
 });

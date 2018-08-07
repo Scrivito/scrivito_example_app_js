@@ -1,8 +1,8 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
+import * as React from "react";
+import * as Scrivito from "scrivito";
 
 function NavigationSection({ heightClassName }) {
-  if (!['full-height', 'medium-height'].includes(heightClassName)) {
+  if (!["full-height", "medium-height"].includes(heightClassName)) {
     return null;
   }
 
@@ -10,7 +10,7 @@ function NavigationSection({ heightClassName }) {
     return null;
   }
   const obj = Scrivito.currentPage();
-  if (!obj.get('navigationSection')) {
+  if (!obj.get("navigationSection")) {
     return null;
   }
 

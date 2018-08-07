@@ -1,4 +1,4 @@
-import devicePixelRatio from './devicePixelRatio';
+import devicePixelRatio from "./devicePixelRatio";
 
 function fullScreenWidthPixels() {
   const screenWidth = window.screen.width;

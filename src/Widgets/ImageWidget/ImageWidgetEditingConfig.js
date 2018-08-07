@@ -3,7 +3,7 @@ import imageWidgetIcon from '../../assets/images/image_widget.svg';
 
 Scrivito.provideEditingConfig('ImageWidget', {
   title: 'Image',
-  thumbnail: `/${imageWidgetIcon}`,
+  thumbnail: imageWidgetIcon,
   attributes: {
     alignment: {
       title: 'Alignment',

@@ -4,7 +4,7 @@ import IconWidget from '../IconWidget/IconWidgetClass';
 
 Scrivito.provideEditingConfig('IconContainerWidget', {
   title: 'Icon List',
-  thumbnail: `/${iconContainerWidgetIcon}`,
+  thumbnail: iconContainerWidgetIcon,
   attributes: {
     iconList: {
       title: 'Icon list',

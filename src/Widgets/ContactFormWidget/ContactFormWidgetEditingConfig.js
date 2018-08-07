@@ -3,7 +3,7 @@ import contactFormWidgetIcon from '../../assets/images/contact_form_widget.svg';
 
 Scrivito.provideEditingConfig('ContactFormWidget', {
   title: 'Contact Form',
-  thumbnail: `/${contactFormWidgetIcon}`,
+  thumbnail: contactFormWidgetIcon,
   attributes: {
     agreementText: {
       title: 'Agreement text',

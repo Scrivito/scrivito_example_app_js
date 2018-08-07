@@ -3,7 +3,7 @@ import redirectObjIcon from '../../assets/images/redirect_obj.svg';
 
 Scrivito.provideEditingConfig('Redirect', {
   title: 'Redirect',
-  thumbnail: `/${redirectObjIcon}`,
+  thumbnail: redirectObjIcon,
   hideInSelectionDialogs: true,
   attributes: {
     link: {

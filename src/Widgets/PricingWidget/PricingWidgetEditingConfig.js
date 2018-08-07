@@ -4,7 +4,7 @@ import PricingSpecWidget from '../PricingSpecWidget/PricingSpecWidgetClass';
 
 Scrivito.provideEditingConfig('PricingWidget', {
   title: 'Pricing',
-  thumbnail: `/${pricingWidgetIcon}`,
+  thumbnail: pricingWidgetIcon,
   attributes: {
     currency: {
       title: 'Currency',

@@ -7,7 +7,7 @@ import TextWidget from '../TextWidget/TextWidgetClass';
 
 Scrivito.provideEditingConfig('TableWidget', {
   title: 'Table',
-  thumbnail: `/${tableWidgetIcon}`,
+  thumbnail: tableWidgetIcon,
   attributes: {
     rows: {
       title: 'Rows',

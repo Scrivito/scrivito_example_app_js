@@ -10,7 +10,7 @@ import {
 
 Scrivito.provideEditingConfig('Event', {
   title: 'Event',
-  thumbnail: `/${eventObjIcon}`,
+  thumbnail: eventObjIcon,
   attributes: {
     ...metaDataEditingConfigAttributes,
     date: {

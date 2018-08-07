@@ -3,7 +3,7 @@ import headlineWidgetIcon from '../../assets/images/headline_widget.svg';
 
 Scrivito.provideEditingConfig('HeadlineWidget', {
   title: 'Headline',
-  thumbnail: `/${headlineWidgetIcon}`,
+  thumbnail: headlineWidgetIcon,
   attributes: {
     style: {
       title: 'Style',

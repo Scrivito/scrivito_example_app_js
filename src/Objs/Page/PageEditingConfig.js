@@ -14,7 +14,7 @@ import {
 
 Scrivito.provideEditingConfig('Page', {
   title: 'Page',
-  thumbnail: `/${PageObjIcon}`,
+  thumbnail: PageObjIcon,
   attributes: {
     ...defaultPageEditingConfigAttributes,
     ...metaDataEditingConfigAttributes,

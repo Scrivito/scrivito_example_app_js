@@ -3,7 +3,7 @@ import addressWidgetIcon from '../../assets/images/address_widget.svg';
 
 Scrivito.provideEditingConfig('AddressWidget', {
   title: 'Address',
-  thumbnail: `/${addressWidgetIcon}`,
+  thumbnail: addressWidgetIcon,
   attributes: {
     showBorderBottom: {
       title: 'Show border at the bottom?',

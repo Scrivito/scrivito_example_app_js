@@ -3,7 +3,7 @@ import blogOverviewWidgetIcon from '../../assets/images/blog_overview_widget.svg
 
 Scrivito.provideEditingConfig('BlogOverviewWidget', {
   title: 'Blog Overview',
-  thumbnail: `/${blogOverviewWidgetIcon}`,
+  thumbnail: blogOverviewWidgetIcon,
   attributes: {
     maxItems: {
       title: 'Maximum number of blog posts',

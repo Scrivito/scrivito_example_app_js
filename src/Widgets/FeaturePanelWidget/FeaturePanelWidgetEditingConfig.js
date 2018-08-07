@@ -3,7 +3,7 @@ import featurePanelWidgetIcon from '../../assets/images/feature_panel_widget.svg
 
 Scrivito.provideEditingConfig('FeaturePanelWidget', {
   title: 'Feature Panel',
-  thumbnail: `/${featurePanelWidgetIcon}`,
+  thumbnail: featurePanelWidgetIcon,
   propertiesGroups: [
     {
       title: 'Icon',

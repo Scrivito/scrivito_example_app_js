@@ -1,12 +1,12 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import ReactstrapCarousel from 'reactstrap/lib/Carousel';
-import ReactstrapCarouselControl from 'reactstrap/lib/CarouselControl';
-import ReactstrapCarouselItem from 'reactstrap/lib/CarouselItem';
-import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import ReactstrapCarousel from "reactstrap/lib/Carousel";
+import ReactstrapCarouselControl from "reactstrap/lib/CarouselControl";
+import ReactstrapCarouselItem from "reactstrap/lib/CarouselItem";
+import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 
-Scrivito.provideComponent('CarouselWidget', ({ widget }) => {
-  const images = widget.get('images');
+Scrivito.provideComponent("CarouselWidget", ({ widget }) => {
+  const images = widget.get("images");
 
   if (!images.length) {
     return (
@@ -82,7 +82,10 @@ class BaseCarousel extends React.Component {
               onExited={this.onExited}
               key={`${image.id()}${index}`}
             >
-              <Scrivito.ImageTag content={image} alt={image.get('alternativeText')} />
+              <Scrivito.ImageTag
+                content={image}
+                alt={image.get("alternativeText")}
+              />
             </ReactstrapCarouselItem>
           );
         })}
@@ -104,7 +107,7 @@ class BaseCarousel extends React.Component {
 const Carousel = Scrivito.connect(BaseCarousel);
 
 const DescriptionBox = Scrivito.connect(({ widget }) => {
-  if (widget.get('showDescription') !== 'yes') {
+  if (widget.get("showDescription") !== "yes") {
     return null;
   }
 
@@ -112,7 +115,11 @@ const DescriptionBox = Scrivito.connect(({ widget }) => {
     <div className="container">
       <div className="client-wrapper">
         <div className="client-logo">
-          <Scrivito.ImageTag content={widget} attribute="descriptionLogo" alt="Logo" />
+          <Scrivito.ImageTag
+            content={widget}
+            attribute="descriptionLogo"
+            alt="Logo"
+          />
         </div>
         <div className="client-text">
           <Scrivito.ContentTag content={widget} attribute="description" />

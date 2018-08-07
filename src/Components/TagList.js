@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 function TagList({ showTags, tags, currentTag, setTag }) {
   if (!showTags) {
@@ -15,8 +15,11 @@ function TagList({ showTags, tags, currentTag, setTag }) {
     <div className="negative-margin-top nav-centered select-icon">
       <div className="d-none d-sm-block">
         <ul className="nav nav-pills justify-content-center">
-          <li role="presentation" className={!currentTag ? 'active nav-item' : 'nav-item'}>
-            <a className="nav-link" onClick={e => onClick(e, '')} href="#">
+          <li
+            role="presentation"
+            className={!currentTag ? "active nav-item" : "nav-item"}
+          >
+            <a className="nav-link" onClick={e => onClick(e, "")} href="#">
               All
             </a>
           </li>
@@ -24,7 +27,7 @@ function TagList({ showTags, tags, currentTag, setTag }) {
             <li
               role="presentation"
               key={tag}
-              className={currentTag === tag ? 'active nav-item' : 'nav-item'}
+              className={currentTag === tag ? "active nav-item" : "nav-item"}
             >
               <a className="nav-link" onClick={e => onClick(e, tag)} href="#">
                 {tag}

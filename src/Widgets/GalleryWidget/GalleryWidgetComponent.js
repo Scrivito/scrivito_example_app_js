@@ -1,10 +1,10 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import Slider from 'react-slick';
-import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import Slider from "react-slick";
+import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 
 function GalleryWidgetComponent({ widget }) {
-  const images = widget.get('images');
+  const images = widget.get("images");
 
   if (!images.length) {
     return (
@@ -22,7 +22,7 @@ function GalleryWidgetComponent({ widget }) {
           <Scrivito.ImageTag
             content={image}
             key={`${image.id()}${index}`}
-            alt={image.get('alternativeText')}
+            alt={image.get("alternativeText")}
           />
         ))}
       </Slider>
@@ -30,7 +30,7 @@ function GalleryWidgetComponent({ widget }) {
   );
 }
 
-Scrivito.provideComponent('GalleryWidget', GalleryWidgetComponent);
+Scrivito.provideComponent("GalleryWidget", GalleryWidgetComponent);
 
 function sliderSettings(images) {
   return {
@@ -38,12 +38,12 @@ function sliderSettings(images) {
     autoplay: true,
     autoplaySpeed: 7000,
     centerMode: true,
-    centerPadding: '0px',
-    cssEase: 'linear',
+    centerPadding: "0px",
+    cssEase: "linear",
     dots: true,
     fade: true,
     infinite: true,
-    slide: 'li',
+    slide: "li",
     slidesToShow: 1,
     speed: 500,
     variableWidth: false,

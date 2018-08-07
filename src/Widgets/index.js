@@ -3,4 +3,4 @@ function importAll(r) {
 }
 
 // import all js files under src/Widgets/
-importAll(require.context('./', true, /\.js$/));
+importAll(require.context("./", true, /\.js$/));

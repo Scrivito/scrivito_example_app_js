@@ -3,7 +3,7 @@ function urlFromBinary(binary) {
     return null;
   }
 
-  const blob = binary.get('blob');
+  const blob = binary.get("blob");
   if (!blob) {
     return null;
   }

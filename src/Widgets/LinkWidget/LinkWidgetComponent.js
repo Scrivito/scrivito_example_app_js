@@ -1,9 +1,9 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 
-Scrivito.provideComponent('LinkWidget', ({ widget }) => {
-  const link = widget.get('link');
+Scrivito.provideComponent("LinkWidget", ({ widget }) => {
+  const link = widget.get("link");
 
   if (!link) {
     return (
@@ -30,7 +30,7 @@ const LinkTitle = Scrivito.connect(({ link }) => {
   }
 
   if (link.isInternal()) {
-    return link.obj().get('title');
+    return link.obj().get("title");
   }
 
   return link.url();

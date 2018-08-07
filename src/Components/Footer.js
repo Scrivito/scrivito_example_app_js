@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
+import * as React from "react";
+import * as Scrivito from "scrivito";
 
 function Footer() {
   const root = Scrivito.Obj.root();

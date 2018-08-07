@@ -1,4 +1,4 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
 function navigateToBlogWithTag(tag) {
   const params = {};
@@ -6,7 +6,7 @@ function navigateToBlogWithTag(tag) {
     params.tag = tag;
   }
 
-  Scrivito.navigateTo(() => Scrivito.Obj.getByPermalink('blog'), params);
+  Scrivito.navigateTo(() => Scrivito.Obj.getByPermalink("blog"), params);
 }
 
 export default navigateToBlogWithTag;

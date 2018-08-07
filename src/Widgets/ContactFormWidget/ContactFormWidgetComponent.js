@@ -1,22 +1,22 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import './contactForm.html';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import "./contactForm.html";
 /* This html file is needed for Netlify form handling. Updates to inputs in this file should also be
 added to contactForm.html as well. See the following link for details:
 https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 */
 
-Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
-  const classNames = ['row'];
+Scrivito.provideComponent("ContactFormWidget", ({ widget }) => {
+  const classNames = ["row"];
 
-  if (widget.get('backgroundColor') === 'transparent') {
-    classNames.push('card-white-transparent');
+  if (widget.get("backgroundColor") === "transparent") {
+    classNames.push("card-white-transparent");
   } else {
-    classNames.push('floating-label', 'card-theme', 'card', 'card-padding');
+    classNames.push("floating-label", "card-theme", "card", "card-padding");
   }
 
   return (
-    <div className={classNames.join(' ')}>
+    <div className={classNames.join(" ")}>
       <form className="row" method="post">
         <input type="hidden" name="form-name" value="contact" />
         <div className="d-none">
@@ -87,23 +87,23 @@ Scrivito.provideComponent('ContactFormWidget', ({ widget }) => {
               required
             />
           </div>
-          {widget.get('agreementText') && (
+          {widget.get("agreementText") && (
             <div className="form-group form-check">
               <input
                 className="form-check-input"
                 id="agreementTextCheck"
                 type="checkbox"
                 name="contactAgreement"
-                value={widget.get('agreementText')}
+                value={widget.get("agreementText")}
                 required
               />
               <label className="form-check-label" htmlFor="agreementTextCheck">
-                {widget.get('agreementText')}
+                {widget.get("agreementText")}
               </label>
             </div>
           )}
           <button className="btn btn-primary btn-block" type="submit">
-            {widget.get('buttonText') || 'send message'}
+            {widget.get("buttonText") || "send message"}
           </button>
         </div>
       </form>

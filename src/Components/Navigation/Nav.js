@@ -1,6 +1,6 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import NavChild from './NavChild';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import NavChild from "./NavChild";
 
 class Nav extends React.Component {
   constructor(props) {
@@ -28,7 +28,9 @@ class Nav extends React.Component {
   }
 
   unregisterDropdown(dropdownComponent) {
-    this.registeredDropdowns = this.registeredDropdowns.filter(i => i !== dropdownComponent);
+    this.registeredDropdowns = this.registeredDropdowns.filter(
+      i => i !== dropdownComponent
+    );
   }
 
   render() {

@@ -1,7 +1,7 @@
-import * as React from 'react';
-import Fuse from 'fuse.js';
-import fontAwesomeIcons from './fontAwesomeIcons';
-import SingleIcon from './SingleIcon';
+import * as React from "react";
+import Fuse from "fuse.js";
+import fontAwesomeIcons from "./fontAwesomeIcons";
+import SingleIcon from "./SingleIcon";
 
 class IconSearchResults extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class IconSearchResults extends React.Component {
       distance: 100,
       maxPatternLength: 35,
       minMatchCharLength: 1,
-      keys: ['name', 'id', 'filter', 'aliases'],
+      keys: ["name", "id", "filter", "aliases"],
     };
     this.fuse = new Fuse(fontAwesomeIcons, fuseOptions);
   }

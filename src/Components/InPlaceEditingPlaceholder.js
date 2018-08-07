@@ -7,28 +7,14 @@ const InPlaceEditingPlaceholder = ({ children, center, block }) => {
     return null;
   }
 
-  const innerSpan = (
-    <h2 className="h5" style={placeholderCss}>
-      {children}
-    </h2>
-  );
+  const innerSpan = <span style={placeholderCss}>{children}</span>;
 
   if (center) {
-    return (
-      <div className="text-center">
-        <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />
-        {innerSpan}
-      </div>
-    );
+    return <div className="text-center">{innerSpan}</div>;
   }
 
   if (block) {
-    return (
-      <div>
-        <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />
-        {innerSpan}
-      </div>
-    );
+    return <div>{innerSpan}</div>;
   }
 
   return innerSpan;

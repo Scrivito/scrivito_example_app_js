@@ -7,48 +7,53 @@ import InPlaceEditingPlaceholder from "../InPlaceEditingPlaceholder";
 import isImage from "../../utils/isImage";
 import { textExtractFromObj } from "../../utils/textExtract";
 
-const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag }) => {
-  let blogPosts = Scrivito.getClass("BlogPost")
-    .all()
-    .order("publishedAt", "desc");
-  if (author) {
-    blogPosts = blogPosts.and("author", "refersTo", author);
-  }
-  if (tag) {
-    blogPosts = blogPosts.and("tags", "equals", tag);
-  }
+const BlogPostPreviewList = Scrivito.connect(
+  ({ maxItems, author, tag, filterBlogPostId }) => {
+    let blogPosts = Scrivito.getClass("BlogPost")
+      .all()
+      .order("publishedAt", "desc");
+    if (author) {
+      blogPosts = blogPosts.and("author", "refersTo", author);
+    }
+    if (tag) {
+      blogPosts = blogPosts.and("tags", "equals", tag);
+    }
+    if (filterBlogPostId) {
+      blogPosts = blogPosts.andNot("id", "equals", filterBlogPostId);
+    }
 
-  let posts;
-  if (maxItems) {
-    posts = blogPosts.take(maxItems);
-  } else {
-    posts = [...blogPosts];
-  }
+    let posts;
+    if (maxItems) {
+      posts = blogPosts.take(maxItems);
+    } else {
+      posts = [...blogPosts];
+    }
 
-  if (!posts.length) {
+    if (!posts.length) {
+      return (
+        <InPlaceEditingPlaceholder center={true}>
+          There are no blog posts. Create one using the page menu.
+        </InPlaceEditingPlaceholder>
+      );
+    }
+
+    const months = groupBy(posts, post => {
+      const publishedAt = post.get("publishedAt");
+      return publishedAt && formatDate(publishedAt, "mmmm yyyy");
+    });
+
     return (
-      <InPlaceEditingPlaceholder center={true}>
-        There are no blog posts. Create one using the page menu.
-      </InPlaceEditingPlaceholder>
+      <React.Fragment>
+        {Object.entries(months).map(([month, monthPosts]) => (
+          <React.Fragment key={`month: ${month}`}>
+            <MonthHeadline date={monthPosts[0].get("publishedAt")} />
+            <PostsTimeline posts={monthPosts} />
+          </React.Fragment>
+        ))}
+      </React.Fragment>
     );
   }
-
-  const months = groupBy(posts, post => {
-    const publishedAt = post.get("publishedAt");
-    return publishedAt && formatDate(publishedAt, "mmmm yyyy");
-  });
-
-  return (
-    <React.Fragment>
-      {Object.entries(months).map(([month, monthPosts]) => (
-        <React.Fragment key={`month: ${month}`}>
-          <MonthHeadline date={monthPosts[0].get("publishedAt")} />
-          <PostsTimeline posts={monthPosts} />
-        </React.Fragment>
-      ))}
-    </React.Fragment>
-  );
-});
+);
 
 const MonthHeadline = Scrivito.connect(({ date }) => {
   if (!date) {

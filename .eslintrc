@@ -1,36 +1,25 @@
 {
-  "plugins": [
-    "import",
-    "prettier",
-    "react"
-  ],
+  "plugins": ["import", "prettier", "react"],
   "settings": {
-    "import/resolver": "webpack",
+    "import/resolver": "webpack"
   },
   "parserOptions": {
     "ecmaVersion": 8,
-    "sourceType": "module",
+    "sourceType": "module"
   },
   "extends": [
     "eslint:recommended",
     "airbnb/base",
     "plugin:react/recommended",
+    "prettier"
   ],
   "globals": {
     "document": true,
     "window": true,
-    "btoa": true,
+    "btoa": true
   },
-  rules: {
+  "rules": {
     "arrow-body-style": 0,
-    "arrow-parens": ["error", "as-needed"],
-    "comma-dangle": ["error", {
-      "arrays": "always-multiline",
-      "objects": "always-multiline",
-      "imports": "always-multiline",
-      "exports": "always-multiline",
-      "functions": "ignore",
-    }],
     "consistent-return": 0,
     "curly": ["error", "all"],
     "default-case": 0,
@@ -43,60 +32,45 @@
     "no-param-reassign": [2, { "props": false }],
     "no-shadow": [2, { "allow": ["error", "result"] }],
     "no-throw-literal": 0,
-    "no-unused-vars": [2, { "args": "all", "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
+    "no-unused-vars": [
+      2,
+      { "args": "all", "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
+    ],
     "no-use-before-define": 0,
     "object-curly-newline": 0,
     "prettier/prettier": "error",
     "prefer-destructuring": 0,
     "react/display-name": 0,
-    "react/jsx-curly-spacing": [2, "never"],
     "react/jsx-no-undef": ["error", { "allowGlobals": true }],
     "react/prop-types": 0,
-    "vars-on-top": 0,
-    "wrap-iife": ["error", "any"],
+    "vars-on-top": 0
   },
-  overrides: [
+  "overrides": [
     {
-      "files": [
-        "src/utils/textExtract.js",
-        "src/utils/textExtractRegistry.js",
-      ],
+      "files": ["src/utils/textExtract.js", "src/utils/textExtractRegistry.js"],
       "rules": {
         "no-console": 0
       }
     },
     {
-      "files": [
-        "src/index.js",
-      ],
+      "files": ["src/index.js"],
       "rules": {
-        "import/first": 0,
-      },
+        "import/first": 0
+      }
     },
     {
-      "files": [
-        "src/Components/NotFoundErrorPage.js",
-      ],
+      "files": ["src/Components/NotFoundErrorPage.js"],
       "rules": {
-        "class-methods-use-this": 0,
-      },
+        "class-methods-use-this": 0
+      }
     },
     {
-      "files": [
-        "src/Components/GoogleAnalytics.js",
-      ],
+      "files": ["src/Components/GoogleAnalytics.js"],
       "rules": {
-        "space-infix-ops": 0,
         "func-names": 0,
-        "space-before-function-paren": 0,
-        "block-spacing": 0,
         "no-undef": 0,
         "prefer-rest-params": 0,
-        "semi": 0,
-        "semi-spacing": 0,
-        "new-parens": 0,
-        "class-methods-use-this": 0,
-        "space-before-blocks": 0
+        "class-methods-use-this": 0
       }
     }
   ]

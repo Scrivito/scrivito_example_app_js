@@ -1,24 +1,25 @@
-import * as Scrivito from 'scrivito';
-import { truncate } from 'lodash-es';
+import * as Scrivito from "scrivito";
+import { truncate } from "lodash-es";
 
-Scrivito.provideEditingConfig('TestimonialWidget', {
-  title: 'Testimonial',
+Scrivito.provideEditingConfig("TestimonialWidget", {
+  title: "Testimonial",
   attributes: {
     testimonial: {
-      title: 'Testimonial',
+      title: "Testimonial",
     },
     author: {
-      title: 'Author',
-      description: 'Who said it?',
+      title: "Author",
+      description: "Who said it?",
     },
     authorImage: {
-      title: 'Author image',
+      title: "Author image",
     },
   },
-  properties: ['testimonial', 'author', 'authorImage'],
+  properties: ["testimonial", "author", "authorImage"],
   initialContent: {
-    author: 'Someone',
-    testimonial: 'This is great!',
+    author: "Someone",
+    testimonial: "This is great!",
   },
-  titleForContent: widget => `${widget.get('author')}: ${truncate(widget.get('testimonial'))}`,
+  titleForContent: widget =>
+    `${widget.get("author")}: ${truncate(widget.get("testimonial"))}`,
 });

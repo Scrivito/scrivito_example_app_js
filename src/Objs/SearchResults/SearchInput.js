@@ -1,12 +1,12 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
+import * as React from "react";
+import * as Scrivito from "scrivito";
 
 class SearchInput extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      q: props.params.q || '',
+      q: props.params.q || "",
     };
   }
 

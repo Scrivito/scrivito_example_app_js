@@ -1,10 +1,10 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
-const EventOverviewWidget = Scrivito.provideWidgetClass('EventOverviewWidget', {
+const EventOverviewWidget = Scrivito.provideWidgetClass("EventOverviewWidget", {
   attributes: {
-    maxItems: 'integer',
-    showTags: ['enum', { values: ['yes', 'no'] }],
-    tags: 'stringlist',
+    maxItems: "integer",
+    showTags: ["enum", { values: ["yes", "no"] }],
+    tags: "stringlist",
   },
 });
 

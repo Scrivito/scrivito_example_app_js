@@ -1,5 +1,5 @@
-import decode from 'ent/decode';
-import striptags from 'striptags';
+import decode from "ent/decode";
+import striptags from "striptags";
 
 function textExtractFromHtml(html) {
   return decode(striptags(html));

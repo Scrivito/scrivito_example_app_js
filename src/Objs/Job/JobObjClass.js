@@ -1,37 +1,37 @@
-import * as Scrivito from 'scrivito';
-import { registerTextExtract } from '../../utils/textExtractRegistry';
-import metaDataAttributes from '../_metaDataAttributes';
+import * as Scrivito from "scrivito";
+import { registerTextExtract } from "../../utils/textExtractRegistry";
+import metaDataAttributes from "../_metaDataAttributes";
 
-const Job = Scrivito.provideObjClass('Job', {
+const Job = Scrivito.provideObjClass("Job", {
   attributes: {
-    body: ['widgetlist', { only: 'SectionWidget' }],
-    image: 'reference',
-    title: 'string',
+    body: ["widgetlist", { only: "SectionWidget" }],
+    image: "reference",
+    title: "string",
 
-    datePosted: 'date',
-    validThrough: 'date',
+    datePosted: "date",
+    validThrough: "date",
 
-    hiringOrganizationName: 'string',
-    hiringOrganizationWebsite: 'string',
+    hiringOrganizationName: "string",
+    hiringOrganizationWebsite: "string",
 
-    locationStreetAddress: 'string',
-    locationLocality: 'string',
-    locationRegion: 'string',
-    locationPostalCode: 'string',
-    locationCountry: 'string',
+    locationStreetAddress: "string",
+    locationLocality: "string",
+    locationRegion: "string",
+    locationPostalCode: "string",
+    locationCountry: "string",
 
     employmentType: [
-      'multienum',
+      "multienum",
       {
         values: [
-          'FULL_TIME',
-          'PART_TIME',
-          'CONTRACTOR',
-          'TEMPORARY',
-          'INTERN',
-          'VOLUNTEER',
-          'PER_DIEM',
-          'OTHER',
+          "FULL_TIME",
+          "PART_TIME",
+          "CONTRACTOR",
+          "TEMPORARY",
+          "INTERN",
+          "VOLUNTEER",
+          "PER_DIEM",
+          "OTHER",
         ],
       },
     ],
@@ -40,6 +40,6 @@ const Job = Scrivito.provideObjClass('Job', {
   },
 });
 
-registerTextExtract('Job', [{ attribute: 'body', type: 'widgetlist' }]);
+registerTextExtract("Job", [{ attribute: "body", type: "widgetlist" }]);
 
 export default Job;

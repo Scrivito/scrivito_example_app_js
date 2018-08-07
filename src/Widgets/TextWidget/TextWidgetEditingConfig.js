@@ -1,26 +1,26 @@
-import * as Scrivito from 'scrivito';
-import textWidgetIcon from '../../assets/images/text_widget.svg';
+import * as Scrivito from "scrivito";
+import textWidgetIcon from "../../assets/images/text_widget.svg";
 
-Scrivito.provideEditingConfig('TextWidget', {
-  title: 'Text',
-  thumbnail: `/${textWidgetIcon}`,
+Scrivito.provideEditingConfig("TextWidget", {
+  title: "Text",
+  thumbnail: textWidgetIcon,
   attributes: {
     alignment: {
-      title: 'Alignment',
-      description: 'Default: Left',
+      title: "Alignment",
+      description: "Default: Left",
       values: [
-        { value: 'left', title: 'Left' },
-        { value: 'center', title: 'Center' },
-        { value: 'right', title: 'Right' },
+        { value: "left", title: "Left" },
+        { value: "center", title: "Center" },
+        { value: "right", title: "Right" },
       ],
     },
     text: {
-      title: 'Text',
-      description: 'The actual source code of this text',
+      title: "Text",
+      description: "The actual source code of this text",
     },
   },
-  properties: ['alignment', 'text'],
+  properties: ["alignment", "text"],
   initialContent: {
-    alignment: 'left',
+    alignment: "left",
   },
 });

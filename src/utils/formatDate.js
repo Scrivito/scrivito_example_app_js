@@ -1,4 +1,4 @@
-import dateFormat from 'dateformat';
+import dateFormat from "dateformat";
 
 function formatDate(date, format) {
   // dateFormat uses Date.now if no date is given.

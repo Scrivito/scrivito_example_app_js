@@ -1,13 +1,15 @@
-import isString from './isString';
-import { lookupTextExtract } from './textExtractRegistry';
-import textExtractFromHtml from './textExtractFromHtml';
+import isString from "./isString";
+import { lookupTextExtract } from "./textExtractRegistry";
+import textExtractFromHtml from "./textExtractFromHtml";
 
 function textExtractFromObj(obj) {
   return textExtractFromItem(obj);
 }
 
 function textExtractFromWidgetlist(widgetlist) {
-  const textExtractValues = widgetlist.map(widget => textExtractFromItem(widget));
+  const textExtractValues = widgetlist.map(widget =>
+    textExtractFromItem(widget)
+  );
   return arrayToString(textExtractValues);
 }
 
@@ -16,11 +18,11 @@ function textExtractFromItem(objOrWidget) {
   const attributes = lookupTextExtract(className);
 
   if (!attributes || !attributes.length) {
-    return '';
+    return "";
   }
 
   const textExtractValues = attributes.map(({ attribute, type }) => {
-    if (type === 'metadata') {
+    if (type === "metadata") {
       return textExtractFromMetadata(objOrWidget, attribute);
     }
 
@@ -30,19 +32,19 @@ function textExtractFromItem(objOrWidget) {
       console.warn(
         `Attribute '${attribute}' of className '${className}' is not of type '${type}'!`
       );
-      return '';
+      return "";
     }
 
     switch (type) {
-      case 'html':
+      case "html":
         return textExtractFromHtml(value);
-      case 'string':
+      case "string":
         return value;
-      case 'widgetlist':
+      case "widgetlist":
         return textExtractFromWidgetlist(value);
       default: {
-        console.warn('[textExtractFromObj] type is not (yet?) support:', type);
-        return '';
+        console.warn("[textExtractFromObj] type is not (yet?) support:", type);
+        return "";
       }
     }
   });
@@ -52,11 +54,11 @@ function textExtractFromItem(objOrWidget) {
 
 function assertValidValue(value, type) {
   switch (type) {
-    case 'html':
+    case "html":
       return isString(value);
-    case 'string':
+    case "string":
       return isString(value);
-    case 'widgetlist':
+    case "widgetlist":
       return Array.isArray(value);
   }
 
@@ -65,17 +67,17 @@ function assertValidValue(value, type) {
 
 function textExtractFromMetadata(objOrWidget, attribute) {
   if (!objOrWidget.metadata) {
-    return '';
+    return "";
   }
 
-  return objOrWidget.metadata().get(attribute) || '';
+  return objOrWidget.metadata().get(attribute) || "";
 }
 
 function arrayToString(array) {
   return array
     .map(value => value.trim())
     .filter(value => value)
-    .join('\n');
+    .join("\n");
 }
 
 export { textExtractFromObj, textExtractFromWidgetlist };

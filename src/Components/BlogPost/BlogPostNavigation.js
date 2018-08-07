@@ -1,9 +1,9 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import BlogPostDate from './BlogPostDate';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import BlogPostDate from "./BlogPostDate";
 
 const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {
-  if (!currentPost || !currentPost.get('publishedAt')) {
+  if (!currentPost || !currentPost.get("publishedAt")) {
     return null;
   }
 
@@ -31,12 +31,12 @@ const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {
 });
 
 const BlogPostNextLink = Scrivito.connect(({ currentBlogPost }) => {
-  const currentDate = currentBlogPost.get('publishedAt');
+  const currentDate = currentBlogPost.get("publishedAt");
 
   // find greater than publishedAt
-  const [newerPost] = Scrivito.getClass('BlogPost')
-    .where('publishedAt', 'isGreaterThan', currentDate)
-    .order('publishedAt', 'asc')
+  const [newerPost] = Scrivito.getClass("BlogPost")
+    .where("publishedAt", "isGreaterThan", currentDate)
+    .order("publishedAt", "asc")
     .take(1);
 
   if (!newerPost) {
@@ -51,14 +51,14 @@ const BlogPostNextLink = Scrivito.connect(({ currentBlogPost }) => {
 });
 
 const BlogPostPreviousLink = Scrivito.connect(({ currentBlogPost }) => {
-  const currentDate = currentBlogPost.get('publishedAt');
+  const currentDate = currentBlogPost.get("publishedAt");
 
   // find less than or equal publishedAt
-  const [olderPost] = Scrivito.getClass('BlogPost')
+  const [olderPost] = Scrivito.getClass("BlogPost")
     .all()
-    .andNot('id', 'equals', currentBlogPost.id())
-    .andNot('publishedAt', 'isGreaterThan', currentDate)
-    .order('publishedAt', 'desc')
+    .andNot("id", "equals", currentBlogPost.id())
+    .andNot("publishedAt", "isGreaterThan", currentDate)
+    .order("publishedAt", "desc")
     .take(1);
 
   if (!olderPost) {

@@ -16,7 +16,10 @@ function BlogPostMorePosts({ author, filterBlogPostId }) {
         <h1 className="h2 b-bottom text-center">
           More great blog posts from {author.get("title")}
         </h1>
-        <BlogPostPreviewList author={author} filterBlogPostId={filterBlogPostId} />
+        <BlogPostPreviewList
+          author={author}
+          filterBlogPostId={filterBlogPostId}
+        />
       </div>
     </section>
   );

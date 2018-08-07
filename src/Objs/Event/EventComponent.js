@@ -31,7 +31,9 @@ function EventDate({ date }) {
   if (!date) {
     return (
       <InPlaceEditingPlaceholder>
-        Select a date in the event page properties.
+        <span className="event-info">
+          Select a date in the event page properties.
+        </span>
       </InPlaceEditingPlaceholder>
     );
   }
@@ -55,7 +57,12 @@ const EventLocation = Scrivito.connect(({ event }) => {
   if (!address.length) {
     return (
       <InPlaceEditingPlaceholder>
-        Provide the location in the event page properties.
+        <h2 className="h5 font-weight-bold">
+          <i className="fa fa-map-marker fa-lg" aria-hidden="true" title="location" /> Location
+        </h2>
+        <div className="event-info">
+          Provide the location in the event page properties.
+        </div>
       </InPlaceEditingPlaceholder>
     );
   }

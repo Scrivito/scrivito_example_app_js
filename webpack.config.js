@@ -78,6 +78,7 @@ module.exports = (env = {}) => {
           include: [
             path.join(__dirname, "src"),
             path.join(__dirname, "node_modules/autotrack"),
+            path.join(__dirname, "node_modules/striptags"),
           ],
           use: [
             {
@@ -95,6 +96,12 @@ module.exports = (env = {}) => {
                       targets: { browsers: ["last 2 versions"] },
                     },
                   ],
+                ],
+                overrides: [
+                  {
+                    test: ["./node_modules/striptags"],
+                    presets: [["@babel/preset-env", { useBuiltIns: false }]],
+                  },
                 ],
                 cacheDirectory: "tmp/babel-cache",
               },

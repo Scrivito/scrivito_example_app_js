@@ -81,10 +81,10 @@ const AddTestimonial = ({ widget }) => {
       <a
         href="#"
         style={placeholderCss}
+        className="edit-mode-link"
         onClick={e => {
           e.preventDefault();
           e.stopPropagation();
-
           const newTestimonials = [
             ...widget.get("testimonials"),
             new TestimonialWidget({}),

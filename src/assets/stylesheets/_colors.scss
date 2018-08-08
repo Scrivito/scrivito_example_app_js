@@ -1,20 +1,95 @@
 /* colors
 ================================================== */
 
-$primary:       #4ecdc4 !default;
-$secondary:     #ff6b6b !default;
-$success:       #5cb85c !default;
-$info:          #5bc0de !default;
-$warning:       #f0ad4e !default;
-$danger:        #d9534f !default;
 
-$nav-hover: #bbb;
-
+/* colors theme 01 - original */
+$primary: #4ecdc4 !default;
+$secondary: #ff6b6b !default;
 $theme-grey: #2e353c;
 $theme-greydark: #3d4142;
 $theme-greylight: #dadada;
 $theme-greymiddle: #716f73;
 $theme-greywhite: #fbfbfb;
+
+
+/* colors theme 02 - green 01
+$primary: #239d60 !default;
+$secondary: #a3de83 !default;
+$theme-grey: #232931;
+$theme-greydark: #393e46;
+$theme-greylight: #dadada;
+$theme-greymiddle: #716f73;
+$theme-greywhite: #fbfbfb;
+*/
+
+/* colors theme 03 - green 02
+$primary: #7fb414 !default;
+$secondary: #a0e418 !default;
+$theme-grey: #232931;
+$theme-greydark: #393e46;
+$theme-greylight: #dadada;
+$theme-greymiddle: #716f73;
+$theme-greywhite: #fbfbfb;
+*/
+
+/* colors theme 04 - red 01
+$primary: #e9290f !default;
+$secondary: #ff6107 !default;
+$theme-grey: #3a3a59;
+$theme-greydark: #555574;
+$theme-greylight: #dadada;
+$theme-greymiddle: #716f73;
+$theme-greywhite: #fbfbfb;
+*/
+
+/* colors theme 05 - red 02
+$primary: #db3b61 !default;
+$secondary: #ef3f61 !default;
+$theme-grey: #3a3a59;
+$theme-greydark: #555574;
+$theme-greylight: #dadada;
+$theme-greymiddle: #716f73;
+$theme-greywhite: #fbfbfb;
+*/
+
+/* colors theme 06 - blue
+$primary: #0960bd !default;
+$secondary: #429ffd !default;
+$theme-grey: #011f3f;
+$theme-greydark: #393e46;
+$theme-greylight: #dadada;
+$theme-greymiddle: #716f73;
+$theme-greywhite: #fbfbfb;
+*/
+
+/* colors theme 07 - yellow
+$primary: #f7aa00 !default;
+$secondary: #2d4059 !default;
+$theme-grey: #011f3f;
+$theme-greydark: #393e46;
+$theme-greylight: #dadada;
+$theme-greymiddle: #716f73;
+$theme-greywhite: #fbfbfb;
+*/
+
+/* colors theme 08 - pink
+$primary: #ee046c !default;
+$secondary: #fcac0c !default;
+$theme-grey: #3e3e3e;
+$theme-greydark: #393e46;
+$theme-greylight: #dadada;
+$theme-greymiddle: #716f73;
+$theme-greywhite: #fbfbfb;
+*/
+
+
+$success:       #5cb85c !default;
+$info:          #5bc0de !default;
+$warning:       #f0ad4e !default;
+$danger:        #d9534f !default;
+
+
+$nav-hover: #bbb;
 
 /* ---- */
 

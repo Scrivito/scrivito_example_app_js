@@ -4,11 +4,11 @@ import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholde
 
 Scrivito.provideComponent("JobOverviewWidget", ({ widget }) => {
   let jobsSearch = Scrivito.getClass("Job").all();
-  if (widget.get("location")) {
+  if (widget.get("locationLocality")) {
     jobsSearch = jobsSearch.and(
-      "location",
+      "locationLocality",
       "containsPrefix",
-      widget.get("location")
+      widget.get("locationLocality")
     );
   }
   const jobs = [...jobsSearch];

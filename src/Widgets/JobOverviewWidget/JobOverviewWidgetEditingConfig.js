@@ -5,10 +5,10 @@ Scrivito.provideEditingConfig("JobOverviewWidget", {
   title: "Job Overview",
   thumbnail: jobOverviewWidgetIcon,
   attributes: {
-    location: {
-      title: "Filter by location",
-      description: "Leave empty to see all jobs.",
+    locationLocality: {
+      title: "Filter by locality",
+      description: "Leave empty to see all jobs. E.g. New York",
     },
   },
-  properties: ["location"],
+  properties: ["locationLocality"],
 });

@@ -6,7 +6,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const ZipPlugin = require("zip-webpack-plugin");
 const AddSitemapToRedirectsWebpackPlugin = require("./add-sitemap-to-redirects-webpack-plugin");
 
@@ -51,14 +51,6 @@ module.exports = (env = {}) => {
   if (isProduction) {
     plugins.unshift(new CleanWebpackPlugin([buildPath], { verbose: false }));
     plugins.push(
-      new UglifyJSPlugin({
-        cache: true,
-        parallel: true,
-        uglifyOptions: {
-          ie8: false,
-          ecma: 5,
-        },
-      }),
       new ZipPlugin({
         filename: "build.zip",
         path: "../",
@@ -136,6 +128,15 @@ module.exports = (env = {}) => {
             },
           ],
         },
+      ],
+    },
+    optimization: {
+      minimizer: [
+        new TerserPlugin({
+          cache: true,
+          parallel: true,
+          terserOptions: { ecma: 5 },
+        }),
       ],
     },
     output: {

@@ -11,6 +11,7 @@ function BlogPostTagList({ tags }) {
             {tags.map(tag => (
               <li key={tag}>
                 <a
+                  className="margin-right"
                   href="#"
                   onClick={e => {
                     e.preventDefault();

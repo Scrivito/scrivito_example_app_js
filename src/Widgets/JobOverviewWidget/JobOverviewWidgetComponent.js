@@ -6,7 +6,7 @@ Scrivito.provideComponent("JobOverviewWidget", ({ widget }) => {
   let jobsSearch = Scrivito.getClass("Job").all();
   if (widget.get("location")) {
     jobsSearch = jobsSearch.and(
-      "location",
+      "locationLocality",
       "containsPrefix",
       widget.get("location")
     );

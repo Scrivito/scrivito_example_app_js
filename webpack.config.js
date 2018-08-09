@@ -93,7 +93,9 @@ module.exports = (env = {}) => {
                       modules: false,
                       shippedProposals: true,
                       useBuiltIns: "usage",
-                      targets: { browsers: ["last 2 versions"] },
+                      targets: {
+                        browsers: ["Chrome >= 41", "last 2 versions"],
+                      },
                     },
                   ],
                 ],

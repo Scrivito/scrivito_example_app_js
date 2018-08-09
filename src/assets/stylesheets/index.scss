@@ -355,6 +355,10 @@ small,
   margin-bottom: 20px;
 }
 
+.container-initial {
+  position: initial !important;
+}
+
 /* button adaoptions
 =================================================================== */
 
@@ -2764,6 +2768,10 @@ _:-ms-fullscreen,
   height: 100%;
   width: 100%;
   position: absolute;
+}
+.bg-map iframe.interactive-map {
+  width: 200%;
+  margin-left: -50%;
 }
 .bg-map .card {
   padding: 30px;

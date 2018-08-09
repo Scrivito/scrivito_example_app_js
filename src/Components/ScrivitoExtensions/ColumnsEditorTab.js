@@ -372,7 +372,9 @@ class GridLayoutEditor extends React.Component {
     return (
       <div className="gle">
         <div className="grid-ruler" ref={this.gridRulerRef}>
-          {times(12).map(index => <div key={index} className="grid-col" />)}
+          {times(12).map(index => (
+            <div key={index} className="grid-col" />
+          ))}
         </div>
         <div className="grid-columns">{gridColumns}</div>
       </div>

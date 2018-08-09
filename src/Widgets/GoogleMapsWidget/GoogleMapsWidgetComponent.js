@@ -58,6 +58,25 @@ class GoogleMapsWidgetComponent extends React.Component {
   }
 
   render() {
+    if (this.props.widget.get("mapStyle") === "interactive") {
+      const address =
+        this.props.widget.get("address") || "Brandenburg Gate, Berlin, Germany";
+      const zoom = this.props.widget.get("zoom") || "15";
+      const key = googleMapsApiKey();
+      return (
+        <div ref={this.outerDivRef} className="bg-map">
+          <iframe
+            className="interactive-map"
+            width={this.state.elementWidth * 1.5}
+            height={this.state.elementHeight}
+            frameBorder="0"
+            style={{ border: 0 }}
+            src={`https://www.google.com/maps/embed/v1/place?q=${address}&key=${key}&zoom=${zoom}`}
+          />
+          <Widgets widget={this.props.widget} />
+        </div>
+      );
+    }
     return (
       <div
         ref={this.outerDivRef}
@@ -106,7 +125,7 @@ const Widgets = Scrivito.connect(({ widget }) => {
   }
 
   return (
-    <div className="container">
+    <div className="container container-initial">
       <div className="col-lg-3 col-md-4 col-sm-5">
         <Scrivito.ContentTag
           content={widget}

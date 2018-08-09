@@ -73,7 +73,9 @@ const MonthHeadline = Scrivito.connect(({ date }) => {
 
 const PostsTimeline = Scrivito.connect(({ posts }) => (
   <ul className="timeline">
-    {posts.map(post => <BlogPostPreview key={post.id()} post={post} />)}
+    {posts.map(post => (
+      <BlogPostPreview key={post.id()} post={post} />
+    ))}
   </ul>
 ));
 
@@ -97,7 +99,8 @@ const BlogPostPreview = Scrivito.connect(({ post }) => {
         </div>
         <div className="timeline-footer">
           <Scrivito.LinkTag to={post} className="btn btn-clear">
-            Read more<i className="fa fa-angle-right fa-4" aria-hidden="true" />
+            Read more
+            <i className="fa fa-angle-right fa-4" aria-hidden="true" />
           </Scrivito.LinkTag>
         </div>
       </div>

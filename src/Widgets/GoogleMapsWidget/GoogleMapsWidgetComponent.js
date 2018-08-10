@@ -66,9 +66,6 @@ class GoogleMapsWidgetComponent extends React.Component {
       return (
         <div ref={this.outerDivRef} className="bg-map">
           <iframe
-            className="interactive-map"
-            width={this.state.elementWidth * 1.5}
-            height={this.state.elementHeight}
             frameBorder="0"
             style={{ border: 0 }}
             src={`https://www.google.com/maps/embed/v1/place?q=${address}&key=${key}&zoom=${zoom}`}

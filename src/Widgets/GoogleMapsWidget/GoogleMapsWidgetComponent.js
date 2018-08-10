@@ -62,29 +62,29 @@ class GoogleMapsWidgetComponent extends React.Component {
       this.props.widget.get("address") || "Brandenburg Gate, Berlin, Germany";
     const zoom = this.props.widget.get("zoom") || "15";
     const apiKey = googleMapsApiKey();
-    const mapStyle = this.props.widget.get("mapStyle");
+    const mapStyle = this.props.widget.get("mapStyle") || "static";
 
-    if (mapStyle === "interactive") {
-      return (
-        <div ref={this.outerDivRef} className="bg-map">
-          <InteractiveMap address={address} zoom={zoom} apiKey={apiKey} />
-          <Widgets widget={this.props.widget} />
-        </div>
-      );
+    let style = {};
+
+    if (mapStyle === "static") {
+      style = {
+        background: "no-repeat center / cover",
+        backgroundImage: `url(${this.googleMapsImageUrl({
+          address,
+          apiKey,
+          zoom,
+        })})`,
+      };
     }
+
     return (
-      <div
-        ref={this.outerDivRef}
-        className="bg-map"
-        style={{
-          background: "no-repeat center / cover",
-          backgroundImage: `url(${this.googleMapsImageUrl({
-            address,
-            apiKey,
-            zoom,
-          })})`,
-        }}
-      >
+      <div ref={this.outerDivRef} className="bg-map" style={style}>
+        <InteractiveMap
+          address={address}
+          zoom={zoom}
+          apiKey={apiKey}
+          mapStyle={mapStyle}
+        />
         <Widgets widget={this.props.widget} />
       </div>
     );
@@ -113,7 +113,11 @@ class GoogleMapsWidgetComponent extends React.Component {
   }
 }
 
-function InteractiveMap({ address, apiKey, zoom }) {
+function InteractiveMap({ address, apiKey, zoom, mapStyle }) {
+  if (mapStyle !== "interactive") {
+    return null;
+  }
+
   const url = `https://www.google.com/maps/embed/v1/place?q=${address}&key=${apiKey}&zoom=${zoom}`;
   return <iframe frameBorder="0" style={{ border: 0 }} src={url} />;
 }

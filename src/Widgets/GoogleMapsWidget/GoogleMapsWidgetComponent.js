@@ -58,11 +58,13 @@ class GoogleMapsWidgetComponent extends React.Component {
   }
 
   render() {
-    if (this.props.widget.get("mapStyle") === "interactive") {
-      const address =
-        this.props.widget.get("address") || "Brandenburg Gate, Berlin, Germany";
-      const zoom = this.props.widget.get("zoom") || "15";
-      const key = googleMapsApiKey();
+    const address =
+      this.props.widget.get("address") || "Brandenburg Gate, Berlin, Germany";
+    const zoom = this.props.widget.get("zoom") || "15";
+    const key = googleMapsApiKey();
+    const mapStyle = this.props.widget.get("mapStyle");
+
+    if (mapStyle === "interactive") {
       return (
         <div ref={this.outerDivRef} className="bg-map">
           <iframe
@@ -80,7 +82,11 @@ class GoogleMapsWidgetComponent extends React.Component {
         className="bg-map"
         style={{
           background: "no-repeat center / cover",
-          backgroundImage: `url(${this.googleMapsImageUrl()})`,
+          backgroundImage: `url(${this.googleMapsImageUrl({
+            address,
+            key,
+            zoom,
+          })})`,
         }}
       >
         <Widgets widget={this.props.widget} />
@@ -88,12 +94,7 @@ class GoogleMapsWidgetComponent extends React.Component {
     );
   }
 
-  googleMapsImageUrl() {
-    const address =
-      this.props.widget.get("address") || "Brandenburg Gate, Berlin, Germany";
-    const zoom = this.props.widget.get("zoom") || "15";
-    const key = googleMapsApiKey();
-
+  googleMapsImageUrl({ address, key, zoom }) {
     if (!this.state.height || !this.state.width) {
       // wait for the real height/width to not consume to much rate from google.
       return "";

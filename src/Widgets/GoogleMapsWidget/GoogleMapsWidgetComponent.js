@@ -85,7 +85,7 @@ class GoogleMapsWidgetComponent extends React.Component {
           apiKey={apiKey}
           mapStyle={mapStyle}
         />
-        <Widgets widget={this.props.widget} />
+        <Widgets widget={this.props.widget} mapStyle={mapStyle} />
       </div>
     );
   }
@@ -122,18 +122,23 @@ function InteractiveMap({ address, apiKey, zoom, mapStyle }) {
   return <iframe frameBorder="0" style={{ border: 0 }} src={url} />;
 }
 
-const Widgets = Scrivito.connect(({ widget }) => {
+const Widgets = Scrivito.connect(({ widget, mapStyle }) => {
   if (widget.get("showWidgets") !== "yes") {
     return null;
   }
 
+  const containerClasses = ["container", "container-initial"];
+  if (mapStyle === "interactive") {
+    containerClasses.push("d-flex", "flex-row-reverse");
+  }
+
   return (
-    <div className="container container-initial">
+    <div className={containerClasses.join(" ")}>
       <div className="col-lg-3 col-md-4 col-sm-5">
         <Scrivito.ContentTag
           content={widget}
           attribute="content"
-          className="card card-theme"
+          className={"card card-theme"}
         />
       </div>
     </div>

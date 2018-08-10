@@ -3,7 +3,7 @@ import * as Scrivito from "scrivito";
 import Slider from "react-slick";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 
-function GalleryWidgetComponent({ widget }) {
+Scrivito.provideComponent("GalleryWidget", ({ widget }) => {
   const images = widget.get("images");
 
   if (!images.length) {
@@ -28,9 +28,7 @@ function GalleryWidgetComponent({ widget }) {
       </Slider>
     </div>
   );
-}
-
-Scrivito.provideComponent("GalleryWidget", GalleryWidgetComponent);
+});
 
 function sliderSettings(images) {
   return {

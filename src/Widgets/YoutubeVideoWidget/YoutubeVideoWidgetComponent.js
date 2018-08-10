@@ -4,11 +4,10 @@ import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholde
 
 class YoutubeVideoWidgetComponent extends React.Component {
   render() {
-    const heightPercentageValue = 100;
     return (
       <div
         className="text-center content-div"
-        style={{ paddingTop: `${this.aspectRatio(heightPercentageValue)}%` }}
+        style={{ paddingTop: `${100 * this.aspectRatio()}%` }}
       >
         <PlaceholderOrYoutubeComponent
           youtubeVideoId={this.props.widget.get("youtubeVideoId")}
@@ -17,22 +16,22 @@ class YoutubeVideoWidgetComponent extends React.Component {
     );
   }
 
-  aspectRatio(heightValue) {
+  aspectRatio() {
     switch (this.props.widget.get("aspectRatio")) {
       case "21:9":
-        return heightValue / (21 / 9);
+        return 9 / 21;
       case "16:9":
-        return heightValue / (16 / 9);
+        return 9 / 16;
       case "4:3":
-        return heightValue / (4 / 3);
+        return 3 / 4;
       case "1:1":
-        return heightValue;
+        return 1;
       case "3:4":
-        return heightValue / (3 / 4);
+        return 4 / 3;
       case "9:16":
-        return heightValue / (9 / 16);
+        return 16 / 9;
       default:
-        return heightValue / (16 / 9);
+        return 9 / 16;
     }
   }
 }

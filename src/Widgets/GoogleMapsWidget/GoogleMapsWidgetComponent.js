@@ -61,17 +61,13 @@ class GoogleMapsWidgetComponent extends React.Component {
     const address =
       this.props.widget.get("address") || "Brandenburg Gate, Berlin, Germany";
     const zoom = this.props.widget.get("zoom") || "15";
-    const key = googleMapsApiKey();
+    const apiKey = googleMapsApiKey();
     const mapStyle = this.props.widget.get("mapStyle");
 
     if (mapStyle === "interactive") {
       return (
         <div ref={this.outerDivRef} className="bg-map">
-          <iframe
-            frameBorder="0"
-            style={{ border: 0 }}
-            src={`https://www.google.com/maps/embed/v1/place?q=${address}&key=${key}&zoom=${zoom}`}
-          />
+          <InteractiveMap address={address} zoom={zoom} apiKey={apiKey} />
           <Widgets widget={this.props.widget} />
         </div>
       );
@@ -84,7 +80,7 @@ class GoogleMapsWidgetComponent extends React.Component {
           background: "no-repeat center / cover",
           backgroundImage: `url(${this.googleMapsImageUrl({
             address,
-            key,
+            apiKey,
             zoom,
           })})`,
         }}
@@ -94,7 +90,7 @@ class GoogleMapsWidgetComponent extends React.Component {
     );
   }
 
-  googleMapsImageUrl({ address, key, zoom }) {
+  googleMapsImageUrl({ address, apiKey, zoom }) {
     if (!this.state.height || !this.state.width) {
       // wait for the real height/width to not consume to much rate from google.
       return "";
@@ -109,12 +105,17 @@ class GoogleMapsWidgetComponent extends React.Component {
       ie: "UTF8",
     };
 
-    if (key) {
-      params.key = key;
+    if (apiKey) {
+      params.key = apiKey;
     }
 
     return googleMapsImageUrl(params);
   }
+}
+
+function InteractiveMap({ address, apiKey, zoom }) {
+  const url = `https://www.google.com/maps/embed/v1/place?q=${address}&key=${apiKey}&zoom=${zoom}`;
+  return <iframe frameBorder="0" style={{ border: 0 }} src={url} />;
 }
 
 const Widgets = Scrivito.connect(({ widget }) => {

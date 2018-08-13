@@ -10,7 +10,7 @@ Scrivito.provideEditingConfig("YoutubeVideoWidget", {
       description:
         "Every video at YouTube has a unique identifier that consists of a series" +
         " of digits and letters. In the video URL, the ID usually is the value of the" +
-        ' "v" parameter, e.g. KPa6VnwfHDY in youtube.com/watch?v=KPa6VnwfHDY&feature=youtu.be.',
+        ' "v" parameter, e.g. Ys1w9A4DrO4 in youtube.com/watch?v=Ys1w9A4DrO4&feature=youtu.be.',
     },
     aspectRatio: {
       title: "Aspect ratio",

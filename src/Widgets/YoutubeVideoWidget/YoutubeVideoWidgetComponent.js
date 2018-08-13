@@ -2,41 +2,37 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 
-class YoutubeVideoWidgetComponent extends React.Component {
-  render() {
-    const youtubeVideoId = this.props.widget.get("youtubeVideoId");
-    const aspectRatio = aspectRatioToFloat(
-      this.props.widget.get("aspectRatio")
-    );
+Scrivito.provideComponent("YoutubeVideoWidget", ({ widget }) => {
+  const youtubeVideoId = widget.get("youtubeVideoId");
+  const aspectRatio = aspectRatioToFloat(widget.get("aspectRatio"));
 
-    if (!youtubeVideoId) {
-      return (
-        <InPlaceEditingPlaceholder center={true}>
-          Provide a YouTube video ID in the widget properties.
-        </InPlaceEditingPlaceholder>
-      );
-    }
-
+  if (!youtubeVideoId) {
     return (
-      <div
-        style={{
-          position: "relative",
-          paddingTop: `${100 / aspectRatio}%`,
-        }}
-      >
-        <iframe
-          src={`https://www.youtube.com/embed/${youtubeVideoId}`}
-          className="fullsize-iframe"
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-          allowFullScreen="true"
-          webkitallowfullscreen="true"
-          mozallowfullscreen="true"
-        />
-      </div>
+      <InPlaceEditingPlaceholder center={true}>
+        Provide a YouTube video ID in the widget properties.
+      </InPlaceEditingPlaceholder>
     );
   }
-}
+
+  return (
+    <div
+      style={{
+        position: "relative",
+        paddingTop: `${100 / aspectRatio}%`,
+      }}
+    >
+      <iframe
+        src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+        className="fullsize-iframe"
+        frameBorder="0"
+        allow="autoplay; encrypted-media"
+        allowFullScreen="true"
+        webkitallowfullscreen="true"
+        mozallowfullscreen="true"
+      />
+    </div>
+  );
+});
 
 function aspectRatioToFloat(aspectRatio) {
   switch (aspectRatio) {
@@ -56,5 +52,3 @@ function aspectRatioToFloat(aspectRatio) {
       return 16 / 9;
   }
 }
-
-Scrivito.provideComponent("YoutubeVideoWidget", YoutubeVideoWidgetComponent);

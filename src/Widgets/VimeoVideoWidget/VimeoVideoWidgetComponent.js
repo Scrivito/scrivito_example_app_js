@@ -4,16 +4,30 @@ import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholde
 
 class VimeoVideoWidgetComponent extends React.Component {
   render() {
+    const vimeoVideoId = this.props.widget.get("vimeoVideoId");
+
+    if (!vimeoVideoId) {
+      return (
+        <InPlaceEditingPlaceholder center={true}>
+          Provide a Vimeo video ID in the widget properties.
+        </InPlaceEditingPlaceholder>
+      );
+    }
+
     return (
       <div
-        className="text-center"
         style={{
           position: "relative",
           paddingTop: `${100 / this.aspectRatio()}%`,
         }}
       >
-        <PlaceholderOrVimeoComponent
-          vimeoVideoId={this.props.widget.get("vimeoVideoId")}
+        <iframe
+          src={`https://player.vimeo.com/video/${vimeoVideoId}`}
+          className="fullsize-iframe"
+          frameBorder="0"
+          allowFullScreen="true"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
         />
       </div>
     );
@@ -37,27 +51,6 @@ class VimeoVideoWidgetComponent extends React.Component {
         return 16 / 9;
     }
   }
-}
-
-function PlaceholderOrVimeoComponent({ vimeoVideoId }) {
-  if (!vimeoVideoId) {
-    return (
-      <InPlaceEditingPlaceholder>
-        Provide a Vimeo video ID in the widget properties.
-      </InPlaceEditingPlaceholder>
-    );
-  }
-
-  return (
-    <iframe
-      src={`https://player.vimeo.com/video/${vimeoVideoId}`}
-      className="fullsize-iframe"
-      frameBorder="0"
-      allowFullScreen="true"
-      webkitallowfullscreen="true"
-      mozallowfullscreen="true"
-    />
-  );
 }
 
 Scrivito.provideComponent("VimeoVideoWidget", VimeoVideoWidgetComponent);

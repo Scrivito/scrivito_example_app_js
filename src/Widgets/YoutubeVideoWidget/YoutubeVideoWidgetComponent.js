@@ -4,16 +4,31 @@ import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholde
 
 class YoutubeVideoWidgetComponent extends React.Component {
   render() {
+    const youtubeVideoId = this.props.widget.get("youtubeVideoId");
+
+    if (!youtubeVideoId) {
+      return (
+        <InPlaceEditingPlaceholder center={true}>
+          Provide a YouTube video ID in the widget properties.
+        </InPlaceEditingPlaceholder>
+      );
+    }
+
     return (
       <div
-        className="text-center"
         style={{
           position: "relative",
           paddingTop: `${100 / this.aspectRatio()}%`,
         }}
       >
-        <PlaceholderOrYoutubeComponent
-          youtubeVideoId={this.props.widget.get("youtubeVideoId")}
+        <iframe
+          src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+          className="fullsize-iframe"
+          frameBorder="0"
+          allow="autoplay; encrypted-media"
+          allowFullScreen="true"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
         />
       </div>
     );
@@ -37,28 +52,6 @@ class YoutubeVideoWidgetComponent extends React.Component {
         return 16 / 9;
     }
   }
-}
-
-function PlaceholderOrYoutubeComponent({ youtubeVideoId }) {
-  if (!youtubeVideoId) {
-    return (
-      <InPlaceEditingPlaceholder>
-        Provide a YouTube video ID in the widget properties.
-      </InPlaceEditingPlaceholder>
-    );
-  }
-
-  return (
-    <iframe
-      src={`https://www.youtube.com/embed/${youtubeVideoId}`}
-      className="fullsize-iframe"
-      frameBorder="0"
-      allow="autoplay; encrypted-media"
-      allowFullScreen="true"
-      webkitallowfullscreen="true"
-      mozallowfullscreen="true"
-    />
-  );
 }
 
 Scrivito.provideComponent("YoutubeVideoWidget", YoutubeVideoWidgetComponent);

@@ -6,8 +6,11 @@ class VimeoVideoWidgetComponent extends React.Component {
   render() {
     return (
       <div
-        className="text-center content-div"
-        style={{ paddingTop: `${100 * this.aspectRatio()}%` }}
+        className="text-center"
+        style={{
+          position: "relative",
+          paddingTop: `${100 * this.aspectRatio()}%`,
+        }}
       >
         <PlaceholderOrVimeoComponent
           vimeoVideoId={this.props.widget.get("vimeoVideoId")}

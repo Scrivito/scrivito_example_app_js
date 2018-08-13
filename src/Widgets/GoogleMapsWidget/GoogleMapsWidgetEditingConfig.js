@@ -11,6 +11,15 @@ Scrivito.provideEditingConfig("GoogleMapsWidget", {
         "The address that should be shown on the map." +
         " Default: Brandenburg Gate, Berlin, Germany",
     },
+    mapType: {
+      title: "Map type",
+      description:
+        "An interactive map requires a Google Maps API key (see site settings). Default: Static",
+      values: [
+        { value: "static", title: "Static" },
+        { value: "interactive", title: "Interactive" },
+      ],
+    },
     zoom: {
       title: "Zoom level",
       description: "Default: 15 (Street level)",
@@ -38,15 +47,16 @@ Scrivito.provideEditingConfig("GoogleMapsWidget", {
       ],
     },
     showWidgets: {
-      title: "Show widgets?",
+      title: "Show map widgets?",
       description: "Should widgets be shown on top of this map? Default: No",
       values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
     },
   },
-  properties: ["address", "zoom", "showWidgets"],
+  properties: ["address", "mapType", "zoom", "showWidgets"],
   initialContent: {
     address: "Brandenburg Gate, Berlin, Germany",
     showWidgets: "no",
     zoom: "15",
+    mapType: "static",
   },
 });

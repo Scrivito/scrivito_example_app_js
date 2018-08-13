@@ -4,6 +4,7 @@ import { registerTextExtract } from "../../utils/textExtractRegistry";
 const GoogleMapsWidget = Scrivito.provideWidgetClass("GoogleMapsWidget", {
   attributes: {
     address: "string",
+    mapType: ["enum", { values: ["interactive", "static"] }],
     zoom: [
       "enum",
       {

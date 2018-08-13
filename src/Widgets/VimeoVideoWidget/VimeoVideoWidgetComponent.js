@@ -5,6 +5,9 @@ import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholde
 class VimeoVideoWidgetComponent extends React.Component {
   render() {
     const vimeoVideoId = this.props.widget.get("vimeoVideoId");
+    const aspectRatio = aspectRatioToFloat(
+      this.props.widget.get("aspectRatio")
+    );
 
     if (!vimeoVideoId) {
       return (
@@ -18,7 +21,7 @@ class VimeoVideoWidgetComponent extends React.Component {
       <div
         style={{
           position: "relative",
-          paddingTop: `${100 / this.aspectRatio()}%`,
+          paddingTop: `${100 / aspectRatio}%`,
         }}
       >
         <iframe
@@ -32,24 +35,24 @@ class VimeoVideoWidgetComponent extends React.Component {
       </div>
     );
   }
+}
 
-  aspectRatio() {
-    switch (this.props.widget.get("aspectRatio")) {
-      case "21:9":
-        return 21 / 9;
-      case "16:9":
-        return 16 / 9;
-      case "4:3":
-        return 4 / 3;
-      case "1:1":
-        return 1;
-      case "3:4":
-        return 3 / 4;
-      case "9:16":
-        return 9 / 16;
-      default:
-        return 16 / 9;
-    }
+function aspectRatioToFloat(aspectRatio) {
+  switch (aspectRatio) {
+    case "21:9":
+      return 21 / 9;
+    case "16:9":
+      return 16 / 9;
+    case "4:3":
+      return 4 / 3;
+    case "1:1":
+      return 1;
+    case "3:4":
+      return 3 / 4;
+    case "9:16":
+      return 9 / 16;
+    default:
+      return 16 / 9;
   }
 }
 

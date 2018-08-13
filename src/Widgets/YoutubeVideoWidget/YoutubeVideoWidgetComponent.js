@@ -51,7 +51,7 @@ function PlaceholderOrYoutubeComponent({ youtubeVideoId }) {
   return (
     <iframe
       src={`https://www.youtube.com/embed/${youtubeVideoId}`}
-      className="content-iframe"
+      className="fullsize-iframe"
       frameBorder="0"
       allow="autoplay; encrypted-media"
       allowFullScreen="true"

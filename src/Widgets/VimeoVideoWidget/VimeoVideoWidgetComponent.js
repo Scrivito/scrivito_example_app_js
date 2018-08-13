@@ -51,7 +51,7 @@ function PlaceholderOrVimeoComponent({ vimeoVideoId }) {
   return (
     <iframe
       src={`https://player.vimeo.com/video/${vimeoVideoId}`}
-      className="content-iframe"
+      className="fullsize-iframe"
       frameBorder="0"
       allowFullScreen="true"
       webkitallowfullscreen="true"

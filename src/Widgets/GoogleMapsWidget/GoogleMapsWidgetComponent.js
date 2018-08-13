@@ -62,11 +62,11 @@ class GoogleMapsWidgetComponent extends React.Component {
       this.props.widget.get("address") || "Brandenburg Gate, Berlin, Germany";
     const zoom = this.props.widget.get("zoom") || "15";
     const apiKey = googleMapsApiKey();
-    const mapStyle = this.props.widget.get("mapStyle") || "static";
+    const mapType = this.props.widget.get("mapType") || "static";
 
     let style = {};
 
-    if (mapStyle === "static") {
+    if (mapType === "static") {
       style = {
         background: "no-repeat center / cover",
         backgroundImage: `url(${this.googleMapsImageUrl({
@@ -83,9 +83,9 @@ class GoogleMapsWidgetComponent extends React.Component {
           address={address}
           zoom={zoom}
           apiKey={apiKey}
-          mapStyle={mapStyle}
+          mapType={mapType}
         />
-        <Widgets widget={this.props.widget} mapStyle={mapStyle} />
+        <Widgets widget={this.props.widget} mapType={mapType} />
       </div>
     );
   }
@@ -113,8 +113,8 @@ class GoogleMapsWidgetComponent extends React.Component {
   }
 }
 
-function InteractiveMap({ address, apiKey, zoom, mapStyle }) {
-  if (mapStyle !== "interactive") {
+function InteractiveMap({ address, apiKey, zoom, mapType }) {
+  if (mapType !== "interactive") {
     return null;
   }
 
@@ -122,13 +122,13 @@ function InteractiveMap({ address, apiKey, zoom, mapStyle }) {
   return <iframe frameBorder="0" style={{ border: 0 }} src={url} />;
 }
 
-const Widgets = Scrivito.connect(({ widget, mapStyle }) => {
+const Widgets = Scrivito.connect(({ widget, mapType }) => {
   if (widget.get("showWidgets") !== "yes") {
     return null;
   }
 
   const containerClasses = ["container", "container-initial"];
-  if (mapStyle === "interactive") {
+  if (mapType === "interactive") {
     containerClasses.push("d-flex", "flex-row-reverse");
   }
 

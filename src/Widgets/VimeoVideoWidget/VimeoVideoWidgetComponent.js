@@ -9,7 +9,7 @@ class VimeoVideoWidgetComponent extends React.Component {
         className="text-center"
         style={{
           position: "relative",
-          paddingTop: `${100 * this.aspectRatio()}%`,
+          paddingTop: `${100 / this.aspectRatio()}%`,
         }}
       >
         <PlaceholderOrVimeoComponent
@@ -22,19 +22,19 @@ class VimeoVideoWidgetComponent extends React.Component {
   aspectRatio() {
     switch (this.props.widget.get("aspectRatio")) {
       case "21:9":
-        return 9 / 21;
+        return 21 / 9;
       case "16:9":
-        return 9 / 16;
+        return 16 / 9;
       case "4:3":
-        return 3 / 4;
+        return 4 / 3;
       case "1:1":
         return 1;
       case "3:4":
-        return 4 / 3;
+        return 3 / 4;
       case "9:16":
-        return 16 / 9;
-      default:
         return 9 / 16;
+      default:
+        return 16 / 9;
     }
   }
 }

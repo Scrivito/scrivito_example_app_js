@@ -134,7 +134,7 @@ const Widgets = Scrivito.connect(({ widget, mapStyle }) => {
 
   return (
     <div className={containerClasses.join(" ")}>
-      <div className="col-lg-3 col-md-4 col-sm-5">
+      <div className="col-lg-3 col-md-4 col-sm-5 container-initial">
         <Scrivito.ContentTag
           content={widget}
           attribute="content"

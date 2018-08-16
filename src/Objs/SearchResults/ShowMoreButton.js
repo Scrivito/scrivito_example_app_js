@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
   if (currentMaxItems >= totalCount) {
@@ -10,7 +10,8 @@ function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
       <br />
       <div className="text-center">
         <a className="btn btn-primary" onClick={onClick}>
-          Load more<i className="fa fa-angle-right fa-4" aria-hidden="true" />
+          Load more
+          <i className="fa fa-angle-right fa-4" aria-hidden="true" />
         </a>
       </div>
     </React.Fragment>

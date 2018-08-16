@@ -1,12 +1,14 @@
-import * as Scrivito from 'scrivito';
-import { registerTextExtract } from '../../utils/textExtractRegistry';
+import * as Scrivito from "scrivito";
+import { registerTextExtract } from "../../utils/textExtractRegistry";
 
-const TickListWidget = Scrivito.provideWidgetClass('TickListWidget', {
+const TickListWidget = Scrivito.provideWidgetClass("TickListWidget", {
   attributes: {
-    items: ['widgetlist', { only: 'TickListItemWidget' }],
+    items: ["widgetlist", { only: "TickListItemWidget" }],
   },
 });
 
-registerTextExtract('TickListWidget', [{ attribute: 'items', type: 'widgetlist' }]);
+registerTextExtract("TickListWidget", [
+  { attribute: "items", type: "widgetlist" },
+]);
 
 export default TickListWidget;

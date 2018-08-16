@@ -1,9 +1,9 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
-const Redirect = Scrivito.provideObjClass('Redirect', {
+const Redirect = Scrivito.provideObjClass("Redirect", {
   attributes: {
-    link: 'link',
-    openInUi: ['enum', { values: ['yes', 'no'] }],
+    link: "link",
+    openInUi: ["enum", { values: ["yes", "no"] }],
   },
 });
 

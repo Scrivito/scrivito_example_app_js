@@ -1,8 +1,8 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
-const GalleryWidget = Scrivito.provideWidgetClass('GalleryWidget', {
+const GalleryWidget = Scrivito.provideWidgetClass("GalleryWidget", {
   attributes: {
-    images: 'referencelist',
+    images: "referencelist",
   },
 });
 

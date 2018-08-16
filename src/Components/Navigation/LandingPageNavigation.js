@@ -1,5 +1,5 @@
-import * as React from 'react';
-import Logo from './Logo';
+import * as React from "react";
+import Logo from "./Logo";
 
 function LandingPageNavigation({ navigationStyle }) {
   return (

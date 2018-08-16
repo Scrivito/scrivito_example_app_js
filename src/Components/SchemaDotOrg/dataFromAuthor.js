@@ -1,12 +1,12 @@
-import urlFromBinary from '../../utils/urlFromBinary';
+import urlFromBinary from "../../utils/urlFromBinary";
 
 function dataFromAuthor(author) {
   return {
-    '@context': 'http://schema.org',
-    '@type': 'Person',
-    name: author.get('title'),
-    description: author.get('description'),
-    image: urlFromBinary(author.get('image')),
+    "@context": "http://schema.org",
+    "@type": "Person",
+    name: author.get("title"),
+    description: author.get("description"),
+    image: urlFromBinary(author.get("image")),
   };
 }
 

@@ -1,18 +1,22 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
-import SchemaDotOrg from '../../Components/SchemaDotOrg';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
+import SchemaDotOrg from "../../Components/SchemaDotOrg";
 
-Scrivito.provideComponent('AddressWidget', ({ widget }) => {
+Scrivito.provideComponent("AddressWidget", ({ widget }) => {
   return (
     <div>
-      {widget.get('showLogo') !== 'no' && <Logo />}
+      {widget.get("showLogo") !== "no" && <Logo />}
       <address>
         <Address addressWidget={widget} />
-        <Table phone={widget.get('phone')} fax={widget.get('fax')} email={widget.get('email')} />
+        <Table
+          phone={widget.get("phone")}
+          fax={widget.get("fax")}
+          email={widget.get("email")}
+        />
         <SchemaDotOrg content={widget} />
       </address>
-      {widget.get('showBorderBottom') === 'yes' && <div className="b-bottom" />}
+      {widget.get("showBorderBottom") === "yes" && <div className="b-bottom" />}
     </div>
   );
 });
@@ -23,7 +27,7 @@ const Logo = Scrivito.connect(() => {
     return null;
   }
 
-  const logo = root.get('logoDark');
+  const logo = root.get("logoDark");
   if (!logo) {
     return null;
   }
@@ -38,25 +42,25 @@ const Logo = Scrivito.connect(() => {
 const Address = Scrivito.connect(({ addressWidget }) => {
   let localityRegionPostalCode;
 
-  if (addressWidget.get('addressFormat') === 'GER') {
+  if (addressWidget.get("addressFormat") === "GER") {
     localityRegionPostalCode = [
-      addressWidget.get('locationPostalCode'),
-      addressWidget.get('locationLocality'),
-      addressWidget.get('locationRegion'),
+      addressWidget.get("locationPostalCode"),
+      addressWidget.get("locationLocality"),
+      addressWidget.get("locationRegion"),
     ];
   } else {
     localityRegionPostalCode = [
-      addressWidget.get('locationLocality'),
-      addressWidget.get('locationRegion'),
-      addressWidget.get('locationPostalCode'),
+      addressWidget.get("locationLocality"),
+      addressWidget.get("locationRegion"),
+      addressWidget.get("locationPostalCode"),
     ];
   }
 
   const lines = [
-    addressWidget.get('locationName'),
-    addressWidget.get('locationStreetAddress'),
-    localityRegionPostalCode.filter(n => n).join(' '),
-    addressWidget.get('locationCountry'),
+    addressWidget.get("locationName"),
+    addressWidget.get("locationStreetAddress"),
+    localityRegionPostalCode.filter(n => n).join(" "),
+    addressWidget.get("locationCountry"),
   ].filter(n => n);
 
   if (!lines.length) {
@@ -89,22 +93,24 @@ function Table(props) {
   return (
     <table>
       <tbody>
-        {lines.map(([name, value]) => <TableColumn key={name} name={name} value={value} />)}
+        {lines.map(([name, value]) => (
+          <TableColumn key={name} name={name} value={value} />
+        ))}
       </tbody>
     </table>
   );
 }
 
 const LOCALIZATION = {
-  phone: 'Phone',
-  fax: 'Fax',
-  email: 'Email',
+  phone: "Phone",
+  fax: "Fax",
+  email: "Email",
 };
 
 const LINK_PREFIXES = {
-  phone: 'tel',
-  fax: 'fax',
-  email: 'mailto',
+  phone: "tel",
+  fax: "fax",
+  email: "mailto",
 };
 
 function TableColumn({ name, value }) {

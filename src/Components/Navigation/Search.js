@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
+import * as React from "react";
+import * as Scrivito from "scrivito";
 
 const SearchBox = Scrivito.connect(
   class extends React.Component {
@@ -7,7 +7,7 @@ const SearchBox = Scrivito.connect(
       super(props);
 
       this.state = {
-        q: '',
+        q: "",
       };
 
       this.inputRef = React.createRef();
@@ -61,20 +61,23 @@ const SearchBox = Scrivito.connect(
       event.preventDefault();
       event.stopPropagation();
       Scrivito.navigateTo(oldestSearchResultsPage, { q: this.state.q });
-      this.setState({ q: '' });
+      this.setState({ q: "" });
       this.props.toggleSearch();
     }
   }
 );
 
 function oldestSearchResultsPage() {
-  return Scrivito.Obj.where('_objClass', 'equals', 'SearchResults')
-    .order('_createdAt')
+  return Scrivito.Obj.where("_objClass", "equals", "SearchResults")
+    .order("_createdAt")
     .take(1)[0];
 }
 
 function SearchIcon({ toggleSearch }) {
-  if (Scrivito.currentPage() && Scrivito.currentPage().objClass() === 'SearchResults') {
+  if (
+    Scrivito.currentPage() &&
+    Scrivito.currentPage().objClass() === "SearchResults"
+  ) {
     return (
       <span className="navbar-search-toggle disabled">
         <i className="fa fa-search" aria-hidden="true" />

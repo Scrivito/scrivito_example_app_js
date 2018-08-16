@@ -1,9 +1,9 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import ShowMoreButton from './ShowMoreButton';
-import SearchInput from './SearchInput';
-import SearchResultItem from './SearchResultItem';
-import SearchResultsTagList from './SearchResultsTagList';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import ShowMoreButton from "./ShowMoreButton";
+import SearchInput from "./SearchInput";
+import SearchResultItem from "./SearchResultItem";
+import SearchResultsTagList from "./SearchResultsTagList";
 
 class SearchResultsComponent extends React.Component {
   constructor(props) {
@@ -23,17 +23,17 @@ class SearchResultsComponent extends React.Component {
       };
     }
 
-    let search = Scrivito.Obj.where('*', 'containsPrefix', this.props.params.q).andNot(
-      '_objClass',
-      'equals',
-      blacklistObjClasses
-    );
+    let search = Scrivito.Obj.where(
+      "*",
+      "containsPrefix",
+      this.props.params.q
+    ).andNot("_objClass", "equals", blacklistObjClasses);
 
     // make sure, that tags are calculated _before_ limiting to specific tag.
-    const tags = search.facet('tags').map(tag => tag.name());
+    const tags = search.facet("tags").map(tag => tag.name());
 
     if (this.props.params.tag) {
-      search = search.and('tags', 'equals', this.props.params.tag);
+      search = search.and("tags", "equals", this.props.params.tag);
     }
 
     return {
@@ -53,7 +53,8 @@ class SearchResultsComponent extends React.Component {
         <section className="bg-white">
           <div className="container">
             <h1 className="h2 b-bottom text-center">
-              {totalCount} search result{totalCount !== 1 && 's'}
+              {totalCount} search result
+              {totalCount !== 1 && "s"}
             </h1>
             <SearchResultsTagList tags={tags} params={this.props.params} />
           </div>
@@ -62,7 +63,11 @@ class SearchResultsComponent extends React.Component {
         <section className="bg-white no-padding">
           <div className="container">
             {searchResults.map((resultItem, index) => (
-              <SearchResultItem resultItem={resultItem} q={this.props.params.q} key={index} />
+              <SearchResultItem
+                resultItem={resultItem}
+                q={this.props.params.q}
+                key={index}
+              />
             ))}
           </div>
           <ShowMoreButton
@@ -82,6 +87,6 @@ class SearchResultsComponent extends React.Component {
   }
 }
 
-Scrivito.provideComponent('SearchResults', SearchResultsComponent);
+Scrivito.provideComponent("SearchResults", SearchResultsComponent);
 
-const blacklistObjClasses = ['Image', 'SearchResults', 'Video'];
+const blacklistObjClasses = ["Image", "SearchResults", "Video"];

@@ -1,10 +1,10 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import Lightbox from 'react-images';
-import fullScreenWidthPixels from '../../utils/fullScreenWidthPixels';
-import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
-import TagList from '../../Components/TagList';
-import isImage from '../../utils/isImage';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import Lightbox from "react-images";
+import fullScreenWidthPixels from "../../utils/fullScreenWidthPixels";
+import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
+import TagList from "../../Components/TagList";
+import isImage from "../../utils/isImage";
 
 class ThumbnailGalleryComponent extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class ThumbnailGalleryComponent extends React.Component {
     this.state = {
       currentImage: 0,
       lightboxIsOpen: false,
-      currentTag: '',
+      currentTag: "",
     };
 
     this.openLightbox = this.openLightbox.bind(this);
@@ -64,7 +64,9 @@ class ThumbnailGalleryComponent extends React.Component {
 
   render() {
     const widget = this.props.widget;
-    const images = widget.get('images').filter(subWidget => isImage(subWidget.get('image')));
+    const images = widget
+      .get("images")
+      .filter(subWidget => isImage(subWidget.get("image")));
     const lightboxImages = images.map(image => lightboxOptions(image));
 
     if (!images.length) {
@@ -78,7 +80,7 @@ class ThumbnailGalleryComponent extends React.Component {
     return (
       <div>
         <TagList
-          showTags={widget.get('showTags') === 'yes'}
+          showTags={widget.get("showTags") === "yes"}
           tags={allTags(images)}
           currentTag={this.state.currentTag}
           setTag={this.setTag}
@@ -112,26 +114,36 @@ class ThumbnailGalleryComponent extends React.Component {
   }
 }
 
-Scrivito.provideComponent('ThumbnailGalleryWidget', ThumbnailGalleryComponent);
+Scrivito.provideComponent("ThumbnailGalleryWidget", ThumbnailGalleryComponent);
 
 const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
-  const title = widget.get('title');
-  const subtitle = widget.get('subtitle');
-  const image = widget.get('image');
-  const tags = widget.get('tags');
+  const title = widget.get("title");
+  const subtitle = widget.get("subtitle");
+  const image = widget.get("image");
+  const tags = widget.get("tags");
 
-  const classNames = ['col-md-3', 'col-sm-4', 'col-6', 'gallery-box', 'gutter0'];
+  const classNames = [
+    "col-md-3",
+    "col-sm-4",
+    "col-6",
+    "gallery-box",
+    "gutter0",
+  ];
   if (currentTag && tags.includes(currentTag)) {
-    classNames.push('squeezed');
+    classNames.push("squeezed");
   }
 
   return (
-    <div className={classNames.join(' ')}>
+    <div className={classNames.join(" ")}>
       <Scrivito.BackgroundImageTag
         className="gallery-box-image"
         style={{ background: { image } }}
       />
-      <a href="#" className="gallery-box-content-wrapper" onClick={openLightbox}>
+      <a
+        href="#"
+        className="gallery-box-content-wrapper"
+        onClick={openLightbox}
+      >
         <span className="gallery-box-content">
           <i className="fa fa-camera" aria-hidden="true" />
           <span className="title">{title}</span>
@@ -143,7 +155,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
 });
 
 function allTags(images) {
-  const tagsArray = images.map(image => image.get('tags'));
+  const tagsArray = images.map(image => image.get("tags"));
 
   // flatten tags
   const tags = tagsArray.reduce((a, b) => a.concat(b), []);
@@ -156,15 +168,18 @@ function allTags(images) {
 }
 
 function lightboxOptions(galleryImageWidget) {
-  const image = galleryImageWidget.get('image');
-  const binary = image.get('blob');
+  const image = galleryImageWidget.get("image");
+  const binary = image.get("blob");
   const srcUrl = binary.optimizeFor({ width: fullScreenWidthPixels() }).url();
-  const alt = image.get('alternativeText');
+  const alt = image.get("alternativeText");
 
   return {
     src: srcUrl,
     thumbnail: srcUrl,
-    caption: [galleryImageWidget.get('title'), galleryImageWidget.get('subtitle')].join(' - '),
+    caption: [
+      galleryImageWidget.get("title"),
+      galleryImageWidget.get("subtitle"),
+    ].join(" - "),
     alt,
   };
 }

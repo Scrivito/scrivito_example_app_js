@@ -1,11 +1,15 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import InPlaceEditingPlaceholder from '../../Components/InPlaceEditingPlaceholder';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 
-Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
-  let jobsSearch = Scrivito.getClass('Job').all();
-  if (widget.get('location')) {
-    jobsSearch = jobsSearch.and('location', 'containsPrefix', widget.get('location'));
+Scrivito.provideComponent("JobOverviewWidget", ({ widget }) => {
+  let jobsSearch = Scrivito.getClass("Job").all();
+  if (widget.get("locationLocality")) {
+    jobsSearch = jobsSearch.and(
+      "locationLocality",
+      "containsPrefix",
+      widget.get("locationLocality")
+    );
   }
   const jobs = [...jobsSearch];
 
@@ -19,15 +23,17 @@ Scrivito.provideComponent('JobOverviewWidget', ({ widget }) => {
 
   return (
     <div className="row">
-      {jobs.map((job, index) => <JobItem key={job.id()} job={job} index={index} />)}
+      {jobs.map((job, index) => (
+        <JobItem key={job.id()} job={job} index={index} />
+      ))}
     </div>
   );
 });
 
 const JobItem = Scrivito.connect(({ job }) => {
-  const location = [job.get('locationLocality'), job.get('locationCountry')]
+  const location = [job.get("locationLocality"), job.get("locationCountry")]
     .filter(n => n)
-    .join(', ');
+    .join(", ");
 
   return (
     <div className="col-sm-6">
@@ -36,14 +42,14 @@ const JobItem = Scrivito.connect(({ job }) => {
           tag="span"
           className="box-image"
           style={{
-            background: { image: job.get('image') },
+            background: { image: job.get("image") },
           }}
         />
         <span className="box-topic arrow-right">
-          <h3 className="h3">{job.get('title')}</h3>
+          <h3 className="h3">{job.get("title")}</h3>
           <span>
             <i
-              className={`fa ${location ? 'fa-map-marker' : ''} fa-2x`}
+              className={`fa ${location ? "fa-map-marker" : ""} fa-2x`}
               aria-hidden="true"
               title="location"
             />

@@ -1,9 +1,15 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
+import * as React from "react";
+import * as Scrivito from "scrivito";
 
 function Icon({ icon, size, title }) {
-  const actualIcon = icon || 'fa-coffee';
-  return <i className={['fa', actualIcon, size].join(' ')} aria-hidden="true" title={title} />;
+  const actualIcon = icon || "fa-coffee";
+  return (
+    <i
+      className={["fa", actualIcon, size].join(" ")}
+      aria-hidden="true"
+      title={title}
+    />
+  );
 }
 
 function IconComponent({ icon, size, link }) {
@@ -11,7 +17,7 @@ function IconComponent({ icon, size, link }) {
     return <Icon icon={icon} size={size} />;
   }
 
-  const title = link.title() || '';
+  const title = link.title() || "";
 
   return (
     <Scrivito.LinkTag to={link}>

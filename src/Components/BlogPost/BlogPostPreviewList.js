@@ -1,54 +1,59 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import { groupBy, truncate } from 'lodash-es';
-import BlogPostDate from './BlogPostDate';
-import formatDate from '../../utils/formatDate';
-import InPlaceEditingPlaceholder from '../InPlaceEditingPlaceholder';
-import isImage from '../../utils/isImage';
-import { textExtractFromObj } from '../../utils/textExtract';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import { groupBy, truncate } from "lodash-es";
+import BlogPostDate from "./BlogPostDate";
+import formatDate from "../../utils/formatDate";
+import InPlaceEditingPlaceholder from "../InPlaceEditingPlaceholder";
+import isImage from "../../utils/isImage";
+import { textExtractFromObj } from "../../utils/textExtract";
 
-const BlogPostPreviewList = Scrivito.connect(({ maxItems, author, tag }) => {
-  let blogPosts = Scrivito.getClass('BlogPost')
-    .all()
-    .order('publishedAt', 'desc');
-  if (author) {
-    blogPosts = blogPosts.and('author', 'refersTo', author);
-  }
-  if (tag) {
-    blogPosts = blogPosts.and('tags', 'equals', tag);
-  }
+const BlogPostPreviewList = Scrivito.connect(
+  ({ maxItems, author, tag, filterBlogPostId }) => {
+    let blogPosts = Scrivito.getClass("BlogPost")
+      .all()
+      .order("publishedAt", "desc");
+    if (author) {
+      blogPosts = blogPosts.and("author", "refersTo", author);
+    }
+    if (tag) {
+      blogPosts = blogPosts.and("tags", "equals", tag);
+    }
+    if (filterBlogPostId) {
+      blogPosts = blogPosts.andNot("id", "equals", filterBlogPostId);
+    }
 
-  let posts;
-  if (maxItems) {
-    posts = blogPosts.take(maxItems);
-  } else {
-    posts = [...blogPosts];
-  }
+    let posts;
+    if (maxItems) {
+      posts = blogPosts.take(maxItems);
+    } else {
+      posts = [...blogPosts];
+    }
 
-  if (!posts.length) {
+    if (!posts.length) {
+      return (
+        <InPlaceEditingPlaceholder center={true}>
+          There are no blog posts. Create one using the page menu.
+        </InPlaceEditingPlaceholder>
+      );
+    }
+
+    const months = groupBy(posts, post => {
+      const publishedAt = post.get("publishedAt");
+      return publishedAt && formatDate(publishedAt, "mmmm yyyy");
+    });
+
     return (
-      <InPlaceEditingPlaceholder center={true}>
-        There are no blog posts. Create one using the page menu.
-      </InPlaceEditingPlaceholder>
+      <React.Fragment>
+        {Object.entries(months).map(([month, monthPosts]) => (
+          <React.Fragment key={`month: ${month}`}>
+            <MonthHeadline date={monthPosts[0].get("publishedAt")} />
+            <PostsTimeline posts={monthPosts} />
+          </React.Fragment>
+        ))}
+      </React.Fragment>
     );
   }
-
-  const months = groupBy(posts, post => {
-    const publishedAt = post.get('publishedAt');
-    return publishedAt && formatDate(publishedAt, 'mmmm yyyy');
-  });
-
-  return (
-    <React.Fragment>
-      {Object.entries(months).map(([month, monthPosts]) => (
-        <React.Fragment key={`month: ${month}`}>
-          <MonthHeadline date={monthPosts[0].get('publishedAt')} />
-          <PostsTimeline posts={monthPosts} />
-        </React.Fragment>
-      ))}
-    </React.Fragment>
-  );
-});
+);
 
 const MonthHeadline = Scrivito.connect(({ date }) => {
   if (!date) {
@@ -58,14 +63,20 @@ const MonthHeadline = Scrivito.connect(({ date }) => {
   return (
     <ul className="timeline">
       <li className="timeline-divider">
-        <time dateTime={formatDate(date, 'yyyy-mm')}>{formatDate(date, 'mmmm yyyy')}</time>
+        <time dateTime={formatDate(date, "yyyy-mm")}>
+          {formatDate(date, "mmmm yyyy")}
+        </time>
       </li>
     </ul>
   );
 });
 
 const PostsTimeline = Scrivito.connect(({ posts }) => (
-  <ul className="timeline">{posts.map(post => <BlogPostPreview key={post.id()} post={post} />)}</ul>
+  <ul className="timeline">
+    {posts.map(post => (
+      <BlogPostPreview key={post.id()} post={post} />
+    ))}
+  </ul>
 ));
 
 const BlogPostPreview = Scrivito.connect(({ post }) => {
@@ -76,14 +87,20 @@ const BlogPostPreview = Scrivito.connect(({ post }) => {
         <div className="timeline-body">
           <BlogPostTitleImage post={post} />
           <h3>
-            <Scrivito.LinkTag to={post}>{post.get('title')}</Scrivito.LinkTag>
+            <Scrivito.LinkTag to={post}>{post.get("title")}</Scrivito.LinkTag>
           </h3>
-          <h4>{post.get('subtitle')}</h4>
-          <p>{truncate(textExtractFromObj(post), { length: 300, separator: /,? +/ })}</p>
+          <h4>{post.get("subtitle")}</h4>
+          <p>
+            {truncate(textExtractFromObj(post), {
+              length: 300,
+              separator: /,? +/,
+            })}
+          </p>
         </div>
         <div className="timeline-footer">
           <Scrivito.LinkTag to={post} className="btn btn-clear">
-            Read more<i className="fa fa-angle-right fa-4" aria-hidden="true" />
+            Read more
+            <i className="fa fa-angle-right fa-4" aria-hidden="true" />
           </Scrivito.LinkTag>
         </div>
       </div>
@@ -92,7 +109,7 @@ const BlogPostPreview = Scrivito.connect(({ post }) => {
 });
 
 const BlogPostTitleImage = Scrivito.connect(({ post }) => {
-  const titleImage = post.get('titleImage');
+  const titleImage = post.get("titleImage");
   if (!isImage(titleImage)) {
     return null;
   }
@@ -102,7 +119,7 @@ const BlogPostTitleImage = Scrivito.connect(({ post }) => {
       <Scrivito.ImageTag
         content={titleImage}
         className="img-responsive"
-        alt={titleImage.get('alternativeText')}
+        alt={titleImage.get("alternativeText")}
       />
     </Scrivito.LinkTag>
   );

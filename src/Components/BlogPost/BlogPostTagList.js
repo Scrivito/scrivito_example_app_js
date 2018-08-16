@@ -1,6 +1,6 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
-import navigateToBlogWithTag from '../../utils/navigateToBlogWithTag';
+import * as React from "react";
+import * as Scrivito from "scrivito";
+import navigateToBlogWithTag from "../../utils/navigateToBlogWithTag";
 
 function BlogPostTagList({ tags }) {
   return (
@@ -11,6 +11,7 @@ function BlogPostTagList({ tags }) {
             {tags.map(tag => (
               <li key={tag}>
                 <a
+                  className="margin-right"
                   href="#"
                   onClick={e => {
                     e.preventDefault();

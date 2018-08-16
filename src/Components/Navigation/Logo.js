@@ -1,14 +1,14 @@
-import * as React from 'react';
-import * as Scrivito from 'scrivito';
+import * as React from "react";
+import * as Scrivito from "scrivito";
 
 function logoObj({ scrolled, navigationStyle }) {
   let logoVersion;
   if (scrolled) {
-    logoVersion = 'logoDark';
-  } else if (navigationStyle === 'transparentDark') {
-    logoVersion = 'logoWhite';
+    logoVersion = "logoDark";
+  } else if (navigationStyle === "transparentDark") {
+    logoVersion = "logoWhite";
   } else {
-    logoVersion = 'logoDark';
+    logoVersion = "logoDark";
   }
 
   const root = Scrivito.Obj.root();

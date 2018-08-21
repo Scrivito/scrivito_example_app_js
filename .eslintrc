@@ -1,10 +1,13 @@
 {
   "plugins": ["import", "prettier", "react"],
   "settings": {
-    "import/resolver": "webpack"
+    "import/resolver": "webpack",
+    "react": {
+      "version": "16"
+    }
   },
   "parserOptions": {
-    "ecmaVersion": 8,
+    "ecmaVersion": 9,
     "sourceType": "module"
   },
   "extends": [

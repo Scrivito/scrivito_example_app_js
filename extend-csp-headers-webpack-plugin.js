@@ -1,9 +1,9 @@
 const fs = require("fs");
 
-function AddHeaderToBuildWebpackPlugin() {
+function ExtendCspHeadersWebpackPlugin() {
   return {
     apply: compiler => {
-      compiler.hooks.emit.tapAsync("AddHeaderToBuildWebpackPlugin", emit);
+      compiler.hooks.emit.tapAsync("ExtendCspHeadersWebpackPlugin", emit);
     },
   };
 }
@@ -31,4 +31,4 @@ function emit(compilation, callback) {
   }
 }
 
-module.exports = AddHeaderToBuildWebpackPlugin;
+module.exports = ExtendCspHeadersWebpackPlugin;

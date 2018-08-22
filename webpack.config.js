@@ -9,7 +9,7 @@ const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const ZipPlugin = require("zip-webpack-plugin");
 const AddSitemapToRedirectsWebpackPlugin = require("./add-sitemap-to-redirects-webpack-plugin");
-const AddHeaderToBuildWebpackPlugin = require("./add-header-to-build-webpack-plugin");
+const ExtendCspHeadersWebpackPlugin = require("./extend-csp-headers-webpack-plugin");
 
 // load ".env"
 dotenv.config();
@@ -43,7 +43,7 @@ module.exports = (env = {}) => {
       },
     ]),
     new AddSitemapToRedirectsWebpackPlugin(),
-    new AddHeaderToBuildWebpackPlugin(),
+    new ExtendCspHeadersWebpackPlugin(),
     new ExtractTextPlugin({
       filename: "[name]",
     }),

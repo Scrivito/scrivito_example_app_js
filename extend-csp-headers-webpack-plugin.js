@@ -12,16 +12,18 @@ function emit(compilation, callback) {
   const headersCspScriptSrc = compilation.assets._headers_csp_script_src
     .source()
     .toString();
+  const CSP_PLACEHOLDER = "Content-Security-Policy-PLACEHOLDER;";
+  const SCRIPT_SRC_PLACEHOLDER = "script-src-PLACEHOLDER;";
 
-  if (!headers.includes("Content-Security-Policy-PLACEHOLDER;")) {
+  if (!headers.includes(CSP_PLACEHOLDER)) {
     throw new Error(
-      "_headers doesn't contain 'Content-Security-Policy-PLACEHOLDER;'. Please add the placeholder."
+      `_headers doesn't contain '${CSP_PLACEHOLDER}'. Please add the placeholder.`
     );
   }
 
-  if (!headersCsp.includes("script-src-PLACEHOLDER;")) {
+  if (!headersCsp.includes(SCRIPT_SRC_PLACEHOLDER)) {
     throw new Error(
-      "_headers_csp doesn't contain 'script-src-PLACEHOLDER;'. Please add the placeholder."
+      `_headers_csp doesn't contain '${SCRIPT_SRC_PLACEHOLDER}'. Please add the placeholder.`
     );
   }
 
@@ -30,17 +32,14 @@ function emit(compilation, callback) {
   const scriptSrc = `${scriptSrcArray.join(" ")};`;
 
   const modifiedCspHeader = headersCsp.replace(
-    "script-src-PLACEHOLDER;",
+    SCRIPT_SRC_PLACEHOLDER,
     scriptSrc
   );
   const cspArray = splitByLine(modifiedCspHeader);
   cspArray.unshift("Content-Security-Policy:");
   const cspLine = cspArray.join(" ");
 
-  const modifiedHeaders = headers.replace(
-    "Content-Security-Policy-PLACEHOLDER;",
-    cspLine
-  );
+  const modifiedHeaders = headers.replace(CSP_PLACEHOLDER, cspLine);
 
   compilation.assets._headers = {
     source: () => modifiedHeaders,

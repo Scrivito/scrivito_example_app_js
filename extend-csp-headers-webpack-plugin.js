@@ -42,13 +42,13 @@ function emit(compilation, callback) {
     cspLine
   );
 
-  compilation.assets["_headers"] = {
+  compilation.assets._headers = {
     source: () => modifiedHeaders,
     size: () => modifiedHeaders.length,
   };
 
-  delete compilation.assets["_headers_csp"];
-  delete compilation.assets["_headers_csp_script_src"];
+  delete compilation.assets._headers_csp;
+  delete compilation.assets._headers_csp_script_src;
 
   callback();
 }

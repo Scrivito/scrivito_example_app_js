@@ -1,5 +1,0 @@
-base-uri 'none';
-default-src 'self' 'unsafe-inline' data: https: wss:;
-script-src-PLACEHOLDER;
-object-src 'none';
-block-all-mixed-content;

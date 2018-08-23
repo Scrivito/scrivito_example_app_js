@@ -7,6 +7,7 @@ import GoogleAnalytics from "./Components/GoogleAnalytics";
 import Intercom from "./Components/Intercom";
 import Navigation from "./Components/Navigation";
 import NotFoundErrorPage from "./Components/NotFoundErrorPage";
+import CookieConsentBox from "./Components/CookieConsent";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <NotFoundErrorPage />
         </div>
         <Footer />
+        <CookieConsentBox />
         <CurrentPageMetaData />
         <GoogleAnalytics />
         <Intercom />

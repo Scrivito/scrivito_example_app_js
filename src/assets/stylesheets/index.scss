@@ -2503,6 +2503,34 @@ _:-ms-fullscreen,
   flex: 0;
 }
 
+/* cookie box
+=================================================================== */
+
+.cookie-box {
+  width: 100vw;
+  background: rgba(61, 65, 66, 0.85);
+  z-index: 1000;
+  padding: 30px 30px 30px 45px;
+}
+
+.cookie-content {
+  color: $theme-greywhite;
+  margin-right: 20px;
+}
+
+.cookie-button {
+  margin: 0;
+}
+
+.cookie-box-title {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.cookie-box-link {
+  font-weight: 700;
+  text-decoration: underline;
+}
 /* loader
 =================================================================== */
 

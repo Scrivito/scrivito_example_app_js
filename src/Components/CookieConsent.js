@@ -16,17 +16,27 @@ function CookieConsentBox() {
     <CookieConsent
       buttonText="Accept"
       disableStyles="true"
-      containerClasses="cookie-box flex-row d-flex"
+      containerClasses="cookie-box flex-row d-lg-flex d-sm-flex"
       contentClasses="cookie-content flex-row d-flex"
       buttonClasses="btn btn-primary cookie-button ml-auto"
     >
-      <img className="cookie-img" src="../../src/assets/images/cookie.svg" />
+      <div className="cookie-img-box">
+        <img
+          className="cookie-img"
+          src="../../src/assets/images/iconmonstr-candy-6.svg"
+        />
+      </div>
       <div>
         <div className="cookie-box-title">Cookies policy</div>
         <div className="cookie-box-content">
           Our website uses cookies to analyse how the site is used and to ensure
           your experience is consistent between visits.
-          <a className="cookie-box-link" href={cookieLink} rel="noopener noreferrer" target="_blank">
+          <a
+            className="cookie-box-link"
+            href={cookieLink}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Learn more »
           </a>
         </div>

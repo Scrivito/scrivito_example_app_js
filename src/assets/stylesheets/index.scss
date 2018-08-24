@@ -2530,7 +2530,7 @@ _:-ms-fullscreen,
 .cookie-box-link {
   font-weight: 700;
   text-decoration: underline;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .cookie-box-content {
@@ -2538,20 +2538,44 @@ _:-ms-fullscreen,
 }
 
 img.cookie-img {
-  margin: 0 2rem 0 0;
+  margin: 0;
+  opacity: 0.8;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.cookie-img-box {
+  margin-right: 1rem;
 }
 
 @media (max-width: $screen-md-max) {
   .cookie-box {
-    padding: 25px 6vw;
+    padding: 25px 3.5vw;
   }
 }
 
 @media (max-width: $screen-sm-max) {
+  img.cookie-img {
+    margin-top: 1.2rem;
+  }
 }
 
 @media (max-width: $screen-xs-max) {
-
+  img.cookie-img {
+    display: none;
+    margin-right: 0;
+  }
+  .cookie-content {
+    margin: 0;
+  }
+  .cookie-button {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
 /* loader
 =================================================================== */

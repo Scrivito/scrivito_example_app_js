@@ -2510,7 +2510,7 @@ _:-ms-fullscreen,
   width: 100vw;
   background: rgba(61, 65, 66, 0.85);
   z-index: 1000;
-  padding: 30px 30px 30px 45px;
+  padding: 25px 16vw 25px 16vw;
 }
 
 .cookie-content {
@@ -2530,6 +2530,28 @@ _:-ms-fullscreen,
 .cookie-box-link {
   font-weight: 700;
   text-decoration: underline;
+  margin-left: 10px;
+}
+
+.cookie-box-content {
+  font-size: 14px;
+}
+
+img.cookie-img {
+  margin: 0 2rem 0 0;
+}
+
+@media (max-width: $screen-md-max) {
+  .cookie-box {
+    padding: 25px 6vw;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+}
+
+@media (max-width: $screen-xs-max) {
+
 }
 /* loader
 =================================================================== */

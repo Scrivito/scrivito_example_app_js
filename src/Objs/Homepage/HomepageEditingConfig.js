@@ -62,7 +62,7 @@ Scrivito.provideEditingConfig("Homepage", {
         "Removes the header navigation and only centers the logo instead. Default: No",
       values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
     },
-    cookiePrivacyPolicyLink: {
+    cookiesPrivacyPolicyLink: {
       title: "Cookie privacy policy link",
       description: "The link to privacy policy content of your website",
     },
@@ -70,7 +70,7 @@ Scrivito.provideEditingConfig("Homepage", {
   properties: [
     ...defaultPageProperties,
     "showAsLandingPage",
-    "cookiePrivacyPolicyLink",
+    "cookiesPrivacyPolicyLink",
   ],
   propertiesGroups: [
     {

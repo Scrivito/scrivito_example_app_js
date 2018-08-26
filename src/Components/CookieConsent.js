@@ -7,7 +7,7 @@ import CookieConsent from "react-cookie-consent";
  */
 function CookieConsentBox() {
   const root = Scrivito.Obj.root();
-  const cookieLink = root.get("cookiePrivacyPolicyLink");
+  const cookieLink = root.get("cookiesPrivacyPolicyLink");
   if (!cookieLink) {
     return null;
   }

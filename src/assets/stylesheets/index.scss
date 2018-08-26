@@ -2565,9 +2565,11 @@ img.cookie-img {
 }
 
 @media (max-width: $screen-xs-max) {
+  .cookie-img-box {
+    margin-right: 0;
+  }
   img.cookie-img {
     display: none;
-    margin-right: 0;
   }
   .cookie-content {
     margin: 0;
@@ -2575,6 +2577,9 @@ img.cookie-img {
   .cookie-button {
     width: 100%;
     margin-top: 20px;
+  }
+  .cookie-box {
+    padding: 20px;
   }
 }
 /* loader

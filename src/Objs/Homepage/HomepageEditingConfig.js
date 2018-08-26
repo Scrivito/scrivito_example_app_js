@@ -64,7 +64,8 @@ Scrivito.provideEditingConfig("Homepage", {
     },
     cookiesPrivacyPolicyLink: {
       title: "Cookie privacy policy link",
-      description: "The link to privacy policy content of your website",
+      description:
+        "The link to privacy policy content of your website. Title is optional, default title: Learn more »",
     },
   },
   properties: [

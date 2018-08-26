@@ -8,13 +8,15 @@ import CookieConsent from "react-cookie-consent";
 function CookieConsentBox() {
   const root = Scrivito.Obj.root();
   const cookieLink = root.get("cookiesPrivacyPolicyLink");
+  const cookiesLinkTitle = cookieLink && cookieLink.title();
+
   if (!cookieLink) {
     return null;
   }
 
   return (
     <CookieConsent
-      buttonText="Accept"
+      buttonText="accept"
       disableStyles="true"
       containerClasses="cookie-box flex-row d-lg-flex d-sm-flex"
       contentClasses="cookie-content flex-row d-flex"
@@ -37,7 +39,7 @@ function CookieConsentBox() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Learn more »
+            {cookiesLinkTitle || "Learn more »"}
           </a>
         </div>
       </div>

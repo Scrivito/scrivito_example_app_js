@@ -3,5 +3,5 @@
 ##
 
 /*
-# Content-Security-Policy-PLACEHOLDER will be replaced by ExtendCspHeadersWebpackPlugin
-Content-Security-Policy-PLACEHOLDER;
+# CSP-DIRECTIVES-PLACEHOLDER will be replaced by ExtendCspHeadersWebpackPlugin
+Content-Security-Policy: CSP-DIRECTIVES-PLACEHOLDER;

@@ -27,12 +27,12 @@ function generateCsp(assets) {
   const headersCsp = assets["_headers_csp.json"].source().toString();
   delete assets["_headers_csp.json"];
   const directives = JSON.parse(headersCsp);
-  return `Content-Security-Policy: ${builder({ directives })}`;
+  return builder({ directives });
 }
 
 function extendHeaders(assets, csp) {
   const headers = assets._headers.source().toString();
-  const CSP_PLACEHOLDER = "Content-Security-Policy-PLACEHOLDER;";
+  const CSP_PLACEHOLDER = "CSP-DIRECTIVES-PLACEHOLDER;";
   if (!headers.includes(CSP_PLACEHOLDER)) {
     throw new Error(
       `_headers doesn't contain '${CSP_PLACEHOLDER}'. Please add the placeholder.`

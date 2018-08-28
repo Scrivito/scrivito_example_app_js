@@ -1,3 +1,7 @@
+##
+# Netlify headers. See https://www.netlify.com/docs/headers-and-basic-auth/ for details.
+##
+
 /*
 # Content-Security-Policy-PLACEHOLDER will be replaced by ExtendCspHeadersWebpackPlugin
 Content-Security-Policy-PLACEHOLDER;

@@ -62,17 +62,13 @@ Scrivito.provideEditingConfig("Homepage", {
         "Removes the header navigation and only centers the logo instead. Default: No",
       values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
     },
-    cookiesPrivacyPolicyLink: {
+    cookieConsentLink: {
       title: "Cookie privacy policy link",
       description:
-        "The link to privacy policy content of your website. Title is optional, default title: Learn more »",
+        "If you set this link, a Cookie Consent box will be shown on every page. The link should point to your privacy policy. If no link title is given, the following is used: Learn more »",
     },
   },
-  properties: [
-    ...defaultPageProperties,
-    "showAsLandingPage",
-    "cookiesPrivacyPolicyLink",
-  ],
+  properties: [...defaultPageProperties, "showAsLandingPage"],
   propertiesGroups: [
     {
       title: "Site settings",
@@ -80,6 +76,7 @@ Scrivito.provideEditingConfig("Homepage", {
         "logoDark",
         "logoWhite",
         "dividerLogo",
+        "cookieConsentLink",
         "facebookAppId",
         "twitterSite",
         "googleMapsApiKey",

@@ -2509,7 +2509,7 @@ _:-ms-fullscreen,
 .cookie-box {
   width: 100vw;
   background: rgba(61, 65, 66, 0.85);
-  z-index: 1000;
+  z-index: 1000000;
   padding: 25px 17vw 25px 17vw;
 }
 
@@ -2561,7 +2561,7 @@ img.cookie-img {
 
 @media (max-width: $screen-xs-max) {
   .cookie-img-box {
-    margin-right: 0;
+    display: none;
   }
   img.cookie-img {
     display: none;

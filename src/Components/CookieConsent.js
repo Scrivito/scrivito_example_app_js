@@ -5,14 +5,14 @@ import cookieConsentIcon from "../assets/images/cookie_consent_icon.svg";
 
 function CookieConsent() {
   const root = Scrivito.Obj.root();
-  const cookieLink = root.get("cookieConsentLink");
 
-  if (!root || !cookieLink) {
+  if (!root) {
     return null;
   }
 
-  const cookieLinkUrl = Scrivito.urlFor(cookieLink);
-  const cookieLinkTitle = cookieLink.title() || "Learn more »";
+  const cookieConsentLink = root.get("cookieConsentLink");
+  const cookieConsentLinkUrl = Scrivito.urlFor(cookieConsentLink);
+  const cookieLinkTitle = cookieConsentLink.title() || "Learn more »";
 
   return (
     <ReactCookieConsent
@@ -32,7 +32,7 @@ function CookieConsent() {
           your experience is consistent between visits.
           <a
             className="cookie-box-link"
-            href={cookieLinkUrl}
+            href={cookieConsentLinkUrl}
             rel="noopener noreferrer"
             target="_blank"
           >

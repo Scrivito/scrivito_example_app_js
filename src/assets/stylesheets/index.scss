@@ -2510,7 +2510,7 @@ _:-ms-fullscreen,
   width: 100vw;
   background: rgba(61, 65, 66, 0.85);
   z-index: 1000;
-  padding: 25px 16vw 25px 16vw;
+  padding: 25px 17vw 25px 17vw;
 }
 
 .cookie-content {
@@ -2520,6 +2520,7 @@ _:-ms-fullscreen,
 
 .cookie-button {
   margin: 0;
+  height: 50px;
 }
 
 .cookie-box-title {
@@ -2540,12 +2541,6 @@ _:-ms-fullscreen,
 img.cookie-img {
   margin: 0;
   opacity: 0.8;
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
-  -ms-filter: "FlipH";
 }
 
 .cookie-img-box {
@@ -2559,8 +2554,8 @@ img.cookie-img {
 }
 
 @media (max-width: $screen-sm-max) {
-  img.cookie-img {
-    margin-top: 1.2rem;
+  .cookie-img-box {
+    width: 77px;
   }
 }
 

@@ -11,6 +11,11 @@ function CookieConsent() {
   }
 
   const cookieConsentLink = root.get("cookieConsentLink");
+
+  if (!cookieConsentLink) {
+    return null;
+  }
+
   const cookieConsentLinkUrl = Scrivito.urlFor(cookieConsentLink);
   const cookieLinkTitle = cookieConsentLink.title() || "Learn more »";
 

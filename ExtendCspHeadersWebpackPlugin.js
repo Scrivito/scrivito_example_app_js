@@ -1,9 +1,9 @@
 const builder = require("content-security-policy-builder");
 
 // This plugin:
-// * generate a Content-Security-Policy using [1] based on the file "_headers_csp.json"
+// * generate a Content-Security-Policy using [1] based on the file "_headersCsp.json"
 // * extend the file "_headers" with the generated Content-Security-Policy
-// * removes the now obsolete "_headers_csp.json" from the build folder.
+// * removes the now obsolete "_headersCsp.json" from the build folder.
 //
 // See [1] for all available options regarding CSP generation.
 //
@@ -24,8 +24,8 @@ function emit(compilation, callback) {
 }
 
 function generateCsp(assets) {
-  const headersCsp = assets["_headers_csp.json"].source().toString();
-  delete assets["_headers_csp.json"];
+  const headersCsp = assets["_headersCsp.json"].source().toString();
+  delete assets["_headersCsp.json"];
   const directives = JSON.parse(headersCsp);
   return builder({ directives });
 }

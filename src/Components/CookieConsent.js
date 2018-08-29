@@ -1,32 +1,28 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import CookieConsent from "react-cookie-consent";
+import ReactCookieConsent from "react-cookie-consent";
+import cookieConsentIcon from "../assets/images/cookie.svg";
 
-/**
- * @return {null}
- */
-function CookieConsentBox() {
+function CookieConsent() {
   const root = Scrivito.Obj.root();
-  const cookieLink = root.get("cookiesPrivacyPolicyLink");
-  const cookiesLinkTitle = cookieLink && cookieLink.title();
+  const cookieLink = root.get("cookieConsentLink");
 
-  if (!cookieLink) {
+  if (!root || !cookieLink) {
     return null;
   }
 
+  const cookiesLinkTitle = cookieLink.title() || "Learn more »";
+
   return (
-    <CookieConsent
+    <ReactCookieConsent
       buttonText="accept"
-      disableStyles="true"
-      containerClasses="cookie-box flex-row d-lg-flex d-sm-flex"
-      contentClasses="cookie-content flex-row d-flex"
+      disableStyles={true}
+      containerClasses="cookie-box flex-row d-lg-flex d-sm-flex align-items-center"
+      contentClasses="cookie-content flex-row d-flex align-items-center"
       buttonClasses="btn btn-primary cookie-button ml-auto"
     >
       <div className="cookie-img-box">
-        <img
-          className="cookie-img"
-          src="../../src/assets/images/iconmonstr-candy-6.svg"
-        />
+        <img className="cookie-img" src={cookieConsentIcon} />
       </div>
       <div>
         <div className="cookie-box-title">Cookies policy</div>
@@ -39,12 +35,12 @@ function CookieConsentBox() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            {cookiesLinkTitle || "Learn more »"}
+            {cookiesLinkTitle}
           </a>
         </div>
       </div>
-    </CookieConsent>
+    </ReactCookieConsent>
   );
 }
 
-export default Scrivito.connect(CookieConsentBox);
+export default Scrivito.connect(CookieConsent);

@@ -15,7 +15,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "autotrack": "^2.4.1",
-    "babel-loader": "^8.0.0-beta.6",
+    "babel-loader": "^8.0.0",
     "clean-webpack-plugin": "^0.1.19",
     "content-security-policy-builder": "^2.0.0",
     "copy-webpack-plugin": "^4.5.2",

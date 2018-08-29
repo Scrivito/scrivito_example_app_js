@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import ReactCookieConsent from "react-cookie-consent";
-import cookieConsentIcon from "../assets/images/cookie.svg";
+import cookieConsentIcon from "../assets/images/cookie_consent_icon.svg";
 
 function CookieConsent() {
   const root = Scrivito.Obj.root();
@@ -11,7 +11,8 @@ function CookieConsent() {
     return null;
   }
 
-  const cookiesLinkTitle = cookieLink.title() || "Learn more »";
+  const cookieLinkUrl = Scrivito.urlFor(cookieLink);
+  const cookieLinkTitle = cookieLink.title() || "Learn more »";
 
   return (
     <ReactCookieConsent
@@ -19,7 +20,7 @@ function CookieConsent() {
       disableStyles={true}
       containerClasses="cookie-box flex-row d-lg-flex d-sm-flex align-items-center"
       contentClasses="cookie-content flex-row d-flex align-items-center"
-      buttonClasses="btn btn-primary cookie-button ml-auto"
+      buttonClasses="cookie-button btn btn-primary ml-auto"
     >
       <div className="cookie-img-box">
         <img className="cookie-img" src={cookieConsentIcon} />
@@ -31,11 +32,11 @@ function CookieConsent() {
           your experience is consistent between visits.
           <a
             className="cookie-box-link"
-            href={cookieLink}
+            href={cookieLinkUrl}
             rel="noopener noreferrer"
             target="_blank"
           >
-            {cookiesLinkTitle}
+            {cookieLinkTitle}
           </a>
         </div>
       </div>

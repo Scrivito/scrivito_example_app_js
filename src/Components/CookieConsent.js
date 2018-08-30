@@ -33,7 +33,7 @@ function CookieConsent() {
       <div>
         <div className="cookie-box-title">Cookies policy</div>
         <div className="cookie-box-content">
-          Our website uses cookies to analyse how the site is used and to ensure
+          Our website uses cookies to analyze how the site is used and to ensure
           your experience is consistent between visits.
           <a
             className="cookie-box-link"

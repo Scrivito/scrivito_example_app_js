@@ -7,3 +7,8 @@
 
 /*
   Content-Security-Policy: CSP-DIRECTIVES-PLACEHOLDER;
+  X-frame-options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin;
+  Feature-Policy: payment 'self'; geolocation 'self'

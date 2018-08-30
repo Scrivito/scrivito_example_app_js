@@ -10,5 +10,5 @@
   X-frame-options: sameorigin
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin;
-  Feature-Policy: payment 'self'; geolocation 'self'
+  Referrer-Policy: strict-origin-when-cross-origin
+  Feature-Policy:

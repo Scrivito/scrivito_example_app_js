@@ -10,12 +10,12 @@ function Footer() {
   }
 
   return (
-    <>
+    <React.Fragment>
       <InPlaceEditingPlaceholder block center>
-        Below the footer starts, it will be look the same on each page
+        The footer starts below, it will look the same on each page.
       </InPlaceEditingPlaceholder>
       <Scrivito.ContentTag content={root} attribute="footer" tag="footer" />
-    </>
+    </React.Fragment>
   );
 }
 

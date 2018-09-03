@@ -2,8 +2,12 @@
 # Netlify headers. See https://www.netlify.com/docs/headers-and-basic-auth/ for details.
 #
 # CSP-DIRECTIVES-PLACEHOLDER will be replaced by ExtendCspHeadersWebpackPlugin,
-# which uses _headers_csp.json as input.
+# which uses _headersCsp.json as input.
 ##
 
 /*
   Content-Security-Policy: CSP-DIRECTIVES-PLACEHOLDER;
+  X-frame-options: sameorigin
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

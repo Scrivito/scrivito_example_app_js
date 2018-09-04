@@ -70,7 +70,7 @@ const SearchBox = Scrivito.connect(
 function oldestSearchResultsPage() {
   return Scrivito.Obj.where("_objClass", "equals", "SearchResults")
     .order("_createdAt")
-    .first()[0];
+    .first();
 }
 
 function SearchIcon({ toggleSearch }) {

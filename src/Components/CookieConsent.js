@@ -23,8 +23,8 @@ function CookieConsent() {
     <ReactCookieConsent
       buttonText="accept"
       disableStyles={true}
-      containerClasses="cookie-box flex-row d-lg-flex d-sm-flex align-items-center"
-      contentClasses="cookie-content flex-row d-flex align-items-center"
+      containerClasses="cookie-box d-lg-flex d-sm-flex align-items-center"
+      contentClasses="cookie-content d-flex align-items-center"
       buttonClasses="cookie-button btn btn-primary ml-auto"
     >
       <div className="cookie-img-box">

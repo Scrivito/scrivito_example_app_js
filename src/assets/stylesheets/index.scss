@@ -2507,10 +2507,10 @@ _:-ms-fullscreen,
 =================================================================== */
 
 .cookie-box {
-  width: 100vw;
+  width: 100%;
   background: rgba(61, 65, 66, 0.85);
   z-index: 1000000;
-  padding: 25px 17vw 25px 17vw;
+  padding: 25px 17% 25px 17%;
 }
 
 .cookie-content {

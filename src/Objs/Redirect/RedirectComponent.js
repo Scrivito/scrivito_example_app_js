@@ -21,7 +21,7 @@ class RedirectComponent extends React.Component {
         const scrivitoUiUrl = url.replace(/(\/\/[^/]+)/, "$1/scrivito");
         window.top.location.replace(scrivitoUiUrl);
       } else {
-        window.location.replace(url);
+        Scrivito.navigateTo(link);
       }
     });
   }

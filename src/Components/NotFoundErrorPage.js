@@ -4,10 +4,12 @@ import Helmet from "react-helmet";
 
 class NotFoundErrorPage extends React.Component {
   componentDidMount() {
-    const path = window.location.pathname;
+    if (window === window.parent) {
+      const path = window.location.pathname;
 
-    if (path !== "/404") {
-      window.location.replace(`/404?path=${encodeURIComponent(path)}`);
+      if (path !== "/404") {
+        window.location.replace(`/404?path=${encodeURIComponent(path)}`);
+      }
     }
   }
 

@@ -8,7 +8,7 @@ Scrivito.provideComponent("GalleryWidget", ({ widget }) => {
 
   if (!images.length) {
     return (
-      <InPlaceEditingPlaceholder center={true}>
+      <InPlaceEditingPlaceholder center>
         Select images in the widget properties.
       </InPlaceEditingPlaceholder>
     );

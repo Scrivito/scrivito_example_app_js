@@ -31,7 +31,7 @@ const BlogPostPreviewList = Scrivito.connect(
 
     if (!posts.length) {
       return (
-        <InPlaceEditingPlaceholder center={true}>
+        <InPlaceEditingPlaceholder center>
           There are no blog posts. Create one using the page menu.
         </InPlaceEditingPlaceholder>
       );

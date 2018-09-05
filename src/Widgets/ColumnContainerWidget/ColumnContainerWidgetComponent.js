@@ -7,7 +7,7 @@ Scrivito.provideComponent("ColumnContainerWidget", ({ widget }) => {
 
   if (!columns.length) {
     return (
-      <InPlaceEditingPlaceholder center={true}>
+      <InPlaceEditingPlaceholder center>
         Define columns in the widget properties.
       </InPlaceEditingPlaceholder>
     );

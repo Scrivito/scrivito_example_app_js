@@ -15,7 +15,7 @@ Scrivito.provideComponent("JobOverviewWidget", ({ widget }) => {
 
   if (!jobs.length) {
     return (
-      <InPlaceEditingPlaceholder center={true}>
+      <InPlaceEditingPlaceholder center>
         There are no job pages. Create one using the page menu.
       </InPlaceEditingPlaceholder>
     );

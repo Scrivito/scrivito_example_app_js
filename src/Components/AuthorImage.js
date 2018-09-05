@@ -6,7 +6,7 @@ import isImage from "../utils/isImage";
 function AuthorImage({ image }) {
   if (!isImage(image)) {
     return (
-      <InPlaceEditingPlaceholder center={true}>
+      <InPlaceEditingPlaceholder center>
         Click here to select an author image.
       </InPlaceEditingPlaceholder>
     );

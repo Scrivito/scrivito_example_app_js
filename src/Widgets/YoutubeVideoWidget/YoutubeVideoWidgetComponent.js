@@ -8,7 +8,7 @@ Scrivito.provideComponent("YoutubeVideoWidget", ({ widget }) => {
 
   if (!youtubeVideoId) {
     return (
-      <InPlaceEditingPlaceholder center={true}>
+      <InPlaceEditingPlaceholder center>
         Provide a YouTube video ID in the widget properties.
       </InPlaceEditingPlaceholder>
     );

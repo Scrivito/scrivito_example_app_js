@@ -12,15 +12,21 @@ const builder = require("content-security-policy-builder");
 function ExtendCspHeadersWebpackPlugin() {
   return {
     apply: compiler => {
-      compiler.hooks.emit.tapAsync("ExtendCspHeadersWebpackPlugin", emit);
+      compiler.hooks.emit.tapPromise("ExtendCspHeadersWebpackPlugin", emit);
     },
   };
 }
 
-function emit(compilation, callback) {
-  const csp = generateCsp(compilation.assets);
-  extendHeaders(compilation.assets, csp);
-  callback();
+function emit(compilation) {
+  return new Promise(resolve => {
+    const assets = compilation.assets;
+    if (!assets["_headers"] || !assets["_headersCsp.json"]) {
+      return resolve();
+    }
+    const csp = generateCsp(assets);
+    extendHeaders(assets, csp);
+    return resolve();
+  });
 }
 
 function generateCsp(assets) {
@@ -31,7 +37,7 @@ function generateCsp(assets) {
 }
 
 function extendHeaders(assets, csp) {
-  const headers = assets._headers.source().toString();
+  const headers = assets["_headers"].source().toString();
   const CSP_PLACEHOLDER = "CSP-DIRECTIVES-PLACEHOLDER;";
   if (!headers.includes(CSP_PLACEHOLDER)) {
     throw new Error(
@@ -41,7 +47,7 @@ function extendHeaders(assets, csp) {
 
   const modifiedHeaders = headers.replace(CSP_PLACEHOLDER, csp);
 
-  assets._headers = {
+  assets["_headers"] = {
     source: () => modifiedHeaders,
     size: () => modifiedHeaders.length,
   };

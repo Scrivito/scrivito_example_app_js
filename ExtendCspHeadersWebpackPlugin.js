@@ -12,15 +12,17 @@ const builder = require("content-security-policy-builder");
 function ExtendCspHeadersWebpackPlugin() {
   return {
     apply: compiler => {
-      compiler.hooks.emit.tapAsync("ExtendCspHeadersWebpackPlugin", emit);
+      compiler.hooks.emit.tapPromise("ExtendCspHeadersWebpackPlugin", emit);
     },
   };
 }
 
-function emit(compilation, callback) {
-  const csp = generateCsp(compilation.assets);
-  extendHeaders(compilation.assets, csp);
-  callback();
+function emit(compilation) {
+  return new Promise(resolve => {
+    const csp = generateCsp(compilation.assets);
+    extendHeaders(compilation.assets, csp);
+    resolve();
+  });
 }
 
 function generateCsp(assets) {

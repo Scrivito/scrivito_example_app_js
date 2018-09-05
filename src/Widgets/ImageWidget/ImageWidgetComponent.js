@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import "../../../node_modules/aos/dist/aos.css";
 import AOS from "aos";
 
 class ImageWidget extends React.Component {
@@ -9,7 +8,7 @@ class ImageWidget extends React.Component {
     AOS.init();
   }
 
-  componentWillReceiveProps() {
+  getDerivedStateFromProps() {
     AOS.refresh();
   }
 
@@ -31,15 +30,7 @@ class ImageWidget extends React.Component {
       return <div className={`text-${widget.get("alignment")}`}>{image}</div>;
     }
 
-    return (
-      <div
-        data-aos="fade-up"
-        data-aos-duration="2000"
-        data-aos-easing="ease-in-quad"
-      >
-        {image}
-      </div>
-    );
+    return <div data-aos={`${widget.get("animation")}`} data-aos-duration="1200">{image}</div>;
   }
 }
 

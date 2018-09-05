@@ -44,6 +44,7 @@
     "progress-bar-webpack-plugin": "^1.11.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
+    "react-cookie-consent": "^1.7.0",
     "react-dom": "^16.4.2",
     "react-draggable": "^3.0.5",
     "react-helmet": "^5.1.3",

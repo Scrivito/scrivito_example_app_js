@@ -12,7 +12,8 @@ function Footer() {
   return (
     <React.Fragment>
       <InPlaceEditingPlaceholder block center>
-        The footer starts below, it will look the same on each page.
+        The footer starts here. There’s only one footer. It belongs to the
+        homepage but is displayed on all other pages as well.
       </InPlaceEditingPlaceholder>
       <Scrivito.ContentTag content={root} attribute="footer" tag="footer" />
     </React.Fragment>

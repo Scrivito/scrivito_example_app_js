@@ -107,7 +107,10 @@ class Navigation extends React.Component {
               image:
                 "linear-gradient(to bottom, rgba(61,65,66,0) 0%, rgba(61,65,66,1) 90%)",
             },
-            { image: backgroundImage },
+            {
+              image: backgroundImage,
+              position: "bottom",
+            },
           ];
         } else {
           topSectionStyle.background = [

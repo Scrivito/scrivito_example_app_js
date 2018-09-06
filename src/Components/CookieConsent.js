@@ -22,7 +22,7 @@ function CookieConsent() {
   return (
     <ReactCookieConsent
       buttonText="accept"
-      disableStyles={true}
+      disableStyles
       containerClasses="cookie-box d-lg-flex d-sm-flex align-items-center"
       contentClasses="cookie-content d-flex align-items-center"
       buttonClasses="cookie-button btn btn-primary ml-auto"

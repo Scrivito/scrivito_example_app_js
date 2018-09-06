@@ -9,14 +9,7 @@ const ImageWidget = Scrivito.provideWidgetClass("ImageWidget", {
     animation: [
       "enum",
       {
-        values: [
-          "",
-          "fade-right",
-          "fade-left",
-          "fade-down",
-          "fade-up",
-          "zoom-in",
-        ],
+        values: ["fade-right", "fade-left", "fade-down", "fade-up", "zoom-in"],
       },
     ],
   },

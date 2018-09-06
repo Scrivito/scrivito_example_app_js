@@ -26,7 +26,8 @@ Scrivito.provideEditingConfig("ImageWidget", {
     },
     animation: {
       title: "Animation (optional)",
-      description: "Animation effect that will be added to the photo",
+      description:
+        "What animation should be shown, when this image becomes visible?",
       values: [
         { value: "", title: "None" },
         { value: "fade-right", title: "Left to center" },
@@ -37,9 +38,8 @@ Scrivito.provideEditingConfig("ImageWidget", {
       ],
     },
   },
-  properties: ["alignment", "alternativeText", "link", "animation"],
+  properties: ["animation", "alignment", "alternativeText", "link"],
   initialContent: {
     alignment: "left",
-    animation: "",
   },
 });

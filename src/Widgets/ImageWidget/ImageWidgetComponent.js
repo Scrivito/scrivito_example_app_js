@@ -3,13 +3,12 @@ import * as Scrivito from "scrivito";
 import AOS from "aos";
 
 class ImageWidget extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  componentDidMount() {
     AOS.init();
   }
 
-  getDerivedStateFromProps() {
-    this.AOS.refresh();
+  componentDidUpdate() {
+    AOS.refresh();
   }
 
   render() {

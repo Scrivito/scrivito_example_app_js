@@ -25,12 +25,21 @@ class ImageWidget extends React.Component {
       image = <Scrivito.LinkTag to={link}>{image}</Scrivito.LinkTag>;
     }
 
+    const classNames = [];
     if (["center", "right"].includes(widget.get("alignment"))) {
-      return <div className={`text-${widget.get("alignment")}`}>{image}</div>;
+      classNames.push(`text-${widget.get("alignment")}`);
+    }
+
+    let additionalProps = {};
+    if (widget.get("animation")) {
+      additionalProps = {
+        "data-aos": widget.get("animation"),
+        "data-aos-duration": "500",
+      };
     }
 
     return (
-      <div data-aos={`${widget.get("animation")}`} data-aos-duration="500">
+      <div className={classNames.join(" ")} {...additionalProps}>
         {image}
       </div>
     );

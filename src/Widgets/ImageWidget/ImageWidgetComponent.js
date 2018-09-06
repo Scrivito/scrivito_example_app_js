@@ -9,7 +9,7 @@ class ImageWidget extends React.Component {
   }
 
   getDerivedStateFromProps() {
-    AOS.refresh();
+    this.AOS.refresh();
   }
 
   render() {

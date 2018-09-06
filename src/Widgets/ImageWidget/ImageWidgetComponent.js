@@ -30,7 +30,11 @@ class ImageWidget extends React.Component {
       return <div className={`text-${widget.get("alignment")}`}>{image}</div>;
     }
 
-    return <div data-aos={`${widget.get("animation")}`} data-aos-duration="1200">{image}</div>;
+    return (
+      <div data-aos={`${widget.get("animation")}`} data-aos-duration="500">
+        {image}
+      </div>
+    );
   }
 }
 

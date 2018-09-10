@@ -1,26 +1,33 @@
 function AddSitemapToRedirectsWebpackPlugin() {
   return {
-    apply: (compiler) => {
-      compiler.hooks.emit.tapAsync('AddSitemapToRedirectsWebpackPlugin', emit);
+    apply: compiler => {
+      compiler.hooks.emit.tapPromise(
+        "AddSitemapToRedirectsWebpackPlugin",
+        emit
+      );
     },
   };
 }
 
-function emit(compilation, callback) {
-  const tenant = process.env.SCRIVITO_TENANT;
-  const url = process.env.URL;
+function emit(compilation) {
+  return new Promise(resolve => {
+    const tenant = process.env.SCRIVITO_TENANT;
+    const url = process.env.URL;
 
-  if (url && tenant) {
-    const previousRedirects = compilation.assets['_redirects'].source().toString();
-    const redirects = addSitemapToRedirects(tenant, url, previousRedirects);
+    if (url && tenant) {
+      const previousRedirects = compilation.assets["_redirects"]
+        .source()
+        .toString();
+      const redirects = addSitemapToRedirects(tenant, url, previousRedirects);
 
-    compilation.assets['_redirects'] = {
-      source: () => redirects,
-      size: () => redirects.length,
-    };
-  }
+      compilation.assets["_redirects"] = {
+        source: () => redirects,
+        size: () => redirects.length,
+      };
+    }
 
-  callback();
+    resolve();
+  });
 }
 
 function addSitemapToRedirects(tenant, url, previousRedirects) {

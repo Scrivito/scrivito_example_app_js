@@ -8,7 +8,7 @@ Scrivito.provideComponent("VimeoVideoWidget", ({ widget }) => {
 
   if (!vimeoVideoId) {
     return (
-      <InPlaceEditingPlaceholder center={true}>
+      <InPlaceEditingPlaceholder center>
         Provide a Vimeo video ID in the widget properties.
       </InPlaceEditingPlaceholder>
     );

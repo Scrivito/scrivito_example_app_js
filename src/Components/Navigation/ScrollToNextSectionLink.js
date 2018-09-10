@@ -9,7 +9,7 @@ function ScrollToNextSectionLink({ heightClassName }) {
   return (
     <ScrollLink
       to="nextSection"
-      smooth={true}
+      smooth
       duration={500}
       className="btn-round btn-white-transparent hidden-xs"
     >

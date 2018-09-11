@@ -6,7 +6,7 @@ import FullNavigation from "./Navigation/FullNavigation";
 import LandingPageNavigation from "./Navigation/LandingPageNavigation";
 import NavigationSection from "./Navigation/NavigationSection";
 import ScrollToNextSectionLink from "./Navigation/ScrollToNextSectionLink";
-import isImage from "../utils/isImage";
+import isVideo from "../utils/isVideo";
 import urlFromBinary from "../utils/urlFromBinary";
 
 function ActualNavigation({
@@ -129,13 +129,12 @@ class Navigation extends React.Component {
     if (heightClassName) {
       topSectionClassNames.push(heightClassName);
     }
-
-    if (!isImage(backgroundImage)) {
-      console.log(backgroundImage);
+    console.log(backgroundImage);
+    if (isVideo(backgroundImage)) {
       const contentUrl = urlFromBinary(backgroundImage);
       return (
         <React.Fragment>
-          <video src={contentUrl} autoPlay muted loop/>
+          <video src={contentUrl} autoPlay muted loop />
           <ActualNavigation
             isLandingPage={isLandingPage}
             bootstrapNavbarClassNames={bootstrapNavbarClassNames}

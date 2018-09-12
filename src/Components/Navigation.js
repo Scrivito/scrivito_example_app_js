@@ -96,8 +96,10 @@ class Navigation extends React.Component {
     }
 
     const topSectionStyle = {};
+    let style = {};
+
     if (navigationStyle === "transparentDark") {
-      if (backgroundImage) {
+      if (!isVideo(backgroundImage)) {
         if (useGradient) {
           topSectionStyle.background = [
             {
@@ -124,15 +126,28 @@ class Navigation extends React.Component {
           ];
         }
       }
+
+      if (isVideo(backgroundImage)) {
+        if (useGradient) {
+          style = {
+            background:
+              "radial-gradient(ellipse at center, rgba(61,65,66,.5) 0%, rgba(61,65,66,1) 90%), " +
+              "linear-gradient(to bottom, rgba(61,65,66,0) 0%, rgba(61,65,66,1) 90%)",
+          };
+        } else {
+          style = {
+            background:
+              "linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))",
+          };
+        }
+      }
     }
 
     if (heightClassName) {
       topSectionClassNames.push(heightClassName);
     }
 
-    const videoTopSectionClassNames = ["video-full-screen"];
-
-    const videoBoxClasses = [heightClassName, "video-bg", "navbar-fixed"];
+    const videoBoxClasses = [heightClassName, "navbar-fixed"];
 
     if (navigationStyle === "transparentDark") {
       videoBoxClasses.push("bg-dark-image");
@@ -146,11 +161,12 @@ class Navigation extends React.Component {
 
     if (isVideo(backgroundImage)) {
       const contentUrl = urlFromBinary(backgroundImage);
+      console.log(style);
       return (
         <React.Fragment>
-          <div className={videoBoxClasses.join(" ")}>
+          <div className={videoBoxClasses.join(" ")} style={style}>
             <video
-              className={videoTopSectionClassNames.join(" ")}
+              className="video-full-screen"
               src={contentUrl}
               autoPlay
               muted

@@ -129,22 +129,44 @@ class Navigation extends React.Component {
     if (heightClassName) {
       topSectionClassNames.push(heightClassName);
     }
-    console.log(backgroundImage);
+
+    const videoTopSectionClassNames = ["video-full-screen"];
+
+    const videoBoxClasses = [heightClassName, "video-bg", "navbar-fixed"];
+
+    if (navigationStyle === "transparentDark") {
+      videoBoxClasses.push("bg-dark-image");
+    } else {
+      videoBoxClasses.push("bg-white", "nav-only");
+    }
+
+    if (this.state.scrolled) {
+      videoBoxClasses.push("scrolled");
+    }
+
     if (isVideo(backgroundImage)) {
       const contentUrl = urlFromBinary(backgroundImage);
       return (
         <React.Fragment>
-          <video src={contentUrl} autoPlay muted loop />
-          <ActualNavigation
-            isLandingPage={isLandingPage}
-            bootstrapNavbarClassNames={bootstrapNavbarClassNames}
-            toggleSearch={this.toggleSearch}
-            showSearch={this.state.showSearch}
-            scrolled={this.state.scrolled}
-            navigationStyle={navigationStyle}
-          />
-          <NavigationSection heightClassName={heightClassName} />
-          <ScrollToNextSectionLink heightClassName={heightClassName} />
+          <div className={videoBoxClasses.join(" ")}>
+            <video
+              className={videoTopSectionClassNames.join(" ")}
+              src={contentUrl}
+              autoPlay
+              muted
+              loop
+            />
+            <ActualNavigation
+              isLandingPage={isLandingPage}
+              bootstrapNavbarClassNames={bootstrapNavbarClassNames}
+              toggleSearch={this.toggleSearch}
+              showSearch={this.state.showSearch}
+              scrolled={this.state.scrolled}
+              navigationStyle={navigationStyle}
+            />
+            <NavigationSection heightClassName={heightClassName} />
+            <ScrollToNextSectionLink heightClassName={heightClassName} />
+          </div>
         </React.Fragment>
       );
     }

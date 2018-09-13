@@ -1,14 +1,13 @@
-"use strict";
-
 const Generator = require("yeoman-generator");
 
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
-    this.log("Hello in scrivito Obj/Widgets generator!");
+    this.log("Welcome in scrivito Obj/Widgets generator!");
     this.option("obj", { type: String });
     this.option("widget", { type: String });
   }
+
   start() {
     if (this.options.obj) {
       this._creatingObj();
@@ -19,7 +18,7 @@ module.exports = class extends Generator {
         type: "list",
         name: "type",
         message: "Choose which one template you want to create: ",
-        choices: ["Generate a new Obj", "Generate a new Widget"]
+        choices: ["Generate a new Obj", "Generate a new Widget"],
       }).then(answers => {
         if (answers.type === "Generate a new Widget") {
           this._creatingWidget();
@@ -46,7 +45,7 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "nameObj",
-        message: "Enter a name of the Obj: "
+        message: "Enter a name of the Obj: ",
       },
       {
         type: "list",
@@ -54,9 +53,9 @@ module.exports = class extends Generator {
         message: "Choose which one template you want to create: ",
         choices: [
           "Generate an Obj with a react component (default)",
-          "Generate an Obj without a react component (e.g. like a download)"
-        ]
-      }
+          "Generate an Obj without a react component (e.g. like a download)",
+        ],
+      },
     ]).then(answers => {
       const defaultName = this._creatingName(answers.nameObj);
       const defNameUpper = this._creatingUpperName(defaultName);
@@ -79,12 +78,12 @@ module.exports = class extends Generator {
     this.prompt({
       type: "input",
       name: "nameWidget",
-      message: "Enter a name of the Widget: "
+      message: "Enter a name of the Widget: ",
     }).then(answers => {
       const defaultName = this._creatingName(answers.nameWidget);
       const defNameUpper = this._creatingUpperName(defaultName);
       this.destinationRoot(defNameUpper);
-      const defNameUpperWidget = defNameUpper + "Widget";
+      const defNameUpperWidget = `${defNameUpper}Widget`;
       this._writeWidgetComponent(defaultName, defNameUpper, defNameUpperWidget);
       this._writeWidgetConfig(defaultName, defNameUpper, defNameUpperWidget);
       this._writeWidgetClass(defaultName, defNameUpper, defNameUpperWidget);
@@ -95,40 +94,40 @@ module.exports = class extends Generator {
 
   _writeObjComponent(defaultName, defNameUpper) {
     this.fs.copyTpl(
-      this.templatePath("XObjcomponent.js"),
-      this.destinationPath(defNameUpper + "Component" + ".js"),
+      this.templatePath("obj/XObjcomponent.js"),
+      this.destinationPath(`${defNameUpper}Component` + `.js`),
       { name: defaultName, nameUpper: defNameUpper }
     );
   }
 
   _writeXObjConfig(defaultName, defNameUpper) {
     this.fs.copyTpl(
-      this.templatePath("XEditingConfig.js"),
-      this.destinationPath(defNameUpper + "EditingConfig" + ".js"),
+      this.templatePath("obj/XEditingConfig.js"),
+      this.destinationPath(`${defNameUpper}EditingConfig` + `.js`),
       { name: defaultName, nameUpper: defNameUpper }
     );
   }
 
   _writeYObjConfig(defaultName, defNameUpper) {
     this.fs.copyTpl(
-      this.templatePath("YEditingConfig.js"),
-      this.destinationPath(defNameUpper + "EditingConfig" + ".js"),
+      this.templatePath("obj/YEditingConfig.js"),
+      this.destinationPath(`${defNameUpper}EditingConfig` + `.js`),
       { name: defaultName, nameUpper: defNameUpper }
     );
   }
 
   _writeXObjClass(defaultName, defNameUpper) {
     this.fs.copyTpl(
-      this.templatePath("XObjClass.js"),
-      this.destinationPath(defNameUpper + "ObjClass" + ".js"),
+      this.templatePath("obj/XObjClass.js"),
+      this.destinationPath(`${defNameUpper}ObjClass` + `.js`),
       { name: defaultName, nameUpper: defNameUpper }
     );
   }
 
   _writeYObjClass(defaultName, defNameUpper) {
     this.fs.copyTpl(
-      this.templatePath("YObjClass.js"),
-      this.destinationPath(defNameUpper + "ObjClass" + ".js"),
+      this.templatePath("obj/YObjClass.js"),
+      this.destinationPath(`${defNameUpper}ObjClass` + `.js`),
       { name: defaultName, nameUpper: defNameUpper }
     );
   }
@@ -137,36 +136,36 @@ module.exports = class extends Generator {
 
   _writeWidgetComponent(defaultName, defNameUpper, defNameUpperWidget) {
     this.fs.copyTpl(
-      this.templatePath("widgetComponent.js"),
-      this.destinationPath(defNameUpper + "WidgetComponent" + ".js"),
+      this.templatePath("widget/XWidgetComponent.js"),
+      this.destinationPath(`${defNameUpper}WidgetComponent` + `.js`),
       {
         name: defaultName,
         nameUpper: defNameUpper,
-        nameUpperWidget: defNameUpperWidget
+        nameUpperWidget: defNameUpperWidget,
       }
     );
   }
 
   _writeWidgetConfig(defaultName, defNameUpper, defNameUpperWidget) {
     this.fs.copyTpl(
-      this.templatePath("widgetEditingConfig.js"),
-      this.destinationPath(defNameUpper + "WidgetEditingConfig" + ".js"),
+      this.templatePath("widget/XWidgetEditingConfig.js"),
+      this.destinationPath(`${defNameUpper}WidgetEditingConfig` + `.js`),
       {
         name: defaultName,
         nameUpper: defNameUpper,
-        nameUpperWidget: defNameUpperWidget
+        nameUpperWidget: defNameUpperWidget,
       }
     );
   }
 
   _writeWidgetClass(defaultName, defNameUpper, defNameUpperWidget) {
     this.fs.copyTpl(
-      this.templatePath("widgetClass.js"),
-      this.destinationPath(defNameUpper + "WidgetClass" + ".js"),
+      this.templatePath("widget/XWidgetClass.js"),
+      this.destinationPath(`${defNameUpper}WidgetClass` + `.js`),
       {
         name: defaultName,
         nameUpper: defNameUpper,
-        nameUpperWidget: defNameUpperWidget
+        nameUpperWidget: defNameUpperWidget,
       }
     );
   }

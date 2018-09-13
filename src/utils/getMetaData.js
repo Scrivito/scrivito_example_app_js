@@ -50,7 +50,7 @@ function getMetaData(page) {
   const tcImage = firstUrlForAttributes(page, [
     "tcImage",
     "titleImage",
-    "navigationBackgroundImage",
+    "navigationBackground",
     "image",
   ]);
   if (tcImage) {
@@ -72,7 +72,7 @@ function getMetaData(page) {
   const ogImage = firstUrlForAttributes(page, [
     "ogImage",
     "titleImage",
-    "navigationBackgroundImage",
+    "navigationBackground",
     "image",
   ]);
   if (ogImage) {

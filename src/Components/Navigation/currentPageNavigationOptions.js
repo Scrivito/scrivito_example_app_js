@@ -32,7 +32,7 @@ function currentPageNavigationOptions() {
 }
 
 function blogNavigationOptions(obj) {
-  const backgroundImage = obj.get("navigationBackgroundImage");
+  const backgroundImage = obj.get("navigationBackground");
   return imageWithMediumHeightOrMinHeight(backgroundImage);
 }
 
@@ -41,7 +41,7 @@ function blogPostNavigationOptions(obj) {
   if (!backgroundImage) {
     const blog = Scrivito.Obj.getByPermalink("blog");
     if (blog) {
-      backgroundImage = blog.get("navigationBackgroundImage");
+      backgroundImage = blog.get("navigationBackground");
     }
   }
 
@@ -72,10 +72,10 @@ function landingPageNavigationOptions(obj) {
 }
 
 function pageNavigationOptions(obj) {
-  const backgroundImage = obj.get("navigationBackgroundImage") || null;
+  const backgroundImage = obj.get("navigationBackground") || null;
 
   const useGradient =
-    backgroundImage && obj.get("navigationBackgroundImageGradient") === "yes";
+    backgroundImage && obj.get("navigationBackgroundGradient") === "yes";
 
   const navigationHeight = obj.get("navigationHeight") || "small";
   let heightClassName = null;
@@ -97,7 +97,7 @@ function pageNavigationOptions(obj) {
 }
 
 function searchResultsNavigationOptions(obj) {
-  const backgroundImage = obj.get("navigationBackgroundImage");
+  const backgroundImage = obj.get("navigationBackground");
   return imageWithMediumHeightOrMinHeight(backgroundImage);
 }
 

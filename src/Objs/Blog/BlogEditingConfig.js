@@ -18,12 +18,13 @@ Scrivito.provideEditingConfig("Blog", {
       title: "Title",
       description: "Limit to 55 characters.",
     },
-    navigationBackgroundImage: {
-      title: "Header image",
-      description: "The background image of the header.",
+    navigationBackground: {
+      title: "Header background",
+      description:
+        "The background image or video of the header. For video only mp4 format is supported",
     },
   },
-  properties: ["title", "navigationBackgroundImage"],
+  properties: ["title", "navigationBackground"],
   propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],
   initialContent: {
     ...metaDataInitialContent,

@@ -17,12 +17,12 @@ Scrivito.provideEditingConfig("SearchResults", {
       title: "Title",
       description: "Limit to 55 characters.",
     },
-    navigationBackgroundImage: {
+    navigationBackground: {
       title: "Header image",
       description: "The background image of the header.",
     },
   },
-  properties: ["title", "navigationBackgroundImage"],
+  properties: ["title", "navigationBackground"],
   propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],
   initialContent: {
     ...metaDataInitialContent,

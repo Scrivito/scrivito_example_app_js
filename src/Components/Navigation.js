@@ -161,7 +161,6 @@ class Navigation extends React.Component {
 
     if (isVideo(backgroundImage)) {
       const contentUrl = urlFromBinary(backgroundImage);
-      console.log(style);
       return (
         <React.Fragment>
           <div className={videoBoxClasses.join(" ")} style={style}>

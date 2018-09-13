@@ -359,6 +359,10 @@ small,
   position: initial !important;
 }
 
+[data-scrivito-display-mode=editing] [data-scrivito-private-structure-widget] {
+  padding: 0 !important;
+}
+
 /* button adaoptions
 =================================================================== */
 
@@ -1189,6 +1193,10 @@ footer {
 .negative-margin-top .nav {
  padding: 0;
  transform: translate(-0,-30px);
+}
+
+.nav-centered.select-icon.negative-margin-top {
+  background: #fff;
 }
 
 

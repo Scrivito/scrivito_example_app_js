@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import Reveal from "react-reveal/Reveal";
+import AnimateOnReveal from "../../Components/AnimateOnReveal";
 
 Scrivito.provideComponent("ImageWidget", ({ widget }) => {
   let image = (
@@ -21,17 +21,10 @@ Scrivito.provideComponent("ImageWidget", ({ widget }) => {
     classNames.push(`text-${widget.get("alignment")}`);
   }
 
-  let additionalProps = {};
-  if (widget.get("animation")) {
-    additionalProps = {
-      effect: widget.get("animation"),
-    };
-  }
-
   return (
-    <Reveal {...additionalProps}>
+    <AnimateOnReveal animation={widget.get("animation")}>
       <div className={classNames.join(" ")}>{image}</div>
-    </Reveal>
+    </AnimateOnReveal>
   );
 });
 

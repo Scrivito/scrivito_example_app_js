@@ -1,26 +1,50 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+import AOS from "aos";
 
-Scrivito.provideComponent("ImageWidget", ({ widget }) => {
-  let image = (
-    <Scrivito.ImageTag
-      content={widget}
-      attribute="image"
-      alt={alternativeText(widget)}
-    />
-  );
-
-  const link = widget.get("link");
-  if (link && !Scrivito.isInPlaceEditingActive()) {
-    image = <Scrivito.LinkTag to={link}>{image}</Scrivito.LinkTag>;
+class ImageWidget extends React.Component {
+  componentDidMount() {
+    AOS.init();
   }
 
-  if (["center", "right"].includes(widget.get("alignment"))) {
-    return <div className={`text-${widget.get("alignment")}`}>{image}</div>;
+  componentDidUpdate() {
+    AOS.refresh();
   }
 
-  return image;
-});
+  render() {
+    const widget = this.props.widget;
+    let image = (
+      <Scrivito.ImageTag
+        content={widget}
+        attribute="image"
+        alt={alternativeText(widget)}
+      />
+    );
+    const link = widget.get("link");
+    if (link && !Scrivito.isInPlaceEditingActive()) {
+      image = <Scrivito.LinkTag to={link}>{image}</Scrivito.LinkTag>;
+    }
+
+    const classNames = [];
+    if (["center", "right"].includes(widget.get("alignment"))) {
+      classNames.push(`text-${widget.get("alignment")}`);
+    }
+
+    let additionalProps = {};
+    if (widget.get("animation")) {
+      additionalProps = {
+        "data-aos": widget.get("animation"),
+        "data-aos-duration": "500",
+      };
+    }
+
+    return (
+      <div className={classNames.join(" ")} {...additionalProps}>
+        {image}
+      </div>
+    );
+  }
+}
 
 function alternativeText(widget) {
   const widgetAlternativeText = widget.get("alternativeText");
@@ -35,3 +59,5 @@ function alternativeText(widget) {
 
   return "";
 }
+
+Scrivito.provideComponent("ImageWidget", ImageWidget);

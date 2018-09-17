@@ -6,6 +6,12 @@ const ImageWidget = Scrivito.provideWidgetClass("ImageWidget", {
     alignment: ["enum", { values: ["left", "center", "right"] }],
     alternativeText: "string",
     link: "link",
+    animation: [
+      "enum",
+      {
+        values: ["fade-right", "fade-left", "fade-down", "fade-up", "zoom-in"],
+      },
+    ],
   },
 });
 

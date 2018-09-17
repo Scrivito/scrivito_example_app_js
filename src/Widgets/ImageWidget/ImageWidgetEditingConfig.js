@@ -24,8 +24,21 @@ Scrivito.provideEditingConfig("ImageWidget", {
       title: "Link (optional)",
       description: "The link where this image should lead.",
     },
+    animation: {
+      title: "Animation (optional)",
+      description:
+        "What animation should be shown, when this image becomes visible?",
+      values: [
+        { value: "", title: "None" },
+        { value: "fade-right", title: "Left to center" },
+        { value: "fade-left", title: "Right to center" },
+        { value: "fade-down", title: "Top to center" },
+        { value: "fade-up", title: "Bottom to center" },
+        { value: "zoom-in", title: "Zoom in" },
+      ],
+    },
   },
-  properties: ["alignment", "alternativeText", "link"],
+  properties: ["animation", "alignment", "alternativeText", "link"],
   initialContent: {
     alignment: "left",
   },

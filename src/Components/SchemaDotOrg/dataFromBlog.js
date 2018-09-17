@@ -5,7 +5,7 @@ function dataFromBlog(blog) {
     "@context": "http://schema.org",
     "@type": "Blog",
     headline: blog.get("title"),
-    image: urlFromBinary(blog.get("navigationBackgroundImage")),
+    image: urlFromBinary(blog.get("navigationBackground")),
   };
 }
 

@@ -6,13 +6,14 @@ const defaultPageEditingConfigAttributes = {
     title: "Title",
     description: "Limit to 55 characters.",
   },
-  navigationBackgroundImage: {
-    title: "Header image",
-    description: "The background image of the header.",
+  navigationBackground: {
+    title: "Header background",
+    description:
+      "The background image or video of the header. For video only mp4 format is supported",
   },
-  navigationBackgroundImageGradient: {
-    title: "Use gradient for header image?",
-    description: "Only applies if a header image is selected. Default: No",
+  navigationBackgroundGradient: {
+    title: "Use gradient for header background?",
+    description: "Only applies if a header background is selected. Default: No",
     values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
   },
   navigationHeight: {
@@ -39,8 +40,8 @@ const defaultPageInitialContent = {
 const defaultPageProperties = [
   "title",
   "navigationHeight",
-  "navigationBackgroundImage",
-  "navigationBackgroundImageGradient",
+  "navigationBackground",
+  "navigationBackgroundGradient",
 ];
 
 export {

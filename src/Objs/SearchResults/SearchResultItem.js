@@ -7,7 +7,7 @@ import { textExtractFromObj } from "../../utils/textExtract";
 
 const PreviewImage = Scrivito.connect(({ item }) => {
   const image =
-    item.get("navigationBackgroundImage") ||
+    item.get("navigationBackground") ||
     item.get("titleImage") ||
     item.get("image");
   if (!image) {

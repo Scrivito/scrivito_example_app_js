@@ -359,6 +359,10 @@ small,
   position: initial !important;
 }
 
+[data-scrivito-display-mode=editing] [data-scrivito-private-structure-widget] {
+  padding: 0 !important;
+}
+
 /* button adaoptions
 =================================================================== */
 
@@ -469,6 +473,17 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
     }
   }
 }
+
+/* video background
+=================================================================== */
+.video-full-screen {
+  min-width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: -10;
+}
+
 
 /* titles of modules
 =================================================================== */
@@ -681,7 +696,7 @@ footer {
 }
 
 /* nav section adaptions */
-section.navbar-fixed { padding-top: 80px; }
+.navbar-fixed { padding-top: 80px; }
 
 /* navbar
 =================================================================== */
@@ -1178,6 +1193,10 @@ section.navbar-fixed { padding-top: 80px; }
 .negative-margin-top .nav {
  padding: 0;
  transform: translate(-0,-30px);
+}
+
+.nav-centered.select-icon.negative-margin-top {
+  background: #fff;
 }
 
 

@@ -6,6 +6,8 @@ import FullNavigation from "./Navigation/FullNavigation";
 import LandingPageNavigation from "./Navigation/LandingPageNavigation";
 import NavigationSection from "./Navigation/NavigationSection";
 import ScrollToNextSectionLink from "./Navigation/ScrollToNextSectionLink";
+import isVideo from "../utils/isVideo";
+import urlFromBinary from "../utils/urlFromBinary";
 
 function ActualNavigation({
   isLandingPage,
@@ -94,8 +96,10 @@ class Navigation extends React.Component {
     }
 
     const topSectionStyle = {};
+    let style = {};
+
     if (navigationStyle === "transparentDark") {
-      if (backgroundImage) {
+      if (!isVideo(backgroundImage)) {
         if (useGradient) {
           topSectionStyle.background = [
             {
@@ -122,10 +126,64 @@ class Navigation extends React.Component {
           ];
         }
       }
+
+      if (isVideo(backgroundImage)) {
+        if (useGradient) {
+          style = {
+            background:
+              "radial-gradient(ellipse at center, rgba(61,65,66,.5) 0%, rgba(61,65,66,1) 90%), " +
+              "linear-gradient(to bottom, rgba(61,65,66,0) 0%, rgba(61,65,66,1) 90%)",
+          };
+        } else {
+          style = {
+            background:
+              "linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))",
+          };
+        }
+      }
     }
 
     if (heightClassName) {
       topSectionClassNames.push(heightClassName);
+    }
+
+    const videoBoxClasses = [heightClassName, "navbar-fixed"];
+
+    if (navigationStyle === "transparentDark") {
+      videoBoxClasses.push("bg-dark-image");
+    } else {
+      videoBoxClasses.push("bg-white", "nav-only");
+    }
+
+    if (this.state.scrolled) {
+      videoBoxClasses.push("scrolled");
+    }
+
+    if (isVideo(backgroundImage)) {
+      const contentUrl = urlFromBinary(backgroundImage);
+      return (
+        <React.Fragment>
+          <div className={videoBoxClasses.join(" ")} style={style}>
+            <video
+              className="video-full-screen"
+              src={contentUrl}
+              autoPlay
+              muted
+              loop
+            />
+            <ActualNavigation
+              isLandingPage={isLandingPage}
+              bootstrapNavbarClassNames={bootstrapNavbarClassNames}
+              toggleSearch={this.toggleSearch}
+              showSearch={this.state.showSearch}
+              scrolled={this.state.scrolled}
+              navigationStyle={navigationStyle}
+            />
+            <NavigationSection heightClassName={heightClassName} />
+            <ScrollToNextSectionLink heightClassName={heightClassName} />
+          </div>
+        </React.Fragment>
+      );
     }
 
     return (

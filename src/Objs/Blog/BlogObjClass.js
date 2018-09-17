@@ -5,7 +5,7 @@ import metaDataAttributes from "../_metaDataAttributes";
 const Blog = Scrivito.provideObjClass("Blog", {
   attributes: {
     title: "string",
-    navigationBackgroundImage: "reference",
+    navigationBackground: "reference",
     body: ["widgetlist", { only: "SectionWidget" }],
     ...metaDataAttributes,
   },

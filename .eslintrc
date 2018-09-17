@@ -75,6 +75,12 @@
         "prefer-rest-params": 0,
         "class-methods-use-this": 0
       }
+    },
+    {
+      "files": ["src/Widgets/ImageWidget/ImageWidgetComponent.js"],
+      "rules": {
+        "class-methods-use-this": 0
+      }
     }
   ]
 }

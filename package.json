@@ -14,7 +14,6 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "animate.css": "^3.7.0",
     "autotrack": "^2.4.1",
     "babel-loader": "^8.0.2",
     "clean-webpack-plugin": "^0.1.19",

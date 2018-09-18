@@ -470,6 +470,20 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 }
 
+/* video background
+=================================================================== */
+.video-full-screen {
+  min-width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: -10;
+}
+
+.nav-centered.select-icon.negative-margin-top {
+  background: #fff;
+}
+
 /* titles of modules
 =================================================================== */
 

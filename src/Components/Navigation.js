@@ -6,6 +6,8 @@ import FullNavigation from "./Navigation/FullNavigation";
 import LandingPageNavigation from "./Navigation/LandingPageNavigation";
 import NavigationSection from "./Navigation/NavigationSection";
 import ScrollToNextSectionLink from "./Navigation/ScrollToNextSectionLink";
+import isVideoObj from "../utils/isVideoObj";
+import urlFromBinary from "../utils/urlFromBinary";
 
 function ActualNavigation({
   isLandingPage,
@@ -93,6 +95,11 @@ class Navigation extends React.Component {
       bootstrapNavbarClassNames.push("navbar-transparent");
     }
 
+    let videoUrl = "";
+    if (isVideoObj(backgroundImage)) {
+      videoUrl = urlFromBinary(backgroundImage);
+    }
+
     const topSectionStyle = {};
     if (navigationStyle === "transparentDark") {
       if (backgroundImage) {
@@ -107,19 +114,23 @@ class Navigation extends React.Component {
               image:
                 "linear-gradient(to bottom, rgba(61,65,66,0) 0%, rgba(61,65,66,1) 90%)",
             },
-            {
+          ];
+          if (!isVideoObj(backgroundImage)) {
+            topSectionStyle.background.push({
               image: backgroundImage,
               position: "bottom",
-            },
-          ];
+            });
+          }
         } else {
           topSectionStyle.background = [
             {
               image:
                 "linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))",
             },
-            { image: backgroundImage },
           ];
+          if (!isVideoObj(backgroundImage)) {
+            topSectionStyle.background.push({ image: backgroundImage });
+          }
         }
       }
     }
@@ -135,6 +146,7 @@ class Navigation extends React.Component {
           className={topSectionClassNames.join(" ")}
           style={topSectionStyle}
         >
+          <BackgroundVideo videoUrl={videoUrl} />
           <ActualNavigation
             isLandingPage={isLandingPage}
             bootstrapNavbarClassNames={bootstrapNavbarClassNames}
@@ -151,6 +163,16 @@ class Navigation extends React.Component {
       </React.Fragment>
     );
   }
+}
+
+function BackgroundVideo({ videoUrl }) {
+  if (!videoUrl) {
+    return null;
+  }
+
+  return (
+    <video className="video-full-screen" src={videoUrl} autoPlay muted loop />
+  );
 }
 
 export default Scrivito.connect(Navigation);

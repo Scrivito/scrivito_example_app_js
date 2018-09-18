@@ -1,5 +1,5 @@
 import * as Scrivito from "scrivito";
-import isVideoObj from '../../utils/isVideoObj';
+import isVideoObj from "../../utils/isVideoObj";
 
 function currentPageNavigationOptions() {
   if (Scrivito.currentPage()) {

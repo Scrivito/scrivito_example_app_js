@@ -4,21 +4,25 @@ import fromNow from "moment-from-now";
 import Highlighter from "react-highlight-words";
 import { truncate } from "lodash-es";
 import { textExtractFromObj } from "../../utils/textExtract";
+import isVideoObj from "../../utils/isVideoObj";
 
 const PreviewImage = Scrivito.connect(({ item }) => {
-  const image =
-    item.get("navigationBackgroundImage") ||
-    item.get("titleImage") ||
-    item.get("image");
-  if (!image) {
-    return null;
+  if (!isVideoObj(item.get("navigationBackgroundImage"))) {
+    const image =
+      item.get("navigationBackgroundImage") ||
+      item.get("titleImage") ||
+      item.get("image");
+    if (!image) {
+      return null;
+    }
+    return (
+      <Scrivito.LinkTag to={item} className="result-image">
+        <Scrivito.ImageTag content={image} alt={image.get("alternativeText")} />
+      </Scrivito.LinkTag>
+    );
   }
 
-  return (
-    <Scrivito.LinkTag to={item} className="result-image">
-      <Scrivito.ImageTag content={image} alt={image.get("alternativeText")} />
-    </Scrivito.LinkTag>
-  );
+  return null;
 });
 
 const Details = Scrivito.connect(({ item }) => {

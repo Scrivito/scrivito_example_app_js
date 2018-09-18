@@ -54,7 +54,7 @@ function getMetaData(page) {
     "navigationBackgroundImage",
     "image",
   ]);
-  if (tcImage && !isVideoObj(tcImage)) {
+  if (tcImage) {
     meta.push({ name: "twitter:image", content: tcImage });
   }
 
@@ -76,7 +76,7 @@ function getMetaData(page) {
     "navigationBackgroundImage",
     "image",
   ]);
-  if (ogImage && !isVideoObj(tcImage)) {
+  if (ogImage) {
     meta.push({ property: "og:image", content: ogImage });
   }
 

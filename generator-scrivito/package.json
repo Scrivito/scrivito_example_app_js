@@ -13,7 +13,9 @@
     "private": true
   },
   "dependencies": {
-    "prettier": "^1.14.2",
     "yeoman-generator": "^3.1.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.2"
   }
 }

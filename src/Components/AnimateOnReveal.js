@@ -3,27 +3,20 @@ import Zoom from "react-reveal/Zoom";
 import Fade from "react-reveal/Fade";
 
 function AnimateOnReveal({ animation, children }) {
-  if (!animation) {
-    return children;
-  }
-  if (animation === "zoomIn") {
-    return <Zoom>{children}</Zoom>;
-  }
-  return <Fade {...fadeProps(animation)}>{children}</Fade>;
-}
-
-function fadeProps(animation) {
   switch (animation) {
+    case "zoomIn":
+      return <Zoom>{children}</Zoom>;
     case "fadeInLeft":
-      return { left: true };
+      return <Fade left>{children}</Fade>;
     case "fadeInRight":
-      return { right: true };
+      return <Fade right>{children}</Fade>;
     case "fadeInDown":
-      return { top: true };
+      return <Fade top>{children}</Fade>;
     case "fadeInUp":
-      return { bottom: true };
+      return <Fade bottom>{children}</Fade>;
+    default:
+      return children;
   }
-  return {};
 }
 
 export default AnimateOnReveal;

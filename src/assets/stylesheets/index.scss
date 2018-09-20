@@ -473,7 +473,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 /* video background
 =================================================================== */
 .video-full-screen {
-  min-width: 100%;
+  width: 100%;
   min-height: 100vh;
   position: fixed;
   top: 0;

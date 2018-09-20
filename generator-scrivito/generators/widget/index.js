@@ -1,28 +1,15 @@
 const Generator = require("yeoman-generator");
+const capitalizeFirstLetter = require("../../utils/capitalizeFirstLetter");
 
 module.exports = class extends Generator {
   start() {
-    this._creatingWidget();
-  }
-
-  _creatingName(name) {
-    const defaultName = name;
-    return defaultName;
-  }
-
-  _creatingUpperName(name) {
-    const defNameUpper = name.charAt(0).toUpperCase() + name.slice(1);
-    return defNameUpper;
-  }
-
-  _creatingWidget() {
     this.prompt({
       type: "input",
       name: "nameWidget",
       message: "Enter a name of the Widget: ",
     }).then(answers => {
-      const defaultName = this._creatingName(answers.nameWidget);
-      const defNameUpper = this._creatingUpperName(defaultName);
+      const defaultName = answers.nameWidget);
+      const defNameUpper = capitalizeFirstLetter(defaultName);
       this.destinationRoot(defNameUpper);
       const defNameUpperWidget = `${defNameUpper}Widget`;
       this._writeWidgetComponent(defaultName, defNameUpper, defNameUpperWidget);

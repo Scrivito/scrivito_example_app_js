@@ -1,33 +1,21 @@
 {
   "name": "generator-scrivito",
   "version": "0.0.1",
-  "description": "generator for scrivito_example_app",
+  "description": "generator for scrivito_example_app_js",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/karminkarmen/generator-scrivito.git"
-  },
-  "keywords": [
-    "yeoman-generator",
-    "react",
-    "component",
-    "javascript",
-    "scaffold",
-    "generator",
-    "builder",
-    "scrivito"
-  ],
-  "author": "Kamila Skonieczna <kamila.skonieczna@infopark.de>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/karminkarmen/generator-scrivito/issues"
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
   },
-  "homepage": "https://github.com/karminkarmen/generator-scrivito#readme",
+  "private": true,
+  "repository": {
+    "private": true
+  },
   "dependencies": {
-    "prettier": "^1.14.2",
     "yeoman-generator": "^3.1.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.2"
   }
 }

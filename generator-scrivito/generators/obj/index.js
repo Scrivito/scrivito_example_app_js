@@ -1,4 +1,5 @@
 const Generator = require("yeoman-generator");
+const capitalizeFirstLetter = require("../../utils/capitalizeFirstLetter");
 
 module.exports = class extends Generator {
   start() {
@@ -19,7 +20,7 @@ module.exports = class extends Generator {
       },
     ]).then(answers => {
       const defaultName = answers.nameObj;
-      const defNameUpper = this._creatingUpperName(defaultName);
+      const defNameUpper = capitalizeFirstLetter(defaultName);
       this.destinationRoot(defNameUpper);
 
       switch (answers.type) {
@@ -33,11 +34,6 @@ module.exports = class extends Generator {
           this._writeYObjClass(defaultName, defNameUpper);
       }
     });
-  }
-
-  _creatingUpperName(name) {
-    const defNameUpper = name.charAt(0).toUpperCase() + name.slice(1);
-    return defNameUpper;
   }
 
   // objects

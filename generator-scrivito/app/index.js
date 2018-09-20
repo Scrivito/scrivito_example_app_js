@@ -4,30 +4,22 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
     this.log("Welcome to the Scrivito obj/widget generator!");
-    this.option("obj", { type: String });
-    this.option("widget", { type: String });
   }
 
   start() {
-    if (this.options.obj) {
-      this._creatingObj();
-    } else if (this.options.widget) {
-      this._creatingWidget();
-    } else if (!this.options.obj || !this.options.widget) {
-      this.prompt({
-        type: "list",
-        name: "type",
-        message: "Choose which one template you want to create: ",
-        choices: ["Generate a new Obj", "Generate a new Widget"],
-      }).then(answers => {
-        if (answers.type === "Generate a new Widget") {
-          this._creatingWidget();
-        }
-        if (answers.type === "Generate a new Obj") {
-          this._creatingObj();
-        }
-      });
-    }
+    this.prompt({
+      type: "list",
+      name: "type",
+      message: "What do you want to generate?",
+      choices: ["Generate a new Obj", "Generate a new Widget"],
+    }).then(answers => {
+      if (answers.type === "Generate a new Widget") {
+        this.composeWith("scrivito:widget");
+      }
+      if (answers.type === "Generate a new Obj") {
+        this.composeWith("scrivito:obj");
+      }
+    });
   }
 
   _creatingName(name) {

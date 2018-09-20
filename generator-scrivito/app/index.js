@@ -22,7 +22,4 @@ module.exports = class extends Generator {
     });
   }
 
-  _creatingUpperName(name) {
-    const defNameUpper = name.charAt(0).toUpperCase() + name.slice(1);
-    return defNameUpper;
-  }
+};

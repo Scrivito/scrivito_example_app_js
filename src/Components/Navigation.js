@@ -9,29 +9,6 @@ import ScrollToNextSectionLink from "./Navigation/ScrollToNextSectionLink";
 import isVideoObj from "../utils/isVideoObj";
 import urlFromBinary from "../utils/urlFromBinary";
 
-function ActualNavigation({
-  isLandingPage,
-  bootstrapNavbarClassNames,
-  toggleSearch,
-  scrolled,
-  navigationStyle,
-  showSearch,
-}) {
-  if (isLandingPage) {
-    return <LandingPageNavigation navigationStyle={navigationStyle} />;
-  }
-
-  return (
-    <FullNavigation
-      bootstrapNavbarClassNames={bootstrapNavbarClassNames}
-      toggleSearch={toggleSearch}
-      showSearch={showSearch}
-      scrolled={scrolled}
-      navigationStyle={navigationStyle}
-    />
-  );
-}
-
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
@@ -163,6 +140,29 @@ class Navigation extends React.Component {
       </React.Fragment>
     );
   }
+}
+
+function ActualNavigation({
+  isLandingPage,
+  bootstrapNavbarClassNames,
+  toggleSearch,
+  scrolled,
+  navigationStyle,
+  showSearch,
+}) {
+  if (isLandingPage) {
+    return <LandingPageNavigation navigationStyle={navigationStyle} />;
+  }
+
+  return (
+    <FullNavigation
+      bootstrapNavbarClassNames={bootstrapNavbarClassNames}
+      toggleSearch={toggleSearch}
+      showSearch={showSearch}
+      scrolled={scrolled}
+      navigationStyle={navigationStyle}
+    />
+  );
 }
 
 function BackgroundVideo({ videoUrl }) {

@@ -475,7 +475,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
 .video-full-screen {
   min-width: 100%;
   min-height: 100vh;
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: -10;
 }
@@ -695,7 +695,10 @@ footer {
 }
 
 /* nav section adaptions */
-section.navbar-fixed { padding-top: 80px; }
+section.navbar-fixed {
+  padding-top: 80px;
+  overflow: hidden;
+}
 
 /* navbar
 =================================================================== */

@@ -20,12 +20,12 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "nameObj",
-        message: "Enter a name of the Obj: ",
+        message: "Enter the name of the Obj: ",
       },
       {
         type: "list",
         name: "type",
-        message: "Choose which one template you want to create: ",
+        message: "What do you want to generate?",
         choices: [
           "Generate an Obj with a react component (default)",
           "Generate an Obj without a react component (e.g. like a download)",

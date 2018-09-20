@@ -27,7 +27,7 @@ Scrivito.provideEditingConfig("ImageWidget", {
     animation: {
       title: "Animation",
       description:
-        "What animation should be shown, when this image becomes visible? Default: None",
+        "The animation to perform as this image becomes visible. Default: None",
       values: [
         { value: "none", title: "None" },
         { value: "fadeInLeft", title: "Left to center" },

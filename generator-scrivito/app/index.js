@@ -3,7 +3,7 @@ const Generator = require("yeoman-generator");
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
-    this.log("Welcome in scrivito Obj/Widgets generator!");
+    this.log("Welcome to the Scrivito obj/widget generator!");
     this.option("obj", { type: String });
     this.option("widget", { type: String });
   }

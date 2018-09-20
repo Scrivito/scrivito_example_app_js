@@ -2,7 +2,6 @@ import * as Scrivito from "scrivito";
 import { truncate } from "lodash-es";
 import { textExtractFromObj } from "./textExtract";
 import urlFromBinary from "./urlFromBinary";
-import isVideoObj from "./isVideoObj";
 
 function getMetaData(page) {
   const meta = [

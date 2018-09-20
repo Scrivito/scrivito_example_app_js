@@ -7,22 +7,18 @@ import { textExtractFromObj } from "../../utils/textExtract";
 import isVideoObj from "../../utils/isVideoObj";
 
 const PreviewImage = Scrivito.connect(({ item }) => {
-  if (!isVideoObj(item.get("navigationBackgroundImage"))) {
-    const image =
-      item.get("navigationBackgroundImage") ||
-      item.get("titleImage") ||
-      item.get("image");
-    if (!image) {
-      return null;
-    }
-    return (
-      <Scrivito.LinkTag to={item} className="result-image">
-        <Scrivito.ImageTag content={image} alt={image.get("alternativeText")} />
-      </Scrivito.LinkTag>
-    );
+  const image =
+    item.get("navigationBackgroundImage") ||
+    item.get("titleImage") ||
+    item.get("image");
+  if (!image || isVideoObj(image)) {
+    return null;
   }
-
-  return null;
+  return (
+    <Scrivito.LinkTag to={item} className="result-image">
+      <Scrivito.ImageTag content={image} alt={image.get("alternativeText")} />
+    </Scrivito.LinkTag>
+  );
 });
 
 const Details = Scrivito.connect(({ item }) => {

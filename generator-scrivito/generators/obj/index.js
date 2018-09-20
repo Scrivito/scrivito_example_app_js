@@ -2,20 +2,6 @@ const Generator = require("yeoman-generator");
 
 module.exports = class extends Generator {
   start() {
-    this._creatingObj();
-  }
-
-  _creatingName(name) {
-    const defaultName = name;
-    return defaultName;
-  }
-
-  _creatingUpperName(name) {
-    const defNameUpper = name.charAt(0).toUpperCase() + name.slice(1);
-    return defNameUpper;
-  }
-
-  _creatingObj() {
     this.prompt([
       {
         type: "input",
@@ -32,7 +18,7 @@ module.exports = class extends Generator {
         ],
       },
     ]).then(answers => {
-      const defaultName = this._creatingName(answers.nameObj);
+      const defaultName = answers.nameObj;
       const defNameUpper = this._creatingUpperName(defaultName);
       this.destinationRoot(defNameUpper);
 
@@ -47,6 +33,11 @@ module.exports = class extends Generator {
           this._writeYObjClass(defaultName, defNameUpper);
       }
     });
+  }
+
+  _creatingUpperName(name) {
+    const defNameUpper = name.charAt(0).toUpperCase() + name.slice(1);
+    return defNameUpper;
   }
 
   // objects

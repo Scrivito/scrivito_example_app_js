@@ -2,6 +2,7 @@ import * as Scrivito from "scrivito";
 import { truncate } from "lodash-es";
 import { textExtractFromObj } from "./textExtract";
 import urlFromBinary from "./urlFromBinary";
+import isVideoObj from "./isVideoObj";
 
 function getMetaData(page) {
   const meta = [
@@ -53,7 +54,8 @@ function getMetaData(page) {
     "navigationBackgroundImage",
     "image",
   ]);
-  if (tcImage) {
+
+  if (tcImage && !isVideoObj(page.get("navigationBackgroundImage"))) {
     meta.push({ name: "twitter:image", content: tcImage });
   }
 
@@ -75,7 +77,8 @@ function getMetaData(page) {
     "navigationBackgroundImage",
     "image",
   ]);
-  if (ogImage) {
+
+  if (ogImage && !isVideoObj(page.get("navigationBackgroundImage"))) {
     meta.push({ property: "og:image", content: ogImage });
   }
 

@@ -18,8 +18,8 @@ Scrivito.provideEditingConfig("SearchResults", {
       description: "Limit to 55 characters.",
     },
     navigationBackgroundImage: {
-      title: "Header background",
-      description: "The background image/video of the header.",
+      title: "Header image",
+      description: "The background image of the header.",
     },
   },
   properties: ["title", "navigationBackgroundImage"],

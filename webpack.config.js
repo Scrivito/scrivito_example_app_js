@@ -1,4 +1,6 @@
+const builder = require("content-security-policy-builder");
 const dotenv = require("dotenv");
+const fs = require("fs");
 const path = require("path");
 const process = require("process");
 const webpack = require("webpack");
@@ -171,7 +173,23 @@ module.exports = (env = {}) => {
       },
       headers: {
         "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": devServerCspHeader(),
       },
     },
   };
 };
+
+function devServerCspHeader() {
+  const headersCsp = fs.readFileSync(
+    path.join(__dirname, "public", "_headersCsp.json")
+  );
+  const directives = JSON.parse(headersCsp);
+
+  // allow 'unsafe-eval' for webpack hot code reloading
+  directives["script-src"].push("'unsafe-eval'");
+
+  // allow ws: for webpack hot code reloading
+  directives["default-src"].push("ws:");
+
+  return builder({ directives });
+}

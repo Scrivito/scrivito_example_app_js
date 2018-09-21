@@ -1,6 +1,7 @@
 {
   "base-uri": "'none'",
-  "default-src": ["'self'", "'unsafe-inline'", "data:", "https:", "wss:"],
+  "default-src": ["'self'", "data:", "https:", "wss:"],
+  "style-src": ["'self'", "data:", "https:", "wss:", "'unsafe-inline'"],
   "script-src": [
     "'self'",
     "https://api.scrivito.com",

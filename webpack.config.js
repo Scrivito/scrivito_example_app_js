@@ -1,6 +1,5 @@
 const builder = require("content-security-policy-builder");
 const dotenv = require("dotenv");
-const fs = require("fs");
 const path = require("path");
 const process = require("process");
 const webpack = require("webpack");
@@ -11,6 +10,7 @@ const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const ZipPlugin = require("zip-webpack-plugin");
 const AddSitemapToRedirectsWebpackPlugin = require("./AddSitemapToRedirectsWebpackPlugin");
+const headersCsp = require("./public/_headersCsp.json");
 const ExtendCspHeadersWebpackPlugin = require("./ExtendCspHeadersWebpackPlugin");
 
 // load ".env"
@@ -180,10 +180,7 @@ module.exports = (env = {}) => {
 };
 
 function devServerCspHeader() {
-  const headersCsp = fs.readFileSync(
-    path.join(__dirname, "public", "_headersCsp.json")
-  );
-  const directives = JSON.parse(headersCsp);
+  const directives = Object.assign({}, headersCsp);
 
   // allow 'unsafe-eval' for webpack hot code reloading
   directives["script-src"].push("'unsafe-eval'");

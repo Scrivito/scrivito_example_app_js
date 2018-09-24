@@ -36,8 +36,6 @@ module.exports = class extends Generator {
     });
   }
 
-  // objects
-
   _writeObjComponent(defaultName, defNameUpper) {
     this.fs.copyTpl(
       this.templatePath("XObjcomponent.js"),

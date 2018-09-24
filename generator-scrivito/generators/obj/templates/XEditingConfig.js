@@ -1,12 +1,20 @@
 import * as Scrivito from "scrivito";
+import {
+  metaDataEditingConfigAttributes,
+  metaDataInitialContent,
+  metaDataPropertiesGroup,
+} from "../_metaDataEditingConfig";
 
 Scrivito.provideEditingConfig("<%= nameUpper %>", {
   title: "<%= nameUpper %>",
   attributes: {
     title: {
       title: "Name",
-      description: "description",
     },
   },
-  properties: ["title"],
+  properties: ["title", "description", "image"],
+  propertiesGroups: [metaDataPropertiesGroup],
+  initialContent: {
+    ...metaDataInitialContent,
+  },
 });

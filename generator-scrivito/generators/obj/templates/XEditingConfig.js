@@ -5,8 +5,8 @@ Scrivito.provideEditingConfig("<%= nameUpper %>", {
   attributes: {
     title: {
       title: "Name",
-      description: "description"
-    }
+      description: "description",
+    },
   },
-  properties: ["title"]
+  properties: ["title"],
 });

@@ -41,7 +41,7 @@ function BackgroundVideo({ videoUrl }) {
     <video
       className="video-full-screen"
       src={videoUrl}
-      controls="true"
+      playsInline
       autoPlay
       muted
       loop

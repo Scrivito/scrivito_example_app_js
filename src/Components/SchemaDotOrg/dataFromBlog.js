@@ -1,12 +1,19 @@
 import urlFromBinary from "../../utils/urlFromBinary";
+import isVideoObj from "../../utils/isVideoObj";
 
 function dataFromBlog(blog) {
-  return {
-    "@context": "http://schema.org",
+  const schema = {
+    "@context": "http://schema.org ",
     "@type": "Blog",
     headline: blog.get("title"),
-    image: urlFromBinary(blog.get("navigationBackgroundImage")),
   };
+
+  const backgroundObj = blog.get("navigationBackgroundImage");
+  if (backgroundObj && !isVideoObj(backgroundObj)) {
+    schema.image = urlFromBinary(backgroundObj);
+  }
+
+  return schema;
 }
 
 export default dataFromBlog;

@@ -2,6 +2,7 @@ import * as Scrivito from "scrivito";
 import { truncate } from "lodash-es";
 import { textExtractFromObj } from "./textExtract";
 import urlFromBinary from "./urlFromBinary";
+import isVideoObj from "./isVideoObj";
 
 function getMetaData(page) {
   const meta = [
@@ -47,12 +48,13 @@ function getMetaData(page) {
     meta.push({ name: "twitter:description", content: tcDescription });
   }
 
-  const tcImage = firstUrlForAttributes(page, [
+  const tcImage = firstImageUrlForAttributes(page, [
     "tcImage",
     "titleImage",
     "navigationBackgroundImage",
     "image",
   ]);
+
   if (tcImage) {
     meta.push({ name: "twitter:image", content: tcImage });
   }
@@ -69,12 +71,13 @@ function getMetaData(page) {
     meta.push({ property: "og:description", content: ogDescription });
   }
 
-  const ogImage = firstUrlForAttributes(page, [
+  const ogImage = firstImageUrlForAttributes(page, [
     "ogImage",
     "titleImage",
     "navigationBackgroundImage",
     "image",
   ]);
+
   if (ogImage) {
     meta.push({ property: "og:image", content: ogImage });
   }
@@ -87,11 +90,11 @@ function getMetaData(page) {
   return meta;
 }
 
-function firstUrlForAttributes(obj, attributes) {
+function firstImageUrlForAttributes(obj, attributes) {
   let url;
 
   attributes.forEach(attribute => {
-    if (url) {
+    if (url || isVideoObj(obj)) {
       return;
     }
     const binary = obj.get(attribute);

@@ -38,7 +38,14 @@ function BackgroundVideo({ videoUrl }) {
   }
 
   return (
-    <video className="video-full-screen" src={videoUrl} autoPlay muted loop />
+    <video
+      className="video-full-screen"
+      src={videoUrl}
+      controls="true"
+      autoPlay
+      muted
+      loop
+    />
   );
 }
 
@@ -165,7 +172,6 @@ class Navigation extends React.Component {
             scrolled={this.state.scrolled}
             navigationStyle={navigationStyle}
           />
-
           <NavigationSection heightClassName={heightClassName} />
           <ScrollToNextSectionLink heightClassName={heightClassName} />
         </Scrivito.BackgroundImageTag>

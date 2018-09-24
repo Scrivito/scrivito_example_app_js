@@ -8,9 +8,8 @@ module.exports = class extends Generator {
       name: "nameWidget",
       message: "Enter a name of the Widget: ",
     }).then(answers => {
-      const defaultName = answers.nameWidget);
+      const defaultName = answers.nameWidget;
       const defNameUpper = capitalizeFirstLetter(defaultName);
-      this.destinationRoot(defNameUpper);
       const defNameUpperWidget = `${defNameUpper}Widget`;
       this._writeWidgetComponent(defaultName, defNameUpper, defNameUpperWidget);
       this._writeWidgetConfig(defaultName, defNameUpper, defNameUpperWidget);
@@ -18,12 +17,12 @@ module.exports = class extends Generator {
     });
   }
 
-  // widgets
-
   _writeWidgetComponent(defaultName, defNameUpper, defNameUpperWidget) {
     this.fs.copyTpl(
       this.templatePath("XWidgetComponent.js"),
-      this.destinationPath(`${defNameUpper}WidgetComponent` + `.js`),
+      this.destinationPath(
+        `src/Widgets/${defNameUpper}/${defNameUpper}WidgetComponent.js`
+      ),
       {
         name: defaultName,
         nameUpper: defNameUpper,
@@ -35,7 +34,9 @@ module.exports = class extends Generator {
   _writeWidgetConfig(defaultName, defNameUpper, defNameUpperWidget) {
     this.fs.copyTpl(
       this.templatePath("XWidgetEditingConfig.js"),
-      this.destinationPath(`${defNameUpper}WidgetEditingConfig` + `.js`),
+      this.destinationPath(
+        `src/Widgets/${defNameUpper}/${defNameUpper}WidgetEditingConfig.js`
+      ),
       {
         name: defaultName,
         nameUpper: defNameUpper,
@@ -47,7 +48,9 @@ module.exports = class extends Generator {
   _writeWidgetClass(defaultName, defNameUpper, defNameUpperWidget) {
     this.fs.copyTpl(
       this.templatePath("XWidgetClass.js"),
-      this.destinationPath(`${defNameUpper}WidgetClass` + `.js`),
+      this.destinationPath(
+        `src/Widgets/${defNameUpper}/${defNameUpper}WidgetClass.js`
+      ),
       {
         name: defaultName,
         nameUpper: defNameUpper,

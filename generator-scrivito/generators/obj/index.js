@@ -21,7 +21,6 @@ module.exports = class extends Generator {
     ]).then(answers => {
       const defaultName = answers.nameObj;
       const defNameUpper = capitalizeFirstLetter(defaultName);
-      this.destinationRoot(defNameUpper);
 
       switch (answers.type) {
         case "Generate an Obj with a react component (default)":
@@ -39,7 +38,9 @@ module.exports = class extends Generator {
   _writeObjComponent(defaultName, defNameUpper) {
     this.fs.copyTpl(
       this.templatePath("XObjcomponent.js"),
-      this.destinationPath(`${defNameUpper}Component` + `.js`),
+      this.destinationPath(
+        `src/Obj/${defNameUpper}/${defNameUpper}Component.js`
+      ),
       { name: defaultName, nameUpper: defNameUpper }
     );
   }
@@ -47,7 +48,9 @@ module.exports = class extends Generator {
   _writeXObjConfig(defaultName, defNameUpper) {
     this.fs.copyTpl(
       this.templatePath("XEditingConfig.js"),
-      this.destinationPath(`${defNameUpper}EditingConfig` + `.js`),
+      this.destinationPath(
+        `src/Widgets/${defNameUpper}/${defNameUpper}EditingConfig.js`
+      ),
       { name: defaultName, nameUpper: defNameUpper }
     );
   }
@@ -55,7 +58,9 @@ module.exports = class extends Generator {
   _writeYObjConfig(defaultName, defNameUpper) {
     this.fs.copyTpl(
       this.templatePath("YEditingConfig.js"),
-      this.destinationPath(`${defNameUpper}EditingConfig` + `.js`),
+      this.destinationPath(
+        `src/Widgets/${defNameUpper}/${defNameUpper}EditingConfig.js`
+      ),
       { name: defaultName, nameUpper: defNameUpper }
     );
   }
@@ -63,7 +68,9 @@ module.exports = class extends Generator {
   _writeXObjClass(defaultName, defNameUpper) {
     this.fs.copyTpl(
       this.templatePath("XObjClass.js"),
-      this.destinationPath(`${defNameUpper}ObjClass` + `.js`),
+      this.destinationPath(
+        `src/Widgets/${defNameUpper}/${defNameUpper}ObjClass.js`
+      ),
       { name: defaultName, nameUpper: defNameUpper }
     );
   }
@@ -71,7 +78,9 @@ module.exports = class extends Generator {
   _writeYObjClass(defaultName, defNameUpper) {
     this.fs.copyTpl(
       this.templatePath("YObjClass.js"),
-      this.destinationPath(`${defNameUpper}ObjClass` + `.js`),
+      this.destinationPath(
+        `src/Widgets/${defNameUpper}/${defNameUpper}ObjClass.js`
+      ),
       { name: defaultName, nameUpper: defNameUpper }
     );
   }

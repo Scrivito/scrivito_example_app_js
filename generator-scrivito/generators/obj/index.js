@@ -27,10 +27,11 @@ module.exports = class extends Generator {
           this._writeObjComponent(defaultName, defNameUpper);
           this._writeXObjConfig(defaultName, defNameUpper);
           this._writeXObjClass(defaultName, defNameUpper);
-
+          break;
         case "Generate an Obj without a react component (e.g. like a download)":
           this._writeYObjConfig(defaultName, defNameUpper);
           this._writeYObjClass(defaultName, defNameUpper);
+          break;
       }
     });
   }

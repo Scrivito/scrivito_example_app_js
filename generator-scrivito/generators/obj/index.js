@@ -39,7 +39,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("XObjcomponent.js"),
       this.destinationPath(
-        `src/Obj/${defNameUpper}/${defNameUpper}Component.js`
+        `src/Objs/${defNameUpper}/${defNameUpper}Component.js`
       ),
       { name: defaultName, nameUpper: defNameUpper }
     );
@@ -49,7 +49,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("XEditingConfig.js"),
       this.destinationPath(
-        `src/Widgets/${defNameUpper}/${defNameUpper}EditingConfig.js`
+        `src/Objs/${defNameUpper}/${defNameUpper}EditingConfig.js`
       ),
       { name: defaultName, nameUpper: defNameUpper }
     );
@@ -59,7 +59,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("YEditingConfig.js"),
       this.destinationPath(
-        `src/Widgets/${defNameUpper}/${defNameUpper}EditingConfig.js`
+        `src/Objs/${defNameUpper}/${defNameUpper}EditingConfig.js`
       ),
       { name: defaultName, nameUpper: defNameUpper }
     );
@@ -69,7 +69,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("XObjClass.js"),
       this.destinationPath(
-        `src/Widgets/${defNameUpper}/${defNameUpper}ObjClass.js`
+        `src/Objs/${defNameUpper}/${defNameUpper}ObjClass.js`
       ),
       { name: defaultName, nameUpper: defNameUpper }
     );
@@ -79,7 +79,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("YObjClass.js"),
       this.destinationPath(
-        `src/Widgets/${defNameUpper}/${defNameUpper}ObjClass.js`
+        `src/Objs/${defNameUpper}/${defNameUpper}ObjClass.js`
       ),
       { name: defaultName, nameUpper: defNameUpper }
     );

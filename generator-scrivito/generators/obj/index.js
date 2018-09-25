@@ -1,5 +1,4 @@
 const Generator = require("yeoman-generator");
-const capitalizeFirstLetter = require("../../utils/capitalizeFirstLetter");
 
 module.exports = class extends Generator {
   start() {

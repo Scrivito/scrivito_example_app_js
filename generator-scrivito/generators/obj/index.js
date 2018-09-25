@@ -6,7 +6,7 @@ module.exports = class extends Generator {
     this.prompt([
       {
         type: "input",
-        name: "nameObj",
+        name: "objClassName",
         message: "Enter the name of the Obj (e.g. MyPage):",
       },
       {
@@ -19,18 +19,18 @@ module.exports = class extends Generator {
         ],
       },
     ]).then(answers => {
-      const defaultName = answers.nameObj;
-      const defNameUpper = capitalizeFirstLetter(defaultName);
+      const objClassName = answers.objClassName;
+      const defNameUpper = capitalizeFirstLetter(objClassName);
 
       switch (answers.type) {
         case "Generate an Obj with a react component (default)":
-          this._writeXObjComponent(defaultName, defNameUpper);
-          this._writeXObjConfig(defaultName, defNameUpper);
-          this._writeXObjClass(defaultName, defNameUpper);
+          this._writeXObjComponent(objClassName, defNameUpper);
+          this._writeXObjConfig(objClassName, defNameUpper);
+          this._writeXObjClass(objClassName, defNameUpper);
           break;
         case "Generate an Obj without a react component (e.g. like a download)":
-          this._writeYObjConfig(defaultName, defNameUpper);
-          this._writeYObjClass(defaultName, defNameUpper);
+          this._writeYObjConfig(objClassName, defNameUpper);
+          this._writeYObjClass(objClassName, defNameUpper);
           break;
       }
     });

@@ -12,7 +12,7 @@ module.exports = class extends Generator {
       const defNameUpper = capitalizeFirstLetter(defaultName);
       const defNameUpperWidget = `${defNameUpper}Widget`;
       this._writeWidgetComponent(defaultName, defNameUpper, defNameUpperWidget);
-      this._writeWidgetConfig(defaultName, defNameUpper, defNameUpperWidget);
+      this._writeWidgetEditingConfig(defaultName, defNameUpper, defNameUpperWidget);
       this._writeWidgetClass(defaultName, defNameUpper, defNameUpperWidget);
     });
   }
@@ -31,7 +31,7 @@ module.exports = class extends Generator {
     );
   }
 
-  _writeWidgetConfig(defaultName, defNameUpper, defNameUpperWidget) {
+  _writeWidgetEditingConfig(defaultName, defNameUpper, defNameUpperWidget) {
     this.fs.copyTpl(
       this.templatePath("XWidgetEditingConfig.js"),
       this.destinationPath(

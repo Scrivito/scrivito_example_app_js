@@ -7,7 +7,7 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "nameObj",
-        message: "Enter the name of the Obj: ",
+        message: "Enter the name of the Obj (e.g. MyPage):",
       },
       {
         type: "list",

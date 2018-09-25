@@ -20,69 +20,68 @@ module.exports = class extends Generator {
       },
     ]).then(answers => {
       const objClassName = answers.objClassName;
-      const defNameUpper = capitalizeFirstLetter(objClassName);
 
       switch (answers.type) {
         case "Generate an Obj with a react component (default)":
-          this._writeXObjComponent(objClassName, defNameUpper);
-          this._writeXObjConfig(objClassName, defNameUpper);
-          this._writeXObjClass(objClassName, defNameUpper);
+          this._writeXObjComponent(objClassName);
+          this._writeXEditingConfig(objClassName);
+          this._writeXObjClass(objClassName);
           break;
         case "Generate an Obj without a react component (e.g. like a download)":
-          this._writeYObjConfig(objClassName, defNameUpper);
-          this._writeYObjClass(objClassName, defNameUpper);
+          this._writeYEditingConfig(objClassName);
+          this._writeYObjClass(objClassName);
           break;
       }
     });
   }
 
-  _writeXObjComponent(defaultName, defNameUpper) {
+  _writeXObjComponent(objClassName) {
     this.fs.copyTpl(
       this.templatePath("XObjComponent.js"),
       this.destinationPath(
-        `src/Objs/${defNameUpper}/${defNameUpper}Component.js`
+        `src/Objs/${objClassName}/${objClassName}Component.js`
       ),
-      { name: defaultName, nameUpper: defNameUpper }
+      { objClassName }
     );
   }
 
-  _writeXObjConfig(defaultName, defNameUpper) {
+  _writeXEditingConfig(objClassName) {
     this.fs.copyTpl(
       this.templatePath("XEditingConfig.js"),
       this.destinationPath(
-        `src/Objs/${defNameUpper}/${defNameUpper}EditingConfig.js`
+        `src/Objs/${objClassName}/${objClassName}EditingConfig.js`
       ),
-      { name: defaultName, nameUpper: defNameUpper }
+      { objClassName }
     );
   }
 
-  _writeYObjConfig(defaultName, defNameUpper) {
+  _writeYEditingConfig(objClassName) {
     this.fs.copyTpl(
       this.templatePath("YEditingConfig.js"),
       this.destinationPath(
-        `src/Objs/${defNameUpper}/${defNameUpper}EditingConfig.js`
+        `src/Objs/${objClassName}/${objClassName}EditingConfig.js`
       ),
-      { name: defaultName, nameUpper: defNameUpper }
+      { objClassName }
     );
   }
 
-  _writeXObjClass(defaultName, defNameUpper) {
+  _writeXObjClass(objClassName) {
     this.fs.copyTpl(
       this.templatePath("XObjClass.js"),
       this.destinationPath(
-        `src/Objs/${defNameUpper}/${defNameUpper}ObjClass.js`
+        `src/Objs/${objClassName}/${objClassName}ObjClass.js`
       ),
-      { name: defaultName, nameUpper: defNameUpper }
+      { objClassName }
     );
   }
 
-  _writeYObjClass(defaultName, defNameUpper) {
+  _writeYObjClass(objClassName) {
     this.fs.copyTpl(
       this.templatePath("YObjClass.js"),
       this.destinationPath(
-        `src/Objs/${defNameUpper}/${defNameUpper}ObjClass.js`
+        `src/Objs/${objClassName}/${objClassName}ObjClass.js`
       ),
-      { name: defaultName, nameUpper: defNameUpper }
+      { objClassName }
     );
   }
 };

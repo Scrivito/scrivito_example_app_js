@@ -24,7 +24,7 @@ module.exports = class extends Generator {
 
       switch (answers.type) {
         case "Generate an Obj with a react component (default)":
-          this._writeObjComponent(defaultName, defNameUpper);
+          this._writeXObjComponent(defaultName, defNameUpper);
           this._writeXObjConfig(defaultName, defNameUpper);
           this._writeXObjClass(defaultName, defNameUpper);
           break;
@@ -36,7 +36,7 @@ module.exports = class extends Generator {
     });
   }
 
-  _writeObjComponent(defaultName, defNameUpper) {
+  _writeXObjComponent(defaultName, defNameUpper) {
     this.fs.copyTpl(
       this.templatePath("XObjcomponent.js"),
       this.destinationPath(

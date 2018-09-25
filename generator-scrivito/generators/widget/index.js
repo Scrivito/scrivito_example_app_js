@@ -6,7 +6,7 @@ module.exports = class extends Generator {
     this.prompt({
       type: "input",
       name: "nameWidget",
-      message: "Enter a name of the Widget: ",
+      message: "Enter a name of the Widget:",
     }).then(answers => {
       const defaultName = answers.nameWidget;
       const defNameUpper = capitalizeFirstLetter(defaultName);

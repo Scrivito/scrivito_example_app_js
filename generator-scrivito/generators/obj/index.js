@@ -38,7 +38,7 @@ module.exports = class extends Generator {
 
   _writeXObjComponent(defaultName, defNameUpper) {
     this.fs.copyTpl(
-      this.templatePath("XObjcomponent.js"),
+      this.templatePath("XObjComponent.js"),
       this.destinationPath(
         `src/Objs/${defNameUpper}/${defNameUpper}Component.js`
       ),

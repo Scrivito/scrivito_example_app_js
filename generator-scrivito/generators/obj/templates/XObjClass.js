@@ -2,7 +2,7 @@ import * as Scrivito from "scrivito";
 import { registerTextExtract } from "../../utils/textExtractRegistry";
 import metaDataAttributes from "../_metaDataAttributes";
 
-const <%= nameUpper %> = Scrivito.provideObjClass("<%= nameUpper %>", {
+const <%= objClassName %> = Scrivito.provideObjClass("<%= objClassName %>", {
   attributes: {
     title: "string",
     body: ["widgetlist", { only: "SectionWidget" }],
@@ -10,6 +10,6 @@ const <%= nameUpper %> = Scrivito.provideObjClass("<%= nameUpper %>", {
   },
 });
 
-registerTextExtract("<%= nameUpper %>", [{ attribute: "body", type: "widgetlist" }]);
+registerTextExtract("<%= objClassName %>", [{ attribute: "body", type: "widgetlist" }]);
 
-export default <%= nameUpper %>;
+export default <%= objClassName %>;

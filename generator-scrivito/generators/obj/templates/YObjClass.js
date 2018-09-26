@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
 import { registerTextExtract } from "../../utils/textExtractRegistry";
 
-const <%= nameUpper %> = Scrivito.provideObjClass("<%= nameUpper %>", {
+const <%= objClassName %> = Scrivito.provideObjClass("<%= objClassName %>", {
   attributes: {
     blob: "binary",
     tags: "stringlist",
@@ -9,6 +9,6 @@ const <%= nameUpper %> = Scrivito.provideObjClass("<%= nameUpper %>", {
   },
 });
 
-registerTextExtract("<%= nameUpper %>", [{ attribute: "text", type: "metadata" }]);
+registerTextExtract("<%= objClassName %>", [{ attribute: "text", type: "metadata" }]);
 
-export default <%= nameUpper %>;
+export default <%= objClassName %>;

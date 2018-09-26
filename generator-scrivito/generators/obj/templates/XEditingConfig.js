@@ -5,8 +5,8 @@ import {
   metaDataPropertiesGroup,
 } from "../_metaDataEditingConfig";
 
-Scrivito.provideEditingConfig("<%= nameUpper %>", {
-  title: "<%= nameUpper %>",
+Scrivito.provideEditingConfig("<%= objClassName %>", {
+  title: "<%= objClassName %>",
   attributes: {
     title: {
       title: "Name",

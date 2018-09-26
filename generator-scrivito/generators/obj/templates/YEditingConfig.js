@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-Scrivito.provideEditingConfig("<%= nameUpper %>", {
+Scrivito.provideEditingConfig("<%= objClassName %>", {
   attributes: {
     tags: {
       title: "Tags",

@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
 
 Scrivito.provideEditingConfig("<%= nameUpperWidget %>", {
-  title: "<%= nameUpper %>",
+  title: "<%= widgetClassName %>",
   initialContent: {
     headline: "Lorem Ipsum",
   },

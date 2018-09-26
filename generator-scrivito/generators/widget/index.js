@@ -5,55 +5,51 @@ module.exports = class extends Generator {
   start() {
     this.prompt({
       type: "input",
-      name: "nameWidget",
+      name: "widgetClassName",
       message: "Enter a name of the Widget (e.g. MyWidget):",
     }).then(answers => {
-      const defaultName = answers.nameWidget;
-      const defNameUpper = capitalizeFirstLetter(defaultName);
-      const defNameUpperWidget = `${defNameUpper}Widget`;
-      this._writeWidgetComponent(defaultName, defNameUpper, defNameUpperWidget);
-      this._writeWidgetEditingConfig(defaultName, defNameUpper, defNameUpperWidget);
-      this._writeWidgetClass(defaultName, defNameUpper, defNameUpperWidget);
+      const widgetClassName = answers.widgetClassName;
+      const defNameUpperWidget = `${widgetClassName}Widget`;
+      this._writeWidgetComponent(widgetClassName, defNameUpperWidget);
+      this._writeWidgetEditingConfig(widgetClassName, defNameUpperWidget);
+      this._writeWidgetClass(widgetClassName, defNameUpperWidget);
     });
   }
 
-  _writeWidgetComponent(defaultName, defNameUpper, defNameUpperWidget) {
+  _writeWidgetComponent(widgetClassName, defNameUpperWidget) {
     this.fs.copyTpl(
       this.templatePath("XWidgetComponent.js"),
       this.destinationPath(
-        `src/Widgets/${defNameUpper}/${defNameUpper}WidgetComponent.js`
+        `src/Widgets/${defNameUpperWidget}/${widgetClassName}WidgetComponent.js`
       ),
       {
-        name: defaultName,
-        nameUpper: defNameUpper,
+        widgetClassName,
         nameUpperWidget: defNameUpperWidget,
       }
     );
   }
 
-  _writeWidgetEditingConfig(defaultName, defNameUpper, defNameUpperWidget) {
+  _writeWidgetEditingConfig(widgetClassName, defNameUpperWidget) {
     this.fs.copyTpl(
       this.templatePath("XWidgetEditingConfig.js"),
       this.destinationPath(
-        `src/Widgets/${defNameUpper}/${defNameUpper}WidgetEditingConfig.js`
+        `src/Widgets/${defNameUpperWidget}/${widgetClassName}WidgetEditingConfig.js`
       ),
       {
-        name: defaultName,
-        nameUpper: defNameUpper,
+        widgetClassName,
         nameUpperWidget: defNameUpperWidget,
       }
     );
   }
 
-  _writeWidgetClass(defaultName, defNameUpper, defNameUpperWidget) {
+  _writeWidgetClass(widgetClassName, defNameUpperWidget) {
     this.fs.copyTpl(
       this.templatePath("XWidgetClass.js"),
       this.destinationPath(
-        `src/Widgets/${defNameUpper}/${defNameUpper}WidgetClass.js`
+        `src/Widgets/${defNameUpperWidget}/${widgetClassName}WidgetClass.js`
       ),
       {
-        name: defaultName,
-        nameUpper: defNameUpper,
+        widgetClassName,
         nameUpperWidget: defNameUpperWidget,
       }
     );

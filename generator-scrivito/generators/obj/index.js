@@ -36,7 +36,7 @@ module.exports = class extends Generator {
 
   _writeXObjComponent(objClassName) {
     this.fs.copyTpl(
-      this.templatePath("XObjComponent.js"),
+      this.templatePath("XObjComponent.js.ejs"),
       this.destinationPath(
         `src/Objs/${objClassName}/${objClassName}Component.js`
       ),
@@ -46,7 +46,7 @@ module.exports = class extends Generator {
 
   _writeXEditingConfig(objClassName) {
     this.fs.copyTpl(
-      this.templatePath("XEditingConfig.js"),
+      this.templatePath("XEditingConfig.js.ejs"),
       this.destinationPath(
         `src/Objs/${objClassName}/${objClassName}EditingConfig.js`
       ),
@@ -56,7 +56,7 @@ module.exports = class extends Generator {
 
   _writeYEditingConfig(objClassName) {
     this.fs.copyTpl(
-      this.templatePath("YEditingConfig.js"),
+      this.templatePath("YEditingConfig.js.ejs"),
       this.destinationPath(
         `src/Objs/${objClassName}/${objClassName}EditingConfig.js`
       ),
@@ -66,7 +66,7 @@ module.exports = class extends Generator {
 
   _writeXObjClass(objClassName) {
     this.fs.copyTpl(
-      this.templatePath("XObjClass.js"),
+      this.templatePath("XObjClass.js.ejs"),
       this.destinationPath(
         `src/Objs/${objClassName}/${objClassName}ObjClass.js`
       ),
@@ -76,7 +76,7 @@ module.exports = class extends Generator {
 
   _writeYObjClass(objClassName) {
     this.fs.copyTpl(
-      this.templatePath("YObjClass.js"),
+      this.templatePath("YObjClass.js.ejs"),
       this.destinationPath(
         `src/Objs/${objClassName}/${objClassName}ObjClass.js`
       ),

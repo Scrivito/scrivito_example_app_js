@@ -20,7 +20,7 @@ module.exports = class extends Generator {
 
   _writeWidgetComponent(widgetClassName, humanFriendlyName) {
     this.fs.copyTpl(
-      this.templatePath("XWidgetComponent.js"),
+      this.templatePath("XWidgetComponent.js.ejs"),
       this.destinationPath(
         `src/Widgets/${widgetClassName}/${widgetClassName}Component.js`
       ),
@@ -33,7 +33,7 @@ module.exports = class extends Generator {
 
   _writeWidgetEditingConfig(widgetClassName, humanFriendlyName) {
     this.fs.copyTpl(
-      this.templatePath("XWidgetEditingConfig.js"),
+      this.templatePath("XWidgetEditingConfig.js.ejs"),
       this.destinationPath(
         `src/Widgets/${widgetClassName}/${widgetClassName}EditingConfig.js`
       ),
@@ -46,7 +46,7 @@ module.exports = class extends Generator {
 
   _writeWidgetClass(widgetClassName, humanFriendlyName) {
     this.fs.copyTpl(
-      this.templatePath("XWidgetClass.js"),
+      this.templatePath("XWidgetClass.js.ejs"),
       this.destinationPath(
         `src/Widgets/${widgetClassName}/${widgetClassName}Class.js`
       ),

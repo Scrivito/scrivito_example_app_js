@@ -8,11 +8,13 @@ import {
 Scrivito.provideEditingConfig("<%= objClassName %>", {
   title: "<%= objClassName %>",
   attributes: {
+    ...metaDataEditingConfigAttributes,
     title: {
-      title: "Name",
+      title: "Title",
+      description: "Limit to 55 characters.",
     },
   },
-  properties: ["title", "description", "image"],
+  properties: ["title"],
   propertiesGroups: [metaDataPropertiesGroup],
   initialContent: {
     ...metaDataInitialContent,

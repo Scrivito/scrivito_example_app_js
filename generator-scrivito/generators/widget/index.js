@@ -1,56 +1,58 @@
 const Generator = require("yeoman-generator");
-const capitalizeFirstLetter = require("../../utils/capitalizeFirstLetter");
+const lodash = require("lodash");
 
 module.exports = class extends Generator {
   start() {
     this.prompt({
       type: "input",
       name: "widgetClassName",
-      message: "Enter a name of the Widget (e.g. MyWidget):",
+      message: "Enter a name of the Widget (e.g. MyImageWidget):",
     }).then(answers => {
       const widgetClassName = answers.widgetClassName;
-      const defNameUpperWidget = `${widgetClassName}Widget`;
-      this._writeWidgetComponent(widgetClassName, defNameUpperWidget);
-      this._writeWidgetEditingConfig(widgetClassName, defNameUpperWidget);
-      this._writeWidgetClass(widgetClassName, defNameUpperWidget);
+      const humanFriendlyName = lodash.startCase(
+        widgetClassName.replace(/Widget$/, "")
+      );
+      this._writeWidgetComponent(widgetClassName, humanFriendlyName);
+      this._writeWidgetEditingConfig(widgetClassName, humanFriendlyName);
+      this._writeWidgetClass(widgetClassName, humanFriendlyName);
     });
   }
 
-  _writeWidgetComponent(widgetClassName, defNameUpperWidget) {
+  _writeWidgetComponent(widgetClassName, humanFriendlyName) {
     this.fs.copyTpl(
       this.templatePath("XWidgetComponent.js"),
       this.destinationPath(
-        `src/Widgets/${defNameUpperWidget}/${widgetClassName}WidgetComponent.js`
+        `src/Widgets/${widgetClassName}/${widgetClassName}Component.js`
       ),
       {
         widgetClassName,
-        nameUpperWidget: defNameUpperWidget,
+        humanFriendlyName,
       }
     );
   }
 
-  _writeWidgetEditingConfig(widgetClassName, defNameUpperWidget) {
+  _writeWidgetEditingConfig(widgetClassName, humanFriendlyName) {
     this.fs.copyTpl(
       this.templatePath("XWidgetEditingConfig.js"),
       this.destinationPath(
-        `src/Widgets/${defNameUpperWidget}/${widgetClassName}WidgetEditingConfig.js`
+        `src/Widgets/${widgetClassName}/${widgetClassName}EditingConfig.js`
       ),
       {
         widgetClassName,
-        nameUpperWidget: defNameUpperWidget,
+        humanFriendlyName,
       }
     );
   }
 
-  _writeWidgetClass(widgetClassName, defNameUpperWidget) {
+  _writeWidgetClass(widgetClassName, humanFriendlyName) {
     this.fs.copyTpl(
       this.templatePath("XWidgetClass.js"),
       this.destinationPath(
-        `src/Widgets/${defNameUpperWidget}/${widgetClassName}WidgetClass.js`
+        `src/Widgets/${widgetClassName}/${widgetClassName}Class.js`
       ),
       {
         widgetClassName,
-        nameUpperWidget: defNameUpperWidget,
+        humanFriendlyName,
       }
     );
   }

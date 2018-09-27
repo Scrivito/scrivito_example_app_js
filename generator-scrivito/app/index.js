@@ -10,7 +10,7 @@ module.exports = class extends Generator {
     this.prompt({
       type: "list",
       name: "type",
-      message: "What do you want to generate?",
+      message: "Welcome to the Scrivito Obj/Widget generator",
       choices: ["Generate a new Obj", "Generate a new Widget"],
     }).then(answers => {
       if (answers.type === "Generate a new Widget") {

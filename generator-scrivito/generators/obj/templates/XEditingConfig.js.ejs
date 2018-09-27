@@ -1,4 +1,6 @@
 import * as Scrivito from "scrivito";
+import HeadlineWidget from "../../Widgets/HeadlineWidget/HeadlineWidgetClass";
+import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
   metaDataEditingConfigAttributes,
   metaDataInitialContent,
@@ -17,6 +19,11 @@ Scrivito.provideEditingConfig("<%= objClassName %>", {
   properties: ["title"],
   propertiesGroups: [metaDataPropertiesGroup],
   initialContent: {
+    body: [
+     new SectionWidget({
+      content: [new HeadlineWidget({ style: "h1" })],
+     }),
+    ],
     ...metaDataInitialContent,
   },
 });

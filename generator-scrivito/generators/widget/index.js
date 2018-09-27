@@ -12,22 +12,19 @@ module.exports = class extends Generator {
       const humanFriendlyName = lodash.startCase(
         widgetClassName.replace(/Widget$/, "")
       );
-      this._writeWidgetComponent(widgetClassName, humanFriendlyName);
+      this._writeWidgetComponent(widgetClassName);
       this._writeWidgetEditingConfig(widgetClassName, humanFriendlyName);
-      this._writeWidgetClass(widgetClassName, humanFriendlyName);
+      this._writeWidgetClass(widgetClassName);
     });
   }
 
-  _writeWidgetComponent(widgetClassName, humanFriendlyName) {
+  _writeWidgetComponent(widgetClassName) {
     this.fs.copyTpl(
       this.templatePath("XWidgetComponent.js.ejs"),
       this.destinationPath(
         `src/Widgets/${widgetClassName}/${widgetClassName}Component.js`
       ),
-      {
-        widgetClassName,
-        humanFriendlyName,
-      }
+      { widgetClassName }
     );
   }
 
@@ -44,16 +41,13 @@ module.exports = class extends Generator {
     );
   }
 
-  _writeWidgetClass(widgetClassName, humanFriendlyName) {
+  _writeWidgetClass(widgetClassName) {
     this.fs.copyTpl(
       this.templatePath("XWidgetClass.js.ejs"),
       this.destinationPath(
         `src/Widgets/${widgetClassName}/${widgetClassName}Class.js`
       ),
-      {
-        widgetClassName,
-        humanFriendlyName,
-      }
+      { widgetClassName }
     );
   }
 };

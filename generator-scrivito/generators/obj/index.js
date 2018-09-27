@@ -26,13 +26,13 @@ module.exports = class extends Generator {
     );
   }
 
-  _writeXEditingConfig(objClassName) {
+  _writeXEditingConfig(objClassName, humanFriendlyName) {
     this.fs.copyTpl(
       this.templatePath("XEditingConfig.js.ejs"),
       this.destinationPath(
         `src/Objs/${objClassName}/${objClassName}EditingConfig.js`
       ),
-      { objClassName }
+      { objClassName, humanFriendlyName }
     );
   }
 

@@ -9,45 +9,33 @@ module.exports = class extends Generator {
       message: "Enter a name of the Widget (e.g. MyImageWidget):",
     }).then(answers => {
       const widgetClassName = answers.widgetClassName;
+      const folder = `src/Widgets/${widgetClassName}`;
       const humanFriendlyName = lodash.startCase(
         widgetClassName.replace(/Widget$/, "")
       );
-      this._writeWidgetComponent(widgetClassName);
-      this._writeWidgetEditingConfig(widgetClassName, humanFriendlyName);
-      this._writeWidgetClass(widgetClassName);
+      this._generateFile(
+        "XWidgetComponent.js.ejs",
+        `${folder}/${widgetClassName}Component.js`,
+        { widgetClassName }
+      );
+      this._generateFile(
+        "XWidgetEditingConfig.js.ejs",
+        `${folder}/${widgetClassName}EditingConfig.js`,
+        { widgetClassName, humanFriendlyName }
+      );
+      this._generateFile(
+        "XWidgetClass.js.ejs",
+        `${folder}/${widgetClassName}Class.js`,
+        { widgetClassName }
+      );
     });
   }
 
-  _writeWidgetComponent(widgetClassName) {
+  _generateFile(templatePath, destinationPath, context) {
     this.fs.copyTpl(
-      this.templatePath("XWidgetComponent.js.ejs"),
-      this.destinationPath(
-        `src/Widgets/${widgetClassName}/${widgetClassName}Component.js`
-      ),
-      { widgetClassName }
-    );
-  }
-
-  _writeWidgetEditingConfig(widgetClassName, humanFriendlyName) {
-    this.fs.copyTpl(
-      this.templatePath("XWidgetEditingConfig.js.ejs"),
-      this.destinationPath(
-        `src/Widgets/${widgetClassName}/${widgetClassName}EditingConfig.js`
-      ),
-      {
-        widgetClassName,
-        humanFriendlyName,
-      }
-    );
-  }
-
-  _writeWidgetClass(widgetClassName) {
-    this.fs.copyTpl(
-      this.templatePath("XWidgetClass.js.ejs"),
-      this.destinationPath(
-        `src/Widgets/${widgetClassName}/${widgetClassName}Class.js`
-      ),
-      { widgetClassName }
+      this.templatePath(templatePath),
+      this.destinationPath(destinationPath),
+      context
     );
   }
 };

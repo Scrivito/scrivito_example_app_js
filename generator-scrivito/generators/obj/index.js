@@ -9,41 +9,29 @@ module.exports = class extends Generator {
       message: "Enter the name of the Obj (e.g. MyPage):",
     }).then(answers => {
       const objClassName = answers.objClassName;
+      const folder = `src/Objs/${objClassName}`;
       const humanFriendlyName = lodash.startCase(objClassName);
-      this._writeXObjComponent(objClassName);
-      this._writeXEditingConfig(objClassName, humanFriendlyName);
-      this._writeXObjClass(objClassName);
+      this._generateFile(
+        "XComponent.js.ejs",
+        `${folder}/${objClassName}Component.js`,
+        { objClassName }
+      );
+      this._generateFile(
+        "XEditingConfig.js.ejs",
+        `${folder}/${objClassName}EditingConfig.js`,
+        { objClassName, humanFriendlyName }
+      );
+      this._generateFile("XClass.js.ejs", `${folder}/${objClassName}Class.js`, {
+        objClassName,
+      });
     });
   }
 
-  _writeXObjComponent(objClassName) {
+  _generateFile(templatePath, destinationPath, context) {
     this.fs.copyTpl(
-      this.templatePath("XObjComponent.js.ejs"),
-      this.destinationPath(
-        `src/Objs/${objClassName}/${objClassName}Component.js`
-      ),
-      { objClassName }
+      this.templatePath(templatePath),
+      this.destinationPath(destinationPath),
+      context
     );
   }
-
-  _writeXEditingConfig(objClassName, humanFriendlyName) {
-    this.fs.copyTpl(
-      this.templatePath("XEditingConfig.js.ejs"),
-      this.destinationPath(
-        `src/Objs/${objClassName}/${objClassName}EditingConfig.js`
-      ),
-      { objClassName, humanFriendlyName }
-    );
-  }
-
-  _writeXObjClass(objClassName) {
-    this.fs.copyTpl(
-      this.templatePath("XObjClass.js.ejs"),
-      this.destinationPath(
-        `src/Objs/${objClassName}/${objClassName}ObjClass.js`
-      ),
-      { objClassName }
-    );
-  }
-
 };

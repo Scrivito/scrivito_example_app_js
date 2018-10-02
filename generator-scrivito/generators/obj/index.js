@@ -21,9 +21,13 @@ module.exports = class extends Generator {
         `${folder}/${objClassName}EditingConfig.js`,
         { objClassName, humanFriendlyName }
       );
-      this._generateFile("XClass.js.ejs", `${folder}/${objClassName}Class.js`, {
-        objClassName,
-      });
+      this._generateFile(
+        "XObjClass.js.ejs",
+        `${folder}/${objClassName}ObjClass.js`,
+        {
+          objClassName,
+        }
+      );
     });
   }
 

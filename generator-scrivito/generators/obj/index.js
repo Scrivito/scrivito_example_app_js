@@ -7,7 +7,7 @@ module.exports = class extends Generator {
     this.prompt({
       type: "input",
       name: "objClassName",
-      message: "Enter the name of the Obj (e.g. MyPage):",
+      message: "Enter the name of the Obj (e.g. FaqPage):",
     }).then(answers => {
       const objClassName = answers.objClassName;
       const folder = `src/Objs/${objClassName}`;

@@ -7,7 +7,7 @@ module.exports = class extends Generator {
     this.prompt({
       type: "input",
       name: "widgetClassName",
-      message: "Enter a name of the Widget (e.g. MyImageWidget):",
+      message: "Enter a name of the Widget (e.g. GiphyWidget):",
     }).then(answers => {
       const widgetClassName = answers.widgetClassName;
       const folder = `src/Widgets/${widgetClassName}`;

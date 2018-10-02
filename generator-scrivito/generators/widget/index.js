@@ -1,9 +1,11 @@
 const Generator = require("yeoman-generator");
 const lodash = require("lodash");
-const prettier = require("gulp-prettier");
+const gulpPrettier = require("gulp-prettier");
 
 module.exports = class extends Generator {
   start() {
+    this.registerTransformStream(gulpPrettier());
+
     this.prompt({
       type: "input",
       name: "widgetClassName",
@@ -38,6 +40,5 @@ module.exports = class extends Generator {
       this.destinationPath(destinationPath),
       context
     );
-    this.registerTransformStream(prettier());
   }
 };

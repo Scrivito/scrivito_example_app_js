@@ -15,7 +15,9 @@ class RedirectComponent extends React.Component {
         return;
       }
 
-      if (link.isInternal() && openInUi === "yes") {
+      if (link.isExternal()) {
+        window.top.location.replace(url);
+      } else if (openInUi === "yes") {
         const scrivitoUiUrl = url.replace(/(\/\/[^/]+)/, "$1/scrivito");
         window.top.location.replace(scrivitoUiUrl);
       } else {

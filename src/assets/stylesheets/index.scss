@@ -2336,6 +2336,28 @@ _:-ms-fullscreen,
   left: 20px;
 }
 
+.carousel-control-prev, .carousel-control-prev:hover  {
+  opacity: 1;
+  cursor: pointer;
+  .carousel-control-prev-icon {
+    background-image: url("../images/arrow_prev.svg");
+    height: 100px;
+    width: 50px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+  }
+}
+
+.carousel-control-next, .carousel-control-next:hover  {
+  opacity: 1;
+  cursor: pointer;
+  .carousel-control-next-icon {
+    background-image: url("../images/arrow_next.svg");
+    height: 100px;
+    width: 50px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+  }
+}
+
 /* carousel + client-wrapper
 =================================================================== */
 

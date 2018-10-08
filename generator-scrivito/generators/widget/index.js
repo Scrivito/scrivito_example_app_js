@@ -4,8 +4,6 @@ const gulpPrettier = require("gulp-prettier");
 
 module.exports = class extends Generator {
   start() {
-    this.registerTransformStream(gulpPrettier());
-
     this.prompt({
       type: "input",
       name: "widgetClassName",
@@ -31,6 +29,7 @@ module.exports = class extends Generator {
         `${folder}/${widgetClassName}Class.js`,
         { widgetClassName }
       );
+      this.registerTransformStream(gulpPrettier());
     });
   }
 

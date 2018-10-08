@@ -6,6 +6,10 @@ Scrivito.provideEditingConfig("Redirect", {
   thumbnail: redirectObjIcon,
   hideInSelectionDialogs: true,
   attributes: {
+    title: {
+      title: "Title",
+      description: "Limit to 55 characters.",
+    },
     link: {
       title: "Link",
     },
@@ -15,7 +19,7 @@ Scrivito.provideEditingConfig("Redirect", {
       values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
     },
   },
-  properties: ["link", "openInUi"],
+  properties: ["title", "link", "openInUi"],
   initialContent: {
     openInUi: "no",
   },

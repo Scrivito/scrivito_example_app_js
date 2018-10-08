@@ -26,7 +26,7 @@ Scrivito.provideComponent("YoutubeVideoWidget", ({ widget }) => {
         className="fullsize-iframe"
         frameBorder="0"
         allow="autoplay; encrypted-media"
-        allowFullScreen="true"
+        allowFullScreen
         webkitallowfullscreen="true"
         mozallowfullscreen="true"
       />

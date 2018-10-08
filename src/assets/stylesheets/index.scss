@@ -470,6 +470,16 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 }
 
+/* video background
+=================================================================== */
+.video-full-screen {
+  min-width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: -10;
+}
+
 /* titles of modules
 =================================================================== */
 
@@ -681,7 +691,10 @@ footer {
 }
 
 /* nav section adaptions */
-section.navbar-fixed { padding-top: 80px; }
+section.navbar-fixed {
+  padding-top: 80px;
+  overflow: hidden;
+}
 
 /* navbar
 =================================================================== */
@@ -2321,6 +2334,28 @@ _:-ms-fullscreen,
 .carousel-control.left .fa {
   letter-spacing: 3px;
   left: 20px;
+}
+
+.carousel-control-prev, .carousel-control-prev:hover  {
+  opacity: 1;
+  cursor: pointer;
+  .carousel-control-prev-icon {
+    background-image: url("../images/arrow_prev.svg");
+    height: 100px;
+    width: 50px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+  }
+}
+
+.carousel-control-next, .carousel-control-next:hover  {
+  opacity: 1;
+  cursor: pointer;
+  .carousel-control-next-icon {
+    background-image: url("../images/arrow_next.svg");
+    height: 100px;
+    width: 50px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+  }
 }
 
 /* carousel + client-wrapper

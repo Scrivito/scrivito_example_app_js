@@ -25,9 +25,7 @@ module.exports = class extends Generator {
       this._generateFile(
         "XObjClass.js.ejs",
         `${folder}/${objClassName}ObjClass.js`,
-        {
-          objClassName,
-        }
+        { objClassName }
       );
       this.registerTransformStream(gulpPrettier());
     });

@@ -9,7 +9,7 @@ module.exports = class extends Generator {
       name: "widgetClassName",
       message: "Enter a name of the Widget (e.g. GiphyWidget):",
     }).then(answers => {
-      const widgetClassName = answers.widgetClassName;
+      const widgetClassName = answers.widgetClassName.trim();
       const folder = `src/Widgets/${widgetClassName}`;
       const humanFriendlyName = lodash.startCase(
         widgetClassName.replace(/Widget$/, "")

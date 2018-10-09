@@ -9,7 +9,7 @@ module.exports = class extends Generator {
       name: "objClassName",
       message: "Enter the name of the Obj (e.g. FaqPage):",
     }).then(answers => {
-      const objClassName = answers.objClassName;
+      const objClassName = answers.objClassName.trim();
       const folder = `src/Objs/${objClassName}`;
       const humanFriendlyName = lodash.startCase(objClassName);
       this._generateFile(

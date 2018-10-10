@@ -1,4 +1,5 @@
 import * as Scrivito from "scrivito";
+import isVideoObj from "../../utils/isVideoObj";
 
 function currentPageNavigationOptions() {
   if (Scrivito.currentPage()) {
@@ -102,7 +103,7 @@ function searchResultsNavigationOptions(obj) {
 }
 
 function imageWithMediumHeightOrNothing(image) {
-  if (image) {
+  if (image && !isVideoObj(image)) {
     return {
       navigationStyle: "transparentDark",
       backgroundImage: image,
@@ -118,7 +119,7 @@ function imageWithMediumHeightOrNothing(image) {
 }
 
 function imageWithMediumHeightOrMinHeight(image) {
-  if (image) {
+  if (image && !isVideoObj(image)) {
     return {
       navigationStyle: "transparentDark",
       backgroundImage: image,

@@ -20,8 +20,11 @@ module.exports = class extends Generator {
         }
         return true;
       },
+      filter(answers) {
+        return answers.trim();
+      },
     }).then(answers => {
-      const widgetClassName = answers.widgetClassName.trim();
+      const widgetClassName = answers.widgetClassName;
       const folder = `src/Widgets/${widgetClassName}`;
       const humanFriendlyName = lodash.startCase(
         widgetClassName.replace(/Widget$/, "")

@@ -20,8 +20,11 @@ module.exports = class extends Generator {
         }
         return true;
       },
+      filter(answers) {
+        return answers.trim();
+      },
     }).then(answers => {
-      const objClassName = answers.objClassName.trim();
+      const objClassName = answers.objClassName;
       const folder = `src/Objs/${objClassName}`;
       const humanFriendlyName = lodash.startCase(objClassName);
       this._generateFile(

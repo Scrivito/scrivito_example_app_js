@@ -1,0 +1,29 @@
+import * as Scrivito from "scrivito";
+import HeadlineWidget from "../../Widgets/HeadlineWidget/HeadlineWidgetClass";
+import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
+import {
+  metaDataEditingConfigAttributes,
+  metaDataInitialContent,
+  metaDataPropertiesGroup,
+} from "../_metaDataEditingConfig";
+
+Scrivito.provideEditingConfig("<%= objClassName %>", {
+  title: "<%= humanFriendlyName %>",
+  attributes: {
+    ...metaDataEditingConfigAttributes,
+    title: {
+      title: "Title",
+      description: "Limit to 55 characters.",
+    },
+  },
+  properties: ["title"],
+  propertiesGroups: [metaDataPropertiesGroup],
+  initialContent: {
+    body: [
+      new SectionWidget({
+        content: [new HeadlineWidget({ style: "h1" })],
+      }),
+    ],
+    ...metaDataInitialContent,
+  },
+});

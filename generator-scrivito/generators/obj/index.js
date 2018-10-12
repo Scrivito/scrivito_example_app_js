@@ -8,6 +8,9 @@ module.exports = class extends Generator {
       type: "input",
       name: "objClassName",
       message: "Enter the name of the Obj (e.g. FaqPage):",
+      filter(input) {
+        return input.trim();
+      },
       validate(input) {
         if (input.length === 0) {
           return "A name for the object class must be provided";
@@ -19,9 +22,6 @@ module.exports = class extends Generator {
           return "The name must not contain spaces";
         }
         return true;
-      },
-      filter(input) {
-        return input.trim();
       },
     }).then(answers => {
       const objClassName = answers.objClassName;

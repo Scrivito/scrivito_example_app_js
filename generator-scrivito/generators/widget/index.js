@@ -8,6 +8,9 @@ module.exports = class extends Generator {
       type: "input",
       name: "widgetClassName",
       message: "Enter a name of the Widget (e.g. GiphyWidget):",
+      filter(input) {
+        return input.trim();
+      },
       validate(input) {
         if (input.length === 0) {
           return "A name for the widget class must be provided";
@@ -19,9 +22,6 @@ module.exports = class extends Generator {
           return "The name must not contain spaces";
         }
         return true;
-      },
-      filter(input) {
-        return input.trim();
       },
     }).then(answers => {
       const widgetClassName = answers.widgetClassName;

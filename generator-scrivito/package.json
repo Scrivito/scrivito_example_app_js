@@ -1,0 +1,23 @@
+{
+  "name": "generator-scrivito",
+  "version": "0.0.1",
+  "description": "generator for scrivito_example_app_js",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
+  },
+  "private": true,
+  "repository": {
+    "private": true
+  },
+  "dependencies": {
+    "gulp-prettier": "^2.0.0",
+    "lodash": "^4.17.11",
+    "yeoman-generator": "^3.1.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.2"
+  }
+}

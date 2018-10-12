@@ -8,20 +8,20 @@ module.exports = class extends Generator {
       type: "input",
       name: "widgetClassName",
       message: "Enter a name of the Widget (e.g. GiphyWidget):",
-      validate(answers) {
-        if (answers.length === 0) {
+      validate(input) {
+        if (input.length === 0) {
           return "A name for the widget class must be provided";
         }
-        if (answers.charAt(0) !== answers.charAt(0).toUpperCase()) {
+        if (input.charAt(0) !== input.charAt(0).toUpperCase()) {
           return "The name must start with a capital letter";
         }
-        if (answers.match(/\s/)) {
+        if (input.match(/\s/)) {
           return "The name must not contain spaces";
         }
         return true;
       },
-      filter(answers) {
-        return answers.trim();
+      filter(input) {
+        return input.trim();
       },
     }).then(answers => {
       const widgetClassName = answers.widgetClassName;

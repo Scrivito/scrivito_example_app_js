@@ -5,7 +5,8 @@ const process = require("process");
 const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const MiniCssExtract = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const ZipPlugin = require("zip-webpack-plugin");
@@ -46,7 +47,7 @@ module.exports = (env = {}) => {
     ]),
     new AddSitemapToRedirectsWebpackPlugin(),
     new ExtendCspHeadersWebpackPlugin(),
-    new MiniCssExtract({
+    new MiniCssExtractPlugin({
       filename: "[name]",
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
@@ -118,10 +119,7 @@ module.exports = (env = {}) => {
           test: /\.s?css$/,
           use: [
             {
-              loader: MiniCssExtract.loader,
-              options: {
-                minimize: isProduction,
-              },
+              loader: MiniCssExtractPlugin.loader,
             },
             "css-loader",
             "sass-loader",
@@ -147,6 +145,7 @@ module.exports = (env = {}) => {
           parallel: true,
           terserOptions: { ecma: 5 },
         }),
+        new OptimizeCSSAssetsPlugin({}),
       ],
     },
     output: {

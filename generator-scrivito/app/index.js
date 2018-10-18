@@ -11,13 +11,13 @@ module.exports = class extends Generator {
       type: "list",
       name: "type",
       message: "What do you want to generate?",
-      choices: ["Generate a new Obj class", "Generate a new Widget class"],
+      choices: ["An Obj class", "A Widget class"],
     }).then(answers => {
-      if (answers.type === "Generate a new Widget class") {
-        this.composeWith("scrivito:widget");
-      }
-      if (answers.type === "Generate a new Obj class") {
+      if (answers.type === "An Obj class") {
         this.composeWith("scrivito:obj");
+      }
+      if (answers.type === "A Widget class") {
+        this.composeWith("scrivito:widget");
       }
     });
   }

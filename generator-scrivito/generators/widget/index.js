@@ -7,7 +7,7 @@ module.exports = class extends Generator {
     this.prompt({
       type: "input",
       name: "widgetClassName",
-      message: "Enter a name of the Widget (e.g. GiphyWidget):",
+      message: "Enter the name of the new Widget class (e.g. GiphyWidget):",
       filter(input) {
         return input.trim();
       },

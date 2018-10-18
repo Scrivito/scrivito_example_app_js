@@ -7,7 +7,7 @@ module.exports = class extends Generator {
     this.prompt({
       type: "input",
       name: "objClassName",
-      message: "Enter the name of the Obj (e.g. FaqPage):",
+      message: "Enter the name of the new Obj class (e.g. FaqPage):",
       filter(input) {
         return input.trim();
       },

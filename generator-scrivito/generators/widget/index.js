@@ -30,8 +30,8 @@ module.exports = class extends Generator {
         widgetClassName.replace(/Widget$/, "")
       );
       this._generateFile(
-        "XWidgetComponent.js.ejs",
-        `${folder}/${widgetClassName}Component.js`,
+        "XWidgetClass.js.ejs",
+        `${folder}/${widgetClassName}Class.js`,
         { widgetClassName }
       );
       this._generateFile(
@@ -40,8 +40,8 @@ module.exports = class extends Generator {
         { widgetClassName, humanFriendlyName }
       );
       this._generateFile(
-        "XWidgetClass.js.ejs",
-        `${folder}/${widgetClassName}Class.js`,
+        "XWidgetComponent.js.ejs",
+        `${folder}/${widgetClassName}Component.js`,
         { widgetClassName }
       );
       this.registerTransformStream(gulpPrettier());

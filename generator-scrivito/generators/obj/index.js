@@ -7,7 +7,7 @@ module.exports = class extends Generator {
     this.prompt({
       type: "input",
       name: "objClassName",
-      message: "Enter the name of the Obj (e.g. FaqPage):",
+      message: "Enter the name of the new Obj class (e.g. FaqPage):",
       filter(input) {
         return input.trim();
       },
@@ -28,8 +28,8 @@ module.exports = class extends Generator {
       const folder = `src/Objs/${objClassName}`;
       const humanFriendlyName = lodash.startCase(objClassName);
       this._generateFile(
-        "XComponent.js.ejs",
-        `${folder}/${objClassName}Component.js`,
+        "XObjClass.js.ejs",
+        `${folder}/${objClassName}ObjClass.js`,
         { objClassName }
       );
       this._generateFile(
@@ -38,8 +38,8 @@ module.exports = class extends Generator {
         { objClassName, humanFriendlyName }
       );
       this._generateFile(
-        "XObjClass.js.ejs",
-        `${folder}/${objClassName}ObjClass.js`,
+        "XComponent.js.ejs",
+        `${folder}/${objClassName}Component.js`,
         { objClassName }
       );
       this.registerTransformStream(gulpPrettier());

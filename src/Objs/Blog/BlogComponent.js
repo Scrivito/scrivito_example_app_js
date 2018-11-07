@@ -13,7 +13,7 @@ Scrivito.provideComponent("Blog", ({ page, params }) => {
     <div>
       <TagList
         tags={tags}
-        showTags={true}
+        showTags
         setTag={navigateToBlogWithTag}
         currentTag={currentTag}
       />

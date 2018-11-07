@@ -8,7 +8,7 @@ Scrivito.provideComponent("YoutubeVideoWidget", ({ widget }) => {
 
   if (!youtubeVideoId) {
     return (
-      <InPlaceEditingPlaceholder center={true}>
+      <InPlaceEditingPlaceholder center>
         Provide a YouTube video ID in the widget properties.
       </InPlaceEditingPlaceholder>
     );
@@ -26,7 +26,7 @@ Scrivito.provideComponent("YoutubeVideoWidget", ({ widget }) => {
         className="fullsize-iframe"
         frameBorder="0"
         allow="autoplay; encrypted-media"
-        allowFullScreen="true"
+        allowFullScreen
         webkitallowfullscreen="true"
         mozallowfullscreen="true"
       />

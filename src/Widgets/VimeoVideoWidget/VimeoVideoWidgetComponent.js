@@ -8,7 +8,7 @@ Scrivito.provideComponent("VimeoVideoWidget", ({ widget }) => {
 
   if (!vimeoVideoId) {
     return (
-      <InPlaceEditingPlaceholder center={true}>
+      <InPlaceEditingPlaceholder center>
         Provide a Vimeo video ID in the widget properties.
       </InPlaceEditingPlaceholder>
     );
@@ -25,7 +25,7 @@ Scrivito.provideComponent("VimeoVideoWidget", ({ widget }) => {
         src={`https://player.vimeo.com/video/${vimeoVideoId}`}
         className="fullsize-iframe"
         frameBorder="0"
-        allowFullScreen="true"
+        allowFullScreen
         webkitallowfullscreen="true"
         mozallowfullscreen="true"
       />

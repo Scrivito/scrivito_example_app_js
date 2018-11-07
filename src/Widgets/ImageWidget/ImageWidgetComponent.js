@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+import AnimateOnReveal from "../../Components/AnimateOnReveal";
 
 Scrivito.provideComponent("ImageWidget", ({ widget }) => {
   let image = (
@@ -15,11 +16,16 @@ Scrivito.provideComponent("ImageWidget", ({ widget }) => {
     image = <Scrivito.LinkTag to={link}>{image}</Scrivito.LinkTag>;
   }
 
+  const classNames = [];
   if (["center", "right"].includes(widget.get("alignment"))) {
-    return <div className={`text-${widget.get("alignment")}`}>{image}</div>;
+    classNames.push(`text-${widget.get("alignment")}`);
   }
 
-  return image;
+  return (
+    <AnimateOnReveal animation={widget.get("animation")}>
+      <div className={classNames.join(" ")}>{image}</div>
+    </AnimateOnReveal>
+  );
 });
 
 function alternativeText(widget) {

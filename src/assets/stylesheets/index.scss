@@ -470,6 +470,16 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 }
 
+/* video background
+=================================================================== */
+.video-full-screen {
+  min-width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: -10;
+}
+
 /* titles of modules
 =================================================================== */
 
@@ -681,7 +691,10 @@ footer {
 }
 
 /* nav section adaptions */
-section.navbar-fixed { padding-top: 80px; }
+section.navbar-fixed {
+  padding-top: 80px;
+  overflow: hidden;
+}
 
 /* navbar
 =================================================================== */
@@ -2323,6 +2336,28 @@ _:-ms-fullscreen,
   left: 20px;
 }
 
+.carousel-control-prev, .carousel-control-prev:hover  {
+  opacity: 1;
+  cursor: pointer;
+  .carousel-control-prev-icon {
+    background-image: url("../images/arrow_prev.svg");
+    height: 100px;
+    width: 50px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+  }
+}
+
+.carousel-control-next, .carousel-control-next:hover  {
+  opacity: 1;
+  cursor: pointer;
+  .carousel-control-next-icon {
+    background-image: url("../images/arrow_next.svg");
+    height: 100px;
+    width: 50px;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+  }
+}
+
 /* carousel + client-wrapper
 =================================================================== */
 
@@ -2503,6 +2538,86 @@ _:-ms-fullscreen,
   flex: 0;
 }
 
+/* cookie box
+=================================================================== */
+
+.cookie-box {
+  width: 100%;
+  background: rgba(61, 65, 66, 0.85);
+  z-index: 1000000;
+  padding: 25px 17% 25px 17%;
+}
+
+.cookie-content {
+  color: $theme-greywhite;
+  margin-right: 20px;
+}
+
+.cookie-button {
+  margin: 0;
+  height: 50px;
+}
+
+.cookie-box-title {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.cookie-box-link {
+  font-weight: 700;
+  text-decoration: underline;
+  margin-left: 5px;
+}
+
+.cookie-box-content {
+  font-size: 14px;
+}
+
+img.cookie-img {
+  margin: 0;
+  opacity: 0.8;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.cookie-img-box {
+  margin-right: 1rem;
+}
+
+@media (max-width: $screen-md-max) {
+  .cookie-box {
+    padding: 25px 3.5vw;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .cookie-img-box {
+    width: 77px;
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .cookie-img-box {
+    display: none;
+  }
+  img.cookie-img {
+    display: none;
+  }
+  .cookie-content {
+    margin: 0;
+  }
+  .cookie-button {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .cookie-box {
+    padding: 20px;
+  }
+}
 /* loader
 =================================================================== */
 

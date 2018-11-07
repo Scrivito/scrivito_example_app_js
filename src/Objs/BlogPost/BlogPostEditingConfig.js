@@ -36,5 +36,6 @@ Scrivito.provideEditingConfig("BlogPost", {
     ...metaDataInitialContent,
     body: [new SectionWidget({})],
     publishedAt: () => new Date(),
+    title: "Lorem Ipsum",
   },
 });

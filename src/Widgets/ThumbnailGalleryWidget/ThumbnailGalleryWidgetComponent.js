@@ -71,7 +71,7 @@ class ThumbnailGalleryComponent extends React.Component {
 
     if (!images.length) {
       return (
-        <InPlaceEditingPlaceholder center={true}>
+        <InPlaceEditingPlaceholder center>
           Select images in the widget properties.
         </InPlaceEditingPlaceholder>
       );

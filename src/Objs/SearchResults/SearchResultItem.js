@@ -4,16 +4,16 @@ import fromNow from "moment-from-now";
 import Highlighter from "react-highlight-words";
 import { truncate } from "lodash-es";
 import { textExtractFromObj } from "../../utils/textExtract";
+import isVideoObj from "../../utils/isVideoObj";
 
 const PreviewImage = Scrivito.connect(({ item }) => {
   const image =
     item.get("navigationBackgroundImage") ||
     item.get("titleImage") ||
     item.get("image");
-  if (!image) {
+  if (!image || isVideoObj(image)) {
     return null;
   }
-
   return (
     <Scrivito.LinkTag to={item} className="result-image">
       <Scrivito.ImageTag content={image} alt={image.get("alternativeText")} />
@@ -61,7 +61,7 @@ function SearchResultItem({ resultItem, q }) {
         <Scrivito.LinkTag to={resultItem}>
           <h3 className="h3">
             <Highlighter
-              autoEscape={true}
+              autoEscape
               highlightTag="mark"
               searchWords={searchWords}
               textToHighlight={resultItem.get("title") || ""}
@@ -70,7 +70,7 @@ function SearchResultItem({ resultItem, q }) {
         </Scrivito.LinkTag>
         <p>
           <Highlighter
-            autoEscape={true}
+            autoEscape
             highlightTag="mark"
             searchWords={searchWords}
             textToHighlight={textToHighlight}

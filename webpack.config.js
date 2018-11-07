@@ -1,15 +1,17 @@
+const builder = require("content-security-policy-builder");
 const dotenv = require("dotenv");
 const path = require("path");
 const process = require("process");
 const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const ZipPlugin = require("zip-webpack-plugin");
-const AddSitemapToRedirectsWebpackPlugin = require("./add-sitemap-to-redirects-webpack-plugin");
-const ExtendCspHeadersWebpackPlugin = require("./extend-csp-headers-webpack-plugin");
+const AddSitemapToRedirectsWebpackPlugin = require("./AddSitemapToRedirectsWebpackPlugin");
+const headersCsp = require("./public/_headersCsp.json");
+const ExtendCspHeadersWebpackPlugin = require("./ExtendCspHeadersWebpackPlugin");
 
 // load ".env"
 dotenv.config();
@@ -44,7 +46,7 @@ module.exports = (env = {}) => {
     ]),
     new AddSitemapToRedirectsWebpackPlugin(),
     new ExtendCspHeadersWebpackPlugin(),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: "[name]",
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
@@ -114,19 +116,13 @@ module.exports = (env = {}) => {
         },
         {
           test: /\.s?css$/,
-          use: ExtractTextPlugin.extract({
-            use: [
-              {
-                loader: "css-loader",
-                options: {
-                  minimize: isProduction,
-                },
-              },
-              {
-                loader: "sass-loader",
-              },
-            ],
-          }),
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            "css-loader",
+            "sass-loader",
+          ],
         },
         {
           test: /\.(jpg|png|eot|svg|ttf|woff|woff2|gif|html)$/,
@@ -171,7 +167,20 @@ module.exports = (env = {}) => {
       },
       headers: {
         "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": devServerCspHeader(),
       },
     },
   };
 };
+
+function devServerCspHeader() {
+  const directives = Object.assign({}, headersCsp);
+
+  // allow 'unsafe-eval' for webpack hot code reloading
+  directives["script-src"].push("'unsafe-eval'");
+
+  // allow ws: for webpack hot code reloading
+  directives["default-src"].push("ws:");
+
+  return builder({ directives });
+}

@@ -41,7 +41,7 @@
     "mini-css-extract-plugin": "^0.4.4",
     "moment-from-now": "0.0.4",
     "node-sass": "^4.10.0",
-    "prettier": "^1.14.3",
+    "prettier": "^1.15.1",
     "progress-bar-webpack-plugin": "^1.11.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",

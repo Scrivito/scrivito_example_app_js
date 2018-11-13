@@ -22,7 +22,7 @@ Scrivito.provideEditingConfig("ImageWidget", {
     },
     link: {
       title: "Link (optional)",
-      description: "The link where this image should lead.",
+      description: "The page to open after clicking the image.",
     },
     animation: {
       title: "Animation",

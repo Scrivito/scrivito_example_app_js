@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "plugins": ["import", "prettier", "react"],
   "settings": {
     "import/resolver": "webpack",

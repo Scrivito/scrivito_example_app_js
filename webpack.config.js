@@ -18,19 +18,7 @@ dotenv.config();
 
 const buildPath = "build";
 
-module.exports = (env = {}) => {
-  // see https://github.com/webpack/webpack/issues/2537 for details
-  const isProduction = process.argv.indexOf("-p") !== -1 || env.production;
-
-  if (
-    !process.env.SCRIVITO_TENANT ||
-    process.env.SCRIVITO_TENANT === "your_scrivito_tenant_id"
-  ) {
-    throw 'Environment variable "SCRIVITO_TENANT" is not defined!' +
-      ' Check if the ".env" file with a proper SCRIVITO_TENANT is set.' +
-      ' See ".env.example" for an example.';
-  }
-
+function generatePlugins(isProduction) {
   const plugins = [
     new ProgressBarPlugin(),
     new webpack.EnvironmentPlugin({
@@ -63,6 +51,22 @@ module.exports = (env = {}) => {
     );
   } else {
     plugins.push(new webpack.SourceMapDevToolPlugin({}));
+  }
+
+  return plugins;
+}
+
+module.exports = (env = {}) => {
+  // see https://github.com/webpack/webpack/issues/2537 for details
+  const isProduction = process.argv.indexOf("-p") !== -1 || env.production;
+
+  if (
+    !process.env.SCRIVITO_TENANT ||
+    process.env.SCRIVITO_TENANT === "your_scrivito_tenant_id"
+  ) {
+    throw 'Environment variable "SCRIVITO_TENANT" is not defined!' +
+      ' Check if the ".env" file with a proper SCRIVITO_TENANT is set.' +
+      ' See ".env.example" for an example.';
   }
 
   return {
@@ -151,7 +155,7 @@ module.exports = (env = {}) => {
       filename: "[name].js",
       path: path.join(__dirname, buildPath),
     },
-    plugins,
+    plugins: generatePlugins(isProduction),
     resolve: {
       extensions: [".js"],
       modules: ["node_modules"],

@@ -18,7 +18,7 @@ dotenv.config();
 
 const buildPath = "build";
 
-function generateEntry() {
+function generateEntry(isProduction) {
   const entry = {
     index: "./index.js",
     google_analytics: "./google_analytics.js",
@@ -26,10 +26,18 @@ function generateEntry() {
     sitemap: "./sitemap.js",
     "index.css": "./assets/stylesheets/index.scss",
   };
+  if (!isProduction) {
+    entry.export_objs = "./export_objs.js";
+  }
   return entry;
 }
 
 function generatePlugins(isProduction) {
+  const ignorePublicFiles = [];
+  if (isProduction) {
+    ignorePublicFiles.push("_export_objs.html");
+  }
+
   const plugins = [
     new ProgressBarPlugin(),
     new webpack.EnvironmentPlugin({
@@ -37,7 +45,7 @@ function generatePlugins(isProduction) {
       SCRIVITO_TENANT: "",
     }),
     new CopyWebpackPlugin([
-      { from: "../public" },
+      { from: "../public", ignore: ignorePublicFiles },
       {
         from: "../node_modules/scrivito/scrivito/index.html",
         to: "scrivito/index.html",
@@ -83,7 +91,7 @@ module.exports = (env = {}) => {
   return {
     mode: isProduction ? "production" : "development",
     context: path.join(__dirname, "src"),
-    entry: generateEntry(),
+    entry: generateEntry(isProduction),
     module: {
       rules: [
         {

@@ -18,6 +18,17 @@ dotenv.config();
 
 const buildPath = "build";
 
+function generateEntry() {
+  const entry = {
+    index: "./index.js",
+    google_analytics: "./google_analytics.js",
+    scrivito_extensions: "./scrivito_extensions.js",
+    sitemap: "./sitemap.js",
+    "index.css": "./assets/stylesheets/index.scss",
+  };
+  return entry;
+}
+
 function generatePlugins(isProduction) {
   const plugins = [
     new ProgressBarPlugin(),
@@ -72,13 +83,7 @@ module.exports = (env = {}) => {
   return {
     mode: isProduction ? "production" : "development",
     context: path.join(__dirname, "src"),
-    entry: {
-      index: "./index.js",
-      google_analytics: "./google_analytics.js",
-      scrivito_extensions: "./scrivito_extensions.js",
-      sitemap: "./sitemap.js",
-      "index.css": "./assets/stylesheets/index.scss",
-    },
+    entry: generateEntry(),
     module: {
       rules: [
         {

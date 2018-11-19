@@ -32,14 +32,16 @@ function generateEntry(isProduction) {
   return entry;
 }
 
-function generatePlugins(isProduction) {
+function generatePlugins(
+  isProduction,
+  { disableProgressBarPlugin, disableReactDevtools }
+) {
   const ignorePublicFiles = [];
   if (isProduction) {
     ignorePublicFiles.push("_export_objs.html");
   }
 
   const plugins = [
-    new ProgressBarPlugin(),
     new webpack.EnvironmentPlugin({
       NODE_ENV: isProduction ? "production" : "development",
       SCRIVITO_TENANT: "",
@@ -58,6 +60,18 @@ function generatePlugins(isProduction) {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ];
+
+  if (!disableProgressBarPlugin) {
+    plugins.unshift(new ProgressBarPlugin());
+  }
+
+  if (disableReactDevtools) {
+    plugins.push(
+      new webpack.DefinePlugin({
+        __REACT_DEVTOOLS_GLOBAL_HOOK__: "({ isDisabled: true })",
+      })
+    );
+  }
 
   if (isProduction) {
     plugins.unshift(new CleanWebpackPlugin([buildPath], { verbose: false }));
@@ -168,7 +182,7 @@ module.exports = (env = {}) => {
       filename: "[name].js",
       path: path.join(__dirname, buildPath),
     },
-    plugins: generatePlugins(isProduction),
+    plugins: generatePlugins(isProduction, env),
     resolve: {
       extensions: [".js"],
       modules: ["node_modules"],

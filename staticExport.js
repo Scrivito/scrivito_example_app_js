@@ -115,7 +115,7 @@ function writeObjsToDisk(results) {
     fse.outputFileSync(`${TARGET_DIR}/${fileName}`, htmlContent);
 
     console.log(
-      `  [writeObjsToDisk] Writing ${preloadDumpFileName} to disk...`
+      `  [writeObjsToDisk] Writing /${preloadDumpFileName} to disk...`
     );
     fse.outputFileSync(
       `${TARGET_DIR}/${preloadDumpFileName}`,

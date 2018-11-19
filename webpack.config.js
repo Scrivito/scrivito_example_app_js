@@ -34,7 +34,7 @@ function generateEntry(isProduction) {
 
 function generatePlugins(
   isProduction,
-  { disableProgressBarPlugin, disableReactDevtools }
+  { disableProgressBarPlugin, disableReactDevtools, scrivitoOrigin }
 ) {
   const ignorePublicFiles = [];
   if (isProduction) {
@@ -45,6 +45,7 @@ function generatePlugins(
     new webpack.EnvironmentPlugin({
       NODE_ENV: isProduction ? "production" : "development",
       SCRIVITO_TENANT: "",
+      SCRIVITO_ORIGIN: scrivitoOrigin,
     }),
     new CopyWebpackPlugin([
       { from: "../public", ignore: ignorePublicFiles },
@@ -100,6 +101,13 @@ module.exports = (env = {}) => {
     throw 'Environment variable "SCRIVITO_TENANT" is not defined!' +
       ' Check if the ".env" file with a proper SCRIVITO_TENANT is set.' +
       ' See ".env.example" for an example.';
+  }
+
+  let scrivitoOrigin = "";
+  if (process.env.CONTEXT === "production") {
+    scrivitoOrigin = process.env.URL;
+  } else if (process.env.DEPLOY_PRIME_URL) {
+    scrivitoOrigin = process.env.DEPLOY_PRIME_URL;
   }
 
   return {
@@ -182,7 +190,7 @@ module.exports = (env = {}) => {
       filename: "[name].js",
       path: path.join(__dirname, buildPath),
     },
-    plugins: generatePlugins(isProduction, env),
+    plugins: generatePlugins(isProduction, { ...env, scrivitoOrigin }),
     resolve: {
       extensions: [".js"],
       modules: ["node_modules"],

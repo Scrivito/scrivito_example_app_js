@@ -7,8 +7,16 @@ import "./Widgets";
 import App from "./App";
 import "./config";
 
-window.prerenderReady = false;
-ReactDOM.render(<App />, document.getElementById("application"));
-Scrivito.finishLoading().then(() => {
-  window.prerenderReady = true;
-});
+function renderApp() {
+  ReactDOM.render(<App />, document.getElementById("application"));
+}
+
+if (window.preloadDump) {
+  Scrivito.preload(window.preloadDump).then(renderApp);
+} else {
+  window.prerenderReady = false;
+  renderApp();
+  Scrivito.finishLoading().then(() => {
+    window.prerenderReady = true;
+  });
+}

@@ -7,28 +7,26 @@ const TARGET_DIR = "buildPrerendered";
 async function storePrerenderedContent() {
   console.time("[storePrerenderedContent]");
 
-  console.log(`[storePrerenderedContent] Removing ${TARGET_DIR}/`);
+  log(`Removing ${TARGET_DIR}/`);
   fse.removeSync(TARGET_DIR);
 
-  console.log(`[storePrerenderedContent] Copying build/ to ${TARGET_DIR}/`);
+  log(`Copying build/ to ${TARGET_DIR}/`);
   fse.copySync("build", TARGET_DIR);
 
   let filesRemoved = 0;
   ["_prerender_content.html", "prerender_content.js"].forEach(filename => {
-    console.log(
-      `[storePrerenderedContent] ✨ Removing now obsolete file ${filename}...`
-    );
+    log(`✨ Removing now obsolete file ${filename}...`);
     fse.removeSync(`${TARGET_DIR}/${filename}`);
     filesRemoved += 1;
   });
 
-  console.log("[storePrerenderedContent] 🗄️  Starting express server...");
+  log("🗄️  Starting express server...");
   const server = await startServer();
-  console.log("[storePrerenderedContent] 🗄️  Express server started...");
+  log("🗄️  Express server started...");
 
-  console.log("[storePrerenderedContent] 🖥️️  Starting browser...");
+  log("🖥️️  Starting browser...");
   const browser = await puppeteer.launch();
-  console.log("[storePrerenderedContent] 🖥️️  Browser started");
+  log("🖥️️  Browser started");
 
   const prerenderedContent = await executeInBrowser(
     browser,
@@ -36,19 +34,17 @@ async function storePrerenderedContent() {
     () => prerenderContent()
   );
   const filesAdded = prerenderedContent.length;
-  console.log(
-    `[storePrerenderedContent] 🖥️️  Received ${filesAdded} files. Now storing...`
-  );
+  log(`🖥️️  Received ${filesAdded} files. Now storing...`);
   storeResults(prerenderedContent);
 
-  console.log("[storePrerenderedContent] 🖥️️  Closing the browser...");
+  log("🖥️️  Closing the browser...");
   await browser.close();
 
-  console.log("[storePrerenderedContent] 🗄️  Closing express server...");
+  log("🗄️  Closing express server...");
   await server.close();
 
-  console.log(
-    `[storePrerenderedContent] 📦 Added ${filesAdded} file to and` +
+  log(
+    `📦 Added ${filesAdded} file to and` +
       ` removed ${filesRemoved} files from folder ${TARGET_DIR}!`
   );
 
@@ -56,24 +52,19 @@ async function storePrerenderedContent() {
 }
 
 async function executeInBrowser(browser, url, jsCommand) {
-  console.log(`  [executeInBrowser] 🖥️️  Visiting ${url} ...`);
+  logBrowser(`Visiting ${url} ...`);
   const page = await browser.newPage();
-  page.on("console", msg =>
-    console.log("  [executeInBrowser]   🖥️️  [console]", msg.text())
-  );
+  page.on("console", msg => logBrowser("[console]", msg.text()));
   try {
     await page.goto(url);
   } catch (e) {
-    console.log(
-      `  [executeInBrowser] 🖥️️  ❌  Could not visit ${url} !` +
-        " Is a webserver running on 8080?"
-    );
+    logBrowser(`❌  Could not visit ${url}! Is a webserver running on 8080?`);
     throw e;
   }
 
-  console.log("  [executeInBrowser] 🖥️️  Executing javascript command...");
+  logBrowser("Executing javascript command...");
   const result = await page.evaluate(jsCommand);
-  console.log(`  [executeInBrowser] 🖥️️  Executed javascript command.`);
+  logBrowser("Executed javascript command.");
 
   return result;
 }
@@ -95,7 +86,15 @@ function storeResults(results) {
   });
 }
 
+function log(message, ...args) {
+  console.log(`[storePrerenderedContent] ${message}`, ...args);
+}
+
+function logBrowser(message, ...args) {
+  console.log(`  [executeInBrowser] 🖥️️  ${message}`, ...args);
+}
+
 storePrerenderedContent().catch(e => {
-  console.log("❌ An error occurred!", e);
+  log("❌ An error occurred!", e);
   process.exit(1);
 });

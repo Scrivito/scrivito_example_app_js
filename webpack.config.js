@@ -38,7 +38,7 @@ function generatePlugins(
 ) {
   const ignorePublicFiles = [];
   if (isProduction) {
-    ignorePublicFiles.push("_export_objs.html");
+    ignorePublicFiles.push("_prerender_content.html");
   }
 
   const plugins = [

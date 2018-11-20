@@ -1,5 +1,5 @@
 function prerenderContent() {
-  return new Promise((resolve, _reject) => {
+  return new Promise(resolve => {
     resolve([]);
   });
 }

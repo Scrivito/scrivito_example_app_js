@@ -1,8 +1,8 @@
-function exportObjs() {
+function prerenderContent() {
   return new Promise((resolve, _reject) => {
     resolve([]);
   });
 }
 
-// Usage: window.exportObjs().then(results => ...);
-window.exportObjs = exportObjs;
+// Usage: window.prerenderContent().then(results => ...);
+window.prerenderContent = prerenderContent;

@@ -29,7 +29,7 @@ async function storePrerenderedContent() {
   const exportedObjs = await executeInBrowser(
     browser,
     "http://localhost:8080/_export_objs.html",
-    () => exportObjs()
+    () => prerenderContent()
   );
   console.log(
     `[storePrerenderedContent] 🖥️️  Received ${exportedObjs.length} objs.`

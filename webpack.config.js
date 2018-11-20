@@ -32,7 +32,7 @@ function generateEntry(isProduction) {
   return entry;
 }
 
-function generatePlugins(isProduction, { scrivitoOrigin }) {
+function generatePlugins({ isProduction, scrivitoOrigin }) {
   const ignorePublicFiles = [];
   if (isProduction) {
     ignorePublicFiles.push("_prerender_content.html");
@@ -176,7 +176,7 @@ module.exports = (env = {}) => {
       filename: "[name].js",
       path: path.join(__dirname, buildPath),
     },
-    plugins: generatePlugins(isProduction, { ...env, scrivitoOrigin }),
+    plugins: generatePlugins({ isProduction, scrivitoOrigin }),
     resolve: {
       extensions: [".js"],
       modules: ["node_modules"],

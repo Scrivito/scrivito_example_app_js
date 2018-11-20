@@ -7,49 +7,53 @@ const webpackConfig = require("./webpack.config.js");
 
 const TARGET_DIR = "buildPrerendered";
 
-async function staticExport() {
-  console.time("[staticExport]");
+async function storePrerenderedContent() {
+  console.time("[storePrerenderedContent]");
 
-  console.log(`[staticExport] Removing ${TARGET_DIR}/`);
+  console.log(`[storePrerenderedContent] Removing ${TARGET_DIR}/`);
   fse.removeSync(TARGET_DIR);
 
-  console.log(`[staticExport] Copying build/ to ${TARGET_DIR}/`);
+  console.log(`[storePrerenderedContent] Copying build/ to ${TARGET_DIR}/`);
   fse.copySync("build", TARGET_DIR);
 
   let filesAdded = 0;
 
-  console.log("[staticExport] 🗄️  Starting webpack-dev-server...");
+  console.log("[storePrerenderedContent] 🗄️  Starting webpack-dev-server...");
   const server = await startServer();
-  console.log("[staticExport] 🗄️  webpack-dev-server started...");
+  console.log("[storePrerenderedContent] 🗄️  webpack-dev-server started...");
 
-  console.log("[staticExport] 🖥️️  Starting browser...");
+  console.log("[storePrerenderedContent] 🖥️️  Starting browser...");
   const browser = await puppeteer.launch();
-  console.log("[staticExport] 🖥️️  Browser started");
+  console.log("[storePrerenderedContent] 🖥️️  Browser started");
 
   const exportedObjs = await executeInBrowser(
     browser,
     "http://localhost:8080/_export_objs.html",
     () => exportObjs()
   );
-  console.log(`[staticExport] 🖥️️  Received ${exportedObjs.length} objs.`);
+  console.log(
+    `[storePrerenderedContent] 🖥️️  Received ${exportedObjs.length} objs.`
+  );
 
   console.log(
-    `[staticExport] Writing ${exportedObjs.length} html files to disk...`
+    `[storePrerenderedContent] Writing ${
+      exportedObjs.length
+    } html files to disk...`
   );
   writeObjsToDisk(exportedObjs);
   filesAdded += exportedObjs.length;
 
-  console.log("[staticExport] 🖥️️  Closing the browser...");
+  console.log("[storePrerenderedContent] 🖥️️  Closing the browser...");
   await browser.close();
 
-  console.log("[staticExport] 🗄️  Closing webpack-dev-server...");
+  console.log("[storePrerenderedContent] 🗄️  Closing webpack-dev-server...");
   await closeServer(server);
 
   console.log(
-    `[staticExport] 📦 Added ${filesAdded} files to files from folder ${TARGET_DIR}!`
+    `[storePrerenderedContent] 📦 Added ${filesAdded} files to files from folder ${TARGET_DIR}!`
   );
 
-  console.timeEnd("[staticExport]");
+  console.timeEnd("[storePrerenderedContent]");
 }
 
 async function executeInBrowser(browser, url, jsCommand) {
@@ -134,7 +138,7 @@ function filenameFromUrl(url) {
   return `${pathname}.html`;
 }
 
-staticExport().catch(e => {
+storePrerenderedContent().catch(e => {
   console.log("❌ An error occurred!", e);
   process.exit(1);
 });

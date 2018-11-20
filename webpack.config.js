@@ -27,7 +27,7 @@ function generateEntry(isProduction) {
     "index.css": "./assets/stylesheets/index.scss",
   };
   if (!isProduction) {
-    entry.export_objs = "./export_objs.js";
+    entry.prerender_content = "./prerender_content.js";
   }
   return entry;
 }

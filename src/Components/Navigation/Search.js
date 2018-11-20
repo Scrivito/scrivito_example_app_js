@@ -8,14 +8,9 @@ const SearchBox = Scrivito.connect(
 
       this.state = {
         q: "",
-        mounted: false,
       };
 
       this.inputRef = React.createRef();
-    }
-
-    componentDidMount() {
-      this.setState({ mounted: true });
     }
 
     componentDidUpdate() {
@@ -23,10 +18,6 @@ const SearchBox = Scrivito.connect(
     }
 
     render() {
-      if (!this.state.mounted) {
-        return null;
-      }
-
       return (
         <div className="search-box">
           <form onSubmit={e => this.handleSubmit(e)}>

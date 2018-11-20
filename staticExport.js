@@ -5,7 +5,7 @@ const Webpack = require("webpack");
 const WebpackDevServer = require("webpack-dev-server");
 const webpackConfig = require("./webpack.config.js");
 
-const TARGET_DIR = "build_static";
+const TARGET_DIR = "buildPrerendered";
 
 async function staticExport() {
   console.time("[staticExport]");

@@ -1,6 +1,6 @@
 build
 build.zip
-build_static
+buildPrerendered
 node_modules
 tmp
 .env

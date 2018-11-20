@@ -18,64 +18,6 @@ dotenv.config();
 
 const buildPath = "build";
 
-function generateEntry(isProduction) {
-  const entry = {
-    index: "./index.js",
-    google_analytics: "./google_analytics.js",
-    scrivito_extensions: "./scrivito_extensions.js",
-    sitemap: "./sitemap.js",
-    "index.css": "./assets/stylesheets/index.scss",
-  };
-  if (!isProduction) {
-    entry.prerender_content = "./prerender_content.js";
-  }
-  return entry;
-}
-
-function generatePlugins({ isProduction, scrivitoOrigin }) {
-  const ignorePublicFiles = [];
-  if (isProduction) {
-    ignorePublicFiles.push("_prerender_content.html");
-  }
-
-  const plugins = [
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: isProduction ? "production" : "development",
-      SCRIVITO_TENANT: "",
-      SCRIVITO_ORIGIN: scrivitoOrigin,
-    }),
-    new ProgressBarPlugin(),
-    new CopyWebpackPlugin([
-      { from: "../public", ignore: ignorePublicFiles },
-      {
-        from: "../node_modules/scrivito/scrivito/index.html",
-        to: "scrivito/index.html",
-      },
-    ]),
-    new AddSitemapToRedirectsWebpackPlugin(),
-    new ExtendCspHeadersWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "[name]",
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-  ];
-
-  if (isProduction) {
-    plugins.unshift(new CleanWebpackPlugin([buildPath], { verbose: false }));
-    plugins.push(
-      new ZipPlugin({
-        filename: "build.zip",
-        path: "../",
-        pathPrefix: "build/",
-      })
-    );
-  } else {
-    plugins.push(new webpack.SourceMapDevToolPlugin({}));
-  }
-
-  return plugins;
-}
-
 module.exports = (env = {}) => {
   // see https://github.com/webpack/webpack/issues/2537 for details
   const isProduction = process.argv.indexOf("-p") !== -1 || env.production;
@@ -197,6 +139,64 @@ module.exports = (env = {}) => {
     },
   };
 };
+
+function generateEntry(isProduction) {
+  const entry = {
+    index: "./index.js",
+    google_analytics: "./google_analytics.js",
+    scrivito_extensions: "./scrivito_extensions.js",
+    sitemap: "./sitemap.js",
+    "index.css": "./assets/stylesheets/index.scss",
+  };
+  if (!isProduction) {
+    entry.prerender_content = "./prerender_content.js";
+  }
+  return entry;
+}
+
+function generatePlugins({ isProduction, scrivitoOrigin }) {
+  const ignorePublicFiles = [];
+  if (isProduction) {
+    ignorePublicFiles.push("_prerender_content.html");
+  }
+
+  const plugins = [
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: isProduction ? "production" : "development",
+      SCRIVITO_TENANT: "",
+      SCRIVITO_ORIGIN: scrivitoOrigin,
+    }),
+    new ProgressBarPlugin(),
+    new CopyWebpackPlugin([
+      { from: "../public", ignore: ignorePublicFiles },
+      {
+        from: "../node_modules/scrivito/scrivito/index.html",
+        to: "scrivito/index.html",
+      },
+    ]),
+    new AddSitemapToRedirectsWebpackPlugin(),
+    new ExtendCspHeadersWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name]",
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+  ];
+
+  if (isProduction) {
+    plugins.unshift(new CleanWebpackPlugin([buildPath], { verbose: false }));
+    plugins.push(
+      new ZipPlugin({
+        filename: "build.zip",
+        path: "../",
+        pathPrefix: "build/",
+      })
+    );
+  } else {
+    plugins.push(new webpack.SourceMapDevToolPlugin({}));
+  }
+
+  return plugins;
+}
 
 function devServerCspHeader() {
   const directives = Object.assign({}, headersCsp);

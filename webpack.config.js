@@ -21,6 +21,7 @@ const buildPath = "build";
 function webpackConfig(env = {}) {
   // see https://github.com/webpack/webpack/issues/2537 for details
   const isProduction = process.argv.indexOf("-p") !== -1 || env.production;
+  const isPrerenderning = process.env.SCRIVITO_PRERENDER;
 
   if (
     !process.env.SCRIVITO_TENANT ||
@@ -41,7 +42,7 @@ function webpackConfig(env = {}) {
   return {
     mode: isProduction ? "production" : "development",
     context: path.join(__dirname, "src"),
-    entry: generateEntry(isProduction),
+    entry: generateEntry({ isPrerenderning }),
     module: {
       rules: [
         {
@@ -118,7 +119,7 @@ function webpackConfig(env = {}) {
       filename: "[name].js",
       path: path.join(__dirname, buildPath),
     },
-    plugins: generatePlugins({ isProduction, scrivitoOrigin }),
+    plugins: generatePlugins({ isProduction, isPrerenderning, scrivitoOrigin }),
     resolve: {
       extensions: [".js"],
       modules: ["node_modules"],
@@ -140,7 +141,7 @@ function webpackConfig(env = {}) {
   };
 }
 
-function generateEntry(isProduction) {
+function generateEntry({ isPrerenderning }) {
   const entry = {
     index: "./index.js",
     google_analytics: "./google_analytics.js",
@@ -148,15 +149,15 @@ function generateEntry(isProduction) {
     sitemap: "./sitemap.js",
     "index.css": "./assets/stylesheets/index.scss",
   };
-  if (!isProduction) {
+  if (isPrerenderning) {
     entry.prerender_content = "./prerender_content.js";
   }
   return entry;
 }
 
-function generatePlugins({ isProduction, scrivitoOrigin }) {
+function generatePlugins({ isProduction, isPrerenderning, scrivitoOrigin }) {
   const ignorePublicFiles = [];
-  if (isProduction) {
+  if (!isPrerenderning) {
     ignorePublicFiles.push("_prerender_content.html");
   }
 

@@ -80,11 +80,7 @@ async function executeInBrowser(browser, url, jsCommand) {
 }
 
 function startServer() {
-  const compiler = Webpack(
-    webpackConfig({
-      disableReactDevtools: true,
-    })
-  );
+  const compiler = Webpack(webpackConfig());
   const server = new WebpackDevServer(compiler, {
     ...webpackConfig.devServer,
     quiet: true,

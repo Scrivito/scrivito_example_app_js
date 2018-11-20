@@ -32,10 +32,7 @@ function generateEntry(isProduction) {
   return entry;
 }
 
-function generatePlugins(
-  isProduction,
-  { disableReactDevtools, scrivitoOrigin }
-) {
+function generatePlugins(isProduction, { scrivitoOrigin }) {
   const ignorePublicFiles = [];
   if (isProduction) {
     ignorePublicFiles.push("_prerender_content.html");
@@ -62,14 +59,6 @@ function generatePlugins(
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ];
-
-  if (disableReactDevtools) {
-    plugins.push(
-      new webpack.DefinePlugin({
-        __REACT_DEVTOOLS_GLOBAL_HOOK__: "({ isDisabled: true })",
-      })
-    );
-  }
 
   if (isProduction) {
     plugins.unshift(new CleanWebpackPlugin([buildPath], { verbose: false }));

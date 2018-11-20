@@ -1,9 +1,7 @@
+const express = require("express");
 const fse = require("fs-extra");
 const nodeUrl = require("url");
 const puppeteer = require("puppeteer");
-const Webpack = require("webpack");
-const WebpackDevServer = require("webpack-dev-server");
-const webpackConfig = require("./webpack.config.js");
 
 const TARGET_DIR = "buildPrerendered";
 
@@ -18,9 +16,9 @@ async function storePrerenderedContent() {
 
   let filesAdded = 0;
 
-  console.log("[storePrerenderedContent] 🗄️  Starting webpack-dev-server...");
+  console.log("[storePrerenderedContent] 🗄️  Starting express server...");
   const server = await startServer();
-  console.log("[storePrerenderedContent] 🗄️  webpack-dev-server started...");
+  console.log("[storePrerenderedContent] 🗄️  Express server started...");
 
   console.log("[storePrerenderedContent] 🖥️️  Starting browser...");
   const browser = await puppeteer.launch();
@@ -46,8 +44,8 @@ async function storePrerenderedContent() {
   console.log("[storePrerenderedContent] 🖥️️  Closing the browser...");
   await browser.close();
 
-  console.log("[storePrerenderedContent] 🗄️  Closing webpack-dev-server...");
-  await closeServer(server);
+  console.log("[storePrerenderedContent] 🗄️  Closing express server...");
+  await server.close();
 
   console.log(
     `[storePrerenderedContent] 📦 Added ${filesAdded} files to files from folder ${TARGET_DIR}!`
@@ -80,20 +78,12 @@ async function executeInBrowser(browser, url, jsCommand) {
 }
 
 function startServer() {
-  const compiler = Webpack(webpackConfig());
-  const server = new WebpackDevServer(compiler, {
-    ...webpackConfig.devServer,
-    quiet: true,
-  });
+  const app = express();
+  const staticMiddleware = express.static("build");
+  app.use(staticMiddleware);
 
-  return new Promise((resolve, _reject) => {
-    server.listen(8080, "localhost", () => resolve(server));
-  });
-}
-
-function closeServer(server) {
-  return new Promise((resolve, _reject) => {
-    server.close(resolve);
+  return new Promise(resolve => {
+    const server = app.listen(8080, () => resolve(server));
   });
 }
 

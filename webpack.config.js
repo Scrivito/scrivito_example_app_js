@@ -18,7 +18,7 @@ dotenv.config();
 
 const buildPath = "build";
 
-module.exports = (env = {}) => {
+function webpackConfig(env = {}) {
   // see https://github.com/webpack/webpack/issues/2537 for details
   const isProduction = process.argv.indexOf("-p") !== -1 || env.production;
 
@@ -138,7 +138,7 @@ module.exports = (env = {}) => {
       },
     },
   };
-};
+}
 
 function generateEntry(isProduction) {
   const entry = {
@@ -209,3 +209,5 @@ function devServerCspHeader() {
 
   return builder({ directives });
 }
+
+module.exports = webpackConfig;

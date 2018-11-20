@@ -18,9 +18,10 @@ dotenv.config();
 
 const buildPath = "build";
 
-module.exports = (env = {}) => {
+function webpackConfig(env = {}) {
   // see https://github.com/webpack/webpack/issues/2537 for details
   const isProduction = process.argv.indexOf("-p") !== -1 || env.production;
+  const isPrerendering = process.env.SCRIVITO_PRERENDER;
 
   if (
     !process.env.SCRIVITO_TENANT ||
@@ -31,50 +32,17 @@ module.exports = (env = {}) => {
       ' See ".env.example" for an example.';
   }
 
-  const plugins = [
-    new ProgressBarPlugin(),
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: isProduction ? "production" : "development",
-      SCRIVITO_TENANT: "",
-    }),
-    new CopyWebpackPlugin([
-      { from: "../public" },
-      {
-        from: "../node_modules/scrivito/scrivito/index.html",
-        to: "scrivito/index.html",
-      },
-    ]),
-    new AddSitemapToRedirectsWebpackPlugin(),
-    new ExtendCspHeadersWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "[name]",
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-  ];
-
-  if (isProduction) {
-    plugins.unshift(new CleanWebpackPlugin([buildPath], { verbose: false }));
-    plugins.push(
-      new ZipPlugin({
-        filename: "build.zip",
-        path: "../",
-        pathPrefix: "build/",
-      })
-    );
-  } else {
-    plugins.push(new webpack.SourceMapDevToolPlugin({}));
+  let scrivitoOrigin = "";
+  if (process.env.CONTEXT === "production") {
+    scrivitoOrigin = process.env.URL;
+  } else if (process.env.DEPLOY_PRIME_URL) {
+    scrivitoOrigin = process.env.DEPLOY_PRIME_URL;
   }
 
   return {
     mode: isProduction ? "production" : "development",
     context: path.join(__dirname, "src"),
-    entry: {
-      index: "./index.js",
-      google_analytics: "./google_analytics.js",
-      scrivito_extensions: "./scrivito_extensions.js",
-      sitemap: "./sitemap.js",
-      "index.css": "./assets/stylesheets/index.scss",
-    },
+    entry: generateEntry({ isPrerendering }),
     module: {
       rules: [
         {
@@ -151,7 +119,7 @@ module.exports = (env = {}) => {
       filename: "[name].js",
       path: path.join(__dirname, buildPath),
     },
-    plugins,
+    plugins: generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }),
     resolve: {
       extensions: [".js"],
       modules: ["node_modules"],
@@ -162,7 +130,7 @@ module.exports = (env = {}) => {
         rewrites: [
           { from: /^\/scrivito$/, to: "/scrivito/index.html" },
           { from: /^\/scrivito\//, to: "/scrivito/index.html" },
-          { from: /./, to: "/index.html" },
+          { from: /./, to: "/catch_all_index.html" },
         ],
       },
       headers: {
@@ -171,7 +139,65 @@ module.exports = (env = {}) => {
       },
     },
   };
-};
+}
+
+function generateEntry({ isPrerendering }) {
+  const entry = {
+    index: "./index.js",
+    google_analytics: "./google_analytics.js",
+    scrivito_extensions: "./scrivito_extensions.js",
+    sitemap: "./sitemap.js",
+    "index.css": "./assets/stylesheets/index.scss",
+  };
+  if (isPrerendering) {
+    entry.prerender_content = "./prerender_content.js";
+  }
+  return entry;
+}
+
+function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
+  const ignorePublicFiles = [];
+  if (!isPrerendering) {
+    ignorePublicFiles.push("_prerender_content.html");
+  }
+
+  const plugins = [
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: isProduction ? "production" : "development",
+      SCRIVITO_TENANT: "",
+      SCRIVITO_ORIGIN: scrivitoOrigin,
+    }),
+    new ProgressBarPlugin(),
+    new CopyWebpackPlugin([
+      { from: "../public", ignore: ignorePublicFiles },
+      {
+        from: "../node_modules/scrivito/scrivito/index.html",
+        to: "scrivito/index.html",
+      },
+    ]),
+    new AddSitemapToRedirectsWebpackPlugin(),
+    new ExtendCspHeadersWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name]",
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+  ];
+
+  if (isProduction) {
+    plugins.unshift(new CleanWebpackPlugin([buildPath], { verbose: false }));
+    plugins.push(
+      new ZipPlugin({
+        filename: "build.zip",
+        path: "../",
+        pathPrefix: "build/",
+      })
+    );
+  } else {
+    plugins.push(new webpack.SourceMapDevToolPlugin({}));
+  }
+
+  return plugins;
+}
 
 function devServerCspHeader() {
   const directives = Object.assign({}, headersCsp);
@@ -184,3 +210,5 @@ function devServerCspHeader() {
 
   return builder({ directives });
 }
+
+module.exports = webpackConfig;

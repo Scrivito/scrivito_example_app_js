@@ -34,7 +34,7 @@ function generateEntry(isProduction) {
 
 function generatePlugins(
   isProduction,
-  { disableProgressBarPlugin, disableReactDevtools, scrivitoOrigin }
+  { disableReactDevtools, scrivitoOrigin }
 ) {
   const ignorePublicFiles = [];
   if (isProduction) {
@@ -47,6 +47,7 @@ function generatePlugins(
       SCRIVITO_TENANT: "",
       SCRIVITO_ORIGIN: scrivitoOrigin,
     }),
+    new ProgressBarPlugin(),
     new CopyWebpackPlugin([
       { from: "../public", ignore: ignorePublicFiles },
       {
@@ -61,10 +62,6 @@ function generatePlugins(
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ];
-
-  if (!disableProgressBarPlugin) {
-    plugins.unshift(new ProgressBarPlugin());
-  }
 
   if (disableReactDevtools) {
     plugins.push(

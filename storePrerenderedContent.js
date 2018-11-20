@@ -82,7 +82,6 @@ async function executeInBrowser(browser, url, jsCommand) {
 function startServer() {
   const compiler = Webpack(
     webpackConfig({
-      disableProgressBarPlugin: true,
       disableReactDevtools: true,
     })
   );

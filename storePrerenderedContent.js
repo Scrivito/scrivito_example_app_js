@@ -13,6 +13,15 @@ async function storePrerenderedContent() {
   console.log(`[storePrerenderedContent] Copying build/ to ${TARGET_DIR}/`);
   fse.copySync("build", TARGET_DIR);
 
+  let filesRemoved = 0;
+  ["_prerender_content.html", "prerender_content.js"].forEach(filename => {
+    console.log(
+      `[storePrerenderedContent] ✨ Removing now obsolete file ${filename}...`
+    );
+    fse.removeSync(`${TARGET_DIR}/${filename}`);
+    filesRemoved += 1;
+  });
+
   console.log("[storePrerenderedContent] 🗄️  Starting express server...");
   const server = await startServer();
   console.log("[storePrerenderedContent] 🗄️  Express server started...");
@@ -39,7 +48,8 @@ async function storePrerenderedContent() {
   await server.close();
 
   console.log(
-    `[storePrerenderedContent] 📦 Added ${filesAdded} files to files from folder ${TARGET_DIR}!`
+    `[storePrerenderedContent] 📦 Added ${filesAdded} file to and` +
+      ` removed ${filesRemoved} files from folder ${TARGET_DIR}!`
   );
 
   console.timeEnd("[storePrerenderedContent]");

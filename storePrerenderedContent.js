@@ -1,6 +1,5 @@
 const express = require("express");
 const fse = require("fs-extra");
-const nodeUrl = require("url");
 const puppeteer = require("puppeteer");
 
 const TARGET_DIR = "buildPrerendered";
@@ -14,8 +13,6 @@ async function storePrerenderedContent() {
   console.log(`[storePrerenderedContent] Copying build/ to ${TARGET_DIR}/`);
   fse.copySync("build", TARGET_DIR);
 
-  let filesAdded = 0;
-
   console.log("[storePrerenderedContent] 🗄️  Starting express server...");
   const server = await startServer();
   console.log("[storePrerenderedContent] 🗄️  Express server started...");
@@ -24,22 +21,16 @@ async function storePrerenderedContent() {
   const browser = await puppeteer.launch();
   console.log("[storePrerenderedContent] 🖥️️  Browser started");
 
-  const exportedObjs = await executeInBrowser(
+  const prerenderedContent = await executeInBrowser(
     browser,
     "http://localhost:8080/_prerender_content.html",
     () => prerenderContent()
   );
+  const filesAdded = prerenderedContent.length;
   console.log(
-    `[storePrerenderedContent] 🖥️️  Received ${exportedObjs.length} objs.`
+    `[storePrerenderedContent] 🖥️️  Received ${filesAdded} files. Now storing...`
   );
-
-  console.log(
-    `[storePrerenderedContent] Writing ${
-      exportedObjs.length
-    } html files to disk...`
-  );
-  writeObjsToDisk(exportedObjs);
-  filesAdded += exportedObjs.length;
+  storeResults(prerenderedContent);
 
   console.log("[storePrerenderedContent] 🖥️️  Closing the browser...");
   await browser.close();
@@ -87,40 +78,11 @@ function startServer() {
   });
 }
 
-function writeObjsToDisk(results) {
-  results.forEach(result => {
-    const {
-      objId,
-      objUrl,
-      htmlContent,
-      preloadDumpContent,
-      preloadDumpFileName,
-    } = result;
-    const fileName = filenameFromUrl(objUrl);
-
-    console.log(
-      `  [writeObjsToDisk] Writing ${fileName} (${objId}) to disk...`
-    );
-    fse.outputFileSync(`${TARGET_DIR}/${fileName}`, htmlContent);
-
-    console.log(
-      `  [writeObjsToDisk] Writing /${preloadDumpFileName} to disk...`
-    );
-    fse.outputFileSync(
-      `${TARGET_DIR}/${preloadDumpFileName}`,
-      preloadDumpContent
-    );
+function storeResults(results) {
+  results.forEach(({ fileName, fileContent }) => {
+    console.log(`  [storeResults] Storing ${fileName}...`);
+    fse.outputFileSync(`${TARGET_DIR}/${fileName}`, fileContent);
   });
-}
-
-function filenameFromUrl(url) {
-  const uri = nodeUrl.parse(url);
-  const pathname = uri.pathname;
-  if (pathname === "/") {
-    return "/index.html";
-  }
-
-  return `${pathname}.html`;
 }
 
 storePrerenderedContent().catch(e => {

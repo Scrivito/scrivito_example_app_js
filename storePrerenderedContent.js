@@ -84,13 +84,17 @@ function storeResults(results) {
   results.forEach(({ fileName, fileContent }) => {
     const filePath = path.join(TARGET_DIR, fileName);
     if (!filePath.startsWith(`${TARGET_DIR}`)) {
-      console.log(
-        `  [storeResults] ❌ fileName "${fileName}" is invalid! Skipping file.`
+      logStoreResults(`❌ fileName "${fileName}" is invalid! Skipping file...`);
+      return;
+    }
+    if (fse.existsSync(filePath)) {
+      logStoreResults(
+        `❌ fileName "${fileName}" already exists in build! Skipping file...`
       );
       return;
     }
 
-    console.log(`  [storeResults] Storing "${fileName}"...`);
+    logStoreResults(`Storing "${fileName}"...`);
     fse.outputFileSync(filePath, fileContent);
   });
 }
@@ -101,6 +105,10 @@ function log(message, ...args) {
 
 function logBrowser(message, ...args) {
   console.log(`  [executeInBrowser] 🖥️️  ${message}`, ...args);
+}
+
+function logStoreResults(message, ...args) {
+  console.log(`  [storeResults] ${message}`, ...args);
 }
 
 storePrerenderedContent().catch(e => {

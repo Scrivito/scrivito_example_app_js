@@ -1,5 +1,6 @@
 const express = require("express");
 const fse = require("fs-extra");
+const path = require("path");
 const puppeteer = require("puppeteer");
 
 const TARGET_DIR = "buildPrerendered";
@@ -81,8 +82,16 @@ function startServer() {
 
 function storeResults(results) {
   results.forEach(({ fileName, fileContent }) => {
-    console.log(`  [storeResults] Storing ${fileName}...`);
-    fse.outputFileSync(`${TARGET_DIR}/${fileName}`, fileContent);
+    const filePath = path.join(TARGET_DIR, fileName);
+    if (!filePath.startsWith(`${TARGET_DIR}`)) {
+      console.log(
+        `  [storeResults] ❌ fileName "${fileName}" is invalid! Skipping file.`
+      );
+      return;
+    }
+
+    console.log(`  [storeResults] Storing "${fileName}"...`);
+    fse.outputFileSync(filePath, fileContent);
   });
 }
 

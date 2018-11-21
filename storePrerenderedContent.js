@@ -83,7 +83,7 @@ function startServer() {
 function storeResults(results) {
   results.forEach(({ fileName, fileContent }) => {
     const filePath = path.join(TARGET_DIR, fileName);
-    if (!filePath.startsWith(`${TARGET_DIR}`)) {
+    if (!path.normalize(filePath).startsWith(`${TARGET_DIR}`)) {
       logStoreResults(`❌ fileName "${fileName}" is invalid! Skipping file...`);
       return;
     }

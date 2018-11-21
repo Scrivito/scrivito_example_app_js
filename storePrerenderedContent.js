@@ -1,5 +1,6 @@
 const express = require("express");
 const fse = require("fs-extra");
+const path = require("path");
 const puppeteer = require("puppeteer");
 
 const TARGET_DIR = "buildPrerendered";
@@ -81,8 +82,20 @@ function startServer() {
 
 function storeResults(results) {
   results.forEach(({ fileName, fileContent }) => {
-    console.log(`  [storeResults] Storing ${fileName}...`);
-    fse.outputFileSync(`${TARGET_DIR}/${fileName}`, fileContent);
+    const filePath = path.join(TARGET_DIR, fileName);
+    if (!path.normalize(filePath).startsWith(`${TARGET_DIR}`)) {
+      logStoreResults(`❌ fileName "${fileName}" is invalid! Skipping file...`);
+      return;
+    }
+    if (fse.existsSync(filePath)) {
+      logStoreResults(
+        `❌ fileName "${fileName}" already exists in build! Skipping file...`
+      );
+      return;
+    }
+
+    logStoreResults(`Storing "${fileName}"...`);
+    fse.outputFileSync(filePath, fileContent);
   });
 }
 
@@ -92,6 +105,10 @@ function log(message, ...args) {
 
 function logBrowser(message, ...args) {
   console.log(`  [executeInBrowser] 🖥️️  ${message}`, ...args);
+}
+
+function logStoreResults(message, ...args) {
+  console.log(`  [storeResults] ${message}`, ...args);
 }
 
 storePrerenderedContent().catch(e => {

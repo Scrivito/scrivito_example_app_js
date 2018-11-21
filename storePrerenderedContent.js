@@ -34,9 +34,9 @@ async function storePrerenderedContent() {
     "http://localhost:8080/_prerender_content.html",
     () => prerenderContent()
   );
-  const filesAdded = prerenderedContent.length;
-  log(`🖥️️  Received ${filesAdded} files. Now storing...`);
-  storeResults(prerenderedContent);
+  const filesReceived = prerenderedContent.length;
+  log(`🖥️️  Received ${filesReceived} files. Now storing...`);
+  const filesAdded = storeResults(prerenderedContent);
 
   log("🖥️️  Closing the browser...");
   await browser.close();
@@ -81,6 +81,8 @@ function startServer() {
 }
 
 function storeResults(results) {
+  let filesAdded = 0;
+
   results.forEach(({ fileName, fileContent }) => {
     const filePath = path.join(TARGET_DIR, fileName);
     if (!path.normalize(filePath).startsWith(`${TARGET_DIR}`)) {
@@ -96,7 +98,10 @@ function storeResults(results) {
 
     logStoreResults(`Storing "${fileName}"...`);
     fse.outputFileSync(filePath, fileContent);
+    filesAdded += 1;
   });
+
+  return filesAdded;
 }
 
 function log(message, ...args) {

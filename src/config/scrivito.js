@@ -1,5 +1,9 @@
 import * as Scrivito from "scrivito";
 
-Scrivito.configure({
-  tenant: process.env.SCRIVITO_TENANT,
-});
+const config = { tenant: process.env.SCRIVITO_TENANT };
+
+if (process.env.SCRIVITO_ORIGIN) {
+  config.origin = process.env.SCRIVITO_ORIGIN;
+}
+
+Scrivito.configure(config);

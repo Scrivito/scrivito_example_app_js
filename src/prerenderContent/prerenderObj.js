@@ -44,7 +44,7 @@ export default async function prerenderObj(obj) {
   return [
     {
       filename: filenameFromUrl(objUrl),
-      fileContent: generateHtml({
+      content: generateHtml({
         objId,
         htmlAttributes,
         headContent,
@@ -55,7 +55,7 @@ export default async function prerenderObj(obj) {
     },
     {
       filename: preloadDumpFileName,
-      fileContent: generatePreloadDump(preloadDump),
+      content: generatePreloadDump(preloadDump),
     },
   ];
 }

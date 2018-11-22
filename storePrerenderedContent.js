@@ -83,7 +83,7 @@ function startServer() {
 function storeResults(results) {
   let filesAdded = 0;
 
-  results.forEach(({ filename, fileContent }) => {
+  results.forEach(({ filename, content }) => {
     const filePath = path.join(TARGET_DIR, filename);
     if (!path.normalize(filePath).startsWith(`${TARGET_DIR}`)) {
       logStoreResults(`❌ filename "${filename}" is invalid! Skipping file...`);
@@ -97,7 +97,7 @@ function storeResults(results) {
     }
 
     logStoreResults(`Storing "${filename}"...`);
-    fse.outputFileSync(filePath, fileContent);
+    fse.outputFileSync(filePath, content);
     filesAdded += 1;
   });
 

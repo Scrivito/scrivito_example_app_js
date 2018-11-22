@@ -5,11 +5,9 @@ import formatDate from "../utils/formatDate";
 
 export default async function prerenderSitemap(objClassesWhitelist) {
   console.time("[prerenderSitemap]");
-  const fileContent = await Scrivito.load(() =>
-    sitemapXml(objClassesWhitelist)
-  );
+  const content = await Scrivito.load(() => sitemapXml(objClassesWhitelist));
   console.timeEnd("[prerenderSitemap]");
-  return [{ filename: "/sitemap.xml", fileContent }];
+  return [{ filename: "/sitemap.xml", content }];
 }
 
 function sitemapXml(objClassesWhitelist) {

@@ -7,10 +7,6 @@ import "./Widgets";
 import App from "./App";
 import "./config";
 
-function renderApp() {
-  ReactDOM.render(<App />, document.getElementById("application"));
-}
-
 if (window.preloadDump) {
   Scrivito.preload(window.preloadDump).then(renderApp);
 } else {
@@ -19,4 +15,8 @@ if (window.preloadDump) {
   Scrivito.finishLoading().then(() => {
     window.prerenderReady = true;
   });
+}
+
+function renderApp() {
+  ReactDOM.render(<App />, document.getElementById("application"));
 }

@@ -32,14 +32,14 @@ export default async function prerenderObjs(blacklistObjClasses) {
     })
   );
 
-  const flattenResults = [].concat(...prerenderedObjs);
+  const results = prerenderedObjs.flat();
   console.log(
     `Exporting ${
-      flattenResults.length
+      results.length
     } files (skipped ${failedCount} objs due to failures)`
   );
   console.timeEnd("[prerenderObjs]");
-  return flattenResults;
+  return results;
 }
 
 function allObjs(blacklistObjClasses) {

@@ -3,11 +3,11 @@ import * as Scrivito from "scrivito";
 import filenameFromUrl from "./filenameFromUrl";
 import prerenderObj from "./prerenderObj";
 
-export default async function prerenderObjs(blacklistObjClasses) {
+export default async function prerenderObjs(objClassesBlacklist) {
   console.time("[prerenderObjs]");
 
   console.time("Loading all objs");
-  const objs = await Scrivito.load(() => allObjs(blacklistObjClasses));
+  const objs = await Scrivito.load(() => allObjs(objClassesBlacklist));
   console.timeEnd("Loading all objs");
   console.log(`Loaded ${objs.length} objs`);
 
@@ -42,8 +42,8 @@ export default async function prerenderObjs(blacklistObjClasses) {
   return results;
 }
 
-function allObjs(blacklistObjClasses) {
+function allObjs(objClassesBlacklist) {
   return [
-    ...Scrivito.Obj.all().andNot("_objClass", "equals", blacklistObjClasses),
+    ...Scrivito.Obj.all().andNot("_objClass", "equals", objClassesBlacklist),
   ];
 }

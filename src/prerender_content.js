@@ -7,7 +7,7 @@ import "./config";
 import prerenderObjs from "./prerenderContent/prerenderObjs";
 import prerenderSitemap from "./prerenderContent/prerenderSitemap";
 
-const PRERENDER_BLACKLIST_OBJ_CLASSES = [
+const PRERENDER_OBJ_CLASSES_BLACKLIST = [
   "Download",
   "Image",
   "Redirect",
@@ -26,7 +26,7 @@ const SITEMAP_OBJ_CLASSES_WHITELIST = [
 ];
 
 async function prerenderContent() {
-  const prerenderedObjs = await prerenderObjs(PRERENDER_BLACKLIST_OBJ_CLASSES);
+  const prerenderedObjs = await prerenderObjs(PRERENDER_OBJ_CLASSES_BLACKLIST);
   const sitemap = await prerenderSitemap(SITEMAP_OBJ_CLASSES_WHITELIST);
   return [...prerenderedObjs, ...sitemap];
 }

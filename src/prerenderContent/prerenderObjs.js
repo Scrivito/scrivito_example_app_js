@@ -1,6 +1,6 @@
 /* eslint no-console: "off" */
 import * as Scrivito from "scrivito";
-import fileNameFromUrl from "./fileNameFromUrl";
+import filenameFromUrl from "./filenameFromUrl";
 import prerenderObj from "./prerenderObj";
 
 export default async function prerenderObjs(blacklistObjClasses) {
@@ -17,8 +17,8 @@ export default async function prerenderObjs(blacklistObjClasses) {
     objs.map(async obj => {
       try {
         const prerenderedObj = await prerenderObj(obj);
-        const fileName = fileNameFromUrl(Scrivito.urlFor(obj));
-        console.log(`Exported "${fileName}" (${obj.id()})"`);
+        const filename = filenameFromUrl(Scrivito.urlFor(obj));
+        console.log(`Exported "${filename}" (${obj.id()})"`);
         return prerenderedObj;
       } catch (e) {
         failedCount += 1;

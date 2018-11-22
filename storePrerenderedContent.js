@@ -83,20 +83,20 @@ function startServer() {
 function storeResults(results) {
   let filesAdded = 0;
 
-  results.forEach(({ fileName, fileContent }) => {
-    const filePath = path.join(TARGET_DIR, fileName);
+  results.forEach(({ filename, fileContent }) => {
+    const filePath = path.join(TARGET_DIR, filename);
     if (!path.normalize(filePath).startsWith(`${TARGET_DIR}`)) {
-      logStoreResults(`❌ fileName "${fileName}" is invalid! Skipping file...`);
+      logStoreResults(`❌ filename "${filename}" is invalid! Skipping file...`);
       return;
     }
     if (fse.existsSync(filePath)) {
       logStoreResults(
-        `❌ fileName "${fileName}" already exists in build! Skipping file...`
+        `❌ filename "${filename}" already exists in build! Skipping file...`
       );
       return;
     }
 
-    logStoreResults(`Storing "${fileName}"...`);
+    logStoreResults(`Storing "${filename}"...`);
     fse.outputFileSync(filePath, fileContent);
     filesAdded += 1;
   });

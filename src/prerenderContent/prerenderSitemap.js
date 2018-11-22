@@ -9,7 +9,7 @@ export default async function prerenderSitemap(objClassesWhitelist) {
     sitemapXml(objClassesWhitelist)
   );
   console.timeEnd("[prerenderSitemap]");
-  return [{ fileName: "/sitemap.xml", fileContent }];
+  return [{ filename: "/sitemap.xml", fileContent }];
 }
 
 function sitemapXml(objClassesWhitelist) {

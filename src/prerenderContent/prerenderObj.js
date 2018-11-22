@@ -4,7 +4,7 @@ import * as ReactDOMServer from "react-dom/server";
 import * as Scrivito from "scrivito";
 import Helmet from "react-helmet";
 import App from "../App";
-import fileNameFromUrl from "./fileNameFromUrl";
+import filenameFromUrl from "./filenameFromUrl";
 import generateHtml from "./generateHtml";
 import generatePreloadDump from "./generatePreloadDump";
 
@@ -43,7 +43,7 @@ export default async function prerenderObj(obj) {
 
   return [
     {
-      fileName: fileNameFromUrl(objUrl),
+      filename: filenameFromUrl(objUrl),
       fileContent: generateHtml({
         objId,
         htmlAttributes,
@@ -54,7 +54,7 @@ export default async function prerenderObj(obj) {
       }),
     },
     {
-      fileName: preloadDumpFileName,
+      filename: preloadDumpFileName,
       fileContent: generatePreloadDump(preloadDump),
     },
   ];

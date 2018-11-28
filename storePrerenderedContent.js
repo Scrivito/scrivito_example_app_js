@@ -1,4 +1,5 @@
 const express = require("express");
+const filesize = require("filesize");
 const fse = require("fs-extra");
 const path = require("path");
 const puppeteer = require("puppeteer");
@@ -98,7 +99,9 @@ async function storeResult({ filename, content }) {
     return;
   }
 
-  logStoreResult(`Storing "${filename}"...`);
+  logStoreResult(
+    `Storing "${filename}" (filesize: ${filesize(content.length)})...`
+  );
   await fse.outputFile(filePath, content);
   filesAdded += 1;
 }

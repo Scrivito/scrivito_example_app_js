@@ -1,6 +1,7 @@
 import "react";
 import "react-dom";
 import "scrivito";
+import filesize from "filesize";
 import "./Objs";
 import "./Widgets";
 import "./config";
@@ -9,8 +10,12 @@ import prerenderSitemap from "./prerenderContent/prerenderSitemap";
 
 // The following method will be overwritten by puppeteer in storePrerenderedContent.
 // It is only here, to simplify debugging in the browser
-window.storeResult = async ({ filename }) => {
-  console.log(`[storeResult] received ${filename}`);
+window.storeResult = async ({ filename, content }) => {
+  console.log(
+    `[storeResult] received "${filename}" (filesize: ${filesize(
+      content.length
+    )})`
+  );
 };
 
 const PRERENDER_OBJ_CLASSES_BLACKLIST = [

@@ -60,6 +60,16 @@ async function storePrerenderedContent() {
   console.timeEnd("[storePrerenderedContent]");
 }
 
+function startServer() {
+  const app = express();
+  const staticMiddleware = express.static(SOURCE_DIR);
+  app.use(staticMiddleware);
+
+  return new Promise(resolve => {
+    const server = app.listen(8080, () => resolve(server));
+  });
+}
+
 async function visitUrl(browser, url) {
   const page = await browser.newPage();
   try {
@@ -73,16 +83,6 @@ async function visitUrl(browser, url) {
   page.on("console", msg => console.log("  🖥️️  [console]", msg.text()));
 
   return page;
-}
-
-function startServer() {
-  const app = express();
-  const staticMiddleware = express.static(SOURCE_DIR);
-  app.use(staticMiddleware);
-
-  return new Promise(resolve => {
-    const server = app.listen(8080, () => resolve(server));
-  });
 }
 
 async function storeResult({ filename, content }) {

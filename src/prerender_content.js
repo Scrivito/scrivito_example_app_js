@@ -9,22 +9,6 @@ import "./config";
 import prerenderObjs from "./prerenderContent/prerenderObjs";
 import prerenderSitemap from "./prerenderContent/prerenderSitemap";
 
-// The following method will be overwritten by puppeteer in storePrerenderedContent.
-// It is only here, to simplify debugging in the browser
-window.storeResult = async ({ filename, content }) => {
-  console.log(
-    `[storeResult] received "${filename}" (filesize: ${filesize(
-      content.length
-    )})`
-  );
-};
-
-// The following method will be overwritten by puppeteer in storePrerenderedContent.
-// It is only here, to simplify debugging in the browser
-window.reportError = (message, ...args) => {
-  console.log(`[reportError] ${message}`, ...args);
-};
-
 const PRERENDER_OBJ_CLASSES_BLACKLIST = [
   "Download",
   "Image",
@@ -51,6 +35,22 @@ async function prerenderContent() {
     window.reportError
   );
 }
+
+// The following method will be overwritten by puppeteer in storePrerenderedContent.
+// It is only here, to simplify debugging in the browser
+window.storeResult = async ({ filename, content }) => {
+  console.log(
+    `[storeResult] received "${filename}" (filesize: ${filesize(
+      content.length
+    )})`
+  );
+};
+
+// The following method will be overwritten by puppeteer in storePrerenderedContent.
+// It is only here, to simplify debugging in the browser
+window.reportError = (message, ...args) => {
+  console.log(`[reportError] ${message}`, ...args);
+};
 
 // Usage: window.prerenderContent().then(results => ...);
 window.prerenderContent = prerenderContent;

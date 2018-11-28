@@ -18,6 +18,12 @@ window.storeResult = async ({ filename, content }) => {
   );
 };
 
+// The following method will be overwritten by puppeteer in storePrerenderedContent.
+// It is only here, to simplify debugging in the browser
+window.reportError = (message, ...args) => {
+  console.log(`[reportError] ${message}`, ...args);
+};
+
 const PRERENDER_OBJ_CLASSES_BLACKLIST = [
   "Download",
   "Image",
@@ -38,7 +44,11 @@ const SITEMAP_OBJ_CLASSES_WHITELIST = [
 
 async function prerenderContent() {
   await prerenderSitemap(SITEMAP_OBJ_CLASSES_WHITELIST, window.storeResult);
-  await prerenderObjs(PRERENDER_OBJ_CLASSES_BLACKLIST, window.storeResult);
+  await prerenderObjs(
+    PRERENDER_OBJ_CLASSES_BLACKLIST,
+    window.storeResult,
+    window.reportError
+  );
 }
 
 // Usage: window.prerenderContent().then(results => ...);

@@ -2,7 +2,11 @@
 import * as Scrivito from "scrivito";
 import prerenderObj from "./prerenderObj";
 
-export default async function prerenderObjs(objClassesBlacklist, storeResult) {
+export default async function prerenderObjs(
+  objClassesBlacklist,
+  storeResult,
+  reportError
+) {
   console.time("[prerenderObjs]");
 
   console.time("Loading all objs");
@@ -19,20 +23,19 @@ export default async function prerenderObjs(objClassesBlacklist, storeResult) {
         await Promise.all(prerenderedFiles.map(storeResult));
       } catch (e) {
         failedCount += 1;
-        console.log(
-          `❌  Error while processing obj ${obj.id()}. Skipping file.`,
-          e,
-          e.message
+        reportError(
+          `Error while processing obj ${obj.id()}. Skipping file.`,
+          e.message,
+          e
         );
       }
     })
   );
 
-  if (failedCount) {
-    console.log(`❌  Skipped ${failedCount} objs due to failures.`);
-  }
-
   console.timeEnd("[prerenderObjs]");
+  if (failedCount) {
+    reportError(`Skipped ${failedCount} objs due to failures.`);
+  }
 }
 
 function allObjs(objClassesBlacklist) {

@@ -42,6 +42,9 @@ async function storePrerenderedContent() {
   log(`🖥️️  Redefining window.storeResult...`);
   await page.exposeFunction("storeResult", storeResult);
 
+  log(`🖥️️  Redefining window.reportError...`);
+  await page.exposeFunction("reportError", reportError);
+
   log("🖥️️  Executing javascript command prerenderContent...");
   await page.evaluate(() => prerenderContent());
   log("🖥️️  Executed javascript command prerenderContent.");
@@ -75,7 +78,7 @@ async function visitUrl(browser, url) {
   try {
     await page.goto(url);
   } catch (e) {
-    log(`🖥️️  ❌  Could not visit ${url}! Is a webserver running on 8080?`);
+    reportError(`🖥️️  Could not visit ${url}! Is a webserver running on 8080?`);
     throw e;
   }
 
@@ -88,13 +91,13 @@ async function visitUrl(browser, url) {
 async function storeResult({ filename, content }) {
   const filePath = path.join(TARGET_DIR, filename);
   if (!path.normalize(filePath).startsWith(`${TARGET_DIR}`)) {
-    logStoreResult(`❌ filename "${filename}" is invalid! Skipping file...`);
+    reportError(`filename "${filename}" is invalid! Skipping file...`);
     return;
   }
   const fileAlreadyExists = await fse.exists(filePath);
   if (fileAlreadyExists) {
-    logStoreResult(
-      `❌ filename "${filename}" already exists in ${TARGET_DIR}! Skipping file...`
+    reportError(
+      `filename "${filename}" already exists in ${TARGET_DIR}! Skipping file...`
     );
     return;
   }
@@ -106,6 +109,11 @@ async function storeResult({ filename, content }) {
   filesAdded += 1;
 }
 
+function reportError(message, ...args) {
+  // Report to your external error tracker here, like Honeybadger or Rollbar.
+  console.log(`  ❌ [reportError] ${message}`, ...args);
+}
+
 function log(message, ...args) {
   console.log(`[storePrerenderedContent] ${message}`, ...args);
 }
@@ -115,6 +123,6 @@ function logStoreResult(message, ...args) {
 }
 
 storePrerenderedContent().catch(e => {
-  log("❌ An error occurred!", e);
+  reportError("An error occurred!", e);
   process.exit(1);
 });

@@ -3,14 +3,17 @@ import * as Scrivito from "scrivito";
 import xml from "xml";
 import formatDate from "../utils/formatDate";
 
-export default async function prerenderSitemap(objClassesWhitelist) {
+export default async function prerenderSitemap(
+  objClassesWhitelist,
+  storeResult
+) {
   console.time("[prerenderSitemap]");
   const { content, itemsCount } = await Scrivito.load(() =>
     sitemapXml(objClassesWhitelist)
   );
   console.log(`[prerenderSitemap] Generated sitemap with ${itemsCount} items.`);
   console.timeEnd("[prerenderSitemap]");
-  return [{ filename: "/sitemap.xml", content }];
+  await storeResult({ filename: "/sitemap.xml", content });
 }
 
 function sitemapXml(objClassesWhitelist) {

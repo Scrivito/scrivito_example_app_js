@@ -6,6 +6,8 @@ const puppeteer = require("puppeteer");
 const SOURCE_DIR = "build";
 const TARGET_DIR = "buildPrerendered";
 
+let filesAdded = 0;
+
 async function storePrerenderedContent() {
   console.time("[storePrerenderedContent]");
 
@@ -32,14 +34,16 @@ async function storePrerenderedContent() {
   const browser = await puppeteer.launch();
   log("🖥️️  Browser started");
 
-  const prerenderedContent = await executeInBrowser(
-    browser,
-    "http://localhost:8080/_prerender_content.html",
-    () => prerenderContent()
-  );
-  const filesReceived = prerenderedContent.length;
-  log(`🖥️️  Received ${filesReceived} files. Now storing...`);
-  const filesAdded = await storeResults(prerenderedContent);
+  const url = "http://localhost:8080/_prerender_content.html";
+  log(`🖥️️  Visiting ${url} ...`);
+  const page = await visitUrl(browser, url);
+
+  log(`🖥️️  Redefining window.storeResult...`);
+  await page.exposeFunction("storeResult", storeResult);
+
+  log("🖥️️  Executing javascript command prerenderContent...");
+  await page.evaluate(() => prerenderContent());
+  log("🖥️️  Executed javascript command prerenderContent.");
 
   log("🖥️️  Closing the browser...");
   await browser.close();
@@ -55,22 +59,19 @@ async function storePrerenderedContent() {
   console.timeEnd("[storePrerenderedContent]");
 }
 
-async function executeInBrowser(browser, url, jsCommand) {
-  logBrowser(`Visiting ${url} ...`);
+async function visitUrl(browser, url) {
   const page = await browser.newPage();
-  page.on("console", msg => logBrowser("[console]", msg.text()));
   try {
     await page.goto(url);
   } catch (e) {
-    logBrowser(`❌  Could not visit ${url}! Is a webserver running on 8080?`);
+    log(`🖥️️  ❌  Could not visit ${url}! Is a webserver running on 8080?`);
     throw e;
   }
 
-  logBrowser("Executing javascript command...");
-  const result = await page.evaluate(jsCommand);
-  logBrowser("Executed javascript command.");
+  log(`🖥️️  Registering console log...`);
+  page.on("console", msg => console.log("  🖥️️  [console]", msg.text()));
 
-  return result;
+  return page;
 }
 
 function startServer() {
@@ -83,45 +84,31 @@ function startServer() {
   });
 }
 
-async function storeResults(results) {
-  let filesAdded = 0;
+async function storeResult({ filename, content }) {
+  const filePath = path.join(TARGET_DIR, filename);
+  if (!path.normalize(filePath).startsWith(`${TARGET_DIR}`)) {
+    logStoreResult(`❌ filename "${filename}" is invalid! Skipping file...`);
+    return;
+  }
+  const fileAlreadyExists = await fse.exists(filePath);
+  if (fileAlreadyExists) {
+    logStoreResult(
+      `❌ filename "${filename}" already exists in ${TARGET_DIR}! Skipping file...`
+    );
+    return;
+  }
 
-  await Promise.all(
-    results.map(async ({ filename, content }) => {
-      const filePath = path.join(TARGET_DIR, filename);
-      if (!path.normalize(filePath).startsWith(`${TARGET_DIR}`)) {
-        logStoreResults(
-          `❌ filename "${filename}" is invalid! Skipping file...`
-        );
-        return;
-      }
-      const fileAlreadyExists = await fse.exists(filePath);
-      if (fileAlreadyExists) {
-        logStoreResults(
-          `❌ filename "${filename}" already exists in ${TARGET_DIR}! Skipping file...`
-        );
-        return;
-      }
-
-      logStoreResults(`Storing "${filename}"...`);
-      await fse.outputFile(filePath, content);
-      filesAdded += 1;
-    })
-  );
-
-  return filesAdded;
+  logStoreResult(`Storing "${filename}"...`);
+  await fse.outputFile(filePath, content);
+  filesAdded += 1;
 }
 
 function log(message, ...args) {
   console.log(`[storePrerenderedContent] ${message}`, ...args);
 }
 
-function logBrowser(message, ...args) {
-  console.log(`  [executeInBrowser] 🖥️️  ${message}`, ...args);
-}
-
-function logStoreResults(message, ...args) {
-  console.log(`  [storeResults] ${message}`, ...args);
+function logStoreResult(message, ...args) {
+  console.log(`  📥 [storeResult] ${message}`, ...args);
 }
 
 storePrerenderedContent().catch(e => {

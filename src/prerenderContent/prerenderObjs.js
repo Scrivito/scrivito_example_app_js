@@ -1,9 +1,8 @@
 /* eslint no-console: "off" */
 import * as Scrivito from "scrivito";
-import filenameFromUrl from "./filenameFromUrl";
 import prerenderObj from "./prerenderObj";
 
-export default async function prerenderObjs(objClassesBlacklist) {
+export default async function prerenderObjs(objClassesBlacklist, storeResult) {
   console.time("[prerenderObjs]");
 
   console.time("Loading all objs");
@@ -13,13 +12,11 @@ export default async function prerenderObjs(objClassesBlacklist) {
 
   let failedCount = 0;
 
-  const prerenderedObjs = await Promise.all(
+  await Promise.all(
     objs.map(async obj => {
       try {
-        const prerenderedObj = await prerenderObj(obj);
-        const filename = filenameFromUrl(Scrivito.urlFor(obj));
-        console.log(`Exported "${filename}" (${obj.id()})"`);
-        return prerenderedObj;
+        const prerenderedFiles = await prerenderObj(obj);
+        await Promise.all(prerenderedFiles.map(storeResult));
       } catch (e) {
         failedCount += 1;
         console.log(
@@ -27,19 +24,15 @@ export default async function prerenderObjs(objClassesBlacklist) {
           e,
           e.message
         );
-        return new Promise(resolve => resolve([]));
       }
     })
   );
 
-  const results = prerenderedObjs.flat();
-  console.log(
-    `Exporting ${
-      results.length
-    } files (skipped ${failedCount} objs due to failures)`
-  );
+  if (failedCount) {
+    console.log(`❌  Skipped ${failedCount} objs due to failures.`);
+  }
+
   console.timeEnd("[prerenderObjs]");
-  return results;
 }
 
 function allObjs(objClassesBlacklist) {

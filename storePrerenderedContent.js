@@ -3,6 +3,7 @@ const fse = require("fs-extra");
 const path = require("path");
 const puppeteer = require("puppeteer");
 
+const SOURCE_DIR = "build";
 const TARGET_DIR = "buildPrerendered";
 
 async function storePrerenderedContent() {
@@ -11,8 +12,8 @@ async function storePrerenderedContent() {
   log(`Removing ${TARGET_DIR}/`);
   fse.removeSync(TARGET_DIR);
 
-  log(`Copying build/ to ${TARGET_DIR}/`);
-  fse.copySync("build", TARGET_DIR);
+  log(`Copying ${SOURCE_DIR}/ to ${TARGET_DIR}/`);
+  fse.copySync(SOURCE_DIR, TARGET_DIR);
 
   let filesRemoved = 0;
   ["_prerender_content.html", "prerender_content.js"].forEach(filename => {
@@ -72,7 +73,7 @@ async function executeInBrowser(browser, url, jsCommand) {
 
 function startServer() {
   const app = express();
-  const staticMiddleware = express.static("build");
+  const staticMiddleware = express.static(SOURCE_DIR);
   app.use(staticMiddleware);
 
   return new Promise(resolve => {
@@ -91,7 +92,7 @@ function storeResults(results) {
     }
     if (fse.existsSync(filePath)) {
       logStoreResults(
-        `❌ filename "${filename}" already exists in build! Skipping file...`
+        `❌ filename "${filename}" already exists in ${TARGET_DIR}! Skipping file...`
       );
       return;
     }

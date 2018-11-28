@@ -39,7 +39,9 @@ function sliderSettings(images) {
     centerPadding: "0px",
     cssEase: "linear",
     dots: true,
-    fade: true,
+    // fade: true does not play well with prerendering. See [1] for details
+    // [1] https://github.com/akiran/react-slick/issues/1343
+    fade: false,
     infinite: true,
     slide: "li",
     slidesToShow: 1,

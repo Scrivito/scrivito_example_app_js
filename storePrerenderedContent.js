@@ -10,17 +10,19 @@ async function storePrerenderedContent() {
   console.time("[storePrerenderedContent]");
 
   log(`Removing ${TARGET_DIR}/`);
-  fse.removeSync(TARGET_DIR);
+  await fse.remove(TARGET_DIR);
 
   log(`Copying ${SOURCE_DIR}/ to ${TARGET_DIR}/`);
-  fse.copySync(SOURCE_DIR, TARGET_DIR);
+  await fse.copy(SOURCE_DIR, TARGET_DIR);
 
   let filesRemoved = 0;
-  ["_prerender_content.html", "prerender_content.js"].forEach(filename => {
-    log(`✨ Removing now obsolete file ${filename}...`);
-    fse.removeSync(`${TARGET_DIR}/${filename}`);
-    filesRemoved += 1;
-  });
+  await Promise.all(
+    ["_prerender_content.html", "prerender_content.js"].map(async filename => {
+      log(`✨ Removing now obsolete file ${filename}...`);
+      await fse.remove(`${TARGET_DIR}/${filename}`);
+      filesRemoved += 1;
+    })
+  );
 
   log("🗄️  Starting express server...");
   const server = await startServer();
@@ -37,7 +39,7 @@ async function storePrerenderedContent() {
   );
   const filesReceived = prerenderedContent.length;
   log(`🖥️️  Received ${filesReceived} files. Now storing...`);
-  const filesAdded = storeResults(prerenderedContent);
+  const filesAdded = await storeResults(prerenderedContent);
 
   log("🖥️️  Closing the browser...");
   await browser.close();
@@ -81,26 +83,31 @@ function startServer() {
   });
 }
 
-function storeResults(results) {
+async function storeResults(results) {
   let filesAdded = 0;
 
-  results.forEach(({ filename, content }) => {
-    const filePath = path.join(TARGET_DIR, filename);
-    if (!path.normalize(filePath).startsWith(`${TARGET_DIR}`)) {
-      logStoreResults(`❌ filename "${filename}" is invalid! Skipping file...`);
-      return;
-    }
-    if (fse.existsSync(filePath)) {
-      logStoreResults(
-        `❌ filename "${filename}" already exists in ${TARGET_DIR}! Skipping file...`
-      );
-      return;
-    }
+  await Promise.all(
+    results.map(async ({ filename, content }) => {
+      const filePath = path.join(TARGET_DIR, filename);
+      if (!path.normalize(filePath).startsWith(`${TARGET_DIR}`)) {
+        logStoreResults(
+          `❌ filename "${filename}" is invalid! Skipping file...`
+        );
+        return;
+      }
+      const fileAlreadyExists = await fse.exists(filePath);
+      if (fileAlreadyExists) {
+        logStoreResults(
+          `❌ filename "${filename}" already exists in ${TARGET_DIR}! Skipping file...`
+        );
+        return;
+      }
 
-    logStoreResults(`Storing "${filename}"...`);
-    fse.outputFileSync(filePath, content);
-    filesAdded += 1;
-  });
+      logStoreResults(`Storing "${filename}"...`);
+      await fse.outputFile(filePath, content);
+      filesAdded += 1;
+    })
+  );
 
   return filesAdded;
 }

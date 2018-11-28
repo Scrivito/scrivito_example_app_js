@@ -17,13 +17,9 @@ export default async function prerenderSitemap(
 }
 
 function sitemapXml(objClassesWhitelist) {
-  const pages = [
-    ...Scrivito.Obj.where("_objClass", "equals", objClassesWhitelist).andNot(
-      "robotsIndex",
-      "equals",
-      "no"
-    ),
-  ];
+  const pages = Scrivito.Obj.where("_objClass", "equals", objClassesWhitelist)
+    .andNot("robotsIndex", "equals", "no")
+    .take();
   const sitemapUrls = pages.map(pageToSitemapUrl);
 
   const content = xml(

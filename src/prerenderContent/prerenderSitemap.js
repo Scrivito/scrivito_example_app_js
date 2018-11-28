@@ -5,7 +5,10 @@ import formatDate from "../utils/formatDate";
 
 export default async function prerenderSitemap(objClassesWhitelist) {
   console.time("[prerenderSitemap]");
-  const content = await Scrivito.load(() => sitemapXml(objClassesWhitelist));
+  const { content, itemsCount } = await Scrivito.load(() =>
+    sitemapXml(objClassesWhitelist)
+  );
+  console.log(`[prerenderSitemap] Generated sitemap with ${itemsCount} items.`);
   console.timeEnd("[prerenderSitemap]");
   return [{ filename: "/sitemap.xml", content }];
 }
@@ -20,7 +23,7 @@ function sitemapXml(objClassesWhitelist) {
   ];
   const sitemapUrls = pages.map(pageToSitemapUrl);
 
-  return xml(
+  const content = xml(
     {
       urlset: [
         { _attr: { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" } },
@@ -29,6 +32,9 @@ function sitemapXml(objClassesWhitelist) {
     },
     { declaration: true }
   );
+
+  const itemsCount = sitemapUrls.length;
+  return { content, itemsCount };
 }
 
 function pageToSitemapUrl(page) {

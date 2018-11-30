@@ -103,7 +103,7 @@ async function storeResult({ filename, content }) {
   }
 
   logStoreResult(
-    `Storing "${filename}" (filesize: ${filesize(content.length)})...`
+    `Storing "${filename}" (file size: ${filesize(content.length)})...`
   );
   await fse.outputFile(filePath, content);
   filesAdded += 1;

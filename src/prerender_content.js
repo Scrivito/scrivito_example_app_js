@@ -40,7 +40,7 @@ async function prerenderContent() {
 // It is only here, to simplify debugging in the browser
 window.storeResult = async ({ filename, content }) => {
   console.log(
-    `[storeResult] received "${filename}" (filesize: ${filesize(
+    `[storeResult] received "${filename}" (file size: ${filesize(
       content.length
     )})`
   );

@@ -101,7 +101,7 @@ async function storeResult({ filename, content }) {
     await fse.outputFile(filePath, content, { flag: "wx" });
     filesAdded += 1;
   } catch (e) {
-    if (e.code && e.code === "EEXIST") {
+    if (e.code === "EEXIST") {
       reportError(
         `Filename "${filename}" already exists in ${TARGET_DIR}! Skipping file...`
       );

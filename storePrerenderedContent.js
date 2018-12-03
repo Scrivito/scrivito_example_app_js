@@ -94,19 +94,21 @@ async function storeResult({ filename, content }) {
     reportError(`filename "${filename}" is invalid! Skipping file...`);
     return;
   }
-  const fileAlreadyExists = await fse.exists(filePath);
-  if (fileAlreadyExists) {
-    reportError(
-      `filename "${filename}" already exists in ${TARGET_DIR}! Skipping file...`
-    );
-    return;
-  }
-
   logStoreResult(
     `Storing "${filename}" (file size: ${filesize(content.length)})...`
   );
-  await fse.outputFile(filePath, content);
-  filesAdded += 1;
+  try {
+    await fse.outputFile(filePath, content, { flag: "wx" });
+    filesAdded += 1;
+  } catch (e) {
+    if (e.code && e.code === "EEXIST") {
+      reportError(
+        `Filename "${filename}" already exists in ${TARGET_DIR}! Skipping file...`
+      );
+    } else {
+      throw e;
+    }
+  }
 }
 
 function reportError(message, ...args) {

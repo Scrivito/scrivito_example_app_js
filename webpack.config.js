@@ -9,7 +9,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const ZipPlugin = require("zip-webpack-plugin");
-const AddSitemapToRedirectsWebpackPlugin = require("./AddSitemapToRedirectsWebpackPlugin");
 const headersCsp = require("./public/_headersCsp.json");
 const ExtendCspHeadersWebpackPlugin = require("./ExtendCspHeadersWebpackPlugin");
 
@@ -146,7 +145,6 @@ function generateEntry({ isPrerendering }) {
     index: "./index.js",
     google_analytics: "./google_analytics.js",
     scrivito_extensions: "./scrivito_extensions.js",
-    sitemap: "./sitemap.js",
     "index.css": "./assets/stylesheets/index.scss",
   };
   if (isPrerendering) {
@@ -175,7 +173,6 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
         to: "scrivito/index.html",
       },
     ]),
-    new AddSitemapToRedirectsWebpackPlugin(),
     new ExtendCspHeadersWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name]",

@@ -1,5 +1,5 @@
 # Global settings applied to the whole site.
-# “public” is the directory to publish (relative to root of your repo).
+# “publish” is the directory to publish (relative to root of your repo).
 # “command” is your build command.
 
 [build]

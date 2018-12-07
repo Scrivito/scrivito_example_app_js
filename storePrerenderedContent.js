@@ -7,7 +7,7 @@ const puppeteer = require("puppeteer");
 const SOURCE_DIR = "build";
 const TARGET_DIR = "buildPrerendered";
 
-let filesAdded = 0;
+const storedFiles = [];
 
 async function storePrerenderedContent() {
   console.time("[storePrerenderedContent]");
@@ -55,8 +55,10 @@ async function storePrerenderedContent() {
   log("🗄️  Closing express server...");
   await server.close();
 
+  await extendRedirects(storedFiles);
+
   log(
-    `📦 Added ${filesAdded} file to and` +
+    `📦 Added ${storedFiles.length} file to and` +
       ` removed ${filesRemoved} files from folder ${TARGET_DIR}!`
   );
 
@@ -99,7 +101,7 @@ async function storeResult({ filename, content }) {
   );
   try {
     await fse.outputFile(filePath, content, { flag: "wx" });
-    filesAdded += 1;
+    storedFiles.push(filePath.substring(TARGET_DIR.length));
   } catch (e) {
     if (e.code === "EEXIST") {
       reportError(
@@ -122,6 +124,34 @@ function log(message, ...args) {
 
 function logStoreResult(message, ...args) {
   console.log(`  📥 [storeResult] ${message}`, ...args);
+}
+
+// Netlify does normalize urls automatically.
+// An Url, that contains upper case characters is automatically converted to lower case.
+// But Scrivito is case-sensitive for routing and will no longer recognize the lower cased route.
+// By explicitly adding the uppercase url to "_redirects" netlify will not longer normalize the Url.
+async function extendRedirects(prerenderedFiles) {
+  const explicitRedirects = prerenderedFiles
+    .filter(f => f.endsWith(".html") && f.toLowerCase() !== f)
+    .map(file => `${file.substring(0, file.length - 5)} ${file} 200`);
+  const sourceRedirects = await fse.readFile(
+    `${SOURCE_DIR}/_redirects`,
+    "utf8"
+  );
+  const placeholder = "# PRERENDERED-UPPERCASE-ROUTES-PLACEHOLDER";
+  if (sourceRedirects.indexOf(placeholder) === -1) {
+    throw new Error(
+      `The following placeholder is missing in _redirects:
+      ${placeholder}`
+    );
+  }
+  const extendedRedirects = sourceRedirects.replace(
+    placeholder,
+    explicitRedirects.join("\n")
+  );
+  const target = `${TARGET_DIR}/_redirects`;
+  await fse.writeFile(target, extendedRedirects, "utf8");
+  log(`📦 Extended ${target} with ${explicitRedirects.length} entries.`);
 }
 
 storePrerenderedContent().catch(e => {

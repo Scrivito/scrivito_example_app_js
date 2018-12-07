@@ -11,7 +11,9 @@ export default async function prerenderSitemap(
   const { content, itemsCount } = await Scrivito.load(() =>
     sitemapXml(objClassesWhitelist)
   );
-  console.log(`[prerenderSitemap] Generated sitemap with ${itemsCount} items.`);
+  console.log(
+    `[prerenderSitemap] Generated sitemap.xml with ${itemsCount} items.`
+  );
   console.timeEnd("[prerenderSitemap]");
   await storeResult({ filename: "/sitemap.xml", content });
 }

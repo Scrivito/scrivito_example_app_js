@@ -8,22 +8,43 @@ import Intercom from "./Components/Intercom";
 import Navigation from "./Components/Navigation";
 import NotFoundErrorPage from "./Components/NotFoundErrorPage";
 import CookieConsent from "./Components/CookieConsent";
+import imagesLoaded from "images-loaded";
 
-export default function App() {
-  return (
-    <ErrorBoundary>
-      <div>
-        <div className="content-wrapper">
-          <Navigation />
-          <Scrivito.CurrentPage />
-          <NotFoundErrorPage />
+class App extends React.Component {
+
+
+  componentDidMount(){
+    Scrivito.finishLoading().then(() =>
+    imagesLoaded(document).then(() =>  {
+      const ele = document.getElementById('ipl-progress-indicator')
+      if(ele){
+        // fade out
+        ele.classList.add('available')
+        setTimeout(() => {
+          // remove from DOM
+          ele.outerHTML = ''
+        }, 2000)
+      }
+    }))
+  }
+  render() {
+    return (
+      <ErrorBoundary>
+        <div>
+          <div className="content-wrapper">
+            <Navigation />
+            <Scrivito.CurrentPage />
+            <NotFoundErrorPage />
+          </div>
+          <Footer />
+          <CookieConsent />
+          <CurrentPageMetaData />
+          <GoogleAnalytics />
+          <Intercom />
         </div>
-        <Footer />
-        <CookieConsent />
-        <CurrentPageMetaData />
-        <GoogleAnalytics />
-        <Intercom />
-      </div>
-    </ErrorBoundary>
-  );
+      </ErrorBoundary>
+    );
+  }
 }
+
+export default App;

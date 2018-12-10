@@ -156,5 +156,5 @@ async function extendRedirects(prerenderedFiles) {
 
 storePrerenderedContent().catch(e => {
   reportError("An error occurred!", e);
-  process.exit(1);
+  process.exitCode = 1;
 });

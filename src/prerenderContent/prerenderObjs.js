@@ -23,8 +23,10 @@ export default async function prerenderObjs(
         await Promise.all(prerenderedFiles.map(storeResult));
       } catch (e) {
         failedCount += 1;
+        const pageId = obj.id();
+        const pageUrl = Scrivito.urlFor(obj);
         reportError(
-          `Error while processing obj ${obj.id()}. Skipping file.`,
+          `Error while processing obj ${pageId} (${pageUrl}). Skipping file.`,
           e.message,
           e
         );

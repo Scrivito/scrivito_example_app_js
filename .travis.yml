@@ -11,4 +11,5 @@ env:
   matrix:
     - TASK: "build"
     - TASK: "eslint"
+    - TASK: "es-check"
 script: npm run $TASK

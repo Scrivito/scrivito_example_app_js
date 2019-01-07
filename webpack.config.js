@@ -125,6 +125,7 @@ function webpackConfig(env = {}) {
     },
     devServer: {
       port: 8080,
+      stats: "minimal",
       historyApiFallback: {
         rewrites: [
           { from: /^\/scrivito$/, to: "/scrivito/index.html" },

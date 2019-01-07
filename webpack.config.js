@@ -6,8 +6,8 @@ const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const Webpackbar = require("webpackbar");
 const ZipPlugin = require("zip-webpack-plugin");
 const headersCsp = require("./public/_headersCsp.json");
 const ExtendCspHeadersWebpackPlugin = require("./ExtendCspHeadersWebpackPlugin");
@@ -126,6 +126,7 @@ function webpackConfig(env = {}) {
     },
     devServer: {
       port: 8080,
+      stats: "minimal",
       historyApiFallback: {
         rewrites: [
           { from: /^\/scrivito$/, to: "/scrivito/index.html" },
@@ -166,7 +167,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       SCRIVITO_TENANT: "",
       SCRIVITO_ORIGIN: scrivitoOrigin,
     }),
-    new ProgressBarPlugin(),
+    new Webpackbar(),
     new CopyWebpackPlugin([
       { from: "../public", ignore: ignorePublicFiles },
       {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import CurrentPageMetaData from "./Components/CurrentPageMetaData";
+import CurrentPageMetadata from "./Components/CurrentPageMetadata";
 import ErrorBoundary from "./Components/ErrorBoundary";
 import Footer from "./Components/Footer";
 import GoogleAnalytics from "./Components/GoogleAnalytics";
@@ -20,7 +20,7 @@ export default function App() {
         </div>
         <Footer />
         <CookieConsent />
-        <CurrentPageMetaData />
+        <CurrentPageMetadata />
         <GoogleAnalytics />
         <Intercom />
       </div>

@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import Helmet from "react-helmet";
-import getMetaData from "../utils/getMetaData";
+import getMetadata from "../utils/getMetadata";
 import favicon from "../assets/images/favicon.png";
 
-const CurrentPageMetaData = Scrivito.connect(() => {
+const CurrentPageMetadata = Scrivito.connect(() => {
   const htmlAttributes = { lang: "en" };
   let title = "";
   let meta = [];
@@ -19,7 +19,7 @@ const CurrentPageMetaData = Scrivito.connect(() => {
   const page = Scrivito.currentPage();
   if (page) {
     title = page.get("title") || "";
-    meta = getMetaData(page);
+    meta = getMetadata(page);
     links.push({ rel: "canonical", href: Scrivito.urlFor(page) });
   }
 
@@ -33,4 +33,4 @@ const CurrentPageMetaData = Scrivito.connect(() => {
   );
 });
 
-export default CurrentPageMetaData;
+export default CurrentPageMetadata;

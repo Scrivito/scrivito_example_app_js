@@ -4,7 +4,7 @@ import { textExtractFromObj } from "./textExtract";
 import urlFromBinary from "./urlFromBinary";
 import isVideoObj from "./isVideoObj";
 
-function getMetaData(page) {
+function getMetadata(page) {
   const meta = [
     { name: "twitter:card", content: "summary_large_image" },
     { name: "prerender-status-code", content: "200" },
@@ -104,4 +104,4 @@ function firstImageUrlForAttributes(obj, attributes) {
   return url;
 }
 
-export default getMetaData;
+export default getMetadata;

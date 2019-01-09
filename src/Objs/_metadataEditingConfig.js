@@ -15,7 +15,7 @@ const metadataInitialContent = {
 };
 
 const metadataPropertiesGroup = {
-  title: "Meta data",
+  title: "Metadata",
   properties: ["metadataDescription", "robotsIndex"],
 };
 

@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
 import { registerTextExtract } from "../../utils/textExtractRegistry";
 import defaultPageAttributes from "../_defaultPageAttributes";
-import metaDataAttributes from "../_metaDataAttributes";
+import metadataAttributes from "../_metadataAttributes";
 
 const Homepage = Scrivito.provideObjClass("Homepage", {
   attributes: {
@@ -18,7 +18,7 @@ const Homepage = Scrivito.provideObjClass("Homepage", {
     googleMapsApiKey: "string",
     googleAnalyticsTrackingId: "string",
     intercomAppId: "string",
-    ...metaDataAttributes,
+    ...metadataAttributes,
   },
 });
 

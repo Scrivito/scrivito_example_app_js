@@ -6,11 +6,11 @@ import {
   defaultPageProperties,
 } from "../_defaultPageEditingConfig";
 import {
-  metaDataEditingConfigAttributes,
-  metaDataInitialContent,
-  metaDataPropertiesGroup,
+  metadataEditingConfigAttributes,
+  metadataInitialContent,
+  metadataPropertiesGroup,
   socialCardsPropertiesGroup,
-} from "../_metaDataEditingConfig";
+} from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Homepage", {
   title: "Homepage",
@@ -18,7 +18,7 @@ Scrivito.provideEditingConfig("Homepage", {
   hideInSelectionDialogs: true,
   attributes: {
     ...defaultPageEditingConfigAttributes,
-    ...metaDataEditingConfigAttributes,
+    ...metadataEditingConfigAttributes,
     logoDark: {
       title: "Dark logo",
       description: "Used with light backgrounds",
@@ -85,11 +85,11 @@ Scrivito.provideEditingConfig("Homepage", {
       ],
     },
     socialCardsPropertiesGroup,
-    metaDataPropertiesGroup,
+    metadataPropertiesGroup,
   ],
   initialContent: {
     ...defaultPageInitialContent,
-    ...metaDataInitialContent,
+    ...metadataInitialContent,
     showAsLandingPage: "no",
   },
 });

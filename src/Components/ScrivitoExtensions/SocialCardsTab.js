@@ -159,17 +159,17 @@ function OptionalImage({ src }) {
 }
 
 function lookupMetadata(obj, value) {
-  const metaData = getMetadata(obj);
+  const metadata = getMetadata(obj);
 
   if (value.includes("og:")) {
-    const ogData = metaData.find(x => x.property === value);
+    const ogData = metadata.find(x => x.property === value);
     if (ogData) {
       return ogData.content;
     }
   }
 
   if (value.includes("twitter:")) {
-    const twitterData = metaData.find(x => x.name === value);
+    const twitterData = metadata.find(x => x.name === value);
     if (twitterData) {
       return twitterData.content;
     }

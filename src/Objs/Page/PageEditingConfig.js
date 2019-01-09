@@ -6,23 +6,23 @@ import {
   defaultPageProperties,
 } from "../_defaultPageEditingConfig";
 import {
-  metaDataEditingConfigAttributes,
-  metaDataInitialContent,
-  metaDataPropertiesGroup,
+  metadataEditingConfigAttributes,
+  metadataInitialContent,
+  metadataPropertiesGroup,
   socialCardsPropertiesGroup,
-} from "../_metaDataEditingConfig";
+} from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Page", {
   title: "Page",
   thumbnail: PageObjIcon,
   attributes: {
     ...defaultPageEditingConfigAttributes,
-    ...metaDataEditingConfigAttributes,
+    ...metadataEditingConfigAttributes,
   },
   properties: [...defaultPageProperties],
-  propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],
+  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
   initialContent: {
     ...defaultPageInitialContent,
-    ...metaDataInitialContent,
+    ...metadataInitialContent,
   },
 });

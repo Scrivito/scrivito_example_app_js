@@ -11,7 +11,7 @@ function dataFromEvent(event) {
     startDate: formatDate(event.get("date"), "yyyy-mm-dd"),
     location: locationFromEvent(event),
     image: urlFromBinary(event.get("image")),
-    description: event.get("metaDataDescription"),
+    description: event.get("metadataDescription"),
   };
 }
 

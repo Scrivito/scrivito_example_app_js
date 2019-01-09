@@ -1,5 +1,5 @@
-const metaDataEditingConfigAttributes = {
-  metaDataDescription: {
+const metadataEditingConfigAttributes = {
+  metadataDescription: {
     title: "Page description",
     description: "Limit to 175, ideally 150 characters.",
   },
@@ -10,13 +10,13 @@ const metaDataEditingConfigAttributes = {
   },
 };
 
-const metaDataInitialContent = {
+const metadataInitialContent = {
   robotsIndex: "yes",
 };
 
-const metaDataPropertiesGroup = {
+const metadataPropertiesGroup = {
   title: "Meta data",
-  properties: ["metaDataDescription", "robotsIndex"],
+  properties: ["metadataDescription", "robotsIndex"],
 };
 
 const socialCardsPropertiesGroup = {
@@ -25,8 +25,8 @@ const socialCardsPropertiesGroup = {
 };
 
 export {
-  metaDataEditingConfigAttributes,
-  metaDataInitialContent,
-  metaDataPropertiesGroup,
+  metadataEditingConfigAttributes,
+  metadataInitialContent,
+  metadataPropertiesGroup,
   socialCardsPropertiesGroup,
 };

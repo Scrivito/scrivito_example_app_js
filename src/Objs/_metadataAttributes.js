@@ -1,6 +1,6 @@
-const metaDataAttributes = {
+const metadataAttributes = {
   // Meta tags
-  metaDataDescription: "string",
+  metadataDescription: "string",
   robotsIndex: ["enum", { values: ["yes", "no"] }],
   // Twitter attributes
   tcCreator: "string",
@@ -13,4 +13,4 @@ const metaDataAttributes = {
   ogTitle: "string",
 };
 
-export default metaDataAttributes;
+export default metadataAttributes;

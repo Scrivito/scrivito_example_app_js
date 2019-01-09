@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 import { registerTextExtract } from "../../utils/textExtractRegistry";
-import metaDataAttributes from "../_metaDataAttributes";
+import metadataAttributes from "../_metadataAttributes";
 
 const BlogPost = Scrivito.provideObjClass("BlogPost", {
   attributes: {
@@ -11,7 +11,7 @@ const BlogPost = Scrivito.provideObjClass("BlogPost", {
     tags: "stringlist",
     title: "string",
     titleImage: "reference",
-    ...metaDataAttributes,
+    ...metadataAttributes,
   },
 });
 

@@ -1,18 +1,18 @@
 import * as Scrivito from "scrivito";
 import SearchResultsObjIcon from "../../assets/images/search_results_obj.svg";
 import {
-  metaDataEditingConfigAttributes,
-  metaDataInitialContent,
-  metaDataPropertiesGroup,
+  metadataEditingConfigAttributes,
+  metadataInitialContent,
+  metadataPropertiesGroup,
   socialCardsPropertiesGroup,
-} from "../_metaDataEditingConfig";
+} from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("SearchResults", {
   title: "Search Results",
   thumbnail: SearchResultsObjIcon,
   hideInSelectionDialogs: true,
   attributes: {
-    ...metaDataEditingConfigAttributes,
+    ...metadataEditingConfigAttributes,
     title: {
       title: "Title",
       description: "Limit to 55 characters.",
@@ -23,8 +23,8 @@ Scrivito.provideEditingConfig("SearchResults", {
     },
   },
   properties: ["title", "navigationBackgroundImage"],
-  propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],
+  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
   initialContent: {
-    ...metaDataInitialContent,
+    ...metadataInitialContent,
   },
 });

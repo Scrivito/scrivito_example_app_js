@@ -2,17 +2,17 @@ import * as Scrivito from "scrivito";
 import eventObjIcon from "../../assets/images/event_obj.svg";
 import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
-  metaDataEditingConfigAttributes,
-  metaDataInitialContent,
-  metaDataPropertiesGroup,
+  metadataEditingConfigAttributes,
+  metadataInitialContent,
+  metadataPropertiesGroup,
   socialCardsPropertiesGroup,
-} from "../_metaDataEditingConfig";
+} from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Event", {
   title: "Event",
   thumbnail: eventObjIcon,
   attributes: {
-    ...metaDataEditingConfigAttributes,
+    ...metadataEditingConfigAttributes,
     date: {
       title: "Date",
       description: "When is this event happening?",
@@ -65,9 +65,9 @@ Scrivito.provideEditingConfig("Event", {
     "image",
     "tags",
   ],
-  propertiesGroups: [socialCardsPropertiesGroup, metaDataPropertiesGroup],
+  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
   initialContent: {
-    ...metaDataInitialContent,
+    ...metadataInitialContent,
     body: [new SectionWidget({})],
   },
 });

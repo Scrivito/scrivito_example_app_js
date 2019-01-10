@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import getMetaData from "../../utils/getMetaData";
+import getMetadata from "../../utils/getMetadata";
 
 Scrivito.registerComponent("SocialCardsTab", ({ obj }) => (
   <div className="">
@@ -117,16 +117,16 @@ const TwitterPreview = Scrivito.connect(({ obj }) => (
       <span>Twitter (Summary card with large image)</span>
     </div>
     <div className="creator">
-      Tweet creator: {lookupMetaData(obj, "twitter:creator")}
+      Tweet creator: {lookupMetadata(obj, "twitter:creator")}
     </div>
 
     <div className="card twitter_card">
       <div className="seo_card_preview_img">
-        <OptionalImage src={lookupMetaData(obj, "twitter:image")} />
+        <OptionalImage src={lookupMetadata(obj, "twitter:image")} />
       </div>
       <div className="card_text">
-        <h5>{lookupMetaData(obj, "twitter:title")}</h5>
-        <p>{lookupMetaData(obj, "twitter:description")}</p>
+        <h5>{lookupMetadata(obj, "twitter:title")}</h5>
+        <p>{lookupMetadata(obj, "twitter:description")}</p>
       </div>
     </div>
   </div>
@@ -140,11 +140,11 @@ const FacebookPreview = Scrivito.connect(({ obj }) => (
     </div>
     <div className="card fb_card">
       <div className="seo_card_preview_img">
-        <OptionalImage src={lookupMetaData(obj, "og:image")} />
+        <OptionalImage src={lookupMetadata(obj, "og:image")} />
       </div>
       <div className="card_text">
-        <h5>{lookupMetaData(obj, "og:title")}</h5>
-        <p>{lookupMetaData(obj, "og:description")}</p>
+        <h5>{lookupMetadata(obj, "og:title")}</h5>
+        <p>{lookupMetadata(obj, "og:description")}</p>
       </div>
     </div>
   </div>
@@ -158,18 +158,18 @@ function OptionalImage({ src }) {
   return <img src={src} />;
 }
 
-function lookupMetaData(obj, value) {
-  const metaData = getMetaData(obj);
+function lookupMetadata(obj, value) {
+  const metadata = getMetadata(obj);
 
   if (value.includes("og:")) {
-    const ogData = metaData.find(x => x.property === value);
+    const ogData = metadata.find(x => x.property === value);
     if (ogData) {
       return ogData.content;
     }
   }
 
   if (value.includes("twitter:")) {
-    const twitterData = metaData.find(x => x.name === value);
+    const twitterData = metadata.find(x => x.name === value);
     if (twitterData) {
       return twitterData.content;
     }

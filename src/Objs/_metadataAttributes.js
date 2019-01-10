@@ -1,4 +1,4 @@
-const metaDataAttributes = {
+const metadataAttributes = {
   // Meta tags
   metaDataDescription: "string",
   robotsIndex: ["enum", { values: ["yes", "no"] }],
@@ -13,4 +13,4 @@ const metaDataAttributes = {
   ogTitle: "string",
 };
 
-export default metaDataAttributes;
+export default metadataAttributes;

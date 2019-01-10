@@ -18,7 +18,7 @@ function getMetadata(page) {
     meta.push({ name: "robots", content: "noindex" });
   }
 
-  const description = page.get("metadataDescription");
+  const description = page.get("metaDataDescription");
   if (description) {
     meta.push({ name: "description", content: description });
   }

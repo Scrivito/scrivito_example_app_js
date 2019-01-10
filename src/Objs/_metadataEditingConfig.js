@@ -1,5 +1,5 @@
 const metadataEditingConfigAttributes = {
-  metadataDescription: {
+  metaDataDescription: {
     title: "Page description",
     description: "Limit to 175, ideally 150 characters.",
   },
@@ -16,7 +16,7 @@ const metadataInitialContent = {
 
 const metadataPropertiesGroup = {
   title: "Metadata",
-  properties: ["metadataDescription", "robotsIndex"],
+  properties: ["metaDataDescription", "robotsIndex"],
 };
 
 const socialCardsPropertiesGroup = {

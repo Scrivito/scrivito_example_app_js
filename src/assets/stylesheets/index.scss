@@ -43,6 +43,19 @@ $screen-lg-min: 1200px;
 $slick-loader-path: "~slick-carousel/slick/";
 $slick-font-path: "~slick-carousel/slick/fonts/";
 
+@font-face {
+  font-family: "slick_swap";
+  font-display: swap;
+  src: url($slick-font-path+"slick.eot");
+  src: url($slick-font-path+"slick.eot?#iefix") format("embedded-opentype"),
+    url($slick-font-path+"slick.woff") format("woff"),
+    url($slick-font-path+"slick.ttf") format("truetype"),
+    url($slick-font-path+"slick.svg#slick") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+$slick-font-family: "slick_swap";
+
 @import "~slick-carousel/slick/slick.scss";
 @import "~slick-carousel/slick/slick-theme.scss";
 

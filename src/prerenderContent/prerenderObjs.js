@@ -1,5 +1,6 @@
 /* eslint no-console: "off" */
 import * as Scrivito from "scrivito";
+import { chunk } from "lodash-es";
 import prerenderObj from "./prerenderObj";
 
 export default async function prerenderObjs(
@@ -16,11 +17,12 @@ export default async function prerenderObjs(
 
   let failedCount = 0;
 
-  await Promise.all(
-    objs.map(async obj => {
+  const objsGroups = chunk(objs, 10);
+  await asyncForEachSequential(objsGroups, async objsGroup =>
+    asyncForEach(objsGroup, async obj => {
       try {
         const prerenderedFiles = await prerenderObj(obj);
-        await Promise.all(prerenderedFiles.map(storeResult));
+        await asyncForEach(prerenderedFiles, storeResult);
       } catch (e) {
         failedCount += 1;
         const pageId = obj.id();
@@ -44,4 +46,15 @@ function allObjs(objClassesBlacklist) {
   return Scrivito.Obj.all()
     .andNot("_objClass", "equals", objClassesBlacklist)
     .take();
+}
+
+async function asyncForEach(items, fn) {
+  return Promise.all(items.map(fn));
+}
+
+async function asyncForEachSequential(items, fn) {
+  return items.reduce(async (promise, item) => {
+    await promise;
+    return fn(item);
+  }, true);
 }

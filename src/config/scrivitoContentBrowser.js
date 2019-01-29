@@ -16,7 +16,7 @@ Scrivito.configureContentBrowser({
               },
             },
           },
-          _modification: modificationFilter,
+          _modification: MODIFICATION_FILTER,
         };
       }
 
@@ -41,22 +41,9 @@ Scrivito.configureContentBrowser({
             }, {}),
           },
         },
-        _modification: modificationFilter,
+        _modification: MODIFICATION_FILTER,
       };
     }
-
-    const pages = [
-      "Page",
-      "LandingPage",
-      "BlogPost",
-      "Author",
-      "Event",
-      "Job",
-      "Redirect",
-      "Homepage",
-      "Blog",
-      "SearchResults",
-    ];
 
     return {
       _objClass: {
@@ -72,8 +59,8 @@ Scrivito.configureContentBrowser({
             title: "Pages",
             icon: "sheet",
             field: "_objClass",
-            value: pages,
-            options: pages.reduce((interimOptions, item) => {
+            value: PAGES,
+            options: PAGES.reduce((interimOptions, item) => {
               return {
                 ...interimOptions,
                 ...{ [item]: descriptionForObjClass(item) },
@@ -84,36 +71,49 @@ Scrivito.configureContentBrowser({
           ...{ Video: descriptionForObjClass("Video") },
         },
       },
-      _modification: modificationFilter,
+      _modification: MODIFICATION_FILTER,
     };
   },
 });
 
 function descriptionForObjClass(objClass) {
-  const descriptions = {
-    Author: { title: "Authors", icon: "user" },
-    Blog: { title: "Blog", icon: "pen" },
-    BlogPost: { title: "Blog posts", icon: "pen" },
-    Download: { title: "Downloads", icon: "pdf" },
-    Event: { title: "Events", icon: "cal" },
-    Homepage: { title: "Homepage", icon: "inbox" },
-    Image: { title: "Images", icon: "image" },
-    Job: { title: "Jobs", icon: "suitcase" },
-    LandingPage: { title: "Landing pages", icon: "inbox" },
-    Page: { title: "Standard pages", icon: "sheet" },
-    Redirect: { title: "Redirects", icon: "link" },
-    SearchResults: { title: "Search results", icon: "lens" },
-    Video: { title: "Videos", icon: "video" },
-  };
-
-  const description = descriptions[objClass] || {
+  const description = DESCRIPTIONS[objClass] || {
     title: objClass,
     icon: "question",
   };
   return { field: "_objClass", value: objClass, ...description };
 }
 
-const modificationFilter = {
+const DESCRIPTIONS = {
+  Author: { title: "Authors", icon: "user" },
+  Blog: { title: "Blog", icon: "pen" },
+  BlogPost: { title: "Blog posts", icon: "pen" },
+  Download: { title: "Downloads", icon: "pdf" },
+  Event: { title: "Events", icon: "cal" },
+  Homepage: { title: "Homepage", icon: "inbox" },
+  Image: { title: "Images", icon: "image" },
+  Job: { title: "Jobs", icon: "suitcase" },
+  LandingPage: { title: "Landing pages", icon: "inbox" },
+  Page: { title: "Standard pages", icon: "sheet" },
+  Redirect: { title: "Redirects", icon: "link" },
+  SearchResults: { title: "Search results", icon: "lens" },
+  Video: { title: "Videos", icon: "video" },
+};
+
+const PAGES = [
+  "Page",
+  "LandingPage",
+  "BlogPost",
+  "Author",
+  "Event",
+  "Job",
+  "Redirect",
+  "Homepage",
+  "Blog",
+  "SearchResults",
+];
+
+const MODIFICATION_FILTER = {
   title: "Changed",
   type: "checkbox",
   expanded: true,

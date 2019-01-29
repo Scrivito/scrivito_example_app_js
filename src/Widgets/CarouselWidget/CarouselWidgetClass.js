@@ -3,7 +3,7 @@ import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const CarouselWidget = Scrivito.provideWidgetClass("CarouselWidget", {
   attributes: {
-    images: "referencelist",
+    images: ["referencelist", { only: ["Image"] }],
     showDescription: ["enum", { values: ["yes", "no"] }],
     descriptionLogo: ["reference", { only: ["Image"] }],
     description: "widgetlist",

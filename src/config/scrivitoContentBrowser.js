@@ -2,8 +2,8 @@ import * as Scrivito from "scrivito";
 
 Scrivito.configureContentBrowser({
   filters: filterContext => {
-    if (filterContext._validObjClasses && filterContext._validObjClasses[0]) {
-      const validObjClasses = filterContext._validObjClasses;
+    const validObjClasses = filterContext._validObjClasses;
+    if (validObjClasses && validObjClasses[0]) {
       const [head, ...tail] = validObjClasses;
 
       if (tail.length) {

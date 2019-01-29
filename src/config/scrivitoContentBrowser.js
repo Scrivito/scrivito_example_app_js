@@ -28,6 +28,7 @@ Scrivito.configureContentBrowser({
               }, {}),
             },
           },
+          _modification: modificationFilter,
         };
       }
 
@@ -40,6 +41,7 @@ Scrivito.configureContentBrowser({
             },
           },
         },
+        _modification: modificationFilter,
       };
     }
 
@@ -82,20 +84,7 @@ Scrivito.configureContentBrowser({
           ...{ Video: descriptionForObjClass("Video") },
         },
       },
-      _modification: {
-        title: "Changed",
-        type: "checkbox",
-        expanded: true,
-        field: "_modification",
-        options: {
-          New: {
-            value: "new",
-          },
-          Edited: {
-            value: "edited",
-          },
-        },
-      },
+      _modification: modificationFilter,
     };
   },
 });
@@ -123,3 +112,18 @@ function descriptionForObjClass(objClass) {
   };
   return { field: "_objClass", value: objClass, ...description };
 }
+
+const modificationFilter = {
+  title: "Changed",
+  type: "checkbox",
+  expanded: true,
+  field: "_modification",
+  options: {
+    New: {
+      value: "new",
+    },
+    Edited: {
+      value: "edited",
+    },
+  },
+};

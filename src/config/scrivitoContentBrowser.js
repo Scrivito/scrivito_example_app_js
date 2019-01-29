@@ -3,17 +3,33 @@ import * as Scrivito from "scrivito";
 Scrivito.configureContentBrowser({
   filters: filterContext => {
     const validObjClasses = filterContext._validObjClasses;
-    if (validObjClasses && validObjClasses[0]) {
-      if (validObjClasses.length === 1) {
-        return objClassDefinition(validObjClasses[0]);
+    if (validObjClasses) {
+      switch (validObjClasses.length) {
+        case 0:
+          return invalidObjClassDefinition();
+        case 1:
+          return objClassDefinition(validObjClasses[0]);
+        default:
+          return objClassesDefinition(validObjClasses);
       }
-
-      return objClassesDefinition(validObjClasses);
     }
 
     return defaultDefinition();
   },
 });
+
+function invalidObjClassDefinition() {
+  return {
+    _objClass: {
+      options: {
+        All: {
+          title: "Invalid restrictions",
+          selected: true,
+        },
+      },
+    },
+  };
+}
 
 function objClassDefinition(objClass) {
   return {

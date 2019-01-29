@@ -3,18 +3,39 @@ import * as Scrivito from "scrivito";
 Scrivito.configureContentBrowser({
   filters: filterContext => {
     if (filterContext._validObjClasses && filterContext._validObjClasses[0]) {
-      const objClass = filterContext._validObjClasses[0];
+      const validObjClasses = filterContext._validObjClasses;
+      const [head, ...tail] = validObjClasses;
+
+      if (tail.length) {
+        return {
+          _objClass: {
+            options: {
+              All: {
+                title: "All",
+                icon: "folder",
+                field: "_objClass",
+                value: validObjClasses,
+              },
+              [head]: {
+                ...descriptionForObjClass(head),
+                selected: true,
+              },
+              ...tail.reduce((interimOptions, item) => {
+                return {
+                  ...interimOptions,
+                  ...{ [item]: descriptionForObjClass(item) },
+                };
+              }, {}),
+            },
+          },
+        };
+      }
+
       return {
         _objClass: {
           options: {
-            All: {
-              title: "All",
-              icon: "folder",
-              query: Scrivito.Obj.all(),
-            },
-            [objClass]: {
-              title: objClass,
-              query: Scrivito.Obj.where("_objClass", "equals", objClass),
+            [head]: {
+              ...descriptionForObjClass(head),
               selected: true,
             },
           },

@@ -7,31 +7,8 @@ Scrivito.configureContentBrowser({
       if (validObjClasses.length === 1) {
         return objClassDefinition(validObjClasses[0]);
       }
-      const [head, ...tail] = validObjClasses;
 
-      return {
-        _objClass: {
-          options: {
-            All: {
-              title: "All",
-              icon: "folder",
-              field: "_objClass",
-              value: validObjClasses,
-            },
-            [head]: {
-              ...descriptionForObjClass(head),
-              selected: true,
-            },
-            ...tail.reduce((interimOptions, item) => {
-              return {
-                ...interimOptions,
-                ...{ [item]: descriptionForObjClass(item) },
-              };
-            }, {}),
-          },
-        },
-        _modification: MODIFICATION_FILTER,
-      };
+      return objClassesDefinition(validObjClasses);
     }
 
     return defaultDefinition();
@@ -46,6 +23,34 @@ function objClassDefinition(objClass) {
           ...descriptionForObjClass(objClass),
           selected: true,
         },
+      },
+    },
+    _modification: MODIFICATION_FILTER,
+  };
+}
+
+function objClassesDefinition(objClasses) {
+  const [head, ...tail] = objClasses;
+
+  return {
+    _objClass: {
+      options: {
+        All: {
+          title: "All",
+          icon: "folder",
+          field: "_objClass",
+          value: objClasses,
+        },
+        [head]: {
+          ...descriptionForObjClass(head),
+          selected: true,
+        },
+        ...tail.reduce((interimOptions, item) => {
+          return {
+            ...interimOptions,
+            ...{ [item]: descriptionForObjClass(item) },
+          };
+        }, {}),
       },
     },
     _modification: MODIFICATION_FILTER,

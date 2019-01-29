@@ -30,8 +30,6 @@ function objClassDefinition(objClass) {
 }
 
 function objClassesDefinition(objClasses) {
-  const [head, ...tail] = objClasses;
-
   return {
     _objClass: {
       options: {
@@ -40,12 +38,9 @@ function objClassesDefinition(objClasses) {
           icon: "folder",
           field: "_objClass",
           value: objClasses,
-        },
-        [head]: {
-          ...descriptionForObjClass(head),
           selected: true,
         },
-        ...tail.reduce((interimOptions, item) => {
+        ...objClasses.reduce((interimOptions, item) => {
           return {
             ...interimOptions,
             ...{ [item]: descriptionForObjClass(item) },

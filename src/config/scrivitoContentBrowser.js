@@ -4,21 +4,10 @@ Scrivito.configureContentBrowser({
   filters: filterContext => {
     const validObjClasses = filterContext._validObjClasses;
     if (validObjClasses && validObjClasses[0]) {
-      const [head, ...tail] = validObjClasses;
-
-      if (tail.length === 0) {
-        return {
-          _objClass: {
-            options: {
-              [head]: {
-                ...descriptionForObjClass(head),
-                selected: true,
-              },
-            },
-          },
-          _modification: MODIFICATION_FILTER,
-        };
+      if (validObjClasses.length === 1) {
+        return objClassDefinition(validObjClasses[0]);
       }
+      const [head, ...tail] = validObjClasses;
 
       return {
         _objClass: {
@@ -48,6 +37,20 @@ Scrivito.configureContentBrowser({
     return defaultDefinition();
   },
 });
+
+function objClassDefinition(objClass) {
+  return {
+    _objClass: {
+      options: {
+        [objClass]: {
+          ...descriptionForObjClass(objClass),
+          selected: true,
+        },
+      },
+    },
+    _modification: MODIFICATION_FILTER,
+  };
+}
 
 function defaultDefinition() {
   return {

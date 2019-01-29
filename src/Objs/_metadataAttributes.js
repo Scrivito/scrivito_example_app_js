@@ -5,11 +5,11 @@ const metadataAttributes = {
   // Twitter attributes
   tcCreator: "string",
   tcDescription: "string",
-  tcImage: "reference",
+  tcImage: ["reference", { only: ["Image"] }],
   tcTitle: "string",
   // Open Graph attributes (used by Facebook)
   ogDescription: "string",
-  ogImage: "reference",
+  ogImage: ["reference", { only: ["Image"] }],
   ogTitle: "string",
 };
 

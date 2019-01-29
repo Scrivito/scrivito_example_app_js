@@ -21,7 +21,7 @@ const SectionWidget = Scrivito.provideWidgetClass("SectionWidget", {
         ],
       },
     ],
-    backgroundImage: "reference",
+    backgroundImage: ["reference", { only: ["Image"] }],
   },
 });
 

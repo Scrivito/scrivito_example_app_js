@@ -10,7 +10,7 @@ const BlogPost = Scrivito.provideObjClass("BlogPost", {
     subtitle: "string",
     tags: "stringlist",
     title: "string",
-    titleImage: "reference",
+    titleImage: ["reference", { only: ["Image"] }],
     ...metadataAttributes,
   },
 });

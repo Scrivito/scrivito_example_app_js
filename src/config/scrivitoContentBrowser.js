@@ -22,6 +22,19 @@ Scrivito.configureContentBrowser({
       };
     }
 
+    const pages = [
+      "Page",
+      "LandingPage",
+      "BlogPost",
+      "Author",
+      "Event",
+      "Job",
+      "Redirect",
+      "Homepage",
+      "Blog",
+      "SearchResults",
+    ];
+
     return {
       _objClass: {
         options: {
@@ -31,83 +44,21 @@ Scrivito.configureContentBrowser({
             query: Scrivito.Obj.all(),
             selected: true,
           },
-          Images: {
-            title: "Images",
-            icon: "image",
-            field: "_objClass",
-            value: "Image",
-          },
+          ...{ Image: descriptionForObjClass("Image") },
           Pages: {
             title: "Pages",
             icon: "sheet",
             field: "_objClass",
-            value: [
-              "Author",
-              "Blog",
-              "BlogPost",
-              "Event",
-              "Homepage",
-              "Job",
-              "LandingPage",
-              "Page",
-              "Redirect",
-              "SearchResults",
-            ],
-            options: {
-              Page: {
-                title: "Standard pages",
-                icon: "sheet",
-              },
-              LandingPage: {
-                title: "Landing pages",
-                icon: "inbox",
-              },
-              BlogPost: {
-                title: "Blog posts",
-                icon: "pen",
-              },
-              Author: {
-                title: "Authors",
-                icon: "user",
-              },
-              Event: {
-                title: "Events",
-                icon: "cal",
-              },
-              Job: {
-                title: "Jobs",
-                icon: "suitcase",
-              },
-              Redirect: {
-                title: "Redirects",
-                icon: "link",
-              },
-              Homepage: {
-                title: "Homepage",
-                icon: "inbox",
-              },
-              Blog: {
-                title: "Blog",
-                icon: "pen",
-              },
-              SearchResults: {
-                title: "Search results",
-                icon: "lens",
-              },
-            },
+            value: pages,
+            options: pages.reduce((interimOptions, item) => {
+              return {
+                ...interimOptions,
+                ...{ [item]: descriptionForObjClass(item) },
+              };
+            }, {}),
           },
-          Download: {
-            title: "Downloads",
-            icon: "pdf",
-            field: "_objClass",
-            value: "Download",
-          },
-          Video: {
-            title: "Videos",
-            icon: "video",
-            field: "_objClass",
-            value: "Video",
-          },
+          ...{ Download: descriptionForObjClass("Download") },
+          ...{ Video: descriptionForObjClass("Video") },
         },
       },
       _modification: {
@@ -127,3 +78,27 @@ Scrivito.configureContentBrowser({
     };
   },
 });
+
+function descriptionForObjClass(objClass) {
+  const descriptions = {
+    Author: { title: "Authors", icon: "user" },
+    Blog: { title: "Blog", icon: "pen" },
+    BlogPost: { title: "Blog posts", icon: "pen" },
+    Download: { title: "Downloads", icon: "pdf" },
+    Event: { title: "Events", icon: "cal" },
+    Homepage: { title: "Homepage", icon: "inbox" },
+    Image: { title: "Images", icon: "image" },
+    Job: { title: "Jobs", icon: "suitcase" },
+    LandingPage: { title: "Landing pages", icon: "inbox" },
+    Page: { title: "Standard pages", icon: "sheet" },
+    Redirect: { title: "Redirects", icon: "link" },
+    SearchResults: { title: "Search results", icon: "lens" },
+    Video: { title: "Videos", icon: "video" },
+  };
+
+  const description = descriptions[objClass] || {
+    title: objClass,
+    icon: "question",
+  };
+  return { field: "_objClass", value: objClass, ...description };
+}

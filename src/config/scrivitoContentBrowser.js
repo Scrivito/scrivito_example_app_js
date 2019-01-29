@@ -45,36 +45,40 @@ Scrivito.configureContentBrowser({
       };
     }
 
-    return {
-      _objClass: {
-        options: {
-          All: {
-            title: "All",
-            icon: "folder",
-            query: Scrivito.Obj.all(),
-            selected: true,
-          },
-          ...{ Image: descriptionForObjClass("Image") },
-          Pages: {
-            title: "Pages",
-            icon: "sheet",
-            field: "_objClass",
-            value: PAGES,
-            options: PAGES.reduce((interimOptions, item) => {
-              return {
-                ...interimOptions,
-                ...{ [item]: descriptionForObjClass(item) },
-              };
-            }, {}),
-          },
-          ...{ Download: descriptionForObjClass("Download") },
-          ...{ Video: descriptionForObjClass("Video") },
-        },
-      },
-      _modification: MODIFICATION_FILTER,
-    };
+    return defaultDefinition();
   },
 });
+
+function defaultDefinition() {
+  return {
+    _objClass: {
+      options: {
+        All: {
+          title: "All",
+          icon: "folder",
+          query: Scrivito.Obj.all(),
+          selected: true,
+        },
+        ...{ Image: descriptionForObjClass("Image") },
+        Pages: {
+          title: "Pages",
+          icon: "sheet",
+          field: "_objClass",
+          value: PAGES,
+          options: PAGES.reduce((interimOptions, item) => {
+            return {
+              ...interimOptions,
+              ...{ [item]: descriptionForObjClass(item) },
+            };
+          }, {}),
+        },
+        ...{ Download: descriptionForObjClass("Download") },
+        ...{ Video: descriptionForObjClass("Video") },
+      },
+    },
+    _modification: MODIFICATION_FILTER,
+  };
+}
 
 function descriptionForObjClass(objClass) {
   const description = DESCRIPTIONS[objClass] || {

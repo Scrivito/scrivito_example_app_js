@@ -6,19 +6,19 @@ Scrivito.configureContentBrowser({
     if (validObjClasses) {
       switch (validObjClasses.length) {
         case 0:
-          return invalidObjClassDefinition();
+          return invalidObjClassFilter();
         case 1:
-          return objClassDefinition(validObjClasses[0]);
+          return objClassFilter(validObjClasses[0]);
         default:
-          return objClassesDefinition(validObjClasses);
+          return objClassesFilter(validObjClasses);
       }
     }
 
-    return defaultDefinition();
+    return defaultFilter();
   },
 });
 
-function invalidObjClassDefinition() {
+function invalidObjClassFilter() {
   return {
     _objClass: {
       options: {
@@ -31,7 +31,7 @@ function invalidObjClassDefinition() {
   };
 }
 
-function objClassDefinition(objClass) {
+function objClassFilter(objClass) {
   return {
     _objClass: {
       options: {
@@ -45,7 +45,7 @@ function objClassDefinition(objClass) {
   };
 }
 
-function objClassesDefinition(objClasses) {
+function objClassesFilter(objClasses) {
   return {
     _objClass: {
       options: {
@@ -68,7 +68,7 @@ function objClassesDefinition(objClasses) {
   };
 }
 
-function defaultDefinition() {
+function defaultFilter() {
   return {
     _objClass: {
       options: {

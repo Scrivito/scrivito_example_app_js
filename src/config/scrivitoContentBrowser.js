@@ -55,11 +55,9 @@ function objClassesFilter(objClasses) {
           value: objClasses,
           selected: true,
         },
-        ...objClasses.reduce((interimOptions, item) => {
-          return {
-            ...interimOptions,
-            ...{ [item]: descriptionForObjClass(item) },
-          };
+        ...objClasses.reduce((result, value) => {
+          result[value] = descriptionForObjClass(value);
+          return result;
         }, {}),
       },
     },
@@ -83,11 +81,9 @@ function defaultFilter() {
           icon: "sheet",
           field: "_objClass",
           value: PAGES,
-          options: PAGES.reduce((interimOptions, item) => {
-            return {
-              ...interimOptions,
-              ...{ [item]: descriptionForObjClass(item) },
-            };
+          options: PAGES.reduce((result, value) => {
+            result[value] = descriptionForObjClass(value);
+            return result;
           }, {}),
         },
         ...{ Download: descriptionForObjClass("Download") },

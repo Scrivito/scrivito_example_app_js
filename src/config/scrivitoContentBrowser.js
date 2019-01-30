@@ -27,7 +27,6 @@ function objClassFilter(objClass) {
         },
       },
     },
-    _modification: MODIFICATION_FILTER,
   };
 }
 
@@ -48,7 +47,6 @@ function objClassesFilter(objClasses) {
         }, {}),
       },
     },
-    _modification: MODIFICATION_FILTER,
   };
 }
 
@@ -77,7 +75,20 @@ function defaultFilter() {
         ...{ Video: descriptionForObjClass("Video") },
       },
     },
-    _modification: MODIFICATION_FILTER,
+    _modification: {
+      title: "Changed",
+      type: "checkbox",
+      expanded: true,
+      field: "_modification",
+      options: {
+        New: {
+          value: "new",
+        },
+        Edited: {
+          value: "edited",
+        },
+      },
+    },
   };
 }
 
@@ -117,18 +128,3 @@ const PAGES = [
   "Blog",
   "SearchResults",
 ];
-
-const MODIFICATION_FILTER = {
-  title: "Changed",
-  type: "checkbox",
-  expanded: true,
-  field: "_modification",
-  options: {
-    New: {
-      value: "new",
-    },
-    Edited: {
-      value: "edited",
-    },
-  },
-};

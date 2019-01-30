@@ -5,7 +5,7 @@ Scrivito.configureContentBrowser({
     if (_validObjClasses) {
       switch (_validObjClasses.length) {
         case 0:
-          return invalidObjClassFilter();
+          return defaultFilter();
         case 1:
           return objClassFilter(_validObjClasses[0]);
         default:
@@ -16,19 +16,6 @@ Scrivito.configureContentBrowser({
     return defaultFilter();
   },
 });
-
-function invalidObjClassFilter() {
-  return {
-    _objClass: {
-      options: {
-        All: {
-          title: "Invalid restrictions",
-          selected: true,
-        },
-      },
-    },
-  };
-}
 
 function objClassFilter(objClass) {
   return {

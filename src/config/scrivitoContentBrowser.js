@@ -60,7 +60,7 @@ function defaultFilters() {
           query: Scrivito.Obj.all(),
           selected: true,
         },
-        ...{ Image: filterOptionForObjClass("Image") },
+        Image: filterOptionForObjClass("Image"),
         Pages: {
           title: "Pages",
           icon: "sheet",
@@ -71,8 +71,8 @@ function defaultFilters() {
             return result;
           }, {}),
         },
-        ...{ Download: filterOptionForObjClass("Download") },
-        ...{ Video: filterOptionForObjClass("Video") },
+        Download: filterOptionForObjClass("Download"),
+        Video: filterOptionForObjClass("Video"),
       },
     },
     _modification: {

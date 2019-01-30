@@ -1,16 +1,15 @@
 import * as Scrivito from "scrivito";
 
 Scrivito.configureContentBrowser({
-  filters: filterContext => {
-    const validObjClasses = filterContext._validObjClasses;
-    if (validObjClasses) {
-      switch (validObjClasses.length) {
+  filters: ({ _validObjClasses }) => {
+    if (_validObjClasses) {
+      switch (_validObjClasses.length) {
         case 0:
           return invalidObjClassFilter();
         case 1:
-          return objClassFilter(validObjClasses[0]);
+          return objClassFilter(_validObjClasses[0]);
         default:
-          return objClassesFilter(validObjClasses);
+          return objClassesFilter(_validObjClasses);
       }
     }
 

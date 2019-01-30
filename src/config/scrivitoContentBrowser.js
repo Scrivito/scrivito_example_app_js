@@ -22,7 +22,7 @@ function filterForObjClass(objClass) {
     _objClass: {
       options: {
         [objClass]: {
-          ...filterOptionForObjClass(objClass),
+          ...filterOptionsForObjClass(objClass),
           selected: true,
         },
       },
@@ -42,7 +42,7 @@ function filtersForObjClasses(objClasses) {
           selected: true,
         },
         ...objClasses.reduce((result, value) => {
-          result[value] = filterOptionForObjClass(value);
+          result[value] = filterOptionsForObjClass(value);
           return result;
         }, {}),
       },
@@ -60,19 +60,19 @@ function defaultFilters() {
           query: Scrivito.Obj.all(),
           selected: true,
         },
-        Image: filterOptionForObjClass("Image"),
+        Image: filterOptionsForObjClass("Image"),
         Pages: {
           title: "Pages",
           icon: "sheet",
           field: "_objClass",
           value: PAGES,
           options: PAGES.reduce((result, value) => {
-            result[value] = filterOptionForObjClass(value);
+            result[value] = filterOptionsForObjClass(value);
             return result;
           }, {}),
         },
-        Download: filterOptionForObjClass("Download"),
-        Video: filterOptionForObjClass("Video"),
+        Download: filterOptionsForObjClass("Download"),
+        Video: filterOptionsForObjClass("Video"),
       },
     },
     _modification: {
@@ -92,15 +92,15 @@ function defaultFilters() {
   };
 }
 
-function filterOptionForObjClass(objClass) {
-  const description = FILTER_OPTIONS[objClass] || {
+function filterOptionsForObjClass(objClass) {
+  const filterPresentation = FILTER_PRESENTATIONS[objClass] || {
     title: objClass,
     icon: "question",
   };
-  return { field: "_objClass", value: objClass, ...description };
+  return { field: "_objClass", value: objClass, ...filterPresentation };
 }
 
-const FILTER_OPTIONS = {
+const FILTER_PRESENTATIONS = {
   Author: { title: "Authors", icon: "user" },
   Blog: { title: "Blog", icon: "pen" },
   BlogPost: { title: "Blog posts", icon: "pen" },

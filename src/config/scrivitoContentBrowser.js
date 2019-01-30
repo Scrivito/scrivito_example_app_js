@@ -22,7 +22,7 @@ function objClassFilter(objClass) {
     _objClass: {
       options: {
         [objClass]: {
-          ...descriptionForObjClass(objClass),
+          ...filterOptionForObjClass(objClass),
           selected: true,
         },
       },
@@ -42,7 +42,7 @@ function objClassesFilter(objClasses) {
           selected: true,
         },
         ...objClasses.reduce((result, value) => {
-          result[value] = descriptionForObjClass(value);
+          result[value] = filterOptionForObjClass(value);
           return result;
         }, {}),
       },
@@ -60,19 +60,19 @@ function defaultFilter() {
           query: Scrivito.Obj.all(),
           selected: true,
         },
-        ...{ Image: descriptionForObjClass("Image") },
+        ...{ Image: filterOptionForObjClass("Image") },
         Pages: {
           title: "Pages",
           icon: "sheet",
           field: "_objClass",
           value: PAGES,
           options: PAGES.reduce((result, value) => {
-            result[value] = descriptionForObjClass(value);
+            result[value] = filterOptionForObjClass(value);
             return result;
           }, {}),
         },
-        ...{ Download: descriptionForObjClass("Download") },
-        ...{ Video: descriptionForObjClass("Video") },
+        ...{ Download: filterOptionForObjClass("Download") },
+        ...{ Video: filterOptionForObjClass("Video") },
       },
     },
     _modification: {
@@ -92,15 +92,15 @@ function defaultFilter() {
   };
 }
 
-function descriptionForObjClass(objClass) {
-  const description = DESCRIPTIONS[objClass] || {
+function filterOptionForObjClass(objClass) {
+  const description = FILTER_OPTIONS[objClass] || {
     title: objClass,
     icon: "question",
   };
   return { field: "_objClass", value: objClass, ...description };
 }
 
-const DESCRIPTIONS = {
+const FILTER_OPTIONS = {
   Author: { title: "Authors", icon: "user" },
   Blog: { title: "Blog", icon: "pen" },
   BlogPost: { title: "Blog posts", icon: "pen" },

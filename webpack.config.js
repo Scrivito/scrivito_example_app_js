@@ -109,6 +109,7 @@ function webpackConfig(env = {}) {
       minimizer: [
         new TerserPlugin({
           cache: true,
+          extractComments: true,
           parallel: true,
           terserOptions: { ecma: 5 },
         }),

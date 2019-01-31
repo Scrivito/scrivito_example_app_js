@@ -6,7 +6,7 @@ const TestimonialWidget = Scrivito.provideWidgetClass("TestimonialWidget", {
   attributes: {
     testimonial: "string",
     author: "string",
-    authorImage: "reference",
+    authorImage: ["reference", { only: ["Image"] }],
   },
 });
 

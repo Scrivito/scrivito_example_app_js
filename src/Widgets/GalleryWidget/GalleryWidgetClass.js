@@ -2,7 +2,7 @@ import * as Scrivito from "scrivito";
 
 const GalleryWidget = Scrivito.provideWidgetClass("GalleryWidget", {
   attributes: {
-    images: "referencelist",
+    images: ["referencelist", { only: ["Image"] }],
   },
 });
 

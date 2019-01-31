@@ -6,7 +6,7 @@ const Author = Scrivito.provideObjClass("Author", {
   attributes: {
     title: "string",
     description: "string",
-    image: "reference",
+    image: ["reference", { only: ["Image"] }],
     ...metadataAttributes,
   },
 });

@@ -1,6 +1,9 @@
 const defaultPageAttributes = {
   body: ["widgetlist", { only: "SectionWidget" }],
-  navigationBackgroundImage: "reference",
+  navigationBackgroundImage: [
+    "reference",
+    { only: ["Image", "Video", "Download"] },
+  ],
   navigationBackgroundImageGradient: ["enum", { values: ["yes", "no"] }],
   navigationHeight: [
     "enum",

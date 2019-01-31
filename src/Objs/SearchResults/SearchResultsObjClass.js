@@ -4,7 +4,7 @@ import metadataAttributes from "../_metadataAttributes";
 const SearchResults = Scrivito.provideObjClass("SearchResults", {
   attributes: {
     title: "string",
-    navigationBackgroundImage: "reference",
+    navigationBackgroundImage: ["reference", { only: ["Image"] }],
     ...metadataAttributes,
   },
 });

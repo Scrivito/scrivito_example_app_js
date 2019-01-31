@@ -5,7 +5,7 @@ import metadataAttributes from "../_metadataAttributes";
 const Job = Scrivito.provideObjClass("Job", {
   attributes: {
     body: ["widgetlist", { only: "SectionWidget" }],
-    image: "reference",
+    image: ["reference", { only: ["Image"] }],
     title: "string",
 
     datePosted: "date",

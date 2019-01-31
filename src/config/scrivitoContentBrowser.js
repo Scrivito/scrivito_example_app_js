@@ -1,7 +1,57 @@
 import * as Scrivito from "scrivito";
 
 Scrivito.configureContentBrowser({
-  filters: {
+  filters: ({ _validObjClasses }) => {
+    if (_validObjClasses) {
+      switch (_validObjClasses.length) {
+        case 0:
+          return defaultFilters();
+        case 1:
+          return filterForObjClass(_validObjClasses[0]);
+        default:
+          return filtersForObjClasses(_validObjClasses);
+      }
+    }
+
+    return defaultFilters();
+  },
+});
+
+function filterForObjClass(objClass) {
+  return {
+    _objClass: {
+      options: {
+        [objClass]: {
+          ...filterOptionsForObjClass(objClass),
+          selected: true,
+        },
+      },
+    },
+  };
+}
+
+function filtersForObjClasses(objClasses) {
+  return {
+    _objClass: {
+      options: {
+        All: {
+          title: "All",
+          icon: "folder",
+          field: "_objClass",
+          value: objClasses,
+          selected: true,
+        },
+        ...objClasses.reduce((result, value) => {
+          result[value] = filterOptionsForObjClass(value);
+          return result;
+        }, {}),
+      },
+    },
+  };
+}
+
+function defaultFilters() {
+  return {
     _objClass: {
       options: {
         All: {
@@ -10,83 +60,19 @@ Scrivito.configureContentBrowser({
           query: Scrivito.Obj.all(),
           selected: true,
         },
-        Images: {
-          title: "Images",
-          icon: "image",
-          field: "_objClass",
-          value: "Image",
-        },
+        Image: filterOptionsForObjClass("Image"),
         Pages: {
           title: "Pages",
           icon: "sheet",
           field: "_objClass",
-          value: [
-            "Author",
-            "Blog",
-            "BlogPost",
-            "Event",
-            "Homepage",
-            "Job",
-            "LandingPage",
-            "Page",
-            "Redirect",
-            "SearchResults",
-          ],
-          options: {
-            Page: {
-              title: "Standard pages",
-              icon: "sheet",
-            },
-            LandingPage: {
-              title: "Landing pages",
-              icon: "inbox",
-            },
-            BlogPost: {
-              title: "Blog posts",
-              icon: "pen",
-            },
-            Author: {
-              title: "Authors",
-              icon: "user",
-            },
-            Event: {
-              title: "Events",
-              icon: "cal",
-            },
-            Job: {
-              title: "Jobs",
-              icon: "suitcase",
-            },
-            Redirect: {
-              title: "Redirects",
-              icon: "link",
-            },
-            Homepage: {
-              title: "Homepage",
-              icon: "inbox",
-            },
-            Blog: {
-              title: "Blog",
-              icon: "pen",
-            },
-            SearchResults: {
-              title: "Search results",
-              icon: "lens",
-            },
-          },
+          value: PAGES,
+          options: PAGES.reduce((result, value) => {
+            result[value] = filterOptionsForObjClass(value);
+            return result;
+          }, {}),
         },
-        Download: {
-          title: "Downloads",
-          icon: "pdf",
-          field: "_objClass",
-          value: "Download",
-        },
-        Video: {
-          title: "Videos",
-          icon: "video",
-          field: "_objClass",
-          value: "Video",
-        },
+        Download: filterOptionsForObjClass("Download"),
+        Video: filterOptionsForObjClass("Video"),
       },
     },
     _modification: {
@@ -103,5 +89,42 @@ Scrivito.configureContentBrowser({
         },
       },
     },
-  },
-});
+  };
+}
+
+function filterOptionsForObjClass(objClass) {
+  const filterPresentation = FILTER_PRESENTATIONS[objClass] || {
+    title: objClass,
+    icon: "question",
+  };
+  return { field: "_objClass", value: objClass, ...filterPresentation };
+}
+
+const FILTER_PRESENTATIONS = {
+  Author: { title: "Authors", icon: "user" },
+  Blog: { title: "Blog", icon: "pen" },
+  BlogPost: { title: "Blog posts", icon: "pen" },
+  Download: { title: "Downloads", icon: "pdf" },
+  Event: { title: "Events", icon: "cal" },
+  Homepage: { title: "Homepage", icon: "inbox" },
+  Image: { title: "Images", icon: "image" },
+  Job: { title: "Jobs", icon: "suitcase" },
+  LandingPage: { title: "Landing pages", icon: "inbox" },
+  Page: { title: "Standard pages", icon: "sheet" },
+  Redirect: { title: "Redirects", icon: "link" },
+  SearchResults: { title: "Search results", icon: "lens" },
+  Video: { title: "Videos", icon: "video" },
+};
+
+const PAGES = [
+  "Page",
+  "LandingPage",
+  "BlogPost",
+  "Author",
+  "Event",
+  "Job",
+  "Redirect",
+  "Homepage",
+  "Blog",
+  "SearchResults",
+];

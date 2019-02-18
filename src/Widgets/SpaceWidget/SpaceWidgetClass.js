@@ -1,23 +1,22 @@
-import * as Scrivito from 'scrivito';
+import * as Scrivito from "scrivito";
 
-
-const SpaceWidget = Scrivito.provideWidgetClass('SpaceWidget', {
+const SpaceWidget = Scrivito.provideWidgetClass("SpaceWidget", {
   attributes: {
     size: [
-      'enum',
+      "enum",
       {
         values: [
-          'free',
-          'xs-small',
-          'small',
-          'medium',
-          'large',
-          'xl-large',
-          'xxl-large',
+          "free",
+          "xs-small",
+          "small",
+          "medium",
+          "large",
+          "xl-large",
+          "xxl-large",
         ],
       },
     ],
-    freeSize: 'string',
+    freeSize: "string",
   },
 });
 

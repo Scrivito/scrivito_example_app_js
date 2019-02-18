@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <defs>
+  <symbol id="svg_7" viewBox="0 0 150 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+   <title>section</title>
+   <desc>Created with Sketch.</desc>
+   <g fill="none" fill-rule="evenodd" id="svg_1">
+    <g id="svg_2" stroke="#FF6B6B">
+     <rect height="65" id="svg_6" stroke-width="2" width="99" x="26" y="18"/>
+     <g id="svg_3" stroke-linecap="square" transform="translate(68.000000, 43.833333)">
+      <path d="m7,0.72222l0,11.55556" id="svg_5"/>
+      <g id="svg_4" transform="translate(7.000000, 6.500000) rotate(90.000000) translate(-7.000000, -6.500000) translate(5.000000, 0.000000)">
+       <path d="m2,0.72222l0,11.55556" id="Line"/>
+      </g>
+     </g>
+    </g>
+   </g>
+  </symbol>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <use id="svg_8" transform="matrix(1.06667 0 0 1.06667 0 0)" xlink:href="#svg_7"/>
+  <g id="svg_9"/>
+  <path d="m318.80006,201.82584l21.99984,-18.45526l21.99984,18.45526l-10.99992,0l0,18.54407l-21.99984,0l0,-18.54407l-10.99992,0z" fill="#fe6b6b" id="svg_10" stroke="#fe6b6b" stroke-width="5"/>
+  <path d="m319.50016,312.9556l21.99984,-18.45526l21.99984,18.45526l-10.99992,0l0,18.54407l-21.99984,0l0,-18.54407l-10.99992,0z" fill="#fe6b6b" id="svg_11" stroke="#fe6b6b" stroke-width="5" transform="rotate(-180 341.5 313)"/>
+ </g>
+</svg>

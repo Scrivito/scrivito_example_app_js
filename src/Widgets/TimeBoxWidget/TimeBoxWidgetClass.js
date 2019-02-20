@@ -4,8 +4,8 @@ import { registerTextExtract } from "../../utils/textExtractRegistry";
 const TimeBoxWidget = Scrivito.provideWidgetClass("TimeBoxWidget", {
   attributes: {
     content: "widgetlist",
-    displayFrom: 'date',
-    displayUntil: 'date',
+    displayFrom: "date",
+    displayUntil: "date",
   },
 });
 

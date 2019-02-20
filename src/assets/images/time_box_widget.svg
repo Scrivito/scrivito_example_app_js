@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <defs>
+  <symbol height="100px" id="svg_10" viewBox="0 0 150 100" width="150px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+   <title>table</title>
+   <desc>Created with Sketch.</desc>
+   <defs>
+    <rect height="10" id="svg_9" width="16" x="0" y="0"/>
+    <rect height="10" id="svg_8" width="15" x="17" y="0"/>
+    <rect height="10" id="svg_7" width="15" x="33" y="0"/>
+    <rect height="10" id="svg_6" width="15" x="49" y="0"/>
+    <rect height="10" id="svg_5" width="16" x="65" y="0"/>
+   </defs>
+   <g fill="none" fill-rule="evenodd" id="svg_1">
+    <g id="svg_2">
+     <g id="svg_3" transform="translate(35.000000, 25.000000)">
+      <rect height="8" id="svg_4" stroke="#FF6B6B" stroke-linecap="square" width="16" x="0.5" y="11.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="0.5" y="19.5"/>
+      <g id="Rectangle-3">
+       <use fill="#FF6B6B" fill-rule="evenodd" xlink:href="#svg_9"/>
+       <rect height="11" stroke="#FF6B6B" width="17" x="-0.5" y="-0.5"/>
+       <rect height="11" stroke="#FFFFFF" width="17" x="-0.5" y="-0.5"/>
+      </g>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="16.5" y="11.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="16.5" y="19.5"/>
+      <g id="Rectangle-3">
+       <use fill="#FF6B6B" fill-rule="evenodd" xlink:href="#svg_8"/>
+       <rect height="11" stroke="#FF6B6B" width="16" x="16.5" y="-0.5"/>
+       <rect height="11" stroke="#FFFFFF" width="16" x="16.5" y="-0.5"/>
+      </g>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="32.5" y="11.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="32.5" y="19.5"/>
+      <g id="Rectangle-3">
+       <use fill="#FF6B6B" fill-rule="evenodd" xlink:href="#svg_7"/>
+       <rect height="11" stroke="#FF6B6B" width="16" x="32.5" y="-0.5"/>
+       <rect height="11" stroke="#FFFFFF" width="16" x="32.5" y="-0.5"/>
+      </g>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="48.5" y="11.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="48.5" y="19.5"/>
+      <g id="Rectangle-3">
+       <use fill="#FF6B6B" fill-rule="evenodd" xlink:href="#svg_6"/>
+       <rect height="11" stroke="#FF6B6B" width="16" x="48.5" y="-0.5"/>
+       <rect height="11" stroke="#FFFFFF" width="16" x="48.5" y="-0.5"/>
+      </g>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="64.5" y="11.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="64.5" y="19.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="0.5" y="27.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="16.5" y="27.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="32.5" y="27.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="48.5" y="27.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="64.5" y="27.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="0.5" y="43.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="16.5" y="43.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="32.5" y="43.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="48.5" y="43.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="64.5" y="43.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="0.5" y="35.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="16.5" y="35.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="32.5" y="35.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="48.5" y="35.5"/>
+      <rect height="8" id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" width="16" x="64.5" y="35.5"/>
+      <g id="Rectangle-3">
+       <use fill="#FF6B6B" fill-rule="evenodd" xlink:href="#svg_5"/>
+       <rect height="11" stroke="#FF6B6B" width="17" x="64.5" y="-0.5"/>
+       <rect height="11" stroke="#FFFFFF" width="17" x="64.5" y="-0.5"/>
+      </g>
+     </g>
+    </g>
+   </g>
+  </symbol>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <use fill="#fe6b6b" id="svg_11" x="-2.133347" xlink:href="#svg_10" y="-2.13334"/>
+  <path d="m303.159418,264.242384l3.331017,-3.805156l9.125267,10.419137l15.211525,-17.365228l3.332194,3.802467l-18.54372,21.173073" fill="#fe6b6b" id="svg_14" stroke="#fe6b6b" stroke-width="0"/>
+  <path d="m235.999995,264.26348l3.331017,-3.805156l9.125267,10.419137l15.211525,-17.365228l3.332194,3.802467l-18.54372,21.173073" fill="#fe6b6b" id="svg_15" stroke="#fe6b6b" stroke-width="0"/>
+  <path d="m169.999995,264.26348l3.331017,-3.805156l9.125267,10.419137l15.211525,-17.365228l3.332194,3.802467l-18.54372,21.173073" fill="#fe6b6b" id="svg_16" stroke="#fe6b6b" stroke-width="0"/>
+  <path d="m442.999995,230.26348l3.331017,-3.805156l9.125267,10.419137l15.211525,-17.365228l3.332194,3.802467l-18.54372,21.173073" fill="#fe6b6b" id="svg_17" stroke="#fe6b6b" stroke-width="0"/>
+  <path d="m370.999995,230.26348l3.331017,-3.805156l9.125267,10.419137l15.211525,-17.365228l3.332194,3.802467l-18.54372,21.173073" fill="#fe6b6b" id="svg_18" stroke="#fe6b6b" stroke-width="0"/>
+  <path d="m303.999995,230.26348l3.331017,-3.805156l9.125267,10.419137l15.211525,-17.365228l3.332194,3.802467l-18.54372,21.173073" fill="#fe6b6b" id="svg_19" stroke="#fe6b6b" stroke-width="0"/>
+  <g id="svg_12"/>
+  <rect fill="#FF0000" height="1" id="svg_13" stroke="#000000" stroke-width="5" width="0" x="137.5" y="251.5"/>
+  <path d="m237.999995,230.26348l3.331017,-3.805156l9.125267,10.419137l15.211525,-17.365228l3.332194,3.802467l-18.54372,21.173073" fill="#fe6b6b" id="svg_20" stroke="#fe6b6b" stroke-width="0"/>
+ </g>
+</svg>

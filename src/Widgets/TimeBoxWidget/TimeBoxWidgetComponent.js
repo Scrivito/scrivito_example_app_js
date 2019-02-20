@@ -18,14 +18,16 @@ Scrivito.provideComponent("TimeBoxWidget", ({ widget }) => {
     ${displayUntil ? displayUntil.toLocaleDateString("en") : "…"}
     `;
 
-  if (editing)
+  if (editing) {
     return (
       <div>
         <div className="text-center strong text-danger">{displayContent}</div>
         <Scrivito.ContentTag content={widget} attribute="content" />
       </div>
     );
+  }
 
-  if (display)
+  if (display) {
     return <Scrivito.ContentTag content={widget} attribute="content" />;
+  }
 });

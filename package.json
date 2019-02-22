@@ -47,7 +47,6 @@
     "moment-from-now": "0.0.4",
     "node-sass": "^4.11.0",
     "prettier": "^1.16.1",
-    "prop-types": "^15.6.2",
     "puppeteer": "^1.11.0",
     "react": "^16.8.3",
     "react-cookie-consent": "^2.1.0",

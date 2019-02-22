@@ -11,7 +11,7 @@
     "private": true
   },
   "dependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "autotrack": "^2.4.1",
@@ -20,7 +20,7 @@
     "clean-webpack-plugin": "^1.0.1",
     "content-security-policy-builder": "^2.0.0",
     "copy-webpack-plugin": "^4.6.0",
-    "core-js": "^2.6.3",
+    "core-js": "^2.6.5",
     "css-loader": "^2.1.0",
     "dateformat": "^3.0.3",
     "dotenv": "^6.2.0",

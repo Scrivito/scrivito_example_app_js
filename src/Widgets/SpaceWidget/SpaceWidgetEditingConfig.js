@@ -2,15 +2,23 @@ import * as Scrivito from "scrivito";
 import spaceWidgetIcon from "../../assets/images/space_widget.svg";
 
 Scrivito.provideEditingConfig("SpaceWidget", {
-  title: "SpaceWidget",
+  title: "Space",
   thumbnail: spaceWidgetIcon,
   attributes: {
     size: {
       title: "Choose size",
-    },
-    freeSize: {
-      title: "Enter custom height of widget in px or (r)em. ie: 10px, 2em",
+      values: [
+        { value: "xs", title: "Extra small" },
+        { value: "s", title: "Small" },
+        { value: "m", title: "Medium" },
+        { value: "l", title: "Large" },
+        { value: "xl", title: "Extra large" },
+        { value: "xxl", title: "Extra extra large" },
+      ],
     },
   },
-  properties: ["size", "freeSize"],
+  properties: ["size"],
+  initialContent: {
+    size: "m",
+  },
 });

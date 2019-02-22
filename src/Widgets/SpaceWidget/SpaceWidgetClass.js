@@ -5,18 +5,9 @@ const SpaceWidget = Scrivito.provideWidgetClass("SpaceWidget", {
     size: [
       "enum",
       {
-        values: [
-          "free",
-          "xs-small",
-          "small",
-          "medium",
-          "large",
-          "xl-large",
-          "xxl-large",
-        ],
+        values: ["xs", "s", "m", "l", "xl", "xxl"],
       },
     ],
-    freeSize: "string",
   },
 });
 

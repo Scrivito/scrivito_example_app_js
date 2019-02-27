@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="150px" height="100px" viewBox="0 0 150 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-    <title>space_widget</title>
+    <title>Untitled</title>
     <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="space_widget" transform="translate(27.000000, 19.000000)">
-            <g id="Group" stroke="#FF6B6B">
-                <rect id="Rectangle" stroke-width="2" x="0" y="0" width="99" height="65"></rect>
-                <g id="Group-2" stroke-linecap="square" transform="translate(42.000000, 25.833333)">
-                    <path d="M7,0.722222222 L7,12.2777778" id="Line"></path>
-                    <g id="Group" transform="translate(7.000000, 6.500000) rotate(90.000000) translate(-7.000000, -6.500000) translate(6.000000, 0.000000)">
-                        <path d="M1,0.722222222 L1,12.2777778" id="Line"></path>
-                    </g>
-                </g>
+            <g id="Group" stroke="#FF6B6B" stroke-width="2">
+                <rect id="Rectangle" x="0" y="0" width="99" height="65"></rect>
             </g>
-            <polygon id="Line-2" fill="#FE6B6B" fill-rule="nonzero" points="49.5555556 18 49.5555556 21.5 49.5555556 22 48.4444444 22 48.4444444 21.5 48.4444444 18 44 18 49 9 54 18"></polygon>
-            <polygon id="Line-3" fill="#FE6B6B" fill-rule="nonzero" points="48.4444444 47 48.4444444 43.5 48.4444444 43 49.5555556 43 49.5555556 43.5 49.5555556 47 54 47 49 56 44 47"></polygon>
+            <polygon id="Line-2" fill="#FE6B6B" fill-rule="nonzero" points="49.5555556 25 49.5555556 28.5 49.5555556 29 48.4444444 29 48.4444444 28.5 48.4444444 25 44 25 49 16 54 25"></polygon>
+            <polygon id="Line-3" fill="#FE6B6B" fill-rule="nonzero" points="48.4444444 40 48.4444444 36.5 48.4444444 36 49.5555556 36 49.5555556 36.5 49.5555556 40 54 40 51.1924937 45.0535114 49 49 44 40"></polygon>
         </g>
     </g>
 </svg>

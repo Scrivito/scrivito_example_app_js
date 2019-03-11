@@ -184,7 +184,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
   ];
 
   if (isProduction) {
-    plugins.unshift(new CleanWebpackPlugin([buildPath], { verbose: false }));
+    plugins.unshift(new CleanWebpackPlugin());
     plugins.push(
       new ZipPlugin({
         filename: "build.zip",

@@ -1,6 +1,6 @@
 /* eslint no-console: "off" */
 import * as Scrivito from "scrivito";
-import xml from "xml";
+import xml from "jsontoxml";
 import formatDate from "../utils/formatDate";
 
 export default async function prerenderSitemap(
@@ -25,13 +25,14 @@ function sitemapXml(objClassesWhitelist) {
   const sitemapUrls = pages.map(pageToSitemapUrl);
 
   const content = xml(
-    {
-      urlset: [
-        { _attr: { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" } },
-        ...sitemapUrls,
-      ],
-    },
-    { declaration: true }
+    [
+      {
+        name: "urlset",
+        attrs: { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" },
+        children: sitemapUrls,
+      },
+    ],
+    { xmlHeader: true }
   );
 
   const itemsCount = sitemapUrls.length;
@@ -40,9 +41,9 @@ function sitemapXml(objClassesWhitelist) {
 
 function pageToSitemapUrl(page) {
   return {
-    url: [
-      { loc: Scrivito.urlFor(page) },
-      { lastmod: formatDate(page.lastChanged(), "yyyy-mm-dd") },
-    ],
+    url: {
+      loc: Scrivito.urlFor(page),
+      lastmod: formatDate(page.lastChanged(), "yyyy-mm-dd"),
+    },
   };
 }

@@ -24,7 +24,7 @@ function sitemapXml(objClassesWhitelist) {
     .take();
   const sitemapUrls = pages.map(pageToSitemapUrl);
 
-  const content = xml(
+  const content = jsontoxml(
     [
       {
         name: "urlset",

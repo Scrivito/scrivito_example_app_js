@@ -23,7 +23,7 @@
     "btoa": true
   },
   "rules": {
-    "curly": ["error", "all"],
+    "curly": [1, "all"],
     "import/no-amd": 1,
     "import/no-commonjs": 1,
     "import/no-nodejs-modules": 1,
@@ -34,7 +34,7 @@
       { "args": "all", "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
     ],
     "no-use-before-define": [2, { "functions": false, "variables": false }],
-    "prettier/prettier": "error",
+    "prettier/prettier": 1,
     "react/display-name": 0,
     "react/jsx-no-undef": ["error", { "allowGlobals": true }],
     "react/prop-types": 0,

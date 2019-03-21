@@ -13,7 +13,7 @@ class GoogleAnalytics extends React.Component {
     Scrivito.load(() => {
       const rootPage = Scrivito.Obj.root();
       if (!rootPage) {
-        return;
+        return undefined;
       }
       return rootPage.get("googleAnalyticsTrackingId");
     }).then(trackingId => {

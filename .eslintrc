@@ -12,8 +12,8 @@
     "sourceType": "module"
   },
   "extends": [
-    "eslint:recommended",
     "airbnb/base",
+    "eslint:recommended",
     "plugin:react/recommended",
     "prettier"
   ],

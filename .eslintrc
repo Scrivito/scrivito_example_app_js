@@ -24,9 +24,9 @@
   },
   "rules": {
     "curly": [1, "all"],
-    "import/no-amd": 1,
-    "import/no-commonjs": 1,
-    "import/no-nodejs-modules": 1,
+    "import/no-amd": 2,
+    "import/no-commonjs": 2,
+    "import/no-nodejs-modules": 2,
     "no-debugger": 1,
     "no-param-reassign": [2, { "props": false }],
     "no-unused-vars": [

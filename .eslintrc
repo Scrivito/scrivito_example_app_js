@@ -34,7 +34,6 @@
       { "args": "all", "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
     ],
     "no-use-before-define": [2, { "functions": false, "variables": false }],
-    "object-curly-newline": 0,
     "prettier/prettier": "error",
     "prefer-destructuring": 0,
     "react/display-name": 0,

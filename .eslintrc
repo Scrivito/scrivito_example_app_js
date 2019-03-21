@@ -29,7 +29,6 @@
     "import/no-nodejs-modules": 1,
     "no-debugger": 1,
     "no-param-reassign": [2, { "props": false }],
-    "no-shadow": [2, { "allow": ["error", "result"] }],
     "no-throw-literal": 0,
     "no-unused-vars": [
       2,

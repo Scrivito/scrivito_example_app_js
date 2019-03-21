@@ -36,7 +36,7 @@
     "no-use-before-define": [2, { "functions": false, "variables": false }],
     "prettier/prettier": 1,
     "react/display-name": 0,
-    "react/jsx-no-undef": ["error", { "allowGlobals": true }],
+    "react/jsx-no-undef": [2, { "allowGlobals": true }],
     "react/prop-types": 0,
     "vars-on-top": 0
   },

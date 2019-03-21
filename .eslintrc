@@ -35,7 +35,6 @@
     ],
     "no-use-before-define": [2, { "functions": false, "variables": false }],
     "prettier/prettier": "error",
-    "prefer-destructuring": 0,
     "react/display-name": 0,
     "react/jsx-no-undef": ["error", { "allowGlobals": true }],
     "react/prop-types": 0,

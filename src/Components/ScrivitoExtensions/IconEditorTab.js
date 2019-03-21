@@ -34,7 +34,7 @@ class IconEditorTab extends React.Component {
   }
 
   render() {
-    const widget = this.props.widget;
+    const { widget } = this.props;
     const currentIcon = widget.get("icon");
 
     return (

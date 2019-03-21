@@ -23,7 +23,6 @@
     "btoa": true
   },
   "rules": {
-    "arrow-body-style": 0,
     "consistent-return": 0,
     "curly": ["error", "all"],
     "default-case": 0,

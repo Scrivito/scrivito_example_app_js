@@ -293,11 +293,12 @@ class GridLayoutEditor extends React.Component {
     }
 
     if (wantedCols === 5) {
-      return this.props.adjustGrid([2, 2, 2, 2, 4]);
+      this.props.adjustGrid([2, 2, 2, 2, 4]);
+      return;
     }
 
     const newColSize = 12 / wantedCols;
-    return this.props.adjustGrid(times(wantedCols).map(() => newColSize));
+    this.props.adjustGrid(times(wantedCols).map(() => newColSize));
   }
 
   render() {

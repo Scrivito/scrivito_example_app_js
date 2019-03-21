@@ -3,9 +3,7 @@
   "plugins": ["import", "prettier", "react"],
   "settings": {
     "import/resolver": "webpack",
-    "react": {
-      "version": "16"
-    }
+    "react": { "version": "16" }
   },
   "parserOptions": {
     "ecmaVersion": 9,
@@ -43,21 +41,15 @@
   "overrides": [
     {
       "files": ["src/utils/textExtract.js", "src/utils/textExtractRegistry.js"],
-      "rules": {
-        "no-console": 0
-      }
+      "rules": { "no-console": 0 }
     },
     {
       "files": ["src/index.js"],
-      "rules": {
-        "import/first": 0
-      }
+      "rules": { "import/first": 0 }
     },
     {
       "files": ["src/Components/NotFoundErrorPage.js"],
-      "rules": {
-        "class-methods-use-this": 0
-      }
+      "rules": { "class-methods-use-this": 0 }
     },
     {
       "files": ["src/Components/GoogleAnalytics.js"],

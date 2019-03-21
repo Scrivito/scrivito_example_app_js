@@ -26,7 +26,6 @@
     "curly": ["error", "all"],
     "import/no-amd": 1,
     "import/no-commonjs": 1,
-    "import/no-extraneous-dependencies": "off",
     "import/no-nodejs-modules": 1,
     "no-debugger": 1,
     "no-param-reassign": [2, { "props": false }],

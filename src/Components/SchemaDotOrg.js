@@ -29,6 +29,8 @@ function dataFromItem(item) {
       return dataFromEvent(item);
     case "Job":
       return dataFromJob(item);
+    default:
+      break;
   }
 
   throw `SchemaDotOrg for objClass ${item.objClass()} not supported!`;

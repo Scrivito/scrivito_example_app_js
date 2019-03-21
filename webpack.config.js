@@ -65,6 +65,7 @@ function webpackConfig(env = {}) {
                       modules: false,
                       shippedProposals: true,
                       useBuiltIns: "usage",
+                      corejs: "2",
                       targets: {
                         browsers: ["Chrome >= 41", "last 2 versions"],
                       },

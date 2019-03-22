@@ -196,13 +196,13 @@ h1,
 }
 h2,
 .h2 {
-  font-size: 42px;
-  line-height: 50px;
+  font-size: 40px;
+  line-height: 47px;
 }
 h3,
 .h3 {
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 24px;
+  line-height: 28px;
 }
 h4,
 .h4 {
@@ -3324,4 +3324,51 @@ img.cookie-img {
     font-size: 35px;
     line-height: 45px;
   }
+}
+
+/* Custom CSS */
+.bg-custom-shadow {
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+  margin: 20px 15px;
+  padding: 40px;
+  border-radius: 3px;
+}
+
+
+.more-block {
+  cursor: pointer;
+  padding: 40px 100px 40px 40px;
+  position: relative;
+}
+.more-block.closed {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.more-block.closed:after {
+  content: "\f107";
+  display: block;
+  position: absolute;
+  right: 40px;
+  top: 70px;
+  font: normal normal normal 34px/1 FontAwesome;
+}
+.more-block.open {
+  white-space: normal; 
+}
+.more-block.open:after {
+  content: "\f106";
+  display: block;
+  position: absolute;
+  right: 40px;
+  top: 70px;
+  font: normal normal normal 34px/1 FontAwesome;
+}
+.more-block h3 {
+  pointer-events: none;
+}
+.bg-custom-shadow p img {
+  margin-bottom: 0px;
+  margin-top: 4px;
 }

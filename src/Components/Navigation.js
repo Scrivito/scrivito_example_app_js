@@ -140,10 +140,10 @@ class Navigation extends React.Component {
           }
         } else {
           topSectionStyle.background = [
-            {
-              image:
-                "linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))",
-            },
+            // {
+            //   image:
+            //     "linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))",
+            // },
           ];
           if (!isVideoObj(backgroundImage)) {
             topSectionStyle.background.push({ image: backgroundImage });

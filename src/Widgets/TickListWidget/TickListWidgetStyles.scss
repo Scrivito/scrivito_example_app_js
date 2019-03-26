@@ -1,3 +1,8 @@
+@import "../../assets/stylesheets/bootstrap/mixins/clearfix";
+@import "../../assets/stylesheets/fontawesome/variables";
+@import "../../assets/stylesheets/fontawesome/core";
+@import "../../assets/stylesheets/colors";
+
 .tick-list {
   list-style-type: none;
   padding-left: 15px;
@@ -16,5 +21,6 @@
   top: 2px;
   left: -15px;
   content: "\f00c" !important;
+  color: $secondary;
   @extend .fa;
 }

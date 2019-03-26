@@ -122,7 +122,7 @@ html {
 }
 
 body {
-  font-family: "Source Sans Pro", $font-family-sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: normal;
   font-size: 16px;
   line-height: 1.5em;
@@ -181,7 +181,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "PT Sans Narrow", $font-family-sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
   font-weight: 400;
   color: $theme-greydark;
   margin: 0 0 15px 0;
@@ -206,7 +206,7 @@ h3,
 }
 h4,
 .h4 {
-  font-family: "Source Sans Pro", $font-family-sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
   font-size: 22px;
   line-height: 30px;
@@ -214,7 +214,7 @@ h4,
 }
 h5,
 .h5 {
-  font-family: "Source Sans Pro", $font-family-sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
 }
 h6,
@@ -337,7 +337,7 @@ small,
 }
 
 .hero-bold {
-  font-family: "Source Sans Pro", $font-family-sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 700;
   font-size: 180px;
   text-transform: uppercase;
@@ -349,7 +349,7 @@ small,
   color: $secondary !important;
 }
 .hero-small {
-  font-family: "Source Sans Pro", $font-family-sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
   font-size: 30px;
   line-height: 1;
@@ -1427,7 +1427,7 @@ section.navbar-fixed {
   color: $secondary;
   font-size: 80px;
   line-height: 80px;
-  font-family: "PT Sans Narrow", $font-family-sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
   font-weight: 700;
 }
 .fact .key {
@@ -1664,7 +1664,7 @@ section.navbar-fixed {
   line-height: 62px;
   border: 10px solid #fff;
   display: block;
-  font-family: "PT Sans Narrow", $font-family-sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
   font-weight: 700;
   text-align: center;
   position: absolute;
@@ -1811,7 +1811,7 @@ section.navbar-fixed {
   line-height: 62px;
   border: 10px solid #fff;
   display: block;
-  font-family: "PT Sans Narrow", $font-family-sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
   font-weight: 700;
   text-align: center;
   background: $secondary;
@@ -1951,7 +1951,7 @@ _:-ms-fullscreen,
   border-radius: 50%;
   line-height: 60px;
   text-align: center;
-  font-family: "PT Sans Narrow", $font-family-sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
   font-weight: 600;
 }
 .box-card .box-image {
@@ -3125,7 +3125,7 @@ img.cookie-img {
 .tick-list li {
   position: relative;
   padding: 0 0 20px 17px;
-  font-family: "PT Sans Narrow", $font-family-sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
   font-weight: 400;
   font-size: 20px;
 }

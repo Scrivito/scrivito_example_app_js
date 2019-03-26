@@ -3134,10 +3134,8 @@ img.cookie-img {
   position: absolute;
   top: 2px;
   left: -15px;
-  @extend .fa;
-}
-.tick-list li:before {
   content: "\f00c" !important;
+  @extend .fa;
 }
 
 /* Text image widget ************ TBD ************

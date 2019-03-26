@@ -3114,30 +3114,6 @@ img.cookie-img {
   }
 }
 
-/* list *
-=================================================================== */
-
-.tick-list {
-  list-style-type: none;
-  padding-left: 15px;
-  @include clearfix;
-}
-.tick-list li {
-  position: relative;
-  padding: 0 0 20px 17px;
-  font-family: "PT Sans Narrow", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-}
-.tick-list li:before {
-  display: block;
-  position: absolute;
-  top: 2px;
-  left: -15px;
-  content: "\f00c" !important;
-  @extend .fa;
-}
-
 /* Text image widget ************ TBD ************
 =================================================================== */
 .text_image_widget {

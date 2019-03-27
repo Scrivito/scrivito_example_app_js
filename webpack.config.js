@@ -124,7 +124,7 @@ function webpackConfig(env = {}) {
     plugins: generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }),
     resolve: {
       extensions: [".js"],
-      modules: ["node_modules"],
+      modules: [path.join(__dirname, "node_modules")],
     },
     devServer: {
       port: 8080,

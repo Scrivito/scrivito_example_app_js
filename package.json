@@ -49,7 +49,7 @@
     "node-sass": "^4.11.0",
     "prettier": "^1.16.4",
     "puppeteer": "^1.13.0",
-    "react": "^16.8.4",
+    "react": "^16.8.6",
     "react-cookie-consent": "^2.2.2",
     "react-dom": "^16.8.4",
     "react-draggable": "^3.2.1",

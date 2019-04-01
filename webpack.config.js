@@ -40,6 +40,7 @@ function webpackConfig(env = {}) {
 
   return {
     mode: isProduction ? "production" : "development",
+    node: false,
     context: path.join(__dirname, "src"),
     entry: generateEntry({ isPrerendering }),
     module: {
@@ -194,7 +195,14 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       })
     );
   } else {
-    plugins.push(new webpack.SourceMapDevToolPlugin({}));
+    plugins.push(
+      new webpack.SourceMapDevToolPlugin({}),
+      // make hot reloading work in IE/Edge: (see https://github.com/nfl/react-helmet/issues/336)
+      new webpack.DefinePlugin({
+        "window.requestAnimationFrame":
+          "window.requestAnimationFrame.bind(window)",
+      })
+    );
   }
 
   return plugins;

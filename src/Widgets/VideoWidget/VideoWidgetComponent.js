@@ -6,6 +6,10 @@ import PlayIcon from "../../assets/images/play_icon.svg";
 
 Scrivito.provideComponent("VideoWidget", ({ widget }) => {
   const videoUrl = urlFromBinary(widget.get("source"));
+  const showText = widget.get("showText");
+  const playText = widget.get("playText");
+  const textPostion = widget.get("textPostion");
+  const color = widget.get("color");
 
   if (!videoUrl && !Scrivito.isInPlaceEditingActive()) {
     return null;
@@ -35,12 +39,16 @@ Scrivito.provideComponent("VideoWidget", ({ widget }) => {
   };
 
   return (
-    <div className="video-widget">
+    <div className={`video-widget ${color}`}>
       <div className="poster">
         <img src={posterUrl} />
-        <button title="Play" onClick={playVideo}>
-          <img src={PlayIcon} />
-        </button>
+        <div className="btn-play">
+          {showText && textPostion === "left" && <div>{playText}</div>}
+          <button title="Play" onClick={playVideo}>
+            <img src={PlayIcon} />
+          </button>
+          {showText && textPostion === "left" && <div>{playText}</div>}
+        </div>
       </div>
       <Scrivito.ContentTag
         id="video_player"

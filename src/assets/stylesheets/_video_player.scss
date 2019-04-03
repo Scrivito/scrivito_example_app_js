@@ -1,0 +1,32 @@
+/**
+ * Video Widget Styles
+ * 
+ * Dirk Jan <smartprogrammer88@gmail.com>
+ * @version 1.0.0
+ */
+.video-widget {
+  .poster {
+    position: relative;
+    button {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: none;
+      background: transparent;
+
+      img {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+
+  #video_player {
+    // display: none;
+    position: absolute;
+    left: -1000000px;
+  }
+
+}

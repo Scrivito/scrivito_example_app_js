@@ -72,6 +72,7 @@ $slick-font-family: "slick_swap";
 @import "_social_cards";
 @import "_grid_layout_editor";
 @import "_icon_editor";
+@import "_video_player";
 
 /* fonts
 ================================================== */
@@ -202,8 +203,9 @@ h2,
 }
 h3,
 .h3 {
+  font-family: "Rubik Light";
   font-size: 24px;
-  line-height: 32px;
+  line-height: 28px;
 }
 h4,
 .h4 {
@@ -3618,31 +3620,4 @@ $lever-enabled-color: #f50057;
 
 .orange-text {
   color: #FD5092;
-}
-
-.video-widget {
-  .poster {
-    position: relative;
-    button {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border: none;
-      background: transparent;
-
-      img {
-        padding: 0;
-        margin: 0;
-      }
-    }
-  }
-
-  #video_player {
-    // display: none;
-    position: absolute;
-    left: -1000000px;
-  }
-
 }

@@ -12,4 +12,12 @@ setTimeout(function() {
       }
     }
   }
-}, 1000);
+
+  expandBlock = document.getElementsByClassName('expand-more-link');
+  for (index in expandBlock) {
+    expandBlock[index].onclick = function(evt) {
+      evt.target.nextElementSibling.className = "";
+      evt.target.className += " hide-p";
+    }
+  }
+}, 2000);

@@ -46,6 +46,7 @@ const BlogPostPreviewList = Scrivito.connect(
       <React.Fragment>
         {Object.entries(months).map(([month, monthPosts]) => (
           <React.Fragment key={`month: ${month}`}>
+            <div>test</div>
             <MonthHeadline date={monthPosts[0].get("publishedAt")} />
             <PostsTimeline posts={monthPosts} />
           </React.Fragment>

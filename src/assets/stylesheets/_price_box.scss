@@ -1,0 +1,72 @@
+.price-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Rubik;
+  text-align: center;
+
+  .main-box {
+    width: 500px;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    color: #6C738A;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+    z-index: 1;
+    
+    .divider-h {
+      height: 1px;
+      width: 500px;
+      margin-left: -30px;
+      border: 1px solid #6C738A;
+      opacity: 0.1;
+      box-shadow: 0 3px 8px 0 rgba(0,0,0,0.07);
+    }
+    .divider-v {
+      height: 289px;
+      margin: 0 35px;
+      width: 1px;
+      border: 1px solid #6C738A;
+      opacity: 0.1;
+      box-shadow: 0 3px 8px 0 rgba(0,0,0,0.07);
+    }
+  }
+
+  .second-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 210px;
+    max-width: 470px;
+    padding: 20px 80px;
+    border-radius: 0 15px 15px 0;
+    background: linear-gradient(315.15deg, #FF4B9C 0%, #EF7B40 100%);
+    color: #FFFFFF;
+    font-family: Rubik;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 18px;
+    text-align: left;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+    z-index: 0;
+
+    .check-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 40px;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background: white;
+      margin-right: 20px;
+      box-shadow: 0 8px 13px 0 rgba(0,0,0,0.06);
+
+      img {
+        margin: 0;
+        width: 11.5px;
+        height: 8.5px;
+      }
+    }
+  }
+}

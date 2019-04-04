@@ -18,7 +18,7 @@
                     <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
                 </g>
-                <polygon id="Triangle" fill="#FD5092" transform="translate(43.000000, 40.500000) rotate(-270.000000) translate(-43.000000, -40.500000) " points="43 31 55 50 31 50"></polygon>
+                
             </g>
         </g>
     </g>

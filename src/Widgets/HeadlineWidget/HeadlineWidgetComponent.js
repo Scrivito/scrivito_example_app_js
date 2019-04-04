@@ -4,6 +4,7 @@ import * as Scrivito from "scrivito";
 Scrivito.provideComponent("HeadlineWidget", ({ widget }) => {
   const style = widget.get("style") || "h2";
   const level = widget.get("level") || style;
+  const fontFamily = widget.get("fontFamily");
   const classNames = [style];
   if (widget.get("alignment")) {
     classNames.push(`text-${widget.get("alignment")}`);
@@ -13,6 +14,9 @@ Scrivito.provideComponent("HeadlineWidget", ({ widget }) => {
   }
   if (widget.get("showMargin") === "no") {
     classNames.push("no-margin");
+  }
+  if (fontFamily) {
+    classNames.push(fontFamily);
   }
 
   return (

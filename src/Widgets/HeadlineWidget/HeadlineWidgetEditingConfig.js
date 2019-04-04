@@ -40,6 +40,15 @@ Scrivito.provideEditingConfig("HeadlineWidget", {
         { value: "right", title: "Right" },
       ],
     },
+    fontFamily: {
+      title: "Font Family",
+      description: "Default: Rubik",
+      values: [
+        { value: "ff-rubik", title: "Rubik" },
+        { value: "ff-rubik-light", title: "Rubik Light" },
+        { value: "ff-rubik-black", title: "Rubick Black" },
+      ],
+    },
     showDividingLine: {
       title: "Show dividing line?",
       description: "Default: No",
@@ -51,10 +60,18 @@ Scrivito.provideEditingConfig("HeadlineWidget", {
       values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
     },
   },
-  properties: ["style", "level", "alignment", "showDividingLine", "showMargin"],
+  properties: [
+    "style",
+    "level",
+    "alignment",
+    "fontFamily",
+    "showDividingLine",
+    "showMargin",
+  ],
   initialContent: {
     alignment: "left",
     headline: "Lorem Ipsum",
+    fontFamily: "Rubik",
     showDividingLine: "no",
     showMargin: "yes",
     style: "h2",

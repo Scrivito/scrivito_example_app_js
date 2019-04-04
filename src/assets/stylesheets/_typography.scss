@@ -1,0 +1,77 @@
+.ff-rubik { font-family: Rubik; }
+.ff-rubik-light { font-family: Rubik Light; }
+.ff-rubik-black { font-family: Rubik Black; }
+
+.orange-text {  color: #FD5092; }
+.midnight-blue-text {  color: #6C738A; }
+.midnight-text { color: #282a2c; }
+.primary-text {  color: $primary; }
+.secondary-text {  color: $secondary; }
+.grey-text {  color: $theme-grey; }
+.greydark-text {  color: $theme-greydark; }
+.greylight-text {  color: $theme-greylight; }
+.greymiddle-text { color: $theme-greymiddle; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.uppercase { text-transform: uppercase; }
+.capitalize { text-transform: capitalize; }
+.lowercase { text-transform: lowercase; }
+
+// Opacity
+@for $i from 1 to 11 {
+  .op-#{$i} {
+    opacity: #{$i / 10};
+  }
+}
+
+// Border Radius
+@for $i from 0 to 11 {
+  .br-#{$i} {
+    border-radius: #{$i}px !important;
+  }
+}
+
+// Font Size
+@for $i from 1 to 74 {
+  $size: 6 + $i;
+  .fs-#{$size} {
+    font-size: #{$size}px !important;
+  }
+}
+
+// Font Weight
+@for $i from 1 to 10 {
+  $weight: $i * 100;
+  .fw-#{$weight} {
+    font-weight: $weight !important;
+  }
+}
+
+// Line Height
+@for $i from 0 to 3 {
+  @for $j from 0 to 10 {
+    .lh-#{$i}-#{$j} {
+      line-height: #{$i + $j / 10};
+    }
+  }
+}
+@for $i from 8 to 51 {
+  .lh-#{$i}-px {
+    line-height: #{$i}px;
+  }
+}
+
+// Letter Spacing
+@for $i from 0 to 10 {
+  @for $j from 0 to 10 {
+    .ls-#{$i}-#{$j} {
+      letter-spacing: #{$i + $j / 10}px;
+    }
+    .ls-m-#{$i}-#{$j} {
+      letter-spacing: #{-$i - $j / 10}px;
+    }
+  }
+}

@@ -2,13 +2,13 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import urlFromBinary from "../../utils/urlFromBinary";
 import videoPlaceholder from "./videoPlaceholder";
-import PlayIcon from "../../assets/images/play_icon.svg";
 
 Scrivito.provideComponent("VideoWidget", ({ widget }) => {
   const videoUrl = urlFromBinary(widget.get("source"));
   const showText = widget.get("showText");
   const playText = widget.get("playText");
-  const textPostion = widget.get("textPostion");
+  const textPosition = widget.get("textPosition");
+  const btnSize = widget.get("btnSize");
   const color = widget.get("color");
 
   if (!videoUrl && !Scrivito.isInPlaceEditingActive()) {
@@ -39,15 +39,19 @@ Scrivito.provideComponent("VideoWidget", ({ widget }) => {
   };
 
   return (
-    <div className={`video-widget ${color}`}>
+    <div className={`video-widget ${color} ${btnSize}`}>
       <div className="poster">
         <img src={posterUrl} />
         <div className="btn-play">
-          {showText && textPostion === "left" && <div>{playText}</div>}
+          {showText === "yes" && textPosition === "left" && (
+            <div>{playText}</div>
+          )}
           <button title="Play" onClick={playVideo}>
-            <img src={PlayIcon} />
+            <i className="fa fa-play" />
           </button>
-          {showText && textPostion === "left" && <div>{playText}</div>}
+          {showText === "yes" && textPosition === "right" && (
+            <div>{playText}</div>
+          )}
         </div>
       </div>
       <Scrivito.ContentTag

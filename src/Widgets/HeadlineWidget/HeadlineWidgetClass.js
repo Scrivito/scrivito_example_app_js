@@ -6,6 +6,10 @@ const HeadlineWidget = Scrivito.provideWidgetClass("HeadlineWidget", {
     headline: "string",
     level: ["enum", { values: ["h1", "h2", "h3", "h4", "h5", "h6"] }],
     style: ["enum", { values: ["h1", "h2", "h3", "h4", "h5", "h6"] }],
+    fontFamily: [
+      "enum",
+      { values: ["ff-rubik", "ff-rubik-light", "ff-rubik-black"] },
+    ],
     alignment: ["enum", { values: ["left", "center", "right"] }],
     showDividingLine: ["enum", { values: ["yes", "no"] }],
     showMargin: ["enum", { values: ["yes", "no"] }],

@@ -67,18 +67,21 @@ $slick-font-family: "slick_swap";
 
 /* imports
 ================================================== */
-@import "_colors";
+@import "colors";
 @import "bootstrap/bootstrap";
-@import "_social_cards";
-@import "_grid_layout_editor";
-@import "_icon_editor";
-@import "_video_player";
+@import "social_cards";
+@import "grid_layout_editor";
+@import "icon_editor";
+@import "video_player";
+@import "typography";
+@import "about_box";
+@import "price_box";
 
 /* fonts
 ================================================== */
-@import "_fontawesome";
-@import "_pt_sans_narrow";
-@import "_source_sans_pro";
+@import "fontawesome";
+@import "pt_sans_narrow";
+@import "source_sans_pro";
 @import "rubik";
 
 /* gutter with zero space
@@ -111,6 +114,29 @@ $slick-font-family: "slick_swap";
   padding-left: 5px;
   padding-right: 5px;
 }
+
+// Margin & Padding
+@for $i from 0 to 21 {
+  $x: $i * 5;
+  .m-a-#{$x} { margin: #{$x}px !important; }
+  .m-x-#{$x} { margin-left: #{$x}px !important; margin-right: #{$x}px !important; }
+  .m-y-#{$x} { margin-top: #{$x}px !important; margin-bottom: #{$x}px !important; }
+  .m-l-#{$x} { margin-left: #{$x}px !important; }
+  .m-r-#{$x} { margin-right: #{$x}px !important; }
+  .m-t-#{$x} { margin-top: #{$x}px !important; }
+  .m-b-#{$x} { margin-bottom: #{$x}px !important; }
+
+  .p-a-#{$x} { padding: #{$x}px !important; }
+  .p-x-#{$x} { padding-left: #{$x}px !important; padding-right: #{$x}px !important; }
+  .p-y-#{$x} { padding-top: #{$x}px !important; padding-bottom: #{$x}px !important; }
+  .p-l-#{$x} { padding-left: #{$x}px !important; }
+  .p-r-#{$x} { padding-right: #{$x}px !important; }
+  .p-t-#{$x} { padding-top: #{$x}px !important; }
+  .p-b-#{$x} { padding-bottom: #{$x}px !important; }
+}
+
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }
 
 /* Style
 =================================================================== */
@@ -3616,8 +3642,4 @@ $lever-enabled-color: #f50057;
     }
   }
   
-}
-
-.orange-text {
-  color: #FD5092;
 }

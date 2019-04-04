@@ -5,12 +5,21 @@ Scrivito.provideEditingConfig("VideoWidget", {
   title: "Video",
   thumbnail: videoWidgetIcon,
   attributes: {
+    source: {
+      title: "Video",
+      description:
+        "Click to select or upload video. This should be of type video/mp4.",
+    },
     showText: {
-      title: "Play Text",
+      title: "Show text",
       description: "Show text to next play icon.",
       values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
     },
-    textPostion: {
+    playText: {
+      title: "Text",
+      description: "The actual source code of this text",
+    },
+    textPosition: {
       title: "Text Position",
       description: "Place text left or right.",
       values: [
@@ -23,13 +32,16 @@ Scrivito.provideEditingConfig("VideoWidget", {
       description: "Play button and text color.",
       values: [
         { value: "primary", title: "Primary" },
-        { value: "secondary", title: "Transparent Icon + White text" },
+        { value: "secondary", title: "Secondary" },
       ],
     },
-    source: {
-      title: "Video",
-      description:
-        "Click to select or upload video. This should be of type video/mp4.",
+    btnSize: {
+      title: "Button Size",
+      description: "Play button size.",
+      values: [
+        { value: "big", title: "Big - 80px" },
+        { value: "small", title: "Small - 40px" },
+      ],
     },
     poster: {
       title: "Poster image (optional)",
@@ -38,5 +50,13 @@ Scrivito.provideEditingConfig("VideoWidget", {
         " Without an poster image, the browser may show the first frame of the video.",
     },
   },
-  properties: ["source", "poster"],
+  properties: [
+    "source",
+    "showText",
+    "playText",
+    "textPosition",
+    "color",
+    "btnSize",
+    "poster",
+  ],
 });

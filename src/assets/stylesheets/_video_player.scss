@@ -5,21 +5,81 @@
  * @version 1.0.0
  */
 .video-widget {
+  min-width: 80px;
+  min-height: 80px;
+  color: #FD5092;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: Rubik Light;
+
+
   .poster {
     position: relative;
-    button {
-      cursor: pointer;
+
+    .btn-play {
+      display: flex;
+      align-items: center;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       border: none;
       background: transparent;
+      cursor: pointer;
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 80px;
+        margin: 0 20px;
+        background: white;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 12px 20px 0 rgba(247, 98, 111, 0.6);
+
+        i {
+          font-size: 26px;
+          margin-left: 7px;
+          color: #FD5092;
+        }
+      }
 
       img {
         padding: 0;
         margin: 0;
       }
+    }
+  }
+
+  &.small {
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 12px;
+    font-family: Rubik;
+    font-weight: 500;
+
+    .btn-play {
+      button {
+        width: 40px;
+        height: 40px;
+        margin: 0 10px;
+        box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.08);
+
+        i {
+          font-size: 13px;
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+
+  &.secondary {
+    color: #EF7B40;
+    
+    .btn-play button i {
+      color: #EF7B40;
     }
   }
 

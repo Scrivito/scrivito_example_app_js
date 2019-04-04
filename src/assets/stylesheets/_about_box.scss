@@ -1,0 +1,43 @@
+.about-box {
+  position: relative;
+  margin: 20px 0 0;
+  padding: 100% 0 0 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 84px);
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 84px;
+    padding: 0 20px;
+
+    .position {
+      margin-bottom: 10px;
+      font-size: 10px;
+      font-family: Rubik;
+      font-weight: 500;
+      color: #6c738a;
+      text-transform: uppercase;
+      letter-spacing: 0.83px;
+      line-height: 12px;
+    }
+
+    .name {
+      font-size: 18px;
+      font-family: Rubik Light;
+      color: #282a2c;
+      text-transform: capitalize;
+      font-weight: 300;
+      line-height: 22px;
+    }
+  }
+}

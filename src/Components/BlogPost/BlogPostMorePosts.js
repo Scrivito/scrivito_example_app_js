@@ -19,6 +19,7 @@ function BlogPostMorePosts({ author, filterBlogPostId }) {
         <BlogPostPreviewList
           author={author}
           filterBlogPostId={filterBlogPostId}
+          moreFlag={true}
         />
       </div>
     </section>

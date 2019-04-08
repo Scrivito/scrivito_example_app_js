@@ -3,19 +3,19 @@
 @import "../../assets/stylesheets/fontawesome/core";
 @import "../../assets/stylesheets/colors";
 
-.TickListWidget__list {
+.tick-list-widget {
   list-style-type: none;
   padding-left: 15px;
   @include clearfix;
 }
-.TickListWidget__list li {
+.tick-list-widget li {
   position: relative;
   padding: 0 0 20px 17px;
   font-family: "PT Sans Narrow", sans-serif;
   font-weight: 400;
   font-size: 20px;
 }
-.TickListWidget__list li:before {
+.tick-list-widget li:before {
   display: block;
   position: absolute;
   top: 2px;

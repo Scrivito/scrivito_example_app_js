@@ -24,7 +24,7 @@ Scrivito.provideComponent("VimeoVideoWidget", ({ widget }) => {
     >
       <iframe
         src={`https://player.vimeo.com/video/${vimeoVideoId}`}
-        className="VimeoVideoWidget__fullsize-iframe"
+        className="vimeo-video-widget--fullsize-iframe"
         frameBorder="0"
         allowFullScreen
         webkitallowfullscreen="true"

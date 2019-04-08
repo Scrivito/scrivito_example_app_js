@@ -4,7 +4,7 @@ import * as Scrivito from "scrivito";
 Scrivito.provideComponent("TickListWidget", ({ widget }) => (
   <Scrivito.ContentTag
     tag="ul"
-    className="tick-list"
+    className="TickListWidget__list"
     content={widget}
     attribute="items"
   />

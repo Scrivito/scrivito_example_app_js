@@ -86,9 +86,7 @@ function webpackConfig(env = {}) {
         {
           test: /\.s?css$/,
           use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-            },
+            { loader: MiniCssExtractPlugin.loader },
             "css-loader",
             "sass-loader",
           ],
@@ -150,7 +148,6 @@ function generateEntry({ isPrerendering }) {
     index: "./index.js",
     google_analytics: "./google_analytics.js",
     scrivito_extensions: "./scrivito_extensions.js",
-    "index.css": "./assets/stylesheets/index.scss",
   };
   if (isPrerendering) {
     entry.prerender_content = "./prerender_content.js";
@@ -180,7 +177,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
     ]),
     new ExtendCspHeadersWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name]",
+      filename: "[name].css",
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ];

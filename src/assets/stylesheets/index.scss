@@ -3092,7 +3092,7 @@ img.cookie-img {
 @media (max-width: 767px) {
   .text-right,
   .text-left {
-    text-align: center;
+    text-align: center !important;
   }
 }
 
@@ -3718,4 +3718,37 @@ $lever-enabled-color: #f50057;
 
 .timeline-content h6 {
   color: #6C738A;
+}
+.mobile-only-show {
+  display: none;
+}
+@media (max-width: 767px) {
+  h2, .h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  .bg-custom-shadow {
+    margin: 20px 0px;
+  }
+  .mobile-hide {
+    display: none;
+  }
+  .mobile-only-show {
+    display: flex;
+    justify-content: center;
+  }
+  .flex-rows {
+    flex-direction: column;
+    align-items: center;
+    .send-link-input-wrapper.wide {
+      width: 90%;
+    }
+    button{
+      width: 90%;
+      margin-top: 15px;
+      margin-left: 0px;
+    }
+  }
 }

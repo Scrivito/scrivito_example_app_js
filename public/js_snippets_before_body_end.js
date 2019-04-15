@@ -20,4 +20,13 @@ setTimeout(function() {
       evt.target.className += " hide-p";
     }
   }
+
+  popupClose = document.getElementById('first-popup-close');
+  popupClose.onclick = function() {
+    document.getElementById('first-popup-wrapper').style.display = "none";
+  }
+  
+  setTimeout(function() {
+    document.getElementById('first-popup-wrapper').style.display = "block";
+  }, 58000);
 }, 2000);

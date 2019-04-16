@@ -20,6 +20,8 @@ function currentPageNavigationOptions() {
         return pageNavigationOptions(Scrivito.currentPage());
       case "SearchResults":
         return searchResultsNavigationOptions(Scrivito.currentPage());
+      default:
+        break;
     }
   }
 

@@ -63,7 +63,7 @@ class ThumbnailGalleryComponent extends React.Component {
   }
 
   render() {
-    const widget = this.props.widget;
+    const { widget } = this.props;
     const images = widget
       .get("images")
       .filter(subWidget => isImage(subWidget.get("image")));

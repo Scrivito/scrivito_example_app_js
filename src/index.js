@@ -1,3 +1,4 @@
+import "./assets/stylesheets/index.scss";
 import "./polyfills";
 import * as React from "react";
 import * as ReactDOM from "react-dom";

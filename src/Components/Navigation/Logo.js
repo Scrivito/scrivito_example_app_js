@@ -15,6 +15,8 @@ function logoObj({ scrolled, navigationStyle }) {
   if (root) {
     return root.get(logoVersion);
   }
+
+  return undefined;
 }
 
 function Logo({ scrolled, navigationStyle }) {

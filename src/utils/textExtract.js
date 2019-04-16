@@ -60,9 +60,9 @@ function assertValidValue(value, type) {
       return isString(value);
     case "widgetlist":
       return Array.isArray(value);
+    default:
+      return true;
   }
-
-  return true;
 }
 
 function textExtractFromMetadata(objOrWidget, attribute) {

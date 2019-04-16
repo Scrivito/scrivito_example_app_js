@@ -58,7 +58,7 @@ async function storePrerenderedContent() {
   await extendRedirects(storedFiles);
 
   log(
-    `📦 Added ${storedFiles.length} file to and` +
+    `📦 Added ${storedFiles.length} files to and` +
       ` removed ${filesRemoved} files from folder ${TARGET_DIR}!`
   );
 

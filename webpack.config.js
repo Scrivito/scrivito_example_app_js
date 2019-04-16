@@ -40,7 +40,6 @@ function webpackConfig(env = {}) {
 
   return {
     mode: isProduction ? "production" : "development",
-    node: false,
     context: path.join(__dirname, "src"),
     entry: generateEntry({ isPrerendering }),
     module: {
@@ -66,6 +65,7 @@ function webpackConfig(env = {}) {
                       modules: false,
                       shippedProposals: true,
                       useBuiltIns: "usage",
+                      corejs: "2",
                       targets: {
                         browsers: ["Chrome >= 41", "last 2 versions"],
                       },
@@ -86,9 +86,7 @@ function webpackConfig(env = {}) {
         {
           test: /\.s?css$/,
           use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-            },
+            { loader: MiniCssExtractPlugin.loader },
             "css-loader",
             "sass-loader",
           ],
@@ -125,6 +123,7 @@ function webpackConfig(env = {}) {
     resolve: {
       extensions: [".js"],
       modules: ["node_modules"],
+      symlinks: false,
     },
     devServer: {
       port: 8080,
@@ -149,7 +148,6 @@ function generateEntry({ isPrerendering }) {
     index: "./index.js",
     google_analytics: "./google_analytics.js",
     scrivito_extensions: "./scrivito_extensions.js",
-    "index.css": "./assets/stylesheets/index.scss",
   };
   if (isPrerendering) {
     entry.prerender_content = "./prerender_content.js";
@@ -179,7 +177,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
     ]),
     new ExtendCspHeadersWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name]",
+      filename: "[name].css",
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ];

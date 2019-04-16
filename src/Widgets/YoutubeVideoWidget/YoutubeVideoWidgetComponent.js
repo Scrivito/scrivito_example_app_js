@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
+import "./YoutubeVideoWidgetStyles.scss";
 
 Scrivito.provideComponent("YoutubeVideoWidget", ({ widget }) => {
   const youtubeVideoId = widget.get("youtubeVideoId");
@@ -23,7 +24,7 @@ Scrivito.provideComponent("YoutubeVideoWidget", ({ widget }) => {
     >
       <iframe
         src={`https://www.youtube.com/embed/${youtubeVideoId}`}
-        className="fullsize-iframe"
+        className="youtube-video-widget--fullsize-iframe"
         frameBorder="0"
         allow="autoplay; encrypted-media"
         allowFullScreen

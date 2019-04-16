@@ -29,9 +29,11 @@ function dataFromItem(item) {
       return dataFromEvent(item);
     case "Job":
       return dataFromJob(item);
+    default:
+      throw new Error(
+        `SchemaDotOrg for objClass ${item.objClass()} not supported!`
+      );
   }
-
-  throw `SchemaDotOrg for objClass ${item.objClass()} not supported!`;
 }
 
 function pruneEmptyValues(data) {

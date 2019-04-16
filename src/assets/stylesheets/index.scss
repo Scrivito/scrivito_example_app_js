@@ -3792,6 +3792,7 @@ $lever-enabled-color: #f50057;
         background-color: #FFFFFF;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
         border: 0px;
+        padding-left: 10px;
       }
     }
 
@@ -3806,6 +3807,10 @@ $lever-enabled-color: #f50057;
 
     #first-popup-close {
       cursor: pointer;
+      img {
+        width: 20px;
+        margin-bottom: 0px;
+      }
     }
 
     button {

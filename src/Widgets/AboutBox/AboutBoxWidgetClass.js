@@ -6,12 +6,14 @@ const AboutBoxWidget = Scrivito.provideWidgetClass("AboutBoxWidget", {
     image: ["reference", { only: "Image" }],
     position: "string",
     name: "string",
+    email: "string",
   },
 });
 
 registerTextExtract("AboutBoxWidget", [
   { attribute: "position", type: "string" },
   { attribute: "name", type: "string" },
+  { attribute: "email", type: "string" },
 ]);
 
 export default AboutBoxWidget;

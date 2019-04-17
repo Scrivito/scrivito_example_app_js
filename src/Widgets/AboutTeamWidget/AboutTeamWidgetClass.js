@@ -8,7 +8,7 @@ const AboutTeamWidget = Scrivito.provideWidgetClass("AboutTeamWidget", {
 });
 
 registerTextExtract("AboutTeamWidget", [
-  { attribute: "content", type: "widgetlist" },
+  { attribute: "members", type: "widgetlist" },
 ]);
 
 export default AboutTeamWidget;

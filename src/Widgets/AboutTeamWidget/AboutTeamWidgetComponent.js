@@ -35,7 +35,9 @@ Scrivito.provideComponent("AboutTeamWidget", ({ widget }) => {
       >
         {members.map(member => (
           <div className="about-box" key={member.id()}>
-            <Scrivito.ImageTag content={member} attribute="image" tag="img" />
+            <div className="image-container">
+              <Scrivito.ImageTag content={member} attribute="image" tag="img" />
+            </div>
             <div className="body">
               <Scrivito.ContentTag
                 content={member}

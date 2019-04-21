@@ -42,7 +42,6 @@ class BaseNavChild extends React.Component {
       topLevelProps.onMouseEnter = this.toggleDropdown;
       topLevelProps.onMouseLeave = this.closeDropdown;
     }
-
     if (this.props.child.children().length === 0) {
       return <NavSingleChild {...topLevelProps} />;
     }
@@ -79,6 +78,26 @@ const Dropdown = Scrivito.connect(
     }
     if (isActive(child)) {
       classNames.push("active");
+    }
+
+    if (child.get("title") === '=') {
+      return (
+        <li className={classNames.join(" ")} {...otherProps}>
+          <span
+            className="menu-toggle"
+            onClick={e => {
+              toggleDropdown();
+              e.stopPropagation();
+            }}
+          >
+          </span>
+          <Scrivito.ChildListTag
+            className="dropdown-menu"
+            parent={child}
+            renderChild={innerChild => <NavSingleChild child={innerChild} />}
+          />
+        </li>
+      );
     }
 
     return (

@@ -48,12 +48,12 @@ setTimeout(function() {
     document.getElementById('first-popup-wrapper').style.display = "none";
   }
   
-  var ckie = getCookie('scrivitobarryform');
-  if (!ckie) {
-    setTimeout(function() {
-      document.getElementById('first-popup-wrapper').style.display = "block";
-      setCookie('scrivitobarryform','1',30);
-    }, 58000);
-  }
-  
-}, 2000);
+}, 5000);
+
+var ckie = getCookie('scrivitobarryform');
+if (!ckie) {
+  setTimeout(function() {
+    document.getElementById('first-popup-wrapper').style.display = "block";
+    setCookie('scrivitobarryform','1',30);
+  }, 60000);
+}

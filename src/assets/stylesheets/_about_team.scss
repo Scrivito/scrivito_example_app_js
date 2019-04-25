@@ -1,21 +1,20 @@
 .about-team {
   .slick-list {
     margin: 0 -10px;
-    overflow: visible;
 
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 1000px;
-      background-color: rgba(255, 255, 255, 0.7);
-      z-index: 1;
-    }
+    // &::before,
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   bottom: 0;
+    //   width: 1000px;
+    //   background-color: rgba(255, 255, 255, 0.7);
+    //   z-index: 1;
+    // }
 
-    &::before { left: -1000px; }
-    &::after { right: -1000px; }
+    // &::before { left: -1000px; }
+    // &::after { right: -1000px; }
   }
   .slick-slide {
     padding: 10px;

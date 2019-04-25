@@ -3424,6 +3424,9 @@ h3 {
   font-weight: 500;
   line-height: 13px;
   text-transform: uppercase;
+  @media (max-width: 767px) {
+    margin: 0 auto;
+  }
 }
 
 .fixed-width-185 { 
@@ -3941,7 +3944,7 @@ $lever-enabled-color: #f50057;
   @media (max-width: 321px) {
     position: absolute;
     .first-popup {
-      top: 65%;
+      top: 60%;
     }
   }
 }
@@ -3976,4 +3979,33 @@ $lever-enabled-color: #f50057;
 }
 .nav > li:hover .menu-toggle:before {
   content: url('https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/b38ec4286d90b383/c40482f5634f/v/d17ce9b599a7/menu_close.png');
+}
+
+.row-mobile-reverse {
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .col-lg-6 .h-100 div{
+    text-align: center;
+    a img {
+      margin-bottom: 15px;
+    }
+  }
+  @supports (-webkit-overflow-scrolling: touch) {
+    /* CSS specific to iOS devices */ 
+    .android-mob-link {
+      display: none;
+    }
+  }
+  
+  @supports not (-webkit-overflow-scrolling: touch) {
+    /* CSS for other than iOS devices */ 
+    .ios-mob-link {
+      display: none;
+    }
+  }
 }

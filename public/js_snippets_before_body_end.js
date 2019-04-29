@@ -46,14 +46,36 @@ setTimeout(function() {
   popupClose = document.getElementById('first-popup-close');
   popupClose.onclick = function() {
     document.getElementById('first-popup-wrapper').style.display = "none";
+    document.body.className = "";
   }
   
+  document.getElementById('close_term').onclick = function() {
+    closeTerms();
+  }
+  document.getElementById('show_term').onclick = function() {
+    showTerms();
+  }
+  document.getElementById('show_term1').onclick = function() {
+    showTerms();
+  }
 }, 5000);
 
 var ckie = getCookie('scrivitobarryform');
 if (!ckie) {
   setTimeout(function() {
     document.getElementById('first-popup-wrapper').style.display = "block";
+    document.body.className = "fixed";
     setCookie('scrivitobarryform','1',30);
   }, 60000);
+}
+
+function showTerms() {
+  document.getElementById('terms-condition').className = "active";
+  document.body.className="fixed";
+}
+function closeTerms() {
+  document.getElementById('terms-condition').className = "";
+  if (document.getElementById('first-popup-wrapper').style.display != "block") {
+    document.body.className="";  
+  }
 }

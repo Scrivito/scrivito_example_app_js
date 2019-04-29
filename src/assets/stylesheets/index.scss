@@ -3783,13 +3783,14 @@ $lever-enabled-color: #f50057;
 }
 #first-popup-wrapper {
   display: none;
-  position: fixed;
+  position: absolute;
   z-index: 9999;
   background: #000000aa;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   top: 0px;
   left: 0px;
+  overflow: auto;
   .first-popup {
     width: 660px;
     height: 555px;
@@ -4029,5 +4030,54 @@ $lever-enabled-color: #f50057;
     .ios-mob-link {
       display: none;
     }
+  }
+}
+body.fixed {
+  position: fixed;
+}
+#terms-condition {
+  font-size: 18px;
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  background: #00000088;
+  z-index: 10000;
+  overflow: hidden;
+  height: 100%;
+  overflow: auto;
+  display: none;
+  .contet-wrapper {
+    display: block;
+    margin: 100px;
+    color: black;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    button {
+      filter: invert(100%);
+      background: none;
+      border: none;
+      position: absolute;
+      top: 60px;
+      right: 100px;
+      cursor: pointer;
+    }
+    h1 {
+      text-align: center;
+      margin: 30px;
+    }
+    h3 {
+      font-weight: 400;
+    }
+    @media (max-width: 768px) {
+      margin: 50px 10px;
+      button {
+        right: 10px;
+        top: 10px;
+      }
+    }
+  }
+  &.active {
+    display: block;
   }
 }

@@ -6,8 +6,8 @@ class PriceBoxWidget extends React.Component {
     super(props);
 
     this.state = {
-      DK1: {},
-      DK2: {},
+      DK1: null,
+      DK2: null,
     };
 
     this.updatePricing = this.updatePricing.bind(this);
@@ -16,7 +16,7 @@ class PriceBoxWidget extends React.Component {
   componentDidMount() {
     // update the pricing in every 60 seconds
     this.updatePricing();
-    // this.timer = setInterval(this.updatePricing, 60 * 1000);
+    // this.timer = setInterval(this.updatePricing, 60 * 60 * 1000);
   }
 
   componentWillUnmount() {
@@ -26,43 +26,64 @@ class PriceBoxWidget extends React.Component {
   async updatePricing() {
     try {
       // JSON RPC data : often returns bad values
-      // const response = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
-      //   method: "POST",
-      //   body: JSON.stringify({
-      //     jsonrpc: "2.0",
-      //     id: 1,
-      //     method:
-      //       "co.getbarry.megatron.controller.PublicController.getLatestPrice",
-      //     params: ["DK2"],
-      //   }),
-      //   // mode: "no-cors",
-      //   headers: {
-      //     Accept: "application/json",
-      //     "Content-Type": "application/json",
-      //   },
-      // });
-      // const { result } = await response.json();
-      // this.setState({ DK1: result.value.toFixed(2) });
+      let response = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
+        method: "POST",
+        body: JSON.stringify({
+          jsonrpc: "2.0",
+          id: 1,
+          method:
+            "co.getbarry.megatron.controller.PublicController.getLatestPrice",
+          params: ["DK1"],
+        }),
+        // mode: "no-cors",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      let { result } = await response.json();
+      this.setState({ DK1: (result.value * 1.25).toFixed(2) });
+
+
+      const response2 = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
+        method: "POST",
+        body: JSON.stringify({
+          jsonrpc: "2.0",
+          id: 1,
+          method:
+            "co.getbarry.megatron.controller.PublicController.getLatestPrice",
+          params: ["DK2"],
+        }),
+        // mode: "no-cors",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      const { result: result2 } = await response2.json();
+      this.setState({ DK2: (result2.value * 1.25).toFixed(2) });
 
       // NordPool API responses
-      const res = await fetch(
-        "https://cors-anywhere.herokuapp.com/" +
-          "https://www.nordpoolgroup.com/api/map/data/daily?currency=EUR"
-      );
-      const { Prices } = await res.json();
-      const DK1 = Prices.find(price => price.Area.includes("DK1"));
-      const DK2 = Prices.find(price => price.Area.includes("DK2"));
-      console.log(DK1, DK2);
-      this.setState({ DK1, DK2 });
+      // const res = await fetch(
+      //   "https://cors-anywhere.herokuapp.com/" +
+      //     "https://www.nordpoolgroup.com/api/map/data/daily?currency=EUR"
+      // );
+      // const { Prices } = await res.json();
+      // const DK1 = Prices.find(price => price.Area.includes("DK1"));
+      // const DK2 = Prices.find(price => price.Area.includes("DK2"));
+      // console.log(DK1, DK2);
+      // this.setState({ DK1, DK2 });
     } catch (err) {}
   }
 
   render() {
     const { DK1, DK2 } = this.state;
 
-    const westLatestPrice = DK1.Value || "...";
+    console.log(DK1, DK2)
+
+    const westLatestPrice = DK1 || "...";
     const westTotalPrice = 240.71;
-    const eastLatestPrice = DK2.Value || "...";
+    const eastLatestPrice = DK2 || "...";
     const eastTotalPrice = 240.71;
     const barrySubscription = 29;
 

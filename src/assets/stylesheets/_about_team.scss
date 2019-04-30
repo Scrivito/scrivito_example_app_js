@@ -39,6 +39,15 @@
       right: -82px;
     }
 
+    @media (max-width: $screen-xs-max) {
+      &.slick-prev {
+        left: 0;
+      }
+      &.slick-next {
+        right: 0;
+      }
+    }
+
     i {
       font-size: 12px;
       line-height: 12px;

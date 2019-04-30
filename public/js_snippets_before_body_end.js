@@ -58,6 +58,9 @@ setTimeout(function() {
   document.getElementById('show_term1').onclick = function() {
     showTerms();
   }
+  document.getElementsByClassName('send-link-button1')[0].onclick = function() {
+    addWaitingList();
+  }
 }, 5000);
 
 var ckie = getCookie('scrivitobarryform');
@@ -78,4 +81,26 @@ function closeTerms() {
   if (document.getElementById('first-popup-wrapper').style.display != "block") {
     document.body.className="";  
   }
+}
+
+function addWaitingList() {
+  const params = {
+    email: document.getElementsByClassName('send-link-input1')[0].value,
+    source: 'homepage',
+  }
+  var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState === 4) {
+      var res = JSON.parse(xmlhttp.response);
+      if (res.error) {
+        alert(res.messages[0]);
+      } else {
+        alert("Email successfully registered");
+      }
+    }
+  }
+  xmlhttp.open("POST", "https://wpk2il4zj0.execute-api.eu-central-1.amazonaws.com/dev/user/add");
+  xmlhttp.setRequestHeader("Content-Type", "application/json");
+  xmlhttp.send(JSON.stringify(params));
+  
 }

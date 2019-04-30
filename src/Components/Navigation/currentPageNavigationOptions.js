@@ -35,16 +35,19 @@ function currentPageNavigationOptions() {
 function blogNavigationOptions(obj) {
   const backgroundImage = obj.get("navigationBackgroundImage");
   return imageWithMediumHeightOrMinHeight(backgroundImage);
+  // const navigationOptions = pageNavigationOptions(obj);
+
+  // return { ...navigationOptions, isLandingPage: true };
 }
 
 function blogPostNavigationOptions(obj) {
   let backgroundImage = obj.get("titleImage");
-  if (!backgroundImage) {
+  // if (!backgroundImage) {
     const blog = Scrivito.Obj.getByPermalink("blog");
     if (blog) {
       backgroundImage = blog.get("navigationBackgroundImage");
     }
-  }
+  // }
 
   return imageWithMediumHeightOrMinHeight(backgroundImage);
 }

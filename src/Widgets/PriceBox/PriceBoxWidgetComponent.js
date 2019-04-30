@@ -26,7 +26,7 @@ class PriceBoxWidget extends React.Component {
   async updatePricing() {
     try {
       // JSON RPC data : often returns bad values
-      let response = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
+      const response = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
         method: "POST",
         body: JSON.stringify({
           jsonrpc: "2.0",
@@ -41,9 +41,8 @@ class PriceBoxWidget extends React.Component {
           "Content-Type": "application/json",
         },
       });
-      let { result } = await response.json();
-      this.setState({ DK1: (result.value * 1.25).toFixed(2) });
-
+      const { result } = await response.json();
+      this.setState({ DK1: result });
 
       const response2 = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
         method: "POST",
@@ -61,7 +60,7 @@ class PriceBoxWidget extends React.Component {
         },
       });
       const { result: result2 } = await response2.json();
-      this.setState({ DK2: (result2.value * 1.25).toFixed(2) });
+      this.setState({ DK2: result2 });
 
       // NordPool API responses
       // const res = await fetch(
@@ -73,17 +72,39 @@ class PriceBoxWidget extends React.Component {
       // const DK2 = Prices.find(price => price.Area.includes("DK2"));
       // console.log(DK1, DK2);
       // this.setState({ DK1, DK2 });
-    } catch (err) {}
+    } catch (err) { }
   }
 
   render() {
     const { DK1, DK2 } = this.state;
 
-    console.log(DK1, DK2)
+    console.log(DK1, DK2);
 
-    const westLatestPrice = DK1 || "...";
+    let westLatestPrice, westTime, eastLatestPrice, eastTime, temp;
+
+    if (DK1) {
+      westLatestPrice = (DK1.value * 1.25).toFixed(2).replace(".", ",");
+      temp = new Date(DK1.created);
+      westTime = `${temp.getDay() + 1}/${temp.getMonth() + 1}-${temp.getFullYear()}, kl.${temp.getHours()}.${temp.getMinutes()}`;
+      temp = new Date(DK1.end);
+      westTime += `-${temp.getHours()}.${temp.getMinutes()}`;
+    } else {
+      westLatestPrice = "...";
+      westTime = "...";
+    }
+
+    if (DK2) {
+      eastLatestPrice = (DK2.value * 1.25).toFixed(2).replace(".", ",");
+      temp = new Date(DK2.created);
+      eastTime = `${temp.getDay() + 1}/${temp.getMonth() + 1}-${temp.getFullYear()}, kl.${temp.getHours()}.${temp.getMinutes()}`;
+      temp = new Date(DK2.end);
+      eastTime += `-${temp.getHours()}.${temp.getMinutes()}`;
+    } else {
+      eastLatestPrice = "...";
+      eastTime = "...";
+    }
+
     const westTotalPrice = 240.71;
-    const eastLatestPrice = DK2 || "...";
     const eastTotalPrice = 240.71;
     const barrySubscription = 29;
 
@@ -95,14 +116,16 @@ class PriceBoxWidget extends React.Component {
             Prisen på strøm lige nu
           </div>
           <div className="m-t-40 divider-h m-b-40" />
-          <div className="d-flex p-x-20 align-items-center">
+          <div className="d-flex flex-column flex-sm-row d-flex p-x-20 align-items-center">
             <div>
               <div className="fs-15 fw-600 lh-18-px">Vestdanmark</div>
               <div className="fs-15 ff-rubik-light lh-18-px m-t-20">
-                Pris i øre pr. kWh
+                Pris i kr pr. kWh
+                <br />
+                {westTime}
               </div>
               <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
-                {westLatestPrice}
+                {westLatestPrice} kr. pr. kWh
               </div>
               <div className="fs-15 ff-rubik-light lh-20-px m-t-20">
                 Samlet elpris pr. måned inkl. afgifter - uden abonnement
@@ -118,10 +141,12 @@ class PriceBoxWidget extends React.Component {
             <div>
               <div className="fs-15 fw-600 lh-18-px">Østdanmark</div>
               <div className="fs-15 ff-rubik-light lh-18-px m-t-20">
-                Pris i øre pr. kWh
+                Pris i kr pr. kWh
+                <br />
+                {eastTime}
               </div>
               <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
-                {eastLatestPrice}
+                {eastLatestPrice} kr. pr. kWh
               </div>
               <div className="fs-15 ff-rubik-light lh-20-px m-t-20">
                 Samlet elpris pr. måned inkl. afgifter - uden abonnement

@@ -17,7 +17,7 @@
     color: #6C738A;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
     z-index: 1;
-    
+
     .divider-h {
       height: 1px;
       width: 500px;
@@ -32,6 +32,20 @@
       border: 1px solid #6C738A;
       opacity: 0.1;
       box-shadow: 0 3px 8px 0 rgba(0,0,0,0.07);
+    }
+
+    @media (max-width: $screen-xs-max) {
+      width: 100%;
+
+      .divider-h {
+        width: 100%;
+      }
+
+      .divider-v {
+        width: 80%;
+        height: 1px;
+        margin: 40px 0;
+      }
     }
   }
 }

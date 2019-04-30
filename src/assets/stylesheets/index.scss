@@ -145,6 +145,7 @@ $slick-font-family: "slick_swap";
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 .clear {
   clear: both;
@@ -3385,7 +3386,7 @@ h3 {
   margin: 20px 15px;
   padding: 30px;
   border-radius: 3px;
-  
+
   > img {
     height: 66.5px;
   }
@@ -3429,7 +3430,7 @@ h3 {
   }
 }
 
-.fixed-width-185 { 
+.fixed-width-185 {
   width: 185px;
   text-align: center;
 }
@@ -3469,7 +3470,7 @@ h3 {
   &.wide {
     width: 270px;
   }
-  
+
   span {
     height: 22px;
     width: 33px;
@@ -3541,7 +3542,7 @@ h3 {
   }
 }
 .more-block.closed p {
-  white-space: nowrap; 
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -3558,7 +3559,7 @@ h3 {
   }
 }
 .more-block.open p{
-  white-space: normal; 
+  white-space: normal;
 }
 .more-block.open:after {
   content: "\f106";
@@ -3610,7 +3611,7 @@ $lever-enabled-color: #f50057;
     margin: 10px 20px 0 0;
     font-size: 12px;
     line-height: 13px;
-    
+
     &__input {
         position: absolute;
         top: 0;
@@ -3620,13 +3621,13 @@ $lever-enabled-color: #f50057;
         opacity: 0;
         z-index: 0;
     }
-    
+
     // Unchecked
     &__label {
         display: block;
         padding: 0 0 0 44px;
         cursor: pointer;
-        
+
         &:before {
             content: '';
             position: absolute;
@@ -3639,7 +3640,7 @@ $lever-enabled-color: #f50057;
             z-index: 1;
             transition: background-color 0.28s cubic-bezier(.4, 0, .2, 1);
         }
-        
+
         &:after {
             content: '';
             position: absolute;
@@ -3655,19 +3656,19 @@ $lever-enabled-color: #f50057;
             transition-property: left, background-color;
         }
     }
-    
+
     // Checked
     &__input:checked + &__label {
         &:before {
             background-color: $bg-enabled-color;
         }
-        
+
         &:after {
             left: 16px;
             background-color: $lever-enabled-color;
         }
     }
-    
+
     // Focused
     // Uncomment for accessible outline
     // &__input:focus + &__label {
@@ -3688,12 +3689,12 @@ $lever-enabled-color: #f50057;
     margin-top: 30px;
 
     a {
-      text-decoration: underline;  
+      text-decoration: underline;
       color: #fff;
 
     }
   }
-  
+
 }
 
 .timeline-body {
@@ -3713,7 +3714,7 @@ $lever-enabled-color: #f50057;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
   }
-} 
+}
 .timeline-content {
   padding: 5px 30px;
 }
@@ -3730,7 +3731,7 @@ $lever-enabled-color: #f50057;
 //   overflow: hidden;
 //   display: -webkit-box;
 //   -webkit-line-clamp: 3;
-//   -webkit-box-orient: vertical;  
+//   -webkit-box-orient: vertical;
 // }
 .timeline-first-post {
   padding: 0px;
@@ -3816,7 +3817,7 @@ $lever-enabled-color: #f50057;
     div.row {
       margin-bottom: 40px;
       input {
-        height: 60px;	
+        height: 60px;
         width: 100%;
         border-radius: 3px;
         background-color: #FFFFFF;
@@ -3829,7 +3830,7 @@ $lever-enabled-color: #f50057;
     span {
       font-size: 13px;
     }
-    
+
     .first-check-wrapper {
       display: flex;
       justify-content: space-around;
@@ -3900,7 +3901,7 @@ $lever-enabled-color: #f50057;
     .slider:before {
       position: absolute;
       content: "";
-      height: 25px;	
+      height: 25px;
       width: 25px;
       background-color: #FFFFFF;
       box-shadow: 0 2px 4px 0 rgba(0,0,0,0.11);
@@ -4019,14 +4020,14 @@ $lever-enabled-color: #f50057;
     }
   }
   @supports (-webkit-overflow-scrolling: touch) {
-    /* CSS specific to iOS devices */ 
+    /* CSS specific to iOS devices */
     .android-mob-link {
       display: none;
     }
   }
-  
+
   @supports not (-webkit-overflow-scrolling: touch) {
-    /* CSS for other than iOS devices */ 
+    /* CSS for other than iOS devices */
     .ios-mob-link {
       display: none;
     }

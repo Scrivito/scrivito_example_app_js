@@ -1,0 +1,24 @@
+.page-404 {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background: #2c2f36;
+
+  img {
+    align-self: center;
+  }
+
+  h1 {
+    font-size: 300px;
+    line-height: 300px;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    h1 {
+      font-size: 100px;
+      line-height: 100px;
+    }
+  }
+}

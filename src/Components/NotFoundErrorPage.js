@@ -2,6 +2,8 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import Helmet from "react-helmet";
 
+import I404 from "../assets/images/404.svg";
+
 class NotFoundErrorPage extends React.Component {
   componentDidMount() {
     const path = window.location.pathname;
@@ -12,33 +14,23 @@ class NotFoundErrorPage extends React.Component {
   }
 
   render() {
-    const backgroundImage = [
-      "linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))",
-      "url(https://unsplash.com/photos/Bs0zgYkYEZw/download)",
-    ].join(", ");
-
     return (
       <React.Fragment>
-        <section
-          className="bg-dark-image full-height"
-          style={{ background: "no-repeat center / cover", backgroundImage }}
-        >
-          <div className="container">
-            <div className="text-center">
-              <h1 className="hero-bold">Ooops</h1>
-            </div>
-            <div className="text-center">
-              <h2 className="hero-small">
-                The page you are looking for does not exist.
+        <section className="page-404 full-height">
+          <div className="container d-flex flex-xs-column d-sm-inline-flex">
+            <img className="fobidden m-r-60" src={I404} />
+            <div className="text-left">
+              <h1 className="ff-rubik white-text">404</h1>
+              <h2 className="ff-rubik fs-28 fw-500 lh-33-px white-text m-b-60">
+                Beklager.
+                <br />
+                Vi har trukket stikket ud på den her side.
               </h2>
-            </div>
-            <div className="text-center">
               <Scrivito.LinkTag
                 to={Scrivito.Obj.root()}
-                className="btn btn-primary"
+                className="ff-rubik fw-500 fs-20 lh-24-px orange-text"
               >
-                Go to mainpage{" "}
-                <i className="fa fa-angle-right fa-4" aria-hidden="true" />
+                Gå til forsiden.
               </Scrivito.LinkTag>
             </div>
           </div>

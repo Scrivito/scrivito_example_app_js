@@ -9,6 +9,10 @@ function Footer() {
     return null;
   }
 
+  if (window && window.location.pathname.includes("404")) {
+    return null;
+  }
+
   return (
     <React.Fragment>
       <InPlaceEditingPlaceholder block center>

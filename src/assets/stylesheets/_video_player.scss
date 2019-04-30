@@ -1,6 +1,6 @@
 /**
  * Video Widget Styles
- * 
+ *
  * Dirk Jan <smartprogrammer88@gmail.com>
  * @version 1.0.0
  */
@@ -20,6 +20,7 @@
       display: flex;
       align-items: center;
       position: absolute;
+      color: #FD5092;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -27,7 +28,7 @@
       background: transparent;
       cursor: pointer;
 
-      button {
+      .circle {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -42,13 +43,19 @@
         i {
           font-size: 26px;
           margin-left: 7px;
-          color: #FD5092;
         }
       }
 
       img {
         padding: 0;
         margin: 0;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        left: 0;
+        width: 100%;
+        transform: translateY(50%);
+        text-align: center;
       }
     }
   }
@@ -61,7 +68,7 @@
     font-weight: 500;
 
     .btn-play {
-      button {
+      .circle {
         width: 40px;
         height: 40px;
         margin: 0 10px;
@@ -77,8 +84,8 @@
 
   &.secondary {
     color: #EF7B40;
-    
-    .btn-play button i {
+
+    .btn-play .circle i {
       color: #EF7B40;
     }
   }

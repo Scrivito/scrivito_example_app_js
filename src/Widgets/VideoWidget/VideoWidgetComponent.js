@@ -42,17 +42,17 @@ Scrivito.provideComponent("VideoWidget", ({ widget }) => {
     <div className={`video-widget ${color} ${btnSize}`}>
       <div className="poster">
         <img src={posterUrl} />
-        <div className="btn-play">
+        <button className="btn-play" title="Play" onClick={playVideo}>
           {showText === "yes" && textPosition === "left" && (
             <div>{playText}</div>
           )}
-          <button title="Play" onClick={playVideo}>
+          <div className="circle">
             <i className="fa fa-play" />
-          </button>
+          </div>
           {showText === "yes" && textPosition === "right" && (
             <div>{playText}</div>
           )}
-        </div>
+        </button>
       </div>
       <Scrivito.ContentTag
         id="video_player"

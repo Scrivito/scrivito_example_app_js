@@ -78,8 +78,6 @@ class PriceBoxWidget extends React.Component {
   render() {
     const { DK1, DK2 } = this.state;
 
-    console.log(DK1, DK2);
-
     let westLatestPrice, westTime, eastLatestPrice, eastTime, temp;
 
     if (DK1) {

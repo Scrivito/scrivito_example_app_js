@@ -12,6 +12,7 @@ const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {
       <div className="container">
         <div className="nav-centered">
           <ul className="nav-blog">
+            <a href="/blog"><i class="fa fa-chevron-left " aria-hidden="true"></i>Blog</a>
             <li>
               <BlogPostNextLink currentBlogPost={currentPost} />
             </li>

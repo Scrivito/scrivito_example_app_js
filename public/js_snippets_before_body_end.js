@@ -22,47 +22,6 @@ function getCookie(name) {
 function eraseCookie(name) {   
   document.cookie = name+'=; Max-Age=-99999999;';  
 }
-setTimeout(function() {
-  moreBlock = document.getElementsByClassName('more-block');
-  for (index in moreBlock) {
-    moreBlock[index].onclick = function(evt) {
-      console.log('here', evt.target)
-      if (evt.target.className.indexOf("closed") >= 0) {
-        evt.target.className = evt.target.className.replace("closed", "open");
-      } else {
-        evt.target.className = evt.target.className.replace("open", "closed");
-      }
-    }
-  }
-
-  expandBlock = document.getElementsByClassName('expand-more-link');
-  for (index in expandBlock) {
-    expandBlock[index].onclick = function(evt) {
-      evt.target.nextElementSibling.className = "";
-      evt.target.className += " hide-p";
-    }
-  }
-
-  popupClose = document.getElementById('first-popup-close');
-  popupClose.onclick = function() {
-    document.getElementById('first-popup-wrapper').style.display = "none";
-    document.body.className = "";
-  }
-  
-  document.getElementById('close_term').onclick = function() {
-    closeTerms();
-  }
-  document.getElementById('show_term').onclick = function() {
-    showTerms();
-  }
-  document.getElementById('show_term1').onclick = function() {
-    showTerms();
-  }
-  document.getElementsByClassName('send-link-button1')[0].onclick = function() {
-    addWaitingList();
-  }
-}, 5000);
-
 var ckie = getCookie('scrivitobarryform');
 if (!ckie) {
   setTimeout(function() {
@@ -104,3 +63,53 @@ function addWaitingList() {
   xmlhttp.send(JSON.stringify(params));
   
 }
+
+document.body.getElementsByClassName('content-wrapper')[0].addEventListener('DOMSubtreeModified', function () {
+  if (window.location.hash != "") {
+    if (document.getElementById(window.location.hash.replace('#', ''))) {
+      setTimeout(function() {document.getElementById(window.location.hash.replace('#', '')).scrollIntoView();}, 500);
+    }
+  }
+}, false);
+
+setTimeout(function() {
+  moreBlock = document.getElementsByClassName('more-block');
+  for (index in moreBlock) {
+    moreBlock[index].onclick = function(evt) {
+      console.log('here', evt.target)
+      if (evt.target.className.indexOf("closed") >= 0) {
+        evt.target.className = evt.target.className.replace("closed", "open");
+      } else {
+        evt.target.className = evt.target.className.replace("open", "closed");
+      }
+    }
+  }
+
+  expandBlock = document.getElementsByClassName('expand-more-link');
+  for (index in expandBlock) {
+    expandBlock[index].onclick = function(evt) {
+      evt.target.nextElementSibling.className = "";
+      evt.target.className += " hide-p";
+    }
+  }
+
+  popupClose = document.getElementById('first-popup-close');
+  popupClose.onclick = function() {
+    document.getElementById('first-popup-wrapper').style.display = "none";
+    document.body.className = "";
+  }
+  
+  document.getElementById('close_term').onclick = function() {
+    closeTerms();
+  }
+  document.getElementById('show_term').onclick = function() {
+    showTerms();
+  }
+  document.getElementById('show_term1').onclick = function() {
+    showTerms();
+  }
+  document.getElementsByClassName('send-link-button1')[0].onclick = function() {
+    addWaitingList();
+  }
+}, 5000);
+

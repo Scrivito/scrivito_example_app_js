@@ -80,24 +80,25 @@ const Dropdown = Scrivito.connect(
       classNames.push("active");
     }
 
-    if (child.get("title") === '=') {
-      return (
-        <li className={classNames.join(" ")} {...otherProps}>
-          <span
-            className="menu-toggle"
-            onClick={e => {
-              toggleDropdown();
-              e.stopPropagation();
-            }}
-          >
-          </span>
-          <Scrivito.ChildListTag
-            className="dropdown-menu"
-            parent={child}
-            renderChild={innerChild => <NavSingleChild child={innerChild} />}
-          />
-        </li>
-      );
+    if (child.get("title") === "=") {
+      return null;
+      // return (
+      //   <li className={classNames.join(" ")} {...otherProps}>
+      //     <span
+      //       className="menu-toggle"
+      //       onClick={e => {
+      //         toggleDropdown();
+      //         e.stopPropagation();
+      //       }}
+      //     >
+      //     </span>
+      //     <Scrivito.ChildListTag
+      //       className="dropdown-menu"
+      //       parent={child}
+      //       renderChild={innerChild => <NavSingleChild child={innerChild} />}
+      //     />
+      //   </li>
+      // );
     }
 
     return (

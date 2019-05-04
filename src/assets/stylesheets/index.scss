@@ -3787,6 +3787,9 @@ $lever-enabled-color: #f50057;
     display: flex;
     justify-content: center;
   }
+  .mobile-only-show.mobile-hide {
+    display: none;
+  }
   .flex-rows {
     flex-direction: column;
     align-items: center;

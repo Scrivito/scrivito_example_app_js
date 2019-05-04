@@ -20,7 +20,7 @@ function getCookie(name) {
   return null;
 }
 function eraseCookie(name) {   
-  document.cookie = name+'=; Max-Age=-99999999;';  
+  document.cookie = name+'=; Max-Age=-99999999;';
 }
 var ckie = getCookie('scrivitobarryform');
 if (!ckie) {
@@ -76,7 +76,6 @@ setTimeout(function() {
   moreBlock = document.getElementsByClassName('more-block');
   for (index in moreBlock) {
     moreBlock[index].onclick = function(evt) {
-      console.log('here', evt.target)
       if (evt.target.className.indexOf("closed") >= 0) {
         evt.target.className = evt.target.className.replace("closed", "open");
       } else {

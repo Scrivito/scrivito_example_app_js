@@ -1,6 +1,21 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 
+const NUMBER_TO_MONTH = [
+  "Januar",
+  "Februar",
+  "Marts",
+  "April",
+  "Maj",
+  "Juni",
+  "Juli",
+  "August",
+  "September",
+  "Oktober",
+  "November",
+  "December",
+];
+
 class PriceBoxWidget extends React.Component {
   constructor(props) {
     super(props);
@@ -78,93 +93,97 @@ class PriceBoxWidget extends React.Component {
   render() {
     const { DK1, DK2 } = this.state;
 
-    let westLatestPrice, westTime, eastLatestPrice, eastTime, temp;
+    let westLatestPrice;
+    let westTime;
+    let eastLatestPrice;
+    let eastTime;
+    let temp;
+    let time;
 
     if (DK1) {
       westLatestPrice = (DK1.value * 1.25).toFixed(2).replace(".", ",");
       temp = new Date(DK1.created);
-      westTime = `${temp.getDay() + 1}/${temp.getMonth() + 1}-${temp.getFullYear()}, kl.${temp.getHours()}.${temp.getMinutes()}`;
+      time = `D. ${temp.getDay() + 1} ${
+        NUMBER_TO_MONTH[temp.getMonth()]
+        } KL. ${temp.getHours()}.${temp.getMinutes()}`;
       temp = new Date(DK1.end);
-      westTime += `-${temp.getHours()}.${temp.getMinutes()}`;
+      time += ` - ${temp.getHours()}.${temp.getMinutes()}`;
     } else {
       westLatestPrice = "...";
-      westTime = "...";
+      time = "...";
     }
 
     if (DK2) {
       eastLatestPrice = (DK2.value * 1.25).toFixed(2).replace(".", ",");
-      temp = new Date(DK2.created);
-      eastTime = `${temp.getDay() + 1}/${temp.getMonth() + 1}-${temp.getFullYear()}, kl.${temp.getHours()}.${temp.getMinutes()}`;
-      temp = new Date(DK2.end);
-      eastTime += `-${temp.getHours()}.${temp.getMinutes()}`;
     } else {
       eastLatestPrice = "...";
-      eastTime = "...";
     }
 
-    const westTotalPrice = 240.71;
-    const eastTotalPrice = 240.71;
+    const westTotalPrice = "231,26";
+    const eastTotalPrice = "245,97";
     const barrySubscription = 29;
 
     return (
       <div className="price-box">
         <div className="main-box">
-          <div className="fs-11 fw-600 lh-13-px">SPOTPRIS</div>
+          <div className="fs-11 lh-13-px">
+            <span className="fw-600">SPOTPRIS</span>
+            {time}
+          </div>
           <div className="fs-24 ff-rubik-light lh-28-px midnight-text m-t-20">
-            Prisen på strøm lige nu
+            Prisen på strøm
           </div>
           <div className="m-t-40 divider-h m-b-40" />
           <div className="d-flex flex-column flex-sm-row d-flex p-x-20 align-items-center">
             <div>
               <div className="fs-15 fw-600 lh-18-px">Vestdanmark</div>
-              <div className="fs-15 ff-rubik-light lh-18-px m-t-20">
-                Pris i kr pr. kWh
-                <br />
-                {westTime}
-              </div>
               <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
                 {westLatestPrice} kr. pr. kWh
-              </div>
-              <div className="fs-15 ff-rubik-light lh-20-px m-t-20">
-                Samlet elpris pr. måned inkl. afgifter - uden abonnement
-              </div>
-              <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
-                {westTotalPrice}
-              </div>
-              <div className="fs-12 ff-rubik-light lh-18-px m-t-10">
-                For en gennemsnitlig husstand i Aarhus
               </div>
             </div>
             <div className="divider-v" />
             <div>
               <div className="fs-15 fw-600 lh-18-px">Østdanmark</div>
-              <div className="fs-15 ff-rubik-light lh-18-px m-t-20">
-                Pris i kr pr. kWh
-                <br />
-                {eastTime}
-              </div>
               <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
                 {eastLatestPrice} kr. pr. kWh
               </div>
-              <div className="fs-15 ff-rubik-light lh-20-px m-t-20">
-                Samlet elpris pr. måned inkl. afgifter - uden abonnement
+            </div>
+          </div>
+          <div className="fs-11 fw-300 lh-15-px m-t-30 m-b-15">
+            *priser inkl. moms
+          </div>
+        </div>
+
+        <div className="main-box m-t-25">
+          <div className="fs-24 ff-rubik-light lh-28-px midnight-text m-t-20">
+            Samlet gennemsnitlig elpris
+          </div>
+          <div className="m-t-40 divider-h m-b-40" />
+          <div className="d-flex flex-column flex-sm-row d-flex align-items-center">
+            <div>
+              <div className="fs-15 lh-18-px">
+                Gennemsnitlig husstand
+                <br />i Aarhus
               </div>
               <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
-                {eastTotalPrice}
+                {westTotalPrice} kr/kWh*
               </div>
-              <div className="fs-12 ff-rubik-light lh-18-px m-t-10">
-                For en gennemsnitlig husstand i Aarhus
+            </div>
+            <div className="divider-v" />
+            <div>
+              <div className="fs-15 lh-18-px">
+                Gennemsnitlig husstand
+                <br />i Storkøbenhavn
+              </div>
+              <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
+                {eastTotalPrice} kr/kWh*
               </div>
             </div>
           </div>
-          <div className="fs-15 fw-600 lh-20-px m-t-30 m-b-15">
-            Barry abonnement
-          </div>
-          <div className="fs-16 ff-rubik-light lh-20-px primary-text">
-            <span className="fs-24 ff-rubik-light fw-300">
-              {barrySubscription}
-            </span>{" "}
-            kr./md.
+          <div className="fs-11 fw-300 lh-15-px m-t-30 m-b-15">
+            *baseret på de sidste 3 års gennemsnitlige spotpriser
+            <br />
+            inkl. moms, skatter, afgifter og abonnement
           </div>
         </div>
       </div>

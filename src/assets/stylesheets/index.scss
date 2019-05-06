@@ -4002,14 +4002,23 @@ $lever-enabled-color: #f50057;
     background: white;
     margin: -250px auto 0px;
     padding: 50px;
+    color: #6C738A;
     h4 {
       font-size: 16px;
       font-weight: bold;
+      color: #6C738A;
     }
     ul {
       font-size: 14px;
       font-weight: 300;
       margin-bottom: 20px;
+      li {
+        margin-bottom: 10px;
+      }
+    }
+    a {
+      color: #6C738A;
+      text-decoration: underline;
     }
   }
 }

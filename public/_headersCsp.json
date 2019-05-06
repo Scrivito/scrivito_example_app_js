@@ -1,16 +1,9 @@
 {
   "base-uri": "'none'",
-  "default-src": ["'self'", "data:", "https:", "wss:"],
+  "default-src": ["'self'", "data:", "http:", "https:", "wss:", "'unsafe-inline'"],
   "style-src": ["'self'", "data:", "https:", "wss:", "'unsafe-inline'"],
   "script-src": [
-    "'self'",
-    "https://api.scrivito.com",
-    "https://app.intercom.io",
-    "https://assets.scrivito.com",
-    "https://js.intercomcdn.com",
-    "https://widget.intercom.io",
-    "https://www.google-analytics.com",
-    "https://jsonrpc.getbarry.dk"
+    "'self'", "data:", "http:", "https:", "wss:", "'unsafe-inline'"
   ],
   "object-src": "'none'",
   "block-all-mixed-content": true

@@ -3,68 +3,101 @@ import * as Scrivito from "scrivito";
 import urlFromBinary from "../../utils/urlFromBinary";
 import videoPlaceholder from "./videoPlaceholder";
 
-Scrivito.provideComponent("VideoWidget", ({ widget }) => {
-  const videoUrl = urlFromBinary(widget.get("source"));
-  const showText = widget.get("showText");
-  const playText = widget.get("playText");
-  const textPosition = widget.get("textPosition");
-  const btnSize = widget.get("btnSize");
-  const color = widget.get("color");
+class VideoWidget extends React.Component {
+  constructor(props) {
+    super(props);
 
-  if (!videoUrl && !Scrivito.isInPlaceEditingActive()) {
-    return null;
+    this.isPlaying = false;
+    this.handleFullScreenChange = this.handleFullScreenChange.bind(this);
+    this.playVideo = this.playVideo.bind(this);
   }
 
-  const posterUrl = urlFromBinary(widget.get("poster"));
-  const src = posterUrl ? videoUrl : `${videoUrl}#t=0.01`;
-
-  let style = {};
-  if (Scrivito.isInPlaceEditingActive() && !videoUrl && !posterUrl) {
-    style = videoPlaceholder;
+  componentDidMount() {
+    document.addEventListener("fullscreenchange", this.handleFullScreenChange);
   }
 
-  const playVideo = () => {
-    const elem = document.getElementById("video_player");
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-      elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-      elem.msRequestFullscreen();
+  componentWillUnmount() {
+    document.removeEventListener("fullscreenchange", this.handleFullScreenChange);
+  }
+
+  handleFullScreenChange(e) {
+    if (this.isPlaying) {
+      this.elem.pause();
+      this.isPlaying = false;
+    } else {
+      this.elem.play();
+      this.isPlaying = true;
     }
-    elem.style.display = "block";
-    elem.play();
-  };
+  }
 
-  return (
-    <div className={`video-widget ${color} ${btnSize}`}>
-      <div className="poster">
-        <img src={posterUrl} />
-        <button className="btn-play" title="Play" onClick={playVideo}>
-          {showText === "yes" && textPosition === "left" && (
-            <div>{playText}</div>
-          )}
-          <div className="circle">
-            <i className="fa fa-play" />
-          </div>
-          {showText === "yes" && textPosition === "right" && (
-            <div>{playText}</div>
-          )}
-        </button>
+  playVideo() {
+    if (!this.elem) {
+      this.elem = document.getElementById("video_player");
+    }
+    if (this.elem.requestFullscreen) {
+      this.elem.requestFullscreen();
+    } else if (this.elem.mozRequestFullScreen) {
+      this.elem.mozRequestFullScreen();
+    } else if (this.elem.webkitRequestFullscreen) {
+      this.elem.webkitRequestFullscreen();
+    } else if (this.elem.msRequestFullscreen) {
+      this.elem.msRequestFullscreen();
+    }
+    this.elem.style.display = "block";
+  }
+
+  render() {
+    const { widget } = this.props;
+    const videoUrl = urlFromBinary(widget.get("source"));
+    const showText = widget.get("showText");
+    const playText = widget.get("playText");
+    const textPosition = widget.get("textPosition");
+    const btnSize = widget.get("btnSize");
+    const color = widget.get("color");
+
+    if (!videoUrl && !Scrivito.isInPlaceEditingActive()) {
+      return null;
+    }
+
+    const posterUrl = urlFromBinary(widget.get("poster"));
+    const src = posterUrl ? videoUrl : `${videoUrl}#t=0.01`;
+
+    let style = {};
+    if (Scrivito.isInPlaceEditingActive() && !videoUrl && !posterUrl) {
+      style = videoPlaceholder;
+    }
+
+    return (
+      <div className={`video-widget ${color} ${btnSize}`}>
+        <div className="poster">
+          <img src={posterUrl} />
+          <button className="btn-play" title="Play" onClick={this.playVideo}>
+            {showText === "yes" && textPosition === "left" && (
+              <div>{playText}</div>
+            )}
+            <div className="circle">
+              <i className="fa fa-play" />
+            </div>
+            {showText === "yes" && textPosition === "right" && (
+              <div>{playText}</div>
+            )}
+          </button>
+        </div>
+        <Scrivito.ContentTag
+          id="video_player"
+          tag="video"
+          src={src}
+          content={widget}
+          attribute="source"
+          poster={posterUrl}
+          controls
+          muted
+          width="100%"
+          style={style}
+        />
       </div>
-      <Scrivito.ContentTag
-        id="video_player"
-        tag="video"
-        src={src}
-        content={widget}
-        attribute="source"
-        poster={posterUrl}
-        controls
-        width="100%"
-        style={style}
-      />
-    </div>
-  );
-});
+    );
+  }
+}
+
+Scrivito.provideComponent("VideoWidget", VideoWidget);

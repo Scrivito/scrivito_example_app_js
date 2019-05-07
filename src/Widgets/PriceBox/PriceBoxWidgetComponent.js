@@ -41,7 +41,7 @@ class PriceBoxWidget extends React.Component {
   async updatePricing() {
     try {
       // JSON RPC data : often returns bad values
-      const response = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
+      const response = await fetch("http://jsonrpc.getbarry.co/json-rpc", {
         method: "POST",
         body: JSON.stringify({
           jsonrpc: "2.0",
@@ -59,7 +59,7 @@ class PriceBoxWidget extends React.Component {
       const { result } = await response.json();
       this.setState({ DK1: result });
 
-      const response2 = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
+      const response2 = await fetch("http://jsonrpc.getbarry.co/json-rpc", {
         method: "POST",
         body: JSON.stringify({
           jsonrpc: "2.0",
@@ -101,7 +101,7 @@ class PriceBoxWidget extends React.Component {
     let time;
 
     if (DK1) {
-      westLatestPrice = (DK1.value * 1.25).toFixed(2).replace(".", ",");
+      westLatestPrice = (DK1.value * 125).toFixed(2).replace(".", ",");
       temp = new Date(DK1.created);
       time = `D. ${temp.getDay() + 1} ${
         NUMBER_TO_MONTH[temp.getMonth()]
@@ -114,7 +114,7 @@ class PriceBoxWidget extends React.Component {
     }
 
     if (DK2) {
-      eastLatestPrice = (DK2.value * 1.25).toFixed(2).replace(".", ",");
+      eastLatestPrice = (DK2.value * 125).toFixed(2).replace(".", ",");
     } else {
       eastLatestPrice = "...";
     }
@@ -138,14 +138,14 @@ class PriceBoxWidget extends React.Component {
             <div>
               <div className="fs-15 fw-600 lh-18-px">Vestdanmark</div>
               <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
-                {westLatestPrice} kr. pr. kWh
+                {westLatestPrice} øre/kWh
               </div>
             </div>
             <div className="divider-v" />
             <div>
               <div className="fs-15 fw-600 lh-18-px">Østdanmark</div>
               <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
-                {eastLatestPrice} kr. pr. kWh
+                {eastLatestPrice} øre/kWh
               </div>
             </div>
           </div>
@@ -166,7 +166,7 @@ class PriceBoxWidget extends React.Component {
                 <br />i Aarhus
               </div>
               <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
-                {westTotalPrice} kr/kWh*
+                {westTotalPrice} øre/kWh*
               </div>
             </div>
             <div className="divider-v" />
@@ -176,7 +176,7 @@ class PriceBoxWidget extends React.Component {
                 <br />i Storkøbenhavn
               </div>
               <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
-                {eastTotalPrice} kr/kWh*
+                {eastTotalPrice} øre/kWh*
               </div>
             </div>
           </div>

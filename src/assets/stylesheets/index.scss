@@ -270,7 +270,7 @@ h6,
   left: 50%;
   margin: 0 0 0 -20px;
   width: 40px;
-  height: 1px;
+  height: 0px;
   background: rgba(111, 111, 111, 0.2);
 }
 .bg-greydark .b-bottom:after {
@@ -4019,6 +4019,22 @@ $lever-enabled-color: #f50057;
     a {
       color: #6C738A;
       text-decoration: underline;
+    }
+    strong {
+      font-weight: bold;
+    }
+    p {
+      color: #6C738A;
+    }
+    blockquote {
+      margin-left: 1.45rem;
+      margin-right: 1.45rem;
+      margin-top: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 0;
+      margin-bottom: 1.45rem;
     }
     @media (max-width: 768px) {
       padding: 50px 15px;

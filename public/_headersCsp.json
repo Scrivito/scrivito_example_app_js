@@ -1,9 +1,9 @@
 {
   "base-uri": "'none'",
-  "default-src": ["'self'", "data:", "http:", "https:", "wss:", "'unsafe-inline'"],
-  "style-src": ["'self'", "data:", "https:", "wss:", "'unsafe-inline'"],
+  "default-src": ["'self'", "data:", "http:", "https:", "wss:", "'unsafe-inline'", "'unsafe-eval'"],
+  "style-src": ["'self'", "data:", "https:", "wss:", "'unsafe-inline'", "'unsafe-eval'"],
   "script-src": [
-    "'self'", "data:", "http:", "https:", "wss:", "'unsafe-inline'"
+    "'self'", "data:", "http:", "https:", "wss:", "'unsafe-inline'", "'unsafe-eval'"
   ],
   "object-src": "'none'",
   "block-all-mixed-content": true

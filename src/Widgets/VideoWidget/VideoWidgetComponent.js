@@ -45,6 +45,8 @@ class VideoWidget extends React.Component {
       this.elem.webkitRequestFullscreen();
     } else if (this.elem.msRequestFullscreen) {
       this.elem.msRequestFullscreen();
+    } else if (this.elem.webkitEnterFullScreen) {
+      this.elem.webkitEnterFullScreen();
     }
     this.elem.style.display = "block";
   }

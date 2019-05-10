@@ -85,6 +85,12 @@
   &.secondary {
     color: #EF7B40;
 
+    .btn-play {
+      color: white;
+      width: 100%;
+      height: 100%;
+    }
+
     .btn-play .circle i {
       color: #EF7B40;
     }

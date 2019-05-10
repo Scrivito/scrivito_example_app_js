@@ -17,7 +17,10 @@ class VideoWidget extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener("fullscreenchange", this.handleFullScreenChange);
+    document.removeEventListener(
+      "fullscreenchange",
+      this.handleFullScreenChange
+    );
   }
 
   handleFullScreenChange(e) {
@@ -67,11 +70,16 @@ class VideoWidget extends React.Component {
       style = videoPlaceholder;
     }
 
+    let btnClass = "btn-play";
+    if (!posterUrl) {
+      btnClass += " no-poster";
+    }
+
     return (
       <div className={`video-widget ${color} ${btnSize}`}>
         <div className="poster">
           <img src={posterUrl} />
-          <button className="btn-play" title="Play" onClick={this.playVideo}>
+          <button className={btnClass} title="Play" onClick={this.playVideo}>
             {showText === "yes" && textPosition === "left" && (
               <div>{playText}</div>
             )}

@@ -3375,13 +3375,13 @@ img.cookie-img {
 @media (max-width: $screen-xs-max) {
   h1,
   .h1 {
-    font-size: 40px;
+    font-size: 38px;
     line-height: 50px;
     word-break: break-word;
   }
   h2,
   .h2 {
-    font-size: 35px;
+    font-size: 34px;
     line-height: 45px;
     word-break: break-word;
   }
@@ -4099,9 +4099,6 @@ $lever-enabled-color: #f50057;
   .gutter0 {
     padding-left: 15px;
     padding-right: 15px;
-  }
-  h1 {
-    word-break: break-all;
   }
   .col-lg-6 .h-100 div{
     text-align: center;

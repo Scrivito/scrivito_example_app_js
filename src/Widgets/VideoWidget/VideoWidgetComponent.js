@@ -33,9 +33,9 @@ class VideoWidget extends React.Component {
     }
   }
 
-  playVideo() {
+  playVideo(id) {
     if (!this.elem) {
-      this.elem = document.getElementById("video_player");
+      this.elem = document.getElementById(id);
     }
     if (this.elem.requestFullscreen) {
       this.elem.requestFullscreen();
@@ -81,7 +81,11 @@ class VideoWidget extends React.Component {
       <div className={`video-widget ${color} ${btnSize}`}>
         <div className="poster">
           <img src={posterUrl} />
-          <button className={btnClass} title="Play" onClick={this.playVideo}>
+          <button
+            className={btnClass}
+            title="Play"
+            onClick={() => this.playVideo("video_player" + playText.substr(0, 2))}
+          >
             {showText === "yes" && textPosition === "left" && (
               <div>{playText}</div>
             )}
@@ -94,7 +98,8 @@ class VideoWidget extends React.Component {
           </button>
         </div>
         <Scrivito.ContentTag
-          id="video_player"
+          id={"video_player" + playText.substr(0, 2)}
+          className="video_player"
           tag="video"
           src={src}
           content={widget}

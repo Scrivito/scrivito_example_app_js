@@ -125,55 +125,7 @@ setTimeout(function() {
     }
   }
 
-  
-
 }, 5000);
-
-setTimeout(function(){
-  if (document.getElementById("east-price")) {
-    const params = {
-      jsonrpc: "2.0",
-      id: 1,
-      method: "co.getbarry.megatron.controller.PublicController.getLatestPrice",
-      params: ["DK2"],
-    }
-    var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState === 4) {
-        var res = JSON.parse(xmlhttp.response);
-        if (res.error) {
-          console.log('error');
-        } else {
-          document.getElementById("east-price").innerHTML = (res.result.value * 125).toFixed(2) + " øre/kWh";
-        }
-      }
-    }
-    xmlhttp.open("POST", "http://jsonrpc.getbarry.co/json-rpc");
-    xmlhttp.setRequestHeader("Content-Type", "application/json");
-    xmlhttp.send(JSON.stringify(params));
-
-    const params1 = {
-      jsonrpc: "2.0",
-      id: 1,
-      method: "co.getbarry.megatron.controller.PublicController.getLatestPrice",
-      params: ["DK1"],
-    }
-    var xmlhttp1 = new XMLHttpRequest();   // new HttpRequest instance 
-    xmlhttp1.onreadystatechange = function() {
-      if (xmlhttp1.readyState === 4) {
-        var res = JSON.parse(xmlhttp1.response);
-        if (res.error) {
-          console.log('error');
-        } else {
-          document.getElementById("west-price").innerHTML = (res.result.value * 125).toFixed(2) + " øre/kWh";
-        }
-      }
-    }
-    xmlhttp1.open("POST", "http://jsonrpc.getbarry.co/json-rpc");
-    xmlhttp1.setRequestHeader("Content-Type", "application/json");
-    xmlhttp1.send(JSON.stringify(params1));
-  }
-}, 2500);
 
 var firstWrapperSignup = function() {
   var name = document.getElementById('first-popup-wrapper').getElementsByClassName("name")[0].value;

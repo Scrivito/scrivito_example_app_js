@@ -41,7 +41,7 @@ class PriceBoxWidget extends React.Component {
   async updatePricing() {
     try {
       // JSON RPC data : often returns bad values
-      const response = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
+      const response = await fetch("https://jsonrpc.getbarry.dk/json-rpc", {
         method: "POST",
         body: JSON.stringify({
           jsonrpc: "2.0",
@@ -59,7 +59,7 @@ class PriceBoxWidget extends React.Component {
       const { result } = await response.json();
       this.setState({ DK1: result });
 
-      const response2 = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
+      const response2 = await fetch("https://jsonrpc.getbarry.dk/json-rpc", {
         method: "POST",
         body: JSON.stringify({
           jsonrpc: "2.0",
@@ -137,15 +137,15 @@ class PriceBoxWidget extends React.Component {
           <div className="d-flex flex-column flex-sm-row d-flex p-x-20 align-items-center">
             <div>
               <div className="fs-15 fw-600 lh-18-px">Vestdanmark</div>
-              <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10" id="east-price">
-                øre/kWh
+              <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
+                {westLatestPrice} øre/kWh
               </div>
             </div>
             <div className="divider-v" />
             <div>
               <div className="fs-15 fw-600 lh-18-px">Østdanmark</div>
-              <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10" id="west-price">
-                øre/kWh
+              <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
+                {eastLatestPrice} øre/kWh
               </div>
             </div>
           </div>

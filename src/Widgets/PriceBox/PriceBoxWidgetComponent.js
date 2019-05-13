@@ -41,7 +41,7 @@ class PriceBoxWidget extends React.Component {
   async updatePricing() {
     try {
       // JSON RPC data : often returns bad values
-      const response = await fetch("http://jsonrpc.getbarry.co/json-rpc", {
+      const response = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
         method: "POST",
         body: JSON.stringify({
           jsonrpc: "2.0",
@@ -59,7 +59,7 @@ class PriceBoxWidget extends React.Component {
       const { result } = await response.json();
       this.setState({ DK1: result });
 
-      const response2 = await fetch("http://jsonrpc.getbarry.co/json-rpc", {
+      const response2 = await fetch("https://jsonrpc.getbarry.co/json-rpc", {
         method: "POST",
         body: JSON.stringify({
           jsonrpc: "2.0",

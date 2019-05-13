@@ -124,7 +124,7 @@ class PriceBoxWidget extends React.Component {
     const barrySubscription = 29;
 
     return (
-      <div className="price-box">
+      <div className="price-box"  id="priser-2">
         <div className="main-box">
           <div className="fs-11 lh-13-px">
             <span className="fw-600">SPOTPRIS</span>
@@ -137,15 +137,15 @@ class PriceBoxWidget extends React.Component {
           <div className="d-flex flex-column flex-sm-row d-flex p-x-20 align-items-center">
             <div>
               <div className="fs-15 fw-600 lh-18-px">Vestdanmark</div>
-              <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
-                {westLatestPrice} øre/kWh
+              <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10" id="east-price">
+                øre/kWh
               </div>
             </div>
             <div className="divider-v" />
             <div>
               <div className="fs-15 fw-600 lh-18-px">Østdanmark</div>
-              <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10">
-                {eastLatestPrice} øre/kWh
+              <div className="fs-16 ff-rubik-light lh-18-px primary-text m-t-10" id="west-price">
+                øre/kWh
               </div>
             </div>
           </div>

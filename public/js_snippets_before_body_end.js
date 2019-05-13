@@ -94,8 +94,15 @@ setTimeout(function() {
     }
   }
 
-  if (document.getElementById('first-popup-close')){
-    popupClose = document.getElementById('first-popup-close');
+  if (document.getElementById('first-popup-close1')){
+    popupClose = document.getElementById('first-popup-close1');
+    popupClose.onclick = function() {
+      document.getElementById('first-popup-wrapper').style.display = "none";
+      document.body.className = "";
+    }
+  }
+  if (document.getElementById('first-popup-close2')){
+    popupClose = document.getElementById('first-popup-close2');
     popupClose.onclick = function() {
       document.getElementById('first-popup-wrapper').style.display = "none";
       document.body.className = "";
@@ -117,5 +124,85 @@ setTimeout(function() {
       addWaitingList();
     }
   }
+
+  
+
 }, 5000);
 
+setTimeout(function(){
+  if (document.getElementById("east-price")) {
+    const params = {
+      jsonrpc: "2.0",
+      id: 1,
+      method: "co.getbarry.megatron.controller.PublicController.getLatestPrice",
+      params: ["DK2"],
+    }
+    var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState === 4) {
+        var res = JSON.parse(xmlhttp.response);
+        if (res.error) {
+          console.log('error');
+        } else {
+          document.getElementById("east-price").innerHTML = (res.result.value * 125).toFixed(2) + " øre/kWh";
+        }
+      }
+    }
+    xmlhttp.open("POST", "http://jsonrpc.getbarry.co/json-rpc");
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+    xmlhttp.send(JSON.stringify(params));
+
+    const params1 = {
+      jsonrpc: "2.0",
+      id: 1,
+      method: "co.getbarry.megatron.controller.PublicController.getLatestPrice",
+      params: ["DK1"],
+    }
+    var xmlhttp1 = new XMLHttpRequest();   // new HttpRequest instance 
+    xmlhttp1.onreadystatechange = function() {
+      if (xmlhttp1.readyState === 4) {
+        var res = JSON.parse(xmlhttp1.response);
+        if (res.error) {
+          console.log('error');
+        } else {
+          document.getElementById("west-price").innerHTML = (res.result.value * 125).toFixed(2) + " øre/kWh";
+        }
+      }
+    }
+    xmlhttp1.open("POST", "http://jsonrpc.getbarry.co/json-rpc");
+    xmlhttp1.setRequestHeader("Content-Type", "application/json");
+    xmlhttp1.send(JSON.stringify(params1));
+  }
+}, 2500);
+
+var firstWrapperSignup = function() {
+  var name = document.getElementById('first-popup-wrapper').getElementsByClassName("name")[0].value;
+  var email = document.getElementById('first-popup-wrapper').getElementsByClassName("email")[0].value;
+  var isChecked = document.getElementById('first-popup-wrapper').getElementsByClassName("switch")[0].childNodes[1].checked;
+  if (name === "" || email === "") {
+    document.getElementById('first-popup-wrapper').getElementsByClassName("error-message")[0].innerHTML = "Please input name and email";
+  }
+  if (!isChecked) {
+    document.getElementById('first-popup-wrapper').getElementsByClassName("error-message")[0].innerHTML = "Please input name and email";
+  }
+
+  const params = {
+    email: email,
+    source: 'homepage',
+  }
+  var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState === 4) {
+      var res = JSON.parse(xmlhttp.response);
+      if (res.error) {
+        document.getElementById("first-popup-wrapper").getElementsByClassName("first-popup")[0].style.display = "none";
+        document.getElementById("first-popup-wrapper").getElementsByClassName("thanks")[0].style.display = "flex";
+      } else {
+        alert("Email successfully registered");
+      }
+    }
+  }
+  xmlhttp.open("POST", "https://wpk2il4zj0.execute-api.eu-central-1.amazonaws.com/dev/user/add");
+  xmlhttp.setRequestHeader("Content-Type", "application/json");
+  xmlhttp.send(JSON.stringify(params));
+}

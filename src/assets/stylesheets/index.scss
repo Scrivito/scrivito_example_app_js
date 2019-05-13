@@ -3815,9 +3815,35 @@ $lever-enabled-color: #f50057;
   top: 0px;
   left: 0px;
   overflow: auto;
+  .thanks {
+    display: none;
+    width: 660px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+    padding: 40px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    #first-popup-close1 {
+      position: absolute;
+      top: -30px;
+      right: 0px;
+      cursor: pointer;
+      img {
+        width: 20px;
+        margin-bottom: 0px;
+      }
+    }
+  }
   .first-popup {
     width: 660px;
-    height: 555px;
+    height: 600px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -3836,6 +3862,11 @@ $lever-enabled-color: #f50057;
     p {
       font-size: 18px;
       color: #6C738A;
+    }
+    .error-message {
+      color: red;
+      font-size: 14px;
+      font-weight: bold;
     }
     div.row {
       margin-bottom: 40px;
@@ -3859,7 +3890,8 @@ $lever-enabled-color: #f50057;
       justify-content: space-around;
     }
 
-    #first-popup-close {
+    
+    #first-popup-close2 {
       cursor: pointer;
       img {
         width: 20px;

@@ -1,11 +1,10 @@
 const express = require("express");
-const filesize = require("filesize");
 const fse = require("fs-extra");
-const path = require("path");
 const puppeteer = require("puppeteer");
 
 const { extendRedirects } = require("./extendRedirects");
 const { reportError } = require("./reportError");
+const { storeResult } = require("./storeResult");
 
 const SOURCE_DIR = "build";
 const TARGET_DIR = "buildPrerendered";
@@ -43,7 +42,9 @@ async function storePrerenderedContent() {
   const page = await visitUrl(browser, url);
 
   log(`🖥️️  Redefining window.storeResult...`);
-  await page.exposeFunction("storeResult", storeResult);
+  await page.exposeFunction("storeResult", args =>
+    storeResult(TARGET_DIR, storedFiles, args)
+  );
 
   log(`🖥️️  Redefining window.reportError...`);
   await page.exposeFunction("reportError", reportError);
@@ -91,31 +92,6 @@ async function visitUrl(browser, url) {
   page.on("console", msg => console.log("  🖥️️  [console]", msg.text()));
 
   return page;
-}
-
-async function storeResult({ filename, content }) {
-  const filePath = path.join(TARGET_DIR, filename);
-  if (!path.normalize(filePath).startsWith(`${TARGET_DIR}`)) {
-    reportError(`filename "${filename}" is invalid! Skipping file...`);
-    return;
-  }
-  console.log(
-    `  📥 [storeResult] Storing "${filename}" (file size: ${filesize(
-      content.length
-    )})...`
-  );
-  try {
-    await fse.outputFile(filePath, content, { flag: "wx" });
-    storedFiles.push(filePath.substring(TARGET_DIR.length));
-  } catch (e) {
-    if (e.code === "EEXIST") {
-      reportError(
-        `Filename "${filename}" already exists in ${TARGET_DIR}! Skipping file...`
-      );
-    } else {
-      throw e;
-    }
-  }
 }
 
 function log(message, ...args) {

@@ -99,8 +99,10 @@ async function storeResult({ filename, content }) {
     reportError(`filename "${filename}" is invalid! Skipping file...`);
     return;
   }
-  logStoreResult(
-    `Storing "${filename}" (file size: ${filesize(content.length)})...`
+  console.log(
+    `  📥 [storeResult] Storing "${filename}" (file size: ${filesize(
+      content.length
+    )})...`
   );
   try {
     await fse.outputFile(filePath, content, { flag: "wx" });
@@ -118,10 +120,6 @@ async function storeResult({ filename, content }) {
 
 function log(message, ...args) {
   console.log(`[storePrerenderedContent] ${message}`, ...args);
-}
-
-function logStoreResult(message, ...args) {
-  console.log(`  📥 [storeResult] ${message}`, ...args);
 }
 
 storePrerenderedContent().catch(e => {

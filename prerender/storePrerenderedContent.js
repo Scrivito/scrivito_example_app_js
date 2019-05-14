@@ -10,10 +10,10 @@ const { visitUrl } = require("./visitUrl");
 const SOURCE_DIR = "build";
 const TARGET_DIR = "buildPrerendered";
 
-const storedFiles = [];
-
 async function storePrerenderedContent() {
   console.time("[storePrerenderedContent]");
+
+  const storedFiles = [];
 
   log(`Removing ${TARGET_DIR}/`);
   await fse.remove(TARGET_DIR);

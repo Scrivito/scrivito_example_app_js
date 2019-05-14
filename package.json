@@ -73,7 +73,7 @@
   },
   "scripts": {
     "build": "webpack -p",
-    "prerender": "SCRIVITO_PRERENDER=true npm run build && node storePrerenderedContent.js",
+    "prerender": "SCRIVITO_PRERENDER=true npm run build && node prerender/storePrerenderedContent.js",
     "start": "webpack-dev-server --open",
     "eslint": "eslint --max-warnings 1 src/",
     "es-check": "npm run build && es-check es5 './build/**/*.js'"

@@ -65,7 +65,7 @@ class PriceBoxWidget extends React.Component {
           jsonrpc: "2.0",
           id: 1,
           method:
-            "co.getbarry.megatron.controller.PublicController.getLatestPrice",
+            "co.getbarry.megatron.controller.PriceController.getLatestPrice",
           params: ["DK2"],
         }),
         // mode: "no-cors",

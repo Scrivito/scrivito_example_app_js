@@ -37,7 +37,7 @@
     "express": "^4.16.4",
     "file-loader": "^3.0.1",
     "filesize": "^4.1.2",
-    "fs-extra": "^7.0.1",
+    "fs-extra": "^8.0.1",
     "fuse.js": "^3.4.4",
     "generator-scrivito": "file:generator-scrivito",
     "is-empty": "^1.2.0",

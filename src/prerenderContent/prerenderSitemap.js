@@ -8,35 +8,26 @@ export default async function prerenderSitemap(
   storeResult
 ) {
   console.time("[prerenderSitemap]");
-  const { content, itemsCount } = await Scrivito.load(() =>
-    sitemapXml(objClassesWhitelist)
+
+  const pages = await Scrivito.load(() =>
+    prerenderSitemapSearch(objClassesWhitelist).take()
   );
+  const sitemapUrls = await Scrivito.load(() => pages.map(pageToSitemapUrl));
+  const content = sitemapUrlsToSitemapXml(sitemapUrls);
+
   console.log(
-    `[prerenderSitemap] Generated sitemap.xml with ${itemsCount} items.`
+    `[prerenderSitemap] Generated sitemap.xml with ${sitemapUrls.length} items.`
   );
   console.timeEnd("[prerenderSitemap]");
   await storeResult({ filename: "/sitemap.xml", content });
 }
 
-function sitemapXml(objClassesWhitelist) {
-  const pages = Scrivito.Obj.where("_objClass", "equals", objClassesWhitelist)
-    .andNot("robotsIndex", "equals", "no")
-    .take();
-  const sitemapUrls = pages.map(pageToSitemapUrl);
-
-  const content = jsontoxml(
-    [
-      {
-        name: "urlset",
-        attrs: { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" },
-        children: sitemapUrls,
-      },
-    ],
-    { xmlHeader: true }
+function prerenderSitemapSearch(objClassesWhitelist) {
+  return Scrivito.Obj.where("_objClass", "equals", objClassesWhitelist).andNot(
+    "robotsIndex",
+    "equals",
+    "no"
   );
-
-  const itemsCount = sitemapUrls.length;
-  return { content, itemsCount };
 }
 
 function pageToSitemapUrl(page) {
@@ -46,4 +37,17 @@ function pageToSitemapUrl(page) {
       lastmod: formatDate(page.lastChanged(), "yyyy-mm-dd"),
     },
   };
+}
+
+function sitemapUrlsToSitemapXml(sitemapUrls) {
+  return jsontoxml(
+    [
+      {
+        name: "urlset",
+        attrs: { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" },
+        children: sitemapUrls,
+      },
+    ],
+    { xmlHeader: true }
+  );
 }

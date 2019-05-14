@@ -46,7 +46,7 @@ async function storePrerenderedContent() {
   await page.exposeFunction("reportError", reportError);
 
   log("🖥️️  Executing javascript command prerenderContent...");
-  await page.evaluate(() => prerenderContent());
+  await page.evaluate("prerenderContent()");
   log("🖥️️  Executed javascript command prerenderContent.");
 
   log("🖥️️  Closing the browser...");

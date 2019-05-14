@@ -5,6 +5,7 @@ const path = require("path");
 const puppeteer = require("puppeteer");
 
 const { extendRedirects } = require("./extendRedirects");
+const { reportError } = require("./reportError");
 
 const SOURCE_DIR = "build";
 const TARGET_DIR = "buildPrerendered";
@@ -113,11 +114,6 @@ async function storeResult({ filename, content }) {
       throw e;
     }
   }
-}
-
-function reportError(message, ...args) {
-  // Report to your external error tracker here, like Honeybadger or Rollbar.
-  console.log(`  ❌ [reportError] ${message}`, ...args);
 }
 
 function log(message, ...args) {

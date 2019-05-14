@@ -1,9 +1,9 @@
-const express = require("express");
 const fse = require("fs-extra");
 const puppeteer = require("puppeteer");
 
 const { extendRedirects } = require("./extendRedirects");
 const { reportError } = require("./reportError");
+const { startServer } = require("./startServer");
 const { storeResult } = require("./storeResult");
 const { visitUrl } = require("./visitUrl");
 
@@ -31,7 +31,7 @@ async function storePrerenderedContent() {
   );
 
   log("🗄️  Starting express server...");
-  const server = await startServer();
+  const server = await startServer(SOURCE_DIR);
   log("🗄️  Express server started...");
 
   log("🖥️️  Starting browser...");
@@ -68,16 +68,6 @@ async function storePrerenderedContent() {
   );
 
   console.timeEnd("[storePrerenderedContent]");
-}
-
-function startServer() {
-  const app = express();
-  const staticMiddleware = express.static(SOURCE_DIR);
-  app.use(staticMiddleware);
-
-  return new Promise(resolve => {
-    const server = app.listen(8080, () => resolve(server));
-  });
 }
 
 function log(message, ...args) {

@@ -3421,7 +3421,7 @@ h3 {
       font-weight: 300
     }
   }
-
+  //Kommer snart  <div class="badge-round-rect"><b>Kommer snart</b></div>
   .badge-round-rect {
     position: absolute;
     top: 5px;
@@ -4184,5 +4184,48 @@ h2.h4 {
   font-size: 18px;
   a {
     color: #6C738A;
+  }
+}
+
+#signup_confirmation {
+  font-size: 18px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  background: #00000088;
+  z-index: 10000;
+  overflow: hidden;
+  height: 100%;
+  overflow: auto;
+  display: none;
+  button {
+    filter: invert(100%);
+    background: none;
+    border: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+  .content-wrapper {
+    display: block;
+    margin: 300px 100px;
+    color: black;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    div {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      margin: 100px 10px;
+      button {
+        right: 10px;
+        top: 10px;
+      }
+    }
+  }
+  &.active {
+    display: block;
   }
 }

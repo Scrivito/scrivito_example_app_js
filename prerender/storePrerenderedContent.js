@@ -5,6 +5,7 @@ const puppeteer = require("puppeteer");
 const { extendRedirects } = require("./extendRedirects");
 const { reportError } = require("./reportError");
 const { storeResult } = require("./storeResult");
+const { visitUrl } = require("./visitUrl");
 
 const SOURCE_DIR = "build";
 const TARGET_DIR = "buildPrerendered";
@@ -77,21 +78,6 @@ function startServer() {
   return new Promise(resolve => {
     const server = app.listen(8080, () => resolve(server));
   });
-}
-
-async function visitUrl(browser, url) {
-  const page = await browser.newPage();
-  try {
-    await page.goto(url);
-  } catch (e) {
-    reportError(`🖥️️  Could not visit ${url}! Is a webserver running on 8080?`);
-    throw e;
-  }
-
-  log(`🖥️️  Registering console log...`);
-  page.on("console", msg => console.log("  🖥️️  [console]", msg.text()));
-
-  return page;
 }
 
 function log(message, ...args) {

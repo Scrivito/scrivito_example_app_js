@@ -1581,7 +1581,7 @@ section.navbar-fixed {
   margin-left: -0.5px;
 }
 .timeline > li {
-  margin: 15px 0 30px 0;
+  margin: 90px 0 30px 0;
   padding: 0 60px 0 0;
   position: relative;
   width: 50%;
@@ -1592,14 +1592,14 @@ section.navbar-fixed {
 .timeline > li:nth-child(odd) {
   float: right;
   clear: right;
-  margin: 90px 0 20px 0;
+  margin: 15px 0 20px 0;
   padding: 0 0 0 60px;
 }
 .timeline > li.timeline-divider + li:nth-child(even) {
-  margin: 15px 0 30px 0;
+  margin: 90px 0 30px 0;
 }
 .timeline > li.timeline-divider + li:nth-child(odd) {
-  margin: 90px 0 20px 0;
+  margin: 15px 0 20px 0;
 }
 .timeline > li.timeline-divider {
   background: #fff;

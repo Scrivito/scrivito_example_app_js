@@ -37,39 +37,34 @@ const BlogPostPreviewList = Scrivito.connect(
       );
     }
 
-    const months = groupBy(posts, post => {
-      const publishedAt = post.get("publishedAt");
-      return publishedAt && formatDate(publishedAt, "mmmm yyyy");
-    });
+    // const months = groupBy(posts, post => {
+    //   const publishedAt = post.get("publishedAt");
+    //   return publishedAt && formatDate(publishedAt, "mmmm yyyy");
+    // });
 
     return (
       <React.Fragment>
-        {Object.entries(months).map(([month, monthPosts]) => (
-          <React.Fragment key={`month: ${month}`}>
-            <MonthHeadline date={monthPosts[0].get("publishedAt")} />
-            <PostsTimeline posts={monthPosts} />
-          </React.Fragment>
-        ))}
+            <PostsTimeline posts={posts} />
       </React.Fragment>
     );
   }
 );
 
-const MonthHeadline = Scrivito.connect(({ date }) => {
-  if (!date) {
-    return null;
-  }
+// const MonthHeadline = Scrivito.connect(({ date }) => {
+//   if (!date) {
+//     return null;
+//   }
 
-  return (
-    <ul className="timeline">
-      <li className="timeline-divider">
-        <time dateTime={formatDate(date, "yyyy-mm")}>
-          {formatDate(date, "mmmm yyyy")}
-        </time>
-      </li>
-    </ul>
-  );
-});
+//   return (
+//     <ul className="timeline">
+//       <li className="timeline-divider">
+//         <time dateTime={formatDate(date, "yyyy-mm")}>
+//           {formatDate(date, "mmmm yyyy")}
+//         </time>
+//       </li>
+//     </ul>
+//   );
+// });
 
 const PostsTimeline = Scrivito.connect(({ posts }) => (
   <ul className="timeline">

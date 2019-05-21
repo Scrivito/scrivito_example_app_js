@@ -1340,7 +1340,11 @@ section.navbar-fixed {
   left: 0;
   right: 0;
   height: 75px;
-  text-align: center;
+  text-align: left;
+  padding: 0 50px;
+  @media (max-width: $screen-xs-max) {
+    padding: 0 15px;
+  }
 }
 .nav-landing-page .navbar-brand {
   float: none;

@@ -102,12 +102,16 @@ class PriceBoxWidget extends React.Component {
 
     if (DK1) {
       westLatestPrice = (DK1.value * 125).toFixed(2).replace(".", ",");
-      temp = new Date(DK1.created);
-      time = `D. ${temp.getDay() + 1} ${
+      temp = new Date(DK1.start);
+      time = `D. ${temp.getDate()} ${
         NUMBER_TO_MONTH[temp.getMonth()]
-        } KL. ${temp.getHours()}.${temp.getMinutes()}`;
+      } KL. ${temp.getHours()}.${
+        temp.getMinutes() === 0 ? "00" : temp.getMinutes()
+      }`;
       temp = new Date(DK1.end);
-      time += ` - ${temp.getHours()}.${temp.getMinutes()}`;
+      time += ` - ${temp.getHours()}.${
+        temp.getMinutes() === 0 ? "00" : temp.getMinutes()
+      }`;
     } else {
       westLatestPrice = "...";
       time = "...";
@@ -127,7 +131,7 @@ class PriceBoxWidget extends React.Component {
       <div className="price-box"  id="priser-2">
         <div className="main-box">
           <div className="fs-11 lh-13-px">
-            <span className="fw-600">SPOTPRIS</span>
+            <span className="fw-600">SPOTPRIS </span>
             {time}
           </div>
           <div className="fs-24 ff-rubik-light lh-28-px midnight-text m-t-20">

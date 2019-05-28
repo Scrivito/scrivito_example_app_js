@@ -77,6 +77,7 @@ $slick-font-family: "slick_swap";
 @import "about_box";
 @import "about_team";
 @import "price_box";
+@import "price_calculator";
 @import "404";
 
 /* fonts
@@ -1342,6 +1343,7 @@ section.navbar-fixed {
   height: 75px;
   text-align: left;
   padding: 0 50px;
+  background: #fbfbfb;
   @media (max-width: $screen-xs-max) {
     padding: 0 15px;
   }
@@ -3553,6 +3555,10 @@ h3 {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
 }
 
+a.orange-text:hover{
+  color: #FD5092;
+}
+
 .send-link-button.padding-10 {
   padding: 10px 0;
 }
@@ -3621,6 +3627,29 @@ h3 {
   }
 }
 
+.store-block {
+  display: flex;
+  .store-item {
+    display: inline-block;
+    .rate-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      opacity: 0.9;
+      img {
+        width: 30px;
+        margin-bottom: 0px;
+      }
+      label {
+        margin-bottom: 0px;
+        margin-left: 10px;
+        margin-top: 4px;
+      }
+    }
+  }
+}
 
 // Variables
 $bg-disabled-color: #fff;
@@ -3789,9 +3818,15 @@ $lever-enabled-color: #f50057;
   .mobile-hide {
     display: none;
   }
+  .mobile-no-padding {
+    padding-right: 0px !important;
+  }
   .mobile-only-show {
     display: flex;
     justify-content: center;
+    &.column {
+      flex-direction: column;
+    }
   }
   .mobile-only-show.mobile-hide {
     display: none;

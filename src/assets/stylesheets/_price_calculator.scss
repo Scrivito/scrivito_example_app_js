@@ -1,0 +1,122 @@
+.price-calculator-box {
+  .main-box {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    &.box2 {
+      max-width: 700px;
+      display: flex;
+      align-items: center;
+      button {
+        margin-bottom: 40px;
+      }
+      .box2-content {
+        box-sizing: border-box;
+        height: 598px;
+        width: 100%;
+        border: 1px solid #D7D7D7;
+        border-radius: 3px;
+        background-color: #FFFFFF;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .box2-heading {
+          display: flex;
+          justify-content: space-between;
+          padding: 30px;
+          align-items: center;
+          border-bottom: 1px solid #D7D7D7;
+          div {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+    p {
+      color: #6C738A;
+      font-size: 18px;
+    }
+    label {
+      color: #282A2C;
+      font-size: 14px;
+    }
+    input {
+      box-sizing: border-box;
+      height: 61px;
+      width: 100%;
+      border: 1px solid #D7D7D7;
+      border-radius: 3px;
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    .input-wrapper{
+      position: relative;
+      input {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+        height: 61px;
+      }
+      .check-mark {
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+        background-color: #FD5092;
+        box-shadow: 0 4px 8px 0 rgba(253,80,146,0.6);
+        position: absolute;
+        right: 10px;
+        top: 15.5px;
+        color: white;
+        text-align: center;
+        line-height: 30px;
+      }
+    }
+    div {
+      input {
+        height: 49px;
+        box-shadow: none;
+      }
+    }
+    .p-calculater-selector {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      
+      .cal-item {
+        display: flex;
+        flex-direction: column;
+        width: 48%;
+        border: 1px solid #D7D7D7;
+        border-radius: 3px;
+        background-color: #FFFFFF;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+        padding: 30px;
+        text-align: center;
+        color: #282A2C;
+        cursor: pointer;
+        &.active {
+          border: 1px solid #4DE9BF;
+          border-radius: 3px;
+          background-color: rgba(77,233,191,0.08);
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+        }
+        img {
+          margin: 0 auto 25px;
+        }
+      }
+    }
+    button {
+      height: 60px;
+      width: 100%;
+      border-radius: 3px;
+      background: linear-gradient(315.15deg, #FF4B9C 0%, #EF7B40 100%);
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+      color: white;
+      margin-top: 40px;
+      max-width: 500px;
+    }
+  }
+}

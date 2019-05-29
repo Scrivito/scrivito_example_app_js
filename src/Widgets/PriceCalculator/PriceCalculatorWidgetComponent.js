@@ -62,8 +62,6 @@ class PriceCalculatorWidget extends React.Component {
     this.setState({ showBox: val });
   }
 
-  
-
   async updatePricing() {
     try {
       // JSON RPC data : often returns bad values
@@ -221,6 +219,8 @@ class PriceCalculatorWidget extends React.Component {
               value={this.state.selectedOption}
               onChange={val => this.handleChange(val)}
               options={options}
+              placeholder="Vælg elselskab"
+              className="price-sel"
             />
             <button onClick={() => this.showBox(2)}>Sammenlign ></button>
           </div>

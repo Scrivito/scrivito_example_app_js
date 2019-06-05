@@ -190,7 +190,7 @@ class PriceCalculatorWidget extends React.Component {
               <label>I hvilket postnummer bor du?</label>
               <div className="input-wrapper">
                 <input type="text" value="5000" />
-                <div className="check-mark">✓</div>
+                <div className="check-mark"><i className="fa fa-check"></i></div>
               </div>
             </p>
             <label>Boligform</label>
@@ -201,7 +201,7 @@ class PriceCalculatorWidget extends React.Component {
                 }
                 onClick={() => this.handleSelect(1)}
               >
-                <img width="80" height="65" src={this.state.selectedBol === 1 ? "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/ccfb56733d294fc2/22db5461e286/v/6cdeaa1a91f8/home1_active.png" : "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/e5e78da71094b28f/a026571edc68/v/77560f55538a/home1.png"} />
+                <img width="50" height="78" src={this.state.selectedBol === 1 ? "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/34830b8a0f126a0d/336116475e34/v/9b43a6ff5845/home2_active.png" : "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/84e262f5b29d96b3/a06646e36c87/v/70d3aa0b1cd1/home2.png"} />
                 <span>Lejlighed</span>
               </div>
               <div
@@ -210,7 +210,7 @@ class PriceCalculatorWidget extends React.Component {
                 }
                 onClick={() => this.handleSelect(2)}
               >
-                <img width="50" height="78" src={this.state.selectedBol === 2 ? "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/34830b8a0f126a0d/336116475e34/v/9b43a6ff5845/home2_active.png" : "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/84e262f5b29d96b3/a06646e36c87/v/70d3aa0b1cd1/home2.png"} />
+                <img width="80" height="65" src={this.state.selectedBol === 2 ? "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/ccfb56733d294fc2/22db5461e286/v/6cdeaa1a91f8/home1_active.png" : "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/e5e78da71094b28f/a026571edc68/v/77560f55538a/home1.png"} />
                 <span>Hus</span>
               </div>
             </div>

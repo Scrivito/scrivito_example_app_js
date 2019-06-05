@@ -70,6 +70,7 @@ $slick-font-family: "slick_swap";
 @import "colors";
 @import "bootstrap/bootstrap";
 @import "social_cards";
+@import "footer";
 @import "grid_layout_editor";
 @import "icon_editor";
 @import "video_player";
@@ -1343,10 +1344,12 @@ section.navbar-fixed {
   height: 75px;
   text-align: left;
   padding: 0 50px;
-  background: #fbfbfb;
   @media (max-width: $screen-xs-max) {
     padding: 0 15px;
   }
+}
+.bg-white .nav-landing-page {
+  background: #fbfbfb;
 }
 .nav-landing-page .navbar-brand {
   float: none;
@@ -3631,13 +3634,18 @@ a.orange-text:hover{
   display: flex;
   .store-item {
     display: inline-block;
+    a {
+      img {
+        margin-bottom: 25px;
+      }
+    }
     .rate-content {
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       color: white;
-      opacity: 0.9;
+      opacity: 0.8;
       img {
         width: 30px;
         margin-bottom: 0px;
@@ -4266,5 +4274,30 @@ h2.h4 {
   }
   &.active {
     display: block;
+  }
+}
+
+.pricing-box {
+  padding: 0px;
+  border-radius: 6px;
+  div {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  &.bg-custom-shadow {
+    div {
+      align-items: flex-start;
+    }
+  }
+  p {
+    font-size: 15px;
+    font-weight: 300;
+    text-align: left;
+    &.inactive {
+      opacity: 0.2;
+    }
+    i {
+      margin-right: 10px;
+    }
   }
 }

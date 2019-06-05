@@ -23,13 +23,6 @@ function eraseCookie(name) {
   document.cookie = `${name}=; Max-Age=-99999999;`;
 }
 let ckie = getCookie("scrivitobarryform");
-if (!ckie) {
-  setTimeout(function() {
-    document.getElementById("first-popup-wrapper").style.display = "block";
-    document.body.className = "fixed";
-    setCookie("scrivitobarryform", "1", 30);
-  }, 60000);
-}
 
 function showTerms() {
   document.getElementById("terms-condition").className = "active";
@@ -37,9 +30,6 @@ function showTerms() {
 }
 function closeTerms() {
   document.getElementById("terms-condition").className = "";
-  if (document.getElementById("first-popup-wrapper").style.display != "block") {
-    document.body.className = "";
-  }
 }
 
 function addWaitingList() {
@@ -112,21 +102,6 @@ setTimeout(function() {
     }
   }
 
-  if (document.getElementById("first-popup-close1")) {
-    popupClose = document.getElementById("first-popup-close1");
-    popupClose.onclick = function() {
-      document.getElementById("first-popup-wrapper").style.display = "none";
-      document.body.className = "";
-    };
-  }
-  if (document.getElementById("first-popup-close2")) {
-    popupClose = document.getElementById("first-popup-close2");
-    popupClose.onclick = function() {
-      document.getElementById("first-popup-wrapper").style.display = "none";
-      document.body.className = "";
-    };
-  }
-
   if (document.getElementById("close_term")) {
     document.getElementById("close_term").onclick = function() {
       closeTerms();
@@ -152,53 +127,4 @@ setTimeout(function() {
   }
 }, 5000);
 
-let firstWrapperSignup = function() {
-  let name = document
-    .getElementById("first-popup-wrapper")
-    .getElementsByClassName("name")[0].value;
-  let email = document
-    .getElementById("first-popup-wrapper")
-    .getElementsByClassName("email")[0].value;
-  let isChecked = document
-    .getElementById("first-popup-wrapper")
-    .getElementsByClassName("switch")[0].childNodes[1].checked;
-  if (name === "" || email === "") {
-    document
-      .getElementById("first-popup-wrapper")
-      .getElementsByClassName("error-message")[0].innerHTML =
-      "Please input name and email";
-  }
-  if (!isChecked) {
-    document
-      .getElementById("first-popup-wrapper")
-      .getElementsByClassName("error-message")[0].innerHTML =
-      "Please input name and email";
-  }
 
-  const params = {
-    email,
-    source: "homepage",
-  };
-  let xmlhttp = new XMLHttpRequest(); // new HttpRequest instance
-  xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState === 4) {
-      let res = JSON.parse(xmlhttp.response);
-      if (res.error) {
-        document
-          .getElementById("first-popup-wrapper")
-          .getElementsByClassName("first-popup")[0].style.display = "none";
-        document
-          .getElementById("first-popup-wrapper")
-          .getElementsByClassName("thanks")[0].style.display = "flex";
-      } else {
-        alert("Email successfully registered");
-      }
-    }
-  };
-  xmlhttp.open(
-    "POST",
-    "https://wpk2il4zj0.execute-api.eu-central-1.amazonaws.com/dev/user/add"
-  );
-  xmlhttp.setRequestHeader("Content-Type", "application/json");
-  xmlhttp.send(JSON.stringify(params));
-};

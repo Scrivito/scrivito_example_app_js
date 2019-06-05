@@ -74,10 +74,10 @@ class Navigation extends React.Component {
     const scrollTop = event.currentTarget.pageYOffset;
     const scrolledToBe = scrollTop !== 0;
 
-    if (this.state.scrolled !== scrolledToBe) {
-      // only set state, if needed. Otherwise a render will be triggered on _every_ scroll.
-      this.setState({ scrolled: scrolledToBe });
-    }
+    // if (this.state.scrolled !== scrolledToBe) {
+    //   // only set state, if needed. Otherwise a render will be triggered on _every_ scroll.
+    //   this.setState({ scrolled: scrolledToBe });
+    // }
   }
 
   toggleSearch() {

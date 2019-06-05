@@ -5,7 +5,7 @@
     flex-direction: column;
     margin: 0 auto;
     .price-sel > div > div:first-child {
-        padding-left: 20px;
+      padding-left: 20px;
     }
     &.box2 {
       max-width: 700px;
@@ -75,6 +75,9 @@
         color: white;
         text-align: center;
         line-height: 30px;
+        i {
+          color: white;
+        }
       }
     }
     div {

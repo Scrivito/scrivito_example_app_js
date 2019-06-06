@@ -4143,6 +4143,10 @@ $lever-enabled-color: #f50057;
   }
 }
 @media (max-width: 768px) {
+  .mobile-expand-15 {
+    width: calc(100% + 30px);
+    margin-left: -15px;
+  }
   .gutter0 {
     padding-left: 15px;
     padding-right: 15px;

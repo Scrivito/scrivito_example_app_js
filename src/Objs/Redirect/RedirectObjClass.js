@@ -4,7 +4,6 @@ const Redirect = Scrivito.provideObjClass("Redirect", {
   attributes: {
     title: "string",
     link: "link",
-    openInUi: ["enum", { values: ["yes", "no"] }],
   },
 });
 

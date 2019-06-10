@@ -125,6 +125,22 @@ setTimeout(function() {
       document.body.className = "";
     };
   }
+
+  if (document.getElementById("first-popup-close1")) {
+    popupClose = document.getElementById("first-popup-close1");
+    popupClose.onclick = function() {
+      document.getElementById("first-popup-wrapper").style.display = "none";
+      document.body.className = "";
+    };
+  }
+  if (document.getElementById("first-popup-close2")) {
+    popupClose = document.getElementById("first-popup-close2");
+    popupClose.onclick = function() {
+      document.getElementById("first-popup-wrapper").style.display = "none";
+      document.body.className = "";
+    };
+  }
+
 }, 5000);
 
 

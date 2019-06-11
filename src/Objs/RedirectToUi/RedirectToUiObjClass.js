@@ -1,10 +1,7 @@
 import * as Scrivito from "scrivito";
 
 const RedirectToUi = Scrivito.provideObjClass("RedirectToUi", {
-  attributes: {
-    title: "string",
-    reference: "reference",
-  },
+  attributes: {},
 });
 
 export default RedirectToUi;

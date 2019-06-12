@@ -4049,7 +4049,8 @@ $lever-enabled-color: #f50057;
 @media (max-width: 768px) {
   .mobile-expand-15 {
     width: calc(100% + 30px);
-    margin-left: -15px;
+    margin-left: -15px !important;
+    max-width: calc(100% + 30px) !important;
   }
   .gutter0 {
     padding-left: 15px;
@@ -4064,14 +4065,14 @@ $lever-enabled-color: #f50057;
   @supports (-webkit-overflow-scrolling: touch) {
     /* CSS specific to iOS devices */
     .android-mob-link {
-      display: none;
+      display: none !important;
     }
   }
 
   @supports not (-webkit-overflow-scrolling: touch) {
     /* CSS for other than iOS devices */
     .ios-mob-link {
-      display: none;
+      display: none !important;
     }
   }
   .android-mob-link img, .ios-mob-link img{

@@ -3656,6 +3656,7 @@ a.orange-text:hover{
       img {
         width: 30px;
         margin-bottom: 0px;
+        margin-top: 0px;
       }
       label {
         margin-bottom: 0px;
@@ -3877,6 +3878,14 @@ $lever-enabled-color: #f50057;
     text-align: center;
     align-items: center;
     justify-content: center;
+    button {
+      background: linear-gradient(137.65deg, #EF7B40 -5.23%, #FD5092 110.4%);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.0701427);
+      border-radius: 3px;
+      width: 100%;
+      height: 60px;
+      color: white;
+    }
     #first-popup-close1 {
       position: absolute;
       top: -30px;
@@ -3931,6 +3940,17 @@ $lever-enabled-color: #f50057;
         width: 20px;
         margin-bottom: 0px;
       }
+    }
+
+    input {
+      background: #FFFFFF;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.0701427);
+      border-radius: 3px;
+      width: 100%;
+      height: 60px;
+      border: none;
+      padding-left: 10px;
+      padding-right: 10px;
     }
 
     button {
@@ -4196,6 +4216,10 @@ h2.h4 {
   div {
     padding-left: 50px;
     padding-right: 50px;
+    @media (max-width: 768px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
   &.bg-custom-shadow {
     div {
@@ -4215,6 +4239,11 @@ h2.h4 {
     i {
       margin-right: 10px;
     }
+    @media (max-width: 768px) {
+      label {
+        margin-left: 0px;
+      }
+    }
   }
   label {
     width: 80px;
@@ -4223,6 +4252,12 @@ h2.h4 {
     align-items: center;
     text-align: center;
     justify-content: center;
+    @media (max-width: 768px) {
+      font-size: 12px;
+      font-weight: 700;
+      width: 55px;
+      line-height: 16px;
+    }
   }
   span {
     display: flex;

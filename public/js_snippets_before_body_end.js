@@ -32,6 +32,24 @@ function closeTerms() {
   document.getElementById("terms-condition").className = "";
 }
 
+function showUX() {
+  document.getElementById("first-popup-wrapper").style.display = "block";
+}
+
+function closeUX() {
+  document.getElementById("first-popup-wrapper").style.display = "none";
+  document.getElementById("first-popup-wrapper").getElementsByClassName("thanks")[0].style.display = "none";
+  document.getElementById("first-popup-wrapper").getElementsByClassName("first-popup")[0].style.display = "block";
+  document.body.className = "";
+}
+
+function addUXList() {
+  setTimeout(function() {
+    document.getElementById("first-popup-wrapper").getElementsByClassName("thanks")[0].style.display = "block";
+    document.getElementById("first-popup-wrapper").getElementsByClassName("first-popup")[0].style.display = "none";
+  }, 500);
+}
+
 function addWaitingList() {
   const params = {
     email: document.getElementsByClassName("send-link-input1")[0].value,
@@ -130,6 +148,8 @@ setTimeout(function() {
     popupClose = document.getElementById("first-popup-close1");
     popupClose.onclick = function() {
       document.getElementById("first-popup-wrapper").style.display = "none";
+      document.getElementById("first-popup-wrapper").getElementsByClassName("thanks")[0].style.display = "none";
+      document.getElementById("first-popup-wrapper").getElementsByClassName("first-popup")[0].style.display = "block";
       document.body.className = "";
     };
   }

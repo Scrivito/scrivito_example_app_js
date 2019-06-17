@@ -33,6 +33,7 @@ function closeTerms() {
 }
 
 function showUX() {
+  document.body.className = "fixed";
   document.getElementById("first-popup-wrapper").style.display = "block";
 }
 

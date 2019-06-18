@@ -3896,6 +3896,11 @@ $lever-enabled-color: #f50057;
         margin-bottom: 0px;
       }
     }
+    @media (max-width: 767px) {
+      width: calc(100% - 20px);
+      padding: 20px;
+      height: auto;
+    }
   }
   .first-popup {
     width: 660px;

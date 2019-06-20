@@ -73,7 +73,7 @@ function oldestSearchResultsPage() {
     .first();
 }
 
-function SearchIcon({ toggleSearch }) {
+const SearchIcon = Scrivito.connect(({ toggleSearch }) => {
   if (
     Scrivito.currentPage() &&
     Scrivito.currentPage().objClass() === "SearchResults"
@@ -90,6 +90,6 @@ function SearchIcon({ toggleSearch }) {
       <i className="fa fa-search" aria-hidden="true" />
     </span>
   );
-}
+});
 
 export { SearchBox, SearchIcon };

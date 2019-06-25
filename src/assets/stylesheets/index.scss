@@ -1872,12 +1872,16 @@ section.navbar-fixed {
 }
 .card-theme.card-list .card-icon {
   text-align: center;
-  width: 22%;
+  width: 15%;
+  box-sizing: content-box;
   float: left;
+  padding: 20px 0;
+  line-height: 40px;
+  font-size: 25px;
 }
 .card-theme.card-list .card-body {
   text-align: left;
-  width: 78%;
+  width: 85%;
   float: left;
 }
 .card-theme.card-list .card-body h3 {

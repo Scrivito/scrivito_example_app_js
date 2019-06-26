@@ -2,11 +2,11 @@ import isString from "./isString";
 import { lookupTextExtract } from "./textExtractRegistry";
 import textExtractFromHtml from "./textExtractFromHtml";
 
-function textExtractFromObj(obj) {
+export function textExtractFromObj(obj) {
   return textExtractFromItem(obj);
 }
 
-function textExtractFromWidgetlist(widgetlist) {
+export function textExtractFromWidgetlist(widgetlist) {
   const textExtractValues = widgetlist.map(widget =>
     textExtractFromItem(widget)
   );
@@ -79,5 +79,3 @@ function arrayToString(array) {
     .filter(value => value)
     .join("\n");
 }
-
-export { textExtractFromObj, textExtractFromWidgetlist };

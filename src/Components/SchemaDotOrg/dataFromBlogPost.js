@@ -2,11 +2,11 @@ import { truncate } from "lodash-es";
 import dataFromAuthor from "./dataFromAuthor";
 import formatDate from "../../utils/formatDate";
 import urlFromBinary from "../../utils/urlFromBinary";
-import { textExtractFromWidgetlist } from "../../utils/textExtract";
+import { textExtractFromObj } from "../../utils/textExtract";
 
 function dataFromBlogPost(blogPost) {
   let author;
-  const body = textExtractFromWidgetlist(blogPost.get("body"));
+  const body = textExtractFromObj(blogPost);
 
   if (blogPost.get("author")) {
     author = dataFromAuthor(blogPost.get("author"));

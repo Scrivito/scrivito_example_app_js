@@ -6,7 +6,7 @@ export function textExtractFromObj(obj) {
   return textExtractFromItem(obj);
 }
 
-export function textExtractFromWidgetlist(widgetlist) {
+function textExtractFromWidgetlist(widgetlist) {
   const textExtractValues = widgetlist.map(widget =>
     textExtractFromItem(widget)
   );

@@ -5,19 +5,14 @@ import urlFromBinary from "../../utils/urlFromBinary";
 import { textExtractFromObj } from "../../utils/textExtract";
 
 function dataFromBlogPost(blogPost) {
-  let author;
-  const body = textExtractFromObj(blogPost);
-
-  if (blogPost.get("author")) {
-    author = dataFromAuthor(blogPost.get("author"));
-  }
-
   return {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    author,
+    author: blogPost.get("author")
+      ? dataFromAuthor(blogPost.get("author"))
+      : undefined,
     datePublished: formatDate(blogPost.get("publishedAt"), "yyyy-mm-dd"),
-    description: truncate(body, { length: 300 }),
+    description: truncate(textExtractFromObj(blogPost), { length: 300 }),
     headline: blogPost.get("title"),
     image: urlFromBinary(blogPost.get("titleImage")),
     keywords: blogPost.get("tags").join(", "),

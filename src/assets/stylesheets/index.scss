@@ -4268,3 +4268,24 @@ h2.h4 {
     display: flex;
   }
 }
+.press-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    padding: 30px;
+  }
+  a:first-child img{
+    padding-left: 0px;
+  }
+  a:last-child img {
+    padding-right: 0px;
+  }
+  @media (max-width: 768px) {
+    display: block;
+    img {
+      width: 45%;
+      padding: 10px;
+    }
+  }
+}

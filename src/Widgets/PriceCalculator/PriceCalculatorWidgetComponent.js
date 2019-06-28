@@ -19,6 +19,21 @@ const NUMBER_TO_MONTH = [
   "December",
 ];
 
+const showPriceTypes = [
+  {
+    value: 0,
+    label: "Elpris ialt",
+  },
+  {
+    value: 1,
+    label: "Elpris",
+  },
+  {
+    value: 2,
+    label: "Abonnement",
+  },
+];
+
 class PriceCalculatorWidget extends React.Component {
   constructor(props) {
     super(props);
@@ -32,6 +47,11 @@ class PriceCalculatorWidget extends React.Component {
       suppliers: [],
       zip: "",
       showData: [],
+      barryIndex: 0,
+      selectedType: {
+        value: 0,
+        label: "Elpris ialt",
+      },
     };
   }
 
@@ -59,13 +79,19 @@ class PriceCalculatorWidget extends React.Component {
     this.setState({ selectedOption });
   }
 
+  handleChangeType(selectedType) {
+    this.setState({ selectedType }, () => {
+      this.showBox(2);
+    });
+  }
+
   handleSelect(val) {
     this.setState({ selectedBol: val });
   }
 
   showBox(val) {
     if (this.state.selectedOption && this.state.selectedBol > 0 && this.state.zip !== "") {
-      const tempData = [];
+      let tempData = [];
       myData.forEach(element => {
         let region = "DK2";
         let kwh = 1800;
@@ -79,19 +105,48 @@ class PriceCalculatorWidget extends React.Component {
         }
 
         if ((element.supplier === 'Barry' || element.supplier === 'NordPool' || element.supplier === this.state.selectedOption.value) && element.region === region && element.kwh === kwh) {
+          let key = "total_price";
+          if (this.state.selectedType.value === 1) {
+            key = "price";
+          }
+          if (this.state.selectedType.value === 2) {
+            key = "subscription";
+          }
+          const tempVal = parseFloat(element[key].replace ? element[key].replace(",", ".") : element[key]);
           tempData.push({
+            supplier: element.supplier,
             name: element.prod_name,
-            uv: parseFloat(element.total_price),
-            label: `${element.total_price} e/kWh`,
-          })
+            uv: tempVal,
+            label: `${tempVal.toFixed(1).replace('.0', '').replace('.', ',')} øre/kWh`,
+          });
         }
-      })
-      this.setState({ showBox: val, showData: tempData });
+      });
+      tempData = this.sortData(tempData);
+      let barryIndex = 0;
+      for (let i = 0; i < tempData.length; i++) {
+        if (tempData[i].supplier === "Barry") {
+          barryIndex = i;
+        }
+      }
+      this.setState({ showBox: val, showData: tempData, barryIndex });
     } else {
       alert("Please select filters");
     }
   }
 
+  sortData(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = i; j < arr.length; j++) {
+        if (arr[i].uv > arr[j].uv) {
+          let temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+        }
+      }
+    }
+    return arr;
+  }
+  
   async updatePricing() {
     try {
       // JSON RPC data : often returns bad values
@@ -213,14 +268,36 @@ class PriceCalculatorWidget extends React.Component {
             <div className="box2-content">
               <div className="box2-heading">
                 <div>
-                  <span>Barry vs. Blue Energy</span>
+                  <span>Barry vs. {this.state.selectedOption.value}</span>
                   <span>1.800 kWh/år</span>
                 </div>
-                <div>Elpris i alt</div>
+                <div>
+                  <Select
+                    value={this.state.selectedType}
+                    onChange={val => this.handleChangeType(val)}
+                    options={showPriceTypes}
+                    className="price-sel"
+                  />
+                </div>
               </div>
               <div>
-                <BarChart width={680} height={350} data={this.state.showData}>
-                  <XAxis dataKey="name" />
+                <BarChart width={640} height={350} data={this.state.showData}>
+                  <XAxis dataKey="name" tick={() => {
+                    return null;}}/>
+                  <XAxis dataKey="name" axisLine={false} tickLine={false} interval={0} tick={(tickProps) => {
+                    const { x, y, payload } = tickProps;
+                    const { value, offset } = payload;
+                    // const date = new Date(value);
+                    // const month = date.getMonth();
+                    // const quarterNo = Math.floor(month / 3) + 1;
+                    // const isMidMonth = month % 3 === 1;
+
+                    // if (month % 3 === 1) {
+                      return <text x={x + offset} y={y - 4} textAnchor="middle" fill="#6C738A" angle={45}>{value}</text>;
+                    // }
+                    // return null;
+                  }} height={50} scale="band" xAxisId="quarter" />
+      
                   <YAxis />
                   <Bar dataKey="uv">
                     <LabelList
@@ -248,7 +325,7 @@ class PriceCalculatorWidget extends React.Component {
                     {this.state.showData.map((entry, index) => (
                       <Cell
                         key={`cell-${index}`}
-                        fill={index === 1 ? "#2EDBAC" : "#4DE9BF99"}
+                        fill={index === this.state.barryIndex ? "#2EDBAC" : "#4DE9BF99"}
                       />
                     ))}
                   </Bar>

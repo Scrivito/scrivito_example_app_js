@@ -7,6 +7,9 @@
     .price-sel > div > div:first-child {
       padding-left: 20px;
     }
+    a {
+      cursor: pointer;
+    }
     &.box2 {
       max-width: 700px;
       display: flex;
@@ -31,9 +34,17 @@
           padding: 30px;
           align-items: center;
           border-bottom: 1px solid #D7D7D7;
-          div {
+          > div:first-child {
             display: flex;
             flex-direction: column;
+          }
+          > div:last-child {
+            width: 150px;
+          }
+        }
+        .recharts-wrapper {
+          > svg {
+            overflow: visible;
           }
         }
       }
@@ -42,6 +53,9 @@
       color: #6C738A;
       font-size: 18px;
     }
+    // tspan {
+    //   font-size: 10px;
+    // }
     label {
       color: #282A2C;
       font-size: 14px;

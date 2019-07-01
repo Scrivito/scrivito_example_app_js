@@ -4289,3 +4289,32 @@ h2.h4 {
     }
   }
 }
+.trustpilot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div {
+    display: flex;
+    align-items: center;
+    img {
+      max-height: 44px;
+      margin-bottom: 0px;
+    }
+    p {
+      margin-bottom: 0px;
+      padding: 0px 10px;
+    }
+    &:first-child{
+      p {
+        margin-top: 10px;
+      }
+    }
+  }
+  @media (max-width: 768px) { 
+    display: block;
+    div {
+      margin: 10px auto;
+      justify-content: center;
+    }
+  }
+}

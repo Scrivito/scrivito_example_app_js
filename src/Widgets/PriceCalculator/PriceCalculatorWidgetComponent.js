@@ -104,20 +104,22 @@ class PriceCalculatorWidget extends React.Component {
           kwh = 4900;
         }
 
-        if ((element.supplier === 'Barry' || element.supplier === 'NordPool' || element.supplier === this.state.selectedOption.value) && element.region === region && element.kwh === kwh) {
+        if ((element.supplier === 'Barry' || (element.supplier === 'NordPool' && this.state.selectedType.value === 1) || element.supplier === this.state.selectedOption.value) && element.region === region && element.kwh === kwh) {
           let key = "total_price";
+          let unit = 'øre/kWh';
           if (this.state.selectedType.value === 1) {
             key = "price";
           }
           if (this.state.selectedType.value === 2) {
             key = "subscription";
+            unit = 'kr/år';
           }
           const tempVal = parseFloat(element[key].replace ? element[key].replace(",", ".") : element[key]);
           tempData.push({
             supplier: element.supplier,
             name: element.prod_name,
             uv: tempVal,
-            label: `${tempVal.toFixed(1).replace('.0', '').replace('.', ',')} øre/kWh`,
+            label: `${tempVal.toFixed(1).replace('.0', '').replace('.', ',')} ${unit}`,
           });
         }
       });
@@ -250,8 +252,25 @@ class PriceCalculatorWidget extends React.Component {
                 />
                 <span>Hus</span>
               </div>
+              <div
+                className={
+                  this.state.selectedBol === 3 ? "cal-item active" : "cal-item"
+                }
+                onClick={() => this.handleSelect(3)}
+              >
+                <img
+                  width="80"
+                  height="65"
+                  src={
+                    this.state.selectedBol === 3
+                      ? "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/ccfb56733d294fc2/22db5461e286/v/6cdeaa1a91f8/home1_active.png"
+                      : "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/e5e78da71094b28f/a026571edc68/v/77560f55538a/home1.png"
+                  }
+                />
+                <span>Hus med elvarme</span>
+              </div>
             </div>
-            <label>I hvilket postnummer bor du?</label>
+            <label>Hvor er du kunde idag?</label>
             <Select
               value={this.state.selectedOption}
               onChange={val => this.handleChange(val)}

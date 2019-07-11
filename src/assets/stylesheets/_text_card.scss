@@ -1,0 +1,45 @@
+.text-card {
+    padding: 40px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 30px;
+    .text-card__header {
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        top: -10px;
+        text-align: center;
+        .badge {
+            color: #ffffff;
+            font-style: Medium;
+            font-size: 10px;
+            line-height: 12px;
+            padding: 4px 20px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+            user-select: none;
+        }
+        .black {
+            background-color: #282a2c;
+        }
+        .pink {
+            background-color: #ff4b9c;
+        }
+        .peach {
+            background-color: #ef7b40;
+        }
+    }
+    .card-body {
+        padding: 0;
+        .card-title {
+            line-height: 21px;
+            margin-bottom: 30px;
+            user-select: none;
+        }
+        .card-text {
+            line-height: 20px;
+            user-select: none;
+        }
+    }
+}

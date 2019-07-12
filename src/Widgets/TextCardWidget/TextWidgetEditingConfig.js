@@ -16,6 +16,7 @@ Scrivito.provideEditingConfig("TextCardWidget", {
         { value: "black", title: "Black" },
         { value: "pink", title: "Pink" },
         { value: "peach", title: "Peach" },
+        { value: "green", title: "Green" },
       ],
     },
     title: {
@@ -29,7 +30,7 @@ Scrivito.provideEditingConfig("TextCardWidget", {
   },
   properties: ["header", "headerColor", "title", "description"],
   initialContent: {
-    header: "header",
+    header: "",
     headColor: "black",
     title: "Title",
     description: "Description",

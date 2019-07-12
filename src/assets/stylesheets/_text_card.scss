@@ -29,6 +29,9 @@
         .peach {
             background-color: #ef7b40;
         }
+        .green {
+            background-color: #4de9bf;
+        }
     }
     .card-body {
         padding: 0;
@@ -38,8 +41,11 @@
             user-select: none;
         }
         .card-text {
-            line-height: 20px;
-            user-select: none;
+            p {
+                line-height: 20px;
+                user-select: none;
+                margin-bottom: 0;
+            }
         }
     }
 }

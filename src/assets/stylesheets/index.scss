@@ -4319,3 +4319,59 @@ h2.h4 {
     }
   }
 }
+
+#roadmap-content {
+  height: 1000px;
+  overflow: hidden;
+  #view-all-1,
+  #view-all-2,
+  #view-all-3 {
+    display: none;
+  }
+  &.view-all {
+    height: auto;
+    #view-all-1,
+    #view-all-2,
+    #view-all-3 {
+      display: none;
+    }
+    #view-container-1,
+    #view-container-2,
+    #view-container-3 {
+      .hide {
+        display: block;
+      }
+    }
+  }
+  @media (max-width: 991px) {
+    height: auto;
+    #view-all-1,
+    #view-all-2,
+    #view-all-3 {
+      display: block;
+    }
+    #view-container-1,
+    #view-container-2,
+    #view-container-3 {
+      .hide {
+        display: none;
+      }
+      &.view-all {
+        .hide {
+          display: block;
+        }
+        #view-all-1,
+        #view-all-2,
+        #view-all-3 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+#view-all-0 {
+  @media (max-width: 991px) {
+    display: none;
+  }
+}

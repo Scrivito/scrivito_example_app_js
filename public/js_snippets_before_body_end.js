@@ -161,6 +161,27 @@ setTimeout(function() {
       document.body.className = "";
     };
   }
+  if (document.getElementById("view-all-0")) {
+    document.getElementById("view-all-0").onclick = function() {
+      document.getElementById("roadmap-content").classList.add("view-all");
+      document.getElementById("view-all-0").style.display = "none";
+    };
+  }
+  if (document.getElementById("view-all-1")) {
+    document.getElementById("view-container-1").onclick = function() {
+      document.getElementById("view-container-1").classList.add("view-all");
+    };
+  }
+  if (document.getElementById("view-all-2")) {
+    document.getElementById("view-container-2").onclick = function() {
+      document.getElementById("view-container-2").classList.add("view-all");
+    };
+  }
+  if (document.getElementById("view-all-3")) {
+    document.getElementById("view-container-3").onclick = function() {
+      document.getElementById("view-container-3").classList.add("view-all");
+    };
+  }
 }, 5000);
 
 var script = document.createElement('script'); script.src = "https://paperform.co/__embed"; document.body.appendChild(script);

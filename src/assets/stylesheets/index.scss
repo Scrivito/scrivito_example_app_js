@@ -4375,3 +4375,36 @@ h2.h4 {
     display: none;
   }
 }
+
+#roadmap-header-fixed {
+  position: fixed;
+  top: 75px;
+  left: 0;
+  background: #fbfbfb;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(108, 115, 138, 0.2);
+  display: none;
+  h3 {
+    margin-bottom: 0;
+  }
+  &.show {
+    display: block;
+  }
+  @media (max-width: 991px) {
+    &.show {
+      display: none;
+    }
+  }
+}
+
+.header-fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  nav {
+    background: #fbfbfb;
+  }
+}

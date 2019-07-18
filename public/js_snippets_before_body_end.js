@@ -161,6 +161,13 @@ setTimeout(function() {
       document.body.className = "";
     };
   }
+
+  if (document.getElementById("roadmap-content")) {
+    document.getElementsByClassName("navbar-fixed")[0].classList.add('header-fixed');
+  } else {
+    document.getElementsByClassName("navbar-fixed")[0].classList.remove('header-fixed');
+  }
+
   if (document.getElementById("view-all-0")) {
     document.getElementById("view-all-0").onclick = function() {
       document.getElementById("roadmap-content").classList.add("view-all");
@@ -181,6 +188,18 @@ setTimeout(function() {
     document.getElementById("view-container-3").onclick = function() {
       document.getElementById("view-container-3").classList.add("view-all");
     };
+  }
+
+  if (document.getElementById("roadmap-header-fixed")) {
+    document.body.onscroll = function() {
+      var rect = document.getElementById("sticky-point").getBoundingClientRect();
+      console.log(document.documentElement.scrollTop, rect.bottom);
+      if (rect.top < 75) {
+        document.getElementById("roadmap-header-fixed").classList.add('show');
+      } else {
+        document.getElementById("roadmap-header-fixed").classList.remove('show');
+      }
+    }
   }
 }, 5000);
 

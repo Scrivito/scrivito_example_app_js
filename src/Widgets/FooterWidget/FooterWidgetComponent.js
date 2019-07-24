@@ -19,7 +19,7 @@ class FooterWidget extends React.Component {
           </div>
           <div className="social-links">
             <a href="https://www.facebook.com/getbarry"><i className="fa fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/getbarry/?hl=en"><i className="fa fa-twitter"></i></a>
+            <a href="https://www.instagram.com/getbarry/"><i className="fa fa-instagram"></i></a>
             <a href="https://www.linkedin.com/company/28608159/admin/"><i className="fa fa-linkedin"></i></a>
             <a href="https://www.youtube.com/channel/UCXOqi4jMACgwvqli8GG8wyg"><i className="fa fa-youtube"></i></a>
           </div>

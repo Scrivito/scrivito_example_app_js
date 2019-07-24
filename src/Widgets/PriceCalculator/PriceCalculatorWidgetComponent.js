@@ -192,12 +192,9 @@ class PriceCalculatorWidget extends React.Component {
       <div className="price-calculator-box" id="priser-2">
         {this.state.showBox === 1 && (
           <div className="main-box box1">
-            <h2>Find ud af hvad Barry koster hjemme hos dig</h2>
+            <h2>Test din pris</h2>
             <p>
-              Vi har samlet oplysningerne og gjort det nemt at sammenligne din
-              historiske elpris med den pris, du ville have betalt hos Barrys -
-              udfyld blot formularen nederst på denne side, så får du
-              resultatet.
+              Er du nysgerrig efter, hvad du skulle have betalt hos Barry i forhold til et andet elselskab? Vi har samlet oplysningerne og gjort det nemt at sammenligne din historiske elpris med den pris, du ville have betalt hos Barry.
             </p>
             <p>
               <label>I hvilket postnummer bor du?</label>
@@ -283,12 +280,12 @@ class PriceCalculatorWidget extends React.Component {
         )}
         {this.state.showBox === 2 && (
           <div className="main-box box2">
-            <h2>Her er prisen i dit hjem</h2>
+            <h2>Så meget havde du betalt med Barry</h2>
             <div className="box2-content">
               <div className="box2-heading">
                 <div>
                   <span>Barry vs. {this.state.selectedOption.value}</span>
-                  <span>1.800 kWh/år</span>
+                  <span>{this.state.selectedBol === 1 ? "1.800" : "4.900"} kWh/år</span>
                 </div>
                 <div>
                   <Select
@@ -300,22 +297,44 @@ class PriceCalculatorWidget extends React.Component {
                 </div>
               </div>
               <div>
-                <BarChart width={640} height={350} data={this.state.showData}>
+                <BarChart width={670} height={350} data={this.state.showData}>
                   <XAxis dataKey="name" tick={() => {
                     return null;}}/>
                   <XAxis dataKey="name" axisLine={false} tickLine={false} interval={0} tick={(tickProps) => {
-                    const { x, y, payload } = tickProps;
+                    const { x, y, payload, width } = tickProps;
                     const { value, offset } = payload;
-                    // const date = new Date(value);
-                    // const month = date.getMonth();
-                    // const quarterNo = Math.floor(month / 3) + 1;
-                    // const isMidMonth = month % 3 === 1;
+                    const maxLength = width / (this.state.showData.length * 9);
+                    const wordArr = value.split(' ');
+                    const dataArr = [];
+                    let pp = "";
 
-                    // if (month % 3 === 1) {
-                      return <text x={x + offset} y={y - 4} textAnchor="middle" fill="#6C738A" angle={45}>{value}</text>;
-                    // }
-                    // return null;
+                    for (let i = 0; i < wordArr.length; i++) {
+                      if ((pp + wordArr[i]).length > maxLength && pp !== "") {
+                        dataArr.push(pp);
+                        pp = wordArr[i];
+                      } else {
+                        if (pp === "" && (pp + wordArr[i]).length > maxLength) {
+                          dataArr.push(wordArr[i]);
+                        } else {
+                          if ((pp + wordArr[i]).length < maxLength) {
+                            pp += " " + wordArr[i];
+                          }
+                        } 
+                      }
+                    }
+                    if (pp !== "") {
+                      dataArr.push(pp);
+                    }
+
+                    const textArr = dataArr.map(item => {
+                      return <tspan x={x + offset} dy="1.1em">{item}</tspan>;
+                    });
+
+                    return <text x={x + offset} y={y - 4} textAnchor="middle" fill="#6C738A" angle={45}>
+                      { textArr }
+                    </text>;
                   }} height={50} scale="band" xAxisId="quarter" />
+                    
       
                   <YAxis />
                   <Bar dataKey="uv">
@@ -330,12 +349,13 @@ class PriceCalculatorWidget extends React.Component {
                           <g>
                             <text
                               x={x + width / 2}
-                              y={y - radius}
+                              y={y - radius - 50}
                               fill="#6C738A"
                               textAnchor="middle"
                               dominantBaseline="middle"
                             >
-                              {value.split(" ")[0]} {value.split(" ")[1]}
+                              <tspan x={x + width / 2} dy="1.2em">{value.split(" ")[0]}</tspan>
+                              <tspan x={x + width / 2} dy="1.2em">{value.split(" ")[1]}</tspan>
                             </text>
                           </g>
                         );

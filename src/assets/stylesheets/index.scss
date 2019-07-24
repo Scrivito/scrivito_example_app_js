@@ -4406,5 +4406,15 @@ h2.h4 {
   z-index: 100;
   nav {
     background: #fbfbfb;
+    .nav > li:hover > a,
+    .nav > li:focus > a {
+      color: #3d4142;
+    }
+    .nav > li.open > a,
+    .nav > li.open > .menu-toggle,
+    .nav li.active > a,
+    .nav li.active > .menu-toggle {
+      border-bottom-color: #3d4142;
+    }
   }
 }

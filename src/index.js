@@ -8,16 +8,14 @@ import "./Widgets";
 import App from "./App";
 import "./config";
 
-if (window.preloadDump) {
-  Scrivito.preload(window.preloadDump).then(renderApp);
+if (window.preloadDump && !Scrivito.isEditorLoggedIn()) {
+  Scrivito.preload(window.preloadDump).then(() =>
+    ReactDOM.hydrate(<App />, document.getElementById("application"))
+  );
 } else {
   window.prerenderReady = false;
-  renderApp();
+  ReactDOM.render(<App />, document.getElementById("application"));
   Scrivito.finishLoading().then(() => {
     window.prerenderReady = true;
   });
-}
-
-function renderApp() {
-  ReactDOM.render(<App />, document.getElementById("application"));
 }

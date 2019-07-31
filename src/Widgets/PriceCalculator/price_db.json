@@ -3540,7 +3540,7 @@
     "ore_kwh_total": "16,50"
   },
   {
-    "supplier": "EWII Energ",
+    "supplier": "EWII Energi",
     "prod_name": "Fastpris 1 år EWII Vindstrøm tilvalg",
     "product": "Fastpris",
     "total_price": "34,83",
@@ -4305,7 +4305,7 @@
     "ore_kwh_total": "25,80"
   },
   {
-    "supplier": "gasel",
+    "supplier": "Gasel",
     "prod_name": "gasel.dk – El og gas til indkøbspris",
     "product": "Kvartalspris",
     "total_price": "48,75",
@@ -4320,7 +4320,7 @@
     "ore_kwh_total": "39,00"
   },
   {
-    "supplier": "gasel",
+    "supplier": "Gasel",
     "prod_name": "gasel.dk – El og gas til indkøbspris",
     "product": "Kvartalspris",
     "total_price": "46,88",
@@ -4335,7 +4335,7 @@
     "ore_kwh_total": "37,50"
   },
   {
-    "supplier": "gasel",
+    "supplier": "Gasel",
     "prod_name": "gasel.dk – El og gas til indkøbspris",
     "product": "Kvartalspris",
     "total_price": "36,10",
@@ -4350,7 +4350,7 @@
     "ore_kwh_total": "29,40"
   },
   {
-    "supplier": "gasel",
+    "supplier": "Gasel",
     "prod_name": "gasel.dk – El og gas til indkøbspris",
     "product": "Kvartalspris",
     "total_price": "34,22",
@@ -4365,7 +4365,7 @@
     "ore_kwh_total": "27,90"
   },
   {
-    "supplier": "gasel",
+    "supplier": "Gasel",
     "prod_name": "gasel.dk - El og gas til indkøbspris",
     "product": "Kvartalspris",
     "total_price": "31,15",
@@ -4380,7 +4380,7 @@
     "ore_kwh_total": "24,90"
   },
   {
-    "supplier": "gasel",
+    "supplier": "Gasel",
     "prod_name": "gasel.dk – El og gas til indkøbspris",
     "product": "Kvartalspris",
     "total_price": "29,28",
@@ -6705,7 +6705,7 @@
     "ore_kwh_total": "38,10"
   },
   {
-    "supplier": "NRGi Elsalg A/S, Dusager 22, 8200 Århus N., tlf. 70 11 45 00",
+    "supplier": "NRGi Elsalg A/S",
     "prod_name": "SPOT EL Vest for Storebælt + tilvalg af KLIMA EL",
     "product": "Variabel pris",
     "total_price": "38,50",
@@ -6720,7 +6720,7 @@
     "ore_kwh_total": "30,80"
   },
   {
-    "supplier": "NRGi Elsalg A/S, Dusager 22, 8200 Århus N., tlf. 70 11 45 00",
+    "supplier": "NRGi Elsalg A/S",
     "prod_name": "SPOT EL Vest for Storebælt",
     "product": "Variabel pris",
     "total_price": "34,50",
@@ -7605,7 +7605,7 @@
     "ore_kwh_total": "33,70"
   },
   {
-    "supplier": "RAH Elhanden A/s",
+    "supplier": "RAH Elhandel A/S",
     "prod_name": "RAH KLUB-ENERGI",
     "product": "Variabel pris",
     "total_price": "43,46",
@@ -7620,7 +7620,7 @@
     "ore_kwh_total": "34,80"
   },
   {
-    "supplier": "RAH Elhanden A/S",
+    "supplier": "RAH Elhandel A/S",
     "prod_name": "RAH KLUB-ENERGI",
     "product": "Variabel pris",
     "total_price": "38,19",
@@ -8070,7 +8070,7 @@
     "ore_kwh_total": "41,50"
   },
   {
-    "supplier": "SEAS.NVE Strømmen A/S",
+    "supplier": "SEAS-NVE Strømmen A/S",
     "prod_name": "FastEnergi 24 mdr",
     "product": "Fastpris",
     "total_price": "44,15",
@@ -8805,7 +8805,7 @@
     "ore_kwh_total": "33,30"
   },
   {
-    "supplier": "SK Energisalg A/S, Lilleøvej 3, 4220 Korsør, tlf. 58362500",
+    "supplier": "SK Energisalg A/S",
     "prod_name": "Spotpris aftale",
     "product": "Variabel pris",
     "total_price": "42,71",
@@ -8820,7 +8820,7 @@
     "ore_kwh_total": "34,10"
   },
   {
-    "supplier": "SK Energisalg A/S, Lilleøvej 3, 4220 Korsør, tlf. 58362500",
+    "supplier": "SK Energisalg A/S",
     "prod_name": "Fastpris aftale 12 måneder",
     "product": "Variabel pris",
     "total_price": "40,33",
@@ -8835,7 +8835,7 @@
     "ore_kwh_total": "32,30"
   },
   {
-    "supplier": "SK Energisalg A/S, Lilleøvej 3, 4220 Korsør, tlf. 58362500",
+    "supplier": "SK Energisalg A/S",
     "prod_name": "Spotpris aftale",
     "product": "Variabel pris",
     "total_price": "34,38",
@@ -8850,7 +8850,7 @@
     "ore_kwh_total": "30,10"
   },
   {
-    "supplier": "SK Energisalg A/S, Lilleøvej 3, 4220 Korsør, tlf. 58362500",
+    "supplier": "SK Energisalg A/S",
     "prod_name": "Fastpris aftale 12 måneder",
     "product": "Variabel pris",
     "total_price": "35,06",
@@ -8865,7 +8865,7 @@
     "ore_kwh_total": "28,30"
   },
   {
-    "supplier": "SK Energisalg A/S, Lilleøvej 3, 4220 Korsør, tlf. 58362500",
+    "supplier": "SK Energisalg A/S",
     "prod_name": "Spotpris aftale",
     "product": "Variabel pris",
     "total_price": "35,38",
@@ -8880,7 +8880,7 @@
     "ore_kwh_total": "28,30"
   },
   {
-    "supplier": "SK Energisalg A/S, Lilleøvej 3, 4220 Korsør, tlf. 58362500",
+    "supplier": "SK Energisalg A/S",
     "prod_name": "Fastpris aftale 12 måneder",
     "product": "Variabel pris",
     "total_price": "33,00",
@@ -9690,7 +9690,7 @@
     "ore_kwh_total": "25,10"
   },
   {
-    "supplier": "Vestforsynings Service A/S",
+    "supplier": "Vestforsyning Service A/S",
     "prod_name": "SpotMåned",
     "product": "Variabel pris",
     "total_price": "40,79",

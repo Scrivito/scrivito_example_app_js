@@ -104,6 +104,10 @@ class PriceCalculatorWidget extends React.Component {
           kwh = 4900;
         }
 
+        if (this.state.selectedBol === 3) {
+          kwh = 15000;
+        }
+
         if ((element.supplier === 'Barry' || (element.supplier === 'NordPool' && this.state.selectedType.value === 1) || element.supplier === this.state.selectedOption.value) && element.region === region && element.kwh === kwh) {
           let key = "total_price";
           let unit = 'øre/kWh';
@@ -131,6 +135,7 @@ class PriceCalculatorWidget extends React.Component {
         }
       }
       this.setState({ showBox: val, showData: tempData, barryIndex });
+      window.scrollTo(0, 0);
     } else {
       alert("Please select filters");
     }
@@ -222,8 +227,6 @@ class PriceCalculatorWidget extends React.Component {
                 onClick={() => this.handleSelect(1)}
               >
                 <img
-                  width="50"
-                  height="78"
                   src={
                     this.state.selectedBol === 1
                       ? "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/34830b8a0f126a0d/336116475e34/v/9b43a6ff5845/home2_active.png"
@@ -239,8 +242,6 @@ class PriceCalculatorWidget extends React.Component {
                 onClick={() => this.handleSelect(2)}
               >
                 <img
-                  width="80"
-                  height="65"
                   src={
                     this.state.selectedBol === 2
                       ? "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/ccfb56733d294fc2/22db5461e286/v/6cdeaa1a91f8/home1_active.png"
@@ -256,8 +257,6 @@ class PriceCalculatorWidget extends React.Component {
                 onClick={() => this.handleSelect(3)}
               >
                 <img
-                  width="80"
-                  height="65"
                   src={
                     this.state.selectedBol === 3
                       ? "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/ccfb56733d294fc2/22db5461e286/v/6cdeaa1a91f8/home1_active.png"
@@ -285,7 +284,7 @@ class PriceCalculatorWidget extends React.Component {
               <div className="box2-heading">
                 <div>
                   <span>Barry vs. {this.state.selectedOption.value}</span>
-                  <span>{this.state.selectedBol === 1 ? "1.800" : "4.900"} kWh/år</span>
+                  <span>{this.state.selectedBol === 1 ? "1.800" : this.state.selectedBol === 2 ? "4.900" : "15.000"} kWh/år</span>
                 </div>
                 <div>
                   <Select

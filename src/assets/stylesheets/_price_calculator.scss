@@ -118,6 +118,8 @@
         text-align: center;
         color: #282A2C;
         cursor: pointer;
+        justify-content: center;
+        align-items: center;
         &.active {
           border: 1px solid #4DE9BF;
           border-radius: 3px;

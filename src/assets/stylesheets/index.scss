@@ -13,7 +13,7 @@ $border-radius-lg: 0 !default;
 $border-radius-sm: 0 !default;
 
 // use higher zindex, to avoid edit marker to be shown
-$zindex-modal-background: 100040 !default;
+$zindex-modal-backdrop: 100040 !default;
 $zindex-modal: 100050 !default;
 
 @mixin transition-performance() {

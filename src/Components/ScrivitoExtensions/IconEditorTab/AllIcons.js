@@ -107,15 +107,14 @@ function Category({ category, icons, currentIcon, setWidgetIcon }) {
               key={`${icon.id}${innerIndex}`}
               className="fa-hover col-md-3 col-sm-4"
             >
-              <a
-                href="#"
+              <span
                 className={aClassNames.join(" ")}
                 onClick={e => setWidgetIcon(e, cssIcon)}
               >
                 <i className={["fa", cssIcon].join(" ")} aria-hidden="true" />
                 <span className="sr-only">Example of </span>
                 {icon.name}
-              </a>
+              </span>
             </div>
           );
         })}

@@ -32,15 +32,14 @@ function ClearSearchButton({ setSearchValue, searchValue }) {
   }
 
   return (
-    <a
+    <span
       id="search-clear"
-      href="#"
       className="fa fa-times-circle"
       aria-hidden="true"
       onClick={e => setSearchValue(e, "")}
     >
       <span className="sr-only">Clear search</span>
-    </a>
+    </span>
   );
 }
 

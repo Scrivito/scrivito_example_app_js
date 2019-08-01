@@ -39,7 +39,9 @@ function sliderSettings(testimonials) {
   const testimonialAuthorImages = testimonials.map(testimonial => {
     const authorImage = testimonial.get("authorImage");
     if (!isImage(authorImage)) {
-      return <img className="image" src={fallbackImageUrl} />;
+      return (
+        <img alt="fallback-img" className="image" src={fallbackImageUrl} />
+      );
     }
 
     return (
@@ -61,7 +63,7 @@ function sliderSettings(testimonials) {
     dotsClass: "quote-portrait-wrapper",
     customPaging: i => {
       const image = testimonialAuthorImages[i];
-      return <a>{image}</a>;
+      return <span>{image}</span>;
     },
   };
 }
@@ -78,8 +80,7 @@ const AddTestimonial = ({ widget }) => {
 
   return (
     <div className="text-center">
-      <a
-        href="#"
+      <span
         style={placeholderCss}
         className="edit-mode-link"
         onClick={e => {
@@ -93,7 +94,7 @@ const AddTestimonial = ({ widget }) => {
         }}
       >
         Click to add a testimonial
-      </a>
+      </span>
     </div>
   );
 };

@@ -69,8 +69,7 @@ const AddMoreRows = Scrivito.connect(
       <tr>
         <th colSpan="4">
           <div className="text-center">
-            <a
-              href="#"
+            <span
               style={placeholderCss}
               onClick={e => {
                 e.preventDefault();
@@ -85,7 +84,7 @@ const AddMoreRows = Scrivito.connect(
               }}
             >
               {title}
-            </a>
+            </span>
           </div>
         </th>
       </tr>

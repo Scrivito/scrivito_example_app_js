@@ -9,10 +9,10 @@ function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
     <React.Fragment>
       <br />
       <div className="text-center">
-        <a className="btn btn-primary" onClick={onClick}>
+        <span className="btn btn-primary" onClick={onClick}>
           Load more
           <i className="fa fa-angle-right fa-4" aria-hidden="true" />
-        </a>
+        </span>
       </div>
     </React.Fragment>
   );

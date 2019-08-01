@@ -10,9 +10,8 @@ function BlogPostTagList({ tags }) {
           <ul className="nav nav-pills">
             {tags.map(tag => (
               <li key={tag}>
-                <a
+                <button
                   className="margin-right"
-                  href="#"
                   onClick={e => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -20,7 +19,7 @@ function BlogPostTagList({ tags }) {
                   }}
                 >
                   {tag}
-                </a>
+                </button>
               </li>
             ))}
           </ul>

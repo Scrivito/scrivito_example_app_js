@@ -19,9 +19,9 @@ function TagList({ showTags, tags, currentTag, setTag }) {
             role="presentation"
             className={!currentTag ? "active nav-item" : "nav-item"}
           >
-            <a className="nav-link" onClick={e => onClick(e, "")} href="#">
+            <button className="nav-link" onClick={e => onClick(e, "")}>
               All
-            </a>
+            </button>
           </li>
           {tags.map(tag => (
             <li
@@ -29,9 +29,9 @@ function TagList({ showTags, tags, currentTag, setTag }) {
               key={tag}
               className={currentTag === tag ? "active nav-item" : "nav-item"}
             >
-              <a className="nav-link" onClick={e => onClick(e, tag)} href="#">
+              <button className="nav-link" onClick={e => onClick(e, tag)}>
                 {tag}
-              </a>
+              </button>
             </li>
           ))}
         </ul>

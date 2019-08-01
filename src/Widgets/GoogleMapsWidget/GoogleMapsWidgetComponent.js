@@ -119,7 +119,14 @@ function InteractiveMap({ address, apiKey, zoom, mapType }) {
   }
 
   const url = `https://www.google.com/maps/embed/v1/place?q=${address}&key=${apiKey}&zoom=${zoom}`;
-  return <iframe frameBorder="0" style={{ border: 0 }} src={url} />;
+  return (
+    <iframe
+      title="Interactive Map"
+      frameBorder="0"
+      style={{ border: 0 }}
+      src={url}
+    />
+  );
 }
 
 const Widgets = Scrivito.connect(({ widget, mapType }) => {

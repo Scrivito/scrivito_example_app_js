@@ -1,5 +1,6 @@
 import * as React from "react";
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function TagList({ showTags, tags, currentTag, setTag }) {
   if (!showTags) {
     return null;
@@ -19,9 +20,9 @@ function TagList({ showTags, tags, currentTag, setTag }) {
             role="presentation"
             className={!currentTag ? "active nav-item" : "nav-item"}
           >
-            <button className="nav-link" onClick={e => onClick(e, "")}>
+            <a className="nav-link" onClick={e => onClick(e, "")} href="#">
               All
-            </button>
+            </a>
           </li>
           {tags.map(tag => (
             <li
@@ -29,9 +30,9 @@ function TagList({ showTags, tags, currentTag, setTag }) {
               key={tag}
               className={currentTag === tag ? "active nav-item" : "nav-item"}
             >
-              <button className="nav-link" onClick={e => onClick(e, tag)}>
+              <a className="nav-link" onClick={e => onClick(e, tag)} href="#">
                 {tag}
-              </button>
+              </a>
             </li>
           ))}
         </ul>
@@ -51,5 +52,6 @@ function TagList({ showTags, tags, currentTag, setTag }) {
     </div>
   );
 }
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default TagList;

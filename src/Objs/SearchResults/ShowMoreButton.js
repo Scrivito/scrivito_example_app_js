@@ -1,5 +1,6 @@
 import * as React from "react";
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
   if (currentMaxItems >= totalCount) {
     return null;
@@ -9,13 +10,14 @@ function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
     <React.Fragment>
       <br />
       <div className="text-center">
-        <span className="btn btn-primary" onClick={onClick}>
+        <a className="btn btn-primary" onClick={onClick}>
           Load more
           <i className="fa fa-angle-right fa-4" aria-hidden="true" />
-        </span>
+        </a>
       </div>
     </React.Fragment>
   );
 }
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default ShowMoreButton;

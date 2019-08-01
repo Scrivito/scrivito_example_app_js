@@ -2,6 +2,7 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import navigateToBlogWithTag from "../../utils/navigateToBlogWithTag";
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function BlogPostTagList({ tags }) {
   return (
     <section>
@@ -10,8 +11,9 @@ function BlogPostTagList({ tags }) {
           <ul className="nav nav-pills">
             {tags.map(tag => (
               <li key={tag}>
-                <button
+                <a
                   className="margin-right"
+                  href="#"
                   onClick={e => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -19,7 +21,7 @@ function BlogPostTagList({ tags }) {
                   }}
                 >
                   {tag}
-                </button>
+                </a>
               </li>
             ))}
           </ul>
@@ -28,5 +30,6 @@ function BlogPostTagList({ tags }) {
     </section>
   );
 }
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default Scrivito.connect(BlogPostTagList);

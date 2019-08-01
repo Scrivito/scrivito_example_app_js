@@ -35,6 +35,7 @@ Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
   );
 });
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function sliderSettings(testimonials) {
   const testimonialAuthorImages = testimonials.map(testimonial => {
     const authorImage = testimonial.get("authorImage");
@@ -63,7 +64,7 @@ function sliderSettings(testimonials) {
     dotsClass: "quote-portrait-wrapper",
     customPaging: i => {
       const image = testimonialAuthorImages[i];
-      return <span>{image}</span>;
+      return <a>{image}</a>;
     },
   };
 }
@@ -80,7 +81,8 @@ const AddTestimonial = ({ widget }) => {
 
   return (
     <div className="text-center">
-      <span
+      <a
+        href="#"
         style={placeholderCss}
         className="edit-mode-link"
         onClick={e => {
@@ -94,7 +96,8 @@ const AddTestimonial = ({ widget }) => {
         }}
       >
         Click to add a testimonial
-      </span>
+      </a>
     </div>
   );
 };
+/* eslint-enable jsx-a11y/anchor-is-valid */

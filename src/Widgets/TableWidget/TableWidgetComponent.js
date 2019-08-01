@@ -54,6 +54,7 @@ Scrivito.provideComponent("TableWidget", ({ widget }) => (
   </table>
 ));
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 const AddMoreRows = Scrivito.connect(
   ({ widget, title, attribute, maxRows }) => {
     if (!Scrivito.isInPlaceEditingActive()) {
@@ -69,7 +70,8 @@ const AddMoreRows = Scrivito.connect(
       <tr>
         <th colSpan="4">
           <div className="text-center">
-            <span
+            <a
+              href="#"
               style={placeholderCss}
               onClick={e => {
                 e.preventDefault();
@@ -84,10 +86,12 @@ const AddMoreRows = Scrivito.connect(
               }}
             >
               {title}
-            </span>
+            </a>
           </div>
         </th>
       </tr>
     );
   }
 );
+
+/* eslint-enable jsx-a11y/anchor-is-valid */

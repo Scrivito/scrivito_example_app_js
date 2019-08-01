@@ -87,6 +87,7 @@ function CategoriesAndIcons({
   ));
 }
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function Category({ category, icons, currentIcon, setWidgetIcon }) {
   return (
     <section>
@@ -107,14 +108,15 @@ function Category({ category, icons, currentIcon, setWidgetIcon }) {
               key={`${icon.id}${innerIndex}`}
               className="fa-hover col-md-3 col-sm-4"
             >
-              <span
+              <a
+                href="#"
                 className={aClassNames.join(" ")}
                 onClick={e => setWidgetIcon(e, cssIcon)}
               >
                 <i className={["fa", cssIcon].join(" ")} aria-hidden="true" />
                 <span className="sr-only">Example of </span>
                 {icon.name}
-              </span>
+              </a>
             </div>
           );
         })}
@@ -122,5 +124,6 @@ function Category({ category, icons, currentIcon, setWidgetIcon }) {
     </section>
   );
 }
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default AllIcons;

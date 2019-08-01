@@ -26,21 +26,24 @@ function IconSearch({ setSearchValue, searchValue }) {
   );
 }
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function ClearSearchButton({ setSearchValue, searchValue }) {
   if (!searchValue.length) {
     return null;
   }
 
   return (
-    <span
+    <a
       id="search-clear"
+      href="#"
       className="fa fa-times-circle"
       aria-hidden="true"
       onClick={e => setSearchValue(e, "")}
     >
       <span className="sr-only">Clear search</span>
-    </span>
+    </a>
   );
 }
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default IconSearch;

@@ -27,8 +27,6 @@ exports.extendRedirects = async function extendRedirects(
   const target = `${targetDir}/_redirects`;
   await fse.writeFile(target, extendedRedirects, "utf8");
   console.log(
-    `  📦 [extendRedirects] Extended ${target} with ${
-      explicitRedirects.length
-    } entries.`
+    `  📦 [extendRedirects] Extended ${target} with ${explicitRedirects.length} entries.`
   );
 };

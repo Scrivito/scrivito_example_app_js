@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import Helmet from "react-helmet";
-import * as getCookieValue from "../utils/getCookieValue";
+import * as cookieConsentGiven from "../utils/cookieConsentGiven";
 
 class GoogleAnalytics extends React.Component {
   constructor(props) {
@@ -38,10 +38,7 @@ class GoogleAnalytics extends React.Component {
   }
 
   render() {
-    if (
-      !this.state.trackingId ||
-      !(getCookieValue("CookieConsent") === "true")
-    ) {
+    if (!this.state.trackingId || !cookieConsentGiven()) {
       return null;
     }
 

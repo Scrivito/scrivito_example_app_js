@@ -35,11 +35,14 @@ Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
   );
 });
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function sliderSettings(testimonials) {
   const testimonialAuthorImages = testimonials.map(testimonial => {
     const authorImage = testimonial.get("authorImage");
     if (!isImage(authorImage)) {
-      return <img className="image" src={fallbackImageUrl} />;
+      return (
+        <img alt="fallback-img" className="image" src={fallbackImageUrl} />
+      );
     }
 
     return (
@@ -97,3 +100,4 @@ const AddTestimonial = ({ widget }) => {
     </div>
   );
 };
+/* eslint-enable jsx-a11y/anchor-is-valid */

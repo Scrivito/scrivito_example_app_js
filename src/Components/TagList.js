@@ -1,5 +1,6 @@
 import * as React from "react";
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function TagList({ showTags, tags, currentTag, setTag }) {
   if (!showTags) {
     return null;
@@ -51,5 +52,6 @@ function TagList({ showTags, tags, currentTag, setTag }) {
     </div>
   );
 }
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default TagList;

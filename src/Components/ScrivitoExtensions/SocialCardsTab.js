@@ -155,7 +155,7 @@ function OptionalImage({ src }) {
     return null;
   }
 
-  return <img src={src} />;
+  return <img src={src} alt="seo-card-preview-img" />;
 }
 
 function lookupMetadata(obj, value) {

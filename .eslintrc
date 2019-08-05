@@ -26,6 +26,7 @@
     "import/no-amd": 2,
     "import/no-commonjs": 2,
     "import/no-nodejs-modules": 2,
+    "import/prefer-default-export": 0,
     "no-debugger": 1,
     "no-param-reassign": [1, { "props": false }],
     "no-unused-vars": [

@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 
-const SearchBox = Scrivito.connect(
+export const SearchBox = Scrivito.connect(
   class extends React.Component {
     constructor(props) {
       super(props);
@@ -73,7 +73,7 @@ function oldestSearchResultsPage() {
     .first();
 }
 
-const SearchIcon = Scrivito.connect(({ toggleSearch }) => {
+export const SearchIcon = Scrivito.connect(({ toggleSearch }) => {
   if (
     Scrivito.currentPage() &&
     Scrivito.currentPage().objClass() === "SearchResults"
@@ -91,5 +91,3 @@ const SearchIcon = Scrivito.connect(({ toggleSearch }) => {
     </span>
   );
 });
-
-export { SearchBox, SearchIcon };

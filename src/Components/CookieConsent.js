@@ -22,10 +22,14 @@ function CookieConsent() {
   return (
     <ReactCookieConsent
       buttonText="accept"
+      enableDeclineButton
+      declineButtonText="decline"
+      flipButtons
       disableStyles
       containerClasses="cookie-box d-lg-flex d-sm-flex align-items-center"
       contentClasses="cookie-content d-flex align-items-center"
-      buttonClasses="cookie-button btn btn-primary ml-auto"
+      buttonClasses="cookie-button btn btn-primary ml-auto mr-2"
+      declineButtonClasses="cookie-button btn btn-secondary ml-auto"
     >
       <div className="cookie-img-box">
         <img className="cookie-img" src={cookieConsentIcon} alt="cookie-img" />

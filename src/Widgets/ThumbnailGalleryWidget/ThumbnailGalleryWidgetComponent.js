@@ -116,6 +116,7 @@ class ThumbnailGalleryComponent extends React.Component {
 
 Scrivito.provideComponent("ThumbnailGalleryWidget", ThumbnailGalleryComponent);
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   const title = widget.get("title");
   const subtitle = widget.get("subtitle");
@@ -153,6 +154,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
     </div>
   );
 });
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 function allTags(images) {
   const tagsArray = images.map(image => image.get("tags"));

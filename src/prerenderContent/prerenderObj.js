@@ -14,7 +14,7 @@ export default async function prerenderObj(obj) {
   Helmet.canUseDOM = false;
 
   const { result, preloadDump } = await Scrivito.renderPage(obj, () => {
-    const bodyContent = ReactDOMServer.renderToStaticMarkup(<App />);
+    const bodyContent = ReactDOMServer.renderToString(<App />);
     const helmet = Helmet.renderStatic();
 
     return {

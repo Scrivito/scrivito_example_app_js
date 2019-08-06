@@ -1,7 +1,7 @@
 import HeadlineWidget from "../Widgets/HeadlineWidget/HeadlineWidgetClass";
 import SectionWidget from "../Widgets/SectionWidget/SectionWidgetClass";
 
-const defaultPageEditingConfigAttributes = {
+export const defaultPageEditingConfigAttributes = {
   title: {
     title: "Title",
     description: "Limit to 55 characters.",
@@ -26,7 +26,7 @@ const defaultPageEditingConfigAttributes = {
   },
 };
 
-const defaultPageInitialContent = {
+export const defaultPageInitialContent = {
   body: [
     new SectionWidget({
       content: [new HeadlineWidget({ style: "h1" })],
@@ -36,15 +36,9 @@ const defaultPageInitialContent = {
   navigationBackgroundImageGradient: "no",
 };
 
-const defaultPageProperties = [
+export const defaultPageProperties = [
   "title",
   "navigationHeight",
   "navigationBackgroundImage",
   "navigationBackgroundImageGradient",
 ];
-
-export {
-  defaultPageEditingConfigAttributes,
-  defaultPageInitialContent,
-  defaultPageProperties,
-};

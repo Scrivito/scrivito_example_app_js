@@ -87,6 +87,7 @@ function CategoriesAndIcons({
   ));
 }
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function Category({ category, icons, currentIcon, setWidgetIcon }) {
   return (
     <section>
@@ -123,5 +124,6 @@ function Category({ category, icons, currentIcon, setWidgetIcon }) {
     </section>
   );
 }
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default AllIcons;

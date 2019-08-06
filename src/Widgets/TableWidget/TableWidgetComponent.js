@@ -54,6 +54,7 @@ Scrivito.provideComponent("TableWidget", ({ widget }) => (
   </table>
 ));
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 const AddMoreRows = Scrivito.connect(
   ({ widget, title, attribute, maxRows }) => {
     if (!Scrivito.isInPlaceEditingActive()) {
@@ -92,3 +93,5 @@ const AddMoreRows = Scrivito.connect(
     );
   }
 );
+
+/* eslint-enable jsx-a11y/anchor-is-valid */

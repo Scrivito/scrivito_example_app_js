@@ -66,7 +66,7 @@ function webpackConfig(env = {}) {
                       shippedProposals: true,
                       useBuiltIns: "usage",
                       corejs: "3",
-                      targets: { browsers: ["last 2 versions"] },
+                      targets: { browsers: ["defaults"] },
                     },
                   ],
                 ],

@@ -2,19 +2,7 @@
  * Bootstrap v4
  */
 
-/* important variables
-================================================== */
-
-$grid-columns: 12;
-$grid-gutter-width: 30px;
-
-$border-radius: 0 !default;
-$border-radius-lg: 0 !default;
-$border-radius-sm: 0 !default;
-
-// use higher zindex, to avoid edit marker to be shown
-$zindex-modal-backdrop: 100040 !default;
-$zindex-modal: 100050 !default;
+@import "variables";
 
 @mixin transition-performance() {
   -webkit-backface-visibility: hidden;
@@ -27,15 +15,6 @@ $zindex-modal: 100050 !default;
   -o-transform: translateZ(0);
   transform: translateZ(0);
 }
-
-/* - BS3 variables - */
-
-$screen-xs-max: 767px;
-$screen-sm-min: 768px;
-$screen-sm-max: 991px;
-$screen-md-min: 992px;
-$screen-md-max: 1199px;
-$screen-lg-min: 1200px;
 
 /* react-slick
 ================================================== */
@@ -67,7 +46,6 @@ $slick-font-family: "slick_swap";
 
 /* imports
 ================================================== */
-@import "_colors";
 @import "bootstrap/bootstrap";
 @import "_social_cards";
 @import "_grid_layout_editor";

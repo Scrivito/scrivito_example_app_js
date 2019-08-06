@@ -1,0 +1,6 @@
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+
+// use higher zindex, to avoid edit marker to be shown
+$zindex-modal-backdrop: 100040 !default;
+$zindex-modal: 100050 !default;

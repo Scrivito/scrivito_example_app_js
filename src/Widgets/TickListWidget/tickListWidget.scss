@@ -1,0 +1,27 @@
+@import "src/assets/stylesheets/bootstrap/mixins/clearfix";
+@import "src/assets/stylesheets/fontawesome/variables";
+@import "src/assets/stylesheets/fontawesome/core";
+@import "src/assets/stylesheets/variables";
+
+.tick-list-widget {
+  list-style-type: none;
+  padding-left: 15px;
+  @include clearfix;
+}
+.tick-list-widget li {
+  position: relative;
+  padding: 0 0 20px 17px;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+
+  &:before {
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: -15px;
+    content: "\f00c" !important;
+    color: $secondary;
+    @extend .fa;
+  }
+}

@@ -6,12 +6,16 @@ const PriceCalculatorWidget = Scrivito.provideWidgetClass("PriceCalculatorWidget
     image: ["reference", { only: "Image" }],
     position: "string",
     name: "string",
+    headerTitle: "string",
+    headerDesc: "html",
   },
 });
 
 registerTextExtract("PriceCalculatorWidget", [
   { attribute: "position", type: "string" },
   { attribute: "name", type: "string" },
+  { attribute: "headerTitle", type: "string" },
+  { attribute: "headerDesc", type: "html" },
 ]);
 
 export default PriceCalculatorWidget;

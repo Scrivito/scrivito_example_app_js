@@ -137,7 +137,7 @@ class PriceCalculatorWidget extends React.Component {
       this.setState({ showBox: val, showData: tempData, barryIndex });
       window.scrollTo(0, 0);
     } else {
-      alert("Please select filters");
+      alert("getbary.co meddelse \nBesvar venligst alle 3 spørgsmål for at få et svar");
     }
   }
 
@@ -162,6 +162,7 @@ class PriceCalculatorWidget extends React.Component {
 
   render() {
     const { DK1, DK2 } = this.state;
+    const { headerTitle, headerDesc } = this.props;
 
     let westLatestPrice;
     let westTime;
@@ -197,9 +198,9 @@ class PriceCalculatorWidget extends React.Component {
       <div className="price-calculator-box" id="priser-2">
         {this.state.showBox === 1 && (
           <div className="main-box box1">
-            <h2>Test din pris</h2>
+            <h2>{headerTitle}</h2>
             <p>
-              Er du nysgerrig efter, hvad du skulle have betalt hos Barry i forhold til et andet elselskab? Vi har samlet oplysningerne og gjort det nemt at sammenligne din historiske elpris med den pris, du ville have betalt hos Barry.
+              {headerDesc}
             </p>
             <p>
               <label>I hvilket postnummer bor du?</label>
@@ -381,4 +382,6 @@ class PriceCalculatorWidget extends React.Component {
   }
 }
 
-Scrivito.provideComponent("PriceCalculatorWidget", PriceCalculatorWidget);
+Scrivito.provideComponent("PriceCalculatorWidget", ({ widget }) => {
+  return <PriceCalculatorWidget headerTitle={widget.get("headerTitle")}  headerDesc={widget.get("headerDesc")} />
+});

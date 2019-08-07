@@ -202,7 +202,7 @@ class PriceCalculatorWidget extends React.Component {
             <p>
               {headerDesc}
             </p>
-            <p>
+            <div className="p-calculater-div">
               <label>I hvilket postnummer bor du?</label>
               <div className="input-wrapper">
                 <input
@@ -218,7 +218,7 @@ class PriceCalculatorWidget extends React.Component {
                   </div>
                 )}
               </div>
-            </p>
+            </div>
             <label>Boligform</label>
             <div className="p-calculater-selector">
               <div
@@ -326,8 +326,8 @@ class PriceCalculatorWidget extends React.Component {
                       dataArr.push(pp);
                     }
 
-                    const textArr = dataArr.map(item => {
-                      return <tspan x={x + offset} dy="1.1em">{item}</tspan>;
+                    const textArr = dataArr.map((item, index) => {
+                      return <tspan key={`tspan-${index}`} x={x + offset} dy="1.1em">{item}</tspan>;
                     });
 
                     return <text x={x + offset} y={y - 4} textAnchor="middle" fill="#6C738A" angle={45}>
@@ -374,7 +374,7 @@ class PriceCalculatorWidget extends React.Component {
             <button onClick={() => this.showBox(1)}>
               Download app’en og skift til Barry
             </button>
-            <a onClick={() => this.showBox(1)}>&lt; Gå tilbage</a>
+            <a onClick={() => this.showBox(1)}>&lt; Nyt pristjeke</a>
           </div>
         )}
       </div>

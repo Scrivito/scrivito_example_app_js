@@ -374,6 +374,7 @@ class PriceCalculatorWidget extends React.Component {
             <button onClick={() => this.showBox(1)}>
               Download app’en og skift til Barry
             </button>
+            <a className="a-calculater" href="/">&lt; Tilbage til getbarry.co</a>
             <a onClick={() => this.showBox(1)}>&lt; Nyt pristjeke</a>
           </div>
         )}

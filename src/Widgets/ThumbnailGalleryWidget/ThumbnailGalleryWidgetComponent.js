@@ -1,10 +1,12 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import Lightbox from "react-images";
+
 import fullScreenWidthPixels from "../../utils/fullScreenWidthPixels";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 import TagList from "../../Components/TagList";
 import isImage from "../../utils/isImage";
+import "./thumbnailGalleryWidget.scss";
 
 class ThumbnailGalleryComponent extends React.Component {
   constructor(props) {
@@ -86,7 +88,7 @@ class ThumbnailGalleryComponent extends React.Component {
           setTag={this.setTag}
         />
         <div>
-          <div className="row gallery-box-wrapper">
+          <div className="row gallery-box__wrapper">
             {images.map((image, imageIndex) => (
               <Thumbnail
                 key={image.id()}
@@ -131,21 +133,21 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
     "gutter0",
   ];
   if (currentTag && !tags.includes(currentTag)) {
-    classNames.push("squeezed");
+    classNames.push("--is-squeezed");
   }
 
   return (
     <div className={classNames.join(" ")}>
       <Scrivito.BackgroundImageTag
-        className="gallery-box-image"
+        className="gallery-box__image"
         style={{ background: { image } }}
       />
       <a
         href="#"
-        className="gallery-box-content-wrapper"
+        className="gallery-box__content-wrapper"
         onClick={openLightbox}
       >
-        <span className="gallery-box-content">
+        <span className="gallery-box__content">
           <i className="fa fa-camera" aria-hidden="true" />
           <span className="title">{title}</span>
           <span className="subtitle">{subtitle}</span>

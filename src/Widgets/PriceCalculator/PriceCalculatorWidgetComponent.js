@@ -90,7 +90,7 @@ class PriceCalculatorWidget extends React.Component {
   }
 
   showBox(val) {
-    if (this.state.selectedOption && this.state.selectedBol > 0 && this.state.zip !== "") {
+    if (this.state.selectedOption && this.state.selectedBol > 0 && this.state.zip !== "" && parseInt(this.state.zip, 10) >= 1000 && parseInt(this.state.zip, 10) <= 9999) {
       let tempData = [];
       myData.forEach(element => {
         let region = "DK2";
@@ -137,7 +137,11 @@ class PriceCalculatorWidget extends React.Component {
       this.setState({ showBox: val, showData: tempData, barryIndex });
       window.scrollTo(0, 0);
     } else {
-      alert("getbary.co meddelse \nBesvar venligst alle 3 spørgsmål for at få et svar");
+      if (parseInt(this.state.zip, 10) < 1000 || parseInt(this.state.zip, 10) > 9999) {
+        alert("The postcode should be >1000 and < 9999");
+      } else {
+        alert("getbary.co meddelse \nBesvar venligst alle 3 spørgsmål for at få et svar");
+      }
     }
   }
 
@@ -212,7 +216,7 @@ class PriceCalculatorWidget extends React.Component {
                     this.setState({ zip: event.target.value });
                   }}
                 />
-                {this.state.zip !== "" && (
+                {(this.state.zip !== "" && parseInt(this.state.zip, 10) >= 1000 && parseInt(this.state.zip, 10) <= 9999) && (
                   <div className="check-mark">
                     <i className="fa fa-check" />
                   </div>

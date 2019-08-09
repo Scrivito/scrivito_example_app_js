@@ -88,7 +88,7 @@ class ThumbnailGalleryComponent extends React.Component {
           setTag={this.setTag}
         />
         <div>
-          <div className="row gallery-box__wrapper">
+          <div className="row thumbnail-gallery-widget--wrapper">
             {images.map((image, imageIndex) => (
               <Thumbnail
                 key={image.id()}
@@ -129,25 +129,25 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
     "col-md-3",
     "col-sm-4",
     "col-6",
-    "gallery-box",
     "gutter0",
+    "thumbnail-gallery-widget",
   ];
   if (currentTag && !tags.includes(currentTag)) {
-    classNames.push("--is-squeezed");
+    classNames.push("--squeezed");
   }
 
   return (
     <div className={classNames.join(" ")}>
       <Scrivito.BackgroundImageTag
-        className="gallery-box__image"
+        className="thumbnail-gallery-widget--image"
         style={{ background: { image } }}
       />
       <a
         href="#"
-        className="gallery-box__content-wrapper"
+        className="thumbnail-gallery-widget--content-wrapper"
         onClick={openLightbox}
       >
-        <span className="gallery-box__content">
+        <span className="thumbnail-gallery-widget--content">
           <i className="fa fa-camera" aria-hidden="true" />
           <span className="title">{title}</span>
           <span className="subtitle">{subtitle}</span>

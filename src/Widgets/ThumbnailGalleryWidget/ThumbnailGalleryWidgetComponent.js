@@ -133,7 +133,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
     "thumbnail-gallery-widget",
   ];
   if (currentTag && !tags.includes(currentTag)) {
-    classNames.push("--squeezed");
+    classNames.push("squeezed");
   }
 
   return (

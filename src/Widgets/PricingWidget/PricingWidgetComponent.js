@@ -1,6 +1,8 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 
+import "./pricingWidget.scss";
+
 function PlanButton({ target, className }) {
   const text = target && target.title();
 
@@ -16,9 +18,9 @@ Scrivito.provideComponent("PricingWidget", ({ widget }) => {
   const currency = widget.get("currency") || "$";
 
   return (
-    <div className="row charts">
+    <div className="row pricing-widget">
       <div className="col-lg-4">
-        <div className="chart first">
+        <div className="pricing-widget--chart first">
           <Scrivito.ContentTag
             content={widget}
             attribute="smallPlanName"
@@ -52,7 +54,7 @@ Scrivito.provideComponent("PricingWidget", ({ widget }) => {
       </div>
 
       <div className="col-lg-4">
-        <div className="chart featured">
+        <div className="pricing-widget--chart featured">
           <Scrivito.ContentTag
             content={widget}
             attribute="mediumPlanName"
@@ -85,7 +87,7 @@ Scrivito.provideComponent("PricingWidget", ({ widget }) => {
         </div>
       </div>
       <div className="col-lg-4">
-        <div className="chart last">
+        <div className="pricing-widget--chart last">
           <Scrivito.ContentTag
             content={widget}
             attribute="largePlanName"

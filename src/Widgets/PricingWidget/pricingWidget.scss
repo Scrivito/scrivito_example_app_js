@@ -3,7 +3,7 @@
 .pricing-widget {
   padding: 40px 0;
 
-  &--chart {
+  .pricing-widget-chart {
     background-color: $theme-greywhite;
     border-radius: 5px;
     border: 1px solid #eee;
@@ -14,7 +14,7 @@
     position: relative;
     top: 30px;
 
-    .plan-name {
+    &--plan-name {
       font-size: 13px;
       font-weight: 700;
       color: $theme-grey;
@@ -24,7 +24,7 @@
       letter-spacing: 1px;
     }
 
-    .quantity {
+    &--quantity {
       color: $theme-grey;
       margin-top: 40px;
 
@@ -55,7 +55,7 @@
       }
     }
 
-    .specs {
+    &--specs {
       margin: 10px 0 20px;
       font-size: 14px;
 
@@ -79,7 +79,7 @@
       }
     }
 
-    .btn {
+    &--btn {
       position: absolute;
       bottom: 30px;
       left: 20%;
@@ -115,7 +115,7 @@
 
 @media (max-width: 600px) {
   .pricing-widget {
-    &--chart {
+    .pricing-widget-chart {
       width: 90% !important;
     }
   }
@@ -123,7 +123,7 @@
 
 @media (max-width: $screen-sm-max) {
   .pricing-widget {
-    &--chart {
+    .pricing-widget-chart {
       float: none !important;
       left: 0px !important;
       top: 0px !important;
@@ -140,7 +140,7 @@
 
 @media (min-width: $screen-md-min) {
   .pricing-widget {
-    &--chart {
+    .pricing-widget-chart {
       &.first {
         float: right;
         left: 45px;

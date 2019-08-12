@@ -1341,44 +1341,6 @@ section.navbar-fixed {
   }
 }
 
-/* quote
-=================================================================== */
-
-.quote-headline {
-  color: $secondary !important;
-  font-size: 200px;
-  line-height: 0;
-  margin: 65px 0 0 0;
-  vertical-align: middle;
-}
-.quote-portrait-wrapper {
-  text-align: center;
-  height: 75px;
-}
-.quote-portrait-wrapper a {
-  display: inline-block;
-  vertical-align: middle;
-}
-.quote-portrait-wrapper a .image {
-  width: 40px;
-  height: 40px;
-  @include transition(all 0.3s ease-in-out);
-  display: block;
-  border-radius: 50%;
-  border: 3px solid rgb(188, 188, 188);
-  margin: 5px;
-}
-.quote-portrait-wrapper a:hover .image,
-.quote-portrait-wrapper .slick-active .image {
-  width: 75px;
-  height: 75px;
-}
-
-.quote-portrait-wrapper li {
-  position: relative;
-  display: inline-block;
-}
-
 /* fact
 =================================================================== */
 

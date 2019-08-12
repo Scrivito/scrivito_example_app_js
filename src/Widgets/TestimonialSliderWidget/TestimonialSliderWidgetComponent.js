@@ -16,7 +16,9 @@ Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
       <Slider {...settings}>
         {testimonials.map(testimonial => (
           <div key={testimonial.id()}>
-            <h1 className="quote-headline text-center">&quot;</h1>
+            <h1 className="testimonial-slider-widget--quote-headline text-center">
+              &quot;
+            </h1>
             <Scrivito.ContentTag
               content={testimonial}
               attribute="testimonial"
@@ -63,7 +65,7 @@ function sliderSettings(testimonials) {
     dots: true,
     infinite: true,
     speed: 500,
-    dotsClass: "quote-portrait-wrapper",
+    dotsClass: "testimonial-slider-widget--quote-portrait-wrapper",
     customPaging: i => {
       const image = testimonialAuthorImages[i];
       return <a>{image}</a>;

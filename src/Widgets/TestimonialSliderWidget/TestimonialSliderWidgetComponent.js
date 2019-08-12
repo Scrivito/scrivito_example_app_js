@@ -1,9 +1,11 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import Slider from "react-slick";
+
 import placeholderCss from "../../utils/placeholderCss";
 import TestimonialWidget from "../TestimonialWidget/TestimonialWidgetClass";
 import isImage from "../../utils/isImage";
+import "./testimonialSliderWidget.scss";
 
 Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
   const testimonials = widget.get("testimonials");

@@ -92,6 +92,7 @@ class PriceCalculatorWidget extends React.Component {
   showBox(val) {
     if (this.state.selectedOption && this.state.selectedBol > 0 && this.state.zip !== "" && parseInt(this.state.zip, 10) >= 1000 && parseInt(this.state.zip, 10) <= 9999) {
       let tempData = [];
+      let prevName = [];
       myData.forEach(element => {
         let region = "DK2";
         let kwh = 1800;
@@ -107,7 +108,7 @@ class PriceCalculatorWidget extends React.Component {
         if (this.state.selectedBol === 3) {
           kwh = 15000;
         }
-
+        
         if ((element.supplier === 'Barry' || (element.supplier === 'NordPool' && this.state.selectedType.value === 1) || element.supplier === this.state.selectedOption.value) && element.region === region && element.kwh === kwh) {
           let key = "total_price";
           let unit = 'øre/kWh';
@@ -119,9 +120,20 @@ class PriceCalculatorWidget extends React.Component {
             unit = 'kr/år';
           }
           const tempVal = parseFloat(element[key].replace ? element[key].replace(",", ".") : element[key]);
+          let name = element.prod_name;
+          if (name.indexOf(" - ") >= 0) {
+            name = name.substr(0, name.indexOf(" - "));
+          }
+          if (name.indexOf(" – ") >= 0) {
+            name = name.substr(0, name.indexOf(" – "));
+          }          
+          if (prevName.indexOf(name) >= 0) {
+            name = name + " ";
+          }
+          prevName.push(name);
           tempData.push({
             supplier: element.supplier,
-            name: element.prod_name,
+            name,
             uv: tempVal,
             label: `${tempVal.toFixed(1).replace('.0', '').replace('.', ',')} ${unit}`,
           });
@@ -149,6 +161,19 @@ class PriceCalculatorWidget extends React.Component {
     for (let i = 0; i < arr.length; i++) {
       for (let j = i; j < arr.length; j++) {
         if (arr[i].uv > arr[j].uv) {
+          let temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+        }
+      }
+    }
+    return arr;
+  }
+
+  sortDt1(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = i; j < arr.length; j++) {
+        if (arr[i].prod_name > arr[j].prod_name) {
           let temp = arr[i];
           arr[i] = arr[j];
           arr[j] = temp;
@@ -375,11 +400,13 @@ class PriceCalculatorWidget extends React.Component {
                 </BarChart>
               </div>
             </div>
-            <button onClick={() => this.showBox(1)}>
+            <button onClick={() => {}} style={{ marginBottom: 15 }}>
               Download app’en og skift til Barry
             </button>
-            <a className="a-calculater" href="/">&lt; Tilbage til getbarry.co</a>
-            <a onClick={() => this.showBox(1)}>&lt; Nyt pristjeke</a>
+            <button onClick={() => this.showBox(1)} style={{ marginTop: 15 }}>
+              Udfyld online formular og skift til Barry
+            </button>
+            <a href="/" style={{color: 'black'}}>Besøg getbarry.co</a>
           </div>
         )}
       </div>

@@ -617,7 +617,7 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   .h4,
   .h5,
   .h6,
-  .table-features,
+  .table-widget,
   .card.card-theme,
   .edit-mode-link {
     color: #fff !important;
@@ -644,7 +644,7 @@ footer {
     .h4,
     .h5,
     .h6,
-    .table-features,
+    .table-widget,
     ul li a,
     ul li span,
     address,
@@ -2140,149 +2140,6 @@ _:-ms-fullscreen,
   min-width: 20px !important;
   display: inline-block;
   background: rgba(0, 255, 0, 0.2);
-}
-
-/* table-features
-=================================================================== */
-
-.table-features {
-  margin: 20px 0;
-  max-width: 100%;
-  width: 100%;
-}
-
-.table-features th,
-.table-features td {
-  vertical-align: middle !important;
-}
-.table-features .fa {
-  color: $secondary;
-  font-size: 25px;
-  line-height: 20px;
-}
-
-.table-features thead th {
-  font-size: 13px;
-  font-weight: 400;
-  padding: 10px 20px;
-  text-align: center;
-}
-.table-features thead th:first-child {
-  text-align: left;
-}
-
-.table-features tbody th {
-  font-size: 20px;
-  font-weight: 400;
-  padding: 20px;
-  border-top: 2px solid rgba(99, 99, 99, 0.1);
-  border-right: 2px solid rgba(99, 99, 99, 0.1);
-  border-left: 2px solid rgba(99, 99, 99, 0.1);
-}
-.table-features tbody td {
-  font-size: 15px;
-  padding: 20px;
-  text-align: center;
-  border-top: 2px solid rgba(99, 99, 99, 0.1);
-  border-right: 2px solid rgba(99, 99, 99, 0.1);
-  width: 150px;
-}
-.table-features tbody td p {
-  margin: 0;
-}
-.table-features tbody td b {
-  font-weight: 700;
-}
-
-.table-features tbody tr:nth-child(even) th,
-.table-features tbody tr:nth-child(even) td {
-  background: rgba(200, 200, 200, 0.1);
-}
-.table-features tbody tr:hover th,
-.table-features tbody tr:hover td {
-  background: rgba(140, 140, 140, 0.1);
-}
-
-.table-features tfoot th {
-  font-size: 20px;
-  font-weight: 400;
-  padding: 20px;
-  border: 2px solid rgba(99, 99, 99, 0.1);
-}
-.table-features tfoot td {
-  font-size: 14px;
-  font-weight: 700;
-  padding: 20px;
-  text-align: center;
-  border-top: 2px solid rgba(99, 99, 99, 0.1);
-  border-right: 2px solid rgba(99, 99, 99, 0.1);
-  border-bottom: 2px solid rgba(99, 99, 99, 0.1);
-}
-.table-features tfoot th,
-.table-features tfoot td {
-  background: $secondary;
-  color: #fff;
-}
-
-.table-features .quantity {
-  margin-top: 10px;
-  font-weight: 400;
-}
-.table-features .quantity .dollar {
-  font-size: 24px;
-  position: relative;
-  top: -20px;
-}
-.table-features .quantity .price {
-  font-size: 50px;
-  padding: 0 3px;
-}
-.table-features .quantity .period {
-  font-size: 14px;
-  margin-left: 0;
-  position: relative;
-  top: -3px;
-}
-
-@media (max-width: $screen-xs-max) {
-  .table-features th,
-  .table-features td {
-    text-align: center;
-    display: block;
-    width: 100% !important;
-    border-top: 2px solid rgba(99, 99, 99, 0.1);
-    border-right: 2px solid rgba(99, 99, 99, 0.1);
-    border-left: 2px solid rgba(99, 99, 99, 0.1);
-    border-bottom: 0px solid rgba(99, 99, 99, 0.1);
-  }
-  .table-features td:before {
-    content: attr(data-th) "";
-    font-size: 11px;
-    font-weight: 400;
-    display: block;
-    line-height: 0;
-    text-align: left;
-  }
-  .table-features thead {
-    display: none;
-  }
-  .table-features tbody tr:nth-child(even) th,
-  .table-features tbody tr:nth-child(odd) th {
-    background: $secondary !important;
-    color: #fff;
-  }
-  .table-features tbody tr:nth-child(even) td {
-    background: rgba(200, 200, 200, 0.1) !important;
-  }
-  .table-features tbody tr:nth-child(odd) td {
-    background: transparent !important;
-  }
-  .table-features tfoot th {
-    border: none;
-  }
-  .table-features tfoot td {
-    border-bottom: none;
-  }
 }
 
 /* carousel

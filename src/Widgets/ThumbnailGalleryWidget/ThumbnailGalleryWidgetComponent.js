@@ -6,7 +6,7 @@ import fullScreenWidthPixels from "../../utils/fullScreenWidthPixels";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 import TagList from "../../Components/TagList";
 import isImage from "../../utils/isImage";
-import "./thumbnailGalleryWidget.scss";
+import "./ThumbnailGalleryWidget.scss";
 
 class ThumbnailGalleryComponent extends React.Component {
   constructor(props) {

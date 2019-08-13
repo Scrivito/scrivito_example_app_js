@@ -2,40 +2,47 @@
   display: block;
   position: relative;
   padding: 10px 0 20px 0;
-}
-.b-bottom:after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  margin: 0 0 0 -20px;
-  width: 40px;
-  height: 1px;
-  background: rgba(111, 111, 111, 0.2);
-}
-.bg-greydark .b-bottom:after {
-  background: rgba(111, 111, 111, 0.7);
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin: 0 0 0 -20px;
+    width: 40px;
+    height: 1px;
+    background: rgba(111, 111, 111, 0.2);
+  }
+
+  .bg-greydark &:after {
+    background: rgba(111, 111, 111, 0.7);
+  }
 }
 
 .clear {
   clear: both;
 }
 
-.container,
-.container-fluid {
-  position: relative;
-}
-.container-fluid img {
-  margin: 0;
-}
+.container {
+  &,
+  &-fluid {
+    position: relative;
+  }
 
-.container .container {
-  width: auto;
-}
+  &-fluid {
+    img {
+      margin: 0;
+    }
+  }
 
-.container-initial {
-  position: initial !important;
+  &-initial {
+    position: initial !important;
+  }
+
+  & & {
+    width: auto;
+  }
 }
 
 .date,
@@ -54,13 +61,17 @@ img,
   margin: 0 0 25px 0;
   max-width: 100%;
 }
-.img-fluid.pull-left {
-  margin: 0 15px 25px 0;
-  max-width: 50%;
-}
-.img-fluid.pull-right {
-  margin: 0 0 25px 15px;
-  max-width: 50%;
+
+.img-fluid {
+  &.pull-left {
+    margin: 0 15px 25px 0;
+    max-width: 50%;
+  }
+
+  &.pull-right {
+    margin: 0 0 25px 15px;
+    max-width: 50%;
+  }
 }
 
 .logo {
@@ -74,31 +85,28 @@ img,
   margin-left: -15px;
 }
 
-.no-padding {
-  padding: 0 !important;
-}
-.no-margin {
-  margin: 0 !important;
+.no {
+  &-margin {
+    margin: 0 !important;
+  }
+
+  &-padding {
+    padding: 0 !important;
+  }
 }
 
-.margin-top {
-  margin-top: 20px;
-}
-.margin-bottom {
-  margin-bottom: 20px;
-}
-.margin-right {
-  margin-right: 10px;
-}
+.margin {
+  &-top {
+    margin-top: 20px;
+  }
 
-.text-left.b-bottom:after {
-  left: 0%;
-  margin: 0;
-}
-.text-right.b-bottom:after {
-  left: auto;
-  right: 0%;
-  margin: 0;
+  &-bottom {
+    margin-bottom: 20px;
+  }
+
+  &-right {
+    margin-right: 10px;
+  }
 }
 
 hr {
@@ -142,69 +150,83 @@ button:focus {
   vertical-align: middle;
   padding: 13px 20px 10px;
   margin: 0 0 10px 0;
-}
-.btn .fa {
-  padding: 0 0 3px 15px;
-  font-size: 26px;
-  vertical-align: middle;
-}
 
-.btn-primary,
-.btn-secondary,
-.btn-success,
-.btn-info,
-.btn-warning,
-.btn-danger {
-  color: #fff;
   .fa {
-    color: #fff;
+    padding: 0 0 3px 15px;
+    font-size: 26px;
+    vertical-align: middle;
   }
-}
-.btn-link .fa {
-  color: $theme-grey;
-}
 
-.btn-clear {
-  color: $theme-greydark;
-  padding-left: 0;
-  padding-right: 0;
-}
-.btn-clear .fa {
-  color: $primary;
-}
-.btn-clear:hover,
-.btn-clear:active,
-.btn-clear:focus {
-  box-shadow: none !important;
-}
+  &-primary,
+  &-secondary,
+  &-success,
+  &-info,
+  &-warning,
+  &-danger {
+    color: #fff;
 
-.btn-white-transparent {
-  background: rgba(255, 255, 255, 0.1);
-  color: $secondary;
-}
-.btn-white-transparent:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-.btn-round {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  text-align: center;
-}
-.btn-round i {
-  font-size: 33px;
-  line-height: 50px;
-}
+    .fa {
+      color: #fff;
+    }
+  }
 
-.btn-round:hover {
-  cursor: pointer;
-}
-.bg-dark-image .btn-round {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  margin: 0 0 0 -25px;
+  &-link {
+    .fa {
+      color: $theme-grey;
+    }
+  }
+
+  &-clear {
+    color: $theme-greydark;
+    padding-left: 0;
+    padding-right: 0;
+
+    .fa {
+      color: $primary;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+
+  &-white-transparent {
+    background: rgba(255, 255, 255, 0.1);
+    color: $secondary;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  &-white-transparent,
+  &-round {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  &-round {
+    i {
+      font-size: 33px;
+      line-height: 50px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .bg-dark-image & {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      margin: 0 0 0 -25px;
+    }
+  }
 }
 
 /* gutter with zero space
@@ -213,29 +235,33 @@ button:focus {
 .gutter0 {
   padding-left: 0px;
   padding-right: 0px;
-}
-.gutter0 .row {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-.gutter0 .row > [class^="col-"],
-.gutter0 .row > [class*=" col-"] {
-  padding-left: 0px;
-  padding-right: 0px;
+
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+
+    & > [class^="col-"],
+    & > [class*=" col-"] {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
 }
 
 .gutter10 {
   padding-left: 5px;
   padding-right: 5px;
-}
-.gutter10 .row {
-  margin-left: -5px;
-  margin-right: -5px;
-}
-.gutter10 .row > [class^="col-"],
-.gutter10 .row > [class*=" col-"] {
-  padding-left: 5px;
-  padding-right: 5px;
+
+  .row {
+    margin-left: -5px;
+    margin-right: -5px;
+
+    & > [class^="col-"],
+    & > [class*=" col-"] {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
 }
 
 /* video background
@@ -254,10 +280,12 @@ button:focus {
 .title-bgc {
   background-color: $secondary;
   padding: 3rem;
+
   h1 {
     color: #fff;
     margin-bottom: 0;
   }
+
   span {
     color: #fff;
   }
@@ -265,6 +293,7 @@ button:focus {
 
 .details-title-box {
   margin: 1rem 0;
+
   i.fa {
     width: 20px;
     margin-right: 10px;
@@ -272,22 +301,28 @@ button:focus {
     text-align: center;
     color: #fff;
   }
+
   .font-weight-bold {
     margin-right: 0.25rem;
   }
+
   h2,
   div {
     color: #fff;
+
     &:last-of-type {
       margin-bottom: 0;
     }
   }
+
   .location-title {
     margin-top: 10px;
+
     h2 {
       margin-bottom: 0;
       text-transform: uppercase;
     }
+
     .event-info {
       margin-left: 1.9rem;
     }
@@ -321,22 +356,9 @@ button:focus {
   &.medium-height {
     min-height: 300px;
   }
+
   &.min-height {
     min-height: 150px;
-  }
-}
-@media (max-width: $screen-xs-max) {
-  .bg-dark-image,
-  .bg-grey,
-  .bg-greydark,
-  .bg-greylight,
-  .bg-greymiddle,
-  .bg-greywhite,
-  .bg-white {
-    &.min-height,
-    &.medium-height {
-      min-height: 0;
-    }
   }
 }
 
@@ -345,32 +367,40 @@ button:focus {
   height: 75px;
 }
 
-.bg-brand-primary {
-  background: $primary;
-}
-.bg-brand-secondary {
-  background: $secondary;
+.bg-brand {
+  &-primary {
+    background: $primary;
+  }
+
+  &-secondary {
+    background: $secondary;
+  }
 }
 
 .bg-dark-image {
   background: $theme-greymiddle;
 }
+
 .bg-grey {
   background: $theme-grey;
-}
-.bg-greylight {
-  background: $theme-greylight;
-}
-.bg-greydark {
-  background: $theme-greydark;
-}
-.bg-greymiddle {
-  background: $theme-greymiddle;
-}
-.bg-greywhite {
-  background: $theme-greywhite;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  &light {
+    background: $theme-greylight;
+  }
+
+  &dark {
+    background: $theme-greydark;
+  }
+
+  &middle {
+    background: $theme-greymiddle;
+  }
+
+  &white {
+    background: $theme-greywhite;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
 }
 
 /* content adaptions */
@@ -442,21 +472,41 @@ footer {
   display: flex;
   min-height: 100vh;
 }
-.medium-height .container,
-.full-height .container {
-  margin: auto !important;
+
+.full-height,
+.height-center,
+.medium-height {
+  .container {
+    margin: auto !important;
+  }
 }
+
 .medium-height,
 .height-center {
   display: flex;
   text-align: center;
-}
-.height-center .container {
-  margin: auto !important;
 }
 
 /* nav section adaptions */
 section.navbar-fixed {
   padding-top: 80px;
   overflow: hidden;
+}
+
+/* RESPONSIVE
+================================================== */
+
+@media (max-width: $screen-xs-max) {
+  .bg-dark-image,
+  .bg-grey,
+  .bg-greydark,
+  .bg-greylight,
+  .bg-greymiddle,
+  .bg-greywhite,
+  .bg-white {
+    &.min-height,
+    &.medium-height {
+      min-height: 0;
+    }
+  }
 }

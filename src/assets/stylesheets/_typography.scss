@@ -1,13 +1,14 @@
 a {
   color: $primary;
   text-decoration: none;
-}
-a:hover,
-a:active,
-a:focus {
-  color: darken($primary, 5%);
-  text-decoration: underline;
-  outline: none !important;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: darken($primary, 5%);
+    text-decoration: underline;
+    outline: none !important;
+  }
 }
 
 p {
@@ -67,30 +68,27 @@ h6,
   font-size: 14px;
 }
 
-.hero-bold {
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 700;
-  font-size: 180px;
-  text-transform: uppercase;
-  color: $secondary !important;
-  line-height: 1;
-  margin: 0 0 20px 0;
-}
+.hero {
+  &-bold {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700;
+    font-size: 180px;
+    text-transform: uppercase;
+    color: $secondary !important;
+    line-height: 1;
+    margin: 0 0 20px 0;
 
-.hero-small {
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 300;
-  font-size: 30px;
-  line-height: 1;
-  margin: 0 0 40px 0;
-}
-.bg-dark-image .hero-bold {
-  color: $secondary !important;
-}
+    .bg-dark-image & {
+      color: $secondary !important;
+    }
+  }
 
-@media (max-width: $screen-sm-max) {
-  .hero-bold {
-    font-size: 80px;
+  &-small {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 1;
+    margin: 0 0 40px 0;
   }
 }
 
@@ -100,11 +98,13 @@ mark,
   color: #fff;
   padding: 0 0.2em;
 }
+
 small,
 .small {
   font-size: 80%;
   line-height: 1.5em;
 }
+
 .bg-dark-image .small {
   color: rgba(255, 255, 255, 0.7) !important;
 }
@@ -113,6 +113,35 @@ small,
   font-weight: 700;
 }
 
-.text-greymiddle {
-  color: $theme-greymiddle;
+.text {
+  &-greymiddle {
+    color: $theme-greymiddle;
+  }
+
+  &-left.b-bottom:after {
+    left: 0%;
+    margin: 0;
+  }
+
+  &-right.b-bottom:after {
+    left: auto;
+    right: 0%;
+    margin: 0;
+  }
+}
+
+/* RESPONSIVE
+================================================== */
+
+@media (max-width: $screen-xs-max) {
+  .text-right,
+  .text-left {
+    text-align: center;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .hero-bold {
+    font-size: 80px;
+  }
 }

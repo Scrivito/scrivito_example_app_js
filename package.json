@@ -63,7 +63,7 @@
     "react-images": "^0.5.19",
     "react-reveal": "^1.2.2",
     "react-scroll": "^1.7.12",
-    "react-slick": "^0.24.0",
+    "react-slick": "^0.25.2",
     "reactstrap": "^8.0.1",
     "sass-loader": "^7.2.0",
     "scrivito": "^1.7.0",

@@ -4,7 +4,7 @@ import * as Scrivito from "scrivito";
 import placeholderCss from "../../utils/placeholderCss";
 import TableRowWidget from "../TableRowWidget/TableRowWidgetClass";
 import TableRowWidgetComponent from "../TableRowWidget/TableRowWidgetComponent";
-import "./tableWidget.scss";
+import "./TableWidget.scss";
 
 Scrivito.provideComponent("TableWidget", ({ widget }) => (
   <table className="table-widget">

@@ -1,11 +1,13 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+
 import placeholderCss from "../../utils/placeholderCss";
 import TableRowWidget from "../TableRowWidget/TableRowWidgetClass";
 import TableRowWidgetComponent from "../TableRowWidget/TableRowWidgetComponent";
+import "./TableWidget.scss";
 
 Scrivito.provideComponent("TableWidget", ({ widget }) => (
-  <table className="table-features">
+  <table className="table-widget">
     <thead>
       <tr>
         <Scrivito.ContentTag tag="th" content={widget} attribute="header1" />

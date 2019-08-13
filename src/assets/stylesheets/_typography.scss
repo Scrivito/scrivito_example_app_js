@@ -134,6 +134,17 @@ small,
 ================================================== */
 
 @media (max-width: $screen-xs-max) {
+  h1,
+  .h1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  h2,
+  .h2 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+
   .text-right,
   .text-left {
     text-align: center;

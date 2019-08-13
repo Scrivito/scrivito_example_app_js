@@ -2224,28 +2224,3 @@ img.cookie-img {
     display: none;
   }
 }
-
-/* RESPONSIVE
-================================================== */
-
-@media (min-width: $screen-lg-min) {
-}
-
-@media (max-width: $screen-md-max) {
-}
-
-@media (max-width: $screen-sm-max) {
-}
-
-@media (max-width: $screen-xs-max) {
-  h1,
-  .h1 {
-    font-size: 40px;
-    line-height: 50px;
-  }
-  h2,
-  .h2 {
-    font-size: 35px;
-    line-height: 45px;
-  }
-}

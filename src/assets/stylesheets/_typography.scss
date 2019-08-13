@@ -1,0 +1,118 @@
+a {
+  color: $primary;
+  text-decoration: none;
+}
+a:hover,
+a:active,
+a:focus {
+  color: darken($primary, 5%);
+  text-decoration: underline;
+  outline: none !important;
+}
+
+p {
+  margin: 0 0 25px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-weight: 400;
+  color: $theme-greydark;
+  margin: 0 0 15px 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+h1,
+.h1 {
+  font-size: 60px;
+  line-height: 70px;
+}
+h2,
+.h2 {
+  font-size: 42px;
+  line-height: 50px;
+}
+h3,
+.h3 {
+  font-size: 30px;
+  line-height: 40px;
+}
+h4,
+.h4 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 30px;
+  color: $theme-greymiddle;
+}
+h5,
+.h5 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+}
+h6,
+.h6 {
+  font-size: 14px;
+}
+
+.hero-bold {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 180px;
+  text-transform: uppercase;
+  color: $secondary !important;
+  line-height: 1;
+  margin: 0 0 20px 0;
+}
+
+.hero-small {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 1;
+  margin: 0 0 40px 0;
+}
+.bg-dark-image .hero-bold {
+  color: $secondary !important;
+}
+
+@media (max-width: $screen-sm-max) {
+  .hero-bold {
+    font-size: 80px;
+  }
+}
+
+mark,
+.mark {
+  background-color: $secondary;
+  color: #fff;
+  padding: 0 0.2em;
+}
+small,
+.small {
+  font-size: 80%;
+  line-height: 1.5em;
+}
+.bg-dark-image .small {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+.text-greymiddle {
+  color: $theme-greymiddle;
+}

@@ -1,0 +1,47 @@
+@import "src/assets/stylesheets/variables";
+@import "src/assets/stylesheets/bootstrap/functions";
+@import "src/assets/stylesheets/bootstrap/variables";
+@import "src/assets/stylesheets/bootstrap/mixins/transition";
+
+.testimonial-slider-widget {
+  &--quote-headline {
+    color: $secondary !important;
+    font-size: 200px;
+    line-height: 0;
+    margin: 65px 0 0 0;
+    vertical-align: middle;
+  }
+
+  &--quote-portrait-wrapper {
+    text-align: center;
+    height: 75px;
+
+    a {
+      display: inline-block;
+      vertical-align: middle;
+
+      .image {
+        width: 40px;
+        height: 40px;
+        @include transition(all 0.3s ease-in-out);
+        display: block;
+        border-radius: 50%;
+        border: 3px solid rgb(188, 188, 188);
+        margin: 5px;
+      }
+    }
+
+    a:hover,
+    .slick-active {
+      .image {
+        width: 75px;
+        height: 75px;
+      }
+    }
+
+    li {
+      position: relative;
+      display: inline-block;
+    }
+  }
+}

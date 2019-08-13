@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 
-import "./pricingWidget.scss";
+import "./PricingWidget.scss";
 
 function PlanButton({ target, className }) {
   const text = target && target.title();

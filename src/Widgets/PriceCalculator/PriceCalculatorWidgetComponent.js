@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import Select from "react-select";
-import { BarChart, Bar, XAxis, YAxis, LabelList, Cell } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, LabelList, Cell, ComposedChart, CartesianGrid } from "recharts";
 import myData from "./price_db.json";
 
 const NUMBER_TO_MONTH = [
@@ -56,6 +56,7 @@ class PriceCalculatorWidget extends React.Component {
   }
 
   componentDidMount() {
+    console.log("111-", );
     const tempSup = [];
     const tempOptions = [];
 
@@ -326,7 +327,7 @@ class PriceCalculatorWidget extends React.Component {
                 </div>
               </div>
               <div>
-                <BarChart width={670} height={350} data={this.state.showData}>
+                { this.state.showData.length < 10 && <BarChart width={670} height={350} data={this.state.showData} >
                   <XAxis dataKey="name" tick={() => {
                     return null;}}/>
                   <XAxis dataKey="name" axisLine={false} tickLine={false} interval={0} tick={(tickProps) => {
@@ -397,15 +398,60 @@ class PriceCalculatorWidget extends React.Component {
                       />
                     ))}
                   </Bar>
-                </BarChart>
+                    </BarChart> }
+                { this.state.showData.length > 10 && 
+
+                <ComposedChart
+                layout="vertical"
+                width={500}
+                height={1500}
+                data={this.state.showData}
+                margin={{
+                  top: 20, right: 20, bottom: 20, left: 100,
+                }}
+                >
+                <XAxis type="number" />
+                <YAxis dataKey="name" type="category" />
+                <Bar dataKey="uv" barSize={20} >
+                <LabelList
+                      dataKey="label"
+                      position="top"
+                      content={props => {
+                        const { x, y, width, value } = props;
+                        const radius = 10;
+
+                        return (
+                          <g>
+                            <text
+                              x={x + width + 60}
+                              y={y + 12}
+                              fill="#6C738A"
+                              textAnchor="middle"
+                              dominantBaseline="middle"
+                            >
+                              {value}
+                            </text>
+                          </g>
+                        );
+                      }}
+                    />
+                    {this.state.showData.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={index === this.state.barryIndex ? "#2EDBAC" : "#4DE9BF99"}
+                      />
+                    ))}
+                </Bar>
+                </ComposedChart>
+                }
               </div>
             </div>
-            <button onClick={() => {}} style={{ marginBottom: 15 }}>
-              Download app’en og skift til Barry
-            </button>
-            <button onClick={() => this.showBox(1)} style={{ marginTop: 15 }}>
-              Udfyld online formular og skift til Barry
-            </button>
+            {window.location.pathname != "/Pristjek3" && <a className="link" href="https://getbarry.app.link/vrgOxox36Y" target="blank" onClick={() => {}} style={{ marginBottom: 15 }}>
+              Hent app'en og skift det Barry - nemt & smart
+            </a>}
+            {window.location.pathname != "/Pristjek2" && <a className="link" href="https://snip.ly/q4xon5" target="blank" onClick={() => this.showBox(1)} style={{ marginTop: 15, marginBottom: 15 }}>
+              Skift til Barry online - det tager kun 2 minutter
+            </a>}
             <a href="/" style={{color: 'black'}}>Besøg getbarry.co</a>
           </div>
         )}

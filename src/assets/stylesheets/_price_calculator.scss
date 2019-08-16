@@ -19,7 +19,7 @@
       }
       .box2-content {
         box-sizing: border-box;
-        height: 598px;
+        // height: 598px;
         width: 100%;
         border: 1px solid #D7D7D7;
         border-radius: 3px;
@@ -144,6 +144,19 @@
       margin-top: 40px;
       max-width: 500px;
       border: none;
+    }
+    a.link {
+      height: 60px;
+      width: 100%;
+      border-radius: 6px;
+      background: linear-gradient(315.15deg, #FF4B9C 0%, #EF7B40 100%);
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.07);
+      color: white;
+      margin-top: 40px;
+      max-width: 500px;
+      border: none;
+      text-align: center;
+      line-height: 60px;
     }
     .a-calculater {
       color: inherit;

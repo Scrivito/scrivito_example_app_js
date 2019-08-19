@@ -19,7 +19,7 @@ Scrivito.provideComponent("GalleryWidget", ({ widget }) => {
   const settings = sliderSettings(images);
   return (
     <div className="gallery-widget">
-      <Slider {...settings} className="gallery-widget--slick-slide">
+      <Slider {...settings}>
         {images.map((image, index) => (
           <Scrivito.ImageTag
             content={image}

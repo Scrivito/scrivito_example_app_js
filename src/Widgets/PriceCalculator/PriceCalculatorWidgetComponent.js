@@ -150,7 +150,7 @@ class PriceCalculatorWidget extends React.Component {
       }
       this.setState({ showBox: val, showData: tempData, barryIndex, showAlert: false });
       if (this.state.selectedOption.value === "Ørsted") {
-        this.setState({ showAlert: true });
+        setTimeout(() => {this.setState({ showAlert: true });}, 1500);
       }
       window.scrollTo(0, 0);
     } else {
@@ -451,17 +451,17 @@ class PriceCalculatorWidget extends React.Component {
               </div>
             </div>
             {window.location.pathname != "/Pristjek3" && <a className="link" href={ window.location.pathname == "/Pristjek2" ? "https://getbarry.app.link/r3hcH3cbcZ" : "https://getbarry.app.link/vrgOxox36Y"} target="blank" onClick={() => {}} style={{ marginBottom: 15 }}>
-              Hent app'en og skift det Barry - nemt & smart
+              Hent app’en og skift til Barry
             </a>}
             {window.location.pathname != "/Pristjek2" && <a className="link" href={window.location.pathname == "/Pristjek3" ? "http://snip.ly/my6bee" : "https://snip.ly/q4xon5"} target="blank" onClick={() => this.showBox(1)} style={{ marginTop: 15, marginBottom: 15 }}>
-              Skift til Barry online - det tager kun 2 minutter
+              Skift til Barry online
             </a>}
             <a href="/" style={{color: 'black'}}>Besøg getbarry.co</a>
           </div>
         )}
         {this.state.showAlert && <div className="pric_calc_alert">
           <div>
-            <button click={() => {this.setState({showAlert: false})}}><img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/f56193eab4ff2d53/4ca2d23a8acb/v/528bd98e79fd/close-button-white.png"/></button>
+            <button onClick={() => {this.setState({showAlert: false})}}><img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/f56193eab4ff2d53/4ca2d23a8acb/v/528bd98e79fd/close-button-white.png"/></button>
             <p>Viste du at Ørsted har øget den månedlige abonnementspris med 34%. Du betaler nu 39kr og ikke 29kr. Endnu en grund til at skifte til Barry?</p>
             <img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/207be548e8cebe4c/491a257a309b/coin.svg" />
           </div>

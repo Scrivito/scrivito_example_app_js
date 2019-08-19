@@ -24,7 +24,7 @@ class FooterWidget extends React.Component {
             <a href="https://www.youtube.com/channel/UCXOqi4jMACgwvqli8GG8wyg"><i className="fa fa-youtube"></i></a>
           </div>
           <div className="co-block">
-            <img width="90" src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/48750219aa96c6f9/b553e7db84aa/v/9400ade541b7/logo_da_180_96-96-224.png" alt="" data-scrivito-is-clickable="true" />
+            <a href="https://www.ingenco2.dk/crt/dispcust/c/5094/l/2" target="_blank"><img width="90" src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/48750219aa96c6f9/b553e7db84aa/v/9400ade541b7/logo_da_180_96-96-224.png" alt="" data-scrivito-is-clickable="true" /></a>
           </div>
           <div className="store-block">
             <div className="store-item">

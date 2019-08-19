@@ -3,22 +3,13 @@
 .link-container-widget {
   list-style-type: none;
   padding: 0;
-  display: block;
-  color: $theme-greydark;
 
-  li {
+  &,
+  & li,
+  & li a,
+  & li span {
     display: block;
     color: $theme-greydark;
-
-    a {
-      display: block;
-      color: $theme-greydark;
-    }
-
-    span {
-      display: block;
-      color: $theme-greydark;
-    }
   }
 
   .b-bottom {
@@ -30,16 +21,10 @@
     font-weight: 700;
   }
 
-  a {
+  a,
+  a:hover,
+  a:focus {
     text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
-
-    &:focus {
-      text-decoration: none;
-    }
   }
 
   &--headline {

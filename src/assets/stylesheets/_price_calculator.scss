@@ -19,7 +19,7 @@
       }
       .box2-content {
         box-sizing: border-box;
-        // height: 598px;
+        min-height: 598px;
         width: 100%;
         border: 1px solid #D7D7D7;
         border-radius: 3px;
@@ -162,6 +162,43 @@
       color: inherit;
       text-decoration: none;
       margin-bottom: 20px;
+    }
+  }
+  .pric_calc_alert {
+    background: #0000009f;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    
+    div {
+      display: flex;
+      flex-direction: row;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      background: white;
+      max-width: 600px;
+      padding: 50px;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 15px;
+      p {
+        margin-right: 15px;
+      }
+      button {
+        position: absolute;
+        right: 0px;
+        background: none;
+        top: -30px;
+        border: none;
+        img {
+          width: 30px;
+        }
+      }
     }
   }
 }

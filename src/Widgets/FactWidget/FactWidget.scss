@@ -1,0 +1,45 @@
+@import "src/assets/stylesheets/variables";
+
+.fact-widget {
+  padding: 30px 0;
+
+  .value,
+  .key {
+    display: block;
+    text-align: center;
+  }
+
+  .value {
+    color: $secondary;
+    font-size: 80px;
+    line-height: 80px;
+    font-family: "PT Sans Narrow", sans-serif;
+    font-weight: 700;
+  }
+
+  .key {
+    color: $theme-greydark;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  span:empty {
+    min-width: 20px !important;
+    display: block;
+    background: rgba(0, 255, 0, 0.2);
+  }
+}
+
+.bg-grey,
+.bg-greymiddle,
+.bg-greydark,
+.bg-dark-image {
+  .fact-widget .key {
+    color: $theme-greylight;
+  }
+}
+
+.bg-brand-primary .fact-widget .value,
+.bg-brand-secondary .fact-widget .value {
+  color: #fff;
+}

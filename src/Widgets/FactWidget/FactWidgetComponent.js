@@ -1,8 +1,10 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 
+import "./FactWidget.scss";
+
 Scrivito.provideComponent("FactWidget", ({ widget }) => (
-  <div className="fact">
+  <div className="fact-widget">
     <Scrivito.ContentTag
       content={widget}
       attribute="value"

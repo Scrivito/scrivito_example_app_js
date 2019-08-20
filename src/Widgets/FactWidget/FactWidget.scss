@@ -39,7 +39,9 @@
   }
 }
 
-.bg-brand-primary .fact-widget .value,
-.bg-brand-secondary .fact-widget .value {
-  color: #fff;
+.bg-brand-primary,
+.bg-brand-secondary {
+  .fact-widget .value {
+    color: #fff;
+  }
 }

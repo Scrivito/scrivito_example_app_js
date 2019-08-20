@@ -1,0 +1,138 @@
+@import "src/assets/stylesheets/variables";
+
+.gallery-widget {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0 100px 0;
+  position: relative;
+
+  .slick-dots {
+    bottom: -60px;
+    top: auto;
+    left: auto;
+    right: auto;
+    position: absolute;
+    line-height: 0;
+
+    li {
+      border: 5px solid #fff;
+      margin: 0;
+      display: inline-block;
+      width: auto;
+      height: auto;
+
+      button {
+        margin: 0;
+        height: auto;
+        width: 100%;
+        padding: 0;
+
+        &:before {
+          content: "";
+          border: 3px solid $secondary;
+          display: block;
+          width: 100%;
+          max-width: 180px;
+          overflow: hidden;
+          float: none;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+
+        &.tab {
+          clear: both;
+          display: block;
+        }
+
+        .image {
+          width: 180px;
+          height: 270px;
+          margin: 0;
+        }
+      }
+    }
+
+    li,
+    button:before {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .slick-slide {
+    height: 100%;
+  }
+
+  .slick-list {
+    max-height: 650px;
+  }
+
+  .slick-slider {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    max-width: 100%;
+
+    .slick-track {
+      min-width: 100%;
+    }
+
+    li img {
+      width: 100%;
+      height: auto;
+      margin: 0;
+    }
+  }
+
+  .slick-prev {
+    left: 40px;
+  }
+
+  .slick-thumbs {
+    display: none;
+  }
+
+  .slick-next {
+    right: 40px;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .gallery-widget {
+    .slick-dots {
+      bottom: -60px;
+
+      li button .image {
+        max-width: 150px;
+        max-height: 100px;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .gallery-widget {
+    .slick-dots {
+      bottom: -40px;
+
+      li button .image {
+        max-width: 100px;
+        max-height: 66px;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .gallery-widget {
+    .slick-dots {
+      bottom: -20px;
+
+      li button .image {
+        max-width: 40px;
+        max-height: 26px;
+      }
+    }
+  }
+}

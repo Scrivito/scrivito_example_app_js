@@ -1,7 +1,9 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+
 import googleMapsApiKey from "../../utils/googleMapsApiKey";
 import googleMapsImageUrl from "../../utils/googleMapsImageUrl";
+import "./GoogleMapsWidget.scss";
 
 const maxWidth = 640;
 
@@ -78,7 +80,7 @@ class GoogleMapsWidgetComponent extends React.Component {
     }
 
     return (
-      <div ref={this.outerDivRef} className="bg-map" style={style}>
+      <div ref={this.outerDivRef} className="google-maps-widget" style={style}>
         <InteractiveMap
           address={address}
           zoom={zoom}

@@ -2428,49 +2428,6 @@ img.cookie-img {
   }
 }
 
-/* section google map
-=================================================================== */
-
-.bg-map {
-  overflow: hidden;
-  position: relative;
-  min-height: 350px;
-}
-.bg-map iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-}
-.bg-map .card {
-  padding: 30px;
-  margin: 40px 0 100px 0;
-  background: #fff;
-}
-.bg-map {
-  a,
-  a:hover,
-  a:focus {
-    color: $theme-greydark;
-    text-decoration: none;
-  }
-  .b-bottom {
-    padding: 0 0 20px 0;
-  }
-  table td {
-    padding: 0 5px 0 0;
-  }
-  .social-links i {
-    padding: 10px 15px;
-  }
-}
-@media (max-width: $screen-xs-max) {
-  .bg-map .card {
-    margin: 200px 0 -10px 0;
-  }
-}
-
 /* contact form
 =================================================================== */
 

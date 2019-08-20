@@ -3,6 +3,22 @@
 @import "src/assets/stylesheets/bootstrap/variables";
 @import "src/assets/stylesheets/bootstrap/mixins/transition";
 
+.bg-dark-image,
+.bg-brand-primary,
+.bg-brand-secondary,
+.bg-grey,
+.bg-greydark,
+.bg-greymiddle {
+  .testimonial-slider-widget {
+    .slick-prev,
+    .slick-next {
+      &:before {
+        color: #fff;
+      }
+    }
+  }
+}
+
 .testimonial-slider-widget {
   &--quote-headline {
     color: $secondary !important;
@@ -50,6 +66,7 @@
     z-index: 2;
     color: #666;
   }
+
   .slick-next {
     right: 0;
     z-index: 2;
@@ -60,20 +77,6 @@
   .slick-next {
     &:before {
       color: #666;
-    }
-  }
-
-  .bg-dark-image,
-  .bg-brand-primary,
-  .bg-brand-secondary,
-  .bg-grey,
-  .bg-greydark,
-  .bg-greymiddle {
-    .slick-prev,
-    .slick-next {
-      &:before {
-        color: #fff;
-      }
     }
   }
 }

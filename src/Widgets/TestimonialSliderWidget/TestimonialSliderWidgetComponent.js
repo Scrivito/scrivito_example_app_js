@@ -12,7 +12,7 @@ Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
   const settings = sliderSettings(testimonials);
 
   return (
-    <React.Fragment>
+    <div className="testimonial-slider-widget">
       <Slider {...settings}>
         {testimonials.map(testimonial => (
           <div key={testimonial.id()}>
@@ -35,7 +35,7 @@ Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
         ))}
       </Slider>
       <AddTestimonial widget={widget} />
-    </React.Fragment>
+    </div>
   );
 });
 

@@ -44,4 +44,36 @@
       display: inline-block;
     }
   }
+
+  .slick-prev {
+    left: 0;
+    z-index: 2;
+    color: #666;
+  }
+  .slick-next {
+    right: 0;
+    z-index: 2;
+    color: #666;
+  }
+
+  .slick-prev,
+  .slick-next {
+    &:before {
+      color: #666;
+    }
+  }
+
+  .bg-dark-image,
+  .bg-brand-primary,
+  .bg-brand-secondary,
+  .bg-grey,
+  .bg-greydark,
+  .bg-greymiddle {
+    .slick-prev,
+    .slick-next {
+      &:before {
+        color: #fff;
+      }
+    }
+  }
 }

@@ -1,12 +1,14 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
+import "./LinkContainerWidget.scss";
 
 Scrivito.provideComponent("LinkContainerWidget", ({ widget }) => (
   <React.Fragment>
     <Headline widget={widget} />
     <Scrivito.ContentTag
-      className="page-list"
+      className="link-container-widget"
       tag="ul"
       content={widget}
       attribute="links"
@@ -25,5 +27,9 @@ const Headline = Scrivito.connect(({ widget }) => {
     );
   }
 
-  return <div className="page-list-headline">{widget.get("headline")}</div>;
+  return (
+    <div className="link-container-widget--headline b-bottom">
+      {widget.get("headline")}
+    </div>
+  );
 });

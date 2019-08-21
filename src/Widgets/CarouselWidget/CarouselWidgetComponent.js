@@ -3,7 +3,9 @@ import * as Scrivito from "scrivito";
 import ReactstrapCarousel from "reactstrap/lib/Carousel";
 import ReactstrapCarouselControl from "reactstrap/lib/CarouselControl";
 import ReactstrapCarouselItem from "reactstrap/lib/CarouselItem";
+
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
+import "./CarouselWidget.scss";
 
 Scrivito.provideComponent("CarouselWidget", ({ widget }) => {
   const images = widget.get("images");
@@ -17,7 +19,7 @@ Scrivito.provideComponent("CarouselWidget", ({ widget }) => {
   }
 
   return (
-    <div>
+    <div className="carousel-widget">
       <Carousel images={images} />
       <DescriptionBox widget={widget} />
     </div>
@@ -113,15 +115,15 @@ const DescriptionBox = Scrivito.connect(({ widget }) => {
 
   return (
     <div className="container">
-      <div className="client-wrapper">
-        <div className="client-logo">
+      <div className="description-box">
+        <div className="description-box--logo">
           <Scrivito.ImageTag
             content={widget}
             attribute="descriptionLogo"
             alt="Logo"
           />
         </div>
-        <div className="client-text">
+        <div className="description-box--text">
           <Scrivito.ContentTag content={widget} attribute="description" />
         </div>
       </div>

@@ -1,0 +1,154 @@
+@import "src/assets/stylesheets/variables";
+
+.carousel-widget {
+  .carousel-control {
+    background: transparent !important;
+    opacity: 1;
+
+    &.right .fa {
+      letter-spacing: -2px;
+      right: 20px;
+    }
+
+    &.left .fa {
+      letter-spacing: 3px;
+      left: 20px;
+    }
+
+    &-next,
+    &-next:hover,
+    &-prev,
+    &-prev:hover {
+      opacity: 1;
+      cursor: pointer;
+
+      .carousel-control-next-icon,
+      .carousel-control-prev-icon {
+        height: 100px;
+        width: 50px;
+        filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+      }
+
+      .carousel-control-prev-icon {
+        background-image: url("../../assets/images/arrow_prev.svg");
+      }
+
+      .carousel-control-next-icon {
+        background-image: url("../../assets/images/arrow_next.svg");
+      }
+    }
+
+    .fa {
+      display: inline-block;
+      margin-top: -15px;
+      position: absolute;
+      top: 50%;
+      z-index: 5;
+      font-size: 20px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 38px;
+      color: #fff;
+      background: $primary;
+      text-shadow: none;
+    }
+  }
+
+  .carousel-images .carousel-item {
+    height: 550px;
+  }
+
+  .carousel-inner > .carousel-item > {
+    img,
+    a > img {
+      width: 100%;
+    }
+  }
+
+  /* description-box */
+
+  .description-box {
+    margin-top: -50px;
+    display: flex;
+    flex-direction: row;
+
+    &--logo,
+    &--text {
+      padding: 15px;
+      background: #fff;
+      float: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &--logo img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    &--text {
+      strong {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: $theme-greydark;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .carousel-widget {
+    .carousel-images .carousel-item {
+      height: 250px;
+    }
+
+    .description-box {
+      &--logo {
+        width: 90%;
+        margin-left: 5%;
+      }
+      &--text {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .carousel-widget {
+    .description-box {
+      &--logo {
+        width: 30%;
+      }
+      &--text {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .carousel-widget {
+    .description-box {
+      display: block;
+
+      &--logo {
+        width: 60%;
+        margin-left: 20%;
+        text-align: center;
+      }
+
+      &--text {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

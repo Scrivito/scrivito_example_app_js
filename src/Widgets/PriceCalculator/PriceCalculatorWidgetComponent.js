@@ -462,7 +462,8 @@ class PriceCalculatorWidget extends React.Component {
         {this.state.showAlert && <div className="pric_calc_alert">
           <div>
             <button onClick={() => {this.setState({showAlert: false})}}><img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/f56193eab4ff2d53/4ca2d23a8acb/v/528bd98e79fd/close-button-white.png"/></button>
-            <p>Viste du at Ørsted har øget den månedlige abonnementspris med 34%. Du betaler nu 39kr og ikke 29kr. Endnu en grund til at skifte til Barry?</p>
+            <p>Vidste du, at Ørsted har hævet den månedlige abonnementspris med 34%? Dvs. at du nu betaler 39 kr. istedet for 29 kr. om måneden hos dem.<br/>
+            Endnu en grund til at skifte til Barry?</p>
             <img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/207be548e8cebe4c/491a257a309b/coin.svg" />
           </div>
         </div>}

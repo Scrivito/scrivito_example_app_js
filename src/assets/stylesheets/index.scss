@@ -2258,58 +2258,6 @@ img.cookie-img {
 /* landing page
 =================================================================== */
 
-.hr-icon {
-  clear: both;
-  position: relative;
-  padding: 60px 0;
-  text-align: center;
-  height: 0;
-}
-.hr-icon:after {
-  background: #666;
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  display: block;
-  height: 1px;
-}
-.hr-icon img {
-  display: inline-block;
-  padding: 0 15px;
-  height: 40px;
-  position: relative;
-  transform: translate(0, -50%);
-  z-index: 1;
-}
-
-.bg-grey .hr-icon img {
-  background-color: $theme-grey;
-}
-.bg-greylight .hr-icon img {
-  background-color: $theme-greylight;
-}
-.bg-greydark .hr-icon img {
-  background-color: $theme-greydark;
-}
-.bg-greymiddle .hr-icon img {
-  background-color: $theme-greymiddle;
-}
-.bg-greywhite .hr-icon img {
-  background-color: $theme-greywhite;
-}
-.bg-white .hr-icon img {
-  background-color: #fff;
-}
-
-.bg-brand-primary .hr-icon img {
-  background-color: $primary;
-}
-.bg-brand-secondary .hr-icon img {
-  background-color: $secondary;
-}
-
 @media (max-width: 767px) {
   .text-right,
   .text-left {

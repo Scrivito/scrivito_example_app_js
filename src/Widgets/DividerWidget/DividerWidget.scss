@@ -1,0 +1,55 @@
+@import "src/assets/stylesheets/variables";
+
+.divider-widget {
+  clear: both;
+  position: relative;
+  padding: 60px 0;
+  text-align: center;
+  height: 0;
+
+  &:after {
+    background: #666;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: block;
+    height: 1px;
+  }
+
+  img {
+    display: inline-block;
+    padding: 0 15px;
+    height: 40px;
+    position: relative;
+    transform: translate(0, -50%);
+    z-index: 1;
+  }
+}
+
+.bg-grey .divider-widget img {
+  background-color: $theme-grey;
+}
+.bg-greylight .divider-widget img {
+  background-color: $theme-greylight;
+}
+.bg-greydark .divider-widget img {
+  background-color: $theme-greydark;
+}
+.bg-greymiddle .divider-widget img {
+  background-color: $theme-greymiddle;
+}
+.bg-greywhite .divider-widget img {
+  background-color: $theme-greywhite;
+}
+.bg-white .divider-widget img {
+  background-color: #fff;
+}
+
+.bg-brand-primary .divider-widget img {
+  background-color: $primary;
+}
+.bg-brand-secondary .divider-widget img {
+  background-color: $secondary;
+}

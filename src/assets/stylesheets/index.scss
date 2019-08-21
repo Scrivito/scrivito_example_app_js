@@ -2168,37 +2168,6 @@ img.cookie-img {
   }
 }
 
-/* slick slider override
-=================================================================== */
-
-.slick-prev {
-  left: 0;
-  z-index: 2;
-  color: #666;
-}
-.slick-next {
-  right: 0;
-  z-index: 2;
-  color: #666;
-}
-
-.slick-prev:before,
-.slick-next:before {
-  color: #666;
-}
-
-.bg-dark-image,
-.bg-brand-primary,
-.bg-brand-secondary,
-.bg-grey,
-.bg-greydark,
-.bg-greymiddle {
-  .slick-prev:before,
-  .slick-next:before {
-    color: #fff;
-  }
-}
-
 /* contact form
 =================================================================== */
 

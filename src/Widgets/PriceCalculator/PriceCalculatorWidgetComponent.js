@@ -57,7 +57,6 @@ class PriceCalculatorWidget extends React.Component {
   }
 
   componentDidMount() {
-    console.log("111-", );
     const tempSup = [];
     const tempOptions = [];
 
@@ -92,6 +91,10 @@ class PriceCalculatorWidget extends React.Component {
   }
 
   showBox(val) {
+    if (val == 1) {
+      this.setState({ showBox: val, showAlert: false });
+      return;
+    }
     if (this.state.selectedOption && this.state.selectedBol > 0 && this.state.zip !== "" && parseInt(this.state.zip, 10) >= 1000 && parseInt(this.state.zip, 10) <= 9999) {
       let tempData = [];
       let prevName = [];
@@ -150,7 +153,7 @@ class PriceCalculatorWidget extends React.Component {
       }
       this.setState({ showBox: val, showData: tempData, barryIndex, showAlert: false });
       if (this.state.selectedOption.value === "Ørsted") {
-        setTimeout(() => {this.setState({ showAlert: true });}, 1500);
+        setTimeout(() => {this.setState({ showAlert: true });}, 15000);
       }
       window.scrollTo(0, 0);
     } else {
@@ -453,7 +456,7 @@ class PriceCalculatorWidget extends React.Component {
             {window.location.pathname != "/Pristjek3" && <a className="link" href={ window.location.pathname == "/Pristjek2" ? "https://getbarry.app.link/r3hcH3cbcZ" : "https://getbarry.app.link/vrgOxox36Y"} target="blank" onClick={() => {}} style={{ marginBottom: 15 }}>
               Hent app’en og skift til Barry
             </a>}
-            {window.location.pathname != "/Pristjek2" && <a className="link" href={window.location.pathname == "/Pristjek3" ? "http://snip.ly/my6bee" : "https://snip.ly/q4xon5"} target="blank" onClick={() => this.showBox(1)} style={{ marginTop: 15, marginBottom: 15 }}>
+            {window.location.pathname != "/Pristjek2" && <a className="link" href={window.location.pathname == "/Pristjek3" ? "http://snip.ly/my6bee" : "https://snip.ly/q4xon5"} target="blank" style={{ marginTop: 15, marginBottom: 15 }}>
               Skift til Barry online
             </a>}
             <a href="/" style={{color: 'black'}}>Besøg getbarry.co</a>

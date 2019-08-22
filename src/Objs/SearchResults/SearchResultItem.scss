@@ -1,0 +1,58 @@
+@import "src/assets/stylesheets/variables";
+
+.search-result-item {
+  margin: 20px 0;
+  padding-bottom: 20px;
+  overflow: hidden;
+  border-bottom: 1px solid $theme-greylight;
+
+  &--image {
+    display: table-cell;
+    vertical-align: top;
+    width: 150px;
+    text-align: center;
+    padding: 0 20px 0 0;
+
+    img {
+      width: 150px;
+      max-width: none;
+    }
+  }
+
+  &--content {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 20px 0 0;
+    width: 10000px;
+
+    .h3,
+    p {
+      margin-bottom: 5px;
+    }
+  }
+
+  &--options {
+    display: table-cell;
+    vertical-align: middle;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .search-result-item {
+    &--image,
+    &--content,
+    &--options {
+      display: block;
+      width: 100%;
+      padding: 0;
+    }
+
+    &--image {
+      &,
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

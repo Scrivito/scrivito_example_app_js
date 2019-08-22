@@ -1285,60 +1285,6 @@ section.navbar-fixed {
   }
 }
 
-/* result item
-=================================================================== */
-
-.result-item {
-  margin: 20px 0;
-  padding-bottom: 20px;
-  overflow: hidden;
-  border-bottom: 1px solid $theme-greylight;
-}
-.result-item .result-image {
-  display: table-cell;
-  vertical-align: top;
-  width: 150px;
-  text-align: center;
-  padding: 0 20px 0 0;
-}
-.result-item .result-image img {
-  width: 150px;
-  max-width: none;
-}
-
-.result-item .result-content {
-  display: table-cell;
-  vertical-align: top;
-  padding: 0 20px 0 0;
-  width: 10000px;
-}
-.result-item .result-content {
-  .h3,
-  p {
-    margin-bottom: 5px;
-  }
-}
-
-.result-item .result-options {
-  display: table-cell;
-  vertical-align: middle;
-  min-width: 100px;
-}
-
-@media (max-width: $screen-xs-max) {
-  .result-item .result-image,
-  .result-item .result-content,
-  .result-item .result-options {
-    display: block;
-    width: 100%;
-    padding: 0;
-  }
-  .result-item .result-image,
-  .result-item .result-image img {
-    width: 100%;
-  }
-}
-
 /* timeline for blog
 =================================================================== */
 

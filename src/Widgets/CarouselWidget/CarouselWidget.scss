@@ -107,6 +107,8 @@
     }
 
     .description-box {
+      display: block;
+
       &--logo {
         width: 90%;
         margin-left: 5%;
@@ -119,7 +121,7 @@
   }
 }
 
-@media (min-width: $screen-xs-max) and (max-width: $screen-sm-max) {
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
   .carousel-widget {
     .description-box {
       display: block;

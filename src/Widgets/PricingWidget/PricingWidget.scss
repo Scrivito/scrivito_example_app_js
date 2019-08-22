@@ -121,7 +121,7 @@
   }
 }
 
-@media (max-width: $screen-sm-max) {
+@media (min-width: 600px) and (max-width: $screen-sm-max) {
   .pricing-widget {
     .pricing-widget-chart {
       float: none !important;

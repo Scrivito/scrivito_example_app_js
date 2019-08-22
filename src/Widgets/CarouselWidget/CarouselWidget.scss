@@ -121,20 +121,7 @@
   }
 }
 
-@media (min-width: $screen-md-min) {
-  .carousel-widget {
-    .description-box {
-      &--logo {
-        width: 30%;
-      }
-      &--text {
-        width: 70%;
-      }
-    }
-  }
-}
-
-@media (max-width: $screen-sm-max) {
+@media (min-width: $screen-xs-max) and (max-width: $screen-sm-max) {
   .carousel-widget {
     .description-box {
       display: block;
@@ -148,6 +135,19 @@
       &--text {
         width: 100%;
         text-align: center;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .carousel-widget {
+    .description-box {
+      &--logo {
+        width: 30%;
+      }
+      &--text {
+        width: 70%;
       }
     }
   }

@@ -116,12 +116,21 @@
 @media (max-width: 600px) {
   .pricing-widget {
     .pricing-widget-chart {
+      float: none !important;
+      left: 0px !important;
+      top: 0px !important;
+      margin: 0 auto;
       width: 90% !important;
+      margin-bottom: 25px !important;
+
+      &.last {
+        margin-bottom: 0px !important;
+      }
     }
   }
 }
 
-@media (max-width: $screen-sm-max) {
+@media (min-width: 601px) and (max-width: $screen-sm-max) {
   .pricing-widget {
     .pricing-widget-chart {
       float: none !important;

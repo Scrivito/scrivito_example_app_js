@@ -98,20 +98,20 @@
   }
 }
 
-@media (min-width: $screen-md-min) {
+@media (max-width: $screen-xs-max) {
   .gallery-widget {
     .slick-dots {
-      bottom: -60px;
+      bottom: -20px;
 
       li button .image {
-        max-width: 150px;
-        max-height: 100px;
+        max-width: 40px;
+        max-height: 26px;
       }
     }
   }
 }
 
-@media (max-width: $screen-sm-max) {
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
   .gallery-widget {
     .slick-dots {
       bottom: -40px;
@@ -124,14 +124,14 @@
   }
 }
 
-@media (max-width: $screen-xs-max) {
+@media (min-width: $screen-md-min) {
   .gallery-widget {
     .slick-dots {
-      bottom: -20px;
+      bottom: -60px;
 
       li button .image {
-        max-width: 40px;
-        max-height: 26px;
+        max-width: 150px;
+        max-height: 100px;
       }
     }
   }

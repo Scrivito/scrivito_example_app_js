@@ -4,9 +4,9 @@ import * as ReactDOM from "react-dom";
 import * as Scrivito from "scrivito";
 import "./Objs";
 import "./Widgets";
+import "./assets/stylesheets/index.scss";
 import App from "./App";
 import "./config";
-import "./assets/stylesheets/index.scss";
 
 if (window.preloadDump) {
   Scrivito.preload(window.preloadDump).then(({ dumpLoaded }) => {

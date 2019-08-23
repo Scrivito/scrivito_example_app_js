@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
-import "./VimeoVideoWidgetStyles.scss";
+import "./VimeoVideoWidget.scss";
 
 Scrivito.provideComponent("VimeoVideoWidget", ({ widget }) => {
   const vimeoVideoId = widget.get("vimeoVideoId");

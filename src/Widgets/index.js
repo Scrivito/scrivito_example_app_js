@@ -1,3 +1,6 @@
+import "scrivito-youtube-video-widget";
+import "scrivito-youtube-video-widget/index.css";
+
 function importAll(r) {
   r.keys().forEach(r);
 }

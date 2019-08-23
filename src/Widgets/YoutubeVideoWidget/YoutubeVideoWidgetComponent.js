@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
-import "./YoutubeVideoWidgetStyles.scss";
+import "./YoutubeVideoWidget.scss";
 
 Scrivito.provideComponent("YoutubeVideoWidget", ({ widget }) => {
   const youtubeVideoId = widget.get("youtubeVideoId");

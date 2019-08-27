@@ -25,7 +25,7 @@
     "core-js": "^3.2.1",
     "css-loader": "^3.2.0",
     "dateformat": "^3.0.3",
-    "dotenv": "^8.0.0",
+    "dotenv": "^8.1.0",
     "ent": "^2.2.0",
     "es-check": "^5.0.0",
     "eslint": "^5.16.0",

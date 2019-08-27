@@ -34,6 +34,7 @@ const showPriceTypes = [
   },
 ];
 
+
 class PriceCalculatorWidget extends React.Component {
   constructor(props) {
     super(props);
@@ -53,6 +54,7 @@ class PriceCalculatorWidget extends React.Component {
         label: "Elpris ialt",
       },
       showAlert: false,
+      maxVal: 0,
     };
   }
 
@@ -98,6 +100,7 @@ class PriceCalculatorWidget extends React.Component {
     if (this.state.selectedOption && this.state.selectedBol > 0 && this.state.zip !== "" && parseInt(this.state.zip, 10) >= 1000 && parseInt(this.state.zip, 10) <= 9999) {
       let tempData = [];
       let prevName = [];
+      let max = 0;
       myData.forEach(element => {
         let region = "DK2";
         let kwh = 1800;
@@ -136,11 +139,14 @@ class PriceCalculatorWidget extends React.Component {
             name = name + " ";
           }
           prevName.push(name);
+          if (max < tempVal) {
+            max = tempVal;
+          }
           tempData.push({
             supplier: element.supplier,
             name,
             uv: tempVal,
-            label: `${tempVal.toFixed(1).replace('.0', '').replace('.', ',')} ${unit}`,
+            label: `${name} | ${tempVal.toFixed(1).replace('.0', '').replace('.', ',')} ${unit}`,
           });
         }
       });
@@ -151,7 +157,7 @@ class PriceCalculatorWidget extends React.Component {
           barryIndex = i;
         }
       }
-      this.setState({ showBox: val, showData: tempData, barryIndex, showAlert: false });
+      this.setState({ showBox: val, showData: tempData, barryIndex, showAlert: false, maxVal: parseInt(max * 2.5) });
       if (this.state.selectedOption.value === "Ørsted") {
         setTimeout(() => {this.setState({ showAlert: true });}, 15000);
       }
@@ -334,7 +340,61 @@ class PriceCalculatorWidget extends React.Component {
                 </div>
               </div>
               <div>
-                { this.state.showData.length < 10 && <BarChart width={670} height={350} data={this.state.showData} >
+                { window.innerWidth < 700 && <ComposedChart
+                  layout="vertical"
+                  width={window.innerWidth - 40}
+                  height={this.state.showData.length * 80}
+                  data={this.state.showData}
+                  margin={{
+                    top: 20, right: 20, bottom: 20, left: 15,
+                  }}
+                >
+                <XAxis type="number" xAxisId={0} tickCount={10} orientation="top" domain={[0, dataMax => this.state.maxVal]}/>  
+                <XAxis type="number" xAxisId={555} tickCount={10} orientation="bottom" domain={[0, dataMax => this.state.maxVal]}/>
+                <YAxis dataKey="name" type="category" width={1} tick={false}/>
+                <Bar dataKey="uv" barSize={40} >
+                <LabelList
+                      dataKey="label"
+                      position="top"
+                      content={props => {
+                        const { x, y, width, value } = props;
+                        let sp = value.split('|');
+                        return (
+                          <g>
+                            <text
+                              x={x + width + 10}
+                              y={y + 12}
+                              fill="#6C738A"
+                              textAnchor="start"
+                              dominantBaseline="middle"
+                              fontSize="smaller"
+                            >
+                              {sp[0]}
+                            </text>
+                            <text
+                              x={x + width + 10}
+                              y={y + 32}
+                              fill="#6C738A"
+                              textAnchor="start"
+                              dominantBaseline="middle"
+                              fontSize="smaller"
+                            >
+                              {sp[1]}
+                            </text>
+                          </g>
+                        );
+                      }}
+                    />
+                    {this.state.showData.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={index === this.state.barryIndex ? "#2EDBAC" : "#4DE9BF44"}
+                      />
+                    ))}
+                </Bar>
+                </ComposedChart>
+                }
+                { window.innerWidth >= 700 && this.state.showData.length < 10 && <BarChart width={670} height={350} data={this.state.showData} >
                   <XAxis dataKey="name" tick={() => {
                     return null;}}/>
                   <XAxis dataKey="name" axisLine={false} tickLine={false} interval={0} tick={(tickProps) => {
@@ -401,55 +461,65 @@ class PriceCalculatorWidget extends React.Component {
                     {this.state.showData.map((entry, index) => (
                       <Cell
                         key={`cell-${index}`}
-                        fill={index === this.state.barryIndex ? "#2EDBAC" : "#4DE9BF99"}
+                        fill={index === this.state.barryIndex ? "#2EDBAC" : "#4DE9BF44"}
                       />
                     ))}
                   </Bar>
                     </BarChart> }
-                { this.state.showData.length > 10 && 
-
-                <ComposedChart
-                layout="vertical"
-                width={500}
-                height={1500}
-                data={this.state.showData}
-                margin={{
-                  top: 20, right: 20, bottom: 20, left: 100,
-                }}
-                >
-                <XAxis type="number" />
-                <YAxis dataKey="name" type="category" />
-                <Bar dataKey="uv" barSize={20} >
-                <LabelList
-                      dataKey="label"
-                      position="top"
-                      content={props => {
-                        const { x, y, width, value } = props;
-                        const radius = 10;
-
-                        return (
-                          <g>
-                            <text
-                              x={x + width + 60}
-                              y={y + 12}
-                              fill="#6C738A"
-                              textAnchor="middle"
-                              dominantBaseline="middle"
-                            >
-                              {value}
-                            </text>
-                          </g>
-                        );
-                      }}
-                    />
-                    {this.state.showData.map((entry, index) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={index === this.state.barryIndex ? "#2EDBAC" : "#4DE9BF99"}
+                { window.innerWidth >= 700 && this.state.showData.length > 10 && 
+                  <ComposedChart
+                    layout="vertical"
+                    width={500}
+                    height={this.state.showData.length * 80}
+                    data={this.state.showData}
+                    margin={{
+                      top: 20, right: 20, bottom: 20, left: 100,
+                    }}
+                  >
+                  <XAxis type="number" xAxisId={0} tickCount={10} orientation="top" domain={[0, dataMax => this.state.maxVal]}/>  
+                  <XAxis type="number" xAxisId={555} tickCount={10} orientation="bottom" domain={[0, dataMax => this.state.maxVal]}/>
+                  <YAxis dataKey="name" type="category" width={1} tick={false}/>
+                  <Bar dataKey="uv" barSize={40} >
+                  <LabelList
+                        dataKey="label"
+                        position="top"
+                        content={props => {
+                          const { x, y, width, value } = props;
+                          let sp = value.split('|');
+                          return (
+                            <g>
+                              <text
+                                x={x + width + 10}
+                                y={y + 12}
+                                fill="#6C738A"
+                                textAnchor="start"
+                                dominantBaseline="middle"
+                                fontSize="smaller"
+                              >
+                                {sp[0]}
+                              </text>
+                              <text
+                                x={x + width + 10}
+                                y={y + 32}
+                                fill="#6C738A"
+                                textAnchor="start"
+                                dominantBaseline="middle"
+                                fontSize="smaller"
+                              >
+                                {sp[1]}
+                              </text>
+                            </g>
+                          );
+                        }}
                       />
-                    ))}
-                </Bar>
-                </ComposedChart>
+                      {this.state.showData.map((entry, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={index === this.state.barryIndex ? "#2EDBAC" : "#4DE9BF44"}
+                        />
+                      ))}
+                  </Bar>
+                  </ComposedChart>
                 }
               </div>
             </div>

@@ -5,7 +5,7 @@
     flex-direction: column;
     margin: 0 auto;
     .price-sel > div > div:first-child {
-      padding-left: 20px;
+      padding-left: 10px;
     }
     a {
       cursor: pointer;
@@ -39,7 +39,7 @@
             flex-direction: column;
           }
           > div:last-child {
-            width: 170px;
+            min-width: 160px;
           }
         }
         .recharts-wrapper {
@@ -131,6 +131,7 @@
         }
         img {
           margin: 0 auto 25px;
+          min-height: 0;
         }
       }
     }

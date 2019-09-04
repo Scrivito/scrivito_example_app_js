@@ -72,10 +72,20 @@ class PriceCalculatorWidget extends React.Component {
       }
     });
     this.setState({ suppliers: tempOptions });
-  }
 
-  componentWillUnmount() {
-    clearInterval(this.timer);
+    if (window.location.pathname.indexOf('-done') >= 0) {
+      const sData = JSON.parse(localStorage.getItem('pristjek-data'));
+      const selectedBol = parseInt(localStorage.getItem('pristjek-selectedBol'));
+      const zip = parseInt(localStorage.getItem('pristjek-zip'));
+      const maxVal = parseInt(localStorage.getItem('pristjek-maxVal'));
+      const selectedOption = JSON.parse(localStorage.getItem('pristjek-selectedOption'));
+      const barryIndex = parseInt(localStorage.getItem('pristjek-barryIndex'));
+      
+      if (selectedOption.value === "Ørsted") {
+        setTimeout(() => {this.setState({ showAlert: true });}, 15000);
+      }
+      this.setState({ showData: sData, showBox: 2, selectedBol, selectedOption, zip, maxVal, barryIndex });
+    }
   }
 
   handleChange(selectedOption) {
@@ -157,17 +167,31 @@ class PriceCalculatorWidget extends React.Component {
           barryIndex = i;
         }
       }
-      this.setState({ showBox: val, showData: tempData, barryIndex, showAlert: false, maxVal: parseInt(max * 2.5) });
+      if (window.location.href.indexOf('-done') >= 0) {
+        this.setState({ showBox: val, showData: tempData, barryIndex, showAlert: false, maxVal: parseInt(max * 2.5) });
+      }
+      
+      localStorage.setItem('pristjek-data', JSON.stringify(tempData));
+      localStorage.setItem('pristjek-selectedBol', this.state.selectedBol);
+      localStorage.setItem('pristjek-selectedOption', JSON.stringify(this.state.selectedOption));
+      localStorage.setItem('pristjek-zip', this.state.zip);
+      localStorage.setItem('pristjek-maxVal', parseInt(max * 2.5));
+      localStorage.setItem('pristjek-barryIndex', barryIndex);
+      
+      
       if (this.state.selectedOption.value === "Ørsted") {
-        setTimeout(() => {this.setState({ showAlert: true });}, 15000);
+        // setTimeout(() => {this.setState({ showAlert: true });}, 15000);
+        localStorage.setItem('pristjek-showAlert', true);
       }
       window.scrollTo(0, 0);
+      return true;
     } else {
       if (parseInt(this.state.zip, 10) < 1000 || parseInt(this.state.zip, 10) > 9999) {
         alert("The postcode should be >1000 and < 9999");
       } else {
         alert("getbary.co meddelse \nBesvar venligst alle 3 spørgsmål for at få et svar");
       }
+      return false;
     }
   }
 
@@ -318,7 +342,8 @@ class PriceCalculatorWidget extends React.Component {
               placeholder="Vælg elselskab"
               className="price-sel"
             />
-            <button onClick={() => this.showBox(2)}>Sammenlign ></button>
+            {/* <button onClick={() => { window.location.href="" }}>Sammenlign ></button> */}
+            <a className="link" href={ "Pristjek-done" + window.location.pathname.replace("/Pristjek", "").replace("/pristjek", "")} style={{ marginBottom: 15 }} onClick={(e) => { if(!this.showBox(2)) e.preventDefault(); }}>Sammenlign ></a>
           </div>
         )}
         {this.state.showBox === 2 && (
@@ -442,6 +467,7 @@ class PriceCalculatorWidget extends React.Component {
                         const { x, y, width, value } = props;
                         const radius = 10;
 
+                        const label = value.split("|")[1].trim();
                         return (
                           <g>
                             <text
@@ -451,8 +477,8 @@ class PriceCalculatorWidget extends React.Component {
                               textAnchor="middle"
                               dominantBaseline="middle"
                             >
-                              <tspan x={x + width / 2} dy="1.2em">{value.split(" ")[0]}</tspan>
-                              <tspan x={x + width / 2} dy="1.2em">{value.split(" ")[1]}</tspan>
+                              <tspan x={x + width / 2} dy="1.2em">{label.split(" ")[0]}</tspan>
+                              <tspan x={x + width / 2} dy="1.2em">{label.split(" ")[1]}</tspan>
                             </text>
                           </g>
                         );
@@ -523,10 +549,10 @@ class PriceCalculatorWidget extends React.Component {
                 }
               </div>
             </div>
-            {window.location.pathname != "/Pristjek3" && <a className="link" href={ window.location.pathname == "/Pristjek2" ? "https://getbarry.app.link/r3hcH3cbcZ" : "https://getbarry.app.link/vrgOxox36Y"} target="blank" onClick={() => {}} style={{ marginBottom: 15 }}>
+            {window.location.pathname != "/Pristjek-done3" && <a className="link" href={ window.location.pathname == "/Pristjek-done2" ? "https://getbarry.app.link/r3hcH3cbcZ" : "https://getbarry.app.link/vrgOxox36Y"} target="blank" onClick={() => {}} style={{ marginBottom: 15 }}>
               Hent app’en og skift til Barry
             </a>}
-            {window.location.pathname != "/Pristjek2" && <a className="link" href={window.location.pathname == "/Pristjek3" ? "http://snip.ly/my6bee" : "https://snip.ly/q4xon5"} target="blank" style={{ marginTop: 15, marginBottom: 15 }}>
+            {window.location.pathname != "/Pristjek-done2" && <a className="link" href={window.location.pathname == "/Pristjek-done3" ? "http://snip.ly/my6bee" : "https://snip.ly/q4xon5"} target="blank" style={{ marginTop: 15, marginBottom: 15 }}>
               Skift til Barry online
             </a>}
             <a href="/" style={{color: 'black'}}>Besøg getbarry.co</a>

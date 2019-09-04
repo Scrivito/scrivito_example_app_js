@@ -1,5 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+
+import "./ContactFormWidget.scss";
 import "./contactForm.html";
 /* This html file is needed for Netlify form handling. Updates to inputs in this file should also be
 added to contactForm.html as well. See the following link for details:

@@ -1989,30 +1989,6 @@ img.cookie-img {
   }
 }
 
-.floating-label label {
-  font-size: 11px;
-  line-height: 16px;
-  color: #bbb;
-  font-weight: 400;
-  padding: 2px 5px;
-  margin: 0 0 0 10px;
-  background: #fff;
-}
-.floating-label .form-control {
-  margin-top: -11px;
-  border: 1px solid $theme-greylight;
-}
-.floating-label .form-control:focus {
-  box-shadow: 0 0 0 2px $secondary;
-}
-
-.floating-label .checkbox label {
-  font-size: 13px;
-  line-height: 18px;
-  padding: 2px 5px 2px 20px;
-  color: $theme-greymiddle;
-}
-
 /* login
 =================================================================== */
 
@@ -2037,73 +2013,6 @@ img.cookie-img {
   .text-right,
   .text-left {
     text-align: center;
-  }
-}
-
-.card-padding {
-  margin: 10px 0;
-  padding: 30px 20px;
-  width: 100%;
-}
-.card-padding .checkbox label {
-  font-size: 13px;
-  line-height: 18px;
-}
-.card-padding {
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5,
-  .h6 {
-    color: $theme-grey !important;
-  }
-}
-
-.bg-brand-primary,
-.bg-brand-secondary,
-.bg-dark-image,
-.bg-grey,
-.bg-greydark,
-.bg-greymiddle {
-  .card-white-transparent {
-    background: rgba(255, 255, 255, 0.1);
-    margin: 10px 0;
-    padding: 30px 20px;
-    width: 100%;
-  }
-  .card-white-transparent label {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    color: rgba(255, 255, 255, 0.7);
-  }
-  .card-white-transparent .checkbox label {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 13px;
-    line-height: 18px;
-  }
-}
-
-.bg-greylight,
-.bg-greywhite,
-.bg-white {
-  .card-white-transparent {
-    background: rgba(0, 0, 0, 0.1);
-    margin: 10px 0;
-    padding: 30px 20px;
-    width: 100%;
-  }
-  .card-white-transparent label {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    color: rgba(0, 0, 0, 0.7);
-  }
-  .card-white-transparent .checkbox label {
-    color: rgba(0, 0, 0, 0.8);
-    font-size: 13px;
-    line-height: 18px;
   }
 }
 

@@ -1734,21 +1734,6 @@ _:-ms-fullscreen,
   }
 }
 
-/* gallery thumbs
-=================================================================== */
-
-.gallery-thumbs img {
-  border: 7px solid #fff;
-  border-left: none;
-}
-.gallery-thumbs [class*="col-"]:first-child img {
-  border-left: 7px solid #fff;
-}
-
-.margin-neg-offset {
-  margin-top: -4%;
-}
-
 /* footer
 =================================================================== */
 
@@ -2088,17 +2073,6 @@ img.cookie-img {
     font-size: 13px;
     line-height: 18px;
   }
-}
-
-/* google maps fix
-================================================== */
-
-.gm-style img {
-  max-width: none !important;
-}
-.gm-style label {
-  width: auto;
-  display: inline;
 }
 
 /* disable selection, see https://stackoverflow.com/a/4407335/881759 for details

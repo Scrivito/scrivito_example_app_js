@@ -44,3 +44,14 @@
     margin: 200px 0 -10px 0;
   }
 }
+
+/* google maps fix
+================================================== */
+
+.gm-style img {
+  max-width: none !important;
+}
+.gm-style label {
+  width: auto;
+  display: inline;
+}

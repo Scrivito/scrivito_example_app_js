@@ -9,7 +9,6 @@ import NavigationSection from "./Navigation/NavigationSection";
 import ScrollToNextSectionLink from "./Navigation/ScrollToNextSectionLink";
 import isVideoObj from "../utils/isVideoObj";
 import urlFromBinary from "../utils/urlFromBinary";
-import "./Navigation/Navigation.scss";
 
 function ActualNavigation({
   isLandingPage,

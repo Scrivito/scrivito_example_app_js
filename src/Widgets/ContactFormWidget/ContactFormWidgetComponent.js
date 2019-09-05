@@ -12,9 +12,14 @@ Scrivito.provideComponent("ContactFormWidget", ({ widget }) => {
   const classNames = ["row"];
 
   if (widget.get("backgroundColor") === "transparent") {
-    classNames.push("card-white-transparent");
+    classNames.push("contact-form-widget--card-white-transparent");
   } else {
-    classNames.push("floating-label", "card-theme", "card", "card-padding");
+    classNames.push(
+      "contact-form-widget--floating-label",
+      "card-theme",
+      "card",
+      "contact-form-widget--card-padding"
+    );
   }
 
   return (

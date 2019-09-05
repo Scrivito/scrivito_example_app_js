@@ -6,7 +6,7 @@
 .bg-grey,
 .bg-greydark,
 .bg-greymiddle {
-  .card-white-transparent {
+  .contact-form-widget--card-white-transparent {
     background: rgba(255, 255, 255, 0.1);
     margin: 10px 0;
     padding: 30px 20px;
@@ -30,7 +30,7 @@
 .bg-greylight,
 .bg-greywhite,
 .bg-white {
-  .card-white-transparent {
+  .contact-form-widget--card-white-transparent {
     background: rgba(0, 0, 0, 0.1);
     margin: 10px 0;
     padding: 30px 20px;
@@ -51,50 +51,52 @@
   }
 }
 
-.card-padding {
-  margin: 10px 0;
-  padding: 30px 20px;
-  width: 100%;
+.contact-form-widget {
+  &--card-padding {
+    margin: 10px 0;
+    padding: 30px 20px;
+    width: 100%;
 
-  .checkbox label {
-    font-size: 13px;
-    line-height: 18px;
+    .checkbox label {
+      font-size: 13px;
+      line-height: 18px;
+    }
+
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: $theme-grey !important;
+    }
   }
 
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5,
-  .h6 {
-    color: $theme-grey !important;
-  }
-}
+  &--floating-label {
+    .checkbox label {
+      font-size: 13px;
+      line-height: 18px;
+      padding: 2px 5px 2px 20px;
+      color: $theme-greymiddle;
+    }
 
-.floating-label {
-  .checkbox label {
-    font-size: 13px;
-    line-height: 18px;
-    padding: 2px 5px 2px 20px;
-    color: $theme-greymiddle;
-  }
+    label {
+      font-size: 11px;
+      line-height: 16px;
+      color: #bbb;
+      font-weight: 400;
+      padding: 2px 5px;
+      margin: 0 0 0 10px;
+      background: #fff;
+    }
 
-  label {
-    font-size: 11px;
-    line-height: 16px;
-    color: #bbb;
-    font-weight: 400;
-    padding: 2px 5px;
-    margin: 0 0 0 10px;
-    background: #fff;
-  }
+    .form-control {
+      margin-top: -11px;
+      border: 1px solid $theme-greylight;
 
-  .form-control {
-    margin-top: -11px;
-    border: 1px solid $theme-greylight;
-
-    &:focus {
-      box-shadow: 0 0 0 2px $secondary;
+      &:focus {
+        box-shadow: 0 0 0 2px $secondary;
+      }
     }
   }
 }

@@ -1734,21 +1734,6 @@ _:-ms-fullscreen,
   }
 }
 
-/* gallery thumbs
-=================================================================== */
-
-.gallery-thumbs img {
-  border: 7px solid #fff;
-  border-left: none;
-}
-.gallery-thumbs [class*="col-"]:first-child img {
-  border-left: 7px solid #fff;
-}
-
-.margin-neg-offset {
-  margin-top: -4%;
-}
-
 /* footer
 =================================================================== */
 
@@ -1989,23 +1974,6 @@ img.cookie-img {
   }
 }
 
-/* login
-=================================================================== */
-
-.box-login {
-  background: #fff;
-  padding: 30px;
-}
-.box-login .h3 {
-  color: $theme-greydark !important;
-}
-.box-login a {
-  font-size: 13px;
-  display: block;
-  text-align: center;
-  color: $theme-greydark;
-}
-
 /* landing page
 =================================================================== */
 
@@ -2014,67 +1982,6 @@ img.cookie-img {
   .text-left {
     text-align: center;
   }
-}
-
-/* Text image widget ************ TBD ************
-=================================================================== */
-.text_image_widget {
-  overflow: hidden;
-}
-
-/* floating-image ************ TBD ************
-=================================================================== */
-
-.floating-image.pull-left {
-  margin: 0 20px 5px 0;
-}
-.floating-image.pull-right {
-  margin: 0 0 5px 20px;
-}
-
-.floating-image img {
-  margin: 0;
-}
-
-.width-25 {
-  width: 25%;
-}
-.width-33 {
-  width: 33%;
-}
-.width-50 {
-  width: 50%;
-}
-.width-66 {
-  width: 66%;
-}
-.width-75 {
-  width: 75%;
-}
-.width-100 {
-  width: 100%;
-}
-
-.floating-image.width-25,
-.floating-image.width-33,
-.floating-image.width-50,
-.floating-image.width-66,
-.floating-image.width-75,
-.floating-image.width-100 {
-  img {
-    width: 100%;
-  }
-}
-
-/* google maps fix
-================================================== */
-
-.gm-style img {
-  max-width: none !important;
-}
-.gm-style label {
-  width: auto;
-  display: inline;
 }
 
 /* disable selection, see https://stackoverflow.com/a/4407335/881759 for details

@@ -167,29 +167,26 @@
   > li {
     position: relative;
     display: block;
-  }
 
-  > li {
     &:hover > a,
     &:focus > a {
       background: transparent;
     }
 
-    &.open {
-      > a {
-        background: $nav-hover !important;
-        color: #fff !important;
-      }
-
-      > .menu-toggle {
+    &.open > {
+      a,
+      .menu-toggle {
         background: $nav-hover !important;
         color: #fff !important;
       }
     }
 
-    &.active > .menu-toggle {
-      background: $primary !important;
-      color: #fff !important;
+    &.active {
+      > a,
+      > .menu-toggle {
+        background: $primary !important;
+        color: #fff !important;
+      }
     }
 
     > .dropdown-menu {
@@ -628,6 +625,28 @@
     position: relative;
     width: 100%;
     z-index: 2;
+  }
+
+  .input-group {
+    border: 10px solid #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    transform: translate(0, -25px);
+
+    .btn .fa {
+      font-size: 22px;
+    }
+
+    .form-control {
+      height: 51px;
+      padding: 13px 20px 10px;
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .nav-centered .input-group .btn .fa {
+    padding-left: 0;
   }
 }
 

@@ -266,21 +266,6 @@
 
 /* menu toggle */
 
-.active .menu-toggle .fa {
-  color: #fff;
-}
-
-.open {
-  .menu-toggle .fa {
-    color: #fff;
-    transform: rotate(180deg);
-  }
-
-  > .dropdown-menu {
-    display: block;
-  }
-}
-
 .menu-toggle {
   display: block;
   float: right;
@@ -305,6 +290,21 @@
     margin: 0 auto;
     color: $primary;
     @include transition(transform 0.2s ease-in-out);
+  }
+}
+
+.active .menu-toggle .fa {
+  color: #fff;
+}
+
+.open {
+  .menu-toggle .fa {
+    color: #fff;
+    transform: rotate(180deg);
+  }
+
+  > .dropdown-menu {
+    display: block;
   }
 }
 

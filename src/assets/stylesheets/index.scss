@@ -36,11 +36,11 @@ $slick-font-family: "slick_swap";
 /* imports
 ================================================== */
 @import "bootstrap/bootstrap";
+@import "_navigation";
 @import "_social_cards";
 @import "_grid_layout_editor";
 @import "_icon_editor";
 @import "_loader";
-@import "../../Components/Navigation/Navigation.scss";
 
 /* fonts
 ================================================== */

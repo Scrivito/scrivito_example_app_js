@@ -228,27 +228,27 @@
         border-width: 10px;
         margin-left: -10px;
       }
+    }
+  }
 
-      > li {
-        > a {
-          color: $theme-grey;
-          padding: 5px 10px !important;
-          text-align: center;
+  .dropdown-menu > li {
+    > a {
+      color: $theme-grey;
+      padding: 5px 10px !important;
+      text-align: center;
 
-          &:hover,
-          &:focus {
-            background: $nav-hover;
-            color: #fff;
-          }
-        }
+      &:hover,
+      &:focus {
+        background: $nav-hover;
+        color: #fff;
+      }
+    }
 
-        &.active > {
-          a:hover,
-          a:focus {
-            background: $primary;
-            color: #fff;
-          }
-        }
+    &.active > {
+      a:hover,
+      a:focus {
+        background: $primary;
+        color: #fff;
       }
     }
   }

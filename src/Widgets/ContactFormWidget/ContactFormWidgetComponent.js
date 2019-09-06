@@ -1,5 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+
+import "./ContactFormWidget.scss";
 import "./contactForm.html";
 /* This html file is needed for Netlify form handling. Updates to inputs in this file should also be
 added to contactForm.html as well. See the following link for details:
@@ -10,9 +12,14 @@ Scrivito.provideComponent("ContactFormWidget", ({ widget }) => {
   const classNames = ["row"];
 
   if (widget.get("backgroundColor") === "transparent") {
-    classNames.push("card-white-transparent");
+    classNames.push("contact-form-widget--card-white-transparent");
   } else {
-    classNames.push("floating-label", "card-theme", "card", "card-padding");
+    classNames.push(
+      "contact-form-widget--floating-label",
+      "card-theme",
+      "card",
+      "contact-form-widget--card-padding"
+    );
   }
 
   return (

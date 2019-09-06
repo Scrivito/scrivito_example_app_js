@@ -55,10 +55,13 @@
     margin-right: 45px;
   }
 
-  > li {
+  > li,
+  > li > a {
     position: relative;
     display: block;
+  }
 
+  > li {
     &:hover > a,
     &:focus > a {
       background: transparent;

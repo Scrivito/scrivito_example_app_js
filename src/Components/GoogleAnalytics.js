@@ -1,15 +1,8 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import Helmet from "react-helmet";
 import cookieConsentGiven from "../utils/cookieConsentGiven";
 
 class GoogleAnalytics extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { trackingId: "" };
-  }
-
   componentDidMount() {
     let trackingId;
 
@@ -22,7 +15,7 @@ class GoogleAnalytics extends React.Component {
     })
       .then(tracking_ID => {
         trackingId = tracking_ID;
-        cookieConsentGiven();
+        return cookieConsentGiven();
       })
       .then(() => {
         if (trackingId) {
@@ -41,16 +34,7 @@ class GoogleAnalytics extends React.Component {
   }
 
   render() {
-    if (!this.state.trackingId || !cookieConsentGiven()) {
-      return null;
-    }
-
-    return (
-      <Helmet>
-        <script async src="/tracking.js" />
-        <script async src="https://www.google-analytics.com/analytics.js" />
-      </Helmet>
-    );
+    return null;
   }
 }
 

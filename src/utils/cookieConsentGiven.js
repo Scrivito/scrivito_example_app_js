@@ -1,4 +1,5 @@
 import { Cookies } from "react-cookie-consent";
+import * as Scrivito from "scrivito";
 
 let resolveCookie;
 const cookiePromise = new Promise(resolve => (resolveCookie = resolve));

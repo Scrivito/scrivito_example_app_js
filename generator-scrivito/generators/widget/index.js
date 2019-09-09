@@ -29,6 +29,7 @@ module.exports = class extends Generator {
       const humanFriendlyName = lodash.startCase(
         widgetClassName.replace(/Widget$/, "")
       );
+      const cssClassName = lodash.kebabCase(widgetClassName);
       this._generateFile(
         "XWidgetClass.js.ejs",
         `${folder}/${widgetClassName}Class.js`,
@@ -42,10 +43,11 @@ module.exports = class extends Generator {
       this._generateFile(
         "XWidgetComponent.js.ejs",
         `${folder}/${widgetClassName}Component.js`,
-        { widgetClassName }
+        { widgetClassName, cssClassName }
       );
       this._generateFile("X.scss.ejs", `${folder}/${widgetClassName}.scss`, {
         widgetClassName,
+        cssClassName,
       });
       this.registerTransformStream(gulpPrettier());
     });

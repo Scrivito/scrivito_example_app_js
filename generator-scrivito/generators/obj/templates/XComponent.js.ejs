@@ -4,5 +4,10 @@ import * as Scrivito from "scrivito";
 import "./<%= objClassName %>.scss";
 
 Scrivito.provideComponent("<%= objClassName %>", ({ page }) => (
-  <Scrivito.ContentTag tag="div" content={page} attribute="body" />
+  <Scrivito.ContentTag
+    tag="div"
+    className="<%= cssClassName %>"
+    content={page}
+    attribute="body"
+  />
 ));

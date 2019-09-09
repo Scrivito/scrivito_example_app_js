@@ -3,6 +3,10 @@ import * as Scrivito from "scrivito";
 
 import "./<%= widgetClassName %>.scss";
 
-Scrivito.provideComponent("<%= widgetClassName %>", ({ widget }) => {
-  return <Scrivito.ContentTag content={widget} attribute="headline" />;
-});
+Scrivito.provideComponent("<%= widgetClassName %>", ({ widget }) => (
+  <Scrivito.ContentTag
+    className="<%= cssClassName %>"
+    content={widget}
+    attribute="headline"
+  />
+));

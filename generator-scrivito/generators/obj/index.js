@@ -27,6 +27,7 @@ module.exports = class extends Generator {
       const objClassName = answers.objClassName;
       const folder = `src/Objs/${objClassName}`;
       const humanFriendlyName = lodash.startCase(objClassName);
+      const cssClassName = lodash.kebabCase(objClassName);
       this._generateFile(
         "XObjClass.js.ejs",
         `${folder}/${objClassName}ObjClass.js`,
@@ -40,10 +41,11 @@ module.exports = class extends Generator {
       this._generateFile(
         "XComponent.js.ejs",
         `${folder}/${objClassName}Component.js`,
-        { objClassName }
+        { objClassName, cssClassName }
       );
       this._generateFile("X.scss.ejs", `${folder}/${objClassName}.scss`, {
         objClassName,
+        cssClassName,
       });
       this.registerTransformStream(gulpPrettier());
     });

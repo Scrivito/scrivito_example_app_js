@@ -11,6 +11,8 @@ class GoogleAnalytics extends React.Component {
   }
 
   componentDidMount() {
+    let trackingId;
+
     Scrivito.load(() => {
       const rootPage = Scrivito.Obj.root();
       if (!rootPage) {
@@ -18,8 +20,11 @@ class GoogleAnalytics extends React.Component {
       }
       return rootPage.get("googleAnalyticsTrackingId");
     })
-      .then(() => cookieConsentGiven())
-      .then(trackingId => {
+      .then(tracking_ID => {
+        trackingId = tracking_ID;
+        cookieConsentGiven();
+      })
+      .then(() => {
         if (trackingId) {
           window.ga =
             window.ga ||
@@ -31,11 +36,8 @@ class GoogleAnalytics extends React.Component {
           window.ga("set", "anonymizeIp", true);
           window.ga("require", "urlChangeTracker");
           window.ga("send", "pageview");
-
-          this.setState({ trackingId });
-        });
-      }
-    });
+        }
+      });
   }
 
   render() {

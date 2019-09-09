@@ -17,9 +17,10 @@ class GoogleAnalytics extends React.Component {
         return undefined;
       }
       return rootPage.get("googleAnalyticsTrackingId");
-    }).then(trackingId => {
-      if (trackingId && cookieConsentGiven()) {
-        Scrivito.finishLoading().then(() => {
+    })
+      .then(() => cookieConsentGiven())
+      .then(trackingId => {
+        if (trackingId) {
           window.ga =
             window.ga ||
             function() {

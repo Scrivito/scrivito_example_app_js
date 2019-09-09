@@ -144,7 +144,7 @@ function webpackConfig(env = {}) {
 function generateEntry({ isPrerendering }) {
   const entry = {
     index: "./index.js",
-    google_analytics: "./google_analytics.js",
+    tracking: "./tracking.js",
     scrivito_extensions: "./scrivito_extensions.js",
   };
   if (isPrerendering) {

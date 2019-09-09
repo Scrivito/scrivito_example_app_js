@@ -1,7 +1,7 @@
 @import "src/assets/stylesheets/variables";
 @import "src/assets/stylesheets/bootstrap/mixins/clearfix";
 
-.timeline {
+.blog-timeline {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -46,7 +46,7 @@
       margin: 90px 0 20px 0;
       padding: 0 0 0 60px;
 
-      > .timeline {
+      > .blog-timeline {
         &--badge {
           left: -40px;
         }
@@ -69,7 +69,7 @@
       }
     }
 
-    &.timeline--divider {
+    &.blog-timeline--divider {
       background: #fff;
       margin: 20px 0;
       padding: 20px 0;
@@ -96,7 +96,7 @@
       }
     }
 
-    > .timeline {
+    > .blog-timeline {
       &--badge {
         color: #fff;
         width: 80px;
@@ -150,7 +150,7 @@
 }
 
 @media (max-width: $screen-md-min) {
-  .timeline {
+  .blog-timeline {
     &:before {
       left: 40px;
     }
@@ -161,7 +161,7 @@
       margin: 20px 0 30px 0 !important;
       padding: 0 0 0 100px !important;
 
-      &.timeline--divider {
+      &.blog-timeline--divider {
         padding: 20px 0 !important;
 
         time.h4 {
@@ -170,7 +170,7 @@
         }
       }
 
-      > .timeline {
+      > .blog-timeline {
         &--badge {
           left: 0 !important;
           right: auto;
@@ -197,7 +197,7 @@
 }
 
 @media (max-width: $screen-xs-max) {
-  .timeline {
+  .blog-timeline {
     &:before {
       display: none;
     }
@@ -234,11 +234,11 @@
       margin: 20px 0 30px 0 !important;
       padding: 0 !important;
 
-      &.timeline--divider time.h4 {
+      &.blog-timeline--divider time.h4 {
         text-align: center;
       }
 
-      > .timeline {
+      > .blog-timeline {
         &--badge {
           position: relative;
           top: 0;

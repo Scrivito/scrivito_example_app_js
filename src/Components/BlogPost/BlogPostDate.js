@@ -10,7 +10,7 @@ function BlogPostDate({ post }) {
   }
 
   return (
-    <time className="timeline-badge" dateTime={date.toISOString()}>
+    <time className="blog-timeline--badge" dateTime={date.toISOString()}>
       {formatDate(date, "mm/dd")}
     </time>
   );

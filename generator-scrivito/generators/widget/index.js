@@ -44,6 +44,9 @@ module.exports = class extends Generator {
         `${folder}/${widgetClassName}Component.js`,
         { widgetClassName }
       );
+      this._generateFile("X.scss.ejs", `${folder}/${widgetClassName}.scss`, {
+        widgetClassName,
+      });
       this.registerTransformStream(gulpPrettier());
     });
   }

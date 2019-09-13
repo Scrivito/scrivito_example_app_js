@@ -1,7 +1,9 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+
 import googleMapsApiKey from "../../utils/googleMapsApiKey";
 import googleMapsImageUrl from "../../utils/googleMapsImageUrl";
+import "./GoogleMapsWidget.scss";
 
 const maxWidth = 640;
 
@@ -78,7 +80,7 @@ class GoogleMapsWidgetComponent extends React.Component {
     }
 
     return (
-      <div ref={this.outerDivRef} className="bg-map" style={style}>
+      <div ref={this.outerDivRef} className="google-maps-widget" style={style}>
         <InteractiveMap
           address={address}
           zoom={zoom}
@@ -119,7 +121,14 @@ function InteractiveMap({ address, apiKey, zoom, mapType }) {
   }
 
   const url = `https://www.google.com/maps/embed/v1/place?q=${address}&key=${apiKey}&zoom=${zoom}`;
-  return <iframe frameBorder="0" style={{ border: 0 }} src={url} />;
+  return (
+    <iframe
+      title="Interactive Map"
+      frameBorder="0"
+      style={{ border: 0 }}
+      src={url}
+    />
+  );
 }
 
 const Widgets = Scrivito.connect(({ widget, mapType }) => {

@@ -1,10 +1,12 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import Lightbox from "react-images";
+
 import fullScreenWidthPixels from "../../utils/fullScreenWidthPixels";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 import TagList from "../../Components/TagList";
 import isImage from "../../utils/isImage";
+import "./ThumbnailGalleryWidget.scss";
 
 class ThumbnailGalleryComponent extends React.Component {
   constructor(props) {
@@ -86,7 +88,7 @@ class ThumbnailGalleryComponent extends React.Component {
           setTag={this.setTag}
         />
         <div>
-          <div className="row gallery-box-wrapper">
+          <div className="row thumbnail-gallery-widget--wrapper">
             {images.map((image, imageIndex) => (
               <Thumbnail
                 key={image.id()}
@@ -116,6 +118,7 @@ class ThumbnailGalleryComponent extends React.Component {
 
 Scrivito.provideComponent("ThumbnailGalleryWidget", ThumbnailGalleryComponent);
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   const title = widget.get("title");
   const subtitle = widget.get("subtitle");
@@ -126,8 +129,8 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
     "col-md-3",
     "col-sm-4",
     "col-6",
-    "gallery-box",
     "gutter0",
+    "thumbnail-gallery-widget",
   ];
   if (currentTag && !tags.includes(currentTag)) {
     classNames.push("squeezed");
@@ -136,15 +139,15 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
   return (
     <div className={classNames.join(" ")}>
       <Scrivito.BackgroundImageTag
-        className="gallery-box-image"
+        className="thumbnail-gallery-widget--image"
         style={{ background: { image } }}
       />
       <a
         href="#"
-        className="gallery-box-content-wrapper"
+        className="thumbnail-gallery-widget--content-wrapper"
         onClick={openLightbox}
       >
-        <span className="gallery-box-content">
+        <span className="thumbnail-gallery-widget--content">
           <i className="fa fa-camera" aria-hidden="true" />
           <span className="title">{title}</span>
           <span className="subtitle">{subtitle}</span>
@@ -153,6 +156,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
     </div>
   );
 });
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 function allTags(images) {
   const tagsArray = images.map(image => image.get("tags"));

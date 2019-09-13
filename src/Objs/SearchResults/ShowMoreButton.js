@@ -1,5 +1,6 @@
 import * as React from "react";
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
   if (currentMaxItems >= totalCount) {
     return null;
@@ -17,5 +18,6 @@ function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
     </React.Fragment>
   );
 }
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default ShowMoreButton;

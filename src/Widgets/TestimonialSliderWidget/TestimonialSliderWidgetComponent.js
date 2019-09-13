@@ -1,20 +1,24 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import Slider from "react-slick";
+
 import placeholderCss from "../../utils/placeholderCss";
 import TestimonialWidget from "../TestimonialWidget/TestimonialWidgetClass";
 import isImage from "../../utils/isImage";
+import "./TestimonialSliderWidget.scss";
 
 Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
   const testimonials = widget.get("testimonials");
   const settings = sliderSettings(testimonials);
 
   return (
-    <React.Fragment>
+    <div className="testimonial-slider-widget">
       <Slider {...settings}>
         {testimonials.map(testimonial => (
           <div key={testimonial.id()}>
-            <h1 className="quote-headline text-center">&quot;</h1>
+            <h1 className="testimonial-slider-widget--quote-headline text-center">
+              &quot;
+            </h1>
             <Scrivito.ContentTag
               content={testimonial}
               attribute="testimonial"
@@ -31,15 +35,18 @@ Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
         ))}
       </Slider>
       <AddTestimonial widget={widget} />
-    </React.Fragment>
+    </div>
   );
 });
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function sliderSettings(testimonials) {
   const testimonialAuthorImages = testimonials.map(testimonial => {
     const authorImage = testimonial.get("authorImage");
     if (!isImage(authorImage)) {
-      return <img className="image" src={fallbackImageUrl} />;
+      return (
+        <img alt="fallback-img" className="image" src={fallbackImageUrl} />
+      );
     }
 
     return (
@@ -58,7 +65,7 @@ function sliderSettings(testimonials) {
     dots: true,
     infinite: true,
     speed: 500,
-    dotsClass: "quote-portrait-wrapper",
+    dotsClass: "testimonial-slider-widget--quote-portrait-wrapper",
     customPaging: i => {
       const image = testimonialAuthorImages[i];
       return <a>{image}</a>;
@@ -97,3 +104,4 @@ const AddTestimonial = ({ widget }) => {
     </div>
   );
 };
+/* eslint-enable jsx-a11y/anchor-is-valid */

@@ -1,6 +1,7 @@
 import * as React from "react";
 import IconComponent from "../../Icon";
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function SingleIcon({ icon, setWidgetIcon, currentIcon }) {
   const cssIcon = `fa-${icon.id}`;
 
@@ -23,5 +24,6 @@ function SingleIcon({ icon, setWidgetIcon, currentIcon }) {
     </div>
   );
 }
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default SingleIcon;

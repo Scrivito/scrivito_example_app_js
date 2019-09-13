@@ -22,9 +22,9 @@ class GoogleAnalytics extends React.Component {
           window.ga =
             window.ga ||
             function() {
-              (ga.q = ga.q || []).push(arguments);
+              (window.ga.q = window.ga.q || []).push(arguments);
             };
-          ga.l = +new Date();
+          window.ga.l = +new Date();
           window.ga("create", trackingId, "auto");
           window.ga("set", "anonymizeIp", true);
           window.ga("require", "urlChangeTracker");

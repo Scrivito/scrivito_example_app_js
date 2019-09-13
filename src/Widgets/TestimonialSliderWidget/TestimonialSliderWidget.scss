@@ -1,0 +1,82 @@
+@import "src/assets/stylesheets/variables";
+@import "src/assets/stylesheets/bootstrap/functions";
+@import "src/assets/stylesheets/bootstrap/variables";
+@import "src/assets/stylesheets/bootstrap/mixins/transition";
+
+.bg-dark-image,
+.bg-brand-primary,
+.bg-brand-secondary,
+.bg-grey,
+.bg-greydark,
+.bg-greymiddle {
+  .testimonial-slider-widget {
+    .slick-prev,
+    .slick-next {
+      &:before {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.testimonial-slider-widget {
+  &--quote-headline {
+    color: $secondary !important;
+    font-size: 200px;
+    line-height: 0;
+    margin: 65px 0 0 0;
+    vertical-align: middle;
+  }
+
+  &--quote-portrait-wrapper {
+    text-align: center;
+    height: 75px;
+
+    a {
+      display: inline-block;
+      vertical-align: middle;
+
+      .image {
+        width: 40px;
+        height: 40px;
+        @include transition(all 0.3s ease-in-out);
+        display: block;
+        border-radius: 50%;
+        border: 3px solid rgb(188, 188, 188);
+        margin: 5px;
+      }
+    }
+
+    a:hover,
+    .slick-active {
+      .image {
+        width: 75px;
+        height: 75px;
+      }
+    }
+
+    li {
+      position: relative;
+      display: inline-block;
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+    z-index: 2;
+    color: #666;
+  }
+
+  .slick-next {
+    right: 0;
+    z-index: 2;
+    color: #666;
+  }
+
+  .slick-prev,
+  .slick-next {
+    &:before {
+      color: #666;
+    }
+  }
+}

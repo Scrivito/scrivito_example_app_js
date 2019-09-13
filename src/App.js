@@ -20,8 +20,8 @@ export default function App() {
           <NotFoundErrorPage />
         </div>
         <Footer />
-        <CookieConsent />
         <CurrentPageMetadata />
+        <CookieConsent />
         <Tracking />
         <GoogleAnalytics />
         <Intercom />

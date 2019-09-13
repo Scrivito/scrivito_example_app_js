@@ -3,26 +3,17 @@ import * as Scrivito from "scrivito";
 import Helmet from "react-helmet";
 import cookieConsentGiven from "../utils/cookieConsentGiven";
 
-class Tracking extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Tracking() {
+  const [trackingEnabled, setTrackingEnabled] = React.useState(false);
+  React.useEffect(() => {
+    cookieConsentGiven().then(() => setTrackingEnabled(true));
+  }, []);
 
-    this.state = { enableTracking: false };
-  }
-
-  componentDidMount() {
-    cookieConsentGiven().then(() => this.setState({ enableTracking: true }));
-  }
-
-  render() {
-    return (
-      this.state.enableTracking && (
-        <Helmet>
-          <script async src="/tracking.js" />
-        </Helmet>
-      )
-    );
-  }
+  return (
+    trackingEnabled && (
+      <Helmet>
+        <script async src="/tracking.js" />
+      </Helmet>
+    )
+  );
 }
-
-export default Scrivito.connect(Tracking);

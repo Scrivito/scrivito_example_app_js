@@ -2,22 +2,19 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import cookieConsentGiven from "../utils/cookieConsentGiven";
 
-class GoogleAnalytics extends React.Component {
-  componentDidMount() {
-    let trackingId;
-
-    Scrivito.load(() => {
-      const rootPage = Scrivito.Obj.root();
-      if (!rootPage) {
-        return undefined;
-      }
-      return rootPage.get("googleAnalyticsTrackingId");
-    })
-      .then(tracking_ID => {
-        trackingId = tracking_ID;
-        return cookieConsentGiven();
-      })
-      .then(() => {
+export default function GoogleAnalytics() {
+  React.useEffect(() => {
+    cookieConsentGiven()
+      .then(() =>
+        Scrivito.load(() => {
+          const rootPage = Scrivito.Obj.root();
+          if (!rootPage) {
+            return undefined;
+          }
+          return rootPage.get("googleAnalyticsTrackingId");
+        })
+      )
+      .then(trackingId => {
         if (trackingId) {
           window.ga =
             window.ga ||
@@ -31,11 +28,7 @@ class GoogleAnalytics extends React.Component {
           window.ga("send", "pageview");
         }
       });
-  }
+  }, []);
 
-  render() {
-    return null;
-  }
+  return null;
 }
-
-export default Scrivito.connect(GoogleAnalytics);

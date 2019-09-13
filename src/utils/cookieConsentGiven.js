@@ -1,18 +1,8 @@
-import { Cookies } from "react-cookie-consent";
+// import { Cookies } from "react-cookie-consent";
 import * as Scrivito from "scrivito";
 
 let resolveCookie;
 const cookiePromise = new Promise(resolve => (resolveCookie = resolve));
-
-const interval = setInterval(() => {
-  const consentCookie = Cookies.get("CookieConsent");
-  if (consentCookie) {
-    clearInterval(interval);
-    if (consentCookie === "true") {
-      resolveCookie();
-    }
-  }
-}, 1000);
 
 export function resolveCookieConsent() {
   resolveCookie();

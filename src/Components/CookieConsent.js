@@ -6,7 +6,9 @@ import { resolveCookieConsent } from "../utils/cookieConsentGiven";
 
 class CookieConsent extends React.Component {
   componentDidMount() {
-    if (Cookies.get("CookieConsent") === "true") resolveCookieConsent();
+    if (Cookies.get("CookieConsent") === "true") {
+      resolveCookieConsent();
+    }
   }
 
   render() {
@@ -39,7 +41,11 @@ class CookieConsent extends React.Component {
         declineButtonClasses="cookie-button btn btn-secondary ml-auto"
       >
         <div className="cookie-img-box">
-          <img className="cookie-img" src={cookieConsentIcon} />
+          <img
+            className="cookie-img"
+            src={cookieConsentIcon}
+            alt="cookie-img"
+          />
         </div>
         <div>
           <div className="cookie-box-title">Cookies policy</div>

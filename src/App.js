@@ -3,7 +3,6 @@ import * as Scrivito from "scrivito";
 import CurrentPageMetadata from "./Components/CurrentPageMetadata";
 import ErrorBoundary from "./Components/ErrorBoundary";
 import Footer from "./Components/Footer";
-import GoogleAnalytics from "./Components/GoogleAnalytics";
 import Intercom from "./Components/Intercom";
 import Navigation from "./Components/Navigation";
 import NotFoundErrorPage from "./Components/NotFoundErrorPage";
@@ -23,7 +22,6 @@ export default function App() {
         <CurrentPageMetadata />
         <CookieConsent />
         <Tracking />
-        <GoogleAnalytics />
         <Intercom />
       </div>
     </ErrorBoundary>

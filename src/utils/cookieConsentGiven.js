@@ -1,4 +1,3 @@
-// import { Cookies } from "react-cookie-consent";
 import * as Scrivito from "scrivito";
 
 let resolveCookie;

@@ -103,14 +103,7 @@ function webpackConfig(env = {}) {
       ],
     },
     optimization: {
-      minimizer: [
-        new TerserPlugin({
-          cache: true,
-          extractComments: true,
-          parallel: true,
-          terserOptions: { ecma: 5 },
-        }),
-      ],
+      minimizer: [new TerserPlugin({ terserOptions: { ecma: 5 } })],
     },
     output: {
       publicPath: "/",

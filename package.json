@@ -41,7 +41,7 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "express": "^4.17.1",
     "file-loader": "^4.2.0",
-    "filesize": "^4.1.2",
+    "filesize": "^4.2.0",
     "fs-extra": "^8.1.0",
     "fuse.js": "^3.4.5",
     "generator-scrivito": "file:generator-scrivito",

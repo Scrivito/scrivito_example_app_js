@@ -16,6 +16,7 @@ export default function generateHtml({
     ${headContent}
     <link rel="preconnect" href="https://api.scrivito.com" crossorigin />
     <link rel="preconnect" href="https://api.scrivito.com" />
+    <link rel="preconnect" href="https://cdn0.scrvt.com" />
     <link rel="stylesheet" href="/index.css" />
 
     <script src="/js_snippets_head.js"></script>

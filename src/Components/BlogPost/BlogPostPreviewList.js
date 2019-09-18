@@ -5,7 +5,6 @@ import BlogPostDate from "./BlogPostDate";
 import formatDate from "../../utils/formatDate";
 import InPlaceEditingPlaceholder from "../InPlaceEditingPlaceholder";
 import isImage from "../../utils/isImage";
-import { textExtractFromObj } from "../../utils/textExtract";
 
 const BlogPostPreviewList = Scrivito.connect(
   ({ maxItems, author, tag, filterBlogPostId }) => {
@@ -91,7 +90,7 @@ const BlogPostPreview = Scrivito.connect(({ post }) => {
           </h3>
           <h4>{post.get("subtitle")}</h4>
           <p>
-            {truncate(textExtractFromObj(post), {
+            {truncate(Scrivito.extractText(post, { length: 330 }), {
               length: 300,
               separator: /,? +/,
             })}

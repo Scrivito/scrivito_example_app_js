@@ -4,7 +4,6 @@ import fromNow from "moment-from-now";
 import Highlighter from "react-highlight-words";
 import { truncate } from "lodash-es";
 
-import { textExtractFromObj } from "../../utils/textExtract";
 import isVideoObj from "../../utils/isVideoObj";
 import "./SearchResultItem.scss";
 
@@ -50,8 +49,8 @@ const Details = Scrivito.connect(({ item }) => {
 
 function SearchResultItem({ resultItem, q }) {
   const searchWords = q.split(/\s+/);
-  const textExtract = textExtractFromObj(resultItem);
-  const textToHighlight = truncate(textExtract, {
+  const extractedText = Scrivito.extractText(resultItem, { length: 220 });
+  const textToHighlight = truncate(extractedText, {
     length: 200,
     separator: /,? +/,
   });

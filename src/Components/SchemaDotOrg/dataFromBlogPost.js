@@ -1,10 +1,11 @@
+import * as Scrivito from "scrivito";
 import { truncate } from "lodash-es";
 import dataFromAuthor from "./dataFromAuthor";
 import formatDate from "../../utils/formatDate";
 import urlFromBinary from "../../utils/urlFromBinary";
-import { textExtractFromObj } from "../../utils/textExtract";
 
 function dataFromBlogPost(blogPost) {
+  const description = Scrivito.extractText(blogPost, { length: 330 });
   return {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -12,7 +13,7 @@ function dataFromBlogPost(blogPost) {
       ? dataFromAuthor(blogPost.get("author"))
       : undefined,
     datePublished: formatDate(blogPost.get("publishedAt"), "yyyy-mm-dd"),
-    description: truncate(textExtractFromObj(blogPost), { length: 300 }),
+    description: truncate(description, { length: 300 }),
     headline: blogPost.get("title"),
     image: urlFromBinary(blogPost.get("titleImage")),
     keywords: blogPost.get("tags").join(", "),

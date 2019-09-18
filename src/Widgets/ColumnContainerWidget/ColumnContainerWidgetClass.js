@@ -8,6 +8,7 @@ const ColumnContainerWidget = Scrivito.provideWidgetClass(
       columns: ["widgetlist", { only: "ColumnWidget" }],
       alignment: ["enum", { values: ["start", "center", "end", "stretch"] }],
     },
+    extractTextAttributes: ["columns"],
   }
 );
 

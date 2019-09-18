@@ -8,6 +8,7 @@ const CarouselWidget = Scrivito.provideWidgetClass("CarouselWidget", {
     descriptionLogo: ["reference", { only: ["Image"] }],
     description: "widgetlist",
   },
+  extractTextAttributes: ["description"],
 });
 
 registerTextExtract("CarouselWidget", [

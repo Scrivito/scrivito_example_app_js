@@ -38,6 +38,7 @@ const Job = Scrivito.provideObjClass("Job", {
 
     ...metadataAttributes,
   },
+  extractTextAttributes: ["body"],
 });
 
 registerTextExtract("Job", [{ attribute: "body", type: "widgetlist" }]);

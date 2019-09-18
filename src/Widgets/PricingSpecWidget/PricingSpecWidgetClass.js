@@ -7,6 +7,7 @@ const PricingSpecWidget = Scrivito.provideWidgetClass("PricingSpecWidget", {
     variable: "string",
     unit: "string",
   },
+  extractTextAttributes: ["variable", "unit"],
 });
 
 registerTextExtract("PricingSpecWidget", [

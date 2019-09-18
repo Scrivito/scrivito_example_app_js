@@ -20,6 +20,7 @@ const Homepage = Scrivito.provideObjClass("Homepage", {
     intercomAppId: "string",
     ...metadataAttributes,
   },
+  extractTextAttributes: ["navigationSection", "body"],
 });
 
 registerTextExtract("Homepage", [

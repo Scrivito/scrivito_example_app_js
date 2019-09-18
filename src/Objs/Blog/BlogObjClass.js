@@ -9,6 +9,7 @@ const Blog = Scrivito.provideObjClass("Blog", {
     body: ["widgetlist", { only: "SectionWidget" }],
     ...metadataAttributes,
   },
+  extractTextAttributes: ["body"],
 });
 
 registerTextExtract("Blog", [{ attribute: "body", type: "widgetlist" }]);

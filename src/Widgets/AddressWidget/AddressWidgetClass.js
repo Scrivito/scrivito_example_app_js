@@ -18,6 +18,17 @@ const AddressWidget = Scrivito.provideWidgetClass("AddressWidget", {
     fax: "string",
     email: "string",
   },
+  extractTextAttributes: [
+    "locationName",
+    "locationStreetAddress",
+    "locationLocality",
+    "locationPostalCode",
+    "locationRegion",
+    "locationCountry",
+    "phone",
+    "fax",
+    "email",
+  ],
 });
 
 registerTextExtract("AddressWidget", [

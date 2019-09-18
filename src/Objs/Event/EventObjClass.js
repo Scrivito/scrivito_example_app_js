@@ -17,6 +17,12 @@ const Event = Scrivito.provideObjClass("Event", {
     tags: "stringlist",
     ...metadataAttributes,
   },
+  extractTextAttributes: [
+    "locationName",
+    "locationLocality",
+    "locationCountry",
+    "body",
+  ],
 });
 
 registerTextExtract("Event", [

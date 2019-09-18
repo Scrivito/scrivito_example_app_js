@@ -9,6 +9,7 @@ const Page = Scrivito.provideObjClass("Page", {
     childOrder: "referencelist",
     ...metadataAttributes,
   },
+  extractTextAttributes: ["navigationSection", "body"],
 });
 
 registerTextExtract("Page", [

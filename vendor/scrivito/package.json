@@ -1,0 +1,19 @@
+{
+  "name": "scrivito",
+  "license": "LGPL-3.0",
+  "version": "1.9.0-rc1-264-g225e120f7e9b",
+  "dependencies": {
+    "history": "^4.9.0",
+    "promise-polyfill": "^8.1.0",
+    "speakingurl": "^14.0.1",
+    "tcomb": ">=3.2.29",
+    "tcomb-react": "^0.9.3",
+    "tcomb-validation": "^3.4.1",
+    "underscore": "^1.9.1",
+    "urijs": "^1.19.1"
+  },
+  "peerDependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  }
+}

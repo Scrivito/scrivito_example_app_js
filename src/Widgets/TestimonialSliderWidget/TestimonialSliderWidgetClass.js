@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const TestimonialSliderWidget = Scrivito.provideWidgetClass(
   "TestimonialSliderWidget",
@@ -9,9 +8,5 @@ const TestimonialSliderWidget = Scrivito.provideWidgetClass(
     },
   }
 );
-
-registerTextExtract("TestimonialSliderWidget", [
-  { attribute: "testimonials", type: "widgetlist" },
-]);
 
 export default TestimonialSliderWidget;

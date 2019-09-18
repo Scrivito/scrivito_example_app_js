@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const FeaturePanelWidget = Scrivito.provideWidgetClass("FeaturePanelWidget", {
   attributes: {
@@ -9,10 +8,5 @@ const FeaturePanelWidget = Scrivito.provideWidgetClass("FeaturePanelWidget", {
   },
   extractTextAttributes: ["headline", "description"],
 });
-
-registerTextExtract("FeaturePanelWidget", [
-  { attribute: "headline", type: "string" },
-  { attribute: "description", type: "string" },
-]);
 
 export default FeaturePanelWidget;

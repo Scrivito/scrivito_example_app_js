@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const ColumnContainerWidget = Scrivito.provideWidgetClass(
   "ColumnContainerWidget",
@@ -11,9 +10,5 @@ const ColumnContainerWidget = Scrivito.provideWidgetClass(
     extractTextAttributes: ["columns"],
   }
 );
-
-registerTextExtract("ColumnContainerWidget", [
-  { attribute: "columns", type: "widgetlist" },
-]);
 
 export default ColumnContainerWidget;

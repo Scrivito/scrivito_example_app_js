@@ -18,7 +18,7 @@ class NotFoundErrorPage extends React.Component {
       <React.Fragment>
         <section className="page-404 full-height">
           <div className="container d-flex flex-xs-column d-sm-inline-flex">
-            <img className="fobidden m-r-60" src={I404} />
+            <img className="fobidden m-r-60" src={I404} alt="fobidden"/>
             <div className="text-left">
               <h1 className="ff-rubik white-text">404</h1>
               <h2 className="ff-rubik fs-28 fw-500 lh-33-px white-text m-b-60">

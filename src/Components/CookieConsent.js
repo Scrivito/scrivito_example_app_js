@@ -28,7 +28,7 @@ function CookieConsent() {
       buttonClasses="cookie-button btn btn-primary ml-auto"
     >
       <div className="cookie-img-box">
-        <img className="cookie-img" src={cookieConsentIcon} />
+        <img className="cookie-img" src={cookieConsentIcon} alt="cookie-img"/>
       </div>
       <div>
         <div className="cookie-box-title">Cookies policy</div>

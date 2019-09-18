@@ -80,7 +80,7 @@ class VideoWidget extends React.Component {
     return (
       <div className={`video-widget ${color} ${btnSize}`}>
         <div className="poster">
-          <img src={posterUrl} />
+          <img src={posterUrl}/>
           <button
             className={btnClass}
             title="Play"

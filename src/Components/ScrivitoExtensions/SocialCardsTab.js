@@ -155,7 +155,7 @@ function OptionalImage({ src }) {
     return null;
   }
 
-  return <img src={src} />;
+  return <img src={src} alt="optional"/>;
 }
 
 function lookupMetadata(obj, value) {

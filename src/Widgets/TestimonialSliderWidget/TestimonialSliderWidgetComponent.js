@@ -39,7 +39,7 @@ function sliderSettings(testimonials) {
   const testimonialAuthorImages = testimonials.map(testimonial => {
     const authorImage = testimonial.get("authorImage");
     if (!isImage(authorImage)) {
-      return <img className="image" src={fallbackImageUrl} />;
+      return <img className="image" src={fallbackImageUrl} alt="authorimage"/>;
     }
 
     return (

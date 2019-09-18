@@ -95,6 +95,30 @@ document.body.getElementsByClassName("content-wrapper")[0].addEventListener(
         }, 500);
       }
     }
+    
+    if (window.location.pathname === "/signup2" && window.location.search === "?step=2") {
+      if (document.getElementById("5ixrcodf")){
+        document.getElementById("5ixrcodf").style.display = "none";
+      }
+      if (document.getElementById("pxzirt4l")){
+        document.getElementById("pxzirt4l").style.display = "block";
+      }
+      setTimeout(function() {
+        var elem = document.getElementById("pxzirt4l");
+        if (elem) {
+          elem.scrollIntoView();
+        }
+      }, 1500);
+    } else {
+      if (window.location.pathname === "/signup2") {
+        if (document.getElementById("5ixrcodf")){
+          document.getElementById("5ixrcodf").style.display = "block";
+        }
+        if (document.getElementById("pxzirt4l")){
+          document.getElementById("pxzirt4l").style.display = "none";
+        }
+      }
+    }
   },
   false
 );

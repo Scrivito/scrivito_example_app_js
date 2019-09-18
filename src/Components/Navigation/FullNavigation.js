@@ -57,7 +57,7 @@ class FullNavigation extends React.Component {
           </div>
 
           <Collapse isOpen={this.state.expanded} navbar>
-            <div className="navbar-collapse">
+            <div className="navbar-collapse" itemScope itemType="http://schema.org/Menu">
               <Nav
                 closeExpanded={this.closeExpanded}
                 expanded={this.state.expanded}

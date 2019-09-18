@@ -1,8 +1,10 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import Slider from "react-slick";
 import placeholderCss from "../../utils/placeholderCss";
 import AboutBoxWidget from "../AboutBox/AboutBoxWidgetClass";
+
+// eslint-disable-next-line
+const Slider = React.lazy(() => import("react-slick"));
 
 function SlickNextButton(props) {
   const { className, style, onClick } = props;
@@ -27,34 +29,36 @@ Scrivito.provideComponent("AboutTeamWidget", ({ widget }) => {
 
   return (
     <React.Fragment>
-      <Slider
-        className="about-team"
-        nextArrow={<SlickNextButton />}
-        prevArrow={<SlickPrevButton />}
-        {...sliderSettings}
-      >
-        {members.map(member => (
-          <div className="about-box" key={member.id()}>
-            <div className="image-container">
-              <Scrivito.ImageTag content={member} attribute="image" tag="img" />
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <Slider
+          className="about-team"
+          nextArrow={<SlickNextButton />}
+          prevArrow={<SlickPrevButton />}
+          {...sliderSettings}
+        >
+          {members.map(member => (
+            <div className="about-box" key={member.id()}>
+              <div className="image-container">
+                <Scrivito.ImageTag content={member} attribute="image" tag="img" alt="personimage"/>
+              </div>
+              <div className="body">
+                <Scrivito.ContentTag
+                  content={member}
+                  attribute="position"
+                  tag="div"
+                  className="position"
+                />
+                <Scrivito.ContentTag
+                  content={member}
+                  attribute="name"
+                  tag="div"
+                  className="name"
+                />
+              </div>
             </div>
-            <div className="body">
-              <Scrivito.ContentTag
-                content={member}
-                attribute="position"
-                tag="div"
-                className="position"
-              />
-              <Scrivito.ContentTag
-                content={member}
-                attribute="name"
-                tag="div"
-                className="name"
-              />
-            </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </React.Suspense>
       <Addmember widget={widget} />
     </React.Fragment>
   );

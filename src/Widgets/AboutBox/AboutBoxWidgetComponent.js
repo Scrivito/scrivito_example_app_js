@@ -11,7 +11,7 @@ Scrivito.provideComponent("AboutBoxWidget", ({ widget }) => {
   return (
     <div className="about-box">
       <div className="image-container">
-        <img src={url} />
+        <img src={url} alt="aboutbox"/>
       </div>
       <div className="body">
         {position && <div className="position">{position}</div>}

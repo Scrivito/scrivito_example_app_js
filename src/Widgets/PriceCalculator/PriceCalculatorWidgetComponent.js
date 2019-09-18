@@ -300,6 +300,7 @@ class PriceCalculatorWidget extends React.Component {
                       ? "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/34830b8a0f126a0d/336116475e34/v/9b43a6ff5845/home2_active.png"
                       : "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/84e262f5b29d96b3/a06646e36c87/v/70d3aa0b1cd1/home2.png"
                   }
+                  alt="Lejlighed"
                 />
                 <span>Lejlighed</span>
               </div>
@@ -315,6 +316,7 @@ class PriceCalculatorWidget extends React.Component {
                       ? "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/ccfb56733d294fc2/22db5461e286/v/6cdeaa1a91f8/home1_active.png"
                       : "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/e5e78da71094b28f/a026571edc68/v/77560f55538a/home1.png"
                   }
+                  alt="hus"
                 />
                 <span>Hus</span>
               </div>
@@ -330,6 +332,7 @@ class PriceCalculatorWidget extends React.Component {
                       ? "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/ccfb56733d294fc2/22db5461e286/v/6cdeaa1a91f8/home1_active.png"
                       : "https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/e5e78da71094b28f/a026571edc68/v/77560f55538a/home1.png"
                   }
+                  alt="Hus med elvarme"
                 />
                 <span>Hus med elvarme</span>
               </div>
@@ -552,7 +555,10 @@ class PriceCalculatorWidget extends React.Component {
             {window.location.pathname != "/Pristjek-done3" && <a className="link" href={ window.location.pathname == "/Pristjek-done2" ? "https://getbarry.app.link/r3hcH3cbcZ" : "https://getbarry.app.link/vrgOxox36Y"} target="blank" onClick={() => {}} style={{ marginBottom: 15 }}>
               Hent app’en og skift til Barry
             </a>}
-            {window.location.pathname != "/Pristjek-done2" && <a className="link" href={window.location.pathname == "/Pristjek-done3" ? "http://snip.ly/my6bee" : "https://snip.ly/q4xon5"} target="blank" style={{ marginTop: 15, marginBottom: 15 }}>
+            {/* {window.location.pathname != "/Pristjek-done2" && <a className="link" href={window.location.pathname == "/Pristjek-done3" ? "http://snip.ly/my6bee" : "https://snip.ly/q4xon5"} target="blank" style={{ marginTop: 15, marginBottom: 15 }}>
+              Skift til Barry online
+            </a>} */}
+            {window.location.pathname != "/Pristjek-done2" && <a className="link" href={window.location.pathname == "/Pristjek-done3" ? "/signup2" : "/signup2"} target="blank" style={{ marginTop: 15, marginBottom: 15 }}>
               Skift til Barry online
             </a>}
             <a href="/" style={{color: 'black'}}>Besøg getbarry.co</a>
@@ -560,10 +566,10 @@ class PriceCalculatorWidget extends React.Component {
         )}
         {this.state.showAlert && <div className="pric_calc_alert">
           <div>
-            <button onClick={() => {this.setState({showAlert: false})}}><img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/f56193eab4ff2d53/4ca2d23a8acb/v/528bd98e79fd/close-button-white.png"/></button>
+            <button onClick={() => {this.setState({showAlert: false})}}><img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/f56193eab4ff2d53/4ca2d23a8acb/v/528bd98e79fd/close-button-white.png" alt="close"/></button>
             <p>Vidste du, at Ørsted har hævet den månedlige abonnementspris med 34%? Dvs. at du nu betaler 39 kr. istedet for 29 kr. om måneden hos dem.<br/>
             Endnu en grund til at skifte til Barry?</p>
-            <img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/207be548e8cebe4c/491a257a309b/coin.svg" />
+            <img src="https://cdn0.scrvt.com/fb65a87dc47b5049e89f00ea0805136f/207be548e8cebe4c/491a257a309b/coin.svg" alt="coin"/>
           </div>
         </div>}
       </div>

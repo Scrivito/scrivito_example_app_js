@@ -62,7 +62,7 @@ const NavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
   }
 
   return (
-    <li className={classNames.join(" ")} {...otherProps}>
+    <li className={classNames.join(" ")} {...otherProps} itemProp="MenuItem">
       <Scrivito.LinkTag to={child} className="nav-link">
         {child.get("title") || "<untitled>"}
       </Scrivito.LinkTag>
@@ -102,7 +102,7 @@ const Dropdown = Scrivito.connect(
     }
 
     return (
-      <li className={classNames.join(" ")} {...otherProps}>
+      <li className={classNames.join(" ")} {...otherProps} itemProp="MenuItem">
         <Scrivito.LinkTag
           to={child}
           className="nav-link"

@@ -25,5 +25,7 @@ function renderApp() {
 }
 
 function hydrateApp() {
-  ReactDOM.hydrate(<App />, document.getElementById("application"));
+  ReactDOM.hydrate(<App />, document.getElementById("application"), () =>
+    Scrivito.updateContent()
+  );
 }

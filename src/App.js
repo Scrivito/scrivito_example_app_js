@@ -1,13 +1,20 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import CurrentPageMetadata from "./Components/CurrentPageMetadata";
 import ErrorBoundary from "./Components/ErrorBoundary";
 import Footer from "./Components/Footer";
-import GoogleAnalytics from "./Components/GoogleAnalytics";
-import Intercom from "./Components/Intercom";
 import Navigation from "./Components/Navigation";
-import NotFoundErrorPage from "./Components/NotFoundErrorPage";
-import CookieConsent from "./Components/CookieConsent";
+
+const GoogleAnalytics = React.lazy(() =>
+  import("./Components/GoogleAnalytics")
+);
+const Intercom = React.lazy(() => import("./Components/Intercom"));
+const CookieConsent = React.lazy(() => import("./Components/CookieConsent"));
+const CurrentPageMetadata = React.lazy(() =>
+  import("./Components/CurrentPageMetadata")
+);
+const NotFoundErrorPage = React.lazy(() =>
+  import("./Components/NotFoundErrorPage")
+);
 
 export default function App() {
   return (
@@ -16,13 +23,23 @@ export default function App() {
         <div className="content-wrapper">
           <Navigation />
           <Scrivito.CurrentPage />
-          <NotFoundErrorPage />
+          <React.Suspense fallback={<div />}>
+            <NotFoundErrorPage />
+          </React.Suspense>
         </div>
         <Footer />
-        <CookieConsent />
-        <CurrentPageMetadata />
-        <GoogleAnalytics />
-        <Intercom />
+        <React.Suspense fallback={<div />}>
+          <CookieConsent />
+        </React.Suspense>
+        <React.Suspense fallback={<div />}>
+          <CurrentPageMetadata />
+        </React.Suspense>
+        <React.Suspense fallback={<div />}>
+          <GoogleAnalytics />
+        </React.Suspense>
+        <React.Suspense fallback={<div />}>
+          <Intercom />
+        </React.Suspense>
       </div>
     </ErrorBoundary>
   );

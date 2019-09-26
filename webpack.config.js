@@ -9,7 +9,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const Webpackbar = require("webpackbar");
 const ZipPlugin = require("zip-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const headersCsp = require("./public/_headersCsp.json");
 const ExtendCspHeadersWebpackPlugin = require("./ExtendCspHeadersWebpackPlugin");
 
@@ -108,13 +107,6 @@ function webpackConfig(env = {}) {
       ],
     },
     optimization: {
-      runtimeChunk: "single",
-      splitChunks: {
-        chunks: "all",
-        maxInitialRequests: Infinity,
-        minSize: 0,
-        maxSize: 500000,
-      },
       minimizer: [
         new TerserPlugin({
           cache: true,
@@ -204,13 +196,6 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
   } else {
     plugins.push(new webpack.SourceMapDevToolPlugin({}));
   }
-
-  plugins.push(new webpack.HashedModuleIdsPlugin());
-  plugins.push(
-    new HtmlWebpackPlugin({
-      title: "Caching",
-    })
-  );
 
   return plugins;
 }

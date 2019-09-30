@@ -24,7 +24,7 @@ Scrivito.provideComponent("YoutubeVideoWidget", ({ widget }) => {
     >
       <iframe
         title="Youtube Video Widget"
-        src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+        src={`https://www.youtube-nocookie.com/embed/${youtubeVideoId}`}
         className="youtube-video-widget--fullsize-iframe"
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

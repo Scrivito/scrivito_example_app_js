@@ -31,8 +31,8 @@ function configureGoogleAnalytics() {
     if (trackingId) {
       window.ga =
         window.ga ||
-        function() {
-          (window.ga.q = window.ga.q || []).push(arguments);
+        function ga(...args) {
+          (window.ga.q = window.ga.q || []).push(args);
         };
       window.ga.l = +new Date();
       window.ga("create", trackingId, "auto");

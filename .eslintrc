@@ -54,6 +54,10 @@
     {
       "files": ["src/index.js"],
       "rules": { "import/first": 0 }
+    },
+    {
+      "files": ["src/Components/ScrivitoExtensions/ColumnsEditorTab.js"],
+      "rules": { "max-classes-per-file": 0 }
     }
   ]
 }

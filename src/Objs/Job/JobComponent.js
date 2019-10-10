@@ -17,14 +17,14 @@ Scrivito.provideComponent("Job", ({ page }) => {
                 content={page}
                 attribute="title"
               />
-              <JobDatePosted datePosted={page.get("datePosted")} />
+              <JobDatePosted page={page} />
             </div>
             <div className="col-lg-5 details-title-box">
               <JobLocation job={page} />
               <JobEmploymentTypes
                 employmentTypes={page.get("employmentType")}
               />
-              <JobValidThrough validThrough={page.get("validThrough")} />
+              <JobValidThrough page={page} />
             </div>
           </div>
         </div>
@@ -35,32 +35,46 @@ Scrivito.provideComponent("Job", ({ page }) => {
   );
 });
 
-const JobDatePosted = Scrivito.connect(({ datePosted }) => {
-  if (!datePosted) {
-    return (
-      <InPlaceEditingPlaceholder block>
-        Select a date in the job page properties.
-      </InPlaceEditingPlaceholder>
-    );
+const JobDatePosted = Scrivito.connect(({ page }) => {
+  const datePosted = page.get("datePosted");
+
+  if (!datePosted && !Scrivito.isInPlaceEditingActive()) {
+    return null;
   }
 
-  return <span>{formatDate(datePosted, "mm/dd/yyyy")}</span>;
+  return (
+    <Scrivito.ContentTag content={page} attribute="datePosted" tag="span">
+      {datePosted ? (
+        formatDate(datePosted, "mm/dd/yyyy")
+      ) : (
+        <InPlaceEditingPlaceholder>
+          Click to select a posting date
+        </InPlaceEditingPlaceholder>
+      )}
+    </Scrivito.ContentTag>
+  );
 });
 
-const JobValidThrough = Scrivito.connect(({ validThrough }) => {
-  if (!validThrough) {
-    return (
-      <InPlaceEditingPlaceholder block>
-        Select a date in the job page properties.
-      </InPlaceEditingPlaceholder>
-    );
+const JobValidThrough = Scrivito.connect(({ page }) => {
+  const validThrough = page.get("validThrough");
+
+  if (!validThrough && !Scrivito.isInPlaceEditingActive()) {
+    return null;
   }
 
   return (
     <h2 className="h5">
       <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />{" "}
       <span className="font-weight-bold">Valid through: </span>
-      {formatDate(validThrough, "mm/dd/yyyy")}
+      <Scrivito.ContentTag content={page} attribute="validThrough" tag="span">
+        {validThrough ? (
+          formatDate(validThrough, "mm/dd/yyyy")
+        ) : (
+          <InPlaceEditingPlaceholder>
+            Click to select a date
+          </InPlaceEditingPlaceholder>
+        )}
+      </Scrivito.ContentTag>
     </h2>
   );
 });

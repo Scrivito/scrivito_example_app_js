@@ -17,14 +17,20 @@ Scrivito.provideComponent("Job", ({ page }) => {
                 content={page}
                 attribute="title"
               />
-              <JobDatePosted datePosted={page.get("datePosted")} />
+              <Scrivito.ContentTag
+                content={page}
+                attribute="datePosted"
+                tag="span"
+              >
+                <JobDatePosted datePosted={page.get("datePosted")} />
+              </Scrivito.ContentTag>
             </div>
             <div className="col-lg-5 details-title-box">
               <JobLocation job={page} />
               <JobEmploymentTypes
                 employmentTypes={page.get("employmentType")}
               />
-              <JobValidThrough validThrough={page.get("validThrough")} />
+              <JobValidThrough page={page} />
             </div>
           </div>
         </div>
@@ -35,19 +41,38 @@ Scrivito.provideComponent("Job", ({ page }) => {
   );
 });
 
-const JobDatePosted = Scrivito.connect(({ datePosted }) => {
+function JobDatePosted({ datePosted }) {
   if (!datePosted) {
     return (
-      <InPlaceEditingPlaceholder block>
-        Select a date in the job page properties.
+      <InPlaceEditingPlaceholder>
+        Click to select posted at.
       </InPlaceEditingPlaceholder>
     );
   }
 
-  return <span>{formatDate(datePosted, "mm/dd/yyyy")}</span>;
-});
+  return formatDate(datePosted, "mm/dd/yyyy");
+}
 
-const JobValidThrough = Scrivito.connect(({ validThrough }) => {
+const JobValidThrough = Scrivito.connect(({ page }) => {
+  const validThrough = page.get("validThrough");
+  if (!validThrough) {
+    if (!Scrivito.isInPlaceEditingActive()) {
+      return null;
+    }
+
+    return (
+      <h2 className="h5">
+        <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />{" "}
+        <span className="font-weight-bold">Valid through: </span>
+        <Scrivito.ContentTag content={page} attribute="validThrough" tag="span">
+          <InPlaceEditingPlaceholder>
+            Click to select expire at.
+          </InPlaceEditingPlaceholder>
+        </Scrivito.ContentTag>
+      </h2>
+    );
+  }
+
   if (!validThrough) {
     return (
       <InPlaceEditingPlaceholder block>
@@ -60,7 +85,9 @@ const JobValidThrough = Scrivito.connect(({ validThrough }) => {
     <h2 className="h5">
       <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />{" "}
       <span className="font-weight-bold">Valid through: </span>
-      {formatDate(validThrough, "mm/dd/yyyy")}
+      <Scrivito.ContentTag content={page} attribute="validThrough" tag="span">
+        {formatDate(validThrough, "mm/dd/yyyy")}
+      </Scrivito.ContentTag>
     </h2>
   );
 });

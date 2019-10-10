@@ -73,14 +73,6 @@ const JobValidThrough = Scrivito.connect(({ page }) => {
     );
   }
 
-  if (!validThrough) {
-    return (
-      <InPlaceEditingPlaceholder block>
-        Select a date in the job page properties.
-      </InPlaceEditingPlaceholder>
-    );
-  }
-
   return (
     <h2 className="h5">
       <i className="fa fa-calendar-o fa-lg" aria-hidden="true" title="date" />{" "}

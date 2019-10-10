@@ -47,7 +47,7 @@ function EventDate({ date }) {
   if (!date) {
     return (
       <InPlaceEditingPlaceholder>
-        Click to select a date.
+        Click to select a date
       </InPlaceEditingPlaceholder>
     );
   }

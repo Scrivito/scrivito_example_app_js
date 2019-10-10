@@ -48,7 +48,7 @@ const JobDatePosted = Scrivito.connect(({ page }) => {
         formatDate(datePosted, "mm/dd/yyyy")
       ) : (
         <InPlaceEditingPlaceholder>
-          Click to select posted at.
+          Click to select a posting date
         </InPlaceEditingPlaceholder>
       )}
     </Scrivito.ContentTag>
@@ -71,7 +71,7 @@ const JobValidThrough = Scrivito.connect(({ page }) => {
           formatDate(validThrough, "mm/dd/yyyy")
         ) : (
           <InPlaceEditingPlaceholder>
-            Click to select expire at.
+            Click to select a date
           </InPlaceEditingPlaceholder>
         )}
       </Scrivito.ContentTag>

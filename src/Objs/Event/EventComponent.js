@@ -24,7 +24,14 @@ Scrivito.provideComponent("Event", ({ page }) => (
                 aria-hidden="true"
                 title="date"
               />{" "}
-              <EventDate date={page.get("date")} />
+              <Scrivito.ContentTag
+                content={page}
+                attribute="date"
+                tag="span"
+                className="event-info"
+              >
+                <EventDate date={page.get("date")} />
+              </Scrivito.ContentTag>
               <EventLocation event={page} />
             </h2>
           </div>
@@ -40,9 +47,7 @@ function EventDate({ date }) {
   if (!date) {
     return (
       <InPlaceEditingPlaceholder>
-        <span className="event-info">
-          Select a date in the event page properties.
-        </span>
+        Click to select a date.
       </InPlaceEditingPlaceholder>
     );
   }

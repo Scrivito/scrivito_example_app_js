@@ -17,13 +17,7 @@ Scrivito.provideComponent("Job", ({ page }) => {
                 content={page}
                 attribute="title"
               />
-              <Scrivito.ContentTag
-                content={page}
-                attribute="datePosted"
-                tag="span"
-              >
-                <JobDatePosted datePosted={page.get("datePosted")} />
-              </Scrivito.ContentTag>
+              <JobDatePosted page={page} />
             </div>
             <div className="col-lg-5 details-title-box">
               <JobLocation job={page} />
@@ -41,17 +35,21 @@ Scrivito.provideComponent("Job", ({ page }) => {
   );
 });
 
-function JobDatePosted({ datePosted }) {
-  if (!datePosted) {
-    return (
-      <InPlaceEditingPlaceholder>
-        Click to select posted at.
-      </InPlaceEditingPlaceholder>
-    );
-  }
+const JobDatePosted = Scrivito.connect(({ page }) => {
+  const datePosted = page.get("datePosted");
 
-  return formatDate(datePosted, "mm/dd/yyyy");
-}
+  return (
+    <Scrivito.ContentTag content={page} attribute="datePosted" tag="span">
+      {datePosted ? (
+        formatDate(datePosted, "mm/dd/yyyy")
+      ) : (
+        <InPlaceEditingPlaceholder>
+          Click to select posted at.
+        </InPlaceEditingPlaceholder>
+      )}
+    </Scrivito.ContentTag>
+  );
+});
 
 const JobValidThrough = Scrivito.connect(({ page }) => {
   const validThrough = page.get("validThrough");

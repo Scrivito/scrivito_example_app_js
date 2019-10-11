@@ -40,7 +40,7 @@
     clear: left;
     @include clearfix;
 
-    &:nth-child(odd) {
+    &:nth-child(even) {
       float: right;
       clear: right;
       margin: 90px 0 20px 0;
@@ -79,11 +79,11 @@
       clear: both;
 
       + li {
-        &:nth-child(even) {
+        &:nth-child(odd) {
           margin: 15px 0 30px 0;
         }
 
-        &:nth-child(odd) {
+        &:nth-child(even) {
           margin: 90px 0 20px 0;
         }
       }

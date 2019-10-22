@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import cookieConsentGiven from "../utils/cookieConsentGiven";
 
 export default function Tracking() {

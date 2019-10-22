@@ -59,6 +59,7 @@
     "react-dom": "^16.8.6",
     "react-draggable": "^4.0.3",
     "react-helmet": "^5.2.1",
+    "react-helmet-async": "^1.0.4",
     "react-highlight-words": "^0.16.0",
     "react-images": "^0.5.19",
     "react-reveal": "^1.2.2",

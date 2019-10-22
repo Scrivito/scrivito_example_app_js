@@ -3,7 +3,7 @@ import * as React from "react";
 import * as ReactDOMServer from "react-dom/server";
 import * as Scrivito from "scrivito";
 import Helmet from "react-helmet";
-import App from "../App";
+import App, { helmetContext } from "../App";
 import filenameFromUrl from "./filenameFromUrl";
 import generateHtml from "./generateHtml";
 import generatePreloadDump from "./generatePreloadDump";
@@ -15,7 +15,7 @@ export default async function prerenderObj(obj) {
 
   const { result, preloadDump } = await Scrivito.renderPage(obj, () => {
     const bodyContent = ReactDOMServer.renderToString(<App />);
-    const helmet = Helmet.renderStatic();
+    const { helmet } = helmetContext;
 
     return {
       objId: obj.id(),

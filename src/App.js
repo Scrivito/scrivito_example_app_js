@@ -8,22 +8,27 @@ import Navigation from "./Components/Navigation";
 import NotFoundErrorPage from "./Components/NotFoundErrorPage";
 import CookieConsent from "./Components/CookieConsent";
 import Tracking from "./Components/Tracking";
+import { HelmetProvider } from "react-helmet-async";
+
+export const helmetContext = {};
 
 export default function App() {
   return (
     <ErrorBoundary>
-      <div>
-        <div className="content-wrapper">
-          <Navigation />
-          <Scrivito.CurrentPage />
-          <NotFoundErrorPage />
+      <HelmetProvider context={helmetContext}>
+        <div>
+          <div className="content-wrapper">
+            <Navigation />
+            <Scrivito.CurrentPage />
+            <NotFoundErrorPage />
+          </div>
+          <Footer />
+          <CurrentPageMetadata />
+          <CookieConsent />
+          <Tracking />
+          <Intercom />
         </div>
-        <Footer />
-        <CurrentPageMetadata />
-        <CookieConsent />
-        <Tracking />
-        <Intercom />
-      </div>
+      </HelmetProvider>
     </ErrorBoundary>
   );
 }

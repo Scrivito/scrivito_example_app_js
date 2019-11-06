@@ -69,32 +69,7 @@
       }
     }
 
-    &.blog-timeline--divider {
-      background: #fff;
-      margin: 20px 0;
-      padding: 20px 0;
-      width: 100%;
-      float: none;
-      overflow: hidden;
-      clear: both;
 
-      + li {
-        &:nth-child(odd) {
-          margin: 15px 0 30px 0;
-        }
-
-        &:nth-child(even) {
-          margin: 90px 0 20px 0;
-        }
-      }
-
-      time.h4 {
-        display: block;
-        text-align: center;
-        margin: 0;
-        color: $theme-greymiddle !important;
-      }
-    }
 
     > .blog-timeline {
       &--badge {
@@ -149,6 +124,21 @@
   }
 }
 
+
+.blog-timeline--divider {
+  background: #fff;
+  margin: 20px 0;
+  padding: 20px 0;
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: 0;
+  color: $theme-greymiddle !important;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 30px;
+}
+
 @media (max-width: $screen-md-min) {
   .blog-timeline {
     &:before {
@@ -194,6 +184,10 @@
       }
     }
   }
+  .blog-timeline--divider {
+    padding: 10px;
+    text-align: left;
+  }
 }
 
 @media (max-width: $screen-xs-max) {
@@ -234,10 +228,6 @@
       margin: 20px 0 30px 0 !important;
       padding: 0 !important;
 
-      &.blog-timeline--divider time.h4 {
-        text-align: center;
-      }
-
       > .blog-timeline {
         &--badge {
           position: relative;
@@ -256,5 +246,8 @@
         }
       }
     }
+  }
+  .blog-timeline--divider {
+    text-align: center;
   }
 }

@@ -57,7 +57,7 @@
     "react": "^16.8.6",
     "react-cookie-consent": "^2.5.0",
     "react-dom": "^16.8.6",
-    "react-draggable": "^4.0.3",
+    "react-draggable": "^4.1.0",
     "react-helmet": "^5.2.1",
     "react-helmet-async": "^1.0.4",
     "react-highlight-words": "^0.16.0",

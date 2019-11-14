@@ -146,7 +146,7 @@ function generateEntry({ isPrerendering }) {
 }
 
 function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
-  const ignorePublicFiles = [];
+  const ignorePublicFiles = ["_headersCsp.json"];
   if (!isPrerendering) {
     ignorePublicFiles.push("_prerender_content.html");
   }

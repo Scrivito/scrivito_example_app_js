@@ -60,13 +60,11 @@ const MonthHeadline = Scrivito.connect(({ date }) => {
   }
 
   return (
-    <ul className="blog-timeline">
-      <li className="blog-timeline--divider">
-        <time className="h4" dateTime={formatDate(date, "yyyy-mm")}>
-          {formatDate(date, "mmmm yyyy")}
-        </time>
-      </li>
-    </ul>
+    <div className="blog-timeline--divider">
+      <time dateTime={formatDate(date, "yyyy-mm")}>
+        {formatDate(date, "mmmm yyyy")}
+      </time>
+    </div>
   );
 });
 

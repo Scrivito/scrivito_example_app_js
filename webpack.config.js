@@ -10,7 +10,6 @@ const TerserPlugin = require("terser-webpack-plugin");
 const Webpackbar = require("webpackbar");
 const ZipPlugin = require("zip-webpack-plugin");
 const headersCsp = require("./public/_headersCsp.json");
-const ExtendCspHeadersWebpackPlugin = require("./ExtendCspHeadersWebpackPlugin");
 
 // load ".env"
 dotenv.config();
@@ -140,7 +139,7 @@ function generateEntry({ isPrerendering }) {
 }
 
 function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
-  const ignorePublicFiles = [];
+  const ignorePublicFiles = ["_headersCsp.json"];
   if (!isPrerendering) {
     ignorePublicFiles.push("_prerender_content.html");
   }
@@ -155,11 +154,17 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
     new CopyWebpackPlugin([
       { from: "../public", ignore: ignorePublicFiles },
       {
+        from: "../public/_headers",
+        transform: content => {
+          const csp = builder({ directives: headersCsp });
+          return content.toString().replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
+        },
+      },
+      {
         from: "../node_modules/scrivito/scrivito/index.html",
         to: "scrivito/index.html",
       },
     ]),
-    new ExtendCspHeadersWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].css",
     }),

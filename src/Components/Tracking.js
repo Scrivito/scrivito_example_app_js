@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import cookieConsentGiven from "../utils/cookieConsentGiven";
 
 export default function Tracking() {
@@ -31,8 +31,8 @@ function configureGoogleAnalytics() {
     if (trackingId) {
       window.ga =
         window.ga ||
-        function() {
-          (window.ga.q = window.ga.q || []).push(arguments);
+        function ga(...args) {
+          (window.ga.q = window.ga.q || []).push(args);
         };
       window.ga.l = +new Date();
       window.ga("create", trackingId, "auto");

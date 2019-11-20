@@ -984,12 +984,13 @@ _:-ms-fullscreen,
 
 .cookie-content {
   color: $theme-greywhite;
-  margin-right: 20px;
+  margin: 0;
+  line-height: 20px;
 }
 
 .cookie-button {
   margin: 0;
-  height: 50px;
+  padding: 5px 25px;
 }
 
 .cookie-box-title {
@@ -1045,11 +1046,12 @@ img.cookie-img {
     margin: 0;
   }
   .cookie-button {
-    width: 100%;
-    margin-top: 20px;
+    width: 48%;
+    margin: 10px 5px 0 0!important;
   }
+  .cookie-button + .cookie-button { margin: 10px 0 0 0!important; float: right; }
   .cookie-box {
-    padding: 20px;
+    padding: 10px 20px;
   }
 }
 

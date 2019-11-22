@@ -30,6 +30,11 @@ const PricingWidget = Scrivito.provideWidgetClass("PricingWidget", {
     mediumPlanButton: "link",
     largePlanButton: "link",
   },
+  extractTextAttributes: [
+    "smallPlanSpecs",
+    "mediumPlanSpecs",
+    "largePlanSpecs",
+  ],
 });
 
 registerTextExtract("PricingWidget", [

@@ -13,6 +13,7 @@ const BlogPost = Scrivito.provideObjClass("BlogPost", {
     titleImage: ["reference", { only: ["Image"] }],
     ...metadataAttributes,
   },
+  extractTextAttributes: ["body"],
 });
 
 registerTextExtract("BlogPost", [{ attribute: "body", type: "widgetlist" }]);

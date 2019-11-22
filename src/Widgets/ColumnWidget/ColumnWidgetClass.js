@@ -7,6 +7,7 @@ const ColumnWidget = Scrivito.provideWidgetClass("ColumnWidget", {
     colSize: "integer",
     content: "widgetlist",
   },
+  extractTextAttributes: ["content"],
 });
 
 registerTextExtract("ColumnWidget", [

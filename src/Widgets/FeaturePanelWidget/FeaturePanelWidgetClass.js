@@ -7,6 +7,7 @@ const FeaturePanelWidget = Scrivito.provideWidgetClass("FeaturePanelWidget", {
     headline: "string",
     description: "string",
   },
+  extractTextAttributes: ["headline", "description"],
 });
 
 registerTextExtract("FeaturePanelWidget", [

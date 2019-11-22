@@ -9,6 +9,7 @@ const Author = Scrivito.provideObjClass("Author", {
     image: ["reference", { only: ["Image"] }],
     ...metadataAttributes,
   },
+  extractTextAttributes: ["description"],
 });
 
 registerTextExtract("Author", [{ attribute: "description", type: "string" }]);

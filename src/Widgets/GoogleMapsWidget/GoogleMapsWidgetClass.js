@@ -35,6 +35,7 @@ const GoogleMapsWidget = Scrivito.provideWidgetClass("GoogleMapsWidget", {
     showWidgets: ["enum", { values: ["yes", "no"] }],
     content: "widgetlist",
   },
+  extractTextAttributes: ["content"],
 });
 
 registerTextExtract("GoogleMapsWidget", [

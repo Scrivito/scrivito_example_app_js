@@ -8,6 +8,7 @@ const <%= objClassName %> = Scrivito.provideObjClass("<%= objClassName %>", {
     body: ["widgetlist", { only: "SectionWidget" }],
     ...metadataAttributes,
   },
+  extractTextAttributes: ["body"],
 });
 
 registerTextExtract("<%= objClassName %>", [{ attribute: "body", type: "widgetlist" }]);

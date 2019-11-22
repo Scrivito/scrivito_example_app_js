@@ -8,6 +8,7 @@ const TestimonialWidget = Scrivito.provideWidgetClass("TestimonialWidget", {
     author: "string",
     authorImage: ["reference", { only: ["Image"] }],
   },
+  extractTextAttributes: ["testimonial"],
 });
 
 registerTextExtract("TestimonialWidget", [

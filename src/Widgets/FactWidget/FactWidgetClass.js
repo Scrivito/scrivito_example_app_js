@@ -6,6 +6,7 @@ const FactWidget = Scrivito.provideWidgetClass("FactWidget", {
     key: "string",
     value: "string",
   },
+  extractTextAttributes: ["key", "value"],
 });
 
 registerTextExtract("FactWidget", [

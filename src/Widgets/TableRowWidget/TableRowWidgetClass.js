@@ -18,6 +18,7 @@ const TableRowWidget = Scrivito.provideWidgetClass("TableRowWidget", {
     ],
   },
   onlyInside: "TableWidget",
+  extractTextAttributes: ["cell1", "cell2", "cell3", "cell4"],
 });
 
 registerTextExtract("TableRowWidget", [

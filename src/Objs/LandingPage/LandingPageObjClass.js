@@ -8,6 +8,7 @@ const LandingPage = Scrivito.provideObjClass("LandingPage", {
     ...defaultPageAttributes,
     ...metadataAttributes,
   },
+  extractTextAttributes: ["navigationSection", "body"],
 });
 
 registerTextExtract("LandingPage", [

@@ -8,6 +8,7 @@ const PriceWidget = Scrivito.provideWidgetClass("PriceWidget", {
     period: "string",
     price: "string",
   },
+  extractTextAttributes: ["price", "currency", "period"],
 });
 
 registerTextExtract("PriceWidget", [

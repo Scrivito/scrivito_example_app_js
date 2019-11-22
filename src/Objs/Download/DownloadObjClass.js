@@ -7,6 +7,7 @@ const Download = Scrivito.provideObjClass("Download", {
     tags: "stringlist",
     title: "string",
   },
+  extractTextAttributes: ["blob:text"],
 });
 
 registerTextExtract("Download", [{ attribute: "text", type: "metadata" }]);

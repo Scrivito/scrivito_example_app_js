@@ -6,6 +6,7 @@ const TextWidget = Scrivito.provideWidgetClass("TextWidget", {
     text: "html",
     alignment: ["enum", { values: ["left", "center", "right"] }],
   },
+  extractTextAttributes: ["text"],
 });
 
 registerTextExtract("TextWidget", [{ attribute: "text", type: "html" }]);

@@ -23,6 +23,7 @@ const SectionWidget = Scrivito.provideWidgetClass("SectionWidget", {
     ],
     backgroundImage: ["reference", { only: ["Image"] }],
   },
+  extractTextAttributes: ["content"],
 });
 
 registerTextExtract("SectionWidget", [

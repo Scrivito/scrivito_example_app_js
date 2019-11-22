@@ -1,6 +1,5 @@
 import * as Scrivito from "scrivito";
 import { truncate } from "lodash-es";
-import { textExtractFromObj } from "./textExtract";
 import urlFromBinary from "./urlFromBinary";
 import isVideoObj from "./isVideoObj";
 
@@ -11,7 +10,7 @@ function getMetadata(page) {
     { property: "og:type", content: "article" },
     { property: "og:url", content: Scrivito.urlFor(page) },
   ];
-  const textExtract = textExtractFromObj(page);
+  const extractedText = Scrivito.extractText(page, { length: 330 });
 
   const robotsIndex = page.get("robotsIndex");
   if (robotsIndex === "no") {
@@ -43,7 +42,7 @@ function getMetadata(page) {
 
   const tcDescription =
     page.get("tcDescription") ||
-    truncate(textExtract, { length: 137, separator: /,? +/ });
+    truncate(extractedText, { length: 137, separator: /,? +/ });
   if (tcDescription) {
     meta.push({ name: "twitter:description", content: tcDescription });
   }
@@ -66,7 +65,7 @@ function getMetadata(page) {
 
   const ogDescription =
     page.get("ogDescription") ||
-    truncate(textExtract, { length: 297, separator: /,? +/ });
+    truncate(extractedText, { length: 297, separator: /,? +/ });
   if (ogDescription) {
     meta.push({ property: "og:description", content: ogDescription });
   }

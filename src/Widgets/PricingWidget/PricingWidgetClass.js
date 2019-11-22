@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const PricingWidget = Scrivito.provideWidgetClass("PricingWidget", {
   attributes: {
@@ -36,11 +35,5 @@ const PricingWidget = Scrivito.provideWidgetClass("PricingWidget", {
     "largePlanSpecs",
   ],
 });
-
-registerTextExtract("PricingWidget", [
-  { attribute: "smallPlanSpecs", type: "widgetlist" },
-  { attribute: "mediumPlanSpecs", type: "widgetlist" },
-  { attribute: "largePlanSpecs", type: "widgetlist" },
-]);
 
 export default PricingWidget;

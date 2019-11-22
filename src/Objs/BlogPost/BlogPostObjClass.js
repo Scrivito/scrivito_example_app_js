@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 import metadataAttributes from "../_metadataAttributes";
 
 const BlogPost = Scrivito.provideObjClass("BlogPost", {
@@ -15,7 +14,5 @@ const BlogPost = Scrivito.provideObjClass("BlogPost", {
   },
   extractTextAttributes: ["body"],
 });
-
-registerTextExtract("BlogPost", [{ attribute: "body", type: "widgetlist" }]);
 
 export default BlogPost;

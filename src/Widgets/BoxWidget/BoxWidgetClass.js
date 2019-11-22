@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const BoxWidget = Scrivito.provideWidgetClass("BoxWidget", {
   attributes: {
@@ -9,7 +8,5 @@ const BoxWidget = Scrivito.provideWidgetClass("BoxWidget", {
   },
   extractTextAttributes: ["body"],
 });
-
-registerTextExtract("BoxWidget", [{ attribute: "body", type: "widgetlist" }]);
 
 export default BoxWidget;

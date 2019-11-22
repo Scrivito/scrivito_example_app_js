@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const TickListWidget = Scrivito.provideWidgetClass("TickListWidget", {
   attributes: {
@@ -7,9 +6,5 @@ const TickListWidget = Scrivito.provideWidgetClass("TickListWidget", {
   },
   extractTextAttributes: ["items"],
 });
-
-registerTextExtract("TickListWidget", [
-  { attribute: "items", type: "widgetlist" },
-]);
 
 export default TickListWidget;

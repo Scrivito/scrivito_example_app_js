@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const FactWidget = Scrivito.provideWidgetClass("FactWidget", {
   attributes: {
@@ -8,10 +7,5 @@ const FactWidget = Scrivito.provideWidgetClass("FactWidget", {
   },
   extractTextAttributes: ["key", "value"],
 });
-
-registerTextExtract("FactWidget", [
-  { attribute: "key", type: "string" },
-  { attribute: "value", type: "string" },
-]);
 
 export default FactWidget;

@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 import defaultPageAttributes from "../_defaultPageAttributes";
 import metadataAttributes from "../_metadataAttributes";
 
@@ -22,10 +21,5 @@ const Homepage = Scrivito.provideObjClass("Homepage", {
   },
   extractTextAttributes: ["navigationSection", "body"],
 });
-
-registerTextExtract("Homepage", [
-  { attribute: "navigationSection", type: "widgetlist" },
-  { attribute: "body", type: "widgetlist" },
-]);
 
 export default Homepage;

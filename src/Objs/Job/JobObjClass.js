@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 import metadataAttributes from "../_metadataAttributes";
 
 const Job = Scrivito.provideObjClass("Job", {
@@ -40,7 +39,5 @@ const Job = Scrivito.provideObjClass("Job", {
   },
   extractTextAttributes: ["body"],
 });
-
-registerTextExtract("Job", [{ attribute: "body", type: "widgetlist" }]);
 
 export default Job;

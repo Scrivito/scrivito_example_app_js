@@ -49,7 +49,6 @@ function webpackConfig(env = {}) {
             path.join(__dirname, "src"),
             path.join(__dirname, "node_modules/autotrack"),
             path.join(__dirname, "node_modules/dom-utils"), // sub-dependency of autotrack
-            path.join(__dirname, "node_modules/striptags"),
           ],
           use: [
             {
@@ -68,12 +67,6 @@ function webpackConfig(env = {}) {
                       targets: { browsers: ["defaults"] },
                     },
                   ],
-                ],
-                overrides: [
-                  {
-                    test: ["./node_modules/striptags"],
-                    presets: [["@babel/preset-env", { useBuiltIns: false }]],
-                  },
                 ],
                 cacheDirectory: "tmp/babel-cache",
               },

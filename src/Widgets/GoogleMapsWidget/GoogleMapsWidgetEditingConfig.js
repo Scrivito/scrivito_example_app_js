@@ -49,7 +49,10 @@ Scrivito.provideEditingConfig("GoogleMapsWidget", {
     showWidgets: {
       title: "Show map widgets?",
       description: "Should widgets be shown on top of this map? Default: No",
-      values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
+      values: [
+        { value: "yes", title: "Yes" },
+        { value: "no", title: "No" },
+      ],
     },
   },
   properties: ["address", "mapType", "zoom", "showWidgets"],

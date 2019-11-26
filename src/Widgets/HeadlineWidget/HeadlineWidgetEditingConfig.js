@@ -43,12 +43,18 @@ Scrivito.provideEditingConfig("HeadlineWidget", {
     showDividingLine: {
       title: "Show dividing line?",
       description: "Default: No",
-      values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
+      values: [
+        { value: "yes", title: "Yes" },
+        { value: "no", title: "No" },
+      ],
     },
     showMargin: {
       title: "Show margin?",
       description: "A margin adds space around this headline. Default: Yes",
-      values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
+      values: [
+        { value: "yes", title: "Yes" },
+        { value: "no", title: "No" },
+      ],
     },
   },
   properties: ["style", "level", "alignment", "showDividingLine", "showMargin"],

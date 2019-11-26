@@ -13,7 +13,10 @@ export const defaultPageEditingConfigAttributes = {
   navigationBackgroundImageGradient: {
     title: "Use gradient for header image?",
     description: "Only applies if a header image is selected. Default: No",
-    values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
+    values: [
+      { value: "yes", title: "Yes" },
+      { value: "no", title: "No" },
+    ],
   },
   navigationHeight: {
     title: "Header height",

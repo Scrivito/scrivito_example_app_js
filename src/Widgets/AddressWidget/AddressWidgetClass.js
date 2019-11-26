@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const AddressWidget = Scrivito.provideWidgetClass("AddressWidget", {
   attributes: {
@@ -18,18 +17,17 @@ const AddressWidget = Scrivito.provideWidgetClass("AddressWidget", {
     fax: "string",
     email: "string",
   },
+  extractTextAttributes: [
+    "locationName",
+    "locationStreetAddress",
+    "locationLocality",
+    "locationPostalCode",
+    "locationRegion",
+    "locationCountry",
+    "phone",
+    "fax",
+    "email",
+  ],
 });
-
-registerTextExtract("AddressWidget", [
-  { attribute: "locationName", type: "string" },
-  { attribute: "locationStreetAddress", type: "string" },
-  { attribute: "locationLocality", type: "string" },
-  { attribute: "locationPostalCode", type: "string" },
-  { attribute: "locationRegion", type: "string" },
-  { attribute: "locationCountry", type: "string" },
-  { attribute: "phone", type: "string" },
-  { attribute: "fax", type: "string" },
-  { attribute: "email", type: "string" },
-]);
 
 export default AddressWidget;

@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 import metadataAttributes from "../_metadataAttributes";
 
 const <%= objClassName %> = Scrivito.provideObjClass("<%= objClassName %>", {
@@ -8,8 +7,7 @@ const <%= objClassName %> = Scrivito.provideObjClass("<%= objClassName %>", {
     body: ["widgetlist", { only: "SectionWidget" }],
     ...metadataAttributes,
   },
+  extractTextAttributes: ["body"],
 });
-
-registerTextExtract("<%= objClassName %>", [{ attribute: "body", type: "widgetlist" }]);
 
 export default <%= objClassName %>;

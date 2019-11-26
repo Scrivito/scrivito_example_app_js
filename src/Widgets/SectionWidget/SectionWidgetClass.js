@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const SectionWidget = Scrivito.provideWidgetClass("SectionWidget", {
   attributes: {
@@ -23,10 +22,7 @@ const SectionWidget = Scrivito.provideWidgetClass("SectionWidget", {
     ],
     backgroundImage: ["reference", { only: ["Image"] }],
   },
+  extractTextAttributes: ["content"],
 });
-
-registerTextExtract("SectionWidget", [
-  { attribute: "content", type: "widgetlist" },
-]);
 
 export default SectionWidget;

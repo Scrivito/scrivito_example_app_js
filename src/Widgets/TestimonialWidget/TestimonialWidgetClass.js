@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const TestimonialWidget = Scrivito.provideWidgetClass("TestimonialWidget", {
   onlyInside: "TestimonialSliderWidget",
@@ -8,10 +7,7 @@ const TestimonialWidget = Scrivito.provideWidgetClass("TestimonialWidget", {
     author: "string",
     authorImage: ["reference", { only: ["Image"] }],
   },
+  extractTextAttributes: ["testimonial"],
 });
-
-registerTextExtract("TestimonialWidget", [
-  { attribute: "testimonial", type: "string" },
-]);
 
 export default TestimonialWidget;

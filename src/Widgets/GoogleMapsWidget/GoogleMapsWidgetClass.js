@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const GoogleMapsWidget = Scrivito.provideWidgetClass("GoogleMapsWidget", {
   attributes: {
@@ -35,10 +34,7 @@ const GoogleMapsWidget = Scrivito.provideWidgetClass("GoogleMapsWidget", {
     showWidgets: ["enum", { values: ["yes", "no"] }],
     content: "widgetlist",
   },
+  extractTextAttributes: ["content"],
 });
-
-registerTextExtract("GoogleMapsWidget", [
-  { attribute: "content", type: "widgetlist" },
-]);
 
 export default GoogleMapsWidget;

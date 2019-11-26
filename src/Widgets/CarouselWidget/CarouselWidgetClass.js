@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const CarouselWidget = Scrivito.provideWidgetClass("CarouselWidget", {
   attributes: {
@@ -8,10 +7,7 @@ const CarouselWidget = Scrivito.provideWidgetClass("CarouselWidget", {
     descriptionLogo: ["reference", { only: ["Image"] }],
     description: "widgetlist",
   },
+  extractTextAttributes: ["description"],
 });
-
-registerTextExtract("CarouselWidget", [
-  { attribute: "description", type: "widgetlist" },
-]);
 
 export default CarouselWidget;

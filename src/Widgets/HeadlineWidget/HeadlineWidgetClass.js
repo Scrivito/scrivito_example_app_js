@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const HeadlineWidget = Scrivito.provideWidgetClass("HeadlineWidget", {
   attributes: {
@@ -10,10 +9,7 @@ const HeadlineWidget = Scrivito.provideWidgetClass("HeadlineWidget", {
     showDividingLine: ["enum", { values: ["yes", "no"] }],
     showMargin: ["enum", { values: ["yes", "no"] }],
   },
+  extractTextAttributes: ["headline"],
 });
-
-registerTextExtract("HeadlineWidget", [
-  { attribute: "headline", type: "string" },
-]);
 
 export default HeadlineWidget;

@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const PriceWidget = Scrivito.provideWidgetClass("PriceWidget", {
   onlyInside: "TableRowWidget",
@@ -8,12 +7,7 @@ const PriceWidget = Scrivito.provideWidgetClass("PriceWidget", {
     period: "string",
     price: "string",
   },
+  extractTextAttributes: ["price", "currency", "period"],
 });
-
-registerTextExtract("PriceWidget", [
-  { attribute: "price", type: "string" },
-  { attribute: "currency", type: "string" },
-  { attribute: "period", type: "string" },
-]);
 
 export default PriceWidget;

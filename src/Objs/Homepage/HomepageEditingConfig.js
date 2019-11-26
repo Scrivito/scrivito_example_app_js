@@ -60,7 +60,10 @@ Scrivito.provideEditingConfig("Homepage", {
       title: "Display this page as a landing page?",
       description:
         "Removes the header navigation and only centers the logo instead. Default: No",
-      values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
+      values: [
+        { value: "yes", title: "Yes" },
+        { value: "no", title: "No" },
+      ],
     },
     cookieConsentLink: {
       title: "Cookie consent link",

@@ -9,7 +9,7 @@ import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
+  socialCardsValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Homepage", {
@@ -87,7 +87,12 @@ Scrivito.provideEditingConfig("Homepage", {
         "intercomAppId",
       ],
     },
-    socialCardsPropertiesGroup,
+
+    {
+      title: "Social cards",
+      component: "SocialCardsTab",
+      properties: ["tcCreator", "tcDescription", "ogDescription"],
+    },
     metadataPropertiesGroup,
   ],
   initialContent: {
@@ -95,4 +100,5 @@ Scrivito.provideEditingConfig("Homepage", {
     ...metadataInitialContent,
     showAsLandingPage: "no",
   },
+  validations: [...socialCardsValidations],
 });

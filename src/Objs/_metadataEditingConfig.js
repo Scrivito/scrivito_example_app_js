@@ -22,7 +22,41 @@ export const metadataPropertiesGroup = {
   properties: ["metaDataDescription", "robotsIndex"],
 };
 
-export const socialCardsPropertiesGroup = {
-  title: "Social cards",
-  component: "SocialCardsTab",
-};
+export const socialCardsValidations = [
+  [
+    "tcCreator",
+
+    tcCreator => {
+      if (tcCreator && tcCreator.charAt(0) !== "@") {
+        return {
+          message: "Creator should start with @",
+          severity: "warning",
+        };
+      }
+    },
+  ],
+  [
+    "tcDescription",
+
+    tcDescription => {
+      if (tcDescription && tcDescription.length > 200) {
+        return {
+          message: "Description shouldn't exceed 200 characters.",
+          severity: "warning",
+        };
+      }
+    },
+  ],
+  [
+    "ogDescription",
+
+    ogDescription => {
+      if (ogDescription && ogDescription.length > 300) {
+        return {
+          message: "Description shouldn't exceed 300 characters.",
+          severity: "warning",
+        };
+      }
+    },
+  ],
+];

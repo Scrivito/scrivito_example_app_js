@@ -36,79 +36,188 @@ Scrivito.registerComponent("SocialCardsTab", ({ obj }) => (
   </div>
 ));
 
-const TwitterInput = Scrivito.connect(({ obj }) => (
-  <div>
-    <div className="scrivito_detail_label">
-      <span className="headline">Twitter</span>
-    </div>
-    <div className="scrivito_detail_label">
-      <span>Creator</span>
-    </div>
-    <Scrivito.ContentTag
-      content={obj}
-      attribute="tcCreator"
-      className="input"
-    />
-    <div className="scrivito_notice_body">
-      Twitter handle of the tweet creator. Start with {"@"}
-    </div>
-    <div className="scrivito_detail_label">
-      <span>Image</span>
-    </div>
-    <Scrivito.ImageTag
-      content={obj}
-      attribute="tcImage"
-      className="seo_card_img"
-    />
-    <div className="scrivito_notice_body">Add or replace the image here.</div>
-    <div className="scrivito_detail_label">
-      <span>Title</span>
-    </div>
-    <Scrivito.ContentTag content={obj} attribute="tcTitle" className="input" />
-    <div className="scrivito_detail_label">
-      <span>Description</span>
-    </div>
-    <Scrivito.ContentTag
-      content={obj}
-      attribute="tcDescription"
-      className="input"
-    />
-    <div className="scrivito_notice_body">Limit to 140 characters</div>
-  </div>
-));
+const TwitterInput = Scrivito.connect(({ obj }) => {
+  const validationsForCreator = Scrivito.validationResultsFor(obj, "tcCreator");
+  const highestSeverityForCreator = findHighestSeverity(validationsForCreator);
 
-const FacebookInput = Scrivito.connect(({ obj }) => (
-  <div>
-    <div className="scrivito_detail_label">
-      <span className="headline">Facebook</span>
+  const validationsForDescprition = Scrivito.validationResultsFor(
+    obj,
+    "tcDescription"
+  );
+  const highestSeverityForDescription = findHighestSeverity(
+    validationsForDescprition
+  );
+
+  return (
+    <div>
+      <div className="scrivito_detail_label">
+        <span className="headline">Twitter</span>
+      </div>
+      <div
+        className={`scrivito_detail_label ${
+          highestSeverityForCreator
+            ? `scrivito_${highestSeverityForCreator}`
+            : ""
+        }`}
+      >
+        {highestSeverityForCreator && (
+          <i className="scrivito_icon scrivito_icon_error"></i>
+        )}
+        <span>Creator</span>
+      </div>
+      <Scrivito.ContentTag
+        content={obj}
+        attribute="tcCreator"
+        className={`input ${
+          highestSeverityForCreator
+            ? `scrivito_${highestSeverityForCreator}`
+            : ""
+        }`}
+      />
+      <div>
+        {validationsForCreator.map(result => (
+          <div
+            key={`${result.severity}${result.message}`}
+            className={`scrivito_validation_notice scrivito_${result.severity}`}
+          >
+            <span className="scrivito_validation_message">
+              {result.message}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="scrivito_notice_body">
+        Twitter handle of the tweet creator. Start with {"@"}
+      </div>
+      <div className="scrivito_detail_label">
+        <span>Image</span>
+      </div>
+      <Scrivito.ImageTag
+        content={obj}
+        attribute="tcImage"
+        className="seo_card_img"
+      />
+      <div className="scrivito_notice_body">Add or replace the image here.</div>
+      <div className="scrivito_detail_label">
+        <span>Title</span>
+      </div>
+      <Scrivito.ContentTag
+        content={obj}
+        attribute="tcTitle"
+        className="input"
+      />
+      <div
+        className={`scrivito_detail_label ${
+          highestSeverityForDescription
+            ? `scrivito_${highestSeverityForDescription}`
+            : ""
+        }`}
+      >
+        {highestSeverityForDescription && (
+          <i className="scrivito_icon scrivito_icon_error"></i>
+        )}
+        <span>Description</span>
+      </div>
+      <Scrivito.ContentTag
+        content={obj}
+        attribute="tcDescription"
+        className={`input ${
+          highestSeverityForDescription
+            ? `scrivito_${highestSeverityForDescription}`
+            : ""
+        }`}
+      />
+      <div>
+        {validationsForDescprition.map(result => (
+          <div
+            key={`${result.severity}${result.message}`}
+            className={`scrivito_validation_notice scrivito_${result.severity}`}
+          >
+            <span className="scrivito_validation_message">
+              {result.message}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="scrivito_notice_body">Limit to 200 characters</div>
     </div>
-    <div className="scrivito_detail_label">
-      <span>Image</span>
+  );
+});
+
+const FacebookInput = Scrivito.connect(({ obj }) => {
+  const validationsForDescprition = Scrivito.validationResultsFor(
+    obj,
+    "ogDescription"
+  );
+  const highestSeverityForDescription = findHighestSeverity(
+    validationsForDescprition
+  );
+
+  return (
+    <div>
+      <div className="scrivito_detail_label">
+        <span className="headline">Facebook</span>
+      </div>
+      <div className="scrivito_detail_label">
+        <span>Image</span>
+      </div>
+      <Scrivito.ImageTag
+        content={obj}
+        attribute="ogImage"
+        className="seo_card_img"
+      />
+      <div className="scrivito_notice_body">Add or replace the image here.</div>
+      <div className="scrivito_detail_label">
+        <span>Title</span>
+      </div>
+      <Scrivito.ContentTag
+        content={obj}
+        attribute="ogTitle"
+        className="input"
+      />
+      <div className="scrivito_notice_body">
+        Add a catchy title for the post.
+      </div>
+      <div
+        className={`scrivito_detail_label ${
+          highestSeverityForDescription
+            ? `scrivito_${highestSeverityForDescription}`
+            : ""
+        }`}
+      >
+        {highestSeverityForDescription && (
+          <i className="scrivito_icon scrivito_icon_error"></i>
+        )}
+        <span>Description</span>
+      </div>
+      <Scrivito.ContentTag
+        content={obj}
+        attribute="ogDescription"
+        className={`input ${
+          highestSeverityForDescription
+            ? `scrivito_${highestSeverityForDescription}`
+            : ""
+        }`}
+      />
+      <div>
+        {validationsForDescprition.map(result => (
+          <div
+            key={`${result.severity}${result.message}`}
+            className={`scrivito_validation_notice scrivito_${result.severity}`}
+          >
+            <span className="scrivito_validation_message">
+              {result.message}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="scrivito_notice_body">
+        What is this post about and why would someone want to read it? Limit to
+        300 characters.
+      </div>
     </div>
-    <Scrivito.ImageTag
-      content={obj}
-      attribute="ogImage"
-      className="seo_card_img"
-    />
-    <div className="scrivito_notice_body">Add or replace the image here.</div>
-    <div className="scrivito_detail_label">
-      <span>Title</span>
-    </div>
-    <Scrivito.ContentTag content={obj} attribute="ogTitle" className="input" />
-    <div className="scrivito_notice_body">Add a catchy title for the post.</div>
-    <div className="scrivito_detail_label">
-      <span>Description</span>
-    </div>
-    <Scrivito.ContentTag
-      content={obj}
-      attribute="ogDescription"
-      className="input"
-    />
-    <div className="scrivito_notice_body">
-      What is this post about and why would someone want to read it?
-    </div>
-  </div>
-));
+  );
+});
 
 const TwitterPreview = Scrivito.connect(({ obj }) => (
   <div>
@@ -176,4 +285,14 @@ function lookupMetadata(obj, value) {
   }
 
   return "";
+}
+
+function findHighestSeverity(validations) {
+  if (validations.length) {
+    const highestSeverityValidation =
+      validations.find(v => v.severity === "error") ||
+      validations.find(v => v.severity === "warning") ||
+      validations.find(v => v.severity === "info");
+    return highestSeverityValidation.severity;
+  }
 }

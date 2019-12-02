@@ -9,7 +9,7 @@ import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
+  socialCardsValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Page", {
@@ -20,9 +20,17 @@ Scrivito.provideEditingConfig("Page", {
     ...metadataEditingConfigAttributes,
   },
   properties: [...defaultPageProperties],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [
+    {
+      title: "Social cards",
+      component: "SocialCardsTab",
+      properties: ["tcCreator", "tcDescription", "ogDescription"],
+    },
+    metadataPropertiesGroup,
+  ],
   initialContent: {
     ...defaultPageInitialContent,
     ...metadataInitialContent,
   },
+  validations: [...socialCardsValidations],
 });

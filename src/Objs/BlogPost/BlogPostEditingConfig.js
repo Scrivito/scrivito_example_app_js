@@ -5,7 +5,7 @@ import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
+  socialCardsValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("BlogPost", {
@@ -31,11 +31,19 @@ Scrivito.provideEditingConfig("BlogPost", {
     },
   },
   properties: ["author", "publishedAt", "titleImage", "tags"],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [
+    {
+      title: "Social cards",
+      component: "SocialCardsTab",
+      properties: ["tcCreator", "tcDescription", "ogDescription"],
+    },
+    metadataPropertiesGroup,
+  ],
   initialContent: {
     ...metadataInitialContent,
     body: [new SectionWidget({})],
     publishedAt: () => new Date(),
     title: "Lorem Ipsum",
   },
+  validations: [...socialCardsValidations],
 });

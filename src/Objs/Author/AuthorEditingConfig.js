@@ -27,4 +27,15 @@ Scrivito.provideEditingConfig("Author", {
   initialContent: {
     ...metadataInitialContent,
   },
+  validations: [
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return "The name must not be empty.";
+        }
+      },
+    ],
+  ],
 });

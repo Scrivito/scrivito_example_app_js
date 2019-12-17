@@ -38,4 +38,15 @@ Scrivito.provideEditingConfig("BlogPost", {
     publishedAt: () => new Date(),
     title: "Lorem Ipsum",
   },
+  validations: [
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return "The title must not be empty.";
+        }
+      },
+    ],
+  ],
 });

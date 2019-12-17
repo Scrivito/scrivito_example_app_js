@@ -15,4 +15,15 @@ Scrivito.provideEditingConfig("Redirect", {
     },
   },
   properties: ["title", "link"],
+  validations: [
+    [
+      "link",
+
+      link => {
+        if (!link) {
+          return "The target must not be empty.";
+        }
+      },
+    ],
+  ],
 });

@@ -90,4 +90,24 @@ Scrivito.provideEditingConfig("Job", {
     ...metadataInitialContent,
     body: [new SectionWidget({})],
   },
+  validations: [
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return "The job title must not be empty.";
+        }
+      },
+    ],
+    [
+      obj => {
+        const from = obj.get("datePosted");
+        const to = obj.get("validTrough");
+        if (from && to && from >= to) {
+          return '"posted at" must be before "expires at".';
+        }
+      },
+    ],
+  ],
 });

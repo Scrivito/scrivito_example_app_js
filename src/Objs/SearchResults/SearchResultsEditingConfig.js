@@ -27,4 +27,15 @@ Scrivito.provideEditingConfig("SearchResults", {
   initialContent: {
     ...metadataInitialContent,
   },
+  validations: [
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return "he page title must not be empty.";
+        }
+      },
+    ],
+  ],
 });

@@ -70,4 +70,27 @@ Scrivito.provideEditingConfig("Event", {
     ...metadataInitialContent,
     body: [new SectionWidget({})],
   },
+  validations: [
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return "The event title must not be empty.";
+        }
+      },
+    ],
+    [
+      "date",
+
+      date => {
+        if (!date) {
+          return {
+            message: "A date for an event is recommended.",
+            severity: "info",
+          };
+        }
+      },
+    ],
+  ],
 });

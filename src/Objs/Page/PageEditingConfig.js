@@ -25,4 +25,15 @@ Scrivito.provideEditingConfig("Page", {
     ...defaultPageInitialContent,
     ...metadataInitialContent,
   },
+  validations: [
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return { message: "Title is empty.", severity: "info" };
+        }
+      },
+    ],
+  ],
 });

@@ -22,6 +22,12 @@ export const metadataPropertiesGroup = {
   properties: ["metaDataDescription", "robotsIndex"],
 };
 
+export const socialCardsPropertiesGroup = {
+  title: "Social cards",
+  component: "SocialCardsTab",
+  properties: ["tcCreator", "tcDescription", "ogDescription"],
+};
+
 export const socialCardsValidations = [
   [
     "tcCreator",

@@ -5,6 +5,7 @@ import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
+  socialCardsPropertiesGroup,
   socialCardsValidations,
 } from "../_metadataEditingConfig";
 
@@ -65,14 +66,7 @@ Scrivito.provideEditingConfig("Event", {
     "image",
     "tags",
   ],
-  propertiesGroups: [
-    {
-      title: "Social cards",
-      component: "SocialCardsTab",
-      properties: ["tcCreator", "tcDescription", "ogDescription"],
-    },
-    metadataPropertiesGroup,
-  ],
+  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
   initialContent: {
     ...metadataInitialContent,
     body: [new SectionWidget({})],

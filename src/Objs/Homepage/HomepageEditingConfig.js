@@ -88,7 +88,6 @@ Scrivito.provideEditingConfig("Homepage", {
         "intercomAppId",
       ],
     },
-
     socialCardsPropertiesGroup,
     metadataPropertiesGroup,
   ],

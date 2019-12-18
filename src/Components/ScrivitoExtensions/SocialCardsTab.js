@@ -38,14 +38,14 @@ Scrivito.registerComponent("SocialCardsTab", ({ obj }) => (
 
 const TwitterInput = Scrivito.connect(({ obj }) => {
   const validationsForCreator = Scrivito.validationResultsFor(obj, "tcCreator");
-  const highestSeverityForCreator = findHighestSeverity(validationsForCreator);
+  const creatorValidationClass = validationsClassName(validationsForCreator);
 
-  const validationsForDescprition = Scrivito.validationResultsFor(
+  const validationsForDescription = Scrivito.validationResultsFor(
     obj,
     "tcDescription"
   );
-  const highestSeverityForDescription = findHighestSeverity(
-    validationsForDescprition
+  const descriptionValidationClass = validationsClassName(
+    validationsForDescription
   );
 
   return (
@@ -53,14 +53,8 @@ const TwitterInput = Scrivito.connect(({ obj }) => {
       <div className="scrivito_detail_label">
         <span className="headline">Twitter</span>
       </div>
-      <div
-        className={`scrivito_detail_label ${
-          highestSeverityForCreator
-            ? `scrivito_${highestSeverityForCreator}`
-            : ""
-        }`}
-      >
-        {highestSeverityForCreator && (
+      <div className={`scrivito_detail_label ${creatorValidationClass}`}>
+        {creatorValidationClass && (
           <i className="scrivito_icon scrivito_icon_error"></i>
         )}
         <span>Creator</span>
@@ -68,23 +62,10 @@ const TwitterInput = Scrivito.connect(({ obj }) => {
       <Scrivito.ContentTag
         content={obj}
         attribute="tcCreator"
-        className={`input ${
-          highestSeverityForCreator
-            ? `scrivito_${highestSeverityForCreator}`
-            : ""
-        }`}
+        className={`input ${creatorValidationClass}`}
       />
       <div>
-        {validationsForCreator.map(result => (
-          <div
-            key={`${result.severity}${result.message}`}
-            className={`scrivito_validation_notice scrivito_${result.severity}`}
-          >
-            <span className="scrivito_validation_message">
-              {result.message}
-            </span>
-          </div>
-        ))}
+        <ValidationMessages validations={validationsForCreator} />
       </div>
       <div className="scrivito_notice_body">
         Twitter handle of the tweet creator. Start with {"@"}
@@ -106,14 +87,8 @@ const TwitterInput = Scrivito.connect(({ obj }) => {
         attribute="tcTitle"
         className="input"
       />
-      <div
-        className={`scrivito_detail_label ${
-          highestSeverityForDescription
-            ? `scrivito_${highestSeverityForDescription}`
-            : ""
-        }`}
-      >
-        {highestSeverityForDescription && (
+      <div className={`scrivito_detail_label ${descriptionValidationClass}`}>
+        {descriptionValidationClass && (
           <i className="scrivito_icon scrivito_icon_error"></i>
         )}
         <span>Description</span>
@@ -121,23 +96,10 @@ const TwitterInput = Scrivito.connect(({ obj }) => {
       <Scrivito.ContentTag
         content={obj}
         attribute="tcDescription"
-        className={`input ${
-          highestSeverityForDescription
-            ? `scrivito_${highestSeverityForDescription}`
-            : ""
-        }`}
+        className={`input ${descriptionValidationClass}`}
       />
       <div>
-        {validationsForDescprition.map(result => (
-          <div
-            key={`${result.severity}${result.message}`}
-            className={`scrivito_validation_notice scrivito_${result.severity}`}
-          >
-            <span className="scrivito_validation_message">
-              {result.message}
-            </span>
-          </div>
-        ))}
+        <ValidationMessages validations={validationsForDescription} />
       </div>
       <div className="scrivito_notice_body">Limit to 200 characters</div>
     </div>
@@ -145,12 +107,12 @@ const TwitterInput = Scrivito.connect(({ obj }) => {
 });
 
 const FacebookInput = Scrivito.connect(({ obj }) => {
-  const validationsForDescprition = Scrivito.validationResultsFor(
+  const validationsForDescription = Scrivito.validationResultsFor(
     obj,
     "ogDescription"
   );
-  const highestSeverityForDescription = findHighestSeverity(
-    validationsForDescprition
+  const descriptionValidationClass = validationsClassName(
+    validationsForDescription
   );
 
   return (
@@ -178,14 +140,8 @@ const FacebookInput = Scrivito.connect(({ obj }) => {
       <div className="scrivito_notice_body">
         Add a catchy title for the post.
       </div>
-      <div
-        className={`scrivito_detail_label ${
-          highestSeverityForDescription
-            ? `scrivito_${highestSeverityForDescription}`
-            : ""
-        }`}
-      >
-        {highestSeverityForDescription && (
+      <div className={`scrivito_detail_label ${descriptionValidationClass}`}>
+        {descriptionValidationClass && (
           <i className="scrivito_icon scrivito_icon_error"></i>
         )}
         <span>Description</span>
@@ -193,23 +149,10 @@ const FacebookInput = Scrivito.connect(({ obj }) => {
       <Scrivito.ContentTag
         content={obj}
         attribute="ogDescription"
-        className={`input ${
-          highestSeverityForDescription
-            ? `scrivito_${highestSeverityForDescription}`
-            : ""
-        }`}
+        className={`input ${descriptionValidationClass}`}
       />
       <div>
-        {validationsForDescprition.map(result => (
-          <div
-            key={`${result.severity}${result.message}`}
-            className={`scrivito_validation_notice scrivito_${result.severity}`}
-          >
-            <span className="scrivito_validation_message">
-              {result.message}
-            </span>
-          </div>
-        ))}
+        <ValidationMessages validations={validationsForDescription} />
       </div>
       <div className="scrivito_notice_body">
         What is this post about and why would someone want to read it? Limit to
@@ -259,6 +202,21 @@ const FacebookPreview = Scrivito.connect(({ obj }) => (
   </div>
 ));
 
+const ValidationMessages = ({ validations }) => (
+  <div>
+    {validations.map(validation => (
+      <div
+        key={`${validation.severity}${validation.message}`}
+        className={`scrivito_validation_notice scrivito_${validation.severity}`}
+      >
+        <span className="scrivito_validation_message">
+          {validation.message}
+        </span>
+      </div>
+    ))}
+  </div>
+);
+
 function OptionalImage({ src }) {
   if (!src) {
     return null;
@@ -295,4 +253,9 @@ function findHighestSeverity(validations) {
       validations.find(v => v.severity === "info");
     return highestSeverityValidation.severity;
   }
+}
+
+function validationsClassName(validations) {
+  const highestSeverity = findHighestSeverity(validations);
+  return highestSeverity ? `scrivito_${highestSeverity}` : "";
 }

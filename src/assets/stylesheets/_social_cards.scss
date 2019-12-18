@@ -38,7 +38,7 @@
   font-size: 14px;
   font-style: normal;
   margin-bottom: 5px;
-  padding: 6px 8px;
+  padding: 0 8px;
   min-height: 30px;
 }
 [data-scrivito-display-mode="editing"]
@@ -86,8 +86,10 @@
 // -- validations -- //
 
 $red: #c04e4e;
-$yellow: #e68f00;
+$yellow: #ff9f00;
+$yellowDarken: #cc7f00;
 $blue: #00addf;
+$blueDarken: #0085ac;
 
 .scrivito_detail_label {
   &.scrivito_error {
@@ -101,7 +103,7 @@ $blue: #00addf;
     span,
     .scrivito_icon,
     .scrivito_icon:hover {
-      color: $yellow;
+      color: $yellowDarken;
     }
   }
   &.scrivito_info {
@@ -115,7 +117,7 @@ $blue: #00addf;
 
 .scrivito_validation_notice,
 .seo_card_input .input {
-  padding: 10px;
+  line-height: 27px;
   margin-bottom: 5px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
@@ -132,6 +134,24 @@ $blue: #00addf;
   &.scrivito_info {
     border: 2px solid $blue;
     color: $blue;
+  }
+}
+
+.seo_card_input .input {
+  background-color: #fff;
+}
+
+.scrivito_validation_notice {
+  padding: 10px;
+
+  &.scrivito_error {
+    color: $red;
+  }
+  &.scrivito_warning {
+    color: $yellowDarken;
+  }
+  &.scrivito_info {
+    color: $blueDarken;
   }
 }
 

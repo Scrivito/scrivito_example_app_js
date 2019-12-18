@@ -96,21 +96,22 @@ Scrivito.provideEditingConfig("Job", {
 
       title => {
         if (!title) {
-          return "The job title must not be empty.";
-        }
-      },
-    ],
-    [
-      obj => {
-        const from = obj.get("datePosted");
-        const to = obj.get("validTrough");
-        if (from && to && from >= to) {
           return {
-            message: '"posted at" must be before "expires at".',
+            message: "Job title must be set.",
             severity: "error",
           };
         }
       },
     ],
+    obj => {
+      const from = obj.get("datePosted");
+      const to = obj.get("validThrough");
+      if (from && to && from >= to) {
+        return {
+          message: '"posted at" must be before "expires at".',
+          severity: "error",
+        };
+      }
+    },
   ],
 });

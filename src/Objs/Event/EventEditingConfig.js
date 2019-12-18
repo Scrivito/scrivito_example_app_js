@@ -76,7 +76,10 @@ Scrivito.provideEditingConfig("Event", {
 
       title => {
         if (!title) {
-          return "The event title must not be empty.";
+          return {
+            message: "Event title must be set.",
+            severity: "error",
+          };
         }
       },
     ],

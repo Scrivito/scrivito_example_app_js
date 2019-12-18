@@ -33,7 +33,10 @@ Scrivito.provideEditingConfig("SearchResults", {
 
       title => {
         if (!title) {
-          return "he page title must not be empty.";
+          return {
+            message: "he page title must not be empty.",
+            severity: "error",
+          };
         }
       },
     ],

@@ -21,7 +21,10 @@ Scrivito.provideEditingConfig("Redirect", {
 
       link => {
         if (!link) {
-          return "The target must not be empty.";
+          return {
+            message: "The target must not be empty.",
+            severity: "error",
+          };
         }
       },
     ],

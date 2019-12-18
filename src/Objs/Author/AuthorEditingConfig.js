@@ -33,7 +33,7 @@ Scrivito.provideEditingConfig("Author", {
 
       title => {
         if (!title) {
-          return "The name must not be empty.";
+          return { message: "The name must not be empty.", severity: "error" };
         }
       },
     ],

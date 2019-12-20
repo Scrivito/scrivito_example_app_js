@@ -64,9 +64,7 @@ const TwitterInput = Scrivito.connect(({ obj }) => {
         attribute="tcCreator"
         className={`input ${creatorValidationClass}`}
       />
-      <div>
-        <ValidationMessages validations={validationsForCreator} />
-      </div>
+      <ValidationMessages validations={validationsForCreator} />
       <div className="scrivito_notice_body">
         Twitter handle of the tweet creator. Start with {"@"}
       </div>
@@ -98,9 +96,7 @@ const TwitterInput = Scrivito.connect(({ obj }) => {
         attribute="tcDescription"
         className={`input ${descriptionValidationClass}`}
       />
-      <div>
-        <ValidationMessages validations={validationsForDescription} />
-      </div>
+      <ValidationMessages validations={validationsForDescription} />
       <div className="scrivito_notice_body">Limit to 200 characters</div>
     </div>
   );
@@ -151,9 +147,7 @@ const FacebookInput = Scrivito.connect(({ obj }) => {
         attribute="ogDescription"
         className={`input ${descriptionValidationClass}`}
       />
-      <div>
-        <ValidationMessages validations={validationsForDescription} />
-      </div>
+      <ValidationMessages validations={validationsForDescription} />
       <div className="scrivito_notice_body">
         What is this post about and why would someone want to read it? Limit to
         300 characters.

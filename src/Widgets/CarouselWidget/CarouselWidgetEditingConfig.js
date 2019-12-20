@@ -22,4 +22,30 @@ Scrivito.provideEditingConfig("CarouselWidget", {
   initialContent: {
     showDescription: "no",
   },
+  validations: [
+    [
+      "images",
+
+      images => {
+        if (images.length < 1) {
+          return {
+            message: "Carousel widget should contain at least one image.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+    [
+      "description",
+
+      (description, { widget }) => {
+        if (widget.get("showDescription") === "yes" && !description) {
+          return {
+            message: "Description should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+  ],
 });

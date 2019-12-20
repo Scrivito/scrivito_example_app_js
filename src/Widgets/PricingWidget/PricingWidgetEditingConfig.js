@@ -67,4 +67,96 @@ Scrivito.provideEditingConfig("PricingWidget", {
       url: "https://scrivito.com",
     }),
   },
+  validations: [
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return { message: "Title must be specified.", severity: "error" };
+        }
+      },
+    ],
+    [
+      "currency",
+
+      currency => {
+        if (!currency) {
+          return { message: "Currency must be specified.", severity: "error" };
+        }
+      },
+    ],
+    [
+      "smallPlanPrice",
+
+      smallPlanPrice => {
+        if (!smallPlanPrice) {
+          return {
+            message: "Small plan price must be specified.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+    [
+      "mediumPlanPrice",
+
+      mediumPlanPrice => {
+        if (!mediumPlanPrice) {
+          return {
+            message: "Medium plan price must be specified.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+    [
+      "largePlanPrice",
+
+      largePlanPrice => {
+        if (!largePlanPrice) {
+          return {
+            message: "Large plan price must be specified.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+    [
+      "smallPlanButton",
+
+      smallPlanButton => {
+        if (!smallPlanButton.url) {
+          return {
+            message: "Url for small plan's button must be specified.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+    [
+      "mediumPlanButton",
+
+      mediumPlanButton => {
+        if (!mediumPlanButton.url) {
+          return {
+            message: "Url for medium plan's button must be specified.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+    [
+      "largePlanButton",
+
+      largePlanButton => {
+        if (!largePlanButton.url) {
+          return {
+            message: "Url for large plan's button must be specified.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+  ],
 });

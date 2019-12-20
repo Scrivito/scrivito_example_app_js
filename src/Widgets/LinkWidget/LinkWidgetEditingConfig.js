@@ -10,4 +10,15 @@ Scrivito.provideEditingConfig("LinkWidget", {
     },
   },
   properties: ["link"],
+  validations: [
+    [
+      "url",
+
+      url => {
+        if (!url) {
+          return { message: "Link should be set.", severity: "warning" };
+        }
+      },
+    ],
+  ],
 });

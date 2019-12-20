@@ -19,4 +19,15 @@ Scrivito.provideEditingConfig("ThumbnailGalleryImageWidget", {
   properties: ["image", "title", "subtitle", "tags"],
   titleForContent: widget =>
     `${widget.get("title")} - ${widget.get("subtitle")}`,
+  validations: [
+    [
+      "image",
+
+      image => {
+        if (!image) {
+          return { message: "Image must be specified.", severity: "error" };
+        }
+      },
+    ],
+  ],
 });

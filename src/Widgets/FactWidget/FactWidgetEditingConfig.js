@@ -8,4 +8,18 @@ Scrivito.provideEditingConfig("FactWidget", {
     key: "Lorem ipsum",
     value: "12",
   },
+  validations: [
+    [
+      "value",
+
+      (value, { widget }) => {
+        if (!widget.get("key") && !value) {
+          return {
+            message: "One, key or value, must be specified.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+  ],
 });

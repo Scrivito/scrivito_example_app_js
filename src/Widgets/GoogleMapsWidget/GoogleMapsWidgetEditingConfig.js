@@ -62,4 +62,15 @@ Scrivito.provideEditingConfig("GoogleMapsWidget", {
     zoom: "15",
     mapType: "static",
   },
+  validations: [
+    [
+      "address",
+
+      address => {
+        if (!address) {
+          return { message: "Address is empty.", severity: "info" };
+        }
+      },
+    ],
+  ],
 });

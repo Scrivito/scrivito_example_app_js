@@ -5,4 +5,18 @@ Scrivito.provideEditingConfig("TickListItemWidget", {
   initialContent: {
     statement: "Lorem ipsum",
   },
+  validations: [
+    [
+      "statement",
+
+      statement => {
+        if (!statement) {
+          return {
+            message: "Statement must be specified.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+  ],
 });

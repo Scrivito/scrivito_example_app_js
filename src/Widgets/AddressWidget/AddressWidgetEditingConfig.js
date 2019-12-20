@@ -82,4 +82,26 @@ Scrivito.provideEditingConfig("AddressWidget", {
     showLogo: "yes",
     addressFormat: "USA",
   },
+  validations: [
+    widget => {
+      if (
+        !(
+          widget.get("locationName") ||
+          widget.get("locationStreetAddress") ||
+          widget.get("locationLocality") ||
+          widget.get("locationPostalCode") ||
+          widget.get("locationRegion") ||
+          widget.get("locationCountry") ||
+          widget.get("phone") ||
+          widget.get("fax") ||
+          widget.get("email")
+        )
+      ) {
+        return {
+          message: "Address widget should contain some data.",
+          severity: "warning",
+        };
+      }
+    },
+  ],
 });

@@ -23,4 +23,18 @@ Scrivito.provideEditingConfig("TextWidget", {
   initialContent: {
     alignment: "left",
   },
+  validations: [
+    [
+      "text",
+
+      text => {
+        if (text.length === 0) {
+          return {
+            message: "Text should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+  ],
 });

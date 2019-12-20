@@ -12,5 +12,20 @@ Scrivito.provideEditingConfig("FeaturePanelWidget", {
   ],
   initialContent: {
     icon: "fa-check",
+    headline: "Lorem Ipsum",
   },
+  validations: [
+    [
+      "headline",
+
+      headline => {
+        if (!headline) {
+          return {
+            message: "Headline should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+  ],
 });

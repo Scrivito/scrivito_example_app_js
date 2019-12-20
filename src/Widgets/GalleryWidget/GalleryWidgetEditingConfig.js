@@ -10,4 +10,18 @@ Scrivito.provideEditingConfig("GalleryWidget", {
     },
   },
   properties: ["images"],
+  validations: [
+    [
+      "images",
+
+      images => {
+        if (images.length < 1) {
+          return {
+            message: "Gallery widget should contain at least one image.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+  ],
 });

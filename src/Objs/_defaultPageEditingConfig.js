@@ -52,7 +52,7 @@ export const defaultPageTitleValidation = [
   title => {
     if (title.length === 0) {
       return {
-        message: "The title should be set.",
+        message: "Title should be set.",
         severity: "warning",
       };
     }

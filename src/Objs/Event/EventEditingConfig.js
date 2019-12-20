@@ -89,7 +89,7 @@ Scrivito.provideEditingConfig("Event", {
       date => {
         if (!date) {
           return {
-            message: "A date for an event is recommended.",
+            message: "Event date is recommended.",
             severity: "info",
           };
         }

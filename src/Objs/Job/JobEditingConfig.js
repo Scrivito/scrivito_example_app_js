@@ -98,7 +98,7 @@ Scrivito.provideEditingConfig("Job", {
       title => {
         if (!title) {
           return {
-            message: "Job title must be set.",
+            message: "The job title must be set.",
             severity: "error",
           };
         }

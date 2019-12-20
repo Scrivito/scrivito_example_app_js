@@ -44,7 +44,7 @@ Scrivito.provideEditingConfig("BlogPost", {
 
       title => {
         if (!title) {
-          return { message: "Title must be set.", severity: "error" };
+          return { message: "The title must be set.", severity: "error" };
         }
       },
     ],

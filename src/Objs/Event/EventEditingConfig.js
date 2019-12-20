@@ -78,7 +78,7 @@ Scrivito.provideEditingConfig("Event", {
       title => {
         if (!title) {
           return {
-            message: "Event title must be set.",
+            message: "The event title must be set.",
             severity: "error",
           };
         }
@@ -90,7 +90,7 @@ Scrivito.provideEditingConfig("Event", {
       date => {
         if (!date) {
           return {
-            message: "Event date is recommended.",
+            message: "The event date is not set.",
             severity: "info",
           };
         }

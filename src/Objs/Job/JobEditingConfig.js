@@ -88,6 +88,7 @@ Scrivito.provideEditingConfig("Job", {
   propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
   initialContent: {
     ...metadataInitialContent,
+    title: "Lorem Ipsum",
     body: [new SectionWidget({})],
   },
   validations: [

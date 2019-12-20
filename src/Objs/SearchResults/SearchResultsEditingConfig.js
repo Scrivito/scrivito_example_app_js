@@ -34,8 +34,8 @@ Scrivito.provideEditingConfig("SearchResults", {
       title => {
         if (!title) {
           return {
-            message: "Title must be set.",
-            severity: "error",
+            message: "Title should be set.",
+            severity: "warning",
           };
         }
       },

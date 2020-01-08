@@ -39,7 +39,7 @@ Scrivito.provideEditingConfig("ButtonWidget", {
       target => {
         if (!target) {
           return {
-            message: "Link target should be specified.",
+            message: "The link target should be set.",
             severity: "warning",
           };
         }
@@ -50,7 +50,7 @@ Scrivito.provideEditingConfig("ButtonWidget", {
 
       title => {
         if (!title) {
-          return { message: "Title is empty.", severity: "info" };
+          return { message: "The title is empty.", severity: "info" };
         }
       },
     ],

@@ -25,8 +25,7 @@ Scrivito.provideEditingConfig("ThumbnailGalleryWidget", {
       images => {
         if (images.length <= 1) {
           return {
-            message:
-              "Thumbnail gallery widget should contain at least one image.",
+            message: "The thumbnail gallery should contain at least one image.",
             severity: "warning",
           };
         }

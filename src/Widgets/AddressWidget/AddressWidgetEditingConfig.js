@@ -98,7 +98,7 @@ Scrivito.provideEditingConfig("AddressWidget", {
         )
       ) {
         return {
-          message: "Address widget should contain some data.",
+          message: "The address should contain data.",
           severity: "warning",
         };
       }

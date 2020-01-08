@@ -73,7 +73,7 @@ Scrivito.provideEditingConfig("HeadlineWidget", {
 
       headline => {
         if (!headline) {
-          return { message: "Headline must be specified.", severity: "error" };
+          return { message: "The headline must be set.", severity: "error" };
         }
       },
     ],

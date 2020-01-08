@@ -29,7 +29,7 @@ Scrivito.provideEditingConfig("CarouselWidget", {
       images => {
         if (images.length < 1) {
           return {
-            message: "Carousel widget should contain at least one image.",
+            message: "The carousel should contain at least one image.",
             severity: "warning",
           };
         }
@@ -41,7 +41,7 @@ Scrivito.provideEditingConfig("CarouselWidget", {
       (description, { widget }) => {
         if (widget.get("showDescription") === "yes" && !description) {
           return {
-            message: "Description should be set.",
+            message: "The description should be set.",
             severity: "warning",
           };
         }

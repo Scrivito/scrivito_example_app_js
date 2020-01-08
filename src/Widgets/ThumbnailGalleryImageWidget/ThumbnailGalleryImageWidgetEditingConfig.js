@@ -25,7 +25,7 @@ Scrivito.provideEditingConfig("ThumbnailGalleryImageWidget", {
 
       image => {
         if (!image) {
-          return { message: "Image must be specified.", severity: "error" };
+          return { message: "The image must be set.", severity: "error" };
         }
       },
     ],

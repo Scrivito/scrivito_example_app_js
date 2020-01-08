@@ -30,7 +30,7 @@ Scrivito.provideEditingConfig("TextWidget", {
       text => {
         if (text.length === 0) {
           return {
-            message: "Text should be set.",
+            message: "The text should be set.",
             severity: "warning",
           };
         }

@@ -27,7 +27,7 @@ Scrivito.provideEditingConfig("TestimonialWidget", {
       author => {
         if (!author) {
           return {
-            message: "Author should be set.",
+            message: "The author should be set.",
             severity: "warning",
           };
         }

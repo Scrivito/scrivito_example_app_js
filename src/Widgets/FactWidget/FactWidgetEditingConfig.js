@@ -15,7 +15,7 @@ Scrivito.provideEditingConfig("FactWidget", {
       (value, { widget }) => {
         if (!widget.get("key") && !value) {
           return {
-            message: "One, key or value, must be specified.",
+            message: "One, key or value, must be set.",
             severity: "error",
           };
         }

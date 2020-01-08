@@ -12,7 +12,7 @@ Scrivito.provideEditingConfig("TickListItemWidget", {
       statement => {
         if (!statement) {
           return {
-            message: "Statement must be specified.",
+            message: "The statement must be set.",
             severity: "error",
           };
         }

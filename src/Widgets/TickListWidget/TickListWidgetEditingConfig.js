@@ -19,7 +19,7 @@ Scrivito.provideEditingConfig("TickListWidget", {
       items => {
         if (items.length <= 1) {
           return {
-            message: "Ticklist must include at least one item.",
+            message: "The ticklist must include at least one item.",
             severity: "error",
           };
         }

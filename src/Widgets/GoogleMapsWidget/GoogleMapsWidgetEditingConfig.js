@@ -68,7 +68,7 @@ Scrivito.provideEditingConfig("GoogleMapsWidget", {
 
       address => {
         if (!address) {
-          return { message: "Address is empty.", severity: "info" };
+          return { message: "The address is empty.", severity: "info" };
         }
       },
     ],

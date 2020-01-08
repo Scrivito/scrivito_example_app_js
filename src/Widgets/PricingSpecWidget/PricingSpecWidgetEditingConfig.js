@@ -11,7 +11,7 @@ Scrivito.provideEditingConfig("PricingSpecWidget", {
 
         if (variable.length === 0 && unit.length === 0) {
           return {
-            message: "One, variable or unit, must be specified.",
+            message: "One, variable or unit, must be set.",
             severity: "error",
           };
         }

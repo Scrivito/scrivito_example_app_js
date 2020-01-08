@@ -15,4 +15,18 @@ Scrivito.provideEditingConfig("Redirect", {
     },
   },
   properties: ["title", "link"],
+  validations: [
+    [
+      "link",
+
+      link => {
+        if (!link) {
+          return {
+            message: "The target must be set.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+  ],
 });

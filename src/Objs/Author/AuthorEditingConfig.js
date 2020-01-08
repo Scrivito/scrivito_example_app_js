@@ -27,6 +27,18 @@ Scrivito.provideEditingConfig("Author", {
   propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
   initialContent: {
     ...metadataInitialContent,
+    title: "Lorem Ipsum",
   },
-  validations: [...socialCardsValidations],
+  validations: [
+    ...socialCardsValidations,
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return { message: "The name must be set.", severity: "error" };
+        }
+      },
+    ],
+  ],
 });

@@ -69,7 +69,34 @@ Scrivito.provideEditingConfig("Event", {
   propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
   initialContent: {
     ...metadataInitialContent,
+    title: "Lorem Ipsum",
     body: [new SectionWidget({})],
   },
-  validations: [...socialCardsValidations],
+  validations: [
+    ...socialCardsValidations,
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return {
+            message: "The event title must be set.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+    [
+      "date",
+
+      date => {
+        if (!date) {
+          return {
+            message: "Providing the event date is recommended.",
+            severity: "info",
+          };
+        }
+      },
+    ],
+  ],
 });

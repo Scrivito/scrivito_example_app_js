@@ -89,7 +89,35 @@ Scrivito.provideEditingConfig("Job", {
   propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
   initialContent: {
     ...metadataInitialContent,
+    title: "Lorem Ipsum",
     body: [new SectionWidget({})],
   },
-  validations: [...socialCardsValidations],
+  validations: [
+    ...socialCardsValidations,
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return {
+            message: "The job title must be set.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+    [
+      "validThrough",
+
+      (validThrough, { obj }) => {
+        const datePosted = obj.get("datePosted");
+        if (datePosted && validThrough && datePosted >= validThrough) {
+          return {
+            message: "The expiration date must be after the posting date.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+  ],
 });

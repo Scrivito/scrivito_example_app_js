@@ -39,5 +39,16 @@ Scrivito.provideEditingConfig("BlogPost", {
     publishedAt: () => new Date(),
     title: "Lorem Ipsum",
   },
-  validations: [...socialCardsValidations],
+  validations: [
+    ...socialCardsValidations,
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return { message: "The title must be set.", severity: "error" };
+        }
+      },
+    ],
+  ],
 });

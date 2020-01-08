@@ -111,7 +111,7 @@ Scrivito.provideEditingConfig("Job", {
         const datePosted = obj.get("datePosted");
         if (datePosted && validThrough && datePosted >= validThrough) {
           return {
-            message: '"Expires at" must be after "Posted at".',
+            message: "The expiration date must be after the posting date.",
             severity: "error",
           };
         }

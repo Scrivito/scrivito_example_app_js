@@ -62,7 +62,7 @@
     "react/jsx-no-undef": [2, { "allowGlobals": true }],
     "react/prop-types": 0,
     "vars-on-top": 0,
-    "consistent-return": [0]
+    "consistent-return": 0
   },
   "overrides": [
     {

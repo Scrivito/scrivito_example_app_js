@@ -11,6 +11,7 @@ import {
   metadataInitialContent,
   metadataPropertiesGroup,
   socialCardsPropertiesGroup,
+  socialCardsValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Page", {
@@ -26,5 +27,5 @@ Scrivito.provideEditingConfig("Page", {
     ...defaultPageInitialContent,
     ...metadataInitialContent,
   },
-  validations: [defaultPageTitleValidation],
+  validations: [defaultPageTitleValidation, ...socialCardsValidations],
 });

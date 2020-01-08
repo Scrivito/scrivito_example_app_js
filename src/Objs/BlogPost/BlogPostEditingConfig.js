@@ -6,6 +6,7 @@ import {
   metadataInitialContent,
   metadataPropertiesGroup,
   socialCardsPropertiesGroup,
+  socialCardsValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("BlogPost", {
@@ -39,6 +40,7 @@ Scrivito.provideEditingConfig("BlogPost", {
     title: "Lorem Ipsum",
   },
   validations: [
+    ...socialCardsValidations,
     [
       "title",
 

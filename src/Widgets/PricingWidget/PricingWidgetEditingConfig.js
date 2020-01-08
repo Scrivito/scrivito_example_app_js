@@ -69,15 +69,6 @@ Scrivito.provideEditingConfig("PricingWidget", {
   },
   validations: [
     [
-      "title",
-
-      title => {
-        if (!title) {
-          return { message: "The title must be set.", severity: "error" };
-        }
-      },
-    ],
-    [
       "currency",
 
       currency => {
@@ -126,7 +117,7 @@ Scrivito.provideEditingConfig("PricingWidget", {
       "smallPlanButton",
 
       smallPlanButton => {
-        if (!smallPlanButton.url) {
+        if (!smallPlanButton) {
           return {
             message: "The url for small plan's button must be set.",
             severity: "error",
@@ -138,7 +129,7 @@ Scrivito.provideEditingConfig("PricingWidget", {
       "mediumPlanButton",
 
       mediumPlanButton => {
-        if (!mediumPlanButton.url) {
+        if (!mediumPlanButton) {
           return {
             message: "The url for medium plan's button must be set.",
             severity: "error",
@@ -150,7 +141,7 @@ Scrivito.provideEditingConfig("PricingWidget", {
       "largePlanButton",
 
       largePlanButton => {
-        if (!largePlanButton.url) {
+        if (!largePlanButton) {
           return {
             message: "The url for large plan's button must be set.",
             severity: "error",

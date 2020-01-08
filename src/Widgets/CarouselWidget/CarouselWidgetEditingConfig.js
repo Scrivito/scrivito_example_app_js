@@ -35,17 +35,5 @@ Scrivito.provideEditingConfig("CarouselWidget", {
         }
       },
     ],
-    [
-      "description",
-
-      (description, { widget }) => {
-        if (widget.get("showDescription") === "yes" && !description) {
-          return {
-            message: "The description should be set.",
-            severity: "warning",
-          };
-        }
-      },
-    ],
   ],
 });

@@ -12,11 +12,11 @@ Scrivito.provideEditingConfig("LinkWidget", {
   properties: ["link"],
   validations: [
     [
-      "url",
+      "link",
 
-      url => {
-        if (!url) {
-          return { message: "The link should be set.", severity: "warning" };
+      link => {
+        if (!link) {
+          return { message: "The url should be set.", severity: "warning" };
         }
       },
     ],

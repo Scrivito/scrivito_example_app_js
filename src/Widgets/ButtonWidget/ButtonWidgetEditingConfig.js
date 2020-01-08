@@ -39,18 +39,15 @@ Scrivito.provideEditingConfig("ButtonWidget", {
       target => {
         if (!target) {
           return {
-            message: "The link target should be set.",
+            message: "The button target should be set.",
             severity: "warning",
           };
         }
-      },
-    ],
-    [
-      "title",
-
-      title => {
-        if (!title) {
-          return { message: "The title is empty.", severity: "info" };
+        if (!target.title()) {
+          return {
+            message: "Providing the button title is recommended.",
+            severity: "info",
+          };
         }
       },
     ],

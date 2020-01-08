@@ -35,7 +35,7 @@ export const socialCardsValidations = [
     tcCreator => {
       if (tcCreator && tcCreator.charAt(0) !== "@") {
         return {
-          message: "The username should start with @.",
+          message: "The creator should start with @.",
           severity: "warning",
         };
       }
@@ -47,7 +47,7 @@ export const socialCardsValidations = [
     tcDescription => {
       if (tcDescription && tcDescription.length > 200) {
         return {
-          message: "The description should not exceed 200 characters.",
+          message: "The Twitter description should not exceed 200 characters.",
           severity: "warning",
         };
       }
@@ -59,7 +59,7 @@ export const socialCardsValidations = [
     ogDescription => {
       if (ogDescription && ogDescription.length > 300) {
         return {
-          message: "The description should not exceed 300 characters.",
+          message: "The Facebook description should not exceed 300 characters.",
           severity: "warning",
         };
       }

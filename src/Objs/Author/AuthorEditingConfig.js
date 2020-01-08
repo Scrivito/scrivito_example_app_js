@@ -5,6 +5,7 @@ import {
   metadataInitialContent,
   metadataPropertiesGroup,
   socialCardsPropertiesGroup,
+  socialCardsValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Author", {
@@ -27,4 +28,5 @@ Scrivito.provideEditingConfig("Author", {
   initialContent: {
     ...metadataInitialContent,
   },
+  validations: [...socialCardsValidations],
 });

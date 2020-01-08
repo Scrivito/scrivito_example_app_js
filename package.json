@@ -54,7 +54,7 @@
     "prettier": "^1.19.1",
     "puppeteer": "^2.0.0",
     "react": "^16.8.6",
-    "react-cookie-consent": "^2.5.0",
+    "react-cookie-consent": "^3.0.0",
     "react-dom": "^16.8.6",
     "react-draggable": "^4.2.0",
     "react-helmet": "^5.2.1",

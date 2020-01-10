@@ -1,8 +1,6 @@
 import * as Scrivito from "scrivito";
 import headlineWidgetIcon from "../../assets/images/headline_widget.svg";
 
-const initialHeadline = "Lorem Ipsum";
-
 Scrivito.provideEditingConfig("HeadlineWidget", {
   title: "Headline",
   thumbnail: headlineWidgetIcon,
@@ -62,7 +60,7 @@ Scrivito.provideEditingConfig("HeadlineWidget", {
   properties: ["style", "level", "alignment", "showDividingLine", "showMargin"],
   initialContent: {
     alignment: "left",
-    headline: initialHeadline,
+    headline: "Lorem Ipsum",
     showDividingLine: "no",
     showMargin: "yes",
     style: "h2",

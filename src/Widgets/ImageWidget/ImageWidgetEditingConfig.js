@@ -50,7 +50,7 @@ Scrivito.provideEditingConfig("ImageWidget", {
       image => {
         if (!image) {
           return {
-            message: "The image Should be set.",
+            message: "The image should be set.",
             severity: "warning",
           };
         }

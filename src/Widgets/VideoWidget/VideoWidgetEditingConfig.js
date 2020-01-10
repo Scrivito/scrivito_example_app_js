@@ -24,7 +24,7 @@ Scrivito.provideEditingConfig("VideoWidget", {
 
       source => {
         if (!source) {
-          return { message: "The source should be set.", severity: "warning" };
+          return { message: "The video should be set.", severity: "warning" };
         }
       },
     ],

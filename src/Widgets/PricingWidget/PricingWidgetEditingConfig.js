@@ -73,7 +73,10 @@ Scrivito.provideEditingConfig("PricingWidget", {
 
       currency => {
         if (!currency) {
-          return { message: "The currency must be set.", severity: "error" };
+          return {
+            message: "The currency should be set.",
+            severity: "warning",
+          };
         }
       },
     ],
@@ -83,8 +86,8 @@ Scrivito.provideEditingConfig("PricingWidget", {
       smallPlanPrice => {
         if (!smallPlanPrice) {
           return {
-            message: "The small plan price must be set.",
-            severity: "error",
+            message: "The small plan price should be set.",
+            severity: "warning",
           };
         }
       },
@@ -95,8 +98,8 @@ Scrivito.provideEditingConfig("PricingWidget", {
       mediumPlanPrice => {
         if (!mediumPlanPrice) {
           return {
-            message: "The medium plan price must be set.",
-            severity: "error",
+            message: "The medium plan price should be set.",
+            severity: "warning",
           };
         }
       },
@@ -107,8 +110,8 @@ Scrivito.provideEditingConfig("PricingWidget", {
       largePlanPrice => {
         if (!largePlanPrice) {
           return {
-            message: "The large plan price must be set.",
-            severity: "error",
+            message: "The large plan price should be set.",
+            severity: "warning",
           };
         }
       },
@@ -119,8 +122,8 @@ Scrivito.provideEditingConfig("PricingWidget", {
       smallPlanButton => {
         if (!smallPlanButton) {
           return {
-            message: "The url for small plan's button must be set.",
-            severity: "error",
+            message: "The url for small plan's button should be set.",
+            severity: "warning",
           };
         }
       },
@@ -131,8 +134,8 @@ Scrivito.provideEditingConfig("PricingWidget", {
       mediumPlanButton => {
         if (!mediumPlanButton) {
           return {
-            message: "The url for medium plan's button must be set.",
-            severity: "error",
+            message: "The url for medium plan's button should be set.",
+            severity: "warning",
           };
         }
       },
@@ -143,8 +146,8 @@ Scrivito.provideEditingConfig("PricingWidget", {
       largePlanButton => {
         if (!largePlanButton) {
           return {
-            message: "The url for large plan's button must be set.",
-            severity: "error",
+            message: "The url for large plan's button should be set.",
+            severity: "warning",
           };
         }
       },

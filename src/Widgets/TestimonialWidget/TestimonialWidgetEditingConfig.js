@@ -34,6 +34,15 @@ Scrivito.provideEditingConfig("TestimonialWidget", {
       },
     ],
   ],
-  titleForContent: widget =>
-    `${widget.get("author")}: ${truncate(widget.get("testimonial"))}`,
+  titleForContent: widget => {
+    const author = widget.get("author");
+    const testimonial = truncate(widget.get("testimonial"));
+
+    if (author && testimonial) {
+      return `Testimonial: ${author} - ${testimonial}`;
+    }
+    if (author || testimonial) {
+      return `Testimonial: ${author || testimonial}`;
+    }
+  },
 });

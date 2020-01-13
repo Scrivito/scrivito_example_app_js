@@ -1,4 +1,5 @@
 import * as Scrivito from "scrivito";
+import { truncate } from "lodash-es";
 
 Scrivito.provideEditingConfig("TestimonialWidget", {
   title: "Testimonial",
@@ -46,7 +47,7 @@ Scrivito.provideEditingConfig("TestimonialWidget", {
     ],
   ],
   titleForContent: widget => {
-    const parts = [widget.get("author"), widget.get("testimonial")];
+    const parts = [widget.get("author"), truncate(widget.get("testimonial"))];
     const summary = parts.filter(e => e).join(" - ");
 
     if (summary) {

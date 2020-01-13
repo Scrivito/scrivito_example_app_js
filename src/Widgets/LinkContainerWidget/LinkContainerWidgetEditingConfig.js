@@ -32,8 +32,8 @@ Scrivito.provideEditingConfig("LinkContainerWidget", {
       links => {
         if (links.length < 1) {
           return {
-            message: "The link container must contain at least one link.",
-            severity: "error",
+            message: "The link container should contain at least one link.",
+            severity: "warning",
           };
         }
       },

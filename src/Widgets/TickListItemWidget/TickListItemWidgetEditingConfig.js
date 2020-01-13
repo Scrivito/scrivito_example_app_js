@@ -12,8 +12,8 @@ Scrivito.provideEditingConfig("TickListItemWidget", {
       statement => {
         if (!statement) {
           return {
-            message: "The statement must be set.",
-            severity: "error",
+            message: "The statement should be set.",
+            severity: "warning",
           };
         }
       },

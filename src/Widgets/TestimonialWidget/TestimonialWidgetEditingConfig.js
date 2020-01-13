@@ -33,16 +33,25 @@ Scrivito.provideEditingConfig("TestimonialWidget", {
         }
       },
     ],
+    [
+      "testimonial",
+
+      testimonial => {
+        if (!testimonial) {
+          return {
+            message: "The testimonial should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
   ],
   titleForContent: widget => {
-    const author = widget.get("author");
-    const testimonial = truncate(widget.get("testimonial"));
+    const parts = [widget.get("author"), widget.get("testimonial")];
+    const summary = parts.filter(e => e).join(" - ");
 
-    if (author && testimonial) {
-      return `Testimonial: ${author} - ${testimonial}`;
-    }
-    if (author || testimonial) {
-      return `Testimonial: ${author || testimonial}`;
+    if (summary) {
+      return `Testimonial: ${summary}`;
     }
   },
 });

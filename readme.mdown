@@ -94,13 +94,12 @@ before
 
 After saving the file, your browser should automatically reload [http://localhost:8080](http://localhost:8080) with your new emoji button. Of course you can choose another emoji, check out [emojipedia.org](https://emojipedia.org).
 
-## Try out the page and widget class generator
+## How to generate page and widget classes
 
-For having the scaffolds of new CMS object and widget classes conveniently created, a [Yeoman](https://yeoman.io/)-based generator is included. It adds the folder and files needed as a minimum for a class to the project and provides the basic code and configuration for it to work. For details on how to use it and what it effects, see [Using the Example App's Page and Widget Class Generator](https://www.scrivito.com/using-the-example-app-s-page-and-widget-class-generator-cbe51cdfcf15a7c8). For a quick start, install `yo` and run it like so:
+For having the scaffolds of new CMS object and widget classes conveniently created, a [Yeoman](https://yeoman.io/)-based generator is included. It adds the folder and files needed as a minimum for a class to the project, and provides the basic code and configuration for it to work. For details on how to use the generator and what it effects, see [Using the Example App's Page and Widget Class Generator](https://www.scrivito.com/class-generator). For a quick start, run it like so:
 
 ```
-npm install -g yo
-yo scrivito
+npx yo scrivito
 ```
 
 ## How to build/compile

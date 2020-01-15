@@ -25,15 +25,4 @@ Scrivito.provideEditingConfig("ThumbnailGalleryImageWidget", {
       return `Thumbnail Gallery Image: ${summary}`;
     }
   },
-  validations: [
-    [
-      "image",
-
-      image => {
-        if (!image) {
-          return { message: "The image should be set.", severity: "warning" };
-        }
-      },
-    ],
-  ],
 });

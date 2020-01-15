@@ -39,7 +39,7 @@ Scrivito.provideEditingConfig("TestimonialWidget", {
       testimonial => {
         if (!testimonial) {
           return {
-            message: "The testimonial should be set.",
+            message: "The testimonial text should be set.",
             severity: "warning",
           };
         }

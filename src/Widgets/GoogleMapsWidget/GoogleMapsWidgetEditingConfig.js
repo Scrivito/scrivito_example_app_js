@@ -62,4 +62,18 @@ Scrivito.provideEditingConfig("GoogleMapsWidget", {
     zoom: "15",
     mapType: "static",
   },
+  validations: [
+    [
+      "address",
+
+      address => {
+        if (!address) {
+          return {
+            message: "The address should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+  ],
 });

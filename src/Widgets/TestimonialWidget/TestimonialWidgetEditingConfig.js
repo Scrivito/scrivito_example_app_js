@@ -20,6 +20,38 @@ Scrivito.provideEditingConfig("TestimonialWidget", {
     author: "Someone",
     testimonial: "This is great!",
   },
-  titleForContent: widget =>
-    `${widget.get("author")}: ${truncate(widget.get("testimonial"))}`,
+  validations: [
+    [
+      "author",
+
+      author => {
+        if (!author) {
+          return {
+            message: "The author should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+    [
+      "testimonial",
+
+      testimonial => {
+        if (!testimonial) {
+          return {
+            message: "The testimonial text should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+  ],
+  titleForContent: widget => {
+    const parts = [widget.get("author"), truncate(widget.get("testimonial"))];
+    const summary = parts.filter(e => e).join(" - ");
+
+    if (summary) {
+      return `Testimonial: ${summary}`;
+    }
+  },
 });

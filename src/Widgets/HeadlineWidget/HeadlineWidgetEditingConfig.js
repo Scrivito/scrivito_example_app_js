@@ -65,4 +65,15 @@ Scrivito.provideEditingConfig("HeadlineWidget", {
     showMargin: "yes",
     style: "h2",
   },
+  validations: [
+    [
+      "headline",
+
+      headline => {
+        if (!headline) {
+          return { message: "The headline must be set.", severity: "error" };
+        }
+      },
+    ],
+  ],
 });

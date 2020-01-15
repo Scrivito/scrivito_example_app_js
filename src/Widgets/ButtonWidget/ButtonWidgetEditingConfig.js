@@ -32,4 +32,24 @@ Scrivito.provideEditingConfig("ButtonWidget", {
     alignment: "left",
     style: "btn-primary",
   },
+  validations: [
+    [
+      "target",
+
+      target => {
+        if (!target) {
+          return {
+            message: "The button target should be set.",
+            severity: "warning",
+          };
+        }
+        if (!target.title()) {
+          return {
+            message: "Providing the button title is recommended.",
+            severity: "info",
+          };
+        }
+      },
+    ],
+  ],
 });

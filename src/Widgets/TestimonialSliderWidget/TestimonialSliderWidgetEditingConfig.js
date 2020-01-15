@@ -14,4 +14,18 @@ Scrivito.provideEditingConfig("TestimonialSliderWidget", {
   initialContent: {
     testimonials: [new TestimonialWidget({})],
   },
+  validations: [
+    [
+      "testimonials",
+
+      testimonials => {
+        if (testimonials.length < 1) {
+          return {
+            message: "The testimonial slider must contain at least one entry.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+  ],
 });

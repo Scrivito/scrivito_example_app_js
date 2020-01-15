@@ -12,4 +12,18 @@ Scrivito.provideEditingConfig("TickListWidget", {
       new TickListItemWidget({}),
     ],
   },
+  validations: [
+    [
+      "items",
+
+      items => {
+        if (items.length < 1) {
+          return {
+            message: "The ticklist must include at least one item.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+  ],
 });

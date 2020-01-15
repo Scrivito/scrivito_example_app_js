@@ -18,4 +18,15 @@ Scrivito.provideEditingConfig("VideoWidget", {
     },
   },
   properties: ["source", "poster"],
+  validations: [
+    [
+      "source",
+
+      source => {
+        if (!source) {
+          return { message: "The video should be set.", severity: "warning" };
+        }
+      },
+    ],
+  ],
 });

@@ -17,6 +17,12 @@ Scrivito.provideEditingConfig("ThumbnailGalleryImageWidget", {
     },
   },
   properties: ["image", "title", "subtitle", "tags"],
-  titleForContent: widget =>
-    `${widget.get("title")} - ${widget.get("subtitle")}`,
+  titleForContent: widget => {
+    const parts = [widget.get("title"), widget.get("subtitle")];
+    const summary = parts.filter(e => e).join(" - ");
+
+    if (summary) {
+      return `Thumbnail Gallery Image: ${summary}`;
+    }
+  },
 });

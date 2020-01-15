@@ -18,4 +18,18 @@ Scrivito.provideEditingConfig("ThumbnailGalleryWidget", {
     },
   },
   properties: ["images", "showTags"],
+  validations: [
+    [
+      "images",
+
+      images => {
+        if (images.length < 1) {
+          return {
+            message: "The thumbnail gallery should contain at least one image.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+  ],
 });

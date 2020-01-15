@@ -30,4 +30,18 @@ Scrivito.provideEditingConfig("YoutubeVideoWidget", {
     aspectRatio: "16:9",
     youtubeVideoId: "Ys1w9A4DrO4",
   },
+  validations: [
+    [
+      "youtubeVideoId",
+
+      youtubeVideoId => {
+        if (!youtubeVideoId) {
+          return {
+            message: "The Youtube video ID must be set.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+  ],
 });

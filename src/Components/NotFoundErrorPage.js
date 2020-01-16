@@ -6,7 +6,7 @@ class NotFoundErrorPage extends React.Component {
   componentDidMount() {
     const path = window.location.pathname;
 
-    if (path !== "/404") {
+    if (!Scrivito.isEditorLoggedIn() && path !== "/404") {
       window.location.replace(`/404?path=${encodeURIComponent(path)}`);
     }
   }

@@ -5,6 +5,7 @@ import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
+  metadataValidations,
   socialCardsPropertiesGroup,
   socialCardsValidations,
 } from "../_metadataEditingConfig";
@@ -94,6 +95,7 @@ Scrivito.provideEditingConfig("Job", {
   },
   validations: [
     ...socialCardsValidations,
+    ...metadataValidations,
     [
       "title",
 

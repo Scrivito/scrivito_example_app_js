@@ -5,6 +5,7 @@ import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
+  metadataValidations,
   socialCardsPropertiesGroup,
   socialCardsValidations,
 } from "../_metadataEditingConfig";
@@ -30,5 +31,5 @@ Scrivito.provideEditingConfig("Blog", {
     ...metadataInitialContent,
     body: [new SectionWidget({})],
   },
-  validations: [...socialCardsValidations],
+  validations: [...socialCardsValidations, ...metadataValidations],
 });

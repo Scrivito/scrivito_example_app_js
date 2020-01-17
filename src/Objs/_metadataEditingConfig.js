@@ -22,6 +22,27 @@ export const metadataPropertiesGroup = {
   properties: ["metaDataDescription", "robotsIndex"],
 };
 
+export const metadataValidations = [
+  [
+    "metaDataDescription",
+
+    metaDataDescription => {
+      if (!metaDataDescription) {
+        return {
+          message: "Providing a page description is recommended.",
+          severity: "info",
+        };
+      }
+      if (metaDataDescription.length > 175) {
+        return {
+          message: "The page description should not exceed 175 characters.",
+          severity: "warning",
+        };
+      }
+    },
+  ],
+];
+
 export const socialCardsPropertiesGroup = {
   title: "Social cards",
   component: "SocialCardsTab",

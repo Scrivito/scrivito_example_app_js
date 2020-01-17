@@ -10,6 +10,7 @@ import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
+  metadataValidations,
   socialCardsPropertiesGroup,
   socialCardsValidations,
 } from "../_metadataEditingConfig";
@@ -97,5 +98,9 @@ Scrivito.provideEditingConfig("Homepage", {
     ...metadataInitialContent,
     showAsLandingPage: "no",
   },
-  validations: [defaultPageTitleValidation, ...socialCardsValidations],
+  validations: [
+    defaultPageTitleValidation,
+    ...socialCardsValidations,
+    ...metadataValidations,
+  ],
 });

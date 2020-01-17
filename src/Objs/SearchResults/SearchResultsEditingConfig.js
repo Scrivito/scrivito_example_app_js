@@ -4,6 +4,7 @@ import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
+  metadataValidations,
   socialCardsPropertiesGroup,
   socialCardsValidations,
 } from "../_metadataEditingConfig";
@@ -29,5 +30,9 @@ Scrivito.provideEditingConfig("SearchResults", {
   initialContent: {
     ...metadataInitialContent,
   },
-  validations: [defaultPageTitleValidation, ...socialCardsValidations],
+  validations: [
+    defaultPageTitleValidation,
+    ...socialCardsValidations,
+    ...metadataValidations,
+  ],
 });

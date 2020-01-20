@@ -4,10 +4,11 @@ import { Helmet } from "react-helmet-async";
 
 class NotFoundErrorPage extends React.Component {
   componentDidMount() {
-    const path = window.location.pathname;
+    const statusCode = "status-code=404-not-found";
+    const { search } = window.location;
 
-    if (path !== "/404") {
-      window.location.replace(`/404?path=${encodeURIComponent(path)}`);
+    if (!Scrivito.isEditorLoggedIn() && !search.includes(statusCode)) {
+      window.location.search = search ? `${search}&${statusCode}` : statusCode;
     }
   }
 

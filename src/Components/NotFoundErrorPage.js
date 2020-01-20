@@ -8,9 +8,7 @@ class NotFoundErrorPage extends React.Component {
     const { search } = window.location;
 
     if (!Scrivito.isEditorLoggedIn() && !search.includes(statusCode)) {
-      window.location.search = search
-        ? `${search}&${statusCode}`
-        : `?${statusCode}`;
+      window.location.search = search ? `${search}&${statusCode}` : statusCode;
     }
   }
 

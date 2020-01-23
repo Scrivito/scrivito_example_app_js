@@ -1,15 +1,7 @@
 import * as Scrivito from "scrivito";
 import eventObjIcon from "../../assets/images/event_obj.svg";
 import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
-import {
-  metadata,
-  socialCards,
-  metadataEditingConfigAttributes,
-  metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
-  socialCardsValidations,
-} from "../_metadataEditingConfig";
+import { metadata, socialCards } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Event", {
   title: "Event",

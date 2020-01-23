@@ -1,14 +1,6 @@
 import * as Scrivito from "scrivito";
 import authorObjIcon from "../../assets/images/author_obj.svg";
-import {
-  metadata,
-  socialCards,
-  metadataEditingConfigAttributes,
-  metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
-  socialCardsValidations,
-} from "../_metadataEditingConfig";
+import { metadata, socialCards } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Author", {
   title: "Author",

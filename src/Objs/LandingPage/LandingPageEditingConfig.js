@@ -1,21 +1,7 @@
 import * as Scrivito from "scrivito";
 import landingPageObjIcon from "../../assets/images/landing_page_obj.svg";
-import {
-  defaultPage,
-  defaultPageEditingConfigAttributes,
-  defaultPageInitialContent,
-  defaultPageProperties,
-  defaultPageTitleValidation,
-} from "../_defaultPageEditingConfig";
-import {
-  metadata,
-  socialCards,
-  metadataEditingConfigAttributes,
-  metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
-  socialCardsValidations,
-} from "../_metadataEditingConfig";
+import { defaultPage } from "../_defaultPageEditingConfig";
+import { metadata, socialCards } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("LandingPage", {
   title: "Landing Page",

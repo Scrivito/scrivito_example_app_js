@@ -1,15 +1,7 @@
 import * as Scrivito from "scrivito";
 import blogObjIcon from "../../assets/images/blog_obj.svg";
 import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
-import {
-  metadata,
-  socialCards,
-  metadataEditingConfigAttributes,
-  metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
-  socialCardsValidations,
-} from "../_metadataEditingConfig";
+import { metadata, socialCards } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Blog", {
   title: "Blog",

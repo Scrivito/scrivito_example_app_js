@@ -2,6 +2,8 @@ import * as Scrivito from "scrivito";
 import blogPostObjIcon from "../../assets/images/blog_post_obj.svg";
 import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
+  metadata,
+  socialCards,
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
@@ -13,7 +15,7 @@ Scrivito.provideEditingConfig("BlogPost", {
   title: "Blog Post",
   thumbnail: blogPostObjIcon,
   attributes: {
-    ...metadataEditingConfigAttributes,
+    ...metadata.editingConfigAttributes,
     author: {
       title: "Author",
     },
@@ -32,15 +34,15 @@ Scrivito.provideEditingConfig("BlogPost", {
     },
   },
   properties: ["author", "publishedAt", "titleImage", "tags"],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [socialCards.propertiesGroup, metadata.propertiesGroup],
   initialContent: {
-    ...metadataInitialContent,
+    ...metadata.initialContent,
     body: [new SectionWidget({})],
     publishedAt: () => new Date(),
     title: "Lorem Ipsum",
   },
   validations: [
-    ...socialCardsValidations,
+    ...socialCards.validations,
     [
       "title",
 

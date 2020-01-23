@@ -2,6 +2,8 @@ import * as Scrivito from "scrivito";
 import blogObjIcon from "../../assets/images/blog_obj.svg";
 import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
+  metadata,
+  socialCards,
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
@@ -14,7 +16,7 @@ Scrivito.provideEditingConfig("Blog", {
   thumbnail: blogObjIcon,
   hideInSelectionDialogs: true,
   attributes: {
-    ...metadataEditingConfigAttributes,
+    ...metadata.editingConfigAttributes,
     title: {
       title: "Title",
       description: "Limit to 55 characters.",
@@ -25,10 +27,10 @@ Scrivito.provideEditingConfig("Blog", {
     },
   },
   properties: ["title", "navigationBackgroundImage"],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [socialCards.propertiesGroup, metadata.propertiesGroup],
   initialContent: {
-    ...metadataInitialContent,
+    ...metadata.initialContent,
     body: [new SectionWidget({})],
   },
-  validations: [...socialCardsValidations],
+  validations: [...socialCards.validations],
 });

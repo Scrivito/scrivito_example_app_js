@@ -1,12 +1,15 @@
 import * as Scrivito from "scrivito";
 import homepageObjIcon from "../../assets/images/homepage_obj.svg";
 import {
+  defaultPage,
   defaultPageEditingConfigAttributes,
   defaultPageInitialContent,
   defaultPageProperties,
   defaultPageTitleValidation,
 } from "../_defaultPageEditingConfig";
 import {
+  metadata,
+  socialCards,
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
@@ -19,8 +22,8 @@ Scrivito.provideEditingConfig("Homepage", {
   thumbnail: homepageObjIcon,
   hideInSelectionDialogs: true,
   attributes: {
-    ...defaultPageEditingConfigAttributes,
-    ...metadataEditingConfigAttributes,
+    ...defaultPage.editingConfigAttributes,
+    ...metadata.editingConfigAttributes,
     logoDark: {
       title: "Dark logo",
       description: "Used with light backgrounds",
@@ -73,7 +76,7 @@ Scrivito.provideEditingConfig("Homepage", {
         'If you set this link, a cookie consent box will be shown on every page. The link should point to your privacy policy. The link title defaults to "Learn more »".',
     },
   },
-  properties: [...defaultPageProperties, "showAsLandingPage"],
+  properties: [...defaultPage.properties, "showAsLandingPage"],
   propertiesGroups: [
     {
       title: "Site settings",
@@ -89,13 +92,13 @@ Scrivito.provideEditingConfig("Homepage", {
         "intercomAppId",
       ],
     },
-    socialCardsPropertiesGroup,
-    metadataPropertiesGroup,
+    socialCards.propertiesGroup,
+    metadata.propertiesGroup,
   ],
   initialContent: {
-    ...defaultPageInitialContent,
-    ...metadataInitialContent,
+    ...defaultPage.initialContent,
+    ...metadata.initialContent,
     showAsLandingPage: "no",
   },
-  validations: [defaultPageTitleValidation, ...socialCardsValidations],
+  validations: [defaultPage.titleValidation, ...socialCards.validations],
 });

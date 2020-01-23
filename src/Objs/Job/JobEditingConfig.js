@@ -2,6 +2,8 @@ import * as Scrivito from "scrivito";
 import jobObjIcon from "../../assets/images/job_obj.svg";
 import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
+  metadata,
+  socialCards,
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
@@ -13,7 +15,7 @@ Scrivito.provideEditingConfig("Job", {
   title: "Job",
   thumbnail: jobObjIcon,
   attributes: {
-    ...metadataEditingConfigAttributes,
+    ...metadata.editingConfigAttributes,
     title: {
       title: "Job title",
       description: "E.g. Software Engineer",
@@ -86,14 +88,14 @@ Scrivito.provideEditingConfig("Job", {
     "locationCountry",
     "employmentType",
   ],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [socialCards.propertiesGroup, metadata.propertiesGroup],
   initialContent: {
-    ...metadataInitialContent,
+    ...metadata.initialContent,
     title: "Lorem Ipsum",
     body: [new SectionWidget({})],
   },
   validations: [
-    ...socialCardsValidations,
+    ...socialCards.validations,
     [
       "title",
 

@@ -1,12 +1,15 @@
 import * as Scrivito from "scrivito";
 import PageObjIcon from "../../assets/images/page_obj.svg";
 import {
+  defaultPage,
   defaultPageEditingConfigAttributes,
   defaultPageInitialContent,
   defaultPageProperties,
   defaultPageTitleValidation,
 } from "../_defaultPageEditingConfig";
 import {
+  metadata,
+  socialCards,
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
@@ -18,14 +21,14 @@ Scrivito.provideEditingConfig("Page", {
   title: "Page",
   thumbnail: PageObjIcon,
   attributes: {
-    ...defaultPageEditingConfigAttributes,
-    ...metadataEditingConfigAttributes,
+    ...defaultPage.editingConfigAttributes,
+    ...metadata.editingConfigAttributes,
   },
-  properties: [...defaultPageProperties],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  properties: [...defaultPage.properties],
+  propertiesGroups: [socialCards.propertiesGroup, metadata.propertiesGroup],
   initialContent: {
-    ...defaultPageInitialContent,
-    ...metadataInitialContent,
+    ...defaultPage.initialContent,
+    ...metadata.initialContent,
   },
-  validations: [defaultPageTitleValidation, ...socialCardsValidations],
+  validations: [defaultPage.titleValidation, ...socialCards.validations],
 });

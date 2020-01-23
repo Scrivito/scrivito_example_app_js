@@ -1,6 +1,8 @@
 import * as Scrivito from "scrivito";
 import authorObjIcon from "../../assets/images/author_obj.svg";
 import {
+  metadata,
+  socialCards,
   metadataEditingConfigAttributes,
   metadataInitialContent,
   metadataPropertiesGroup,
@@ -12,7 +14,7 @@ Scrivito.provideEditingConfig("Author", {
   title: "Author",
   thumbnail: authorObjIcon,
   attributes: {
-    ...metadataEditingConfigAttributes,
+    ...metadata.editingConfigAttributes,
     title: {
       title: "Name",
     },
@@ -24,13 +26,13 @@ Scrivito.provideEditingConfig("Author", {
     },
   },
   properties: ["title", "description", "image"],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [socialCards.propertiesGroup, metadata.propertiesGroup],
   initialContent: {
-    ...metadataInitialContent,
+    ...metadata.initialContent,
     title: "Lorem Ipsum",
   },
   validations: [
-    ...socialCardsValidations,
+    ...socialCards.validations,
     [
       "title",
 

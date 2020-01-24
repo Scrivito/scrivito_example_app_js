@@ -4,9 +4,8 @@ import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
-  socialCardsValidations,
+  metadataPropertiesGroups,
+  metadataValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Job", {
@@ -86,14 +85,14 @@ Scrivito.provideEditingConfig("Job", {
     "locationCountry",
     "employmentType",
   ],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [...metadataPropertiesGroups],
   initialContent: {
     ...metadataInitialContent,
     title: "Lorem Ipsum",
     body: [new SectionWidget({})],
   },
   validations: [
-    ...socialCardsValidations,
+    ...metadataValidations,
     [
       "title",
 

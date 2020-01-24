@@ -46,15 +46,17 @@ export const defaultPageProperties = [
   "navigationBackgroundImageGradient",
 ];
 
-export const defaultPageTitleValidation = [
-  "title",
+export const defaultPageTitleValidations = [
+  [
+    "title",
 
-  title => {
-    if (title.length === 0) {
-      return {
-        message: "The title should be set.",
-        severity: "warning",
-      };
-    }
-  },
+    title => {
+      if (title.length === 0) {
+        return {
+          message: "The title should be set.",
+          severity: "warning",
+        };
+      }
+    },
+  ],
 ];

@@ -46,7 +46,7 @@ export const defaultPageProperties = [
   "navigationBackgroundImageGradient",
 ];
 
-export const defaultPageTitleValidations = [
+export const defaultPageValidations = [
   [
     "title",
 

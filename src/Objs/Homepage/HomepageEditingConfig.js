@@ -4,7 +4,7 @@ import {
   defaultPageEditingConfigAttributes,
   defaultPageInitialContent,
   defaultPageProperties,
-  defaultPageTitleValidations,
+  defaultPageValidations,
 } from "../_defaultPageEditingConfig";
 import {
   metadataEditingConfigAttributes,
@@ -95,5 +95,5 @@ Scrivito.provideEditingConfig("Homepage", {
     ...metadataInitialContent,
     showAsLandingPage: "no",
   },
-  validations: [...defaultPageTitleValidations, ...metadataValidations],
+  validations: [...defaultPageValidations, ...metadataValidations],
 });

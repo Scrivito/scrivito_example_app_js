@@ -6,7 +6,7 @@ import {
   metadataPropertiesGroups,
   metadataValidations,
 } from "../_metadataEditingConfig";
-import { defaultPageTitleValidations } from "../_defaultPageEditingConfig";
+import { defaultPageValidations } from "../_defaultPageEditingConfig";
 
 Scrivito.provideEditingConfig("SearchResults", {
   title: "Search Results",
@@ -28,5 +28,5 @@ Scrivito.provideEditingConfig("SearchResults", {
   initialContent: {
     ...metadataInitialContent,
   },
-  validations: [...defaultPageTitleValidations, ...metadataValidations],
+  validations: [...defaultPageValidations, ...metadataValidations],
 });

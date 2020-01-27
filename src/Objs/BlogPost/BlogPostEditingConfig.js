@@ -4,9 +4,8 @@ import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
-  socialCardsValidations,
+  metadataPropertiesGroups,
+  metadataValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("BlogPost", {
@@ -32,7 +31,7 @@ Scrivito.provideEditingConfig("BlogPost", {
     },
   },
   properties: ["author", "publishedAt", "titleImage", "tags"],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [...metadataPropertiesGroups],
   initialContent: {
     ...metadataInitialContent,
     body: [new SectionWidget({})],
@@ -40,7 +39,7 @@ Scrivito.provideEditingConfig("BlogPost", {
     title: "Lorem Ipsum",
   },
   validations: [
-    ...socialCardsValidations,
+    ...metadataValidations,
     [
       "title",
 

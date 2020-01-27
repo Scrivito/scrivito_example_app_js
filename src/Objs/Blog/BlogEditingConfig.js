@@ -4,9 +4,8 @@ import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
-  socialCardsValidations,
+  metadataPropertiesGroups,
+  metadataValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Blog", {
@@ -25,10 +24,10 @@ Scrivito.provideEditingConfig("Blog", {
     },
   },
   properties: ["title", "navigationBackgroundImage"],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [...metadataPropertiesGroups],
   initialContent: {
     ...metadataInitialContent,
     body: [new SectionWidget({})],
   },
-  validations: [...socialCardsValidations],
+  validations: [...metadataValidations],
 });

@@ -4,14 +4,13 @@ import {
   defaultPageEditingConfigAttributes,
   defaultPageInitialContent,
   defaultPageProperties,
-  defaultPageTitleValidation,
+  defaultPageValidations,
 } from "../_defaultPageEditingConfig";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
-  socialCardsValidations,
+  metadataPropertiesGroups,
+  metadataValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Homepage", {
@@ -89,13 +88,12 @@ Scrivito.provideEditingConfig("Homepage", {
         "intercomAppId",
       ],
     },
-    socialCardsPropertiesGroup,
-    metadataPropertiesGroup,
+    ...metadataPropertiesGroups,
   ],
   initialContent: {
     ...defaultPageInitialContent,
     ...metadataInitialContent,
     showAsLandingPage: "no",
   },
-  validations: [defaultPageTitleValidation, ...socialCardsValidations],
+  validations: [...defaultPageValidations, ...metadataValidations],
 });

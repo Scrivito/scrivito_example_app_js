@@ -17,18 +17,19 @@ export const metadataInitialContent = {
   robotsIndex: "yes",
 };
 
-export const metadataPropertiesGroup = {
-  title: "Metadata",
-  properties: ["metaDataDescription", "robotsIndex"],
-};
+export const metadataPropertiesGroups = [
+  {
+    title: "Metadata",
+    properties: ["metaDataDescription", "robotsIndex"],
+  },
+  {
+    title: "Social cards",
+    component: "SocialCardsTab",
+    properties: ["tcCreator", "tcDescription", "ogDescription"],
+  },
+];
 
-export const socialCardsPropertiesGroup = {
-  title: "Social cards",
-  component: "SocialCardsTab",
-  properties: ["tcCreator", "tcDescription", "ogDescription"],
-};
-
-export const socialCardsValidations = [
+export const metadataValidations = [
   [
     "tcCreator",
 

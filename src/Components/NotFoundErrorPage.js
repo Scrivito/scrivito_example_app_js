@@ -15,7 +15,7 @@ class NotFoundErrorPage extends React.Component {
   render() {
     const backgroundImage = [
       "linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))",
-      "url(https://unsplash.com/photos/Bs0zgYkYEZw/download)",
+      "url(https://long-lasting-assets.scrivitojs.com/scrivito_example_app_js/404_not_found.jpeg)",
     ].join(", ");
 
     return (

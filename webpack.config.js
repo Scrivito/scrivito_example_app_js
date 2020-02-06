@@ -89,7 +89,7 @@ function webpackConfig(env = {}) {
             {
               loader: "file-loader",
               options: {
-                name: "[name].[contenthash].[ext]",
+                name: "assets/[name].[contenthash].[ext]",
               },
             },
           ],
@@ -168,7 +168,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       },
     ]),
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: "assets/[name].[contenthash].css",
     }),
     new HtmlWebpackPlugin({
       filename: "catch_all_index.html",

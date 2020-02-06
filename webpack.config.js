@@ -5,6 +5,7 @@ const process = require("process");
 const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const ManifestPlugin = require("webpack-manifest-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const Webpackbar = require("webpackbar");
@@ -170,6 +171,10 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ];
+
+  if (isPrerendering) {
+    plugins.push(new ManifestPlugin({ fileName: "asset-manifest.json" }));
+  }
 
   if (isProduction) {
     plugins.unshift(new CleanWebpackPlugin());

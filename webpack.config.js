@@ -87,7 +87,7 @@ function webpackConfig(env = {}) {
             {
               loader: "file-loader",
               options: {
-                name: "[name].[hash].[ext]",
+                name: "[name].[contenthash].[ext]",
               },
             },
           ],

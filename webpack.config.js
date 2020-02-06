@@ -83,7 +83,7 @@ function webpackConfig(env = {}) {
           ],
         },
         {
-          test: /\.(jpg|png|eot|svg|ttf|woff|woff2|gif|html)$/,
+          test: /\.(jpg|png|eot|svg|ttf|woff|woff2|gif)$/,
           use: [
             {
               loader: "file-loader",

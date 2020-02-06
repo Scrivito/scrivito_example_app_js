@@ -72,6 +72,10 @@
     {
       "files": ["src/Components/ScrivitoExtensions/ColumnsEditorTab.js"],
       "rules": { "max-classes-per-file": 0 }
+    },
+    {
+      "files": ["src/Widgets/ContactFormWidget/ContactFormWidgetComponent.js"],
+      "rules": { "import/no-webpack-loader-syntax": 0 }
     }
   ]
 }

@@ -168,7 +168,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       },
     ]),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "[name].[contenthash].css",
     }),
     new HtmlWebpackPlugin({
       filename: "catch_all_index.html",

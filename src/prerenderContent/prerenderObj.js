@@ -43,7 +43,7 @@ export default async function prerenderObj(obj) {
   return [
     {
       filename: filenameFromUrl(objUrl),
-      content: generateHtml({
+      content: await generateHtml({
         objId,
         htmlAttributes,
         headContent,

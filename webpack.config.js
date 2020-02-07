@@ -5,6 +5,8 @@ const process = require("process");
 const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ManifestPlugin = require("webpack-manifest-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const Webpackbar = require("webpackbar");
@@ -82,12 +84,12 @@ function webpackConfig(env = {}) {
           ],
         },
         {
-          test: /\.(jpg|png|eot|svg|ttf|woff|woff2|gif|html)$/,
+          test: /\.(jpg|png|eot|svg|ttf|woff|woff2|gif)$/,
           use: [
             {
               loader: "file-loader",
               options: {
-                name: "[name].[hash].[ext]",
+                name: "assets/[name].[contenthash].[ext]",
               },
             },
           ],
@@ -166,10 +168,24 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       },
     ]),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "assets/[name].[contenthash].css",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "catch_all_index.html",
+      template: "catch_all_index.html",
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: "_scrivito_extensions.html",
+      template: "_scrivito_extensions.html",
+      inject: false,
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ];
+
+  if (isPrerendering) {
+    plugins.push(new ManifestPlugin({ fileName: "asset-manifest.json" }));
+  }
 
   if (isProduction) {
     plugins.unshift(new CleanWebpackPlugin());

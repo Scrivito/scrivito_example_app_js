@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content="Scrivito by Infopark AG (scrivito.com)" />
 
-    <title>Scrivito Extensions</title>
+    <title>Your Scrivito powered site is loading ...</title>
     <link rel="preconnect" href="https://api.scrivito.com" crossorigin />
     <link rel="preconnect" href="https://api.scrivito.com" />
     <link rel="preconnect" href="https://cdn0.scrvt.com" />
-    <link rel="stylesheet" href="/index.css" />
+    <link
+      rel="stylesheet"
+      href="<%= htmlWebpackPlugin.files.chunks.index.css %>"
+    />
+
+    <script src="/js_snippets_head.js"></script>
   </head>
   <body>
-    <script src="/scrivito_extensions.js"></script>
+    <div id="application">
+      <span class="loader">
+        Your <a href="https://www.scrivito.com">Scrivito</a> powered site is
+        loading ...
+      </span>
+    </div>
+    <script src="/index.js"></script>
+    <script src="/js_snippets_before_body_end.js"></script>
   </body>
 </html>

@@ -1,4 +1,8 @@
-export default function generateHtml({
+const assetManifest = fetch("asset-manifest.json").then(response =>
+  response.json()
+);
+
+export default async function generateHtml({
   objId,
   htmlAttributes,
   headContent,
@@ -6,6 +10,8 @@ export default function generateHtml({
   bodyContent,
   preloadDumpFileName,
 }) {
+  const assets = await assetManifest;
+
   return `<!DOCTYPE html>
 <html ${htmlAttributes}>
   <head>
@@ -17,7 +23,7 @@ export default function generateHtml({
     <link rel="preconnect" href="https://api.scrivito.com" crossorigin />
     <link rel="preconnect" href="https://api.scrivito.com" />
     <link rel="preconnect" href="https://cdn0.scrvt.com" />
-    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="${assets["index.css"]}" />
 
     <script src="/js_snippets_head.js"></script>
   </head>

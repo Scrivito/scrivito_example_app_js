@@ -22,8 +22,13 @@ async function storePrerenderedContent() {
   await fse.copy(SOURCE_DIR, TARGET_DIR);
 
   let filesRemoved = 0;
+  const filesToBeRemoved = [
+    "asset-manifest.json",
+    "_prerender_content.html",
+    "prerender_content.js",
+  ];
   await Promise.all(
-    ["_prerender_content.html", "prerender_content.js"].map(async filename => {
+    filesToBeRemoved.map(async filename => {
       log(`✨ Removing now obsolete file ${filename}...`);
       await fse.remove(`${TARGET_DIR}/${filename}`);
       filesRemoved += 1;

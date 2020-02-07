@@ -382,6 +382,39 @@
   }
 }
 
+
+/* search-suggest
+=================================================================== */
+
+.search-box-suggest {
+  background: #e9e9e9;
+  width: 100%; color: gray;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .175);
+  display: none;
+  z-index: 9;
+}
+.search-box-suggest li { padding: 5px 10px; box-shadow: 0 0 1px #aaa; }
+.search-box-suggest li:first-child { box-shadow: none;}
+.search-box-suggest li.active,
+.search-box-suggest li:hover { background: #fff; cursor: pointer;}
+
+.search-box .search-box-suggest {
+  width: calc(100% - 40px); position: absolute;
+  top: 100%; left: 0;
+  }
+
+.nav-centered .search-box-suggest {
+  background: #f3f3f3;
+  border-radius: 0;
+  position: relative;
+  max-width: 780px;
+  width: calc(100% - 20px);
+  margin: -40px auto 0 auto;
+  }
+
+
 /* -- */
 
 @media (min-width: $screen-lg-min) {

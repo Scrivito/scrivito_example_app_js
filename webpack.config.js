@@ -204,7 +204,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
 }
 
 function devServerCspHeader() {
-  const directives = Object.assign({}, headersCsp);
+  const directives = deepClone(headersCsp);
 
   // allow 'unsafe-eval' for webpack hot code reloading
   directives["script-src"].push("'unsafe-eval'");
@@ -213,6 +213,10 @@ function devServerCspHeader() {
   directives["default-src"].push("ws:");
 
   return builder({ directives });
+}
+
+function deepClone(object) {
+  return JSON.parse(JSON.stringify(object));
 }
 
 module.exports = webpackConfig;

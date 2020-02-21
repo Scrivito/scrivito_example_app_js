@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 const process = require("process");
 const webpack = require("webpack");
+const lodash = require("lodash");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -204,7 +205,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
 }
 
 function devServerCspHeader() {
-  const directives = deepClone(headersCsp);
+  const directives = lodash.cloneDeep(headersCsp);
 
   // allow 'unsafe-eval' for webpack hot code reloading
   directives["script-src"].push("'unsafe-eval'");
@@ -213,10 +214,6 @@ function devServerCspHeader() {
   directives["default-src"].push("ws:");
 
   return builder({ directives });
-}
-
-function deepClone(object) {
-  return JSON.parse(JSON.stringify(object));
 }
 
 module.exports = webpackConfig;

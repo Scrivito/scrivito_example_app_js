@@ -16,6 +16,12 @@ const headersCsp = require("./public/_headersCsp.json");
 // load ".env"
 dotenv.config();
 
+// Extend headersCsp with custom endpoint URL
+const endpoint = process.env.SCRIVITO_ENDPOINT;
+if (endpoint) {
+  headersCsp["script-src"].push(`https://${endpoint}`);
+}
+
 const buildPath = "build";
 
 function webpackConfig(env = {}) {

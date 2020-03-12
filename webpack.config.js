@@ -149,9 +149,6 @@ function generateEntry({ isPrerendering }) {
 
 function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
   const ignorePublicFiles = ["_headersCsp.json"];
-  if (!isPrerendering) {
-    ignorePublicFiles.push("_prerender_content.html");
-  }
 
   const plugins = [
     new webpack.EnvironmentPlugin({
@@ -191,7 +188,14 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
   ];
 
   if (isPrerendering) {
-    plugins.push(new ManifestPlugin({ fileName: "asset-manifest.json" }));
+    plugins.push(
+      new HtmlWebpackPlugin({
+        filename: "_prerender_content.html",
+        template: "_prerender_content.html",
+        inject: false,
+      }),
+      new ManifestPlugin({ fileName: "asset-manifest.json" })
+    );
   }
 
   if (isProduction) {

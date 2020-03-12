@@ -108,7 +108,12 @@ function webpackConfig(env = {}) {
     },
     output: {
       publicPath: "/",
-      filename: "assets/[name].[contenthash].js",
+      filename: chunkData => {
+        return chunkData.chunk.name === "tracking"
+          ? "[name].js"
+          : "assets/[name].[contenthash].js";
+      },
+
       path: path.join(__dirname, buildPath),
     },
     plugins: generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }),

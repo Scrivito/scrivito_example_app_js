@@ -25,4 +25,18 @@ Scrivito.provideEditingConfig("LinkContainerWidget", {
         })
     ),
   },
+  validations: [
+    [
+      "links",
+
+      links => {
+        if (links.length < 1) {
+          return {
+            message: "The link list should contain at least one link.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+  ],
 });

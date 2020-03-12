@@ -10,9 +10,15 @@ function BlogPostDate({ post }) {
   }
 
   return (
-    <time className="timeline-badge" dateTime={date.toISOString()}>
+    <Scrivito.ContentTag
+      content={post}
+      attribute="publishedAt"
+      tag="time"
+      className="blog-timeline--badge"
+      dateTime={date.toISOString()}
+    >
       {formatDate(date, "mm/dd")}
-    </time>
+    </Scrivito.ContentTag>
   );
 }
 

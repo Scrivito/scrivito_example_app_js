@@ -4,8 +4,8 @@ import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
+  metadataPropertiesGroups,
+  metadataValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("BlogPost", {
@@ -31,11 +31,23 @@ Scrivito.provideEditingConfig("BlogPost", {
     },
   },
   properties: ["author", "publishedAt", "titleImage", "tags"],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [...metadataPropertiesGroups],
   initialContent: {
     ...metadataInitialContent,
     body: [new SectionWidget({})],
     publishedAt: () => new Date(),
     title: "Lorem Ipsum",
   },
+  validations: [
+    ...metadataValidations,
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return { message: "The title must be set.", severity: "error" };
+        }
+      },
+    ],
+  ],
 });

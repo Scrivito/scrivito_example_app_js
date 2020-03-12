@@ -26,6 +26,7 @@ function IconSearch({ setSearchValue, searchValue }) {
   );
 }
 
+/* eslint-disable jsx-a11y/anchor-is-valid */
 function ClearSearchButton({ setSearchValue, searchValue }) {
   if (!searchValue.length) {
     return null;
@@ -43,5 +44,6 @@ function ClearSearchButton({ setSearchValue, searchValue }) {
     </a>
   );
 }
+/* eslint-enable jsx-a11y/anchor-is-valid */
 
 export default IconSearch;

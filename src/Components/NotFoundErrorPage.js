@@ -1,20 +1,21 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 class NotFoundErrorPage extends React.Component {
   componentDidMount() {
-    const path = window.location.pathname;
+    const statusCode = "status-code=404-not-found";
+    const { search } = window.location;
 
-    if (path !== "/404") {
-      window.location.replace(`/404?path=${encodeURIComponent(path)}`);
+    if (!Scrivito.isEditorLoggedIn() && !search.includes(statusCode)) {
+      window.location.search = search ? `${search}&${statusCode}` : statusCode;
     }
   }
 
   render() {
     const backgroundImage = [
       "linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))",
-      "url(https://unsplash.com/photos/Bs0zgYkYEZw/download)",
+      "url(https://long-lasting-assets.scrivitojs.com/scrivito_example_app_js/404_not_found.jpeg)",
     ].join(", ");
 
     return (

@@ -67,4 +67,90 @@ Scrivito.provideEditingConfig("PricingWidget", {
       url: "https://scrivito.com",
     }),
   },
+  validations: [
+    [
+      "currency",
+
+      currency => {
+        if (!currency) {
+          return {
+            message: "The currency should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+    [
+      "smallPlanPrice",
+
+      smallPlanPrice => {
+        if (!smallPlanPrice) {
+          return {
+            message: "The small plan price should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+    [
+      "mediumPlanPrice",
+
+      mediumPlanPrice => {
+        if (!mediumPlanPrice) {
+          return {
+            message: "The medium plan price should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+    [
+      "largePlanPrice",
+
+      largePlanPrice => {
+        if (!largePlanPrice) {
+          return {
+            message: "The large plan price should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+    [
+      "smallPlanButton",
+
+      smallPlanButton => {
+        if (!smallPlanButton) {
+          return {
+            message: "The small plan's button target should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+    [
+      "mediumPlanButton",
+
+      mediumPlanButton => {
+        if (!mediumPlanButton) {
+          return {
+            message: "The medium plan's button target should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+    [
+      "largePlanButton",
+
+      largePlanButton => {
+        if (!largePlanButton) {
+          return {
+            message: "The large plan's button target should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+  ],
 });

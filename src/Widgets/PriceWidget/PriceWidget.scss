@@ -1,0 +1,22 @@
+.price-widget {
+  margin-top: 10px;
+  font-weight: 400;
+
+  &--dollar {
+    font-size: 24px;
+    position: relative;
+    top: -20px;
+  }
+
+  &--price {
+    font-size: 50px;
+    padding: 0 3px;
+  }
+
+  &--period {
+    font-size: 14px;
+    margin-left: 0;
+    position: relative;
+    top: -3px;
+  }
+}

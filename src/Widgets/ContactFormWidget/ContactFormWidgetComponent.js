@@ -1,6 +1,8 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import "./contactForm.html";
+
+import "./ContactFormWidget.scss";
+import "file-loader?name=[name].[contenthash].[ext]!./contactForm.html";
 /* This html file is needed for Netlify form handling. Updates to inputs in this file should also be
 added to contactForm.html as well. See the following link for details:
 https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
@@ -10,9 +12,14 @@ Scrivito.provideComponent("ContactFormWidget", ({ widget }) => {
   const classNames = ["row"];
 
   if (widget.get("backgroundColor") === "transparent") {
-    classNames.push("card-white-transparent");
+    classNames.push("contact-form-widget--card-white-transparent");
   } else {
-    classNames.push("floating-label", "card-theme", "card", "card-padding");
+    classNames.push(
+      "contact-form-widget--floating-label",
+      "card-theme",
+      "card",
+      "contact-form-widget--card-padding"
+    );
   }
 
   return (

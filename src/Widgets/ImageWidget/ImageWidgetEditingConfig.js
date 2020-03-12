@@ -43,4 +43,18 @@ Scrivito.provideEditingConfig("ImageWidget", {
     alignment: "left",
     animation: "none",
   },
+  validations: [
+    [
+      "image",
+
+      image => {
+        if (!image) {
+          return {
+            message: "The image should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+  ],
 });

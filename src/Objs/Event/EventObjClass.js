@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 import metadataAttributes from "../_metadataAttributes";
 
 const Event = Scrivito.provideObjClass("Event", {
@@ -17,13 +16,12 @@ const Event = Scrivito.provideObjClass("Event", {
     tags: "stringlist",
     ...metadataAttributes,
   },
+  extractTextAttributes: [
+    "locationName",
+    "locationLocality",
+    "locationCountry",
+    "body",
+  ],
 });
-
-registerTextExtract("Event", [
-  { attribute: "locationName", type: "string" },
-  { attribute: "locationLocality", type: "string" },
-  { attribute: "locationCountry", type: "string" },
-  { attribute: "body", type: "widgetlist" },
-]);
 
 export default Event;

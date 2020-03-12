@@ -3,9 +3,10 @@ import SearchResultsObjIcon from "../../assets/images/search_results_obj.svg";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
+  metadataPropertiesGroups,
+  metadataValidations,
 } from "../_metadataEditingConfig";
+import { defaultPageValidations } from "../_defaultPageEditingConfig";
 
 Scrivito.provideEditingConfig("SearchResults", {
   title: "Search Results",
@@ -23,8 +24,9 @@ Scrivito.provideEditingConfig("SearchResults", {
     },
   },
   properties: ["title", "navigationBackgroundImage"],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [...metadataPropertiesGroups],
   initialContent: {
     ...metadataInitialContent,
   },
+  validations: [...defaultPageValidations, ...metadataValidations],
 });

@@ -1,14 +1,10 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const <%= widgetClassName %> = Scrivito.provideWidgetClass("<%= widgetClassName %>", {
   attributes: {
     headline: "string",
   },
+  extractTextAttributes: ["headline"],
 });
-
-registerTextExtract("<%= widgetClassName %>", [
-  { attribute: "headline", type: "string" },
-]);
 
 export default <%= widgetClassName %>;

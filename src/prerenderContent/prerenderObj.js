@@ -2,20 +2,19 @@
 import * as React from "react";
 import * as ReactDOMServer from "react-dom/server";
 import * as Scrivito from "scrivito";
-import Helmet from "react-helmet";
-import App from "../App";
+import { HelmetProvider } from "react-helmet-async";
+
+import App, { helmetContext } from "../App";
 import filenameFromUrl from "./filenameFromUrl";
 import generateHtml from "./generateHtml";
 import generatePreloadDump from "./generatePreloadDump";
 
 export default async function prerenderObj(obj) {
-  // Tell helmet to pretend to run on a node server, not in a browser
-  // See https://github.com/nfl/react-helmet/issues/310 for details
-  Helmet.canUseDOM = false;
+  HelmetProvider.canUseDOM = false;
 
   const { result, preloadDump } = await Scrivito.renderPage(obj, () => {
-    const bodyContent = ReactDOMServer.renderToStaticMarkup(<App />);
-    const helmet = Helmet.renderStatic();
+    const bodyContent = ReactDOMServer.renderToString(<App />);
+    const { helmet } = helmetContext;
 
     return {
       objId: obj.id(),
@@ -44,7 +43,7 @@ export default async function prerenderObj(obj) {
   return [
     {
       filename: filenameFromUrl(objUrl),
-      content: generateHtml({
+      content: await generateHtml({
         objId,
         htmlAttributes,
         headContent,

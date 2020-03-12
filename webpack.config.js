@@ -3,17 +3,25 @@ const dotenv = require("dotenv");
 const path = require("path");
 const process = require("process");
 const webpack = require("webpack");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const lodash = require("lodash");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ManifestPlugin = require("webpack-manifest-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const Webpackbar = require("webpackbar");
 const ZipPlugin = require("zip-webpack-plugin");
 const headersCsp = require("./public/_headersCsp.json");
-const ExtendCspHeadersWebpackPlugin = require("./ExtendCspHeadersWebpackPlugin");
 
 // load ".env"
 dotenv.config();
+
+// Extend headersCsp with custom endpoint URL
+const endpoint = process.env.SCRIVITO_ENDPOINT;
+if (endpoint) {
+  headersCsp["script-src"].push(`https://${endpoint}`);
+}
 
 const buildPath = "build";
 
@@ -50,7 +58,6 @@ function webpackConfig(env = {}) {
             path.join(__dirname, "src"),
             path.join(__dirname, "node_modules/autotrack"),
             path.join(__dirname, "node_modules/dom-utils"), // sub-dependency of autotrack
-            path.join(__dirname, "node_modules/striptags"),
           ],
           use: [
             {
@@ -65,18 +72,10 @@ function webpackConfig(env = {}) {
                       modules: false,
                       shippedProposals: true,
                       useBuiltIns: "usage",
-                      corejs: "2",
-                      targets: {
-                        browsers: ["Chrome >= 41", "last 2 versions"],
-                      },
+                      corejs: "3",
+                      targets: { browsers: ["defaults"] },
                     },
                   ],
-                ],
-                overrides: [
-                  {
-                    test: ["./node_modules/striptags"],
-                    presets: [["@babel/preset-env", { useBuiltIns: false }]],
-                  },
                 ],
                 cacheDirectory: "tmp/babel-cache",
               },
@@ -92,12 +91,12 @@ function webpackConfig(env = {}) {
           ],
         },
         {
-          test: /\.(jpg|png|eot|svg|ttf|woff|woff2|gif|html)$/,
+          test: /\.(jpg|png|eot|svg|ttf|woff|woff2|gif)$/,
           use: [
             {
               loader: "file-loader",
               options: {
-                name: "[name].[hash].[ext]",
+                name: "assets/[name].[contenthash].[ext]",
               },
             },
           ],
@@ -105,14 +104,7 @@ function webpackConfig(env = {}) {
       ],
     },
     optimization: {
-      minimizer: [
-        new TerserPlugin({
-          cache: true,
-          extractComments: true,
-          parallel: true,
-          terserOptions: { ecma: 5 },
-        }),
-      ],
+      minimizer: [new TerserPlugin({ terserOptions: { ecma: 5 } })],
     },
     output: {
       publicPath: "/",
@@ -146,7 +138,7 @@ function webpackConfig(env = {}) {
 function generateEntry({ isPrerendering }) {
   const entry = {
     index: "./index.js",
-    google_analytics: "./google_analytics.js",
+    tracking: "./tracking.js",
     scrivito_extensions: "./scrivito_extensions.js",
   };
   if (isPrerendering) {
@@ -156,7 +148,7 @@ function generateEntry({ isPrerendering }) {
 }
 
 function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
-  const ignorePublicFiles = [];
+  const ignorePublicFiles = ["_headersCsp.json"];
   if (!isPrerendering) {
     ignorePublicFiles.push("_prerender_content.html");
   }
@@ -171,16 +163,36 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
     new CopyWebpackPlugin([
       { from: "../public", ignore: ignorePublicFiles },
       {
+        from: "../public/_headers",
+        transform: content => {
+          const csp = builder({ directives: headersCsp });
+          return content.toString().replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
+        },
+      },
+      {
         from: "../node_modules/scrivito/scrivito/index.html",
         to: "scrivito/index.html",
       },
     ]),
-    new ExtendCspHeadersWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "assets/[name].[contenthash].css",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "catch_all_index.html",
+      template: "catch_all_index.html",
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: "_scrivito_extensions.html",
+      template: "_scrivito_extensions.html",
+      inject: false,
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ];
+
+  if (isPrerendering) {
+    plugins.push(new ManifestPlugin({ fileName: "asset-manifest.json" }));
+  }
 
   if (isProduction) {
     plugins.unshift(new CleanWebpackPlugin());
@@ -199,7 +211,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
 }
 
 function devServerCspHeader() {
-  const directives = Object.assign({}, headersCsp);
+  const directives = lodash.cloneDeep(headersCsp);
 
   // allow 'unsafe-eval' for webpack hot code reloading
   directives["script-src"].push("'unsafe-eval'");

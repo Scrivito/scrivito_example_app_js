@@ -4,8 +4,8 @@ import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
+  metadataPropertiesGroups,
+  metadataValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Job", {
@@ -85,9 +85,38 @@ Scrivito.provideEditingConfig("Job", {
     "locationCountry",
     "employmentType",
   ],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [...metadataPropertiesGroups],
   initialContent: {
     ...metadataInitialContent,
+    title: "Lorem Ipsum",
     body: [new SectionWidget({})],
   },
+  validations: [
+    ...metadataValidations,
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return {
+            message: "The job title must be set.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+    [
+      "validThrough",
+
+      (validThrough, { obj }) => {
+        const datePosted = obj.get("datePosted");
+        if (datePosted && validThrough && datePosted >= validThrough) {
+          return {
+            message: "The expiration date must be after the posting date.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+  ],
 });

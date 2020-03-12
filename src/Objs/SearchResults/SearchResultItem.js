@@ -3,8 +3,9 @@ import * as Scrivito from "scrivito";
 import fromNow from "moment-from-now";
 import Highlighter from "react-highlight-words";
 import { truncate } from "lodash-es";
-import { textExtractFromObj } from "../../utils/textExtract";
+
 import isVideoObj from "../../utils/isVideoObj";
+import "./SearchResultItem.scss";
 
 const PreviewImage = Scrivito.connect(({ item }) => {
   const image =
@@ -15,7 +16,7 @@ const PreviewImage = Scrivito.connect(({ item }) => {
     return null;
   }
   return (
-    <Scrivito.LinkTag to={item} className="result-image">
+    <Scrivito.LinkTag to={item} className="search-result-item--image">
       <Scrivito.ImageTag content={image} alt={image.get("alternativeText")} />
     </Scrivito.LinkTag>
   );
@@ -48,16 +49,16 @@ const Details = Scrivito.connect(({ item }) => {
 
 function SearchResultItem({ resultItem, q }) {
   const searchWords = q.split(/\s+/);
-  const textExtract = textExtractFromObj(resultItem);
-  const textToHighlight = truncate(textExtract, {
+  const extractedText = Scrivito.extractText(resultItem, { length: 220 });
+  const textToHighlight = truncate(extractedText, {
     length: 200,
     separator: /,? +/,
   });
 
   return (
-    <div className="result-item">
+    <div className="search-result-item">
       <PreviewImage item={resultItem} />
-      <div className="result-content">
+      <div className="search-result-item--content">
         <Scrivito.LinkTag to={resultItem}>
           <h3 className="h3">
             <Highlighter
@@ -78,7 +79,7 @@ function SearchResultItem({ resultItem, q }) {
         </p>
         <Details item={resultItem} />
       </div>
-      <div className="result-options">
+      <div className="search-result-item--options">
         <Scrivito.LinkTag to={resultItem} className="btn btn-clear">
           Read more
           <i className="fa fa-angle-right fa-4" aria-hidden="true" />

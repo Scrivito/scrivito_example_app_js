@@ -4,12 +4,13 @@ import {
   defaultPageEditingConfigAttributes,
   defaultPageInitialContent,
   defaultPageProperties,
+  defaultPageValidations,
 } from "../_defaultPageEditingConfig";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
+  metadataPropertiesGroups,
+  metadataValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("LandingPage", {
@@ -20,9 +21,10 @@ Scrivito.provideEditingConfig("LandingPage", {
     ...metadataEditingConfigAttributes,
   },
   properties: [...defaultPageProperties],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [...metadataPropertiesGroups],
   initialContent: {
     ...defaultPageInitialContent,
     ...metadataInitialContent,
   },
+  validations: [...defaultPageValidations, ...metadataValidations],
 });

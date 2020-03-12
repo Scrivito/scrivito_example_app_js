@@ -13,14 +13,20 @@ Scrivito.provideEditingConfig("Redirect", {
     link: {
       title: "Link",
     },
-    openInUi: {
-      title: "Open in Scrivito UI?",
-      description: "Default: No",
-      values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
-    },
   },
-  properties: ["title", "link", "openInUi"],
-  initialContent: {
-    openInUi: "no",
-  },
+  properties: ["title", "link"],
+  validations: [
+    [
+      "link",
+
+      link => {
+        if (!link) {
+          return {
+            message: "The target must be set.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+  ],
 });

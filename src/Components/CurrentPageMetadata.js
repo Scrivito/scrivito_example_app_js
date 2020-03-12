@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import getMetadata from "../utils/getMetadata";
 import favicon from "../assets/images/favicon.png";
 

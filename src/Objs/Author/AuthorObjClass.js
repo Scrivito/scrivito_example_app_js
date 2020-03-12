@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 import metadataAttributes from "../_metadataAttributes";
 
 const Author = Scrivito.provideObjClass("Author", {
@@ -9,8 +8,7 @@ const Author = Scrivito.provideObjClass("Author", {
     image: ["reference", { only: ["Image"] }],
     ...metadataAttributes,
   },
+  extractTextAttributes: ["description"],
 });
-
-registerTextExtract("Author", [{ attribute: "description", type: "string" }]);
 
 export default Author;

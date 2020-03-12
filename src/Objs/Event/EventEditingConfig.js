@@ -4,8 +4,8 @@ import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
+  metadataPropertiesGroups,
+  metadataValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Event", {
@@ -65,9 +65,37 @@ Scrivito.provideEditingConfig("Event", {
     "image",
     "tags",
   ],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [...metadataPropertiesGroups],
   initialContent: {
     ...metadataInitialContent,
+    title: "Lorem Ipsum",
     body: [new SectionWidget({})],
   },
+  validations: [
+    ...metadataValidations,
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return {
+            message: "The event title must be set.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+    [
+      "date",
+
+      date => {
+        if (!date) {
+          return {
+            message: "Providing the event date is recommended.",
+            severity: "info",
+          };
+        }
+      },
+    ],
+  ],
 });

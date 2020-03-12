@@ -3,8 +3,8 @@ import authorObjIcon from "../../assets/images/author_obj.svg";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,
-  metadataPropertiesGroup,
-  socialCardsPropertiesGroup,
+  metadataPropertiesGroups,
+  metadataValidations,
 } from "../_metadataEditingConfig";
 
 Scrivito.provideEditingConfig("Author", {
@@ -23,8 +23,21 @@ Scrivito.provideEditingConfig("Author", {
     },
   },
   properties: ["title", "description", "image"],
-  propertiesGroups: [socialCardsPropertiesGroup, metadataPropertiesGroup],
+  propertiesGroups: [...metadataPropertiesGroups],
   initialContent: {
     ...metadataInitialContent,
+    title: "Lorem Ipsum",
   },
+  validations: [
+    ...metadataValidations,
+    [
+      "title",
+
+      title => {
+        if (!title) {
+          return { message: "The name must be set.", severity: "error" };
+        }
+      },
+    ],
+  ],
 });

@@ -1,7 +1,7 @@
 import HeadlineWidget from "../Widgets/HeadlineWidget/HeadlineWidgetClass";
 import SectionWidget from "../Widgets/SectionWidget/SectionWidgetClass";
 
-const defaultPageEditingConfigAttributes = {
+export const defaultPageEditingConfigAttributes = {
   title: {
     title: "Title",
     description: "Limit to 55 characters.",
@@ -13,7 +13,10 @@ const defaultPageEditingConfigAttributes = {
   navigationBackgroundImageGradient: {
     title: "Use gradient for header image?",
     description: "Only applies if a header image is selected. Default: No",
-    values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
+    values: [
+      { value: "yes", title: "Yes" },
+      { value: "no", title: "No" },
+    ],
   },
   navigationHeight: {
     title: "Header height",
@@ -26,7 +29,7 @@ const defaultPageEditingConfigAttributes = {
   },
 };
 
-const defaultPageInitialContent = {
+export const defaultPageInitialContent = {
   body: [
     new SectionWidget({
       content: [new HeadlineWidget({ style: "h1" })],
@@ -36,15 +39,24 @@ const defaultPageInitialContent = {
   navigationBackgroundImageGradient: "no",
 };
 
-const defaultPageProperties = [
+export const defaultPageProperties = [
   "title",
   "navigationHeight",
   "navigationBackgroundImage",
   "navigationBackgroundImageGradient",
 ];
 
-export {
-  defaultPageEditingConfigAttributes,
-  defaultPageInitialContent,
-  defaultPageProperties,
-};
+export const defaultPageValidations = [
+  [
+    "title",
+
+    title => {
+      if (title.length === 0) {
+        return {
+          message: "The title should be set.",
+          severity: "warning",
+        };
+      }
+    },
+  ],
+];

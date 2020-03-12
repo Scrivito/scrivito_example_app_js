@@ -1,0 +1,59 @@
+@import "src/assets/stylesheets/variables";
+
+.link-container-widget {
+  list-style-type: none;
+  padding: 0;
+
+  &,
+  & li,
+  & li a,
+  & li span {
+    display: block;
+    color: $theme-greydark;
+  }
+
+  .b-bottom {
+    color: $theme-greydark;
+    text-align: left;
+    padding: 0 0 20px 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  a,
+  a:hover,
+  a:focus {
+    text-decoration: none;
+  }
+
+  &--headline {
+    color: $theme-greydark;
+    text-align: left;
+    padding: 0 0 20px 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+
+    &.b-bottom {
+      &:after {
+        left: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.bg-dark-image,
+.bg-brand-primary,
+.bg-brand-secondary,
+.bg-grey,
+.bg-greydark,
+.bg-greymiddle {
+  .link-container-widget li {
+    a,
+    span {
+      color: #fff;
+    }
+  }
+}

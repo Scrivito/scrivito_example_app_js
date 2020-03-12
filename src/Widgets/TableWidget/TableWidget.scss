@@ -1,0 +1,178 @@
+@import "src/assets/stylesheets/variables";
+
+.bg-dark-image,
+.bg-brand-primary,
+.bg-brand-secondary,
+.bg-grey,
+.bg-greydark,
+.bg-greymiddle,
+.bg-greymiddle {
+  .table-widget {
+    color: #fff !important;
+  }
+}
+
+.table-widget {
+  margin: 20px 0;
+  max-width: 100%;
+  width: 100%;
+
+  th,
+  td {
+    vertical-align: middle !important;
+  }
+
+  .fa {
+    color: $secondary;
+    font-size: 25px;
+    line-height: 20px;
+  }
+
+  thead {
+    th {
+      font-size: 13px;
+      font-weight: 400;
+      padding: 10px 20px;
+      text-align: center;
+
+      &:first-child {
+        text-align: left;
+      }
+    }
+  }
+
+  tbody {
+    th {
+      font-size: 20px;
+      font-weight: 400;
+      padding: 20px;
+      border-top: 2px solid rgba(99, 99, 99, 0.1);
+      border-right: 2px solid rgba(99, 99, 99, 0.1);
+      border-left: 2px solid rgba(99, 99, 99, 0.1);
+    }
+
+    td {
+      font-size: 15px;
+      padding: 20px;
+      text-align: center;
+      border-top: 2px solid rgba(99, 99, 99, 0.1);
+      border-right: 2px solid rgba(99, 99, 99, 0.1);
+      width: 150px;
+
+      p {
+        margin: 0;
+      }
+
+      b {
+        font-weight: 700;
+      }
+    }
+
+    tr {
+      &:nth-child(even) {
+        th,
+        td {
+          background: rgba(200, 200, 200, 0.1);
+        }
+      }
+
+      &:hover {
+        th,
+        td {
+          background: rgba(140, 140, 140, 0.1);
+        }
+      }
+    }
+  }
+
+  tfoot {
+    th {
+      font-size: 20px;
+      font-weight: 400;
+      padding: 20px;
+      border: 2px solid rgba(99, 99, 99, 0.1);
+    }
+
+    td {
+      font-size: 14px;
+      font-weight: 700;
+      padding: 20px;
+      text-align: center;
+      border-top: 2px solid rgba(99, 99, 99, 0.1);
+      border-right: 2px solid rgba(99, 99, 99, 0.1);
+      border-bottom: 2px solid rgba(99, 99, 99, 0.1);
+    }
+
+    th,
+    td {
+      background: $secondary;
+      color: #fff;
+    }
+
+    .fa {
+      color: #fff;
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .table-widget {
+    th,
+    td {
+      text-align: center;
+      display: block;
+      width: 100% !important;
+      border-top: 2px solid rgba(99, 99, 99, 0.1);
+      border-right: 2px solid rgba(99, 99, 99, 0.1);
+      border-left: 2px solid rgba(99, 99, 99, 0.1);
+      border-bottom: 0px solid rgba(99, 99, 99, 0.1);
+    }
+
+    td:before {
+      content: attr(data-th) "";
+      font-size: 11px;
+      font-weight: 400;
+      display: block;
+      line-height: 0;
+      text-align: left;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even),
+        &:nth-child(odd) {
+          th {
+            background: $secondary !important;
+            color: #fff;
+          }
+        }
+
+        &:nth-child(even) {
+          td {
+            background: rgba(200, 200, 200, 0.1) !important;
+          }
+        }
+
+        &:nth-child(odd) {
+          td {
+            background: transparent !important;
+          }
+        }
+      }
+    }
+
+    tfoot {
+      td {
+        border-bottom: none;
+      }
+
+      th {
+        border: none;
+      }
+    }
+  }
+}

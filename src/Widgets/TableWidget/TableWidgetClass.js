@@ -1,5 +1,4 @@
 import * as Scrivito from "scrivito";
-import { registerTextExtract } from "../../utils/textExtractRegistry";
 
 const TableWidget = Scrivito.provideWidgetClass("TableWidget", {
   attributes: {
@@ -11,7 +10,5 @@ const TableWidget = Scrivito.provideWidgetClass("TableWidget", {
     header4: "string",
   },
 });
-
-registerTextExtract("TableWidget", [{ attribute: "rows", type: "widgetlist" }]);
 
 export default TableWidget;

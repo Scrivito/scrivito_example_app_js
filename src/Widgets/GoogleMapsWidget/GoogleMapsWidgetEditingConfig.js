@@ -49,7 +49,10 @@ Scrivito.provideEditingConfig("GoogleMapsWidget", {
     showWidgets: {
       title: "Show map widgets?",
       description: "Should widgets be shown on top of this map? Default: No",
-      values: [{ value: "yes", title: "Yes" }, { value: "no", title: "No" }],
+      values: [
+        { value: "yes", title: "Yes" },
+        { value: "no", title: "No" },
+      ],
     },
   },
   properties: ["address", "mapType", "zoom", "showWidgets"],
@@ -59,4 +62,18 @@ Scrivito.provideEditingConfig("GoogleMapsWidget", {
     zoom: "15",
     mapType: "static",
   },
+  validations: [
+    [
+      "address",
+
+      address => {
+        if (!address) {
+          return {
+            message: "The address should be set.",
+            severity: "warning",
+          };
+        }
+      },
+    ],
+  ],
 });

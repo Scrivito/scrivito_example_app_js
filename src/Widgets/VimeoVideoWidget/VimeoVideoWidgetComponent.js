@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
-import "./VimeoVideoWidgetStyles.scss";
+import "./VimeoVideoWidget.scss";
 
 Scrivito.provideComponent("VimeoVideoWidget", ({ widget }) => {
   const vimeoVideoId = widget.get("vimeoVideoId");
@@ -23,7 +23,8 @@ Scrivito.provideComponent("VimeoVideoWidget", ({ widget }) => {
       }}
     >
       <iframe
-        src={`https://player.vimeo.com/video/${vimeoVideoId}`}
+        title="Vimeo Video Widget"
+        src={`https://player.vimeo.com/video/${vimeoVideoId}?dnt=1`}
         className="vimeo-video-widget--fullsize-iframe"
         frameBorder="0"
         allowFullScreen

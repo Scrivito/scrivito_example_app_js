@@ -5,7 +5,6 @@ import BlogPostDate from "./BlogPostDate";
 import formatDate from "../../utils/formatDate";
 import InPlaceEditingPlaceholder from "../InPlaceEditingPlaceholder";
 import isImage from "../../utils/isImage";
-import { textExtractFromObj } from "../../utils/textExtract";
 
 const BlogPostPreviewList = Scrivito.connect(
   ({ maxItems, author, tag, filterBlogPostId }) => {
@@ -61,18 +60,16 @@ const MonthHeadline = Scrivito.connect(({ date }) => {
   }
 
   return (
-    <ul className="timeline">
-      <li className="timeline-divider">
-        <time dateTime={formatDate(date, "yyyy-mm")}>
-          {formatDate(date, "mmmm yyyy")}
-        </time>
-      </li>
-    </ul>
+    <div className="blog-timeline--divider">
+      <time dateTime={formatDate(date, "yyyy-mm")}>
+        {formatDate(date, "mmmm yyyy")}
+      </time>
+    </div>
   );
 });
 
 const PostsTimeline = Scrivito.connect(({ posts }) => (
-  <ul className="timeline">
+  <ul className="blog-timeline">
     {posts.map(post => (
       <BlogPostPreview key={post.id()} post={post} />
     ))}
@@ -83,21 +80,21 @@ const BlogPostPreview = Scrivito.connect(({ post }) => {
   return (
     <li>
       <BlogPostDate post={post} />
-      <div className="timeline-panel">
-        <div className="timeline-body">
+      <div className="blog-timeline--panel">
+        <div className="blog-timeline--body">
           <BlogPostTitleImage post={post} />
           <h3>
             <Scrivito.LinkTag to={post}>{post.get("title")}</Scrivito.LinkTag>
           </h3>
           <h4>{post.get("subtitle")}</h4>
           <p>
-            {truncate(textExtractFromObj(post), {
+            {truncate(Scrivito.extractText(post, { length: 330 }), {
               length: 300,
               separator: /,? +/,
             })}
           </p>
         </div>
-        <div className="timeline-footer">
+        <div className="blog-timeline--footer">
           <Scrivito.LinkTag to={post} className="btn btn-clear">
             Read more
             <i className="fa fa-angle-right fa-4" aria-hidden="true" />

@@ -1,7 +1,9 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import Slider from "react-slick";
+
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
+import "./GalleryWidget.scss";
 
 Scrivito.provideComponent("GalleryWidget", ({ widget }) => {
   const images = widget.get("images");
@@ -16,8 +18,8 @@ Scrivito.provideComponent("GalleryWidget", ({ widget }) => {
 
   const settings = sliderSettings(images);
   return (
-    <div className="slick-gallary-fluid">
-      <Slider {...settings} className="slickslide">
+    <div className="gallery-widget">
+      <Slider {...settings}>
         {images.map((image, index) => (
           <Scrivito.ImageTag
             content={image}

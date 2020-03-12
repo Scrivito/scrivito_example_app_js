@@ -30,4 +30,18 @@ Scrivito.provideEditingConfig("VimeoVideoWidget", {
     aspectRatio: "16:9",
     vimeoVideoId: "15069551",
   },
+  validations: [
+    [
+      "vimeoVideoId",
+
+      vimeoVideoId => {
+        if (!vimeoVideoId) {
+          return {
+            message: "The Vimeo video ID must be set.",
+            severity: "error",
+          };
+        }
+      },
+    ],
+  ],
 });

@@ -26,6 +26,7 @@ async function storePrerenderedContent() {
     "asset-manifest.json",
     "_prerender_content.html",
     "prerender_content.js",
+    "prerender_content.js.LICENSE.txt",
   ];
   await Promise.all(
     filesToBeRemoved.map(async filename => {

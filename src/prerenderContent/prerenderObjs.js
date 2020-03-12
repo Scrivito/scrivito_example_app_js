@@ -22,7 +22,7 @@ export default async function prerenderObjs(
     asyncForEach(objsGroup, async obj => {
       try {
         const prerenderedFiles = await prerenderObj(obj);
-        await asyncForEach(prerenderedFiles, storeResult);
+        await asyncForEachSequential(prerenderedFiles, storeResult);
       } catch (e) {
         failedCount += 1;
         const pageId = obj.id();

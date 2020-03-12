@@ -42,6 +42,10 @@ export default async function prerenderObj(obj) {
 
   return [
     {
+      filename: preloadDumpFileName,
+      content: generatePreloadDump(preloadDump),
+    },
+    {
       filename: filenameFromUrl(objUrl),
       content: await generateHtml({
         objId,
@@ -51,10 +55,6 @@ export default async function prerenderObj(obj) {
         bodyContent,
         preloadDumpFileName,
       }),
-    },
-    {
-      filename: preloadDumpFileName,
-      content: generatePreloadDump(preloadDump),
     },
   ];
 }

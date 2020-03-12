@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import isEmpty from "is-empty";
+import escapeHtml from "escape-html";
 import { isPlainObject } from "lodash-es";
 import dataFromAuthor from "./SchemaDotOrg/dataFromAuthor";
 import dataFromEvent from "./SchemaDotOrg/dataFromEvent";
@@ -12,8 +13,19 @@ import dataFromAddressWidget from "./SchemaDotOrg/dataFromAddressWidget";
 const SchemaDotOrg = Scrivito.connect(({ content }) => {
   const data = pruneEmptyValues(dataFromItem(content));
 
-  return <script type="application/ld+json">{JSON.stringify(data)}</script>;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data, escapeHtmlReplacer),
+      }}
+    />
+  );
 });
+
+function escapeHtmlReplacer(_key, value) {
+  return typeof value === "string" ? escapeHtml(value) : value;
+}
 
 function dataFromItem(item) {
   switch (item.objClass()) {

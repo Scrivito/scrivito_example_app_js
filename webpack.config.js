@@ -109,7 +109,7 @@ function webpackConfig(env = {}) {
     output: {
       publicPath: "/",
       filename: chunkData => {
-        return chunkData.chunk.name === "tracking"
+        return FINGERPRINTING_DISABLED.includes(chunkData.chunk.name)
           ? "[name].js"
           : "assets/[name].[contenthash].js";
       },
@@ -230,5 +230,7 @@ function devServerCspHeader() {
 
   return builder({ directives });
 }
+
+const FINGERPRINTING_DISABLED = ["prerender_content", "tracking"];
 
 module.exports = webpackConfig;

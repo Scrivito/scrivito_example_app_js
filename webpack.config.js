@@ -108,7 +108,7 @@ function webpackConfig(env = {}) {
     },
     output: {
       publicPath: "/",
-      filename: "[name].js",
+      filename: "assets/[name].[contenthash].js",
       path: path.join(__dirname, buildPath),
     },
     plugins: generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }),

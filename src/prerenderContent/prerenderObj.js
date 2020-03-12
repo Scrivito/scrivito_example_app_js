@@ -5,6 +5,7 @@ import * as Scrivito from "scrivito";
 import { HelmetProvider } from "react-helmet-async";
 
 import App, { helmetContext } from "../App";
+import contentHash from "./contentHash";
 import filenameFromUrl from "./filenameFromUrl";
 import generateHtml from "./generateHtml";
 import generatePreloadDump from "./generatePreloadDump";
@@ -38,12 +39,14 @@ export default async function prerenderObj(obj) {
     bodyAttributes,
     bodyContent,
   } = result;
-  const preloadDumpFileName = `/preloadDump-${objId}.js`;
+  const preloadDumpFileContent = generatePreloadDump(preloadDump);
+  const preloadDumpContentHash = await contentHash(preloadDumpFileContent);
+  const preloadDumpFileName = `/assets/preloadDumps/${objId}.${preloadDumpContentHash}.js`;
 
   return [
     {
       filename: preloadDumpFileName,
-      content: generatePreloadDump(preloadDump),
+      content: preloadDumpFileContent,
     },
     {
       filename: filenameFromUrl(objUrl),

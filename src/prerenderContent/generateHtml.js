@@ -30,7 +30,7 @@ export default async function generateHtml({
   <body ${bodyAttributes}>
     <div id="application" data-scrivito-prerendering-obj-id="${objId}">${bodyContent}</div>
     <script src="${preloadDumpFileName}"></script>
-    <script async src="/index.js"></script>
+    <script async src="${assets["index.js"]}"></script>
     <script src="/js_snippets_before_body_end.js"></script>
   </body>
 </html>

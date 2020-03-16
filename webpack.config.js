@@ -231,6 +231,6 @@ function devServerCspHeader() {
   return builder({ directives });
 }
 
-const FINGERPRINTING_DISABLED = ["prerender_content", "tracking"];
+const FINGERPRINTING_DISABLED = ["tracking"];
 
 module.exports = webpackConfig;

@@ -1,3 +1,4 @@
+const path = require("path");
 const fse = require("fs-extra");
 const puppeteer = require("puppeteer");
 
@@ -31,7 +32,7 @@ async function storePrerenderedContent() {
   await Promise.all(
     filesToBeRemoved.map(async filename => {
       log(`✨ Removing now obsolete file ${filename}...`);
-      await fse.remove(`${TARGET_DIR}/${filename}`);
+      await fse.remove(path.join(TARGET_DIR, filename));
       filesRemoved += 1;
     })
   );

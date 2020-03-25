@@ -187,7 +187,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
     new HtmlWebpackPlugin({
       filename: "_scrivito_extensions.html",
       template: "_scrivito_extensions.html",
-      inject: false,
+      chunks: ["scrivito_extensions"],
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ];

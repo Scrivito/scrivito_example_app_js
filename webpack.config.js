@@ -182,6 +182,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
     new HtmlWebpackPlugin({
       filename: "catch_all_index.html",
       template: "catch_all_index.html",
+      chunks: ["index"],
       inject: false,
     }),
     new HtmlWebpackPlugin({

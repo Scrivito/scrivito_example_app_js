@@ -10,10 +10,7 @@
     <link rel="preconnect" href="https://api.scrivito.com" crossorigin />
     <link rel="preconnect" href="https://api.scrivito.com" />
     <link rel="preconnect" href="https://cdn0.scrvt.com" />
-    <link
-      rel="stylesheet"
-      href="<%= htmlWebpackPlugin.files.chunks.index.css %>"
-    />
+    <%= htmlWebpackPlugin.tags.headTags %>
 
     <script src="/js_snippets_head.js"></script>
   </head>
@@ -24,7 +21,7 @@
         loading ...
       </span>
     </div>
-    <script src="<%= htmlWebpackPlugin.files.chunks.index.entry %>"></script>
+    <%= htmlWebpackPlugin.tags.bodyTags %>
     <script src="/js_snippets_before_body_end.js"></script>
   </body>
 </html>

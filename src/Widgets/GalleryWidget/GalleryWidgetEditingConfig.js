@@ -14,7 +14,7 @@ Scrivito.provideEditingConfig("GalleryWidget", {
     [
       "images",
 
-      images => {
+      (images) => {
         if (images.length < 1) {
           return {
             message: "The gallery should contain at least one image.",

@@ -9,12 +9,12 @@ function BlogPostTagList({ tags }) {
       <div className="container">
         <div className="nav-centered">
           <ul className="nav nav-pills">
-            {tags.map(tag => (
+            {tags.map((tag) => (
               <li key={tag}>
                 <a
                   className="margin-right"
                   href="#"
-                  onClick={e => {
+                  onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     navigateToBlogWithTag(tag);

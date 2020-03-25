@@ -50,7 +50,7 @@ export const defaultPageValidations = [
   [
     "title",
 
-    title => {
+    (title) => {
       if (title.length === 0) {
         return {
           message: "The title should be set.",

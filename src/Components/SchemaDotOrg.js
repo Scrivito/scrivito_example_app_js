@@ -49,17 +49,17 @@ function dataFromItem(item) {
 }
 
 function pruneEmptyValues(data) {
-  let prunedData = mapValues(data, subData => {
+  let prunedData = mapValues(data, (subData) => {
     if (isPlainObject(subData)) {
       return pruneEmptyValues(subData);
     }
     return subData;
   });
 
-  prunedData = pickBy(prunedData, v => !isEmpty(v));
+  prunedData = pickBy(prunedData, (v) => !isEmpty(v));
 
   const keysWithoutAt = Object.keys(prunedData).filter(
-    sd => !sd.startsWith("@")
+    (sd) => !sd.startsWith("@")
   );
   if (keysWithoutAt.length) {
     return prunedData;

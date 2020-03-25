@@ -59,9 +59,9 @@ const Address = Scrivito.connect(({ addressWidget }) => {
   const lines = [
     addressWidget.get("locationName"),
     addressWidget.get("locationStreetAddress"),
-    localityRegionPostalCode.filter(n => n).join(" "),
+    localityRegionPostalCode.filter((n) => n).join(" "),
     addressWidget.get("locationCountry"),
-  ].filter(n => n);
+  ].filter((n) => n);
 
   if (!lines.length) {
     return (

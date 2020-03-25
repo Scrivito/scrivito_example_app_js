@@ -26,7 +26,7 @@ Scrivito.provideEditingConfig("CarouselWidget", {
     [
       "images",
 
-      images => {
+      (images) => {
         if (images.length < 1) {
           return {
             message: "The carousel should contain at least one image.",

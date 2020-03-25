@@ -134,7 +134,7 @@ function computeTag(featureType, elementType) {
 function computeStyler(stylers) {
   const styles = [];
 
-  stylers.forEach(styler => {
+  stylers.forEach((styler) => {
     const key = Object.keys(styler)[0]; // there is only one per element
     const value = styler[key];
     const normalizedValue = isColor(value) ? toColor(value) : value;
@@ -153,7 +153,7 @@ function computeStyle(item) {
 }
 
 function stylingParamsArray() {
-  return googleStyles.map(i => computeStyle(i)).map(i => ["style", i]);
+  return googleStyles.map((i) => computeStyle(i)).map((i) => ["style", i]);
 }
 
 function googleMapsImageUrl(params) {

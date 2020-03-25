@@ -92,7 +92,7 @@ function getMetadata(page) {
 function firstImageUrlForAttributes(obj, attributes) {
   let url;
 
-  attributes.forEach(attribute => {
+  attributes.forEach((attribute) => {
     if (url || isVideoObj(obj)) {
       return;
     }

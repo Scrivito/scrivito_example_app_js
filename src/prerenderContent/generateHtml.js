@@ -1,4 +1,4 @@
-const assetManifest = fetch("asset-manifest.json").then(response =>
+const assetManifest = fetch("asset-manifest.json").then((response) =>
   response.json()
 );
 

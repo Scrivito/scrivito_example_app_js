@@ -94,7 +94,7 @@ const Dropdown = Scrivito.connect(
         </Scrivito.LinkTag>
         <span
           className="menu-toggle"
-          onClick={e => {
+          onClick={(e) => {
             toggleDropdown();
             e.stopPropagation();
           }}
@@ -104,7 +104,7 @@ const Dropdown = Scrivito.connect(
         <Scrivito.ChildListTag
           className="dropdown-menu"
           parent={child}
-          renderChild={innerChild => <NavSingleChild child={innerChild} />}
+          renderChild={(innerChild) => <NavSingleChild child={innerChild} />}
         />
       </li>
     );

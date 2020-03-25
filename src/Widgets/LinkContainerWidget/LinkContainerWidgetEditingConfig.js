@@ -15,7 +15,7 @@ Scrivito.provideEditingConfig("LinkContainerWidget", {
   initialContent: {
     headline: "Links headline",
     links: ["Link 1", "Link 2", "Link 3"].map(
-      title =>
+      (title) =>
         new LinkWidget({
           link: new Scrivito.Link({
             title,
@@ -29,7 +29,7 @@ Scrivito.provideEditingConfig("LinkContainerWidget", {
     [
       "links",
 
-      links => {
+      (links) => {
         if (links.length < 1) {
           return {
             message: "The link list should contain at least one link.",

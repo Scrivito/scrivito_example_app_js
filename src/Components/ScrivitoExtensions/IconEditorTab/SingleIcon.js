@@ -15,7 +15,7 @@ function SingleIcon({ icon, setWidgetIcon, currentIcon }) {
       <a
         href="#"
         className={aClassNames.join(" ")}
-        onClick={e => setWidgetIcon(e, cssIcon)}
+        onClick={(e) => setWidgetIcon(e, cssIcon)}
       >
         <IconComponent icon={cssIcon} />
         <span className="sr-only">Example of </span>

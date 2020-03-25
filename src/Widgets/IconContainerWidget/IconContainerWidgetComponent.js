@@ -16,7 +16,7 @@ Scrivito.provideComponent("IconContainerWidget", ({ widget }) => {
 
   return (
     <div className="social-links text-center">
-      {icons.map(iconListItem => {
+      {icons.map((iconListItem) => {
         const icon = iconListItem.get("icon");
         const link = iconListItem.get("link");
         const size = iconListItem.get("size");

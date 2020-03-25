@@ -16,7 +16,7 @@ function IconSearch({ setSearchValue, searchValue }) {
         autoCorrect="off"
         tabIndex="1"
         value={searchValue}
-        onChange={e => setSearchValue(e, e.target.value)}
+        onChange={(e) => setSearchValue(e, e.target.value)}
       />
       <ClearSearchButton
         setSearchValue={setSearchValue}
@@ -38,7 +38,7 @@ function ClearSearchButton({ setSearchValue, searchValue }) {
       href="#"
       className="fa fa-times-circle"
       aria-hidden="true"
-      onClick={e => setSearchValue(e, "")}
+      onClick={(e) => setSearchValue(e, "")}
     >
       <span className="sr-only">Clear search</span>
     </a>

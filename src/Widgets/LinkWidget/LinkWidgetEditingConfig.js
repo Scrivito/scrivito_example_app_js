@@ -14,7 +14,7 @@ Scrivito.provideEditingConfig("LinkWidget", {
     [
       "link",
 
-      link => {
+      (link) => {
         if (!link) {
           return { message: "The link should be set.", severity: "warning" };
         }

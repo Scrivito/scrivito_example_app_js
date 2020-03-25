@@ -34,7 +34,7 @@ Scrivito.provideEditingConfig("VimeoVideoWidget", {
     [
       "vimeoVideoId",
 
-      vimeoVideoId => {
+      (vimeoVideoId) => {
         if (!vimeoVideoId) {
           return {
             message: "The Vimeo video ID must be set.",

@@ -12,7 +12,7 @@ module.exports = class extends Generator {
       name: "type",
       message: "What do you want to generate?",
       choices: ["An Obj class", "A Widget class"],
-    }).then(answers => {
+    }).then((answers) => {
       if (answers.type === "An Obj class") {
         this.composeWith("scrivito:obj");
       }

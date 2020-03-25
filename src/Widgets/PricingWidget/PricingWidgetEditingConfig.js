@@ -71,7 +71,7 @@ Scrivito.provideEditingConfig("PricingWidget", {
     [
       "currency",
 
-      currency => {
+      (currency) => {
         if (!currency) {
           return {
             message: "The currency should be set.",
@@ -83,7 +83,7 @@ Scrivito.provideEditingConfig("PricingWidget", {
     [
       "smallPlanPrice",
 
-      smallPlanPrice => {
+      (smallPlanPrice) => {
         if (!smallPlanPrice) {
           return {
             message: "The small plan price should be set.",
@@ -95,7 +95,7 @@ Scrivito.provideEditingConfig("PricingWidget", {
     [
       "mediumPlanPrice",
 
-      mediumPlanPrice => {
+      (mediumPlanPrice) => {
         if (!mediumPlanPrice) {
           return {
             message: "The medium plan price should be set.",
@@ -107,7 +107,7 @@ Scrivito.provideEditingConfig("PricingWidget", {
     [
       "largePlanPrice",
 
-      largePlanPrice => {
+      (largePlanPrice) => {
         if (!largePlanPrice) {
           return {
             message: "The large plan price should be set.",
@@ -119,7 +119,7 @@ Scrivito.provideEditingConfig("PricingWidget", {
     [
       "smallPlanButton",
 
-      smallPlanButton => {
+      (smallPlanButton) => {
         if (!smallPlanButton) {
           return {
             message: "The small plan's button target should be set.",
@@ -131,7 +131,7 @@ Scrivito.provideEditingConfig("PricingWidget", {
     [
       "mediumPlanButton",
 
-      mediumPlanButton => {
+      (mediumPlanButton) => {
         if (!mediumPlanButton) {
           return {
             message: "The medium plan's button target should be set.",
@@ -143,7 +143,7 @@ Scrivito.provideEditingConfig("PricingWidget", {
     [
       "largePlanButton",
 
-      largePlanButton => {
+      (largePlanButton) => {
         if (!largePlanButton) {
           return {
             message: "The large plan's button target should be set.",

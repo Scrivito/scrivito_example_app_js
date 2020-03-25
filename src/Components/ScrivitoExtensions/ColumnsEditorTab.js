@@ -10,7 +10,7 @@ class ColumnsEditorTab extends React.Component {
     this.state = {
       originalContents: props.widget
         .get("columns")
-        .map(column => column.get("content")),
+        .map((column) => column.get("content")),
       currentGrid: gridOfWidget(props.widget),
     };
 
@@ -373,7 +373,7 @@ class GridLayoutEditor extends React.Component {
     return (
       <div className="gle">
         <div className="grid-ruler" ref={this.gridRulerRef}>
-          {times(12).map(index => (
+          {times(12).map((index) => (
             <div key={index} className="grid-col" />
           ))}
         </div>
@@ -384,7 +384,7 @@ class GridLayoutEditor extends React.Component {
 }
 
 function gridOfWidget(containerWidget) {
-  return containerWidget.get("columns").map(column => column.get("colSize"));
+  return containerWidget.get("columns").map((column) => column.get("colSize"));
 }
 
 function adjustNumberOfColumns(containerWidget, desiredLength) {
@@ -393,7 +393,7 @@ function adjustNumberOfColumns(containerWidget, desiredLength) {
     return;
   }
 
-  const newColumns = times(desiredLength).map(index => {
+  const newColumns = times(desiredLength).map((index) => {
     return columns[index] || new ColumnWidget({});
   });
 

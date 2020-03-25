@@ -32,7 +32,7 @@ Scrivito.provideComponent("JobOverviewWidget", ({ widget }) => {
 
 const JobItem = Scrivito.connect(({ job }) => {
   const location = [job.get("locationLocality"), job.get("locationCountry")]
-    .filter(n => n)
+    .filter((n) => n)
     .join(", ");
 
   return (

@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
 
 let resolveCookie;
-const cookiePromise = new Promise(resolve => {
+const cookiePromise = new Promise((resolve) => {
   resolveCookie = resolve;
 });
 

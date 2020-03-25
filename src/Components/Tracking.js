@@ -27,7 +27,7 @@ function configureGoogleAnalytics() {
       return undefined;
     }
     return rootPage.get("googleAnalyticsTrackingId");
-  }).then(trackingId => {
+  }).then((trackingId) => {
     if (trackingId) {
       window.ga =
         window.ga ||

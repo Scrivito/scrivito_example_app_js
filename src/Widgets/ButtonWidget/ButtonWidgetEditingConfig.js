@@ -36,7 +36,7 @@ Scrivito.provideEditingConfig("ButtonWidget", {
     [
       "target",
 
-      target => {
+      (target) => {
         if (!target) {
           return {
             message: "The button target should be set.",

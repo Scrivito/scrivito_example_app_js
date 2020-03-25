@@ -66,7 +66,7 @@ Scrivito.provideEditingConfig("GoogleMapsWidget", {
     [
       "address",
 
-      address => {
+      (address) => {
         if (!address) {
           return {
             message: "The address should be set.",

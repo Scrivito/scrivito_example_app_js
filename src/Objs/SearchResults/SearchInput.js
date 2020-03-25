@@ -15,13 +15,13 @@ class SearchInput extends React.Component {
       <section className="bg-nav-content">
         <div className="container">
           <div className="nav-centered">
-            <form onSubmit={e => this.handleSubmit(e)}>
+            <form onSubmit={(e) => this.handleSubmit(e)}>
               <div className="input-group">
                 <input
                   className="form-control"
                   placeholder="Search for..."
                   value={this.state.q}
-                  onChange={e => this.handleChange(e)}
+                  onChange={(e) => this.handleChange(e)}
                 />
                 <span className="input-group-btn">
                   <button className="btn btn-primary" type="submit">

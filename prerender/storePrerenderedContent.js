@@ -35,7 +35,7 @@ async function storePrerenderedContent() {
   );
 
   await Promise.all(
-    filesToBeRemoved.map(async filename => {
+    filesToBeRemoved.map(async (filename) => {
       log(`✨ Removing now obsolete file ${filename}...`);
       await fse.remove(path.join(TARGET_DIR, filename));
       filesRemoved += 1;
@@ -55,7 +55,7 @@ async function storePrerenderedContent() {
   const page = await visitUrl(browser, url);
 
   log(`🖥️️  Redefining window.storeResult...`);
-  await page.exposeFunction("storeResult", args =>
+  await page.exposeFunction("storeResult", (args) =>
     storeResult(TARGET_DIR, storedFiles, args)
   );
 
@@ -86,7 +86,7 @@ function log(message, ...args) {
   console.log(`[storePrerenderedContent] ${message}`, ...args);
 }
 
-storePrerenderedContent().catch(e => {
+storePrerenderedContent().catch((e) => {
   reportError("An error occurred!", e);
   process.exitCode = 1;
 });

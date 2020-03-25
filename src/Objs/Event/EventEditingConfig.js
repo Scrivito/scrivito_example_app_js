@@ -76,7 +76,7 @@ Scrivito.provideEditingConfig("Event", {
     [
       "title",
 
-      title => {
+      (title) => {
         if (!title) {
           return {
             message: "The event title must be set.",
@@ -88,7 +88,7 @@ Scrivito.provideEditingConfig("Event", {
     [
       "date",
 
-      date => {
+      (date) => {
         if (!date) {
           return {
             message: "Providing the event date is recommended.",

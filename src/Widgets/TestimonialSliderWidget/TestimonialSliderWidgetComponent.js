@@ -14,7 +14,7 @@ Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
   return (
     <div className="testimonial-slider-widget">
       <Slider {...settings}>
-        {testimonials.map(testimonial => (
+        {testimonials.map((testimonial) => (
           <div key={testimonial.id()}>
             <h1 className="testimonial-slider-widget--quote-headline text-center">
               &quot;
@@ -41,7 +41,7 @@ Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 function sliderSettings(testimonials) {
-  const testimonialAuthorImages = testimonials.map(testimonial => {
+  const testimonialAuthorImages = testimonials.map((testimonial) => {
     const authorImage = testimonial.get("authorImage");
     if (!isImage(authorImage)) {
       return (
@@ -66,7 +66,7 @@ function sliderSettings(testimonials) {
     infinite: true,
     speed: 500,
     dotsClass: "testimonial-slider-widget--quote-portrait-wrapper",
-    customPaging: i => {
+    customPaging: (i) => {
       const image = testimonialAuthorImages[i];
       return <a>{image}</a>;
     },
@@ -89,7 +89,7 @@ const AddTestimonial = ({ widget }) => {
         href="#"
         style={placeholderCss}
         className="edit-mode-link"
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
           const newTestimonials = [

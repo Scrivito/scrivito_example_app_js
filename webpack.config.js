@@ -198,6 +198,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       new HtmlWebpackPlugin({
         filename: "_prerender_content.html",
         template: "_prerender_content.html",
+        chunks: ["prerender_content"],
         inject: false,
       }),
       new ManifestPlugin({ fileName: "asset-manifest.json" })

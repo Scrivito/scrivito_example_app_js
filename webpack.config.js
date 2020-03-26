@@ -183,7 +183,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       filename: "catch_all_index.html",
       template: "catch_all_index.html",
       chunks: ["index"],
-      inject: false,
+      inject: false, // uses, so that js_snippets_head.js and js_snippets_before_body_end.js can be placed after the regular files
     }),
     new HtmlWebpackPlugin({
       filename: "_scrivito_extensions.html",

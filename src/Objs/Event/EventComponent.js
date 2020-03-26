@@ -60,7 +60,7 @@ const EventLocation = Scrivito.connect(({ event }) => {
   const region = event.get("locationRegion");
   const postalCode = event.get("locationPostalCode");
   const localityRegionPostalCode = [locality, region, postalCode]
-    .filter(n => n)
+    .filter((n) => n)
     .join(" ");
 
   const address = [
@@ -68,7 +68,7 @@ const EventLocation = Scrivito.connect(({ event }) => {
     event.get("locationStreetAddress"),
     localityRegionPostalCode,
     event.get("locationCountry"),
-  ].filter(n => n);
+  ].filter((n) => n);
 
   if (!address.length) {
     return (

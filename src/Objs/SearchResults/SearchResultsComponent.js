@@ -30,7 +30,7 @@ class SearchResultsComponent extends React.Component {
     ).andNot("_objClass", "equals", blacklistObjClasses);
 
     // make sure, that tags are calculated _before_ limiting to specific tag.
-    const tags = search.facet("tags").map(tag => tag.name());
+    const tags = search.facet("tags").map((tag) => tag.name());
 
     if (this.props.params.tag) {
       search = search.and("tags", "equals", this.props.params.tag);

@@ -68,8 +68,8 @@ class ThumbnailGalleryComponent extends React.Component {
     const { widget } = this.props;
     const images = widget
       .get("images")
-      .filter(subWidget => isImage(subWidget.get("image")));
-    const lightboxImages = images.map(image => lightboxOptions(image));
+      .filter((subWidget) => isImage(subWidget.get("image")));
+    const lightboxImages = images.map((image) => lightboxOptions(image));
 
     if (!images.length) {
       return (
@@ -93,7 +93,7 @@ class ThumbnailGalleryComponent extends React.Component {
               <Thumbnail
                 key={image.id()}
                 widget={image}
-                openLightbox={event => this.openLightbox(imageIndex, event)}
+                openLightbox={(event) => this.openLightbox(imageIndex, event)}
                 currentTag={this.state.currentTag}
               />
             ))}
@@ -159,7 +159,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
 /* eslint-enable jsx-a11y/anchor-is-valid */
 
 function allTags(images) {
-  const tagsArray = images.map(image => image.get("tags"));
+  const tagsArray = images.map((image) => image.get("tags"));
 
   // flatten tags
   const tags = tagsArray.reduce((a, b) => a.concat(b), []);

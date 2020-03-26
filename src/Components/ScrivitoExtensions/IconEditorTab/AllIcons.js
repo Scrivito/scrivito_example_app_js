@@ -11,8 +11,8 @@ class AllIcons extends React.Component {
     };
 
     this.categoryMap = {};
-    fontAwesomeIcons.forEach(icon =>
-      icon.categories.forEach(category => {
+    fontAwesomeIcons.forEach((icon) =>
+      icon.categories.forEach((category) => {
         if (!this.categoryMap[category]) {
           this.categoryMap[category] = [];
         }
@@ -111,7 +111,7 @@ function Category({ category, icons, currentIcon, setWidgetIcon }) {
               <a
                 href="#"
                 className={aClassNames.join(" ")}
-                onClick={e => setWidgetIcon(e, cssIcon)}
+                onClick={(e) => setWidgetIcon(e, cssIcon)}
               >
                 <i className={["fa", cssIcon].join(" ")} aria-hidden="true" />
                 <span className="sr-only">Example of </span>

@@ -75,7 +75,7 @@ const AddMoreRows = Scrivito.connect(
             <a
               href="#"
               style={placeholderCss}
-              onClick={e => {
+              onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
 

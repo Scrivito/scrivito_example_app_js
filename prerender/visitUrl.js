@@ -10,7 +10,7 @@ exports.visitUrl = async function visitUrl(browser, url) {
   }
 
   console.log(`  🖥️️  [visitUrl] Registering console log...`);
-  page.on("console", msg => console.log("  🖥️️  [console]", msg.text()));
+  page.on("console", (msg) => console.log("  🖥️️  [console]", msg.text()));
 
   return page;
 };

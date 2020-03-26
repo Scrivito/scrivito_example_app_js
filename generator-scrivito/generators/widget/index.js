@@ -23,7 +23,7 @@ module.exports = class extends Generator {
         }
         return true;
       },
-    }).then(answers => {
+    }).then((answers) => {
       const widgetClassName = answers.widgetClassName;
       const folder = `src/Widgets/${widgetClassName}`;
       const humanFriendlyName = lodash.startCase(

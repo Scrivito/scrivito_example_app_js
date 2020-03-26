@@ -198,7 +198,7 @@ const FacebookPreview = Scrivito.connect(({ obj }) => (
 
 const ValidationMessages = ({ validations }) => (
   <div>
-    {validations.map(validation => (
+    {validations.map((validation) => (
       <div
         key={`${validation.severity}${validation.message}`}
         className={`scrivito_validation_notice scrivito_${validation.severity}`}
@@ -223,14 +223,14 @@ function lookupMetadata(obj, value) {
   const metadata = getMetadata(obj);
 
   if (value.includes("og:")) {
-    const ogData = metadata.find(x => x.property === value);
+    const ogData = metadata.find((x) => x.property === value);
     if (ogData) {
       return ogData.content;
     }
   }
 
   if (value.includes("twitter:")) {
-    const twitterData = metadata.find(x => x.name === value);
+    const twitterData = metadata.find((x) => x.name === value);
     if (twitterData) {
       return twitterData.content;
     }
@@ -242,9 +242,9 @@ function lookupMetadata(obj, value) {
 function findHighestSeverity(validations) {
   if (validations.length) {
     const highestSeverityValidation =
-      validations.find(v => v.severity === "error") ||
-      validations.find(v => v.severity === "warning") ||
-      validations.find(v => v.severity === "info");
+      validations.find((v) => v.severity === "error") ||
+      validations.find((v) => v.severity === "warning") ||
+      validations.find((v) => v.severity === "info");
     return highestSeverityValidation.severity;
   }
 }

@@ -20,7 +20,7 @@ class Nav extends React.Component {
   }
 
   closeDropdowns() {
-    this.registeredDropdowns.forEach(dropdown => dropdown.closeDropdown());
+    this.registeredDropdowns.forEach((dropdown) => dropdown.closeDropdown());
   }
 
   registerDropdown(dropdownComponent) {
@@ -29,7 +29,7 @@ class Nav extends React.Component {
 
   unregisterDropdown(dropdownComponent) {
     this.registeredDropdowns = this.registeredDropdowns.filter(
-      i => i !== dropdownComponent
+      (i) => i !== dropdownComponent
     );
   }
 
@@ -38,7 +38,7 @@ class Nav extends React.Component {
       <Scrivito.ChildListTag
         className="nav navbar-nav navbar-right"
         parent={Scrivito.Obj.root()}
-        renderChild={child => (
+        renderChild={(child) => (
           <NavChild
             child={child}
             registerDropdown={this.registerDropdown}

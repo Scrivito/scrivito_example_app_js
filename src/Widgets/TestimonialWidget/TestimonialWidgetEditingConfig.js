@@ -24,7 +24,7 @@ Scrivito.provideEditingConfig("TestimonialWidget", {
     [
       "author",
 
-      author => {
+      (author) => {
         if (!author) {
           return {
             message: "The author should be set.",
@@ -36,7 +36,7 @@ Scrivito.provideEditingConfig("TestimonialWidget", {
     [
       "testimonial",
 
-      testimonial => {
+      (testimonial) => {
         if (!testimonial) {
           return {
             message: "The testimonial text should be set.",
@@ -46,9 +46,9 @@ Scrivito.provideEditingConfig("TestimonialWidget", {
       },
     ],
   ],
-  titleForContent: widget => {
+  titleForContent: (widget) => {
     const parts = [widget.get("author"), truncate(widget.get("testimonial"))];
-    const summary = parts.filter(e => e).join(" - ");
+    const summary = parts.filter((e) => e).join(" - ");
 
     if (summary) {
       return `Testimonial: ${summary}`;

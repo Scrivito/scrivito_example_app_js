@@ -100,7 +100,7 @@ const JobEmploymentTypes = Scrivito.connect(({ employmentTypes }) => {
   };
 
   const localizedTypes = employmentTypes.map(
-    type => localizations[type] || type
+    (type) => localizations[type] || type
   );
 
   return (
@@ -117,7 +117,7 @@ const JobLocation = Scrivito.connect(({ job }) => {
   const region = job.get("locationRegion");
   const postalCode = job.get("locationPostalCode");
   const localityRegionPostalCode = [locality, region, postalCode]
-    .filter(n => n)
+    .filter((n) => n)
     .join(" ");
 
   const address = [
@@ -125,7 +125,7 @@ const JobLocation = Scrivito.connect(({ job }) => {
     localityRegionPostalCode,
     job.get("locationCountry"),
   ]
-    .filter(n => n)
+    .filter((n) => n)
     .join(", ");
 
   if (!address) {

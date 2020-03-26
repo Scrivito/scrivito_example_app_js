@@ -9,7 +9,7 @@ Scrivito.provideEditingConfig("TickListItemWidget", {
     [
       "statement",
 
-      statement => {
+      (statement) => {
         if (!statement) {
           return {
             message: "The statement should be set.",

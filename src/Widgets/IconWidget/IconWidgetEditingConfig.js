@@ -46,7 +46,7 @@ Scrivito.provideEditingConfig("IconWidget", {
     size: "fa-1x",
     alignment: "left",
   },
-  titleForContent: widget => {
+  titleForContent: (widget) => {
     const iconText = widget.get("icon").replace(/^fa-/, "");
 
     if (iconText) {

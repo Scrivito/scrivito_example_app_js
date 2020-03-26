@@ -10,8 +10,8 @@ exports.extendRedirects = async function extendRedirects(
   sourceDir
 ) {
   const explicitRedirects = prerenderedFiles
-    .filter(f => f.endsWith(".html") && f.toLowerCase() !== f)
-    .map(file => `${file.substring(0, file.length - 5)} ${file} 200`);
+    .filter((f) => f.endsWith(".html") && f.toLowerCase() !== f)
+    .map((file) => `${file.substring(0, file.length - 5)} ${file} 200`);
   const sourceRedirects = await fse.readFile(`${sourceDir}/_redirects`, "utf8");
   const placeholder = "# PRERENDERED-UPPERCASE-ROUTES-PLACEHOLDER";
   if (sourceRedirects.indexOf(placeholder) === -1) {

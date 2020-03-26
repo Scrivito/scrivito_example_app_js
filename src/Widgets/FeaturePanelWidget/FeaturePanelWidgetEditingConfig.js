@@ -18,7 +18,7 @@ Scrivito.provideEditingConfig("FeaturePanelWidget", {
     [
       "headline",
 
-      headline => {
+      (headline) => {
         if (!headline) {
           return {
             message: "The headline should be set.",

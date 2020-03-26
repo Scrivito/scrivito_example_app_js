@@ -36,7 +36,7 @@ const BlogPostPreviewList = Scrivito.connect(
       );
     }
 
-    const months = groupBy(posts, post => {
+    const months = groupBy(posts, (post) => {
       const publishedAt = post.get("publishedAt");
       return publishedAt && formatDate(publishedAt, "mmmm yyyy");
     });
@@ -70,7 +70,7 @@ const MonthHeadline = Scrivito.connect(({ date }) => {
 
 const PostsTimeline = Scrivito.connect(({ posts }) => (
   <ul className="blog-timeline">
-    {posts.map(post => (
+    {posts.map((post) => (
       <BlogPostPreview key={post.id()} post={post} />
     ))}
   </ul>

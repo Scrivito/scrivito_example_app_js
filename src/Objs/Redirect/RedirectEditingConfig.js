@@ -19,7 +19,7 @@ Scrivito.provideEditingConfig("Redirect", {
     [
       "link",
 
-      link => {
+      (link) => {
         if (!link) {
           return {
             message: "The target must be set.",

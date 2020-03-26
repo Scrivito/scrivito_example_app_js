@@ -5,7 +5,7 @@ exports.startServer = function startServer(sourceDir) {
   const staticMiddleware = express.static(sourceDir);
   app.use(staticMiddleware);
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const server = app.listen(8080, () => resolve(server));
   });
 };

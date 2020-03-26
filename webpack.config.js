@@ -34,9 +34,11 @@ function webpackConfig(env = {}) {
     !process.env.SCRIVITO_TENANT ||
     process.env.SCRIVITO_TENANT === "your_scrivito_tenant_id"
   ) {
-    throw 'Environment variable "SCRIVITO_TENANT" is not defined!' +
+    throw (
+      'Environment variable "SCRIVITO_TENANT" is not defined!' +
       ' Check if the ".env" file with a proper SCRIVITO_TENANT is set.' +
-      ' See ".env.example" for an example.';
+      ' See ".env.example" for an example.'
+    );
   }
 
   let scrivitoOrigin = "";
@@ -108,7 +110,7 @@ function webpackConfig(env = {}) {
     },
     output: {
       publicPath: "/",
-      filename: chunkData => {
+      filename: (chunkData) => {
         return chunkData.chunk.name === "tracking"
           ? "[name].js"
           : "assets/[name].[contenthash].js";
@@ -166,7 +168,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       { from: "../public", ignore: ignorePublicFiles },
       {
         from: "../public/_headers",
-        transform: content => {
+        transform: (content) => {
           const csp = builder({ directives: headersCsp });
           return content.toString().replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
         },

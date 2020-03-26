@@ -7,7 +7,7 @@ function SearchResultsTagList({ tags, params }) {
     <TagList
       tags={tags}
       showTags={tags.length}
-      setTag={newTag => {
+      setTag={(newTag) => {
         const newParams = { q: params.q };
         if (newTag) {
           newParams.tag = newTag;

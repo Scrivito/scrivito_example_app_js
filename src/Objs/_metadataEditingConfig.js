@@ -33,7 +33,7 @@ export const metadataValidations = [
   [
     "metaDataDescription",
 
-    metaDataDescription => {
+    (metaDataDescription) => {
       if (metaDataDescription && metaDataDescription.length > 175) {
         return {
           message: "The page description should not exceed 175 characters.",
@@ -45,7 +45,7 @@ export const metadataValidations = [
   [
     "tcCreator",
 
-    tcCreator => {
+    (tcCreator) => {
       if (tcCreator && tcCreator.charAt(0) !== "@") {
         return {
           message: "The creator should start with @.",
@@ -57,7 +57,7 @@ export const metadataValidations = [
   [
     "tcDescription",
 
-    tcDescription => {
+    (tcDescription) => {
       if (tcDescription && tcDescription.length > 200) {
         return {
           message: "The Twitter description should not exceed 200 characters.",
@@ -69,7 +69,7 @@ export const metadataValidations = [
   [
     "ogDescription",
 
-    ogDescription => {
+    (ogDescription) => {
       if (ogDescription && ogDescription.length > 300) {
         return {
           message: "The Facebook description should not exceed 300 characters.",

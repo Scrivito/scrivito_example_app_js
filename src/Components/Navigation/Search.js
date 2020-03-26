@@ -20,13 +20,13 @@ export const SearchBox = Scrivito.connect(
     render() {
       return (
         <div className="search-box">
-          <form onSubmit={e => this.handleSubmit(e)}>
+          <form onSubmit={(e) => this.handleSubmit(e)}>
             <div className="input-group">
               <input
                 className="form-control"
                 placeholder="Search..."
                 value={this.state.q}
-                onChange={e => this.onChange(e)}
+                onChange={(e) => this.onChange(e)}
                 ref={this.inputRef}
               />
               <div className="input-group-btn">

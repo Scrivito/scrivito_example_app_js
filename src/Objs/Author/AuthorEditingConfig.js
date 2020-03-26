@@ -33,7 +33,7 @@ Scrivito.provideEditingConfig("Author", {
     [
       "title",
 
-      title => {
+      (title) => {
         if (!title) {
           return { message: "The name must be set.", severity: "error" };
         }

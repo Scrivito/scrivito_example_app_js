@@ -57,7 +57,7 @@ function sliderSettings(images) {
         },
       },
     ],
-    customPaging: i => {
+    customPaging: (i) => {
       const image = images[i];
 
       return (

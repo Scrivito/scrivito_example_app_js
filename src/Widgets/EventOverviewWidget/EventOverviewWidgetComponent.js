@@ -25,7 +25,7 @@ class EventOverviewWidgetComponent extends React.Component {
       eventsSearch = eventsSearch.and("tags", "equals", this.state.currentTag);
     }
 
-    const tags = [...Event.all().facet("tags")].map(facet => facet.name());
+    const tags = [...Event.all().facet("tags")].map((facet) => facet.name());
 
     const maxItems = this.props.widget.get("maxItems");
     let events;
@@ -102,7 +102,7 @@ const EventItem = Scrivito.connect(({ event }) => (
 
 const EventShortLocation = Scrivito.connect(({ event }) => {
   const location = [event.get("locationName"), event.get("locationLocality")]
-    .filter(n => n)
+    .filter((n) => n)
     .join(", ");
 
   return (

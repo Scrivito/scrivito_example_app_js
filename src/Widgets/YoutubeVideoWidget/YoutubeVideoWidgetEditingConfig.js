@@ -34,7 +34,7 @@ Scrivito.provideEditingConfig("YoutubeVideoWidget", {
     [
       "youtubeVideoId",
 
-      youtubeVideoId => {
+      (youtubeVideoId) => {
         if (!youtubeVideoId) {
           return {
             message: "The Youtube video ID must be set.",

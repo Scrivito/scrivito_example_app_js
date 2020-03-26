@@ -18,8 +18,8 @@ export default async function prerenderObjs(
   let failedCount = 0;
 
   const objsGroups = chunk(objs, 10);
-  await asyncForEachSequential(objsGroups, async objsGroup =>
-    asyncForEach(objsGroup, async obj => {
+  await asyncForEachSequential(objsGroups, async (objsGroup) =>
+    asyncForEach(objsGroup, async (obj) => {
       try {
         const prerenderedFiles = await prerenderObj(obj);
         await asyncForEachSequential(prerenderedFiles, storeResult);

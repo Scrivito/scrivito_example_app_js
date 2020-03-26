@@ -50,12 +50,12 @@ The Scrivito example app JS requires the tenant ID of your CMS. The ID is taken 
 
 To specify it, proceed as follows:
 
-* Go to your [Scrivito Websites](https://my.scrivito.com/tenants/).
-* Click the CMS to use.
-* Open the “Settings” tab.
-* Scroll down to the “Anonymous access for the Scrivito Javascript SDK” section.
-* Copy the value after SCRIVITO_TENANT= to the clipboard.
-* In the project directory, open/create the file `.env` and paste the ID after the `SCRIVITO_TENANT` key. The file should then look like this:
+- Go to your [Scrivito Websites](https://my.scrivito.com/tenants/).
+- Click the CMS to use.
+- Open the “Settings” tab.
+- Scroll down to the “Anonymous access for the Scrivito Javascript SDK” section.
+- Copy the value after SCRIVITO_TENANT= to the clipboard.
+- In the project directory, open/create the file `.env` and paste the ID after the `SCRIVITO_TENANT` key. The file should then look like this:
 
 ```
 SCRIVITO_TENANT=0123456789ABCDEF0123456789ABCDEF
@@ -67,8 +67,8 @@ See `.env.example` for an example.
 
 To enable resource sharing between your CMS and your web application, specify the URL of your app in the CMS settings.
 
-* Like above, navigate to the “Deployment” tab of the CMS to use with your app.
-* Make sure that `http://localhost:8080` is added to the "Other authorized URLs".
+- Like above, navigate to the “Deployment” tab of the CMS to use with your app.
+- Make sure that `http://localhost:8080` is added to the "Other authorized URLs".
 
 See [Getting Started with ScrivitoJS](https://scrivito.com/getting-started-with-scrivitojs-f729f073bf4672d8) for more information.
 
@@ -83,13 +83,13 @@ To see development in action, let's change the `ButtonWidget` so that it prefixe
 Open up the react component responsible for rendering a `ButtonWidget`. It's located at `src/Widgets/ButtonWidget/ButtonWidgetComponent.js`. Now look for the `Scrivito.LinkTag` and insert
 
 ```jsx
-{ '🚀 ' }
+{"🚀 "}
 ```
 
 before
 
 ```jsx
-{ text }<i className="fa fa-angle-right fa-4" aria-hidden="true" />
+{text}<i className="fa fa-angle-right fa-4" aria-hidden="true" />
 ```
 
 After saving the file, your browser should automatically reload [http://localhost:8080](http://localhost:8080) with your new emoji button. Of course you can choose another emoji, check out [emojipedia.org](https://emojipedia.org).

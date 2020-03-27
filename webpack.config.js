@@ -184,12 +184,13 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
     new HtmlWebpackPlugin({
       filename: "catch_all_index.html",
       template: "catch_all_index.html",
-      inject: false,
+      chunks: ["index"],
+      inject: false, // needs custom order of script tags
     }),
     new HtmlWebpackPlugin({
       filename: "_scrivito_extensions.html",
       template: "_scrivito_extensions.html",
-      inject: false,
+      chunks: ["scrivito_extensions"],
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ];
@@ -199,7 +200,7 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       new HtmlWebpackPlugin({
         filename: "_prerender_content.html",
         template: "_prerender_content.html",
-        inject: false,
+        chunks: ["prerender_content"],
       }),
       new ManifestPlugin({ fileName: "asset-manifest.json" })
     );

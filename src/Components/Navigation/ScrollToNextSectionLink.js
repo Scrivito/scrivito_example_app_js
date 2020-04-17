@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Link as ScrollLink } from "react-scroll";
 
 function ScrollToNextSectionLink({ heightClassName }) {
   if (heightClassName !== "full-height") {
@@ -7,14 +6,12 @@ function ScrollToNextSectionLink({ heightClassName }) {
   }
 
   return (
-    <ScrollLink
-      to="nextSection"
-      smooth
-      duration={500}
+    <a
+      href="#mainContent"
       className="btn-round btn-white-transparent hidden-xs"
     >
       <i className="fa fa-angle-down" aria-hidden="true" />
-    </ScrollLink>
+    </a>
   );
 }
 

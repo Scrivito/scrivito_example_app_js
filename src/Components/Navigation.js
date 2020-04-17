@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import { Element as ScrollElement } from "react-scroll";
 
 import currentPageNavigationOptions from "./Navigation/currentPageNavigationOptions";
 import FullNavigation from "./Navigation/FullNavigation";
@@ -176,7 +175,7 @@ class Navigation extends React.Component {
           <NavigationSection heightClassName={heightClassName} />
           <ScrollToNextSectionLink heightClassName={heightClassName} />
         </Scrivito.BackgroundImageTag>
-        <ScrollElement name="nextSection" />
+        <div id="mainContent" />
       </React.Fragment>
     );
   }

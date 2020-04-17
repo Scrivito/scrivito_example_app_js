@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+import { kebabCase } from "lodash-es";
 
 Scrivito.provideComponent("HeadlineWidget", ({ widget }) => {
   const style = widget.get("style") || "h2";
@@ -19,6 +20,7 @@ Scrivito.provideComponent("HeadlineWidget", ({ widget }) => {
     <Scrivito.ContentTag
       tag={level}
       content={widget}
+      id={kebabCase(widget.get("headline"))}
       attribute="headline"
       className={classNames.join(" ")}
     />

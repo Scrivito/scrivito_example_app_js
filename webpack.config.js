@@ -201,9 +201,12 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
         filename: "_prerender_content.html",
         template: "_prerender_content.html",
         chunks: ["prerender_content"],
-      }),
-      new ManifestPlugin({ fileName: "asset-manifest.json" })
+      })
     );
+  }
+
+  if (!isProduction || isPrerendering) {
+    plugins.push(new ManifestPlugin({ fileName: "asset-manifest.json" }));
   }
 
   if (isProduction) {

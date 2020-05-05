@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",

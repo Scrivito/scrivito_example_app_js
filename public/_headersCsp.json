@@ -13,5 +13,5 @@
   ],
   "object-src": "'none'",
   "block-all-mixed-content": true,
-  "frame-ancestors": ["'self'", "https://edit.scrivito.com"]
+  "frame-ancestors": ["'self'", "https://*.scrivito.com"]
 }

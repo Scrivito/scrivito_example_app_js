@@ -139,7 +139,7 @@
   line-height: 30px;
 }
 
-@media (max-width: $screen-md-min) {
+@media (max-width: $screen-sm-max) {
   .blog-timeline {
     &:before {
       left: 40px;

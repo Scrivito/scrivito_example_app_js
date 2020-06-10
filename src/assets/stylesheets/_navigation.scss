@@ -437,7 +437,7 @@
     display: none;
   }
 }
-@media (max-width: $screen-md-min) {
+@media (max-width: $screen-sm-max) {
   .fixed-top,
   .fixed-bottom {
     .navbar-collapse {
@@ -750,7 +750,7 @@
   }
 }
 
-@media (max-width: $screen-md-min) {
+@media (max-width: $screen-sm-max) {
   .nav-landing-page .navbar-brand img {
     width: 145px;
     margin: 0 auto;

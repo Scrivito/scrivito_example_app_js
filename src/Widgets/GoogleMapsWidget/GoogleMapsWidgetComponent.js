@@ -127,6 +127,7 @@ function InteractiveMap({ address, apiKey, zoom, mapType }) {
       frameBorder="0"
       style={{ border: 0 }}
       src={url}
+      loading="lazy"
     />
   );
 }

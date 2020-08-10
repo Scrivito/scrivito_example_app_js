@@ -30,6 +30,7 @@ Scrivito.provideComponent("VimeoVideoWidget", ({ widget }) => {
         allowFullScreen
         webkitallowfullscreen="true"
         mozallowfullscreen="true"
+        loading="lazy"
       />
     </div>
   );

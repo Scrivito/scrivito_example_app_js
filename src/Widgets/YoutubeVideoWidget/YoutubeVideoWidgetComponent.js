@@ -31,6 +31,7 @@ Scrivito.provideComponent("YoutubeVideoWidget", ({ widget }) => {
         allowFullScreen
         webkitallowfullscreen="true"
         mozallowfullscreen="true"
+        loading="lazy"
       />
     </div>
   );

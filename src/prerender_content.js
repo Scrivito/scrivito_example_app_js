@@ -1,6 +1,4 @@
 /* eslint no-console: "off" */
-import "react";
-import "react-dom";
 import "scrivito";
 import filesize from "filesize";
 import "./Objs";

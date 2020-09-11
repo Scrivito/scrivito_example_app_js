@@ -155,7 +155,7 @@ function generateEntry({ isPrerendering }) {
 }
 
 function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
-  const ignorePublicFiles = ["_headersCsp.json"];
+  const ignorePublicFiles = ["**/_headersCsp.json"];
 
   const plugins = [
     new webpack.EnvironmentPlugin({

@@ -68,7 +68,7 @@
     "react-reveal": "^1.2.2",
     "react-slick": "^0.27.10",
     "reactstrap": "^8.5.1",
-    "sass-loader": "^10.0.1",
+    "sass-loader": "^10.0.2",
     "scrivito": "^1.16.0",
     "scroll-to-fragment": "^1.0.7",
     "slick-carousel": "^1.6.0",

@@ -155,7 +155,7 @@ function generateEntry({ isPrerendering }) {
 }
 
 function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
-  const ignorePublicFiles = ["_headersCsp.json"];
+  const ignorePublicFiles = ["**/_headersCsp.json"];
 
   const plugins = [
     new webpack.EnvironmentPlugin({
@@ -164,20 +164,24 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       SCRIVITO_ORIGIN: scrivitoOrigin,
     }),
     new Webpackbar(),
-    new CopyWebpackPlugin([
-      { from: "../public", ignore: ignorePublicFiles },
-      {
-        from: "../public/_headers",
-        transform: (content) => {
-          const csp = builder({ directives: headersCsp });
-          return content.toString().replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "../public", globOptions: { ignore: ignorePublicFiles } },
+        {
+          from: "../public/_headers",
+          transform: (content) => {
+            const csp = builder({ directives: headersCsp });
+            return content
+              .toString()
+              .replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
+          },
         },
-      },
-      {
-        from: "../node_modules/scrivito/scrivito/index.html",
-        to: "scrivito/index.html",
-      },
-    ]),
+        {
+          from: "../node_modules/scrivito/scrivito/index.html",
+          to: "scrivito/index.html",
+        },
+      ],
+    }),
     new MiniCssExtractPlugin({
       filename: "assets/[name].[contenthash].css",
     }),

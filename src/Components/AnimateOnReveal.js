@@ -1,19 +1,18 @@
 import * as React from "react";
-import Zoom from "react-reveal/Zoom";
-import Fade from "react-reveal/Fade";
+import { Slide, Zoom } from "react-awesome-reveal";
 
 function AnimateOnReveal({ animation, children }) {
   switch (animation) {
     case "zoomIn":
       return <Zoom>{children}</Zoom>;
     case "fadeInLeft":
-      return <Fade left>{children}</Fade>;
+      return <Slide direction="left">{children}</Slide>;
     case "fadeInRight":
-      return <Fade right>{children}</Fade>;
+      return <Slide direction="right">{children}</Slide>;
     case "fadeInDown":
-      return <Fade top>{children}</Fade>;
+      return <Slide direction="down">{children}</Slide>;
     case "fadeInUp":
-      return <Fade bottom>{children}</Fade>;
+      return <Slide direction="up">{children}</Slide>;
     default:
       return children;
   }

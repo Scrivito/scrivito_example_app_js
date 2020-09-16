@@ -988,6 +988,11 @@ _:-ms-fullscreen,
   line-height: 20px;
 }
 
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .cookie-button {
   margin: 0;
   padding: 5px 25px;

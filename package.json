@@ -65,7 +65,7 @@
     "react-helmet-async": "^1.0.7",
     "react-highlight-words": "^0.16.0",
     "react-images": "^0.5.19",
-    "react-reveal": "^1.2.2",
+    "react-reveal-iframe": "^1.2.7",
     "react-slick": "^0.27.11",
     "reactstrap": "^8.5.1",
     "sass-loader": "^10.0.2",

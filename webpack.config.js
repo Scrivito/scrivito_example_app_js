@@ -79,6 +79,7 @@ function webpackConfig(env = {}) {
                     },
                   ],
                 ],
+                plugins: ["@babel/plugin-syntax-dynamic-import"],
                 cacheDirectory: "tmp/babel-cache",
               },
             },
@@ -115,7 +116,7 @@ function webpackConfig(env = {}) {
           ? "[name].js"
           : "assets/[name].[contenthash].js";
       },
-
+      chunkFilename: "assets/chunk-[id].[contenthash].js",
       path: path.join(__dirname, buildPath),
     },
     plugins: generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }),

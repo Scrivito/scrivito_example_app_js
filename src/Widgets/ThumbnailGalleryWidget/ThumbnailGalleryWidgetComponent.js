@@ -1,12 +1,14 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import ReactBnbGallery from "react-bnb-gallery";
+import loadable from "@loadable/component";
 
 import fullScreenWidthPixels from "../../utils/fullScreenWidthPixels";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 import TagList from "../../Components/TagList";
 import isImage from "../../utils/isImage";
 import "./ThumbnailGalleryWidget.scss";
+
+const ReactBnbGallery = loadable(() => import("react-bnb-gallery"));
 
 class ThumbnailGalleryComponent extends React.Component {
   constructor(props) {

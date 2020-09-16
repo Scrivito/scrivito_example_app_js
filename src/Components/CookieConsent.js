@@ -39,6 +39,8 @@ class CookieConsent extends React.Component {
         contentClasses="cookie-content d-flex align-items-center"
         buttonClasses="cookie-button btn btn-primary ml-auto mr-2"
         declineButtonClasses="cookie-button btn btn-secondary ml-auto"
+        buttonWrapperClasses="button-wrapper ml-auto"
+        sameSite="strict"
       >
         <div className="cookie-img-box">
           <img

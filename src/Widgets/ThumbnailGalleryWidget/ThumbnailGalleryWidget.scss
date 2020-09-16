@@ -1,3 +1,4 @@
+@import "~react-bnb-gallery/dist/style.css";
 @import "src/assets/stylesheets/variables";
 @import "src/assets/stylesheets/mixins";
 @import "src/assets/stylesheets/bootstrap/functions";
@@ -96,6 +97,18 @@
     max-height: 0;
     max-width: 0;
     opacity: 0;
+  }
+}
+
+.gallery-modal .gallery-modal--container {
+  .gallery-thumbnails--toggle {
+    visibility: hidden;
+  }
+  button.thumbnail-button {
+    border: none;
+  }
+  .photo-caption {
+    color: white;
   }
 }
 

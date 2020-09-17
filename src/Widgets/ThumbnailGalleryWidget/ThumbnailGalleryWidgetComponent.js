@@ -81,6 +81,7 @@ class ThumbnailGalleryComponent extends React.Component {
           </div>
           <ReactBnbGallery
             show={this.state.lightboxIsOpen}
+            backgroundColor="rgba(22,22,22,.9)"
             activePhotoIndex={this.state.currentImage}
             photos={lightboxImages}
             onClose={this.closeLightbox}

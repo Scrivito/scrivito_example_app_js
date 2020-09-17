@@ -166,14 +166,18 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
     new Webpackbar(),
     new CopyWebpackPlugin({
       patterns: [
-        { from: "../public", globOptions: { ignore: ignorePublicFiles } },
         {
-          from: "../public/_headers",
-          transform: (content) => {
-            const csp = builder({ directives: headersCsp });
-            return content
-              .toString()
-              .replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
+          from: "../public",
+          globOptions: { ignore: ignorePublicFiles },
+          transform: (content, absoluteFrom) => {
+            if (absoluteFrom.endsWith("/public/_headers")) {
+              const csp = builder({ directives: headersCsp });
+              return content
+                .toString()
+                .replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
+            }
+
+            return content;
           },
         },
         {

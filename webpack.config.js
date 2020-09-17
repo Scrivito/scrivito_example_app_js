@@ -155,7 +155,7 @@ function generateEntry({ isPrerendering }) {
 }
 
 function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
-  const ignorePublicFiles = ["**/_headersCsp.json"];
+  const ignorePublicFiles = ["**/_headersCsp.json", "**/_headers"];
 
   const plugins = [
     new webpack.EnvironmentPlugin({
@@ -166,18 +166,14 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
     new Webpackbar(),
     new CopyWebpackPlugin({
       patterns: [
+        { from: "../public", globOptions: { ignore: ignorePublicFiles } },
         {
-          from: "../public",
-          globOptions: { ignore: ignorePublicFiles },
-          transform: (content, absoluteFrom) => {
-            if (absoluteFrom.endsWith("/public/_headers")) {
-              const csp = builder({ directives: headersCsp });
-              return content
-                .toString()
-                .replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
-            }
-
-            return content;
+          from: "../public/_headers",
+          transform: (content) => {
+            const csp = builder({ directives: headersCsp });
+            return content
+              .toString()
+              .replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
           },
         },
         {

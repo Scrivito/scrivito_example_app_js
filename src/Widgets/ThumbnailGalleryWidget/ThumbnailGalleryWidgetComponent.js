@@ -1,12 +1,14 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import Lightbox from "react-images";
+import loadable from "@loadable/component";
 
 import fullScreenWidthPixels from "../../utils/fullScreenWidthPixels";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 import TagList from "../../Components/TagList";
 import isImage from "../../utils/isImage";
 import "./ThumbnailGalleryWidget.scss";
+
+const ReactBnbGallery = loadable(() => import("react-bnb-gallery"));
 
 class ThumbnailGalleryComponent extends React.Component {
   constructor(props) {
@@ -19,9 +21,6 @@ class ThumbnailGalleryComponent extends React.Component {
 
     this.openLightbox = this.openLightbox.bind(this);
     this.closeLightbox = this.closeLightbox.bind(this);
-    this.gotoPrevious = this.gotoPrevious.bind(this);
-    this.gotoNext = this.gotoNext.bind(this);
-    this.gotoImage = this.gotoImage.bind(this);
     this.setTag = this.setTag.bind(this);
   }
 
@@ -37,24 +36,6 @@ class ThumbnailGalleryComponent extends React.Component {
     this.setState({
       currentImage: 0,
       lightboxIsOpen: false,
-    });
-  }
-
-  gotoPrevious() {
-    this.setState({
-      currentImage: this.state.currentImage - 1,
-    });
-  }
-
-  gotoNext() {
-    this.setState({
-      currentImage: this.state.currentImage + 1,
-    });
-  }
-
-  gotoImage(index) {
-    this.setState({
-      currentImage: index,
     });
   }
 
@@ -98,17 +79,14 @@ class ThumbnailGalleryComponent extends React.Component {
               />
             ))}
           </div>
-          <Lightbox
-            images={lightboxImages}
-            currentImage={this.state.currentImage}
-            isOpen={this.state.lightboxIsOpen}
-            onClickImage={this.handleClickImage}
-            onClickNext={this.gotoNext}
-            onClickPrev={this.gotoPrevious}
-            onClickThumbnail={this.gotoImage}
+          <ReactBnbGallery
+            show={this.state.lightboxIsOpen}
+            backgroundColor="rgba(22,22,22,.9)"
+            zIndex={1000000} // same value as react-cookie-consent
+            activePhotoIndex={this.state.currentImage}
+            photos={lightboxImages}
             onClose={this.closeLightbox}
-            showThumbnails
-            backdropClosesModal
+            wrap={false}
           />
         </div>
       </div>
@@ -178,7 +156,7 @@ function lightboxOptions(galleryImageWidget) {
   const alt = image.get("alternativeText");
 
   return {
-    src: srcUrl,
+    photo: srcUrl,
     thumbnail: srcUrl,
     caption: [
       galleryImageWidget.get("title"),

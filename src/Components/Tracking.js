@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import { Helmet } from "react-helmet-async";
-import cookieConsentGiven from "../utils/cookieConsentGiven";
+import { cookieConsentGiven } from "../utils/cookieConsentManagement";
 
 export default function Tracking() {
   const [trackingEnabled, setTrackingEnabled] = React.useState(false);

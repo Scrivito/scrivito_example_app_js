@@ -1,47 +1,47 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import ReactCookieConsent, { Cookies } from "react-cookie-consent";
+import {
+  cookieConsentGiven,
+  acceptCookieConsent,
+  cookieConsentUrl,
+  declineCookieConsent,
+  getCookieConsent,
+} from "../utils/cookieConsentManagement";
 import cookieConsentIcon from "../assets/images/cookie_consent_icon.svg";
-import { resolveCookieConsent } from "../utils/cookieConsentGiven";
 
-class CookieConsent extends React.Component {
-  componentDidMount() {
-    if (Cookies.get("CookieConsent") === "true") {
-      resolveCookieConsent();
-    }
+function CookieConsent() {
+  const consentUrl = cookieConsentUrl();
+  const [visible, setVisible] = React.useState(
+    () => getCookieConsent() === "undecided"
+  );
+  React.useEffect(() => {
+    cookieConsentGiven().then(() => {
+      setVisible(false);
+    });
+  }, []);
+
+  if (!consentUrl || !visible) {
+    return null;
   }
 
-  render() {
-    const root = Scrivito.Obj.root();
+  return (
+    <CookieBanner
+      url={consentUrl.url}
+      title={consentUrl.title}
+      onAccept={acceptCookieConsent}
+      onDecline={() => {
+        declineCookieConsent();
 
-    if (!root) {
-      return null;
-    }
+        setVisible(false);
+      }}
+    />
+  );
+}
 
-    const cookieConsentLink = root.get("cookieConsentLink");
-
-    if (!cookieConsentLink) {
-      return null;
-    }
-
-    const cookieConsentLinkUrl = Scrivito.urlFor(cookieConsentLink);
-    const cookieLinkTitle = cookieConsentLink.title() || "Learn more »";
-
-    return (
-      <ReactCookieConsent
-        buttonText="accept"
-        enableDeclineButton
-        declineButtonText="decline"
-        flipButtons
-        disableStyles
-        onAccept={resolveCookieConsent}
-        containerClasses="fixed-bottom cookie-box d-lg-flex d-sm-flex align-items-center"
-        contentClasses="cookie-content d-flex align-items-center"
-        buttonClasses="cookie-button btn btn-primary ml-auto mr-2"
-        declineButtonClasses="cookie-button btn btn-secondary ml-auto"
-        buttonWrapperClasses="button-wrapper ml-auto"
-        sameSite="strict"
-      >
+function CookieBanner(props) {
+  return (
+    <div className="fixed-bottom cookie-box d-lg-flex d-sm-flex align-items-center">
+      <div className="cookie-content d-flex align-items-center">
         <div className="cookie-img-box">
           <img
             className="cookie-img"
@@ -56,17 +56,31 @@ class CookieConsent extends React.Component {
             ensure your experience is consistent between visits.
             <a
               className="cookie-box-link"
-              href={cookieConsentLinkUrl}
+              href={props.url}
               rel="noopener noreferrer"
               target="_blank"
             >
-              {cookieLinkTitle}
+              {props.title}
             </a>
           </div>
         </div>
-      </ReactCookieConsent>
-    );
-  }
+      </div>
+      <div className="button-wrapper ml-auto">
+        <button
+          className="cookie-button btn btn-primary ml-auto mr-2"
+          onClick={props.onAccept}
+        >
+          Accept
+        </button>
+        <button
+          className="cookie-button btn btn-secondary ml-auto"
+          onClick={props.onDecline}
+        >
+          Decline
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export default Scrivito.connect(CookieConsent);

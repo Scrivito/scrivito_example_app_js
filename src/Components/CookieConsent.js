@@ -11,10 +11,11 @@ import cookieConsentIcon from "../assets/images/cookie_consent_icon.svg";
 
 function CookieConsent() {
   const consentUrl = cookieConsentUrl();
-  const [visible, setVisible] = React.useState(
-    () => getCookieConsent() === "undecided"
-  );
+  const [visible, setVisible] = React.useState(false);
+
   React.useEffect(() => {
+    setVisible(getCookieConsent() === "undecided");
+
     cookieConsentGiven().then(() => {
       setVisible(false);
     });

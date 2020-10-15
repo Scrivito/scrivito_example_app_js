@@ -7,7 +7,7 @@ const cookiePromise = new Promise((resolve) => {
   resolveCookie = resolve;
 });
 
-export function resolveCookieConsent() {
+function resolveCookieConsent() {
   if (resolveCookieConsentCalledBefore) {
     return;
   }
@@ -53,6 +53,7 @@ export function acceptCookieConsent() {
 
   resolveCookieConsent();
 }
+
 export function declineCookieConsent() {
   localStorage.setItem("CookieConsent", "declined");
 }

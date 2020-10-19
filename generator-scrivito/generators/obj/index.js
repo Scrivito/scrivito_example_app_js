@@ -8,21 +8,8 @@ module.exports = class extends Generator {
       type: "input",
       name: "objClassName",
       message: "Enter the name of the new Obj class (e.g. FaqPage):",
-      filter(input) {
-        return input.trim();
-      },
-      validate(input) {
-        if (input.length === 0) {
-          return "A name for the object class must be provided";
-        }
-        if (input.charAt(0) !== input.charAt(0).toUpperCase()) {
-          return "The name must start with a capital letter";
-        }
-        if (input.match(/\s/)) {
-          return "The name must not contain spaces";
-        }
-        return true;
-      },
+      filter: (input) => input.trim(),
+      validate: (input) => this._validate(input),
     });
 
     const objClassName = answers.objClassName;
@@ -49,6 +36,19 @@ module.exports = class extends Generator {
       cssClassName,
     });
     this.registerTransformStream(gulpPrettier());
+  }
+
+  _validate(input) {
+    if (input.length === 0) {
+      return "A name for the object class must be provided";
+    }
+    if (input.charAt(0) !== input.charAt(0).toUpperCase()) {
+      return "The name must start with a capital letter";
+    }
+    if (input.match(/\s/)) {
+      return "The name must not contain spaces";
+    }
+    return true;
   }
 
   _generateFile(templatePath, destinationPath, context) {

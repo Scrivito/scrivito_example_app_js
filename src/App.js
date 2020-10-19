@@ -10,26 +10,29 @@ import Navigation from "./Components/Navigation";
 import NotFoundErrorPage from "./Components/NotFoundErrorPage";
 import CookieConsent from "./Components/CookieConsent";
 import Tracking from "./Components/Tracking";
+import { CookieConsentProvider } from "./Components/CookieConsentContext";
 
 export const helmetContext = {};
 
 export default function App() {
   return (
     <ErrorBoundary>
-      <HelmetProvider context={helmetContext}>
-        <div>
-          <div className="content-wrapper">
-            <Navigation />
-            <Scrivito.CurrentPage />
-            <NotFoundErrorPage />
+      <CookieConsentProvider>
+        <HelmetProvider context={helmetContext}>
+          <div>
+            <div className="content-wrapper">
+              <Navigation />
+              <Scrivito.CurrentPage />
+              <NotFoundErrorPage />
+            </div>
+            <Footer />
+            <CurrentPageMetadata />
+            <CookieConsent />
+            <Tracking />
+            <Intercom />
           </div>
-          <Footer />
-          <CurrentPageMetadata />
-          <CookieConsent />
-          <Tracking />
-          <Intercom />
-        </div>
-      </HelmetProvider>
+        </HelmetProvider>
+      </CookieConsentProvider>
     </ErrorBoundary>
   );
 }

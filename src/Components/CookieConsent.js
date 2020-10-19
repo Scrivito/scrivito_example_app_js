@@ -1,27 +1,22 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import {
-  cookieConsentGiven,
-  acceptCookieConsent,
-  cookieConsentUrl,
-  declineCookieConsent,
-  getCookieConsent,
-} from "../utils/cookieConsentManagement";
+import { cookieConsentUrl, CookieConsentContext } from "./CookieConsentContext";
 import cookieConsentIcon from "../assets/images/cookie_consent_icon.svg";
 
 function CookieConsent() {
   const consentUrl = cookieConsentUrl();
   const [visible, setVisible] = React.useState(false);
+  const {
+    cookieConsent,
+    acceptCookieConsent,
+    declineCookieConsent,
+  } = React.useContext(CookieConsentContext);
 
   React.useEffect(() => {
-    setVisible(getCookieConsent() === "undecided");
+    setVisible(cookieConsent === "undecided");
+  }, [cookieConsent]);
 
-    cookieConsentGiven().then(() => {
-      setVisible(false);
-    });
-  }, []);
-
-  if (!consentUrl || !visible) {
+  if (!visible || !consentUrl) {
     return null;
   }
 
@@ -30,11 +25,7 @@ function CookieConsent() {
       url={consentUrl.url}
       title={consentUrl.title}
       onAccept={acceptCookieConsent}
-      onDecline={() => {
-        declineCookieConsent();
-
-        setVisible(false);
-      }}
+      onDecline={declineCookieConsent}
     />
   );
 }

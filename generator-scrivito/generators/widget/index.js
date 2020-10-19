@@ -3,8 +3,8 @@ const lodash = require("lodash");
 const gulpPrettier = require("gulp-prettier");
 
 module.exports = class extends Generator {
-  start() {
-    this.prompt({
+  async start() {
+    const answers = await this.prompt({
       type: "input",
       name: "widgetClassName",
       message: "Enter the name of the new Widget class (e.g. GiphyWidget):",
@@ -23,34 +23,34 @@ module.exports = class extends Generator {
         }
         return true;
       },
-    }).then((answers) => {
-      const widgetClassName = answers.widgetClassName;
-      const folder = `src/Widgets/${widgetClassName}`;
-      const humanFriendlyName = lodash.startCase(
-        widgetClassName.replace(/Widget$/, "")
-      );
-      const cssClassName = lodash.kebabCase(widgetClassName);
-      this._generateFile(
-        "XWidgetClass.js.ejs",
-        `${folder}/${widgetClassName}Class.js`,
-        { widgetClassName }
-      );
-      this._generateFile(
-        "XWidgetEditingConfig.js.ejs",
-        `${folder}/${widgetClassName}EditingConfig.js`,
-        { widgetClassName, humanFriendlyName }
-      );
-      this._generateFile(
-        "XWidgetComponent.js.ejs",
-        `${folder}/${widgetClassName}Component.js`,
-        { widgetClassName, cssClassName }
-      );
-      this._generateFile("X.scss.ejs", `${folder}/${widgetClassName}.scss`, {
-        widgetClassName,
-        cssClassName,
-      });
-      this.registerTransformStream(gulpPrettier());
     });
+
+    const widgetClassName = answers.widgetClassName;
+    const folder = `src/Widgets/${widgetClassName}`;
+    const humanFriendlyName = lodash.startCase(
+      widgetClassName.replace(/Widget$/, "")
+    );
+    const cssClassName = lodash.kebabCase(widgetClassName);
+    this._generateFile(
+      "XWidgetClass.js.ejs",
+      `${folder}/${widgetClassName}Class.js`,
+      { widgetClassName }
+    );
+    this._generateFile(
+      "XWidgetEditingConfig.js.ejs",
+      `${folder}/${widgetClassName}EditingConfig.js`,
+      { widgetClassName, humanFriendlyName }
+    );
+    this._generateFile(
+      "XWidgetComponent.js.ejs",
+      `${folder}/${widgetClassName}Component.js`,
+      { widgetClassName, cssClassName }
+    );
+    this._generateFile("X.scss.ejs", `${folder}/${widgetClassName}.scss`, {
+      widgetClassName,
+      cssClassName,
+    });
+    this.registerTransformStream(gulpPrettier());
   }
 
   _generateFile(templatePath, destinationPath, context) {

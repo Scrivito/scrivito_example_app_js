@@ -3,8 +3,8 @@ const lodash = require("lodash");
 const gulpPrettier = require("gulp-prettier");
 
 module.exports = class extends Generator {
-  start() {
-    this.prompt({
+  async start() {
+    const answers = await this.prompt({
       type: "input",
       name: "objClassName",
       message: "Enter the name of the new Obj class (e.g. FaqPage):",
@@ -23,32 +23,32 @@ module.exports = class extends Generator {
         }
         return true;
       },
-    }).then((answers) => {
-      const objClassName = answers.objClassName;
-      const folder = `src/Objs/${objClassName}`;
-      const humanFriendlyName = lodash.startCase(objClassName);
-      const cssClassName = lodash.kebabCase(objClassName);
-      this._generateFile(
-        "XObjClass.js.ejs",
-        `${folder}/${objClassName}ObjClass.js`,
-        { objClassName }
-      );
-      this._generateFile(
-        "XEditingConfig.js.ejs",
-        `${folder}/${objClassName}EditingConfig.js`,
-        { objClassName, humanFriendlyName }
-      );
-      this._generateFile(
-        "XComponent.js.ejs",
-        `${folder}/${objClassName}Component.js`,
-        { objClassName, cssClassName }
-      );
-      this._generateFile("X.scss.ejs", `${folder}/${objClassName}.scss`, {
-        objClassName,
-        cssClassName,
-      });
-      this.registerTransformStream(gulpPrettier());
     });
+
+    const objClassName = answers.objClassName;
+    const folder = `src/Objs/${objClassName}`;
+    const humanFriendlyName = lodash.startCase(objClassName);
+    const cssClassName = lodash.kebabCase(objClassName);
+    this._generateFile(
+      "XObjClass.js.ejs",
+      `${folder}/${objClassName}ObjClass.js`,
+      { objClassName }
+    );
+    this._generateFile(
+      "XEditingConfig.js.ejs",
+      `${folder}/${objClassName}EditingConfig.js`,
+      { objClassName, humanFriendlyName }
+    );
+    this._generateFile(
+      "XComponent.js.ejs",
+      `${folder}/${objClassName}Component.js`,
+      { objClassName, cssClassName }
+    );
+    this._generateFile("X.scss.ejs", `${folder}/${objClassName}.scss`, {
+      objClassName,
+      cssClassName,
+    });
+    this.registerTransformStream(gulpPrettier());
   }
 
   _generateFile(templatePath, destinationPath, context) {

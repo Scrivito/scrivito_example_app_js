@@ -4,7 +4,7 @@ const gulpPrettier = require("gulp-prettier");
 
 module.exports = class extends Generator {
   async start() {
-    const answers = await this.prompt({
+    const { widgetClassName } = await this.prompt({
       type: "input",
       name: "widgetClassName",
       message: "Enter the name of the new Widget class (e.g. GiphyWidget):",
@@ -12,7 +12,6 @@ module.exports = class extends Generator {
       validate: (input) => this._validate(input),
     });
 
-    const widgetClassName = answers.widgetClassName;
     const folder = `src/Widgets/${widgetClassName}`;
     const humanFriendlyName = lodash.startCase(
       widgetClassName.replace(/Widget$/, "")

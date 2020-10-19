@@ -4,7 +4,7 @@ const gulpPrettier = require("gulp-prettier");
 
 module.exports = class extends Generator {
   async start() {
-    const answers = await this.prompt({
+    const { objClassName } = await this.prompt({
       type: "input",
       name: "objClassName",
       message: "Enter the name of the new Obj class (e.g. FaqPage):",
@@ -12,7 +12,6 @@ module.exports = class extends Generator {
       validate: (input) => this._validate(input),
     });
 
-    const objClassName = answers.objClassName;
     const folder = `src/Objs/${objClassName}`;
     const humanFriendlyName = lodash.startCase(objClassName);
     const cssClassName = lodash.kebabCase(objClassName);

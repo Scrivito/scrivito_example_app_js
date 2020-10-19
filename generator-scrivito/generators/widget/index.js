@@ -3,14 +3,28 @@ const lodash = require("lodash");
 const gulpPrettier = require("gulp-prettier");
 
 module.exports = class extends Generator {
-  async start() {
-    const { widgetClassName } = await this.prompt({
-      type: "input",
-      name: "widgetClassName",
-      message: "Enter the name of the new Widget class (e.g. GiphyWidget):",
-      filter: (input) => input.trim(),
-      validate: (input) => this._validate(input),
+  constructor(args, opts) {
+    super(args, opts);
+
+    this.argument("name", {
+      type: String,
+      required: false,
+      desc: "The name of the new Widget class (e.g. GiphyWidget)",
     });
+  }
+
+  async start() {
+    const { widgetClassName } =
+      this.options.name && this._validate(this.options.name) === true
+        ? { widgetClassName: this.options.name }
+        : await this.prompt({
+            type: "input",
+            name: "widgetClassName",
+            message:
+              "Enter the name of the new Widget class (e.g. GiphyWidget):",
+            filter: (input) => input.trim(),
+            validate: (input) => this._validate(input),
+          });
 
     const folder = `src/Widgets/${widgetClassName}`;
     const humanFriendlyName = lodash.startCase(

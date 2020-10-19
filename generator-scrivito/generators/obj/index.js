@@ -3,14 +3,27 @@ const lodash = require("lodash");
 const gulpPrettier = require("gulp-prettier");
 
 module.exports = class extends Generator {
-  async start() {
-    const { objClassName } = await this.prompt({
-      type: "input",
-      name: "objClassName",
-      message: "Enter the name of the new Obj class (e.g. FaqPage):",
-      filter: (input) => input.trim(),
-      validate: (input) => this._validate(input),
+  constructor(args, opts) {
+    super(args, opts);
+
+    this.argument("name", {
+      type: String,
+      required: false,
+      desc: "The name of the new Obj class (e.g. FaqPage)",
     });
+  }
+
+  async start() {
+    const { objClassName } =
+      this.options.name && this._validate(this.options.name) === true
+        ? { objClassName: this.options.name }
+        : await this.prompt({
+            type: "input",
+            name: "objClassName",
+            message: "Enter the name of the new Obj class (e.g. FaqPage):",
+            filter: (input) => input.trim(),
+            validate: (input) => this._validate(input),
+          });
 
     const folder = `src/Objs/${objClassName}`;
     const humanFriendlyName = lodash.startCase(objClassName);

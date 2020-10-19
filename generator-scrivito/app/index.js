@@ -6,6 +6,12 @@ module.exports = class extends Generator {
     this.log("Welcome to the Scrivito Obj/Widget generator");
   }
 
+  usage() {
+    return `yo scrivito
+  yo scrivito:obj [<name>]
+  yo scrivito:widget [<name>]`;
+  }
+
   async start() {
     const answers = await this.prompt({
       type: "list",

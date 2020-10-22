@@ -17,7 +17,8 @@ export function CookieConsentProvider(props) {
     <CookieConsentContext.Provider
       value={{
         cookieConsentChoice,
-        setCookieConsentChoice: updateCookieConsent,
+        acceptCookieConsent: () => updateCookieConsent("accepted"),
+        declineCookieConsent: () => updateCookieConsent("declined"),
       }}
     >
       {props.children}
@@ -26,15 +27,7 @@ export function CookieConsentProvider(props) {
 }
 
 export function useCookieConsent() {
-  const { cookieConsentChoice, setCookieConsentChoice } = React.useContext(
-    CookieConsentContext
-  );
-
-  return {
-    cookieConsentChoice,
-    acceptCookieConsent: () => setCookieConsentChoice("accepted"),
-    declineCookieConsent: () => setCookieConsentChoice("declined"),
-  };
+  return React.useContext(CookieConsentContext);
 }
 
 function getCookieConsent() {

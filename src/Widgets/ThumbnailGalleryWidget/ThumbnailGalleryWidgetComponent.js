@@ -82,7 +82,7 @@ class ThumbnailGalleryComponent extends React.Component {
           <ReactBnbGallery
             show={this.state.lightboxIsOpen}
             backgroundColor="rgba(22,22,22,.9)"
-            zIndex={1000000} // same value as react-cookie-consent
+            zIndex={1000000} // same value as .cookie-box
             activePhotoIndex={this.state.currentImage}
             photos={lightboxImages}
             onClose={this.closeLightbox}

@@ -8,7 +8,7 @@ import Footer from "./Components/Footer";
 import Intercom from "./Components/Intercom";
 import Navigation from "./Components/Navigation";
 import NotFoundErrorPage from "./Components/NotFoundErrorPage";
-import CookieConsentBanner from "./Components/CookieConsent";
+import CookieConsentBanner from "./Components/CookieConsentBanner";
 import Tracking from "./Components/Tracking";
 import { CookieConsentProvider } from "./Components/CookieConsentContext";
 

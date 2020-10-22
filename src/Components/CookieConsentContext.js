@@ -1,25 +1,23 @@
 import * as React from "react";
-import * as Scrivito from "scrivito";
 
-export const CookieConsentContext = React.createContext({});
+const CookieConsentContext = React.createContext({});
 
 export function CookieConsentProvider(props) {
-  const [cookieConsent, setCookieConsent] = React.useState(() =>
+  const [cookieConsentChoice, setCookieConsentChoice] = React.useState(() =>
     getCookieConsent()
   );
 
   function updateCookieConsent(consent) {
     localStorage.setItem("CookieConsent", consent);
 
-    setCookieConsent(consent);
+    setCookieConsentChoice(consent);
   }
 
   return (
     <CookieConsentContext.Provider
       value={{
-        cookieConsent,
-        acceptCookieConsent: () => updateCookieConsent("accepted"),
-        declineCookieConsent: () => updateCookieConsent("declined"),
+        cookieConsentChoice,
+        setCookieConsentChoice: updateCookieConsent,
       }}
     >
       {props.children}
@@ -27,22 +25,15 @@ export function CookieConsentProvider(props) {
   );
 }
 
-export function cookieConsentUrl() {
-  const root = Scrivito.Obj.root();
-
-  if (!root) {
-    return null;
-  }
-
-  const cookieConsentLink = root.get("cookieConsentLink");
-
-  if (!cookieConsentLink) {
-    return null;
-  }
+export function useCookieConsent() {
+  const { cookieConsentChoice, setCookieConsentChoice } = React.useContext(
+    CookieConsentContext
+  );
 
   return {
-    url: Scrivito.urlFor(cookieConsentLink),
-    title: cookieConsentLink.title() || "Learn more »",
+    cookieConsentChoice,
+    acceptCookieConsent: () => setCookieConsentChoice("accepted"),
+    declineCookieConsent: () => setCookieConsentChoice("declined"),
   };
 }
 

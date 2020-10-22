@@ -8,7 +8,7 @@ import Footer from "./Components/Footer";
 import Intercom from "./Components/Intercom";
 import Navigation from "./Components/Navigation";
 import NotFoundErrorPage from "./Components/NotFoundErrorPage";
-import CookieConsent from "./Components/CookieConsent";
+import CookieConsentBanner from "./Components/CookieConsent";
 import Tracking from "./Components/Tracking";
 import { CookieConsentProvider } from "./Components/CookieConsentContext";
 
@@ -27,7 +27,7 @@ export default function App() {
             </div>
             <Footer />
             <CurrentPageMetadata />
-            <CookieConsent />
+            <CookieConsentBanner />
             <Tracking />
             <Intercom />
           </div>

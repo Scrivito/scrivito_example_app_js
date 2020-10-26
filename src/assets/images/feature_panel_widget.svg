@@ -7,10 +7,10 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="feature_panel">
             <g id="Group" transform="translate(28.000000, 35.000000)">
-                <rect id="Rectangle" fill="#FF6B6B" x="24" y="4" width="71" height="9"></rect>
-                <path d="M24.9285714,20 L75.1058083,20" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
-                <path d="M24.9210526,27 L58.1300775,27" id="Line" stroke="#FF6B6B" stroke-linecap="square"></path>
-                <polyline id="Path-4" stroke="#FF6B6B" points="0 11.25 5.625 15 15 0"></polyline>
+                <rect id="Rectangle" fill="#aaaaaa" x="24" y="4" width="71" height="9"></rect>
+                <path d="M24.9285714,20 L75.1058083,20" id="Line" stroke="#aaaaaa" stroke-linecap="square"></path>
+                <path d="M24.9210526,27 L58.1300775,27" id="Line" stroke="#aaaaaa" stroke-linecap="square"></path>
+                <polyline id="Path-4" stroke="#aaaaaa" points="0 11.25 5.625 15 15 0"></polyline>
             </g>
         </g>
     </g>

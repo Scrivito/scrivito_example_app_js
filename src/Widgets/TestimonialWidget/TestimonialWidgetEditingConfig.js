@@ -1,8 +1,10 @@
 import * as Scrivito from "scrivito";
 import { truncate } from "lodash-es";
+import testimonialWidgetIcon from "../../assets/images/testimonial_widget.svg";
 
 Scrivito.provideEditingConfig("TestimonialWidget", {
   title: "Testimonial",
+  thumbnail: testimonialWidgetIcon,
   attributes: {
     testimonial: {
       title: "Testimonial",

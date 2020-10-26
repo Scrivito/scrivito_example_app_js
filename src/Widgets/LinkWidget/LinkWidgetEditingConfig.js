@@ -1,7 +1,9 @@
 import * as Scrivito from "scrivito";
+import linkWidgetIcon from "../../assets/images/link_widget.svg";
 
 Scrivito.provideEditingConfig("LinkWidget", {
   title: "Link List item",
+  thumbnail: linkWidgetIcon,
   attributes: {
     link: {
       title: "Link",

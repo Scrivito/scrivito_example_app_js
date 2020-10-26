@@ -7,28 +7,26 @@ import "./GoogleMapsWidget.scss";
 
 const maxWidth = 640;
 
-class GoogleMapsWidgetComponent extends React.Component {
-  render() {
-    const address =
-      this.props.widget.get("address") || "Brandenburg Gate, Berlin, Germany";
-    const zoom = this.props.widget.get("zoom") || "15";
-    const apiKey = googleMapsApiKey();
-    const mapType = this.props.widget.get("mapType") || "static";
+function GoogleMapsWidgetComponent(props) {
+  const address =
+    props.widget.get("address") || "Brandenburg Gate, Berlin, Germany";
+  const zoom = props.widget.get("zoom") || "15";
+  const apiKey = googleMapsApiKey();
+  const mapType = props.widget.get("mapType") || "static";
 
-    if (mapType === "static") {
-      return (
-        <StaticMap address={address} zoom={zoom} apiKey={apiKey}>
-          <Widgets widget={this.props.widget} mapType={mapType} />
-        </StaticMap>
-      );
-    }
-
+  if (mapType === "static") {
     return (
-      <InteractiveMap address={address} zoom={zoom} apiKey={apiKey}>
-        <Widgets widget={this.props.widget} mapType={mapType} />
-      </InteractiveMap>
+      <StaticMap address={address} zoom={zoom} apiKey={apiKey}>
+        <Widgets widget={props.widget} mapType={mapType} />
+      </StaticMap>
     );
   }
+
+  return (
+    <InteractiveMap address={address} zoom={zoom} apiKey={apiKey}>
+      <Widgets widget={props.widget} mapType={mapType} />
+    </InteractiveMap>
+  );
 }
 
 function InteractiveMap({ address, apiKey, zoom, children }) {

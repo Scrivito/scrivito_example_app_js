@@ -56,6 +56,37 @@ function StaticMap({ address, apiKey, zoom, children }) {
   const ref = React.useRef(null);
 
   React.useEffect(() => {
+    function handleResize() {
+      const currentRef = ref.current;
+
+      if (currentRef) {
+        const elementWidth = currentRef.offsetWidth;
+        const elementHeight = currentRef.offsetHeight;
+
+        if (
+          mapBoundary.elementWidth !== elementWidth ||
+          mapBoundary.elementHeight !== elementHeight
+        ) {
+          let width = elementWidth;
+          let height = elementHeight;
+
+          if (width > maxWidth) {
+            width = maxWidth;
+
+            const factor = elementHeight / elementWidth;
+            height = Math.round(maxWidth * factor);
+          }
+
+          setMapBoundary({
+            elementHeight,
+            elementWidth,
+            height,
+            width,
+          });
+        }
+      }
+    }
+
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -63,38 +94,7 @@ function StaticMap({ address, apiKey, zoom, children }) {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
-
-  function handleResize() {
-    const currentRef = ref.current;
-
-    if (currentRef) {
-      const elementWidth = currentRef.offsetWidth;
-      const elementHeight = currentRef.offsetHeight;
-
-      if (
-        mapBoundary.elementWidth !== elementWidth ||
-        mapBoundary.elementHeight !== elementHeight
-      ) {
-        let width = elementWidth;
-        let height = elementHeight;
-
-        if (width > maxWidth) {
-          width = maxWidth;
-
-          const factor = elementHeight / elementWidth;
-          height = Math.round(maxWidth * factor);
-        }
-
-        setMapBoundary({
-          elementHeight,
-          elementWidth,
-          height,
-          width,
-        });
-      }
-    }
-  }
+  }, [mapBoundary]);
 
   return (
     <div
@@ -103,7 +103,8 @@ function StaticMap({ address, apiKey, zoom, children }) {
       style={{
         background: "no-repeat center / cover",
         backgroundImage: `url(${getMapUrl({
-          boundary: mapBoundary,
+          width: mapBoundary.width,
+          height: mapBoundary.height,
           address,
           apiKey,
           zoom,
@@ -115,15 +116,15 @@ function StaticMap({ address, apiKey, zoom, children }) {
   );
 }
 
-function getMapUrl({ boundary, address, apiKey, zoom }) {
-  if (!boundary.height || !boundary.width) {
+function getMapUrl({ width, height, address, apiKey, zoom }) {
+  if (!height || !width) {
     // wait for the real height/width to not consume to much rate from google.
     return "";
   }
 
   // See all options at https://developers.google.com/maps/documentation/static-maps/intro
   const params = {
-    size: `${boundary.width}x${boundary.height}`,
+    size: `${width}x${height}`,
     scale: 2, // with scale 2 google maps allows more pixels.
     markers: `color:red|${address}`,
     zoom,

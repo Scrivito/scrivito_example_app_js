@@ -7,25 +7,18 @@ import "./GoogleMapsWidget.scss";
 
 const maxWidth = 640;
 
-function GoogleMapsWidgetComponent(props) {
-  const address =
-    props.widget.get("address") || "Brandenburg Gate, Berlin, Germany";
-  const zoom = props.widget.get("zoom") || "15";
+function GoogleMapsWidgetComponent({ widget }) {
+  const address = widget.get("address") || "Brandenburg Gate, Berlin, Germany";
+  const zoom = widget.get("zoom") || "15";
   const apiKey = googleMapsApiKey();
-  const mapType = props.widget.get("mapType") || "static";
+  const mapType = widget.get("mapType") || "static";
 
-  if (mapType === "static") {
-    return (
-      <StaticMap address={address} zoom={zoom} apiKey={apiKey}>
-        <Widgets widget={props.widget} mapType={mapType} />
-      </StaticMap>
-    );
-  }
+  const Map = mapType === "static" ? StaticGoogleMap : InteractiveGoogleMap;
 
   return (
-    <InteractiveMap address={address} zoom={zoom} apiKey={apiKey}>
-      <Widgets widget={props.widget} mapType={mapType} />
-    </InteractiveMap>
+    <Map address={address} zoom={zoom} apiKey={apiKey}>
+      <Widgets widget={widget} mapType={mapType} />
+    </Map>
   );
 }
 
@@ -118,7 +111,7 @@ function StaticGoogleMap({ address, apiKey, zoom, children }) {
 
 function getMapUrl({ width, height, address, apiKey, zoom }) {
   if (!height || !width) {
-    // wait for the real height/width to not consume to much rate from google.
+    // wait for the real height/width to not consume too much rate from google.
     return "";
   }
 

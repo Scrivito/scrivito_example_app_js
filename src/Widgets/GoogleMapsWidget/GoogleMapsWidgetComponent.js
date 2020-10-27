@@ -29,7 +29,7 @@ function GoogleMapsWidgetComponent(props) {
   );
 }
 
-function InteractiveMap({ address, apiKey, zoom, children }) {
+function InteractiveGoogleMap({ address, apiKey, zoom, children }) {
   const url = `https://www.google.com/maps/embed/v1/place?q=${address}&key=${apiKey}&zoom=${zoom}`;
   return (
     <div className="google-maps-widget">
@@ -45,8 +45,8 @@ function InteractiveMap({ address, apiKey, zoom, children }) {
   );
 }
 
-function StaticMap({ address, apiKey, zoom, children }) {
-  const [mapBoundary, setMapBoundary] = React.useState({
+function StaticGoogleMap({ address, apiKey, zoom, children }) {
+  const [mapSize, setMapSize] = React.useState({
     elementHeight: 0,
     elementWidth: 0,
     height: null,
@@ -64,8 +64,8 @@ function StaticMap({ address, apiKey, zoom, children }) {
         const elementHeight = currentRef.offsetHeight;
 
         if (
-          mapBoundary.elementWidth !== elementWidth ||
-          mapBoundary.elementHeight !== elementHeight
+          mapSize.elementWidth !== elementWidth ||
+          mapSize.elementHeight !== elementHeight
         ) {
           let width = elementWidth;
           let height = elementHeight;
@@ -77,7 +77,7 @@ function StaticMap({ address, apiKey, zoom, children }) {
             height = Math.round(maxWidth * factor);
           }
 
-          setMapBoundary({
+          setMapSize({
             elementHeight,
             elementWidth,
             height,
@@ -94,7 +94,7 @@ function StaticMap({ address, apiKey, zoom, children }) {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [mapBoundary]);
+  }, [mapSize]);
 
   return (
     <div
@@ -103,8 +103,8 @@ function StaticMap({ address, apiKey, zoom, children }) {
       style={{
         background: "no-repeat center / cover",
         backgroundImage: `url(${getMapUrl({
-          width: mapBoundary.width,
-          height: mapBoundary.height,
+          width: mapSize.width,
+          height: mapSize.height,
           address,
           apiKey,
           zoom,

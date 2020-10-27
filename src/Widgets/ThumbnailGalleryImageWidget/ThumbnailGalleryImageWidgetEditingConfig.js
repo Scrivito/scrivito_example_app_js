@@ -1,7 +1,9 @@
 import * as Scrivito from "scrivito";
+import thumbnailGalleryImageWidgetIcon from "../../assets/images/thumbnail_gallery_image_widget.svg";
 
 Scrivito.provideEditingConfig("ThumbnailGalleryImageWidget", {
   title: "Thumbnail Gallery Image",
+  thumbnail: thumbnailGalleryImageWidgetIcon,
   attributes: {
     image: {
       title: "Image",

@@ -7,7 +7,7 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="button">
             <g id="Group" transform="translate(32.000000, 40.000000)">
-                <rect id="Rectangle" fill="#FF6B6B" x="0" y="0" width="87" height="21"></rect>
+                <rect id="Rectangle" fill="#aaaaaa" x="0" y="0" width="87" height="21"></rect>
                 <rect id="Rectangle-2" fill="#FFFFFF" x="19" y="8" width="49" height="6"></rect>
             </g>
         </g>

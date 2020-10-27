@@ -1,7 +1,9 @@
 import * as Scrivito from "scrivito";
+import tickListItemWidgetIcon from "../../assets/images/tick_list_item_widget.svg";
 
 Scrivito.provideEditingConfig("TickListItemWidget", {
   title: "Tick List Item",
+  thumbnail: tickListItemWidgetIcon,
   initialContent: {
     statement: "Lorem ipsum",
   },

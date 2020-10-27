@@ -13,54 +13,54 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="table">
             <g id="Group" transform="translate(35.000000, 25.000000)">
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="0.5" y="11.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="0.5" y="19.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="0.5" y="11.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="0.5" y="19.5" width="16" height="8"></rect>
                 <g id="Rectangle-3">
-                    <use fill="#FF6B6B" fill-rule="evenodd" xlink:href="#path-1"></use>
-                    <rect stroke="#FF6B6B" stroke-width="1" x="-0.5" y="-0.5" width="17" height="11"></rect>
+                    <use fill="#aaaaaa" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <rect stroke="#aaaaaa" stroke-width="1" x="-0.5" y="-0.5" width="17" height="11"></rect>
                     <rect stroke="#FFFFFF" stroke-width="1" x="-0.5" y="-0.5" width="17" height="11"></rect>
                 </g>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="16.5" y="11.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="16.5" y="19.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="16.5" y="11.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="16.5" y="19.5" width="16" height="8"></rect>
                 <g id="Rectangle-3">
-                    <use fill="#FF6B6B" fill-rule="evenodd" xlink:href="#path-2"></use>
-                    <rect stroke="#FF6B6B" stroke-width="1" x="16.5" y="-0.5" width="16" height="11"></rect>
+                    <use fill="#aaaaaa" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    <rect stroke="#aaaaaa" stroke-width="1" x="16.5" y="-0.5" width="16" height="11"></rect>
                     <rect stroke="#FFFFFF" stroke-width="1" x="16.5" y="-0.5" width="16" height="11"></rect>
                 </g>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="32.5" y="11.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="32.5" y="19.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="32.5" y="11.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="32.5" y="19.5" width="16" height="8"></rect>
                 <g id="Rectangle-3">
-                    <use fill="#FF6B6B" fill-rule="evenodd" xlink:href="#path-3"></use>
-                    <rect stroke="#FF6B6B" stroke-width="1" x="32.5" y="-0.5" width="16" height="11"></rect>
+                    <use fill="#aaaaaa" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    <rect stroke="#aaaaaa" stroke-width="1" x="32.5" y="-0.5" width="16" height="11"></rect>
                     <rect stroke="#FFFFFF" stroke-width="1" x="32.5" y="-0.5" width="16" height="11"></rect>
                 </g>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="48.5" y="11.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="48.5" y="19.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="48.5" y="11.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="48.5" y="19.5" width="16" height="8"></rect>
                 <g id="Rectangle-3">
-                    <use fill="#FF6B6B" fill-rule="evenodd" xlink:href="#path-4"></use>
-                    <rect stroke="#FF6B6B" stroke-width="1" x="48.5" y="-0.5" width="16" height="11"></rect>
+                    <use fill="#aaaaaa" fill-rule="evenodd" xlink:href="#path-4"></use>
+                    <rect stroke="#aaaaaa" stroke-width="1" x="48.5" y="-0.5" width="16" height="11"></rect>
                     <rect stroke="#FFFFFF" stroke-width="1" x="48.5" y="-0.5" width="16" height="11"></rect>
                 </g>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="64.5" y="11.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="64.5" y="19.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="0.5" y="27.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="16.5" y="27.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="32.5" y="27.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="48.5" y="27.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="64.5" y="27.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="0.5" y="43.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="16.5" y="43.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="32.5" y="43.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="48.5" y="43.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="64.5" y="43.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="0.5" y="35.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="16.5" y="35.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="32.5" y="35.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="48.5" y="35.5" width="16" height="8"></rect>
-                <rect id="Rectangle-3" stroke="#FF6B6B" stroke-linecap="square" x="64.5" y="35.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="64.5" y="11.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="64.5" y="19.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="0.5" y="27.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="16.5" y="27.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="32.5" y="27.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="48.5" y="27.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="64.5" y="27.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="0.5" y="43.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="16.5" y="43.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="32.5" y="43.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="48.5" y="43.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="64.5" y="43.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="0.5" y="35.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="16.5" y="35.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="32.5" y="35.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="48.5" y="35.5" width="16" height="8"></rect>
+                <rect id="Rectangle-3" stroke="#aaaaaa" stroke-linecap="square" x="64.5" y="35.5" width="16" height="8"></rect>
                 <g id="Rectangle-3">
-                    <use fill="#FF6B6B" fill-rule="evenodd" xlink:href="#path-5"></use>
-                    <rect stroke="#FF6B6B" stroke-width="1" x="64.5" y="-0.5" width="17" height="11"></rect>
+                    <use fill="#aaaaaa" fill-rule="evenodd" xlink:href="#path-5"></use>
+                    <rect stroke="#aaaaaa" stroke-width="1" x="64.5" y="-0.5" width="17" height="11"></rect>
                     <rect stroke="#FFFFFF" stroke-width="1" x="64.5" y="-0.5" width="17" height="11"></rect>
                 </g>
             </g>

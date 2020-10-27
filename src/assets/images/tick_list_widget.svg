@@ -6,12 +6,12 @@
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="ticklist">
-            <rect id="Rectangle" fill="#FF6B6B" x="53" y="32" width="64" height="8"></rect>
-            <rect id="Rectangle" fill="#FF6B6B" x="53" y="47" width="64" height="8"></rect>
-            <rect id="Rectangle" fill="#FF6B6B" x="53" y="62" width="64" height="8"></rect>
-            <polyline id="Path-4" stroke="#FF6B6B" points="34 68.5 37.75 71 44 61"></polyline>
-            <polyline id="Path-4" stroke="#FF6B6B" points="34 52.5 37.75 55 44 45"></polyline>
-            <polyline id="Path-4" stroke="#FF6B6B" points="34 37.5 37.75 40 44 30"></polyline>
+            <rect id="Rectangle" fill="#aaaaaa" x="53" y="32" width="64" height="8"></rect>
+            <rect id="Rectangle" fill="#aaaaaa" x="53" y="47" width="64" height="8"></rect>
+            <rect id="Rectangle" fill="#aaaaaa" x="53" y="62" width="64" height="8"></rect>
+            <polyline id="Path-4" stroke="#aaaaaa" points="34 68.5 37.75 71 44 61"></polyline>
+            <polyline id="Path-4" stroke="#aaaaaa" points="34 52.5 37.75 55 44 45"></polyline>
+            <polyline id="Path-4" stroke="#aaaaaa" points="34 37.5 37.75 40 44 30"></polyline>
         </g>
     </g>
 </svg>

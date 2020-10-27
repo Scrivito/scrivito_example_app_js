@@ -9,10 +9,10 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="iconfont">
             <g id="Group" transform="translate(48.000000, 18.000000)">
-                <rect id="Rectangle-10" stroke="#FF6B6B" stroke-width="2" x="-1" y="12" width="56" height="38"></rect>
+                <rect id="Rectangle-10" stroke="#aaaaaa" stroke-width="2" x="-1" y="12" width="56" height="38"></rect>
                 <g id="Path-5">
                     <use stroke="#FFFFFF" stroke-width="5" xlink:href="#path-1"></use>
-                    <use stroke="#FF6B6B" stroke-width="1" xlink:href="#path-1"></use>
+                    <use stroke="#aaaaaa" stroke-width="1" xlink:href="#path-1"></use>
                 </g>
             </g>
         </g>

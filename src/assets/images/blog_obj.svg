@@ -15,7 +15,7 @@
             <path d="M88.38,37 L106.62,37" id="Line" stroke="#aaaaaa" stroke-linecap="square"></path>
             <path d="M88.38,71 L106.62,71" id="Line" stroke="#aaaaaa" stroke-linecap="square"></path>
             <path d="M88.3709677,41 L110.629032,41" id="Line" stroke="#aaaaaa" stroke-linecap="square"></path>
-            <path d="M88.3709677,75 L110.629032,75" id="Line" stroke="#FF6aaaaaaB6B" stroke-linecap="square"></path>
+            <path d="M88.3709677,75 L110.629032,75" id="Line" stroke="#aaaaaa" stroke-linecap="square"></path>
             <rect id="Rectangle-11" stroke="#aaaaaa" stroke-linecap="square" x="22.5" y="33.5" width="45" height="27"></rect>
             <rect id="Rectangle" fill="#aaaaaa" x="28" y="39" width="32" height="4"></rect>
             <path d="M28.375,47 L54.625,47" id="Line" stroke="#aaaaaa" stroke-linecap="square"></path>

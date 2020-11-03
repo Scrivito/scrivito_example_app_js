@@ -15,7 +15,7 @@ class SearchResultsComponent extends React.Component {
   }
 
   calculateResults() {
-    if (!this.props.params.q) {
+    if (!this.query()) {
       return {
         searchResults: [],
         totalCount: 0,
@@ -23,11 +23,11 @@ class SearchResultsComponent extends React.Component {
       };
     }
 
-    let search = Scrivito.Obj.where(
-      "*",
-      "containsPrefix",
-      this.props.params.q
-    ).andNot("_objClass", "equals", blacklistObjClasses);
+    let search = Scrivito.Obj.where("*", "containsPrefix", this.query()).andNot(
+      "_objClass",
+      "equals",
+      blacklistObjClasses
+    );
 
     // make sure, that tags are calculated _before_ limiting to specific tag.
     const tags = search.facet("tags").map((tag) => tag.name());
@@ -65,7 +65,7 @@ class SearchResultsComponent extends React.Component {
             {searchResults.map((resultItem, index) => (
               <SearchResultItem
                 resultItem={resultItem}
-                q={this.props.params.q}
+                q={this.query()}
                 key={index}
               />
             ))}
@@ -84,6 +84,10 @@ class SearchResultsComponent extends React.Component {
 
   incrementMaxItems() {
     this.setState({ maxItems: this.state.maxItems + 10 });
+  }
+
+  query() {
+    return this.props.params.q.trim();
   }
 }
 

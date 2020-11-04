@@ -64,17 +64,14 @@ function StaticGoogleMap({ address, apiKey, zoom, children }) {
 }
 
 function scaleMapSize(width, height) {
-  let newWidth = width;
-  let newHeight = height;
-
-  if (newWidth > maxWidth) {
-    newWidth = maxWidth;
-
+  if (width > maxWidth) {
     const factor = height / width;
-    newHeight = Math.round(maxWidth * factor);
+    const adjustedHeight = Math.round(maxWidth * factor);
+
+    return { width: maxWidth, height: adjustedHeight };
   }
 
-  return { width: newWidth, height: newHeight };
+  return { width, height };
 }
 
 function getMapUrl({ width, height, address, apiKey, zoom }) {

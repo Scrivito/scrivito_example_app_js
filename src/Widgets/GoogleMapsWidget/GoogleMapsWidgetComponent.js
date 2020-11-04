@@ -64,6 +64,10 @@ function StaticGoogleMap({ address, apiKey, zoom, children }) {
 }
 
 function scaleMapSize(width, height) {
+  if (!width || !height) {
+    return { width, height };
+  }
+
   if (width > maxWidth) {
     const factor = height / width;
     const adjustedHeight = Math.round(maxWidth * factor);

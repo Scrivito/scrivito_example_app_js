@@ -40,8 +40,12 @@ function InteractiveGoogleMap({ address, apiKey, zoom, children }) {
 }
 
 function StaticGoogleMap({ address, apiKey, zoom, children }) {
-  const { ref, width = null, height = null } = useResizeObserver();
-  const scaledMapSize = scaleMapSize(width, height);
+  const {
+    ref,
+    width: elementWidth = null,
+    height: elementHeight = null,
+  } = useResizeObserver();
+  const { width, height } = scaleMapSize(elementWidth, elementHeight);
 
   return (
     <div
@@ -50,8 +54,8 @@ function StaticGoogleMap({ address, apiKey, zoom, children }) {
       style={{
         background: "no-repeat center / cover",
         backgroundImage: `url(${getMapUrl({
-          width: scaledMapSize.width,
-          height: scaledMapSize.height,
+          width,
+          height,
           address,
           apiKey,
           zoom,
@@ -64,18 +68,14 @@ function StaticGoogleMap({ address, apiKey, zoom, children }) {
 }
 
 function scaleMapSize(width, height) {
-  if (!width || !height) {
+  if (!width || !height || width <= maxWidth) {
     return { width, height };
   }
 
-  if (width > maxWidth) {
-    const factor = height / width;
-    const adjustedHeight = Math.round(maxWidth * factor);
+  const factor = height / width;
+  const adjustedHeight = Math.round(maxWidth * factor);
 
-    return { width: maxWidth, height: adjustedHeight };
-  }
-
-  return { width, height };
+  return { width: maxWidth, height: adjustedHeight };
 }
 
 function getMapUrl({ width, height, address, apiKey, zoom }) {

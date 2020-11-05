@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+import useResizeObserver from "use-resize-observer";
 
 import googleMapsApiKey from "../../utils/googleMapsApiKey";
 import googleMapsImageUrl from "../../utils/googleMapsImageUrl";
@@ -39,55 +40,12 @@ function InteractiveGoogleMap({ address, apiKey, zoom, children }) {
 }
 
 function StaticGoogleMap({ address, apiKey, zoom, children }) {
-  const [mapSize, setMapSize] = React.useState({
-    elementHeight: 0,
-    elementWidth: 0,
-    height: null,
-    width: null,
-  });
-
-  const ref = React.useRef(null);
-
-  React.useEffect(() => {
-    function handleResize() {
-      const currentRef = ref.current;
-
-      if (currentRef) {
-        const elementWidth = currentRef.offsetWidth;
-        const elementHeight = currentRef.offsetHeight;
-
-        if (
-          mapSize.elementWidth !== elementWidth ||
-          mapSize.elementHeight !== elementHeight
-        ) {
-          let width = elementWidth;
-          let height = elementHeight;
-
-          if (width > maxWidth) {
-            width = maxWidth;
-
-            const factor = elementHeight / elementWidth;
-            height = Math.round(maxWidth * factor);
-          }
-
-          setMapSize({
-            elementHeight,
-            elementWidth,
-            height,
-            width,
-          });
-        }
-      }
-    }
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [mapSize]);
+  const {
+    ref,
+    width: elementWidth = null,
+    height: elementHeight = null,
+  } = useResizeObserver();
+  const { width, height } = scaleMapSize(elementWidth, elementHeight);
 
   return (
     <div
@@ -96,8 +54,8 @@ function StaticGoogleMap({ address, apiKey, zoom, children }) {
       style={{
         background: "no-repeat center / cover",
         backgroundImage: `url(${getMapUrl({
-          width: mapSize.width,
-          height: mapSize.height,
+          width,
+          height,
           address,
           apiKey,
           zoom,
@@ -107,6 +65,17 @@ function StaticGoogleMap({ address, apiKey, zoom, children }) {
       {children}
     </div>
   );
+}
+
+function scaleMapSize(width, height) {
+  if (!width || !height || width <= maxWidth) {
+    return { width, height };
+  }
+
+  const factor = height / width;
+  const adjustedHeight = Math.round(maxWidth * factor);
+
+  return { width: maxWidth, height: adjustedHeight };
 }
 
 function getMapUrl({ width, height, address, apiKey, zoom }) {

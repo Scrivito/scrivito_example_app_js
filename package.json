@@ -76,7 +76,7 @@
     "typescript": "^4.0.5",
     "use-resize-observer": "^6.1.0",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0",
     "webpack-manifest-plugin": "^2.2.0",
     "webpackbar": "^5.0.0-3",

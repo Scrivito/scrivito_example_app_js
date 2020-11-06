@@ -24,7 +24,7 @@
     "content-security-policy-builder": "^2.1.0",
     "copy-webpack-plugin": "^6.3.0",
     "core-js": "^3.6.5",
-    "css-loader": "^4.3.0",
+    "css-loader": "^5.0.1",
     "dateformat": "^3.0.3",
     "dotenv": "^8.2.0",
     "es-check": "^5.1.2",

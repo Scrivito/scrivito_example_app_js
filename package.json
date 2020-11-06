@@ -44,7 +44,7 @@
     "file-loader": "^6.2.0",
     "filesize": "^6.1.0",
     "fs-extra": "^9.0.1",
-    "fuse.js": "^6.4.2",
+    "fuse.js": "^6.4.3",
     "generator-scrivito": "file:generator-scrivito",
     "history": "^4.10.1",
     "html-webpack-plugin": "^4.5.0",

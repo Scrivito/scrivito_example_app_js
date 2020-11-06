@@ -79,7 +79,7 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-manifest-plugin": "^2.2.0",
-    "webpackbar": "^4.0.0",
+    "webpackbar": "^5.0.0-3",
     "zip-webpack-plugin": "^3.0.0"
   },
   "scripts": {

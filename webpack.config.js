@@ -26,8 +26,7 @@ if (endpoint) {
 const buildPath = "build";
 
 function webpackConfig(env = {}) {
-  // see https://github.com/webpack/webpack/issues/2537 for details
-  const isProduction = process.argv.indexOf("-p") !== -1 || env.production;
+  const isProduction = env.production;
   const isPrerendering = process.env.SCRIVITO_PRERENDER;
 
   if (
@@ -126,6 +125,7 @@ function webpackConfig(env = {}) {
     },
     devServer: {
       port: 8080,
+      open: true,
       stats: "minimal",
       historyApiFallback: {
         rewrites: [

@@ -76,16 +76,16 @@
     "typescript": "^4.0.5",
     "use-resize-observer": "^6.1.0",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0",
     "webpack-manifest-plugin": "^2.2.0",
     "webpackbar": "^5.0.0-3",
     "zip-webpack-plugin": "^3.0.0"
   },
   "scripts": {
-    "build": "webpack -p",
+    "build": "webpack --env production",
     "prerender": "SCRIVITO_PRERENDER=true npm run build && node prerender/storePrerenderedContent.js",
-    "start": "webpack-dev-server --open",
+    "start": "webpack serve",
     "eslint": "eslint --max-warnings 0 src/ prerender/",
     "es-check": "npm run build && es-check es5 --not=build/assets/scrivito_extensions. './build/**/*.js'"
   }

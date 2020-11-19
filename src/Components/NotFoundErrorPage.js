@@ -52,10 +52,10 @@ class NotFoundErrorPage extends React.Component {
 
 const ConnectedNotFoundErrorPage = Scrivito.connect(NotFoundErrorPage);
 
-export default () => {
+export default function WrappedNotFoundErrorPage() {
   return (
     <Scrivito.NotFoundErrorPage>
       <ConnectedNotFoundErrorPage />
     </Scrivito.NotFoundErrorPage>
   );
-};
+}

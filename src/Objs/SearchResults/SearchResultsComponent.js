@@ -87,7 +87,7 @@ class SearchResultsComponent extends React.Component {
   }
 
   query() {
-    return this.props.params.q.trim();
+    return this.props.params.q ? this.props.params.q.trim() : "";
   }
 }
 

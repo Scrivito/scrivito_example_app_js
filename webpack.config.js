@@ -127,13 +127,7 @@ function webpackConfig(env = {}) {
       port: 8080,
       open: true,
       stats: "minimal",
-      historyApiFallback: {
-        rewrites: [
-          { from: /^\/scrivito$/, to: "/scrivito/index.html" },
-          { from: /^\/scrivito\//, to: "/scrivito/index.html" },
-          { from: /./, to: "/catch_all_index.html" },
-        ],
-      },
+      historyApiFallback: { index: "/catch_all_index.html" },
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-Security-Policy": devServerCspHeader(),
@@ -175,10 +169,6 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
               .toString()
               .replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
           },
-        },
-        {
-          from: "../node_modules/scrivito/scrivito/index.html",
-          to: "scrivito/index.html",
         },
       ],
     }),

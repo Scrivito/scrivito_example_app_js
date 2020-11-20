@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const config = { tenant: process.env.SCRIVITO_TENANT };
+const config = { tenant: process.env.SCRIVITO_TENANT, adoptUi: true };
 
 if (process.env.SCRIVITO_ORIGIN) {
   config.origin = process.env.SCRIVITO_ORIGIN;

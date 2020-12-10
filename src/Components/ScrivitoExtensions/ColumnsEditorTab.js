@@ -393,9 +393,9 @@ function adjustNumberOfColumns(containerWidget, desiredLength) {
     return;
   }
 
-  const newColumns = times(desiredLength).map((index) => {
-    return columns[index] || new ColumnWidget({});
-  });
+  const newColumns = times(desiredLength).map(
+    (index) => columns[index] || new ColumnWidget({})
+  );
 
   // store results, to receive IDs for new ColumnWidgets
   containerWidget.update({ columns: newColumns });

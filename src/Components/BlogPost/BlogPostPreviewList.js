@@ -76,34 +76,32 @@ const PostsTimeline = Scrivito.connect(({ posts }) => (
   </ul>
 ));
 
-const BlogPostPreview = Scrivito.connect(({ post }) => {
-  return (
-    <li>
-      <BlogPostDate post={post} />
-      <div className="blog-timeline--panel">
-        <div className="blog-timeline--body">
-          <BlogPostTitleImage post={post} />
-          <h3>
-            <Scrivito.LinkTag to={post}>{post.get("title")}</Scrivito.LinkTag>
-          </h3>
-          <h4>{post.get("subtitle")}</h4>
-          <p>
-            {truncate(Scrivito.extractText(post, { length: 330 }), {
-              length: 300,
-              separator: /,? +/,
-            })}
-          </p>
-        </div>
-        <div className="blog-timeline--footer">
-          <Scrivito.LinkTag to={post} className="btn btn-clear">
-            Read more
-            <i className="fa fa-angle-right fa-4" aria-hidden="true" />
-          </Scrivito.LinkTag>
-        </div>
+const BlogPostPreview = Scrivito.connect(({ post }) => (
+  <li>
+    <BlogPostDate post={post} />
+    <div className="blog-timeline--panel">
+      <div className="blog-timeline--body">
+        <BlogPostTitleImage post={post} />
+        <h3>
+          <Scrivito.LinkTag to={post}>{post.get("title")}</Scrivito.LinkTag>
+        </h3>
+        <h4>{post.get("subtitle")}</h4>
+        <p>
+          {truncate(Scrivito.extractText(post, { length: 330 }), {
+            length: 300,
+            separator: /,? +/,
+          })}
+        </p>
       </div>
-    </li>
-  );
-});
+      <div className="blog-timeline--footer">
+        <Scrivito.LinkTag to={post} className="btn btn-clear">
+          Read more
+          <i className="fa fa-angle-right fa-4" aria-hidden="true" />
+        </Scrivito.LinkTag>
+      </div>
+    </div>
+  </li>
+));
 
 const BlogPostTitleImage = Scrivito.connect(({ post }) => {
   const titleImage = post.get("titleImage");

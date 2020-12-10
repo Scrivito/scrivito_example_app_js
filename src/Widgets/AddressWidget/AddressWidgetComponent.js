@@ -3,23 +3,21 @@ import * as Scrivito from "scrivito";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 import SchemaDotOrg from "../../Components/SchemaDotOrg";
 
-Scrivito.provideComponent("AddressWidget", ({ widget }) => {
-  return (
-    <div>
-      {widget.get("showLogo") !== "no" && <Logo />}
-      <address>
-        <Address addressWidget={widget} />
-        <Table
-          phone={widget.get("phone")}
-          fax={widget.get("fax")}
-          email={widget.get("email")}
-        />
-        <SchemaDotOrg content={widget} />
-      </address>
-      {widget.get("showBorderBottom") === "yes" && <div className="b-bottom" />}
-    </div>
-  );
-});
+Scrivito.provideComponent("AddressWidget", ({ widget }) => (
+  <div>
+    {widget.get("showLogo") !== "no" && <Logo />}
+    <address>
+      <Address addressWidget={widget} />
+      <Table
+        phone={widget.get("phone")}
+        fax={widget.get("fax")}
+        email={widget.get("email")}
+      />
+      <SchemaDotOrg content={widget} />
+    </address>
+    {widget.get("showBorderBottom") === "yes" && <div className="b-bottom" />}
+  </div>
+));
 
 const Logo = Scrivito.connect(() => {
   const root = Scrivito.Obj.root();

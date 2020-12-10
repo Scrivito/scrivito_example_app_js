@@ -1,9 +1,9 @@
 import { createBrowserHistory } from "history";
-import * as Scrivito from "scrivito";
+import { useHistory as scrivitoUseHistory } from "scrivito";
 import { scrollToFragment } from "scroll-to-fragment";
 
 const history = createBrowserHistory();
 
-Scrivito.useHistory(history);
+scrivitoUseHistory(history);
 
 scrollToFragment({ history });

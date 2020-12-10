@@ -77,20 +77,18 @@ class BaseCarousel extends React.Component {
         previous={this.previous}
         className="carousel-images"
       >
-        {images.map((image, index) => {
-          return (
-            <ReactstrapCarouselItem
-              onExiting={this.onExiting}
-              onExited={this.onExited}
-              key={`${image.id()}${index}`}
-            >
-              <Scrivito.ImageTag
-                content={image}
-                alt={image.get("alternativeText")}
-              />
-            </ReactstrapCarouselItem>
-          );
-        })}
+        {images.map((image, index) => (
+          <ReactstrapCarouselItem
+            onExiting={this.onExiting}
+            onExited={this.onExited}
+            key={`${image.id()}${index}`}
+          >
+            <Scrivito.ImageTag
+              content={image}
+              alt={image.get("alternativeText")}
+            />
+          </ReactstrapCarouselItem>
+        ))}
         <ReactstrapCarouselControl
           direction="prev"
           directionText="Previous"

@@ -4,36 +4,32 @@ import formatDate from "../../utils/formatDate";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 import SchemaDotOrg from "../../Components/SchemaDotOrg";
 
-Scrivito.provideComponent("Job", ({ page }) => {
-  return (
-    <div>
-      <section className="title-bgc">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-7">
-              <Scrivito.ContentTag
-                tag="h1"
-                className="h2"
-                content={page}
-                attribute="title"
-              />
-              <JobDatePosted page={page} />
-            </div>
-            <div className="col-lg-5 details-title-box">
-              <JobLocation job={page} />
-              <JobEmploymentTypes
-                employmentTypes={page.get("employmentType")}
-              />
-              <JobValidThrough page={page} />
-            </div>
+Scrivito.provideComponent("Job", ({ page }) => (
+  <div>
+    <section className="title-bgc">
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-lg-7">
+            <Scrivito.ContentTag
+              tag="h1"
+              className="h2"
+              content={page}
+              attribute="title"
+            />
+            <JobDatePosted page={page} />
+          </div>
+          <div className="col-lg-5 details-title-box">
+            <JobLocation job={page} />
+            <JobEmploymentTypes employmentTypes={page.get("employmentType")} />
+            <JobValidThrough page={page} />
           </div>
         </div>
-      </section>
-      <Scrivito.ContentTag tag="div" content={page} attribute="body" />
-      <SchemaDotOrg content={page} />
-    </div>
-  );
-});
+      </div>
+    </section>
+    <Scrivito.ContentTag tag="div" content={page} attribute="body" />
+    <SchemaDotOrg content={page} />
+  </div>
+));
 
 const JobDatePosted = Scrivito.connect(({ page }) => {
   const datePosted = page.get("datePosted");

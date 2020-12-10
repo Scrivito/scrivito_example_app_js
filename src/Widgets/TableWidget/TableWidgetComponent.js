@@ -17,17 +17,15 @@ Scrivito.provideComponent("TableWidget", ({ widget }) => (
       </tr>
     </thead>
     <tbody>
-      {widget.get("rows").map((rowWidget, index) => {
-        return (
-          <TableRowWidgetComponent
-            key={`${rowWidget.id()}${index}`}
-            widget={rowWidget}
-            header2={widget.get("header2")}
-            header3={widget.get("header3")}
-            header4={widget.get("header4")}
-          />
-        );
-      })}
+      {widget.get("rows").map((rowWidget, index) => (
+        <TableRowWidgetComponent
+          key={`${rowWidget.id()}${index}`}
+          widget={rowWidget}
+          header2={widget.get("header2")}
+          header3={widget.get("header3")}
+          header4={widget.get("header4")}
+        />
+      ))}
       <AddMoreRows
         widget={widget}
         attribute="rows"
@@ -35,17 +33,15 @@ Scrivito.provideComponent("TableWidget", ({ widget }) => (
       />
     </tbody>
     <tfoot>
-      {widget.get("summaryRows").map((rowWidget, index) => {
-        return (
-          <TableRowWidgetComponent
-            key={`${rowWidget.id()}${index}`}
-            widget={rowWidget}
-            header2={widget.get("header2")}
-            header3={widget.get("header3")}
-            header4={widget.get("header4")}
-          />
-        );
-      })}
+      {widget.get("summaryRows").map((rowWidget, index) => (
+        <TableRowWidgetComponent
+          key={`${rowWidget.id()}${index}`}
+          widget={rowWidget}
+          header2={widget.get("header2")}
+          header3={widget.get("header3")}
+          header4={widget.get("header4")}
+        />
+      ))}
       <AddMoreRows
         widget={widget}
         attribute="summaryRows"

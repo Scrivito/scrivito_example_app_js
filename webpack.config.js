@@ -7,7 +7,7 @@ const lodash = require("lodash");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ManifestPlugin = require("webpack-manifest-plugin");
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const Webpackbar = require("webpackbar");
@@ -109,11 +109,10 @@ function webpackConfig(env = {}) {
     },
     output: {
       publicPath: "/",
-      filename: (chunkData) => {
-        return chunkData.chunk.name === "tracking"
+      filename: (chunkData) =>
+        chunkData.chunk.name === "tracking"
           ? "[name].js"
-          : "assets/[name].[contenthash].js";
-      },
+          : "assets/[name].[contenthash].js",
       chunkFilename: "assets/chunk-[id].[contenthash].js",
       path: path.join(__dirname, buildPath),
     },
@@ -200,7 +199,9 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
   }
 
   if (!isProduction || isPrerendering) {
-    plugins.push(new ManifestPlugin({ fileName: "asset-manifest.json" }));
+    plugins.push(
+      new WebpackManifestPlugin({ fileName: "asset-manifest.json" })
+    );
   }
 
   if (isProduction) {

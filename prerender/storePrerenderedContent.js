@@ -47,7 +47,13 @@ async function storePrerenderedContent() {
   log("🗄️  Express server started...");
 
   log("🖥️️  Starting browser...");
-  const browser = await puppeteer.launch();
+  let browser;
+  try {
+    browser = await puppeteer.launch();
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
+  }
   log("🖥️️  Browser started");
 
   const url = "http://localhost:8080/_prerender_content.html";

@@ -46,38 +46,42 @@ async function storePrerenderedContent() {
   const server = await startServer(SOURCE_DIR);
   log("🗄️  Express server started...");
 
-  log("🖥️️  Starting browser...");
-  const browser = await puppeteer.launch();
-  log("🖥️️  Browser started");
+  try {
+    log("🖥️️  Starting browser...");
+    const browser = await puppeteer.launch();
+    log("🖥️️  Browser started");
 
-  const url = "http://localhost:8080/_prerender_content.html";
-  log(`🖥️️  Visiting ${url} ...`);
-  const page = await visitUrl(browser, url);
+    try {
+      const url = "http://localhost:8080/_prerender_content.html";
+      log(`🖥️️  Visiting ${url} ...`);
+      const page = await visitUrl(browser, url);
 
-  log(`🖥️️  Redefining window.storeResult...`);
-  await page.exposeFunction("storeResult", (args) =>
-    storeResult(TARGET_DIR, storedFiles, args)
-  );
+      log(`🖥️️  Redefining window.storeResult...`);
+      await page.exposeFunction("storeResult", (args) =>
+        storeResult(TARGET_DIR, storedFiles, args)
+      );
 
-  log(`🖥️️  Redefining window.reportError...`);
-  await page.exposeFunction("reportError", reportError);
+      log(`🖥️️  Redefining window.reportError...`);
+      await page.exposeFunction("reportError", reportError);
 
-  log("🖥️️  Executing javascript command prerenderContent...");
-  await page.evaluate("prerenderContent()");
-  log("🖥️️  Executed javascript command prerenderContent.");
+      log("🖥️️  Executing javascript command prerenderContent...");
+      await page.evaluate("prerenderContent()");
+      log("🖥️️  Executed javascript command prerenderContent.");
 
-  log("🖥️️  Closing the browser...");
-  await browser.close();
+      await extendRedirects(TARGET_DIR, storedFiles, SOURCE_DIR);
 
-  log("🗄️  Closing express server...");
-  await server.close();
-
-  await extendRedirects(TARGET_DIR, storedFiles, SOURCE_DIR);
-
-  log(
-    `📦 Added ${storedFiles.length} files to and` +
-      ` removed ${filesRemoved} files from folder ${TARGET_DIR}!`
-  );
+      log(
+        `📦 Added ${storedFiles.length} files to and` +
+          ` removed ${filesRemoved} files from folder ${TARGET_DIR}!`
+      );
+    } finally {
+      log("🖥️️  Closing the browser...");
+      await browser.close();
+    }
+  } finally {
+    log("🗄️  Closing express server...");
+    await server.close();
+  }
 
   console.timeEnd("[storePrerenderedContent]");
 }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   sodipodi:docname="group_widget.svg"
+   id="svg943"
+   version="1.1"
+   viewBox="0 0 150 100"
+   height="100px"
+   width="150px">
+  <metadata
+     id="metadata947">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>section</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="svg943"
+     inkscape:window-maximized="0"
+     inkscape:window-y="23"
+     inkscape:window-x="0"
+     inkscape:cy="50"
+     inkscape:cx="75"
+     inkscape:zoom="4.4866667"
+     showgrid="false"
+     id="namedview945"
+     inkscape:window-height="731"
+     inkscape:window-width="1273"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title929">section</title>
+  <desc
+     id="desc931">Created with Sketch.</desc>
+  <defs
+     id="defs933" />
+  <rect
+     height="65"
+     width="99"
+     y="18"
+     x="26"
+     stroke-width="2"
+     id="Rectangle"
+     style="fill:none;fill-rule:evenodd;stroke:#aaaaaa;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:8,2;stroke-dashoffset:13" />
+  <path
+     d="M 75,44.555555 V 56.111111"
+     id="Line"
+     style="fill:none;fill-rule:evenodd;stroke:#aaaaaa;stroke-width:1;stroke-linecap:square" />
+  <g
+     id="Group"
+     transform="rotate(90,16.583333,64.916667)"
+     style="fill:none;fill-rule:evenodd;stroke:#aaaaaa;stroke-width:1;stroke-linecap:square">
+    <path
+       d="M 2,0.72222222 V 12.277778"
+       id="path937" />
+  </g>
+</svg>

@@ -10,4 +10,8 @@ if (process.env.SCRIVITO_ENDPOINT) {
   config.endpoint = process.env.SCRIVITO_ENDPOINT;
 }
 
+if (process.env.SCRIVITO_PRERENDER) {
+  config.priority = "background";
+}
+
 Scrivito.configure(config);

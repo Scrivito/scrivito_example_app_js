@@ -18,7 +18,10 @@ export default async function generateHtml({
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content="Scrivito by Infopark Group GmbH (scrivito.com)" />
+    <meta
+      name="generator"
+      content="Scrivito by JustRelate Group GmbH (scrivito.com)"
+    />
     ${headContent}
     <link rel="preconnect" href="https://api.scrivito.com" crossorigin />
     <link rel="preconnect" href="https://api.scrivito.com" />

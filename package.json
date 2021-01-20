@@ -80,7 +80,7 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-manifest-plugin": "^3.0.0",
     "webpackbar": "^5.0.0-3",
-    "zip-webpack-plugin": "^3.0.0"
+    "zip-webpack-plugin": "^4.0.1"
   },
   "scripts": {
     "build": "webpack --env production",

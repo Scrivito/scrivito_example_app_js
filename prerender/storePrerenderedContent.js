@@ -48,7 +48,9 @@ async function storePrerenderedContent() {
 
   try {
     log("🖥️️  Starting browser...");
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: (process.env.PUPPETEER_ARGS || "").split(" "),
+    });
     log("🖥️️  Browser started");
 
     try {

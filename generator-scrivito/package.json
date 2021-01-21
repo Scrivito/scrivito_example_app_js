@@ -13,12 +13,11 @@
     "private": true
   },
   "dependencies": {
-    "gulp-prettier": "^2.1.0",
-    "lodash": "^4.17.19",
-    "yeoman-environment": "~2.9.6",
+    "gulp-prettier": "^2.3.0",
+    "lodash": "^4.17.20",
     "yeoman-generator": "^3.2.0"
   },
   "devDependencies": {
-    "prettier": "^2.0.2"
+    "prettier": "^2.2.1"
   }
 }

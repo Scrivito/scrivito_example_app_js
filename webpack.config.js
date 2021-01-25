@@ -50,7 +50,7 @@ function webpackConfig(env = {}) {
     mode: isProduction ? "production" : "development",
     context: path.join(__dirname, "src"),
     entry: generateEntry({ isPrerendering }),
-    target: ["web", "es5"],
+    target: isProduction ? ["web", "es5"] : "web",
     module: {
       rules: [
         {

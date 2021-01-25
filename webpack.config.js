@@ -9,7 +9,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
 const Webpackbar = require("webpackbar");
 const ZipPlugin = require("zip-webpack-plugin");
 const headersCsp = require("./public/_headersCsp.json");
@@ -51,6 +50,7 @@ function webpackConfig(env = {}) {
     mode: isProduction ? "production" : "development",
     context: path.join(__dirname, "src"),
     entry: generateEntry({ isPrerendering }),
+    target: isProduction ? ["web", "es5"] : "web",
     module: {
       rules: [
         {
@@ -104,9 +104,6 @@ function webpackConfig(env = {}) {
         },
       ],
     },
-    optimization: {
-      minimizer: [new TerserPlugin({ terserOptions: { ecma: 5 } })],
-    },
     output: {
       publicPath: "/",
       filename: (chunkData) =>
@@ -121,6 +118,7 @@ function webpackConfig(env = {}) {
       extensions: [".js"],
       modules: ["node_modules"],
       symlinks: false,
+      fallback: { crypto: false },
     },
     devServer: {
       port: 8080,
@@ -153,9 +151,10 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
   const plugins = [
     new webpack.EnvironmentPlugin({
       NODE_ENV: isProduction ? "production" : "development",
-      SCRIVITO_TENANT: "",
+      SCRIVITO_ENDPOINT: "",
       SCRIVITO_ORIGIN: scrivitoOrigin,
       SCRIVITO_PRERENDER: "",
+      SCRIVITO_TENANT: "",
     }),
     new Webpackbar(),
     new CopyWebpackPlugin({

@@ -48,7 +48,11 @@ async function storePrerenderedContent() {
 
   try {
     log("🖥️️  Starting browser...");
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: process.env.AWS_EXECUTION_ENV
+        ? ["--no-sandbox", "--disable-setuid-sandbox"]
+        : [],
+    });
     log("🖥️️  Browser started");
 
     try {

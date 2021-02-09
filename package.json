@@ -63,7 +63,7 @@
     "react-dom": "^16.14.0",
     "react-draggable": "^4.4.3",
     "react-helmet-async": "^1.0.7",
-    "react-highlight-words": "^0.16.0",
+    "react-highlight-words": "^0.17.0",
     "react-reveal-iframe": "^1.2.7",
     "react-slick": "^0.27.14",
     "reactstrap": "^8.9.0",

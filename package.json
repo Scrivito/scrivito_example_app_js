@@ -62,7 +62,7 @@
     "react-bnb-gallery": "^1.4.4",
     "react-dom": "^16.14.0",
     "react-draggable": "^4.4.3",
-    "react-helmet-async": "^1.0.7",
+    "react-helmet-async": "^1.0.9",
     "react-highlight-words": "^0.17.0",
     "react-reveal-iframe": "^1.2.7",
     "react-slick": "^0.28.0",

@@ -15,9 +15,3 @@ if (process.env.SCRIVITO_PRERENDER) {
 }
 
 Scrivito.configure(config);
-
-Scrivito.configureObjClassForContentType({
-  "image/*": "Image", // Factory default
-  "video/*": "Video",
-  "*/*": "Download", // Factory default
-});

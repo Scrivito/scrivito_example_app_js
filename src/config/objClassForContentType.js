@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
 
 Scrivito.configureObjClassForContentType({
-  "image/*": "Image", // Factory default
+  "image/*": "Image",
   "video/*": "Video",
-  "*/*": "Download", // Factory default
+  "*/*": "Download",
 });

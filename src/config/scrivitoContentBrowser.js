@@ -1,21 +1,23 @@
 import * as Scrivito from "scrivito";
 
-Scrivito.configureContentBrowser({
-  filters: ({ _validObjClasses }) => {
-    if (_validObjClasses) {
-      switch (_validObjClasses.length) {
-        case 0:
-          return defaultFilters();
-        case 1:
-          return filterForObjClass(_validObjClasses[0]);
-        default:
-          return filtersForObjClasses(_validObjClasses);
+export function configureScrivitoContentBrowser() {
+  Scrivito.configureContentBrowser({
+    filters: ({ _validObjClasses }) => {
+      if (_validObjClasses) {
+        switch (_validObjClasses.length) {
+          case 0:
+            return defaultFilters();
+          case 1:
+            return filterForObjClass(_validObjClasses[0]);
+          default:
+            return filtersForObjClasses(_validObjClasses);
+        }
       }
-    }
 
-    return defaultFilters();
-  },
-});
+      return defaultFilters();
+    },
+  });
+}
 
 function filterForObjClass(objClass) {
   return {

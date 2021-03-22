@@ -5,8 +5,10 @@ import * as Scrivito from "scrivito";
 import "./Objs";
 import "./Widgets";
 import App from "./App";
-import "./config";
+import { configure } from "./config";
 import "./assets/stylesheets/index.scss";
+
+configure();
 
 if (window.preloadDump) {
   Scrivito.preload(window.preloadDump).then(({ dumpLoaded }) => {

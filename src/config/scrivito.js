@@ -14,4 +14,6 @@ if (process.env.SCRIVITO_PRERENDER) {
   config.priority = "background";
 }
 
-Scrivito.configure(config);
+export function configureScrivito() {
+  Scrivito.configure(config);
+}

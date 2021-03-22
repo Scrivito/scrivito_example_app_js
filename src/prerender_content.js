@@ -3,9 +3,11 @@ import "scrivito";
 import filesize from "filesize";
 import "./Objs";
 import "./Widgets";
-import "./config";
+import { configure } from "./config";
 import prerenderObjs from "./prerenderContent/prerenderObjs";
 import prerenderSitemap from "./prerenderContent/prerenderSitemap";
+
+configure();
 
 const PRERENDER_OBJ_CLASSES_BLACKLIST = [
   "Download",

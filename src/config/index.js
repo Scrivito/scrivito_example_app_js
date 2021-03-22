@@ -4,8 +4,8 @@ import { configureObjClassForContentType } from "./objClassForContentType";
 import { configureScrivitoContentBrowser } from "./scrivitoContentBrowser";
 import { configureWindowScrivito } from "./windowScrivito";
 
-export function configure() {
-  configureScrivito();
+export function configure(options) {
+  configureScrivito(options);
   configureHistory();
   configureScrivitoContentBrowser();
   configureObjClassForContentType();

@@ -153,7 +153,6 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       NODE_ENV: isProduction ? "production" : "development",
       SCRIVITO_ENDPOINT: "",
       SCRIVITO_ORIGIN: scrivitoOrigin,
-      SCRIVITO_PRERENDER: "",
       SCRIVITO_TENANT: "",
     }),
     new Webpackbar(),

@@ -10,10 +10,10 @@ if (process.env.SCRIVITO_ENDPOINT) {
   config.endpoint = process.env.SCRIVITO_ENDPOINT;
 }
 
-if (process.env.SCRIVITO_PRERENDER) {
-  config.priority = "background";
-}
-
-export function configureScrivito() {
-  Scrivito.configure(config);
+export function configureScrivito(options) {
+  const scrivitoConfig = { ...config };
+  if (options?.useScrivitoBackgroundPriority) {
+    scrivitoConfig.priority = "background";
+  }
+  Scrivito.configure(scrivitoConfig);
 }

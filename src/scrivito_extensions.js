@@ -1,5 +1,7 @@
 import "./Objs";
 import "./Widgets";
-import "./config";
+import { configure } from "./config";
 import "./Components/ScrivitoExtensions";
 import "./assets/stylesheets/index.scss";
+
+configure();

@@ -7,7 +7,7 @@ import { configure } from "./config";
 import prerenderObjs from "./prerenderContent/prerenderObjs";
 import prerenderSitemap from "./prerenderContent/prerenderSitemap";
 
-configure({ useScrivitoBackgroundPriority: true });
+configure({ priority: "background" });
 
 const PRERENDER_OBJ_CLASSES_BLACKLIST = [
   "Download",

@@ -6,10 +6,10 @@ import { configureWindowScrivito } from "./windowScrivito";
 
 export function configure(options) {
   configureScrivito(options);
-  configureScrivitoContentBrowser();
   configureObjClassForContentType();
 
   if (typeof window !== "undefined") {
+    configureScrivitoContentBrowser();
     configureHistory();
     configureWindowScrivito();
   }

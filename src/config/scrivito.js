@@ -11,6 +11,9 @@ export function configureScrivito(options) {
     config.endpoint = process.env.SCRIVITO_ENDPOINT;
   }
 
-  const priority = options?.priority;
-  Scrivito.configure(priority ? { ...config, priority } : config);
+  if (options?.priority) {
+    config.priority = options.priority;
+  }
+
+  Scrivito.configure(config);
 }

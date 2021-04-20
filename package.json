@@ -11,9 +11,9 @@
     "private": true
   },
   "dependencies": {
-    "@babel/core": "^7.13.10",
-    "@babel/preset-env": "^7.13.10",
-    "@babel/preset-react": "^7.12.13",
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
     "@loadable/component": "^5.14.1",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
@@ -23,7 +23,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "content-security-policy-builder": "^2.1.0",
     "copy-webpack-plugin": "^7.0.0",
-    "core-js": "^3.9.1",
+    "core-js": "^3.10.2",
     "css-loader": "^5.1.2",
     "dateformat": "^4.5.1",
     "dotenv": "^8.2.0",

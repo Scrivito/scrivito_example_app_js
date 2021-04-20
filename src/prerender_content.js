@@ -29,10 +29,13 @@ const SITEMAP_OBJ_CLASSES_WHITELIST = [
 
 async function prerenderContent() {
   await prerenderSitemap(SITEMAP_OBJ_CLASSES_WHITELIST, window.storeResult);
+
+  const assetManifest = await (await fetch("asset-manifest.json")).json();
   await prerenderObjs(
     PRERENDER_OBJ_CLASSES_BLACKLIST,
     window.storeResult,
-    window.reportError
+    window.reportError,
+    assetManifest
   );
 }
 

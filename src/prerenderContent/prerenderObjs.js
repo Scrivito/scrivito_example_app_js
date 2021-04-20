@@ -6,7 +6,8 @@ import prerenderObj from "./prerenderObj";
 export default async function prerenderObjs(
   objClassesBlacklist,
   storeResult,
-  reportError
+  reportError,
+  assetManifest
 ) {
   console.time("[prerenderObjs]");
 
@@ -21,7 +22,7 @@ export default async function prerenderObjs(
   await asyncForEachSequential(objsGroups, async (objsGroup) =>
     asyncForEach(objsGroup, async (obj) => {
       try {
-        const prerenderedFiles = await prerenderObj(obj);
+        const prerenderedFiles = await prerenderObj(obj, assetManifest);
         await asyncForEachSequential(prerenderedFiles, storeResult);
       } catch (e) {
         failedCount += 1;

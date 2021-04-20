@@ -10,7 +10,7 @@ import filenameFromUrl from "./filenameFromUrl";
 import generateHtml from "./generateHtml";
 import generatePreloadDump from "./generatePreloadDump";
 
-export default async function prerenderObj(obj) {
+export default async function prerenderObj(obj, assetManifest) {
   HelmetProvider.canUseDOM = false;
 
   const { result, preloadDump } = await Scrivito.renderPage(obj, () => {
@@ -57,6 +57,7 @@ export default async function prerenderObj(obj) {
         bodyAttributes,
         bodyContent,
         preloadDumpFileName,
+        assetManifest,
       }),
     },
   ];

@@ -12,6 +12,7 @@ configure();
 
 if (window.preloadDump) {
   Scrivito.preload(window.preloadDump).then(({ dumpLoaded }) => {
+    delete window.preloadDump;
     dumpLoaded ? hydrateApp() : renderApp();
   });
 } else {

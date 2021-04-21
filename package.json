@@ -67,7 +67,7 @@
     "react-reveal-iframe": "^1.2.7",
     "react-slick": "^0.28.1",
     "reactstrap": "^8.9.0",
-    "sass": "^1.32.8",
+    "sass": "^1.32.11",
     "sass-loader": "^10.1.1",
     "scrivito": "^1.22.0",
     "scroll-to-fragment": "^1.0.10",

@@ -5,3 +5,6 @@
 [build]
   command = "npm run build"
   publish = "build"
+
+[build.environment]
+  NPM_VERSION = "7.10"

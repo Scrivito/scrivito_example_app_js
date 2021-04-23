@@ -2,6 +2,9 @@
 language: node_js
 node_js: 10
 sudo: false
+before_install:
+  - dpkg --compare-versions `npm -v` ge 7.10 || npm i -g npm@^7.10
+  - npm --version
 cache:
   directories:
     - "node_modules"

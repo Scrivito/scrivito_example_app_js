@@ -1,4 +1,3 @@
-/* eslint no-console: "off" */
 import * as Scrivito from "scrivito";
 import jsontoxml from "jsontoxml";
 import formatDate from "../utils/formatDate";

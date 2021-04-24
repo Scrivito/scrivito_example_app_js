@@ -1,4 +1,3 @@
-/* eslint no-console: "off" */
 import * as React from "react";
 import * as ReactDOMServer from "react-dom/server";
 import * as Scrivito from "scrivito";

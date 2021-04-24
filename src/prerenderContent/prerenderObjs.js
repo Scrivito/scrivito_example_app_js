@@ -1,4 +1,3 @@
-/* eslint no-console: "off" */
 import * as Scrivito from "scrivito";
 import { chunk } from "lodash-es";
 import prerenderObj from "./prerenderObj";

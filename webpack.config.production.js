@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const ZipPlugin = require("zip-webpack-plugin");
 
@@ -35,12 +34,7 @@ function webpackConfig(env = {}) {
 
   if (isPrerender) {
     plugins.push(
-      new WebpackManifestPlugin({ fileName: "asset-manifest.json" }),
-      new HtmlWebpackPlugin({
-        filename: "_prerender_content.html",
-        template: "_prerender_content.html",
-        chunks: ["prerender_content"],
-      })
+      new WebpackManifestPlugin({ fileName: "asset-manifest.json" })
     );
   }
 

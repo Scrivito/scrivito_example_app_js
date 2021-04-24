@@ -1,10 +1,10 @@
-const filesize = require("filesize");
-const fse = require("fs-extra");
-const path = require("path");
+import filesize from "filesize";
+import fse from "fs-extra";
+import path from "path";
 
-const { reportError } = require("./reportError");
+import { reportError } from "./reportError";
 
-exports.storeResult = async function storeResult(
+export async function storeResult(
   targetDir,
   storedFiles,
   { filename, content }
@@ -31,4 +31,4 @@ exports.storeResult = async function storeResult(
       throw e;
     }
   }
-};
+}

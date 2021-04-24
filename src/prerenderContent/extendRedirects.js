@@ -1,14 +1,10 @@
-const fse = require("fs-extra");
+import fse from "fs-extra";
 
 // Netlify does normalize urls automatically.
 // An Url, that contains upper case characters is automatically converted to lower case.
 // But Scrivito is case-sensitive for routing and will no longer recognize the lower cased route.
 // By explicitly adding the uppercase url to "_redirects" netlify will not longer normalize the Url.
-exports.extendRedirects = async function extendRedirects(
-  targetDir,
-  prerenderedFiles,
-  sourceDir
-) {
+export async function extendRedirects(targetDir, prerenderedFiles, sourceDir) {
   const explicitRedirects = prerenderedFiles
     .filter((f) => f.endsWith(".html") && f.toLowerCase() !== f)
     .map((file) => `${file.substring(0, file.length - 5)} ${file} 200`);
@@ -29,4 +25,4 @@ exports.extendRedirects = async function extendRedirects(
   console.log(
     `  📦 [extendRedirects] Extended ${target} with ${explicitRedirects.length} entries.`
   );
-};
+}

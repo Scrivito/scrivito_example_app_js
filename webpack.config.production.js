@@ -47,12 +47,16 @@ function webpackConfig(env = {}) {
   return {
     ...sharedConfig,
     mode: "production",
-    target: ["web", "es5"],
+    target: isPrerendering ? "node" : ["web", "es5"],
     entry: isPrerendering
       ? { prerender_content: "./prerender_content.js" }
       : devEntry,
     output: isPrerendering
-      ? { ...devOutput, path: path.join(__dirname, "buildPrerendering") }
+      ? {
+          ...devOutput,
+          path: path.join(__dirname, "buildPrerendering"),
+          filename: "[name].js",
+        }
       : devOutput,
     plugins,
   };

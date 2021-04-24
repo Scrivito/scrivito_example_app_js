@@ -19,8 +19,6 @@ if (endpoint) {
   headersCsp["script-src"].push(`https://${endpoint}`);
 }
 
-const buildPath = "build";
-
 function webpackConfig(env = {}) {
   if (
     !process.env.SCRIVITO_TENANT ||
@@ -110,7 +108,7 @@ function webpackConfig(env = {}) {
           ? "[name].js"
           : "assets/[name].[contenthash].js",
       chunkFilename: "assets/chunk-[id].[contenthash].js",
-      path: path.join(__dirname, buildPath),
+      path: path.join(__dirname, "build"),
     },
     plugins: [
       new webpack.EnvironmentPlugin({

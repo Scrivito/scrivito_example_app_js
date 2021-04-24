@@ -9,6 +9,7 @@ const { storeResult } = require("./storeResult");
 const { visitUrl } = require("./visitUrl");
 
 const SOURCE_DIR = "build";
+const SERVER_DIR = "buildPrerendering";
 const TARGET_DIR = "buildPrerendered";
 
 async function storePrerenderedContent() {
@@ -21,29 +22,10 @@ async function storePrerenderedContent() {
 
   log(`Copying ${SOURCE_DIR}/ to ${TARGET_DIR}/`);
   await fse.copy(SOURCE_DIR, TARGET_DIR);
-
-  const assetManifest = await fse.readJson(
-    path.join(SOURCE_DIR, "asset-manifest.json")
-  );
-  let filesRemoved = 0;
-  const filesToBeRemoved = ["asset-manifest.json", "_prerender_content.html"];
-  filesToBeRemoved.push(assetManifest["prerender_content.css"]);
-  const prerenderContentJsPath = assetManifest["prerender_content.js"];
-  filesToBeRemoved.push(
-    prerenderContentJsPath,
-    `${prerenderContentJsPath}.LICENSE.txt`
-  );
-
-  await Promise.all(
-    filesToBeRemoved.map(async (filename) => {
-      log(`✨ Removing now obsolete file ${filename}...`);
-      await fse.remove(path.join(TARGET_DIR, filename));
-      filesRemoved += 1;
-    })
-  );
+  await fse.remove(path.join(TARGET_DIR, "asset-manifest.json"));
 
   log("🗄️  Starting express server...");
-  const server = await startServer(SOURCE_DIR);
+  const server = await startServer(SERVER_DIR);
   log("🗄️  Express server started...");
 
   try {
@@ -70,10 +52,7 @@ async function storePrerenderedContent() {
 
       await extendRedirects(TARGET_DIR, storedFiles, SOURCE_DIR);
 
-      log(
-        `📦 Added ${storedFiles.length} files to and` +
-          ` removed ${filesRemoved} files from folder ${TARGET_DIR}!`
-      );
+      log(`📦 Added ${storedFiles.length} files to ${TARGET_DIR}!`);
     } finally {
       log("🖥️️  Closing the browser...");
       await browser.close();

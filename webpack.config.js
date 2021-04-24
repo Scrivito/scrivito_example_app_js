@@ -31,12 +31,15 @@ function webpackConfig(env = {}) {
     );
   }
 
-  let scrivitoOrigin = "";
+  let scrivitoOrigin = process.env.SCRIVITO_ORIGIN || "";
+
   // Netlify build environment, see https://docs.netlify.com/configure-builds/environment-variables/
-  if (process.env.CONTEXT === "production") {
-    scrivitoOrigin = process.env.URL;
-  } else if (process.env.DEPLOY_PRIME_URL) {
-    scrivitoOrigin = process.env.DEPLOY_PRIME_URL;
+  if (!scrivitoOrigin) {
+    if (process.env.CONTEXT === "production") {
+      scrivitoOrigin = process.env.URL;
+    } else if (process.env.DEPLOY_PRIME_URL) {
+      scrivitoOrigin = process.env.DEPLOY_PRIME_URL;
+    }
   }
 
   return {

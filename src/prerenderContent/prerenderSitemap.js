@@ -22,11 +22,9 @@ export default async function prerenderSitemap(
 }
 
 function prerenderSitemapSearch(objClassesWhitelist) {
-  return Scrivito.Obj.where("_objClass", "equals", objClassesWhitelist).andNot(
-    "robotsIndex",
-    "equals",
-    "no"
-  );
+  return Scrivito.Obj.onSite("default")
+    .where("_objClass", "equals", objClassesWhitelist)
+    .andNot("robotsIndex", "equals", "no");
 }
 
 function pageToSitemapUrl(page) {

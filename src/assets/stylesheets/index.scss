@@ -615,6 +615,36 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 }
 
+.bg-dark-image,
+.bg-brand-primary,
+.bg-brand-secondary,
+.bg-grey,
+.bg-greydark,
+.bg-greymiddle {
+  .blog-timeline--panel {
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .card.card-theme,
+    .edit-mode-link {
+      color: $theme-grey!important;
+    }
+  }
+}
+
+
+
+
 footer {
   .bg-dark-image,
   .bg-brand-primary,
@@ -755,6 +785,7 @@ section.navbar-fixed {
   .h6 {
     color: $theme-greydark !important;
   }
+  .fa,
   p {
     color: $theme-greymiddle !important;
   }

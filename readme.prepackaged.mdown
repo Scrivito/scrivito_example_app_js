@@ -18,14 +18,14 @@ And because Scrivito is 100% serverless, you'll never have to patch your CMS, so
 
 ### Install/check prerequisites
 
-Make sure that you have [![node ≥ 10.0](https://img.shields.io/badge/node-≥%2010.0-blue.svg)](https://nodejs.org) and [![npm ≥ 6.0](https://img.shields.io/badge/npm-≥%206.0-blue.svg)](https://www.npmjs.com/get-npm) installed.
+Make sure that you have [![node ≥ 12.0](https://img.shields.io/badge/node-≥%2012.0-blue.svg)](https://nodejs.org) and [![npm ≥ 7.0](https://img.shields.io/badge/npm-≥%207.0-blue.svg)](https://www.npmjs.com/get-npm) installed.
 
 ```
 node -v
-# should output something like v10.16.3
+# should output something like v12.22.1
 
 npm -v
-# should output something like 6.14.4
+# should output something like 7.10.0
 ```
 
 ### Install dependencies

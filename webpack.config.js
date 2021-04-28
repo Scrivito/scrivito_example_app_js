@@ -4,13 +4,11 @@ const path = require("path");
 const process = require("process");
 const webpack = require("webpack");
 const lodash = require("lodash");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Webpackbar = require("webpackbar");
-const ZipPlugin = require("zip-webpack-plugin");
 const headersCsp = require("./public/_headersCsp.json");
 
 // load ".env"
@@ -47,10 +45,10 @@ function webpackConfig(env = {}) {
   }
 
   return {
-    mode: isProduction ? "production" : "development",
+    mode: "development",
     context: path.join(__dirname, "src"),
     entry: generateEntry({ isPrerendering }),
-    target: isProduction ? ["web", "es5"] : "web",
+    target: "web",
     module: {
       rules: [
         {
@@ -185,6 +183,9 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
       chunks: ["scrivito_extensions"],
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
+    new WebpackManifestPlugin({ fileName: "asset-manifest.json" }),
+
+    new webpack.SourceMapDevToolPlugin({}),
   ];
 
   if (isPrerendering) {
@@ -195,25 +196,6 @@ function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
         chunks: ["prerender_content"],
       })
     );
-  }
-
-  if (!isProduction || isPrerendering) {
-    plugins.push(
-      new WebpackManifestPlugin({ fileName: "asset-manifest.json" })
-    );
-  }
-
-  if (isProduction) {
-    plugins.unshift(new CleanWebpackPlugin());
-    plugins.push(
-      new ZipPlugin({
-        filename: "build.zip",
-        path: "../",
-        pathPrefix: "build/",
-      })
-    );
-  } else {
-    plugins.push(new webpack.SourceMapDevToolPlugin({}));
   }
 
   return plugins;

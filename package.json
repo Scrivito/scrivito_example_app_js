@@ -82,7 +82,7 @@
     "zip-webpack-plugin": "^4.0.1"
   },
   "scripts": {
-    "build": "webpack --env production",
+    "build": "webpack --config webpack.config.production.js",
     "prerender": "SCRIVITO_PRERENDER=true npm run build && node prerender/storePrerenderedContent.js",
     "start": "webpack serve",
     "eslint": "eslint --max-warnings 0 src/ prerender/",

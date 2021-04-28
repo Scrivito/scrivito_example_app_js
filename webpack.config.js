@@ -14,6 +14,15 @@ const headersCsp = require("./public/_headersCsp.json");
 // load ".env"
 dotenv.config();
 
+const isPrerendering = process.env.SCRIVITO_PRERENDER;
+
+let scrivitoOrigin = "";
+if (process.env.CONTEXT === "production") {
+  scrivitoOrigin = process.env.URL;
+} else if (process.env.DEPLOY_PRIME_URL) {
+  scrivitoOrigin = process.env.DEPLOY_PRIME_URL;
+}
+
 // Extend headersCsp with custom endpoint URL
 const endpoint = process.env.SCRIVITO_ENDPOINT;
 if (endpoint) {
@@ -23,9 +32,6 @@ if (endpoint) {
 const buildPath = "build";
 
 function webpackConfig(env = {}) {
-  const isProduction = env.production;
-  const isPrerendering = process.env.SCRIVITO_PRERENDER;
-
   if (
     !process.env.SCRIVITO_TENANT ||
     process.env.SCRIVITO_TENANT === "your_scrivito_tenant_id"
@@ -37,17 +43,10 @@ function webpackConfig(env = {}) {
     );
   }
 
-  let scrivitoOrigin = "";
-  if (process.env.CONTEXT === "production") {
-    scrivitoOrigin = process.env.URL;
-  } else if (process.env.DEPLOY_PRIME_URL) {
-    scrivitoOrigin = process.env.DEPLOY_PRIME_URL;
-  }
-
   return {
     mode: "development",
     context: path.join(__dirname, "src"),
-    entry: generateEntry({ isPrerendering }),
+    entry: generateEntry(),
     target: "web",
     module: {
       rules: [
@@ -111,7 +110,7 @@ function webpackConfig(env = {}) {
       chunkFilename: "assets/chunk-[id].[contenthash].js",
       path: path.join(__dirname, buildPath),
     },
-    plugins: generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }),
+    plugins: generatePlugins(env.isProduction ? "production" : "development"),
     resolve: {
       extensions: [".js"],
       modules: ["node_modules"],
@@ -131,7 +130,7 @@ function webpackConfig(env = {}) {
   };
 }
 
-function generateEntry({ isPrerendering }) {
+function generateEntry() {
   const entry = {
     index: "./index.js",
     tracking: "./tracking.js",
@@ -143,12 +142,12 @@ function generateEntry({ isPrerendering }) {
   return entry;
 }
 
-function generatePlugins({ isProduction, isPrerendering, scrivitoOrigin }) {
+function generatePlugins(nodeEnv) {
   const ignorePublicFiles = ["**/_headersCsp.json", "**/_headers"];
 
   const plugins = [
     new webpack.EnvironmentPlugin({
-      NODE_ENV: isProduction ? "production" : "development",
+      NODE_ENV: nodeEnv,
       SCRIVITO_ENDPOINT: "",
       SCRIVITO_ORIGIN: scrivitoOrigin,
       SCRIVITO_TENANT: "",

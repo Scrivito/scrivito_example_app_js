@@ -52,6 +52,8 @@
         }
 
         &--panel {
+          background: #fff;
+
           &:before {
             border-left-width: 0;
             border-right-width: 15px;
@@ -95,6 +97,7 @@
         float: left;
         border: 1px solid #eee;
         position: relative;
+        background: #fff;
 
         &:before {
           position: absolute;

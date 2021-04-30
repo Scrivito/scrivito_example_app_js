@@ -6,8 +6,6 @@ const ZipPlugin = require("zip-webpack-plugin");
 
 const devWebpackConfig = require("./webpack.config");
 
-const isPrerender = process.env.SCRIVITO_PRERENDER;
-
 function webpackConfig(env = {}) {
   const { isPrerendering } = env;
 
@@ -32,7 +30,7 @@ function webpackConfig(env = {}) {
     }),
   ];
 
-  if (isPrerender) {
+  if (process.env.SCRIVITO_PRERENDER) {
     plugins.push(
       new WebpackManifestPlugin({ fileName: "asset-manifest.json" })
     );
@@ -69,6 +67,4 @@ function webpackConfigPrerender(env = {}) {
   return webpackConfig({ ...env, isPrerendering: true });
 }
 
-module.exports = isPrerender
-  ? [webpackConfig, webpackConfigPrerender]
-  : webpackConfig;
+module.exports = [webpackConfig, webpackConfigPrerender];

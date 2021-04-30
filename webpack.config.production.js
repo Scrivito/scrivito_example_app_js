@@ -11,6 +11,7 @@ function webpackConfig(env = {}) {
   const {
     mode: _devMode,
     target: _devTarget,
+    devServer: _devServer,
     plugins: devPlugins,
     ...sharedConfig
   } = devWebpackConfig({ ...env, production: true });

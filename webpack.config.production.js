@@ -21,11 +21,17 @@ function webpackConfig(env = {}) {
   const plugins = [
     new CleanWebpackPlugin(),
     ...filterDevPlugins(devPlugins),
-    new ZipPlugin({ filename: "build.zip", path: "../", pathPrefix: "build/" }),
+    new ZipPlugin({
+      filename: "build.zip",
+      path: "../",
+      pathPrefix: "build/",
+      exclude: "asset-manifest.json",
+    }),
   ];
 
   if (isPrerendering) {
     plugins.push(
+      new WebpackManifestPlugin({ fileName: "asset-manifest.json" }),
       new HtmlWebpackPlugin({
         filename: "_prerender_content.html",
         template: "_prerender_content.html",
@@ -48,9 +54,6 @@ function webpackConfig(env = {}) {
 function filterDevPlugins(plugins) {
   return plugins.filter((plugin) => {
     if (plugin instanceof webpack.SourceMapDevToolPlugin) {
-      return false;
-    }
-    if (plugin instanceof WebpackManifestPlugin && !isPrerendering) {
       return false;
     }
     return true;

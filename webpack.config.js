@@ -6,7 +6,6 @@ const webpack = require("webpack");
 const lodash = require("lodash");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Webpackbar = require("webpackbar");
 const headersCsp = require("./public/_headersCsp.json");
@@ -153,8 +152,6 @@ function webpackConfig(env = {}) {
         chunks: ["scrivito_extensions"],
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),
-      new WebpackManifestPlugin({ fileName: "asset-manifest.json" }),
-
       new webpack.SourceMapDevToolPlugin({}),
     ],
     resolve: {

@@ -17,14 +17,19 @@ if (window.preloadDump) {
   });
 } else {
   window.prerenderReady = false;
-  renderApp();
-  Scrivito.finishLoading().then(() => {
-    window.prerenderReady = true;
-  });
+  renderApp(() =>
+    Scrivito.finishLoading().then(() => {
+      window.prerenderReady = true;
+    })
+  );
 }
 
-function renderApp() {
-  ReactDOM.render(<App />, document.getElementById("application"));
+function renderApp(renderCallback) {
+  ReactDOM.render(
+    <App />,
+    document.getElementById("application"),
+    renderCallback
+  );
 }
 
 function hydrateApp() {

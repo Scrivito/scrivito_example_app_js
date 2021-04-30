@@ -14,8 +14,6 @@ const headersCsp = require("./public/_headersCsp.json");
 // load ".env"
 dotenv.config();
 
-const isPrerendering = process.env.SCRIVITO_PRERENDER;
-
 let scrivitoOrigin = "";
 if (process.env.CONTEXT === "production") {
   scrivitoOrigin = process.env.URL;
@@ -46,7 +44,11 @@ function webpackConfig(env = {}) {
   return {
     mode: "development",
     context: path.join(__dirname, "src"),
-    entry: generateEntry(),
+    entry: {
+      index: "./index.js",
+      tracking: "./tracking.js",
+      scrivito_extensions: "./scrivito_extensions.js",
+    },
     target: "web",
     module: {
       rules: [
@@ -130,22 +132,10 @@ function webpackConfig(env = {}) {
   };
 }
 
-function generateEntry() {
-  const entry = {
-    index: "./index.js",
-    tracking: "./tracking.js",
-    scrivito_extensions: "./scrivito_extensions.js",
-  };
-  if (isPrerendering) {
-    entry.prerender_content = "./prerender_content.js";
-  }
-  return entry;
-}
-
 function generatePlugins(nodeEnv) {
   const ignorePublicFiles = ["**/_headersCsp.json", "**/_headers"];
 
-  const plugins = [
+  return [
     new webpack.EnvironmentPlugin({
       NODE_ENV: nodeEnv,
       SCRIVITO_ENDPOINT: "",
@@ -186,18 +176,6 @@ function generatePlugins(nodeEnv) {
 
     new webpack.SourceMapDevToolPlugin({}),
   ];
-
-  if (isPrerendering) {
-    plugins.push(
-      new HtmlWebpackPlugin({
-        filename: "_prerender_content.html",
-        template: "_prerender_content.html",
-        chunks: ["prerender_content"],
-      })
-    );
-  }
-
-  return plugins;
 }
 
 function devServerCspHeader() {

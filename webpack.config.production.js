@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const ZipPlugin = require("zip-webpack-plugin");
 
@@ -12,23 +13,35 @@ function webpackConfig(env = {}) {
     mode: _devMode,
     target: _devTarget,
     devServer: _devServer,
+    entry: devEntry,
     plugins: devPlugins,
     ...sharedConfig
   } = devWebpackConfig({ ...env, production: true });
+
+  const plugins = [
+    new CleanWebpackPlugin(),
+    ...filterDevPlugins(devPlugins),
+    new ZipPlugin({ filename: "build.zip", path: "../", pathPrefix: "build/" }),
+  ];
+
+  if (isPrerendering) {
+    plugins.push(
+      new HtmlWebpackPlugin({
+        filename: "_prerender_content.html",
+        template: "_prerender_content.html",
+        chunks: ["prerender_content"],
+      })
+    );
+  }
 
   return {
     ...sharedConfig,
     mode: "production",
     target: ["web", "es5"],
-    plugins: [
-      new CleanWebpackPlugin(),
-      ...filterDevPlugins(devPlugins),
-      new ZipPlugin({
-        filename: "build.zip",
-        path: "../",
-        pathPrefix: "build/",
-      }),
-    ],
+    entry: isPrerendering
+      ? { prerender_content: "./prerender_content.js", ...devEntry }
+      : devEntry,
+    plugins,
   };
 }
 

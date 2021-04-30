@@ -112,7 +112,50 @@ function webpackConfig(env = {}) {
       chunkFilename: "assets/chunk-[id].[contenthash].js",
       path: path.join(__dirname, buildPath),
     },
-    plugins: generatePlugins(env.isProduction ? "production" : "development"),
+    plugins: [
+      new webpack.EnvironmentPlugin({
+        NODE_ENV: env.isProduction ? "production" : "development",
+        SCRIVITO_ENDPOINT: "",
+        SCRIVITO_ORIGIN: scrivitoOrigin,
+        SCRIVITO_TENANT: "",
+      }),
+      new Webpackbar(),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: "../public",
+            globOptions: { ignore: ["**/_headersCsp.json", "**/_headers"] },
+          },
+          {
+            from: "../public/_headers",
+            transform: (content) => {
+              const csp = builder({ directives: headersCsp });
+              return content
+                .toString()
+                .replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
+            },
+          },
+        ],
+      }),
+      new MiniCssExtractPlugin({
+        filename: "assets/[name].[contenthash].css",
+      }),
+      new HtmlWebpackPlugin({
+        filename: "catch_all_index.html",
+        template: "catch_all_index.html",
+        chunks: ["index"],
+        inject: false, // needs custom order of script tags
+      }),
+      new HtmlWebpackPlugin({
+        filename: "_scrivito_extensions.html",
+        template: "_scrivito_extensions.html",
+        chunks: ["scrivito_extensions"],
+      }),
+      new webpack.optimize.ModuleConcatenationPlugin(),
+      new WebpackManifestPlugin({ fileName: "asset-manifest.json" }),
+
+      new webpack.SourceMapDevToolPlugin({}),
+    ],
     resolve: {
       extensions: [".js"],
       modules: ["node_modules"],
@@ -130,52 +173,6 @@ function webpackConfig(env = {}) {
       },
     },
   };
-}
-
-function generatePlugins(nodeEnv) {
-  const ignorePublicFiles = ["**/_headersCsp.json", "**/_headers"];
-
-  return [
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: nodeEnv,
-      SCRIVITO_ENDPOINT: "",
-      SCRIVITO_ORIGIN: scrivitoOrigin,
-      SCRIVITO_TENANT: "",
-    }),
-    new Webpackbar(),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: "../public", globOptions: { ignore: ignorePublicFiles } },
-        {
-          from: "../public/_headers",
-          transform: (content) => {
-            const csp = builder({ directives: headersCsp });
-            return content
-              .toString()
-              .replace(/CSP-DIRECTIVES-PLACEHOLDER/g, csp);
-          },
-        },
-      ],
-    }),
-    new MiniCssExtractPlugin({
-      filename: "assets/[name].[contenthash].css",
-    }),
-    new HtmlWebpackPlugin({
-      filename: "catch_all_index.html",
-      template: "catch_all_index.html",
-      chunks: ["index"],
-      inject: false, // needs custom order of script tags
-    }),
-    new HtmlWebpackPlugin({
-      filename: "_scrivito_extensions.html",
-      template: "_scrivito_extensions.html",
-      chunks: ["scrivito_extensions"],
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new WebpackManifestPlugin({ fileName: "asset-manifest.json" }),
-
-    new webpack.SourceMapDevToolPlugin({}),
-  ];
 }
 
 function devServerCspHeader() {

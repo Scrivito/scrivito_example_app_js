@@ -8,15 +8,20 @@ const devWebpackConfig = require("./webpack.config");
 const isPrerendering = process.env.SCRIVITO_PRERENDER;
 
 function webpackConfig(env = {}) {
-  const devConfig = devWebpackConfig({ ...env, production: true });
+  const {
+    mode: _devMode,
+    target: _devTarget,
+    plugins: devPlugins,
+    ...sharedConfig
+  } = devWebpackConfig({ ...env, production: true });
 
   return {
-    ...devConfig,
+    ...sharedConfig,
     mode: "production",
     target: ["web", "es5"],
     plugins: [
       new CleanWebpackPlugin(),
-      ...filterDevPlugins(devConfig.plugins),
+      ...filterDevPlugins(devPlugins),
       new ZipPlugin({
         filename: "build.zip",
         path: "../",

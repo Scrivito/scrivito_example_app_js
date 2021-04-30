@@ -1,11 +1,11 @@
 import * as Scrivito from "scrivito";
 import { chunk } from "lodash-es";
 import prerenderObj from "./prerenderObj";
+import { reportError } from "./reportError";
 
 export default async function prerenderObjs(
   objClassesBlacklist,
   storeResult,
-  reportError,
   assetManifest
 ) {
   console.time("[prerenderObjs]");

@@ -62,7 +62,6 @@ async function prerenderContent() {
   await prerenderObjs(
     PRERENDER_OBJ_CLASSES_BLACKLIST,
     storeFile,
-    reportError,
     assetManifest
   );
 

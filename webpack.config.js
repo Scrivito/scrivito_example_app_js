@@ -1,5 +1,3 @@
-/* eslint-disable import/no-commonjs */
-/* eslint-disable import/no-extraneous-dependencies */
 const builder = require("content-security-policy-builder");
 const dotenv = require("dotenv");
 const path = require("path");

@@ -2,10 +2,11 @@ import * as Scrivito from "scrivito";
 import { chunk } from "lodash-es";
 import prerenderObj from "./prerenderObj";
 import { reportError } from "./reportError";
+import { storeResult } from "./storeResult";
 
 export default async function prerenderObjs(
+  targetDir,
   objClassesBlacklist,
-  storeResult,
   assetManifest
 ) {
   console.time("[prerenderObjs]");
@@ -16,13 +17,16 @@ export default async function prerenderObjs(
   console.log(`Loaded ${objs.length} objs`);
 
   let failedCount = 0;
+  const files = [];
+  const storeFile = async (file) =>
+    files.push(await storeResult(targetDir, file));
 
   const objsGroups = chunk(objs, 10);
   await asyncForEachSequential(objsGroups, async (objsGroup) =>
     asyncForEach(objsGroup, async (obj) => {
       try {
         const prerenderedFiles = await prerenderObj(obj, assetManifest);
-        await asyncForEachSequential(prerenderedFiles, storeResult);
+        await asyncForEachSequential(prerenderedFiles, storeFile);
       } catch (e) {
         failedCount += 1;
         const pageId = obj.id();
@@ -40,6 +44,8 @@ export default async function prerenderObjs(
   if (failedCount) {
     reportError(`Skipped ${failedCount} objs due to failures.`);
   }
+
+  return files;
 }
 
 function allObjs(objClassesBlacklist) {

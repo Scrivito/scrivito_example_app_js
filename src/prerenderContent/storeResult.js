@@ -4,11 +4,7 @@ import path from "path";
 
 import { reportError } from "./reportError";
 
-export async function storeResult(
-  targetDir,
-  storedFiles,
-  { filename, content }
-) {
+export async function storeResult(targetDir, { filename, content }) {
   const filePath = path.join(targetDir, filename);
   if (!path.normalize(filePath).startsWith(`${targetDir}`)) {
     reportError(`filename "${filename}" is invalid! Skipping file...`);
@@ -21,7 +17,7 @@ export async function storeResult(
   );
   try {
     await fse.outputFile(filePath, content, { flag: "wx" });
-    storedFiles.push(filePath.substring(targetDir.length));
+    return filePath.substring(targetDir.length);
   } catch (e) {
     if (e.code === "EEXIST") {
       reportError(

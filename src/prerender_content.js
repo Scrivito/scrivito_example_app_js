@@ -7,7 +7,6 @@ import prerenderObjs from "./prerenderContent/prerenderObjs";
 import prerenderSitemap from "./prerenderContent/prerenderSitemap";
 import { extendRedirects } from "./prerenderContent/extendRedirects";
 import { reportError } from "./prerenderContent/reportError";
-import { storeResult } from "./prerenderContent/storeResult";
 
 configure({ priority: "background" });
 
@@ -54,16 +53,18 @@ async function prerenderContent() {
 
   await fse.remove(path.join(TARGET_DIR, "asset-manifest.json"));
 
-  const storedFiles = [];
-  const storeFile = (file) => storeResult(TARGET_DIR, storedFiles, file);
+  const sitemapFile = await prerenderSitemap(
+    TARGET_DIR,
+    SITEMAP_OBJ_CLASSES_WHITELIST
+  );
 
-  await prerenderSitemap(SITEMAP_OBJ_CLASSES_WHITELIST, storeFile);
-
-  await prerenderObjs(
+  const objFiles = await prerenderObjs(
+    TARGET_DIR,
     PRERENDER_OBJ_CLASSES_BLACKLIST,
-    storeFile,
     assetManifest
   );
+
+  const storedFiles = [sitemapFile, ...objFiles].filter((f) => f !== undefined);
 
   await extendRedirects(TARGET_DIR, storedFiles, SOURCE_DIR);
 

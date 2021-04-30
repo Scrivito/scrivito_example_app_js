@@ -1,11 +1,9 @@
 import * as Scrivito from "scrivito";
 import jsontoxml from "jsontoxml";
 import formatDate from "../utils/formatDate";
+import { storeResult } from "./storeResult";
 
-export default async function prerenderSitemap(
-  objClassesWhitelist,
-  storeResult
-) {
+export default async function prerenderSitemap(targetDir, objClassesWhitelist) {
   console.time("[prerenderSitemap]");
 
   const pages = await Scrivito.load(() =>
@@ -18,7 +16,7 @@ export default async function prerenderSitemap(
     `[prerenderSitemap] Generated sitemap.xml with ${sitemapUrls.length} items.`
   );
   console.timeEnd("[prerenderSitemap]");
-  await storeResult({ filename: "/sitemap.xml", content });
+  return storeResult(targetDir, { filename: "/sitemap.xml", content });
 }
 
 function prerenderSitemapSearch(objClassesWhitelist) {

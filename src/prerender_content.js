@@ -1,5 +1,3 @@
-/* eslint no-console: "off" */
-/* eslint-disable-next-line import/no-extraneous-dependencies */
 import path from "path";
 import fse from "fs-extra";
 import "./Objs";

@@ -37,6 +37,13 @@ const TARGET_DIR = "buildPrerendered";
 async function prerenderContent() {
   console.time("[prerenderContent]");
 
+  if (!process.env.SCRIVITO_ORIGIN) {
+    throw new Error(
+      'The environment variable "SCRIVITO_ORIGIN" is not defined.' +
+        " Prerendered pages need a configured origin or base URL."
+    );
+  }
+
   const assetManifest = await fse.readJson(
     path.join(SOURCE_DIR, "asset-manifest.json")
   );

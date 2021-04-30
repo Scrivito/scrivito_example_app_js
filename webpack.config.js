@@ -14,13 +14,6 @@ const headersCsp = require("./public/_headersCsp.json");
 // load ".env"
 dotenv.config();
 
-let scrivitoOrigin = "";
-if (process.env.CONTEXT === "production") {
-  scrivitoOrigin = process.env.URL;
-} else if (process.env.DEPLOY_PRIME_URL) {
-  scrivitoOrigin = process.env.DEPLOY_PRIME_URL;
-}
-
 // Extend headersCsp with custom endpoint URL
 const endpoint = process.env.SCRIVITO_ENDPOINT;
 if (endpoint) {
@@ -39,6 +32,14 @@ function webpackConfig(env = {}) {
       ' Check if the ".env" file with a proper SCRIVITO_TENANT is set.' +
       ' See ".env.example" for an example.'
     );
+  }
+
+  let scrivitoOrigin = "";
+  // Netlify build environment, see https://docs.netlify.com/configure-builds/environment-variables/
+  if (process.env.CONTEXT === "production") {
+    scrivitoOrigin = process.env.URL;
+  } else if (process.env.DEPLOY_PRIME_URL) {
+    scrivitoOrigin = process.env.DEPLOY_PRIME_URL;
   }
 
   return {

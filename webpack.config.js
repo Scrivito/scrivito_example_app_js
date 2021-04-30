@@ -1,3 +1,5 @@
+/* eslint-disable import/no-commonjs */
+/* eslint-disable import/no-extraneous-dependencies */
 const builder = require("content-security-policy-builder");
 const dotenv = require("dotenv");
 const path = require("path");
@@ -27,10 +29,10 @@ function webpackConfig(env = {}) {
     !process.env.SCRIVITO_TENANT ||
     process.env.SCRIVITO_TENANT === "your_scrivito_tenant_id"
   ) {
-    throw (
+    throw new Error(
       'Environment variable "SCRIVITO_TENANT" is not defined!' +
-      ' Check if the ".env" file with a proper SCRIVITO_TENANT is set.' +
-      ' See ".env.example" for an example.'
+        ' Check if the ".env" file with a proper SCRIVITO_TENANT is set.' +
+        ' See ".env.example" for an example.'
     );
   }
 

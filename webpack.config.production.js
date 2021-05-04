@@ -21,20 +21,15 @@ function webpackConfig(env = {}) {
     ...sharedConfig
   } = devWebpackConfig({ ...env, production: true });
 
-  const plugins = [
-    new CleanWebpackPlugin(),
-    ...filterDevPlugins(devPlugins),
-    new ZipPlugin({
-      filename: "build.zip",
-      path: "../",
-      pathPrefix: "build/",
-      exclude: "asset-manifest.json",
-    }),
-  ];
+  const plugins = [new CleanWebpackPlugin(), ...filterDevPlugins(devPlugins)];
 
-  if (process.env.SCRIVITO_PRERENDER) {
+  if (!process.env.SCRIVITO_PRERENDER) {
     plugins.push(
-      new WebpackManifestPlugin({ fileName: "asset-manifest.json" })
+      new ZipPlugin({
+        filename: "build.zip",
+        path: "../",
+        pathPrefix: "build/",
+      })
     );
   }
 
@@ -61,6 +56,13 @@ function filterDevPlugins(plugins) {
     if (plugin instanceof webpack.SourceMapDevToolPlugin) {
       return false;
     }
+    if (
+      plugin instanceof WebpackManifestPlugin &&
+      !process.env.SCRIVITO_PRERENDER
+    ) {
+      return false;
+    }
+
     return true;
   });
 }

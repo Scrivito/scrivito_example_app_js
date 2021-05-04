@@ -7,6 +7,7 @@ const lodash = require("lodash");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const Webpackbar = require("webpackbar");
 const headersCsp = require("./public/_headersCsp.json");
 
@@ -156,6 +157,7 @@ function webpackConfig(env = {}) {
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.SourceMapDevToolPlugin({}),
+      new WebpackManifestPlugin({ fileName: "asset-manifest.json" }),
     ],
     resolve: {
       extensions: [".js"],

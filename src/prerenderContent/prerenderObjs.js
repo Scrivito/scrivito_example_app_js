@@ -18,8 +18,12 @@ export default async function prerenderObjs(
 
   let failedCount = 0;
   const files = [];
-  const storeFile = async (file) =>
-    files.push(await storeResult(targetDir, file));
+  const storeFile = async (file) => {
+    const storedFile = await storeResult(targetDir, file);
+    if (storedFile) {
+      files.push(storedFile);
+    }
+  };
 
   const objsGroups = chunk(objs, 10);
   await asyncForEachSequential(objsGroups, async (objsGroup) =>

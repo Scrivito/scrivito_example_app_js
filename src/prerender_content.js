@@ -64,7 +64,7 @@ async function prerenderContent() {
     assetManifest
   );
 
-  const storedFiles = [sitemapFile, ...objFiles].filter((f) => f !== undefined);
+  const storedFiles = [sitemapFile, ...objFiles];
 
   await extendRedirects(TARGET_DIR, storedFiles, SOURCE_DIR);
 

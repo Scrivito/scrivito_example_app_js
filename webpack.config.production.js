@@ -6,7 +6,7 @@ const ZipPlugin = require("zip-webpack-plugin");
 
 const devWebpackConfig = require("./webpack.config");
 
-const NODE_BUILD_DIR = "buildPrerendering";
+const NODE_BUILD_DIR = "buildNode";
 
 function webpackConfig(env = {}) {
   const { isPrerendering } = env;

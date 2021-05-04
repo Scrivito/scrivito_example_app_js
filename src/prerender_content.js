@@ -53,10 +53,7 @@ async function prerenderContent() {
 
   await fse.remove(path.join(TARGET_DIR, "asset-manifest.json"));
 
-  const sitemapFile = await prerenderSitemap(
-    TARGET_DIR,
-    SITEMAP_OBJ_CLASSES_WHITELIST
-  );
+  await prerenderSitemap(TARGET_DIR, SITEMAP_OBJ_CLASSES_WHITELIST);
 
   const objFiles = await prerenderObjs(
     TARGET_DIR,
@@ -64,11 +61,9 @@ async function prerenderContent() {
     assetManifest
   );
 
-  const storedFiles = [sitemapFile, ...objFiles];
+  await extendRedirects(TARGET_DIR, objFiles, SOURCE_DIR);
 
-  await extendRedirects(TARGET_DIR, storedFiles, SOURCE_DIR);
-
-  console.log(`📦 Added ${storedFiles.length} files to ${TARGET_DIR}!`);
+  console.log(`📦 Added ${objFiles.length} files to ${TARGET_DIR}!`);
 
   console.timeEnd("[prerenderContent]");
 }

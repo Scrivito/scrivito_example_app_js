@@ -15,7 +15,7 @@ export default async function prerenderSitemap(targetDir, objClassesWhitelist) {
   storeResult(targetDir, { filename: "/sitemap.xml", content });
 
   console.log(
-    `📦 [prerenderSitemap] Added sitemap.xml with ${sitemapUrls.length} items to ${targetDir}.`
+    `  📦 [prerenderSitemap] Added sitemap.xml with ${sitemapUrls.length} items to ${targetDir}.`
   );
 
   console.timeEnd("[prerenderSitemap]");

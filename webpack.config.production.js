@@ -7,7 +7,7 @@ const ZipPlugin = require("zip-webpack-plugin");
 const devWebpackConfig = require("./webpack.config");
 
 const NODE_BUILD_DIR = "buildNode";
-const NO_ASSET_MANIFEST = !process.env.SCRIVITO_PRERENDER;
+const isPrerendering = process.env.SCRIVITO_PRERENDER;
 
 function prodWebpackConfig(env = {}) {
   const {
@@ -18,34 +18,37 @@ function prodWebpackConfig(env = {}) {
     ...sharedConfig
   } = devWebpackConfig({ ...env, production: true });
 
-  return {
-    ...sharedConfig,
-    mode: "production",
-    target: ["web", "es5"],
-    plugins: [
-      new CleanWebpackPlugin(),
-      ...filterPlugins(
-        devPlugins,
-        SourceMapDevToolPlugin,
-        NO_ASSET_MANIFEST ? WebpackManifestPlugin : undefined
-      ),
+  const sharedPlugins = filterPlugins(
+    devPlugins,
+    SourceMapDevToolPlugin,
+    isPrerendering ? undefined : WebpackManifestPlugin
+  );
+
+  const plugins = [new CleanWebpackPlugin(), ...sharedPlugins];
+
+  if (!isPrerendering) {
+    plugins.push(
       new ZipPlugin({
         filename: "build.zip",
         path: "../",
         pathPrefix: "build/",
-      }),
-    ],
+      })
+    );
+  }
+
+  return {
+    ...sharedConfig,
+    mode: "production",
+    target: ["web", "es5"],
+    plugins,
   };
 }
 
 function nodeWebpackConfig(env = {}) {
-  const dev = devWebpackConfig({ ...env, production: true });
-
   const {
     target: _prodTarget,
     entry: _prodEntry,
     output: prodOutput,
-    plugins: _prodPlugins,
     ...sharedConfig
   } = prodWebpackConfig(env);
 
@@ -58,10 +61,6 @@ function nodeWebpackConfig(env = {}) {
       path: path.join(__dirname, NODE_BUILD_DIR),
       filename: "[name].js",
     },
-    plugins: [
-      new CleanWebpackPlugin(),
-      ...filterPlugins(dev.plugins, SourceMapDevToolPlugin),
-    ],
   };
 }
 

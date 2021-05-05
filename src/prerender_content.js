@@ -45,7 +45,7 @@ async function prerenderContent() {
     path.join(SOURCE_DIR, "asset-manifest.json")
   );
 
-  console.log(`Removing ${TARGET_DIR}/`);
+  console.log(`  📦 [prerenderContent] Removing ${TARGET_DIR}/`);
   await fse.remove(TARGET_DIR);
 
   console.log(`Copying ${SOURCE_DIR}/ to ${TARGET_DIR}/`);

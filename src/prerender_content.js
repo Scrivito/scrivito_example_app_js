@@ -65,7 +65,9 @@ async function prerenderContent() {
 
   await extendRedirects(TARGET_DIR, objFiles, SOURCE_DIR);
 
-  console.log(`📦 Added ${objFiles.length} files to ${TARGET_DIR}!`);
+  console.log(
+    `  📦 [prerenderContent] Added ${objFiles.length} files to ${TARGET_DIR}.`
+  );
 
   console.timeEnd("[prerenderContent]");
 }

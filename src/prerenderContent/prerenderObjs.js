@@ -11,10 +11,10 @@ export default async function prerenderObjs(
 ) {
   console.time("[prerenderObjs]");
 
-  console.time("Loading all objs");
+  console.time("  🔎 [prerenderObjs] Loading all objs");
   const objs = await Scrivito.load(() => allObjs(objClassesBlacklist));
-  console.timeEnd("Loading all objs");
-  console.log(`Loaded ${objs.length} objs`);
+  console.timeEnd("  🔎 [prerenderObjs] Loading all objs");
+  console.log(`  🔎 [prerenderObjs] Loaded ${objs.length} objs`);
 
   let failedCount = 0;
   const files = [];

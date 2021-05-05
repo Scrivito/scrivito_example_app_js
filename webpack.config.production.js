@@ -70,4 +70,6 @@ function filterPlugins(plugins, ...exclude) {
   );
 }
 
-module.exports = [prodWebpackConfig, nodeWebpackConfig];
+module.exports = isPrerendering
+  ? [prodWebpackConfig, nodeWebpackConfig]
+  : prodWebpackConfig;

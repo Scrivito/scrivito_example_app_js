@@ -20,6 +20,9 @@ Scrivito.provideEditingConfig("Homepage", {
   attributes: {
     ...defaultPageEditingConfigAttributes,
     ...metadataEditingConfigAttributes,
+    contentTitle: {
+      title: "Title for editors",
+    },
     logoDark: {
       title: "Dark logo",
       description: "Used with light backgrounds",
@@ -72,7 +75,7 @@ Scrivito.provideEditingConfig("Homepage", {
         'If you set this link, a cookie consent box will be shown on every page. The link should point to your privacy policy. The link title defaults to "Learn more »".',
     },
   },
-  properties: [...defaultPageProperties, "showAsLandingPage"],
+  properties: ["contentTitle", ...defaultPageProperties, "showAsLandingPage"],
   propertiesGroups: [
     {
       title: "Site settings",

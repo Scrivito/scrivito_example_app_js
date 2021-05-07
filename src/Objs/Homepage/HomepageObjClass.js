@@ -7,6 +7,7 @@ const Homepage = Scrivito.provideObjClass("Homepage", {
     ...defaultPageAttributes,
     showAsLandingPage: ["enum", { values: ["yes", "no"] }],
     cookieConsentLink: "link",
+    contentTitle: "string",
     childOrder: "referencelist",
     footer: ["widgetlist", { only: "SectionWidget" }],
     logoDark: ["reference", { only: ["Image"] }],

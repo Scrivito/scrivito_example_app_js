@@ -1,12 +1,9 @@
-/* eslint no-console: "off" */
 import * as Scrivito from "scrivito";
 import jsontoxml from "jsontoxml";
 import formatDate from "../utils/formatDate";
+import { storeResult } from "./storeResult";
 
-export default async function prerenderSitemap(
-  objClassesWhitelist,
-  storeResult
-) {
+export default async function prerenderSitemap(targetDir, objClassesWhitelist) {
   console.time("[prerenderSitemap]");
 
   const pages = await Scrivito.load(() =>
@@ -15,19 +12,19 @@ export default async function prerenderSitemap(
   const sitemapUrls = await Scrivito.load(() => pages.map(pageToSitemapUrl));
   const content = sitemapUrlsToSitemapXml(sitemapUrls);
 
+  storeResult(targetDir, { filename: "/sitemap.xml", content });
+
   console.log(
-    `[prerenderSitemap] Generated sitemap.xml with ${sitemapUrls.length} items.`
+    `  📦 [prerenderSitemap] Added sitemap.xml with ${sitemapUrls.length} items to ${targetDir}.`
   );
+
   console.timeEnd("[prerenderSitemap]");
-  await storeResult({ filename: "/sitemap.xml", content });
 }
 
 function prerenderSitemapSearch(objClassesWhitelist) {
-  return Scrivito.Obj.where("_objClass", "equals", objClassesWhitelist).andNot(
-    "robotsIndex",
-    "equals",
-    "no"
-  );
+  return Scrivito.Obj.onSite("default")
+    .where("_objClass", "equals", objClassesWhitelist)
+    .andNot("robotsIndex", "equals", "no");
 }
 
 function pageToSitemapUrl(page) {

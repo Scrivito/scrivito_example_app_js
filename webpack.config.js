@@ -6,8 +6,8 @@ const webpack = require("webpack");
 const lodash = require("lodash");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const Webpackbar = require("webpackbar");
 const headersCsp = require("./public/_headersCsp.json");
 
@@ -20,7 +20,7 @@ if (endpoint) {
   headersCsp["script-src"].push(`https://${endpoint}`);
 }
 
-const buildPath = "build";
+const BUILD_DIR = "build";
 
 function webpackConfig(env = {}) {
   if (
@@ -34,12 +34,15 @@ function webpackConfig(env = {}) {
     );
   }
 
-  let scrivitoOrigin = "";
+  let scrivitoOrigin = process.env.SCRIVITO_ORIGIN || "";
+
   // Netlify build environment, see https://docs.netlify.com/configure-builds/environment-variables/
-  if (process.env.CONTEXT === "production") {
-    scrivitoOrigin = process.env.URL;
-  } else if (process.env.DEPLOY_PRIME_URL) {
-    scrivitoOrigin = process.env.DEPLOY_PRIME_URL;
+  if (!scrivitoOrigin) {
+    if (process.env.CONTEXT === "production") {
+      scrivitoOrigin = process.env.URL;
+    } else if (process.env.DEPLOY_PRIME_URL) {
+      scrivitoOrigin = process.env.DEPLOY_PRIME_URL;
+    }
   }
 
   return {
@@ -111,7 +114,7 @@ function webpackConfig(env = {}) {
           ? "[name].js"
           : "assets/[name].[contenthash].js",
       chunkFilename: "assets/chunk-[id].[contenthash].js",
-      path: path.join(__dirname, buildPath),
+      path: path.join(__dirname, BUILD_DIR),
     },
     plugins: [
       new webpack.EnvironmentPlugin({
@@ -153,9 +156,8 @@ function webpackConfig(env = {}) {
         chunks: ["scrivito_extensions"],
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),
-      new WebpackManifestPlugin({ fileName: "asset-manifest.json" }),
-
       new webpack.SourceMapDevToolPlugin({}),
+      new WebpackManifestPlugin({ fileName: "asset-manifest.json" }),
     ],
     resolve: {
       extensions: [".js"],

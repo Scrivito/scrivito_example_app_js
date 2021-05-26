@@ -1,14 +1,10 @@
-const filesize = require("filesize");
-const fse = require("fs-extra");
-const path = require("path");
+import filesize from "filesize";
+import fse from "fs-extra";
+import path from "path";
 
-const { reportError } = require("./reportError");
+import { reportError } from "./reportError";
 
-exports.storeResult = async function storeResult(
-  targetDir,
-  storedFiles,
-  { filename, content }
-) {
+export async function storeResult(targetDir, { filename, content }) {
   const filePath = path.join(targetDir, filename);
   if (!path.normalize(filePath).startsWith(`${targetDir}`)) {
     reportError(`filename "${filename}" is invalid! Skipping file...`);
@@ -21,7 +17,7 @@ exports.storeResult = async function storeResult(
   );
   try {
     await fse.outputFile(filePath, content, { flag: "wx" });
-    storedFiles.push(filePath.substring(targetDir.length));
+    return filePath.substring(targetDir.length);
   } catch (e) {
     if (e.code === "EEXIST") {
       reportError(
@@ -31,4 +27,4 @@ exports.storeResult = async function storeResult(
       throw e;
     }
   }
-};
+}

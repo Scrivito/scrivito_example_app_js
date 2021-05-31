@@ -118,7 +118,7 @@ function webpackConfig(env = {}) {
     },
     plugins: [
       new webpack.EnvironmentPlugin({
-        NODE_ENV: env.isProduction ? "production" : "development",
+        NODE_ENV: env.production ? "production" : "development",
         SCRIVITO_ENDPOINT: "",
         SCRIVITO_ORIGIN: scrivitoOrigin,
         SCRIVITO_TENANT: "",

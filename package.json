@@ -14,7 +14,7 @@
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
-    "@loadable/component": "^5.14.1",
+    "@loadable/component": "^5.15.0",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
     "autotrack": "^2.4.1",

@@ -81,13 +81,13 @@
       "files": ["webpack.config.*"],
       "rules": {
         "import/no-commonjs": 0,
-        "import/no-extraneous-dependencies": 0
+        "import/no-nodejs-modules": 0
       }
     },
     {
       "files": ["src/prerender_content.js", "src/prerenderContent/*.js"],
       "rules": {
-        "import/no-extraneous-dependencies": 0,
+        "import/no-nodejs-modules": 0,
         "no-console": 0
       }
     }

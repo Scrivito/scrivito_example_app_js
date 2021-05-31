@@ -155,7 +155,6 @@ function webpackConfig(env = {}) {
         template: "_scrivito_extensions.html",
         chunks: ["scrivito_extensions"],
       }),
-      new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.SourceMapDevToolPlugin({}),
       new WebpackManifestPlugin({ fileName: "asset-manifest.json" }),
     ],

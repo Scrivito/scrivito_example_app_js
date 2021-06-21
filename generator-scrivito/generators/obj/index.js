@@ -47,7 +47,7 @@ module.exports = class extends Generator {
       objClassName,
       cssClassName,
     });
-    this.registerTransformStream(gulpPrettier());
+    this.queueTransformStream(gulpPrettier());
   }
 
   _validate(input) {

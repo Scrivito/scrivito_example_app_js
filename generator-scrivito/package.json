@@ -13,9 +13,9 @@
     "private": true
   },
   "dependencies": {
-    "gulp-prettier": "^2.3.0",
+    "gulp-prettier": "^3.0.0",
     "lodash": "^4.17.21",
-    "yeoman-generator": "^3.2.0"
+    "yeoman-generator": "^5.3.0"
   },
   "devDependencies": {
     "prettier": "^2.2.1"

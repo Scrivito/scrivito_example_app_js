@@ -51,7 +51,7 @@ function sliderSettings(testimonials) {
 
     return (
       <Scrivito.BackgroundImageTag
-        key={testimonial.id}
+        key={testimonial.id()}
         className="image"
         style={{
           background: { image: authorImage },

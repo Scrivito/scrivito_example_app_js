@@ -196,7 +196,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
             <div
               className={startAlignmentClasses.join(" ")}
               title="Content top aligned"
-              onClick={() => widget.update({ alignment: "start" })}
+              onClick={() => setAlignment("start")}
             >
               <div className="grid-col-12">
                 <span className="alignment" />
@@ -206,7 +206,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
             <div
               className={centerAlignmentClasses.join(" ")}
               title="Content center aligned"
-              onClick={() => widget.update({ alignment: "center" })}
+              onClick={() => setAlignment("center")}
             >
               <div className="grid-col-12">
                 <span className="alignment center" />
@@ -216,7 +216,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
             <div
               className={endAlignmentClasses.join(" ")}
               title="Content bottom aligned"
-              onClick={() => widget.update({ alignment: "end" })}
+              onClick={() => setAlignment("end")}
             >
               <div className="grid-col-12">
                 <span className="alignment bottom" />
@@ -226,7 +226,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
             <div
               className={stretchAlignmentClasses.join(" ")}
               title="Content stretch (full height) aligned"
-              onClick={() => widget.update({ alignment: "stretch" })}
+              onClick={() => setAlignment("stretch")}
             >
               <div className="grid-col-12">
                 <span className="alignment fullHeight" />
@@ -238,6 +238,10 @@ const Alignment = Scrivito.connect(({ widget }) => {
       </div>
     </React.Fragment>
   );
+
+  function setAlignment(newAlignment) {
+    widget.update({ alignment: newAlignment });
+  }
 });
 
 class GridLayoutEditor extends React.Component {

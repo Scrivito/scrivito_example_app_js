@@ -5,59 +5,47 @@ import IconComponent from "../Icon";
 import IconSearch from "./IconEditorTab/IconSearch";
 import IconSearchResults from "./IconEditorTab/IconSearchResults";
 
-class IconEditorTab extends React.Component {
-  constructor(props) {
-    super(props);
+function IconEditorTab({ widget }) {
+  const [searchValue, setSearchValue] = React.useState("");
+  const currentIcon = widget.get("icon");
 
-    this.state = {
-      searchValue: "",
-    };
+  return (
+    <div className="icon-editor-tab">
+      <div className="scrivito_detail_content">
+        <div className="scrivito_detail_label">
+          <span>Preview</span>
+        </div>
+        <div className="icon-editor-preview">
+          <IconComponent icon={currentIcon} />
+        </div>
 
-    this.setWidgetIcon = this.setWidgetIcon.bind(this);
-  }
+        <IconSearch
+          searchValue={searchValue}
+          setSearchValue={(newSearchValue) => {
+            if (searchValue !== newSearchValue) {
+              setSearchValue(newSearchValue);
+            }
+          }}
+        />
+        <IconSearchResults
+          currentIcon={currentIcon}
+          searchValue={searchValue}
+          setWidgetIcon={setWidgetIcon}
+        />
+        <AllIcons
+          currentIcon={currentIcon}
+          hide={searchValue.length}
+          setWidgetIcon={setWidgetIcon}
+        />
+      </div>
+    </div>
+  );
 
-  setWidgetIcon(event, icon) {
+  function setWidgetIcon(event, icon) {
     event.preventDefault();
     event.stopPropagation();
 
-    this.props.widget.update({ icon });
-  }
-
-  render() {
-    const { widget } = this.props;
-    const currentIcon = widget.get("icon");
-
-    return (
-      <div className="icon-editor-tab">
-        <div className="scrivito_detail_content">
-          <div className="scrivito_detail_label">
-            <span>Preview</span>
-          </div>
-          <div className="icon-editor-preview">
-            <IconComponent icon={currentIcon} />
-          </div>
-
-          <IconSearch
-            searchValue={this.state.searchValue}
-            setSearchValue={(newSearchValue) => {
-              if (this.state.searchValue !== newSearchValue) {
-                this.setState({ searchValue: newSearchValue });
-              }
-            }}
-          />
-          <IconSearchResults
-            currentIcon={currentIcon}
-            searchValue={this.state.searchValue}
-            setWidgetIcon={this.setWidgetIcon}
-          />
-          <AllIcons
-            currentIcon={currentIcon}
-            hide={this.state.searchValue.length}
-            setWidgetIcon={this.setWidgetIcon}
-          />
-        </div>
-      </div>
-    );
+    widget.update({ icon });
   }
 }
 

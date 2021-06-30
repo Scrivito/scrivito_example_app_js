@@ -121,6 +121,9 @@ class ColumnsEditorTab extends React.Component {
   }
 
   adjustGrid(newGrid) {
+    if (!Scrivito.canWrite()) {
+      return;
+    }
     if (isEqual(this.state.currentGrid, newGrid)) {
       return;
     }
@@ -142,7 +145,10 @@ Scrivito.registerComponent("ColumnsEditorTab", ColumnsEditorTab);
 
 const PresetGrid = Scrivito.connect(
   ({ currentGrid, adjustGrid, title, grid }) => {
-    const classNames = ["gle-preview", "clickable"];
+    const classNames = ["gle-preview"];
+    if (Scrivito.canWrite()) {
+      classNames.push("clickable");
+    }
     if (isEqual(currentGrid, grid)) {
       classNames.push("active");
     }
@@ -162,10 +168,10 @@ const PresetGrid = Scrivito.connect(
 );
 
 const Alignment = Scrivito.connect(({ widget }) => {
-  const startAlignmentClasses = ["gle-preview", "clickable"];
-  const centerAlignmentClasses = ["gle-preview", "clickable"];
-  const endAlignmentClasses = ["gle-preview", "clickable"];
-  const stretchAlignmentClasses = ["gle-preview", "clickable"];
+  const startAlignmentClasses = ["gle-preview"];
+  const centerAlignmentClasses = ["gle-preview"];
+  const endAlignmentClasses = ["gle-preview"];
+  const stretchAlignmentClasses = ["gle-preview"];
 
   switch (widget.get("alignment")) {
     case "start":
@@ -183,6 +189,13 @@ const Alignment = Scrivito.connect(({ widget }) => {
     default:
       startAlignmentClasses.push("active");
       break;
+  }
+
+  if (Scrivito.canWrite()) {
+    startAlignmentClasses.push("clickable");
+    centerAlignmentClasses.push("clickable");
+    endAlignmentClasses.push("clickable");
+    stretchAlignmentClasses.push("clickable");
   }
 
   return (
@@ -240,6 +253,10 @@ const Alignment = Scrivito.connect(({ widget }) => {
   );
 
   function setAlignment(newAlignment) {
+    if (!Scrivito.canWrite()) {
+      return;
+    }
+
     widget.update({ alignment: newAlignment });
   }
 });
@@ -321,6 +338,7 @@ const GridLayoutEditor = Scrivito.connect(
 
           innerContent.unshift(
             <Draggable
+              disabled={!Scrivito.canWrite()}
               key="grid-handle"
               bounds={{
                 left: this.state.draggableGrid * leftBound,
@@ -336,10 +354,10 @@ const GridLayoutEditor = Scrivito.connect(
                 })
               }
             >
-              <div className="grid-handle" />
+              <div className={Scrivito.canWrite() ? "grid-handle" : ""} />
             </Draggable>
           );
-        } else if (colIndex < 5) {
+        } else if (colIndex < 5 && Scrivito.canWrite()) {
           innerContent.unshift(
             <div
               key="grid-handle-plus"
@@ -352,7 +370,7 @@ const GridLayoutEditor = Scrivito.connect(
           );
         }
 
-        if (this.props.currentGrid.length > 1) {
+        if (this.props.currentGrid.length > 1 && Scrivito.canWrite()) {
           innerContent.push(
             <div
               key="grid-del"

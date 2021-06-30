@@ -19,24 +19,28 @@ function IconEditorTab({ widget }) {
           <IconComponent icon={currentIcon} />
         </div>
 
-        <IconSearch
-          searchValue={searchValue}
-          setSearchValue={(newSearchValue) => {
-            if (searchValue !== newSearchValue) {
-              setSearchValue(newSearchValue);
-            }
-          }}
-        />
-        <IconSearchResults
-          currentIcon={currentIcon}
-          searchValue={searchValue}
-          setWidgetIcon={setWidgetIcon}
-        />
-        <AllIcons
-          currentIcon={currentIcon}
-          hide={searchValue.length}
-          setWidgetIcon={setWidgetIcon}
-        />
+        {Scrivito.canWrite() ? (
+          <>
+            <IconSearch
+              searchValue={searchValue}
+              setSearchValue={(newSearchValue) => {
+                if (searchValue !== newSearchValue) {
+                  setSearchValue(newSearchValue);
+                }
+              }}
+            />
+            <IconSearchResults
+              currentIcon={currentIcon}
+              searchValue={searchValue}
+              setWidgetIcon={setWidgetIcon}
+            />
+            <AllIcons
+              currentIcon={currentIcon}
+              hide={searchValue.length}
+              setWidgetIcon={setWidgetIcon}
+            />
+          </>
+        ) : null}
       </div>
     </div>
   );

@@ -12,42 +12,29 @@ fontAwesomeIcons.forEach((icon) =>
   })
 );
 
-class AllIcons extends React.Component {
-  constructor(props) {
-    super(props);
+function AllIcons({ setWidgetIcon, currentIcon, hide }) {
+  const [initialRender, setInitialRender] = React.useState(true);
+  React.useEffect(() => {
+    setTimeout(() => setInitialRender(false), 10);
+  }, []);
 
-    this.state = {
-      initialRender: true,
-    };
+  if (hide) {
+    return null;
   }
 
-  componentDidMount() {
-    if (this.state.initialRender === true) {
-      setTimeout(() => this.setState({ initialRender: false }), 10);
-    }
-  }
-
-  render() {
-    const { setWidgetIcon, currentIcon, hide } = this.props;
-
-    if (hide) {
-      return null;
-    }
-
-    return (
-      <React.Fragment>
-        <div id="icons">
-          {
-            <CategoriesAndIcons
-              initialRender={this.state.initialRender}
-              currentIcon={currentIcon}
-              setWidgetIcon={setWidgetIcon}
-            />
-          }
-        </div>
-      </React.Fragment>
-    );
-  }
+  return (
+    <React.Fragment>
+      <div id="icons">
+        {
+          <CategoriesAndIcons
+            initialRender={initialRender}
+            currentIcon={currentIcon}
+            setWidgetIcon={setWidgetIcon}
+          />
+        }
+      </div>
+    </React.Fragment>
+  );
 }
 
 function CategoriesAndIcons({ initialRender, currentIcon, setWidgetIcon }) {

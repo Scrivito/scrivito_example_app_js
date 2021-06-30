@@ -22,6 +22,8 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   height: 25px;
   width: 40px;
+}
+.gle-preview.clickable {
   cursor: pointer;
 }
 .gle-preview.active {
@@ -73,7 +75,7 @@
   width: calc(100% - 2px);
 }
 
-.gle-preview:hover > [class*="grid-col-"] {
+.gle-preview.clickable:hover > [class*="grid-col-"] {
   box-shadow: 0 0 0 1px rgba(101, 139, 81, 0.5) inset;
   background: rgba(101, 139, 81, 0.3);
 }

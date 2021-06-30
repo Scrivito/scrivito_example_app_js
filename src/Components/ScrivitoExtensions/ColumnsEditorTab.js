@@ -142,7 +142,7 @@ Scrivito.registerComponent("ColumnsEditorTab", ColumnsEditorTab);
 
 const PresetGrid = Scrivito.connect(
   ({ currentGrid, adjustGrid, title, grid }) => {
-    const classNames = ["gle-preview"];
+    const classNames = ["gle-preview", "clickable"];
     if (isEqual(currentGrid, grid)) {
       classNames.push("active");
     }
@@ -162,10 +162,10 @@ const PresetGrid = Scrivito.connect(
 );
 
 const Alignment = Scrivito.connect(({ widget }) => {
-  const startAlignmentClasses = ["gle-preview"];
-  const centerAlignmentClasses = ["gle-preview"];
-  const endAlignmentClasses = ["gle-preview"];
-  const stretchAlignmentClasses = ["gle-preview"];
+  const startAlignmentClasses = ["gle-preview", "clickable"];
+  const centerAlignmentClasses = ["gle-preview", "clickable"];
+  const endAlignmentClasses = ["gle-preview", "clickable"];
+  const stretchAlignmentClasses = ["gle-preview", "clickable"];
 
   switch (widget.get("alignment")) {
     case "start":

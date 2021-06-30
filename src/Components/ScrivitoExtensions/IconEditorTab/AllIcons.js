@@ -2,6 +2,16 @@ import * as React from "react";
 import { take } from "lodash-es";
 import fontAwesomeIcons from "./fontAwesomeIcons";
 
+const categoryMap = {};
+fontAwesomeIcons.forEach((icon) =>
+  icon.categories.forEach((category) => {
+    if (!categoryMap[category]) {
+      categoryMap[category] = [];
+    }
+    categoryMap[category].push(icon);
+  })
+);
+
 class AllIcons extends React.Component {
   constructor(props) {
     super(props);
@@ -9,16 +19,6 @@ class AllIcons extends React.Component {
     this.state = {
       initialRender: true,
     };
-
-    this.categoryMap = {};
-    fontAwesomeIcons.forEach((icon) =>
-      icon.categories.forEach((category) => {
-        if (!this.categoryMap[category]) {
-          this.categoryMap[category] = [];
-        }
-        this.categoryMap[category].push(icon);
-      })
-    );
   }
 
   componentDidMount() {
@@ -40,7 +40,6 @@ class AllIcons extends React.Component {
           {
             <CategoriesAndIcons
               initialRender={this.state.initialRender}
-              categoryMap={this.categoryMap}
               currentIcon={currentIcon}
               setWidgetIcon={setWidgetIcon}
             />
@@ -51,12 +50,7 @@ class AllIcons extends React.Component {
   }
 }
 
-function CategoriesAndIcons({
-  initialRender,
-  categoryMap,
-  currentIcon,
-  setWidgetIcon,
-}) {
+function CategoriesAndIcons({ initialRender, currentIcon, setWidgetIcon }) {
   // Note: the initialRender is a performance tweak,
   // to improve loading time for first "meaningful content".
   // It is faster, because it first renders only the first 50 icons

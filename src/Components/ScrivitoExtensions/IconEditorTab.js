@@ -13,17 +13,7 @@ class IconEditorTab extends React.Component {
       searchValue: "",
     };
 
-    this.setSearchValue = this.setSearchValue.bind(this);
     this.setWidgetIcon = this.setWidgetIcon.bind(this);
-  }
-
-  setSearchValue(event, searchValue) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    if (this.state.searchValue !== searchValue) {
-      this.setState({ searchValue });
-    }
   }
 
   setWidgetIcon(event, icon) {
@@ -49,7 +39,11 @@ class IconEditorTab extends React.Component {
 
           <IconSearch
             searchValue={this.state.searchValue}
-            setSearchValue={this.setSearchValue}
+            setSearchValue={(newSearchValue) => {
+              if (this.state.searchValue !== newSearchValue) {
+                this.setState({ searchValue: newSearchValue });
+              }
+            }}
           />
           <IconSearchResults
             currentIcon={currentIcon}

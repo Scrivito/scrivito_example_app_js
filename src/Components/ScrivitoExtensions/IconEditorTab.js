@@ -44,7 +44,7 @@ class IconEditorTab extends React.Component {
             <span>Preview</span>
           </div>
           <div className="icon-editor-preview">
-            <IconComponent icon={widget.get("icon")} />
+            <IconComponent icon={currentIcon} />
           </div>
 
           <IconSearch

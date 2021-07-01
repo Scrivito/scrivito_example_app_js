@@ -19,7 +19,7 @@ function IconEditorTab({ widget }) {
           <IconComponent icon={currentIcon} />
         </div>
 
-        {Scrivito.canWrite() ? (
+        {Scrivito.canWrite() && (
           <>
             <IconSearch
               searchValue={searchValue}
@@ -40,7 +40,7 @@ function IconEditorTab({ widget }) {
               setWidgetIcon={setWidgetIcon}
             />
           </>
-        ) : null}
+        )}
       </div>
     </div>
   );

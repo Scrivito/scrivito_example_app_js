@@ -167,10 +167,8 @@ class ColumnsEditorTab extends React.Component {
 Scrivito.registerComponent("ColumnsEditorTab", ColumnsEditorTab);
 
 function PresetGrid({ currentGrid, adjustGrid, title, grid, readOnly }) {
-  const classNames = ["gle-preview"];
-  if (!readOnly) {
-    classNames.push("clickable");
-  }
+  const classNames = readOnly ? ["gle-preview"] : ["gle-preview", "clickable"];
+
   if (isEqual(currentGrid, grid)) {
     classNames.push("active");
   }

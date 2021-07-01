@@ -189,10 +189,14 @@ function PresetGrid({ currentGrid, adjustGrid, title, grid, readOnly }) {
 }
 
 function Alignment({ alignment, setAlignment, readOnly }) {
-  const startAlignmentClasses = ["gle-preview"];
-  const centerAlignmentClasses = ["gle-preview"];
-  const endAlignmentClasses = ["gle-preview"];
-  const stretchAlignmentClasses = ["gle-preview"];
+  const initialClasses = readOnly
+    ? ["gle-preview"]
+    : ["gle-preview", "clickable"];
+
+  const startAlignmentClasses = [...initialClasses];
+  const centerAlignmentClasses = [...initialClasses];
+  const endAlignmentClasses = [...initialClasses];
+  const stretchAlignmentClasses = [...initialClasses];
 
   switch (alignment) {
     case "start":
@@ -210,13 +214,6 @@ function Alignment({ alignment, setAlignment, readOnly }) {
     default:
       startAlignmentClasses.push("active");
       break;
-  }
-
-  if (!readOnly) {
-    startAlignmentClasses.push("clickable");
-    centerAlignmentClasses.push("clickable");
-    endAlignmentClasses.push("clickable");
-    stretchAlignmentClasses.push("clickable");
   }
 
   return (

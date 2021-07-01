@@ -18,6 +18,8 @@ class ColumnsEditorTab extends React.Component {
   }
 
   render() {
+    const readOnly = !Scrivito.canWrite();
+
     return (
       <div className="scrivito_detail_content">
         <Alignment widget={this.props.widget} />
@@ -114,6 +116,7 @@ class ColumnsEditorTab extends React.Component {
           <GridLayoutEditor
             currentGrid={this.state.currentGrid}
             adjustGrid={this.adjustGrid}
+            readOnly={readOnly}
           />
         </div>
       </div>
@@ -261,151 +264,149 @@ const Alignment = Scrivito.connect(({ widget }) => {
   }
 });
 
-const GridLayoutEditor = Scrivito.connect(
-  class GridLayoutEditor extends React.Component {
-    constructor(props) {
-      super(props);
+class GridLayoutEditor extends React.Component {
+  constructor(props) {
+    super(props);
 
-      this.state = {
-        draggableGrid: 0,
-      };
+    this.state = {
+      draggableGrid: 0,
+    };
 
-      this.gridRulerRef = React.createRef();
+    this.gridRulerRef = React.createRef();
 
-      this.adjustNumberOfColumns = this.adjustNumberOfColumns.bind(this);
-      this.handleResize = this.handleResize.bind(this);
-      this.onDragStop = this.onDragStop.bind(this);
-    }
+    this.adjustNumberOfColumns = this.adjustNumberOfColumns.bind(this);
+    this.handleResize = this.handleResize.bind(this);
+    this.onDragStop = this.onDragStop.bind(this);
+  }
 
-    componentDidMount() {
-      this.handleResize();
-      window.addEventListener("resize", this.handleResize);
-    }
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
+  }
 
-    componentWillUnmount() {
-      window.removeEventListener("resize", this.handleResize);
-    }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
 
-    handleResize() {
-      const draggableGrid =
-        this.gridRulerRef.current.firstChild.getBoundingClientRect().width + 10;
+  handleResize() {
+    const draggableGrid =
+      this.gridRulerRef.current.firstChild.getBoundingClientRect().width + 10;
 
-      if (this.state.draggableGrid !== draggableGrid) {
-        this.setState({
-          draggableGrid,
-        });
-      }
-    }
-
-    onDragStop({ colIndex, deltaColSize }) {
-      if (deltaColSize === 0) {
-        return;
-      }
-
-      const newGrid = [...this.props.currentGrid];
-      newGrid[colIndex] += deltaColSize;
-      newGrid[colIndex + 1] -= deltaColSize;
-
-      this.props.adjustGrid(newGrid);
-    }
-
-    adjustNumberOfColumns(wantedCols) {
-      if (wantedCols > 6 || wantedCols < 1) {
-        return;
-      }
-
-      if (wantedCols === 5) {
-        this.props.adjustGrid([2, 2, 2, 2, 4]);
-        return;
-      }
-
-      const newColSize = 12 / wantedCols;
-      this.props.adjustGrid(times(wantedCols).map(() => newColSize));
-    }
-
-    render() {
-      const gridColumns = this.props.currentGrid.map((colSize, colIndex) => {
-        const innerContent = [
-          <div key="grid-label" className="grid-label">
-            {colSize}
-          </div>,
-        ];
-
-        const nextColSize = this.props.currentGrid[colIndex + 1];
-        if (nextColSize) {
-          const leftBound = -(colSize - 1);
-          const rightBound = nextColSize - 1;
-
-          innerContent.unshift(
-            <Draggable
-              disabled={!Scrivito.canWrite()}
-              key="grid-handle"
-              bounds={{
-                left: this.state.draggableGrid * leftBound,
-                right: this.state.draggableGrid * rightBound,
-              }}
-              axis="x"
-              grid={[this.state.draggableGrid, 0]}
-              position={{ x: 0, y: 0 }}
-              onStop={(_e, { x }) =>
-                this.onDragStop({
-                  colIndex,
-                  deltaColSize: Math.round(x / this.state.draggableGrid),
-                })
-              }
-            >
-              <div className={Scrivito.canWrite() ? "grid-handle" : ""} />
-            </Draggable>
-          );
-        } else if (colIndex < 5 && Scrivito.canWrite()) {
-          innerContent.unshift(
-            <div
-              key="grid-handle-plus"
-              className="grid-handle grid-handle-plus"
-              title="add a column"
-              onClick={() =>
-                this.adjustNumberOfColumns(this.props.currentGrid.length + 1)
-              }
-            />
-          );
-        }
-
-        if (this.props.currentGrid.length > 1 && Scrivito.canWrite()) {
-          innerContent.push(
-            <div
-              key="grid-del"
-              className="grid-del"
-              title="delete column"
-              onClick={() =>
-                this.adjustNumberOfColumns(this.props.currentGrid.length - 1)
-              }
-            />
-          );
-        }
-
-        return (
-          <div
-            key={`grid-col-${colIndex}`}
-            className={`grid-col-${colSize} noselect`}
-          >
-            {innerContent}
-          </div>
-        );
+    if (this.state.draggableGrid !== draggableGrid) {
+      this.setState({
+        draggableGrid,
       });
-
-      return (
-        <div className="gle">
-          <div className="grid-ruler" ref={this.gridRulerRef}>
-            {times(12).map((index) => (
-              <div key={index} className="grid-col" />
-            ))}
-          </div>
-          <div className="grid-columns">{gridColumns}</div>
-        </div>
-      );
     }
   }
-);
+
+  onDragStop({ colIndex, deltaColSize }) {
+    if (deltaColSize === 0) {
+      return;
+    }
+
+    const newGrid = [...this.props.currentGrid];
+    newGrid[colIndex] += deltaColSize;
+    newGrid[colIndex + 1] -= deltaColSize;
+
+    this.props.adjustGrid(newGrid);
+  }
+
+  adjustNumberOfColumns(wantedCols) {
+    if (wantedCols > 6 || wantedCols < 1) {
+      return;
+    }
+
+    if (wantedCols === 5) {
+      this.props.adjustGrid([2, 2, 2, 2, 4]);
+      return;
+    }
+
+    const newColSize = 12 / wantedCols;
+    this.props.adjustGrid(times(wantedCols).map(() => newColSize));
+  }
+
+  render() {
+    const gridColumns = this.props.currentGrid.map((colSize, colIndex) => {
+      const innerContent = [
+        <div key="grid-label" className="grid-label">
+          {colSize}
+        </div>,
+      ];
+
+      const nextColSize = this.props.currentGrid[colIndex + 1];
+      if (nextColSize) {
+        const leftBound = -(colSize - 1);
+        const rightBound = nextColSize - 1;
+
+        innerContent.unshift(
+          <Draggable
+            disabled={this.props.readOnly}
+            key="grid-handle"
+            bounds={{
+              left: this.state.draggableGrid * leftBound,
+              right: this.state.draggableGrid * rightBound,
+            }}
+            axis="x"
+            grid={[this.state.draggableGrid, 0]}
+            position={{ x: 0, y: 0 }}
+            onStop={(_e, { x }) =>
+              this.onDragStop({
+                colIndex,
+                deltaColSize: Math.round(x / this.state.draggableGrid),
+              })
+            }
+          >
+            <div className={this.props.readOnly ? "" : "grid-handle"} />
+          </Draggable>
+        );
+      } else if (colIndex < 5 && !this.props.readOnly) {
+        innerContent.unshift(
+          <div
+            key="grid-handle-plus"
+            className="grid-handle grid-handle-plus"
+            title="add a column"
+            onClick={() =>
+              this.adjustNumberOfColumns(this.props.currentGrid.length + 1)
+            }
+          />
+        );
+      }
+
+      if (this.props.currentGrid.length > 1 && !this.props.readOnly) {
+        innerContent.push(
+          <div
+            key="grid-del"
+            className="grid-del"
+            title="delete column"
+            onClick={() =>
+              this.adjustNumberOfColumns(this.props.currentGrid.length - 1)
+            }
+          />
+        );
+      }
+
+      return (
+        <div
+          key={`grid-col-${colIndex}`}
+          className={`grid-col-${colSize} noselect`}
+        >
+          {innerContent}
+        </div>
+      );
+    });
+
+    return (
+      <div className="gle">
+        <div className="grid-ruler" ref={this.gridRulerRef}>
+          {times(12).map((index) => (
+            <div key={index} className="grid-col" />
+          ))}
+        </div>
+        <div className="grid-columns">{gridColumns}</div>
+      </div>
+    );
+  }
+}
 
 function gridOfWidget(containerWidget) {
   return containerWidget.get("columns").map((column) => column.get("colSize"));

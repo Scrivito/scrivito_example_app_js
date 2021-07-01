@@ -32,6 +32,7 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="1 column"
                 grid={[12]}
               />
@@ -40,18 +41,21 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="2 columns"
                 grid={[6, 6]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="2 columns"
                 grid={[3, 9]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="2 columns"
                 grid={[9, 3]}
               />
@@ -60,24 +64,28 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="3 columns"
                 grid={[4, 4, 4]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="3 columns"
                 grid={[2, 8, 2]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="3 columns"
                 grid={[2, 5, 5]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="3 columns"
                 grid={[5, 5, 2]}
               />
@@ -86,12 +94,14 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="4 columns"
                 grid={[3, 3, 3, 3]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="4 columns"
                 grid={[2, 4, 4, 2]}
               />
@@ -100,6 +110,7 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="5 columns"
                 grid={[2, 2, 2, 2, 4]}
               />
@@ -108,6 +119,7 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="6 columns"
                 grid={[2, 2, 2, 2, 2, 2]}
               />
@@ -146,29 +158,27 @@ class ColumnsEditorTab extends React.Component {
 
 Scrivito.registerComponent("ColumnsEditorTab", ColumnsEditorTab);
 
-const PresetGrid = Scrivito.connect(
-  ({ currentGrid, adjustGrid, title, grid }) => {
-    const classNames = ["gle-preview"];
-    if (Scrivito.canWrite()) {
-      classNames.push("clickable");
-    }
-    if (isEqual(currentGrid, grid)) {
-      classNames.push("active");
-    }
-
-    return (
-      <div
-        className={classNames.join(" ")}
-        title={title}
-        onClick={() => adjustGrid(grid)}
-      >
-        {grid.map((colSize, index) => (
-          <div className={`grid-col-${colSize}`} key={index} />
-        ))}
-      </div>
-    );
+function PresetGrid({ currentGrid, adjustGrid, title, grid, readOnly }) {
+  const classNames = ["gle-preview"];
+  if (!readOnly) {
+    classNames.push("clickable");
   }
-);
+  if (isEqual(currentGrid, grid)) {
+    classNames.push("active");
+  }
+
+  return (
+    <div
+      className={classNames.join(" ")}
+      title={title}
+      onClick={() => adjustGrid(grid)}
+    >
+      {grid.map((colSize, index) => (
+        <div className={`grid-col-${colSize}`} key={index} />
+      ))}
+    </div>
+  );
+}
 
 const Alignment = Scrivito.connect(({ widget }) => {
   const startAlignmentClasses = ["gle-preview"];

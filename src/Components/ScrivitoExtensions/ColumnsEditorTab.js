@@ -400,6 +400,10 @@ class GridLayoutEditor extends React.Component {
       );
     });
 
+    const gridColumnsClass = this.props.readOnly
+      ? "grid-columns"
+      : "grid-columns clickable";
+
     return (
       <div className="gle">
         <div className="grid-ruler" ref={this.gridRulerRef}>
@@ -407,7 +411,7 @@ class GridLayoutEditor extends React.Component {
             <div key={index} className="grid-col" />
           ))}
         </div>
-        <div className="grid-columns">{gridColumns}</div>
+        <div className={gridColumnsClass}>{gridColumns}</div>
       </div>
     );
   }

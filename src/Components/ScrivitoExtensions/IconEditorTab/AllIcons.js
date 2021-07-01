@@ -2,18 +2,22 @@ import * as React from "react";
 import { take } from "lodash-es";
 import fontAwesomeIcons from "./fontAwesomeIcons";
 
-const categoryMap = {};
-fontAwesomeIcons.forEach((icon) =>
-  icon.categories.forEach((category) => {
-    if (!categoryMap[category]) {
-      categoryMap[category] = [];
-    }
-    categoryMap[category].push(icon);
-  })
-);
-
 function AllIcons({ setWidgetIcon, currentIcon, hide }) {
   const [initialRender, setInitialRender] = React.useState(true);
+
+  const categoryMap = React.useMemo(() => {
+    const result = {};
+    fontAwesomeIcons.forEach((icon) =>
+      icon.categories.forEach((category) => {
+        if (!result[category]) {
+          result[category] = [];
+        }
+        result[category].push(icon);
+      })
+    );
+    return result;
+  }, []);
+
   React.useEffect(() => {
     setTimeout(() => setInitialRender(false), 10);
   }, []);
@@ -28,6 +32,7 @@ function AllIcons({ setWidgetIcon, currentIcon, hide }) {
         {
           <CategoriesAndIcons
             initialRender={initialRender}
+            categoryMap={categoryMap}
             currentIcon={currentIcon}
             setWidgetIcon={setWidgetIcon}
           />
@@ -37,7 +42,12 @@ function AllIcons({ setWidgetIcon, currentIcon, hide }) {
   );
 }
 
-function CategoriesAndIcons({ initialRender, currentIcon, setWidgetIcon }) {
+function CategoriesAndIcons({
+  initialRender,
+  categoryMap,
+  currentIcon,
+  setWidgetIcon,
+}) {
   // Note: the initialRender is a performance tweak,
   // to improve loading time for first "meaningful content".
   // It is faster, because it first renders only the first 50 icons

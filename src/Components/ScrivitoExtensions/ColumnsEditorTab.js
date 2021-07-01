@@ -22,7 +22,15 @@ class ColumnsEditorTab extends React.Component {
 
     return (
       <div className="scrivito_detail_content">
-        <Alignment widget={this.props.widget} />
+        <Alignment
+          alignment={this.props.widget.get("alignment")}
+          setAlignment={(alignment) => {
+            if (Scrivito.canWrite()) {
+              this.props.widget.update({ alignment });
+            }
+          }}
+          readOnly={readOnly}
+        />
         <div className="scrivito_detail_label">
           <span>Layout (desktop)</span>
         </div>
@@ -180,13 +188,13 @@ function PresetGrid({ currentGrid, adjustGrid, title, grid, readOnly }) {
   );
 }
 
-const Alignment = Scrivito.connect(({ widget }) => {
+function Alignment({ alignment, setAlignment, readOnly }) {
   const startAlignmentClasses = ["gle-preview"];
   const centerAlignmentClasses = ["gle-preview"];
   const endAlignmentClasses = ["gle-preview"];
   const stretchAlignmentClasses = ["gle-preview"];
 
-  switch (widget.get("alignment")) {
+  switch (alignment) {
     case "start":
       startAlignmentClasses.push("active");
       break;
@@ -204,7 +212,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
       break;
   }
 
-  if (Scrivito.canWrite()) {
+  if (!readOnly) {
     startAlignmentClasses.push("clickable");
     centerAlignmentClasses.push("clickable");
     endAlignmentClasses.push("clickable");
@@ -260,19 +268,11 @@ const Alignment = Scrivito.connect(({ widget }) => {
             </div>
           </div>
         </div>
-        <AlignmentDescription alignment={widget.get("alignment")} />
+        <AlignmentDescription alignment={alignment} />
       </div>
     </React.Fragment>
   );
-
-  function setAlignment(newAlignment) {
-    if (!Scrivito.canWrite()) {
-      return;
-    }
-
-    widget.update({ alignment: newAlignment });
-  }
-});
+}
 
 class GridLayoutEditor extends React.Component {
   constructor(props) {

@@ -33,5 +33,14 @@ export function useCookieConsent() {
 }
 
 function getCookieConsent() {
-  return localStorage.getItem("CookieConsent") || "undecided";
+  try {
+    return localStorage.getItem("CookieConsent") || "undecided";
+  } catch (e) {
+    if (e instanceof DOMException) {
+      // Prevent "Uncaught DOMException: Failed to read the 'localStorage' property from 'Window': Access is denied for this document."
+      return "declined";
+    }
+
+    throw e;
+  }
 }

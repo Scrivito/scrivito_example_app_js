@@ -70,9 +70,9 @@ Scrivito.provideEditingConfig("Homepage", {
       ],
     },
     cookieConsentLink: {
-      title: "Cookie consent link",
+      title: "Privacy policy for cookie consent",
       description:
-        'If you set this link, a cookie consent box will be shown on every page. The link should point to your privacy policy. The link title defaults to "Learn more »".',
+        'If you set this link, a cookie consent box will be shown on every page. To preview the effect of this setting, please enable third-party cookies in your browser. The link title defaults to "Learn more »".',
     },
   },
   properties: [...defaultPageProperties, "showAsLandingPage"],

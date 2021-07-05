@@ -18,9 +18,19 @@ class ColumnsEditorTab extends React.Component {
   }
 
   render() {
+    const readOnly = !Scrivito.canWrite();
+
     return (
       <div className="scrivito_detail_content">
-        <Alignment widget={this.props.widget} />
+        <Alignment
+          alignment={this.props.widget.get("alignment")}
+          setAlignment={(alignment) => {
+            if (Scrivito.canWrite()) {
+              this.props.widget.update({ alignment });
+            }
+          }}
+          readOnly={readOnly}
+        />
         <div className="scrivito_detail_label">
           <span>Layout (desktop)</span>
         </div>
@@ -30,6 +40,7 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="1 column"
                 grid={[12]}
               />
@@ -38,18 +49,21 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="2 columns"
                 grid={[6, 6]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="2 columns"
                 grid={[3, 9]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="2 columns"
                 grid={[9, 3]}
               />
@@ -58,24 +72,28 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="3 columns"
                 grid={[4, 4, 4]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="3 columns"
                 grid={[2, 8, 2]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="3 columns"
                 grid={[2, 5, 5]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="3 columns"
                 grid={[5, 5, 2]}
               />
@@ -84,12 +102,14 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="4 columns"
                 grid={[3, 3, 3, 3]}
               />
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="4 columns"
                 grid={[2, 4, 4, 2]}
               />
@@ -98,6 +118,7 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="5 columns"
                 grid={[2, 2, 2, 2, 4]}
               />
@@ -106,6 +127,7 @@ class ColumnsEditorTab extends React.Component {
               <PresetGrid
                 currentGrid={this.state.currentGrid}
                 adjustGrid={this.adjustGrid}
+                readOnly={readOnly}
                 title="6 columns"
                 grid={[2, 2, 2, 2, 2, 2]}
               />
@@ -114,6 +136,7 @@ class ColumnsEditorTab extends React.Component {
           <GridLayoutEditor
             currentGrid={this.state.currentGrid}
             adjustGrid={this.adjustGrid}
+            readOnly={readOnly}
           />
         </div>
       </div>
@@ -121,6 +144,9 @@ class ColumnsEditorTab extends React.Component {
   }
 
   adjustGrid(newGrid) {
+    if (!Scrivito.canWrite()) {
+      return;
+    }
     if (isEqual(this.state.currentGrid, newGrid)) {
       return;
     }
@@ -140,34 +166,37 @@ class ColumnsEditorTab extends React.Component {
 
 Scrivito.registerComponent("ColumnsEditorTab", ColumnsEditorTab);
 
-const PresetGrid = Scrivito.connect(
-  ({ currentGrid, adjustGrid, title, grid }) => {
-    const classNames = ["gle-preview"];
-    if (isEqual(currentGrid, grid)) {
-      classNames.push("active");
-    }
+function PresetGrid({ currentGrid, adjustGrid, title, grid, readOnly }) {
+  const classNames = readOnly ? ["gle-preview"] : ["gle-preview", "clickable"];
 
-    return (
-      <div
-        className={classNames.join(" ")}
-        title={title}
-        onClick={() => adjustGrid(grid)}
-      >
-        {grid.map((colSize, index) => (
-          <div className={`grid-col-${colSize}`} key={index} />
-        ))}
-      </div>
-    );
+  if (isEqual(currentGrid, grid)) {
+    classNames.push("active");
   }
-);
 
-const Alignment = Scrivito.connect(({ widget }) => {
-  const startAlignmentClasses = ["gle-preview"];
-  const centerAlignmentClasses = ["gle-preview"];
-  const endAlignmentClasses = ["gle-preview"];
-  const stretchAlignmentClasses = ["gle-preview"];
+  return (
+    <div
+      className={classNames.join(" ")}
+      title={title}
+      onClick={() => adjustGrid(grid)}
+    >
+      {grid.map((colSize, index) => (
+        <div className={`grid-col-${colSize}`} key={index} />
+      ))}
+    </div>
+  );
+}
 
-  switch (widget.get("alignment")) {
+function Alignment({ alignment, setAlignment, readOnly }) {
+  const initialClasses = readOnly
+    ? ["gle-preview"]
+    : ["gle-preview", "clickable"];
+
+  const startAlignmentClasses = [...initialClasses];
+  const centerAlignmentClasses = [...initialClasses];
+  const endAlignmentClasses = [...initialClasses];
+  const stretchAlignmentClasses = [...initialClasses];
+
+  switch (alignment) {
     case "start":
       startAlignmentClasses.push("active");
       break;
@@ -196,7 +225,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
             <div
               className={startAlignmentClasses.join(" ")}
               title="Content top aligned"
-              onClick={() => widget.update({ alignment: "start" })}
+              onClick={() => setAlignment("start")}
             >
               <div className="grid-col-12">
                 <span className="alignment" />
@@ -206,7 +235,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
             <div
               className={centerAlignmentClasses.join(" ")}
               title="Content center aligned"
-              onClick={() => widget.update({ alignment: "center" })}
+              onClick={() => setAlignment("center")}
             >
               <div className="grid-col-12">
                 <span className="alignment center" />
@@ -216,7 +245,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
             <div
               className={endAlignmentClasses.join(" ")}
               title="Content bottom aligned"
-              onClick={() => widget.update({ alignment: "end" })}
+              onClick={() => setAlignment("end")}
             >
               <div className="grid-col-12">
                 <span className="alignment bottom" />
@@ -226,7 +255,7 @@ const Alignment = Scrivito.connect(({ widget }) => {
             <div
               className={stretchAlignmentClasses.join(" ")}
               title="Content stretch (full height) aligned"
-              onClick={() => widget.update({ alignment: "stretch" })}
+              onClick={() => setAlignment("stretch")}
             >
               <div className="grid-col-12">
                 <span className="alignment fullHeight" />
@@ -234,11 +263,11 @@ const Alignment = Scrivito.connect(({ widget }) => {
             </div>
           </div>
         </div>
-        <AlignmentDescription alignment={widget.get("alignment")} />
+        <AlignmentDescription alignment={alignment} />
       </div>
     </React.Fragment>
   );
-});
+}
 
 class GridLayoutEditor extends React.Component {
   constructor(props) {
@@ -316,6 +345,7 @@ class GridLayoutEditor extends React.Component {
 
         innerContent.unshift(
           <Draggable
+            disabled={this.props.readOnly}
             key="grid-handle"
             bounds={{
               left: this.state.draggableGrid * leftBound,
@@ -331,10 +361,10 @@ class GridLayoutEditor extends React.Component {
               })
             }
           >
-            <div className="grid-handle" />
+            <div className={this.props.readOnly ? "" : "grid-handle"} />
           </Draggable>
         );
-      } else if (colIndex < 5) {
+      } else if (colIndex < 5 && !this.props.readOnly) {
         innerContent.unshift(
           <div
             key="grid-handle-plus"
@@ -347,7 +377,7 @@ class GridLayoutEditor extends React.Component {
         );
       }
 
-      if (this.props.currentGrid.length > 1) {
+      if (this.props.currentGrid.length > 1 && !this.props.readOnly) {
         innerContent.push(
           <div
             key="grid-del"
@@ -370,6 +400,10 @@ class GridLayoutEditor extends React.Component {
       );
     });
 
+    const gridColumnsClass = this.props.readOnly
+      ? "grid-columns"
+      : "grid-columns clickable";
+
     return (
       <div className="gle">
         <div className="grid-ruler" ref={this.gridRulerRef}>
@@ -377,7 +411,7 @@ class GridLayoutEditor extends React.Component {
             <div key={index} className="grid-col" />
           ))}
         </div>
-        <div className="grid-columns">{gridColumns}</div>
+        <div className={gridColumnsClass}>{gridColumns}</div>
       </div>
     );
   }

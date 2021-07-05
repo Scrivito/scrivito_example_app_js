@@ -2,53 +2,44 @@ import * as React from "react";
 import { take } from "lodash-es";
 import fontAwesomeIcons from "./fontAwesomeIcons";
 
-class AllIcons extends React.Component {
-  constructor(props) {
-    super(props);
+function AllIcons({ setWidgetIcon, currentIcon, hide }) {
+  const [initialRender, setInitialRender] = React.useState(true);
 
-    this.state = {
-      initialRender: true,
-    };
-
-    this.categoryMap = {};
+  const categoryMap = React.useMemo(() => {
+    const result = {};
     fontAwesomeIcons.forEach((icon) =>
       icon.categories.forEach((category) => {
-        if (!this.categoryMap[category]) {
-          this.categoryMap[category] = [];
+        if (!result[category]) {
+          result[category] = [];
         }
-        this.categoryMap[category].push(icon);
+        result[category].push(icon);
       })
     );
+    return result;
+  }, []);
+
+  React.useEffect(() => {
+    setTimeout(() => setInitialRender(false), 10);
+  }, []);
+
+  if (hide) {
+    return null;
   }
 
-  componentDidMount() {
-    if (this.state.initialRender === true) {
-      setTimeout(() => this.setState({ initialRender: false }), 10);
-    }
-  }
-
-  render() {
-    const { setWidgetIcon, currentIcon, hide } = this.props;
-
-    if (hide) {
-      return null;
-    }
-
-    return (
-      <React.Fragment>
-        <div id="icons">
-          {
-            <CategoriesAndIcons
-              initialRender={this.state.initialRender}
-              categoryMap={this.categoryMap}
-              currentIcon={currentIcon}
-              setWidgetIcon={setWidgetIcon}
-            />
-          }
-        </div>
-      </React.Fragment>
-    );
-  }
+  return (
+    <React.Fragment>
+      <div id="icons">
+        {
+          <CategoriesAndIcons
+            initialRender={initialRender}
+            categoryMap={categoryMap}
+            currentIcon={currentIcon}
+            setWidgetIcon={setWidgetIcon}
+          />
+        }
+      </div>
+    </React.Fragment>
+  );
 }
 
 function CategoriesAndIcons({

@@ -22,6 +22,8 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   height: 25px;
   width: 40px;
+}
+.gle-preview.clickable {
   cursor: pointer;
 }
 .gle-preview.active {
@@ -73,7 +75,7 @@
   width: calc(100% - 2px);
 }
 
-.gle-preview:hover > [class*="grid-col-"] {
+.gle-preview.clickable:hover > [class*="grid-col-"] {
   box-shadow: 0 0 0 1px rgba(101, 139, 81, 0.5) inset;
   background: rgba(101, 139, 81, 0.3);
 }
@@ -176,7 +178,7 @@
   left: 0;
   margin: 0 -5px;
 }
-.gle .grid-columns:hover {
+.gle .grid-columns.clickable:hover {
   opacity: 1;
 }
 .gle .grid-columns > [class*="grid-col-"] {
@@ -187,7 +189,7 @@
   margin: 0 5px;
   @include transition(all 0.3s ease-in-out);
 }
-.gle .grid-columns:hover > [class*="grid-col-"] {
+.gle .grid-columns.clickable:hover > [class*="grid-col-"] {
   border: 2px solid #658b51;
 }
 
@@ -242,11 +244,11 @@
   z-index: 2;
   @include transition(all 0.1s ease-in-out);
 }
-.gle .grid-columns:hover .grid-handle {
+.gle .grid-columns.clickable:hover .grid-handle {
   background: #658b51;
   border: none;
 }
-.gle .grid-columns:hover .grid-handle:after {
+.gle .grid-columns.clickable:hover .grid-handle:after {
   color: #fff;
 }
 .gle .grid-columns > [class*="grid-col-"]:last-child .grid-handle {

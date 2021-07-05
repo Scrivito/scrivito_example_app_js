@@ -16,7 +16,12 @@ function IconSearch({ setSearchValue, searchValue }) {
         autoCorrect="off"
         tabIndex="1"
         value={searchValue}
-        onChange={(e) => setSearchValue(e, e.target.value)}
+        onChange={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+
+          setSearchValue(event.target.value);
+        }}
       />
       <ClearSearchButton
         setSearchValue={setSearchValue}

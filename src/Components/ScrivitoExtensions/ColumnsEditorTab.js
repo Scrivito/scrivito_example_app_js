@@ -9,8 +9,8 @@ function ColumnsEditorTab({ widget }) {
     () => widget.get("columns").map((column) => column.get("content")),
     [widget]
   );
-  const [currentGrid, setCurrentGrid] = React.useState(gridOfWidget(widget));
 
+  const currentGrid = gridOfWidget(widget);
   const readOnly = !Scrivito.canWrite();
 
   return (
@@ -146,8 +146,6 @@ function ColumnsEditorTab({ widget }) {
     adjustNumberOfColumns(widget, newGrid.length);
     distributeContents(widget.get("columns"), originalContents);
     adjustColSize(widget.get("columns"), newGrid);
-
-    setCurrentGrid(gridOfWidget(widget));
   }
 }
 

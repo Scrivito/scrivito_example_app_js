@@ -23,11 +23,11 @@ class SearchResultsComponent extends React.Component {
       };
     }
 
-    let search = Scrivito.Obj.where("*", "containsPrefix", this.query()).andNot(
-      "_objClass",
-      "equals",
-      blacklistObjClasses
-    );
+    let search = Scrivito.Obj.whereFullTextOf(
+      "*",
+      "containsPrefix",
+      this.query()
+    ).andNot("_objClass", "equals", blacklistObjClasses);
 
     // make sure, that tags are calculated _before_ limiting to specific tag.
     const tags = search.facet("tags").map((tag) => tag.name());

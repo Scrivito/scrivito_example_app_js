@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import Draggable from "react-draggable";
-import { flatten, isEqual, last, take, takeRight, times } from "lodash-es";
+import { flatten, isEqual, take, takeRight, times } from "lodash-es";
 import ColumnWidget from "../../Widgets/ColumnWidget/ColumnWidgetClass";
 
 function ColumnsEditorTab({ widget }) {
@@ -143,8 +143,17 @@ function ColumnsEditorTab({ widget }) {
       return;
     }
 
-    adjustNumberOfColumns(widget, newGrid.length);
-    distributeContents(widget.get("columns"), originalContents);
+    const isGrowing = newGrid.length > currentGrid.length;
+    const columns = widget.get("columns");
+
+    if (isGrowing) {
+      adjustNumberOfColumns(widget, newGrid.length);
+      distributeContents(newGrid.length, columns, originalContents);
+    } else {
+      distributeContents(newGrid.length, columns, originalContents);
+      adjustNumberOfColumns(widget, newGrid.length);
+    }
+
     adjustColSize(widget.get("columns"), newGrid);
   }
 }
@@ -420,8 +429,16 @@ function adjustNumberOfColumns(containerWidget, desiredLength) {
   containerWidget.update({ columns: newColumns });
 }
 
-function distributeContents(columns, originalContents) {
-  const splitIndexAt = columns.length - 1;
+function distributeContents(columnsCount, columns, staleOriginalContents) {
+  const splitIndexAt = columnsCount - 1;
+
+  // widgets may have been deleted or moved concurrently
+  const validIds = flatten(
+    columns.map((column) => column.get("content").map((widget) => widget.id()))
+  );
+  const originalContents = staleOriginalContents.map((widgets) =>
+    widgets.filter((widget) => validIds.includes(widget.id()))
+  );
 
   // copy first n -1 elements
   take(originalContents, splitIndexAt).forEach((originalContent, index) => {
@@ -433,7 +450,7 @@ function distributeContents(columns, originalContents) {
     originalContents,
     originalContents.length - splitIndexAt
   );
-  last(columns).update({ content: flatten(colsToMerge) });
+  columns[splitIndexAt].update({ content: flatten(colsToMerge) });
 }
 
 function adjustColSize(columns, newGrid) {

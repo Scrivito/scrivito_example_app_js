@@ -167,11 +167,13 @@ function webpackConfig(env = {}) {
     devServer: {
       port: 8080,
       open: true,
-      stats: "minimal",
       historyApiFallback: { index: "/catch_all_index.html" },
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-Security-Policy": devServerCspHeader(),
+      },
+      devMiddleware: {
+        stats: "minimal",
       },
     },
   };

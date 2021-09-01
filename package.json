@@ -74,7 +74,7 @@
     "use-resize-observer": "^7.0.0",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.0.0",
+    "webpack-dev-server": "^4.1.0",
     "webpack-manifest-plugin": "^3.1.1",
     "webpackbar": "^5.0.0-3",
     "zip-webpack-plugin": "^4.0.1"

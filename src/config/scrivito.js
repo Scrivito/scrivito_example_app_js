@@ -3,6 +3,7 @@ import * as Scrivito from "scrivito";
 export function configureScrivito(options) {
   const config = {
     adoptUi: true,
+    optimizedWidgetLoading: true,
     strictSearchOperators: true,
     tenant: process.env.SCRIVITO_TENANT,
   };

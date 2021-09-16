@@ -11,6 +11,7 @@ import {
 Scrivito.provideEditingConfig("Event", {
   title: "Event",
   thumbnail: eventObjIcon,
+  thumbnailForContent: (obj) => obj.get("image"),
   attributes: {
     ...metadataEditingConfigAttributes,
     date: {

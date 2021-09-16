@@ -10,6 +10,7 @@ import {
 Scrivito.provideEditingConfig("Author", {
   title: "Author",
   thumbnail: authorObjIcon,
+  thumbnailForContent: (obj) => obj.get("image"),
   attributes: {
     ...metadataEditingConfigAttributes,
     title: {

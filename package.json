@@ -67,7 +67,7 @@
     "reactstrap": "^8.9.0",
     "sass": "^1.32.11",
     "sass-loader": "^10.1.1",
-    "scrivito": "^1.24.1",
+    "scrivito": "^1.25.0",
     "scroll-to-fragment": "^1.0.12",
     "slick-carousel": "^1.6.0",
     "typescript": "^4.3.2",

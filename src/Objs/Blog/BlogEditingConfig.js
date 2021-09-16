@@ -11,7 +11,6 @@ import {
 Scrivito.provideEditingConfig("Blog", {
   title: "Blog",
   thumbnail: blogObjIcon,
-  thumbnailForContent: (obj) => obj.get("navigationBackgroundImage"),
   hideInSelectionDialogs: true,
   attributes: {
     ...metadataEditingConfigAttributes,

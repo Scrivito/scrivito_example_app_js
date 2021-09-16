@@ -16,7 +16,6 @@ import {
 Scrivito.provideEditingConfig("Page", {
   title: "Page",
   thumbnail: PageObjIcon,
-  thumbnailForContent: (obj) => obj.get("navigationBackgroundImage"),
   attributes: {
     ...defaultPageEditingConfigAttributes,
     ...metadataEditingConfigAttributes,

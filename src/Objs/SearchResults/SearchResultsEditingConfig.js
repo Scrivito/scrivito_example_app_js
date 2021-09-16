@@ -11,7 +11,6 @@ import { defaultPageValidations } from "../_defaultPageEditingConfig";
 Scrivito.provideEditingConfig("SearchResults", {
   title: "Search Results",
   thumbnail: SearchResultsObjIcon,
-  thumbnailForContent: (obj) => obj.get("navigationBackgroundImage"),
   hideInSelectionDialogs: true,
   attributes: {
     ...metadataEditingConfigAttributes,

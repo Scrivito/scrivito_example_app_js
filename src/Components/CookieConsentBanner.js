@@ -6,11 +6,8 @@ import cookieConsentIcon from "../assets/images/cookie_consent_icon.svg";
 function CookieConsentBanner() {
   const consentUrl = cookieConsentUrl();
   const [visible, setVisible] = React.useState(false);
-  const {
-    cookieConsentChoice,
-    acceptCookieConsent,
-    declineCookieConsent,
-  } = useCookieConsent();
+  const { cookieConsentChoice, acceptCookieConsent, declineCookieConsent } =
+    useCookieConsent();
 
   React.useEffect(() => {
     setVisible(cookieConsentChoice === "undecided");

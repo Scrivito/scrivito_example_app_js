@@ -3,9 +3,8 @@ import * as React from "react";
 const CookieConsentContext = React.createContext({});
 
 export function CookieConsentProvider(props) {
-  const [cookieConsentChoice, setCookieConsentChoice] = React.useState(
-    "undecided"
-  );
+  const [cookieConsentChoice, setCookieConsentChoice] =
+    React.useState("undecided");
 
   React.useEffect(() => setCookieConsentChoice(getCookieConsent()), []);
 

@@ -18,7 +18,7 @@ function ColumnsEditorTab({ widget }) {
       <Alignment
         alignment={widget.get("alignment")}
         setAlignment={(alignment) => {
-          if (Scrivito.canWrite()) {
+          if (!readOnly) {
             widget.update({ alignment });
           }
         }}
@@ -136,7 +136,7 @@ function ColumnsEditorTab({ widget }) {
   );
 
   function adjustGrid(newGrid) {
-    if (!Scrivito.canWrite()) {
+    if (readOnly) {
       return;
     }
     if (isEqual(currentGrid, newGrid)) {

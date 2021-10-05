@@ -5,13 +5,17 @@ import { flatten, isEqual, last, take, takeRight, times } from "lodash-es";
 import ColumnWidget from "../../Widgets/ColumnWidget/ColumnWidgetClass";
 
 function ColumnsEditorTab({ widget }) {
-  const originalContents = React.useMemo(
-    () => widget.get("columns").map((column) => column.get("content")),
-    [widget]
-  );
+  const [originalContents, originalContentsId] = React.useMemo(() => {
+    const contents = calculateContents(widget);
+
+    return [contents, calculateContentIds(contents)];
+  }, [widget]);
+
+  const readOnly =
+    !Scrivito.canWrite() ||
+    isConcurrentEditDetected(widget, originalContentsId);
 
   const currentGrid = gridOfWidget(widget);
-  const readOnly = !Scrivito.canWrite();
 
   return (
     <div className="scrivito_detail_content">
@@ -147,6 +151,19 @@ function ColumnsEditorTab({ widget }) {
     distributeContents(widget.get("columns"), originalContents);
     adjustColSize(widget.get("columns"), newGrid);
   }
+}
+
+function calculateContents(widget) {
+  return widget.get("columns").map((column) => column.get("content"));
+}
+
+function calculateContentIds(contents) {
+  return flatten(contents.map((content) => content.map((o) => o.id()))).sort();
+}
+
+function isConcurrentEditDetected(widget, originalContentsId) {
+  const currentContentsId = calculateContentIds(calculateContents(widget));
+  return !isEqual(originalContentsId, currentContentsId);
 }
 
 Scrivito.registerComponent("ColumnsEditorTab", ColumnsEditorTab);

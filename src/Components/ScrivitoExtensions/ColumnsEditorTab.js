@@ -5,17 +5,24 @@ import { flatten, isEqual, last, take, takeRight, times } from "lodash-es";
 import ColumnWidget from "../../Widgets/ColumnWidget/ColumnWidgetClass";
 
 function ColumnsEditorTab({ widget }) {
-  const [originalContents, originalContentsId] = React.useMemo(() => {
-    const contents = calculateContents(widget);
+  const includedWidgetIds = calculateContentIds(calculateContents(widget));
 
-    return [contents, calculateContentIds(contents)];
-  }, [widget]);
+  return (
+    <InnerColumnsEditorTab
+      // reset component whenever a concurrent widget addition/deletion happened
+      key={includedWidgetIds}
+      widget={widget}
+      readOnly={!Scrivito.canWrite()}
+      currentGrid={gridOfWidget(widget)}
+    />
+  );
+}
 
-  const readOnly =
-    !Scrivito.canWrite() ||
-    isConcurrentEditDetected(widget, originalContentsId);
-
-  const currentGrid = gridOfWidget(widget);
+function InnerColumnsEditorTab({ widget, readOnly, currentGrid }) {
+  const originalContents = React.useMemo(
+    () => calculateContents(widget),
+    [widget]
+  );
 
   return (
     <div className="scrivito_detail_content">
@@ -159,11 +166,6 @@ function calculateContents(widget) {
 
 function calculateContentIds(contents) {
   return flatten(contents.map((content) => content.map((o) => o.id()))).sort();
-}
-
-function isConcurrentEditDetected(widget, originalContentsId) {
-  const currentContentsId = calculateContentIds(calculateContents(widget));
-  return !isEqual(originalContentsId, currentContentsId);
 }
 
 Scrivito.registerComponent("ColumnsEditorTab", ColumnsEditorTab);

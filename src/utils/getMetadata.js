@@ -93,10 +93,13 @@ function firstImageUrlForAttributes(obj, attributes) {
   let url;
 
   attributes.forEach((attribute) => {
-    if (url || isVideoObj(obj)) {
+    if (url) {
       return;
     }
     const binary = obj.get(attribute);
+    if (isVideoObj(binary)) {
+      return;
+    }
     url = urlFromBinary(binary);
   });
 

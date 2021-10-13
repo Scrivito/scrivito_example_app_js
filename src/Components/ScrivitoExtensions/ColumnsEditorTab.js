@@ -8,7 +8,7 @@ function ColumnsEditorTab({ widget }) {
   const includedWidgetIds = calculateContentIds(calculateContents(widget));
 
   return (
-    <InnerColumnsEditorTab
+    <ColumnsEditor
       // reset component whenever a concurrent widget addition/deletion happened
       key={includedWidgetIds}
       widget={widget}
@@ -18,7 +18,7 @@ function ColumnsEditorTab({ widget }) {
   );
 }
 
-function InnerColumnsEditorTab({ widget, readOnly, currentGrid }) {
+function ColumnsEditor({ widget, readOnly, currentGrid }) {
   const originalContents = React.useMemo(
     () => calculateContents(widget),
     [widget]

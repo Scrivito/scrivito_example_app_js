@@ -4,164 +4,168 @@ import Draggable from "react-draggable";
 import { flatten, isEqual, last, take, takeRight, times } from "lodash-es";
 import ColumnWidget from "../../Widgets/ColumnWidget/ColumnWidgetClass";
 
-class ColumnsEditorTab extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      originalContents: props.widget
-        .get("columns")
-        .map((column) => column.get("content")),
-      currentGrid: gridOfWidget(props.widget),
-    };
+function ColumnsEditorTab({ widget }) {
+  const includedWidgetIds = calculateContentIds(calculateContents(widget));
 
-    this.adjustGrid = this.adjustGrid.bind(this);
-  }
+  return (
+    <ColumnsEditor
+      // reset component whenever a concurrent widget addition/deletion happened
+      key={includedWidgetIds.join("-")}
+      widget={widget}
+      readOnly={!Scrivito.canWrite()}
+      currentGrid={gridOfWidget(widget)}
+    />
+  );
+}
 
-  render() {
-    const readOnly = !Scrivito.canWrite();
+function ColumnsEditor({ widget, readOnly, currentGrid }) {
+  const originalContents = React.useMemo(
+    () => calculateContents(widget),
+    [widget]
+  );
 
-    return (
-      <div className="scrivito_detail_content">
-        <Alignment
-          alignment={this.props.widget.get("alignment")}
-          setAlignment={(alignment) => {
-            if (Scrivito.canWrite()) {
-              this.props.widget.update({ alignment });
-            }
-          }}
+  return (
+    <div className="scrivito_detail_content">
+      <Alignment
+        alignment={widget.get("alignment")}
+        setAlignment={(alignment) => {
+          if (!readOnly) {
+            widget.update({ alignment });
+          }
+        }}
+        readOnly={readOnly}
+      />
+      <div className="scrivito_detail_label">
+        <span>Layout (desktop)</span>
+      </div>
+      <div className="item_content">
+        <div className="gle-preview-list">
+          <div className="gle-preview-group">
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="1 column"
+              grid={[12]}
+            />
+          </div>
+          <div className="gle-preview-group">
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="2 columns"
+              grid={[6, 6]}
+            />
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="2 columns"
+              grid={[3, 9]}
+            />
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="2 columns"
+              grid={[9, 3]}
+            />
+          </div>
+          <div className="gle-preview-group">
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="3 columns"
+              grid={[4, 4, 4]}
+            />
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="3 columns"
+              grid={[2, 8, 2]}
+            />
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="3 columns"
+              grid={[2, 5, 5]}
+            />
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="3 columns"
+              grid={[5, 5, 2]}
+            />
+          </div>
+          <div className="gle-preview-group">
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="4 columns"
+              grid={[3, 3, 3, 3]}
+            />
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="4 columns"
+              grid={[2, 4, 4, 2]}
+            />
+          </div>
+          <div className="gle-preview-group">
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="5 columns"
+              grid={[2, 2, 2, 2, 4]}
+            />
+          </div>
+          <div className="gle-preview-group">
+            <PresetGrid
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="6 columns"
+              grid={[2, 2, 2, 2, 2, 2]}
+            />
+          </div>
+        </div>
+        <GridLayoutEditor
+          currentGrid={currentGrid}
+          adjustGrid={adjustGrid}
           readOnly={readOnly}
         />
-        <div className="scrivito_detail_label">
-          <span>Layout (desktop)</span>
-        </div>
-        <div className="item_content">
-          <div className="gle-preview-list">
-            <div className="gle-preview-group">
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="1 column"
-                grid={[12]}
-              />
-            </div>
-            <div className="gle-preview-group">
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="2 columns"
-                grid={[6, 6]}
-              />
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="2 columns"
-                grid={[3, 9]}
-              />
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="2 columns"
-                grid={[9, 3]}
-              />
-            </div>
-            <div className="gle-preview-group">
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="3 columns"
-                grid={[4, 4, 4]}
-              />
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="3 columns"
-                grid={[2, 8, 2]}
-              />
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="3 columns"
-                grid={[2, 5, 5]}
-              />
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="3 columns"
-                grid={[5, 5, 2]}
-              />
-            </div>
-            <div className="gle-preview-group">
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="4 columns"
-                grid={[3, 3, 3, 3]}
-              />
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="4 columns"
-                grid={[2, 4, 4, 2]}
-              />
-            </div>
-            <div className="gle-preview-group">
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="5 columns"
-                grid={[2, 2, 2, 2, 4]}
-              />
-            </div>
-            <div className="gle-preview-group">
-              <PresetGrid
-                currentGrid={this.state.currentGrid}
-                adjustGrid={this.adjustGrid}
-                readOnly={readOnly}
-                title="6 columns"
-                grid={[2, 2, 2, 2, 2, 2]}
-              />
-            </div>
-          </div>
-          <GridLayoutEditor
-            currentGrid={this.state.currentGrid}
-            adjustGrid={this.adjustGrid}
-            readOnly={readOnly}
-          />
-        </div>
       </div>
-    );
-  }
+    </div>
+  );
 
-  adjustGrid(newGrid) {
-    if (!Scrivito.canWrite()) {
+  function adjustGrid(newGrid) {
+    if (readOnly) {
       return;
     }
-    if (isEqual(this.state.currentGrid, newGrid)) {
+    if (isEqual(currentGrid, newGrid)) {
       return;
     }
 
-    const containerWidget = this.props.widget;
-
-    adjustNumberOfColumns(containerWidget, newGrid.length);
-    distributeContents(
-      containerWidget.get("columns"),
-      this.state.originalContents
-    );
-    adjustColSize(containerWidget.get("columns"), newGrid);
-
-    this.setState({ currentGrid: gridOfWidget(containerWidget) });
+    adjustNumberOfColumns(widget, newGrid.length);
+    distributeContents(widget.get("columns"), originalContents);
+    adjustColSize(widget.get("columns"), newGrid);
   }
+}
+
+function calculateContents(widget) {
+  return widget.get("columns").map((column) => column.get("content"));
+}
+
+function calculateContentIds(contents) {
+  return flatten(contents.map((content) => content.map((o) => o.id())));
 }
 
 Scrivito.registerComponent("ColumnsEditorTab", ColumnsEditorTab);

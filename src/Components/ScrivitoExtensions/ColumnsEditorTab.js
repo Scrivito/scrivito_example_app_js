@@ -10,7 +10,7 @@ function ColumnsEditorTab({ widget }) {
   return (
     <ColumnsEditor
       // reset component whenever a concurrent widget addition/deletion happened
-      key={includedWidgetIds}
+      key={includedWidgetIds.join("-")}
       widget={widget}
       readOnly={!Scrivito.canWrite()}
       currentGrid={gridOfWidget(widget)}

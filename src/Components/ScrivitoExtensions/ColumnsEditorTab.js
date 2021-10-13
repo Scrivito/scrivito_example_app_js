@@ -165,7 +165,7 @@ function calculateContents(widget) {
 }
 
 function calculateContentIds(contents) {
-  return flatten(contents.map((content) => content.map((o) => o.id()))).sort();
+  return flatten(contents.map((content) => content.map((o) => o.id())));
 }
 
 Scrivito.registerComponent("ColumnsEditorTab", ColumnsEditorTab);

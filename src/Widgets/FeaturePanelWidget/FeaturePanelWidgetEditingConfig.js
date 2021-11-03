@@ -8,6 +8,7 @@ Scrivito.provideEditingConfig("FeaturePanelWidget", {
     {
       title: "Icon",
       component: "IconEditorTab",
+      key: "icon-group",
     },
   ],
   initialContent: {

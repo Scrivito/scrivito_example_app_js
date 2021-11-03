@@ -35,10 +35,12 @@ Scrivito.provideEditingConfig("IconWidget", {
     {
       title: "Icon",
       component: "IconEditorTab",
+      key: "icon-group",
     },
     {
       title: "Optional attributes",
       properties: ["size", "alignment", "link"],
+      key: "optional-attributes-group",
     },
   ],
   initialContent: {

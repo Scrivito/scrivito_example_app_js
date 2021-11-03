@@ -90,6 +90,7 @@ Scrivito.provideEditingConfig("Homepage", {
         "googleAnalyticsTrackingId",
         "intercomAppId",
       ],
+      key: "site-settings-group",
     },
     ...metadataPropertiesGroups,
   ],

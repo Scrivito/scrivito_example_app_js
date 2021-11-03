@@ -20,7 +20,7 @@ Scrivito.provideEditingConfig("Page", {
     ...defaultPageEditingConfigAttributes,
     ...metadataEditingConfigAttributes,
   },
-  properties: [...defaultPageProperties],
+  properties: (obj) => [...defaultPageProperties(obj)],
   propertiesGroups: [...metadataPropertiesGroups],
   initialContent: {
     ...defaultPageInitialContent,

@@ -39,12 +39,15 @@ export const defaultPageInitialContent = {
   navigationBackgroundImageGradient: "no",
 };
 
-export const defaultPageProperties = [
-  "title",
-  "navigationHeight",
-  "navigationBackgroundImage",
-  "navigationBackgroundImageGradient",
-];
+export function defaultPageProperties(obj) {
+  const properties = ["title", "navigationHeight", "navigationBackgroundImage"];
+
+  if (obj.get("navigationBackgroundImage")) {
+    properties.push("navigationBackgroundImageGradient");
+  }
+
+  return properties;
+}
 
 export const defaultPageValidations = [
   [

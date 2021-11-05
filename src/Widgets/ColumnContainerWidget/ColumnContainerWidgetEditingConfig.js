@@ -9,6 +9,7 @@ Scrivito.provideEditingConfig("ColumnContainerWidget", {
     {
       title: "Columns layout",
       component: "ColumnsEditorTab",
+      key: "columns-layout-group",
     },
   ],
   initialContent: {

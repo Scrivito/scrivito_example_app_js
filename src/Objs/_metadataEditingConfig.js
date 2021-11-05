@@ -21,11 +21,13 @@ export const metadataPropertiesGroups = [
   {
     title: "Metadata",
     properties: ["metaDataDescription", "robotsIndex"],
+    key: "metadata-group",
   },
   {
     title: "Social cards",
     component: "SocialCardsTab",
     properties: ["tcCreator", "tcDescription", "ogDescription"],
+    key: "social-cards-group",
   },
 ];
 

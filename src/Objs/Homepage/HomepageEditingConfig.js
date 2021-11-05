@@ -74,7 +74,7 @@ Scrivito.provideEditingConfig("Homepage", {
         'If you set this link, a cookie consent box will be shown on every page. To preview the effect of this setting, please enable third-party cookies in your browser. The link title defaults to "Learn more »".',
     },
   },
-  properties: [...defaultPageProperties, "showAsLandingPage"],
+  properties: (obj) => [...defaultPageProperties(obj), "showAsLandingPage"],
   propertiesGroups: [
     {
       title: "Site settings",
@@ -90,6 +90,7 @@ Scrivito.provideEditingConfig("Homepage", {
         "googleAnalyticsTrackingId",
         "intercomAppId",
       ],
+      key: "site-settings-group",
     },
     ...metadataPropertiesGroups,
   ],

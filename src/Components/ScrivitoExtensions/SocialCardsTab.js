@@ -2,39 +2,46 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import getMetadata from "../../utils/getMetadata";
 
-Scrivito.registerComponent("SocialCardsTab", ({ obj }) => (
-  <div className="">
-    <div className="scrivito_detail_content">
-      <div className="row">
-        <div className="col-sm-6">
-          <div className="seo_card_input">
-            <TwitterInput obj={obj} />
-          </div>
-        </div>
-        <div className="col-sm-6">
-          <div className="seo_card_preview">
-            <TwitterPreview obj={obj} />
-          </div>
-        </div>
-      </div>
-    </div>
+Scrivito.registerComponent("SocialCardsTab", ({ obj }) => {
+  const uiContext = Scrivito.uiContext();
+  if (uiContext === undefined) {
+    return null;
+  }
 
-    <div className="scrivito_detail_content">
-      <div className="row">
-        <div className="col-sm-6">
-          <div className="seo_card_input">
-            <FacebookInput obj={obj} />
+  return (
+    <div className={`scrivito_${uiContext.theme}`}>
+      <div className="scrivito_detail_content">
+        <div className="row">
+          <div className="col-sm-6">
+            <div className="seo_card_input">
+              <TwitterInput obj={obj} />
+            </div>
+          </div>
+          <div className="col-sm-6">
+            <div className="seo_card_preview">
+              <TwitterPreview obj={obj} />
+            </div>
           </div>
         </div>
-        <div className="col-sm-6">
-          <div className="seo_card_preview">
-            <FacebookPreview obj={obj} />
+      </div>
+
+      <div className="scrivito_detail_content">
+        <div className="row">
+          <div className="col-sm-6">
+            <div className="seo_card_input">
+              <FacebookInput obj={obj} />
+            </div>
+          </div>
+          <div className="col-sm-6">
+            <div className="seo_card_preview">
+              <FacebookPreview obj={obj} />
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-));
+  );
+});
 
 const TwitterInput = Scrivito.connect(({ obj }) => {
   const validationsForCreator = Scrivito.validationResultsFor(obj, "tcCreator");

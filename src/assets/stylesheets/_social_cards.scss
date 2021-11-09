@@ -42,7 +42,7 @@
   min-height: 30px;
   line-height: 30px;
 }
-.seo_card_input .input:focus { box-shadow: 0 0 0 2px #577fb6 inset; }
+.seo_card_input .input:focus { box-shadow: 0 0 0 2px #577fb6 inset!important; }
 
 .scrivito_detail_content {
   border-top: 2px solid rgba(0, 0, 0, 0.1);
@@ -121,25 +121,38 @@ $blueDarken: #0085ac;
   background: rgba(255, 255, 255, 0.6);
 
   &.scrivito_error {
-    border: 2px solid $red;
+    box-shadow: 0 0 0 2px $red inset;
     color: $red;
   }
   &.scrivito_warning {
-    border: 2px solid $yellow;
+    box-shadow: 0 0 0 2px $yellow inset;
     color: $yellow;
   }
   &.scrivito_info {
-    border: 2px solid $blue;
+    box-shadow: 0 0 0 2px $blue inset;
     color: $blue;
   }
 }
+.scrivito_validation_notice {
+  &.scrivito_error {
+    border-left: 2px solid $red;
+  }
+  &.scrivito_warning {
+    border-left: 2px solid $yellow;
+  }
+  &.scrivito_info {
+    border-left: 2px solid $blue;
+  }
+}
+
+
 
 .seo_card_input .input {
   background-color: #fff;
 }
 
 .scrivito_validation_notice {
-  border-left-width: 10px !important; padding: 5px 10px;
+  border-left-width: 7px !important; padding: 5px 10px;
 
   &.scrivito_error {
     color: $red;

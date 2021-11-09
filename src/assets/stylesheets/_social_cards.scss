@@ -122,15 +122,12 @@ $blueDarken: #0085ac;
 
   &.scrivito_error {
     box-shadow: 0 0 0 2px $red inset;
-    color: $red;
   }
   &.scrivito_warning {
     box-shadow: 0 0 0 2px $yellow inset;
-    color: $yellow;
   }
   &.scrivito_info {
     box-shadow: 0 0 0 2px $blue inset;
-    color: $blue;
   }
 }
 .scrivito_validation_notice {

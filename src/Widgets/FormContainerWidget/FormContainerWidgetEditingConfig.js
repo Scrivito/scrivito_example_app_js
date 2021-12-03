@@ -1,6 +1,7 @@
 import * as Scrivito from "scrivito";
 import formContainerWidgetIcon from "../../assets/images/form_container_widget.svg";
 import FormSubmitButtonWidget from "../FormSubmitButtonWidget/FormSubmitButtonWidgetClass";
+import TextWidget from "../TextWidget/TextWidgetClass";
 import { pseudoRandom32CharHex } from "./pseudoRandom32CharHex";
 
 Scrivito.provideEditingConfig("FormContainerWidget", {
@@ -31,6 +32,11 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
     submittingMessage: "Submitting...",
     submittedMessage:
       "Your message has been successfully sent. Thank you for your request. We will get back to you as soon as possible.",
-    content: () => [new FormSubmitButtonWidget()],
+    content: () => [
+      new TextWidget({
+        text: "<p>By submitting you agree to the terms and conditions of our privacy policy.</p>",
+      }),
+      new FormSubmitButtonWidget(),
+    ],
   },
 });

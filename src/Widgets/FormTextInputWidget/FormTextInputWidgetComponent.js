@@ -1,8 +1,10 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+import { UncontrolledPopover, PopoverBody } from "reactstrap";
 
 Scrivito.provideComponent("FormTextInputWidget", ({ widget }) => {
   const id = `FormTextInputWidget_${widget.id()}`;
+  const mandatoryId = `${id}_mandatory`;
 
   const type = widget.get("type");
   const labelOptions = {};
@@ -18,6 +20,20 @@ Scrivito.provideComponent("FormTextInputWidget", ({ widget }) => {
         tag="label"
         {...labelOptions}
       />
+      {widget.get("required") ? (
+        <>
+          <span className="text-mandatory help-cursor" id={mandatoryId}>
+            *
+          </span>
+          <UncontrolledPopover
+            placement="bottom"
+            target={mandatoryId}
+            trigger="legacy"
+          >
+            <PopoverBody>mandatory</PopoverBody>
+          </UncontrolledPopover>
+        </>
+      ) : null}
 
       <input
         className="form-control"
@@ -26,6 +42,7 @@ Scrivito.provideComponent("FormTextInputWidget", ({ widget }) => {
         maxLength="250"
         placeholder={widget.get("placeholder")}
         type={calculateType(type)}
+        required={widget.get("required")}
       />
     </div>
   );

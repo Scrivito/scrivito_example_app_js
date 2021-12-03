@@ -2,9 +2,9 @@ import * as Scrivito from "scrivito";
 
 const FormContainerWidget = Scrivito.provideWidgetClass("FormContainerWidget", {
   attributes: {
-    headline: "string",
+    content: "widgetlist",
   },
-  extractTextAttributes: ["headline"],
+  extractTextAttributes: ["content"],
 });
 
 export default FormContainerWidget;

@@ -5,6 +5,7 @@ const FormTextInputWidget = Scrivito.provideWidgetClass("FormTextInputWidget", {
     label: "string",
     placeholder: "string",
     required: "boolean",
+    description: "html",
     type: [
       "enum",
       {

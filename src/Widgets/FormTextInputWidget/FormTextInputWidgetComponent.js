@@ -4,6 +4,7 @@ import { UncontrolledPopover, PopoverBody } from "reactstrap";
 
 Scrivito.provideComponent("FormTextInputWidget", ({ widget }) => {
   const id = `FormTextInputWidget_${widget.id()}`;
+  const questionMarkId = `${id}_question_mark`;
   const mandatoryId = `${id}_mandatory`;
 
   const type = widget.get("type");
@@ -31,6 +32,26 @@ Scrivito.provideComponent("FormTextInputWidget", ({ widget }) => {
             trigger="legacy"
           >
             <PopoverBody>mandatory</PopoverBody>
+          </UncontrolledPopover>
+        </>
+      ) : null}
+
+      {widget.get("description") ? (
+        <>
+          <i
+            className="fa fa-question-circle-o fa-1x ml-1 help-cursor"
+            id={questionMarkId}
+          ></i>
+          <UncontrolledPopover
+            placement="bottom"
+            target={questionMarkId}
+            trigger="legacy"
+          >
+            <PopoverBody>
+              <Scrivito.InPlaceEditingOff>
+                <Scrivito.ContentTag content={widget} attribute="description" />
+              </Scrivito.InPlaceEditingOff>
+            </PopoverBody>
           </UncontrolledPopover>
         </>
       ) : null}

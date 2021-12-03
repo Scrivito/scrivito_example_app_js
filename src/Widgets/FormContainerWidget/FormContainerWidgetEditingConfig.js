@@ -1,5 +1,6 @@
 import * as Scrivito from "scrivito";
 import formContainerWidgetIcon from "../../assets/images/form_container_widget.svg";
+import FormSubmitButtonWidget from "../FormSubmitButtonWidget/FormSubmitButtonWidgetClass";
 import { pseudoRandom32CharHex } from "./pseudoRandom32CharHex";
 
 Scrivito.provideEditingConfig("FormContainerWidget", {
@@ -20,5 +21,6 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
   ],
   initialContent: {
     formId: () => pseudoRandom32CharHex(),
+    content: () => [new FormSubmitButtonWidget()],
   },
 });

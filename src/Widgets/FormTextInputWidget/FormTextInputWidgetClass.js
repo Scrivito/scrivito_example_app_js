@@ -2,9 +2,16 @@ import * as Scrivito from "scrivito";
 
 const FormTextInputWidget = Scrivito.provideWidgetClass("FormTextInputWidget", {
   attributes: {
-    headline: "string",
+    label: "string",
+    placeholder: "string",
+    type: [
+      "enum",
+      {
+        values: ["email", "name"],
+      },
+    ],
   },
-  extractTextAttributes: ["headline"],
+  extractTextAttributes: [],
 });
 
 export default FormTextInputWidget;

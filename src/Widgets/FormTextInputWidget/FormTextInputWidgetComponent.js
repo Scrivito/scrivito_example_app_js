@@ -36,7 +36,7 @@ Scrivito.provideComponent("FormTextInputWidget", ({ widget }) => {
         </>
       ) : null}
 
-      {widget.get("description") ? (
+      {widget.get("helpText") ? (
         <>
           <i
             className="fa fa-question-circle-o fa-1x ml-1 help-cursor"
@@ -49,7 +49,7 @@ Scrivito.provideComponent("FormTextInputWidget", ({ widget }) => {
           >
             <PopoverBody>
               <Scrivito.InPlaceEditingOff>
-                <Scrivito.ContentTag content={widget} attribute="description" />
+                <Scrivito.ContentTag content={widget} attribute="helpText" />
               </Scrivito.InPlaceEditingOff>
             </PopoverBody>
           </UncontrolledPopover>

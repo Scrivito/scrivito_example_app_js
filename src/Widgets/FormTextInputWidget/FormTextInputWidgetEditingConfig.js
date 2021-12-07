@@ -5,9 +5,7 @@ Scrivito.provideEditingConfig("FormTextInputWidget", {
   title: "Form: Text Input",
   thumbnail: formTextInputWidgetIcon,
   attributes: {
-    required: {
-      title: "Mandatory",
-    },
+    required: { title: "Mandatory" },
     type: {
       title: "Input Type",
       values: [
@@ -15,11 +13,12 @@ Scrivito.provideEditingConfig("FormTextInputWidget", {
         { value: "name", title: "Name" },
       ],
     },
+    helpText: { title: "Help Text" },
   },
   initialContent: {
     label: "Email",
     placeholder: "Your email address",
     type: "email",
   },
-  properties: ["required", "label", "placeholder", "type", "description"],
+  properties: ["required", "label", "placeholder", "type", "helpText"],
 });

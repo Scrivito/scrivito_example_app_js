@@ -16,24 +16,24 @@ Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
   const classNames = ["btn"];
   classNames.push(widget.get("style") || "btn-primary");
 
-  if (widget.get("alignment") === "block") {
+  const alignment = widget.get("alignment");
+  if (alignment === "block") {
     classNames.push("btn-block");
   }
 
+  const wrapperClassName =
+    ["center", "right"].includes(alignment) && `text-${alignment}`;
+
   return (
-    <AlignmentWrapper alignment={widget.get("alignment")}>
+    <WrapIfClassName className={wrapperClassName}>
       <Scrivito.LinkTag to={target} className={classNames.join(" ")}>
         {text}
         <i className="fa fa-angle-right fa-4" aria-hidden="true" />
       </Scrivito.LinkTag>
-    </AlignmentWrapper>
+    </WrapIfClassName>
   );
 });
 
-function AlignmentWrapper({ alignment, children }) {
-  return ["center", "right"].includes(alignment) ? (
-    <div className={`text-${alignment}`}>{children}</div>
-  ) : (
-    children
-  );
+function WrapIfClassName({ className, children }) {
+  return className ? <div className={className}>{children}</div> : children;
 }

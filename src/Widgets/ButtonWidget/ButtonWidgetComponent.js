@@ -2,7 +2,7 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
 
-const ButtonWidgetComponent = Scrivito.connect(({ widget }) => {
+Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
   const target = widget.get("target");
   let text = target && target.title();
   if (!text) {
@@ -16,22 +16,24 @@ const ButtonWidgetComponent = Scrivito.connect(({ widget }) => {
   const classNames = ["btn"];
   classNames.push(widget.get("style") || "btn-primary");
 
+  const alignment = widget.get("alignment");
+  if (alignment === "block") {
+    classNames.push("btn-block");
+  }
+
+  const wrapperClassName =
+    ["center", "right"].includes(alignment) && `text-${alignment}`;
+
   return (
-    <Scrivito.LinkTag to={target} className={classNames.join(" ")}>
-      {text}
-      <i className="fa fa-angle-right fa-4" aria-hidden="true" />
-    </Scrivito.LinkTag>
+    <WrapIfClassName className={wrapperClassName}>
+      <Scrivito.LinkTag to={target} className={classNames.join(" ")}>
+        {text}
+        <i className="fa fa-angle-right fa-4" aria-hidden="true" />
+      </Scrivito.LinkTag>
+    </WrapIfClassName>
   );
 });
 
-Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
-  if (["center", "right"].includes(widget.get("alignment"))) {
-    return (
-      <div className={`text-${widget.get("alignment")}`}>
-        <ButtonWidgetComponent widget={widget} />
-      </div>
-    );
-  }
-
-  return <ButtonWidgetComponent widget={widget} />;
-});
+function WrapIfClassName({ className, children }) {
+  return className ? <div className={className}>{children}</div> : children;
+}

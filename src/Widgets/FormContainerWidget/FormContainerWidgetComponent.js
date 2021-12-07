@@ -4,9 +4,10 @@ import * as Scrivito from "scrivito";
 import "./FormContainerWidget.scss";
 
 Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
-  const [submission, setSubmission] = React.useState("not submitted");
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [successfullySent, setSuccessfullySent] = React.useState(false);
 
-  if (submission === "submitting") {
+  if (isSubmitting) {
     return (
       <div className="form-container-widget text-center">
         <i className="fa fa-spin fa-spinner fa-2x" aria-hidden="true"></i>{" "}
@@ -15,7 +16,7 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
     );
   }
 
-  if (submission === "success") {
+  if (successfullySent) {
     return (
       <div className="form-container-widget text-center">
         <i className="fa fa-check fa-2x" aria-hidden="true"></i>{" "}
@@ -37,9 +38,19 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
     element.preventDefault();
     element.target.scrollIntoView({ behavior: "smooth" });
 
-    setSubmission("submitting");
+    submitting();
     await submit(element.target);
-    setSubmission("success");
+    success();
+  }
+
+  function submitting() {
+    setIsSubmitting(true);
+    setSuccessfullySent(false);
+  }
+
+  function success() {
+    setIsSubmitting(false);
+    setSuccessfullySent(true);
   }
 });
 

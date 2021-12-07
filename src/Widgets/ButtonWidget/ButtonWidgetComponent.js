@@ -16,6 +16,10 @@ Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
   const classNames = ["btn"];
   classNames.push(widget.get("style") || "btn-primary");
 
+  if (widget.get("alignment") === "block") {
+    classNames.push("btn-block");
+  }
+
   return (
     <AlignmentWrapper alignment={widget.get("alignment")}>
       <Scrivito.LinkTag to={target} className={classNames.join(" ")}>

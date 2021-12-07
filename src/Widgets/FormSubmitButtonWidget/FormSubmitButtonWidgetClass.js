@@ -5,7 +5,7 @@ const FormSubmitButtonWidget = Scrivito.provideWidgetClass(
   {
     attributes: {
       buttonText: "string",
-      alignment: ["enum", { values: ["left", "center", "right"] }],
+      alignment: ["enum", { values: ["left", "center", "right", "block"] }],
     },
     extractTextAttributes: ["buttonText"],
   }

@@ -8,7 +8,12 @@ Scrivito.provideComponent("FormSubmitButtonWidget", ({ widget }) => (
       `text-${widget.get("alignment")}`
     }
   >
-    <button className="btn btn-primary" type="submit">
+    <button
+      className={`btn btn-primary${
+        widget.get("alignment") === "block" ? " btn-block" : ""
+      }`}
+      type="submit"
+    >
       {widget.get("buttonText")}
     </button>
   </WrapIfClassName>

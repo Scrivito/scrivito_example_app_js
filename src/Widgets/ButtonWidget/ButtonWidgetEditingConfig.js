@@ -12,7 +12,7 @@ Scrivito.provideEditingConfig("ButtonWidget", {
         { value: "left", title: "Left" },
         { value: "center", title: "Center" },
         { value: "right", title: "Right" },
-        { value: "block", title: "Block level" },
+        { value: "block", title: "Full width" },
       ],
     },
     style: {

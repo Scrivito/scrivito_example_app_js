@@ -35,6 +35,7 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
 
   async function onSubmit(element) {
     element.preventDefault();
+    element.target.scrollIntoView({ behavior: "smooth" });
 
     setSubmission("submitting");
     await submit(element.target);

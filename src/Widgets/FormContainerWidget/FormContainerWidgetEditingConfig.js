@@ -19,8 +19,11 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
     submittedMessage: {
       title: "Message shown after the form was submitted",
     },
+    failedMessage: {
+      title: "Message shown if form submission failed",
+    },
   },
-  properties: ["submittingMessage", "submittedMessage"],
+  properties: ["submittingMessage", "submittedMessage", "failedMessage"],
   propertiesGroups: [
     {
       title: "System",
@@ -33,6 +36,7 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
     submittingMessage: "Submitting...",
     submittedMessage:
       "Your message has been successfully sent. Thank you for your request. We will get back to you as soon as possible.",
+    failedMessage: "Form submission failed",
     content: () => [
       new FormTextInputWidget({ required: true }),
       new TextWidget({

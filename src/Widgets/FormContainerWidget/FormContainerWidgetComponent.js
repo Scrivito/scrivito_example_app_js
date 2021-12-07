@@ -6,6 +6,7 @@ import "./FormContainerWidget.scss";
 Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [successfullySent, setSuccessfullySent] = React.useState(false);
+  const [submissionFailed, setSubmissionFailed] = React.useState(false);
 
   if (isSubmitting) {
     return (
@@ -25,6 +26,15 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
     );
   }
 
+  if (submissionFailed) {
+    return (
+      <div className="form-container-widget text-center">
+        <i className="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>{" "}
+        <span className="text-super">{widget.get("failedMessage")}</span>
+      </div>
+    );
+  }
+
   return (
     <div className="form-container-widget">
       <form method="post" onSubmit={onSubmit}>
@@ -39,18 +49,30 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
     element.target.scrollIntoView({ behavior: "smooth" });
 
     submitting();
-    await submit(element.target);
-    success();
+    try {
+      await submit(element.target);
+      success();
+    } catch (e) {
+      failed();
+    }
   }
 
   function submitting() {
     setIsSubmitting(true);
     setSuccessfullySent(false);
+    setSubmissionFailed(false);
   }
 
   function success() {
     setIsSubmitting(false);
     setSuccessfullySent(true);
+    setSubmissionFailed(false);
+  }
+
+  function failed() {
+    setIsSubmitting(false);
+    setSuccessfullySent(false);
+    setSubmissionFailed(true);
   }
 });
 

@@ -48,28 +48,28 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
     element.preventDefault();
     element.target.scrollIntoView({ behavior: "smooth" });
 
-    submitting();
+    indicateProgress();
     try {
       await submit(element.target);
-      success();
+      indicateSuccess();
     } catch (e) {
-      failed();
+      indicateFailure();
     }
   }
 
-  function submitting() {
+  function indicateProgress() {
     setIsSubmitting(true);
     setSuccessfullySent(false);
     setSubmissionFailed(false);
   }
 
-  function success() {
+  function indicateSuccess() {
     setIsSubmitting(false);
     setSuccessfullySent(true);
     setSubmissionFailed(false);
   }
 
-  function failed() {
+  function indicateFailure() {
     setIsSubmitting(false);
     setSuccessfullySent(false);
     setSubmissionFailed(true);

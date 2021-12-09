@@ -17,7 +17,7 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
       title: "Message shown while the form is being submitted",
     },
     submittedMessage: {
-      title: "Message shown after the form was submitted",
+      title: "Message shown after the form was successfully submitted",
     },
     failedMessage: {
       title: "Message shown if form submission failed",

@@ -99,5 +99,17 @@ Scrivito.provideEditingConfig("Homepage", {
     ...metadataInitialContent,
     showAsLandingPage: "no",
   },
-  validations: [...defaultPageValidations, ...metadataValidations],
+  validations: [
+    ...defaultPageValidations,
+    ...metadataValidations,
+    [
+      "googleAnalyticsTrackingId",
+
+      (trackingId) => {
+        if (trackingId && !trackingId.startsWith("UA-")) {
+          return 'Provide a Universal Analytics property (starts with "UA-"). See https://support.google.com/analytics/answer/10269537 for details.';
+        }
+      },
+    ],
+  ],
 });

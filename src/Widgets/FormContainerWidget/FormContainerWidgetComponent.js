@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+import { scrollIntoView } from "./scrollIntoView";
 
 import "./FormContainerWidget.scss";
 
@@ -46,7 +47,7 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
 
   async function onSubmit(element) {
     element.preventDefault();
-    element.target.scrollIntoView({ behavior: "smooth" });
+    scrollIntoView(element.target);
 
     indicateProgress();
     try {

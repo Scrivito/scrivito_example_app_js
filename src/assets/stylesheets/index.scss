@@ -619,13 +619,6 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   .h4,
   .h5,
   .h6,
-  .form-container-widget label,
-  .form-container-widget .text-mandatory,
-  .form-container-widget .fa,
-  .form-container-widget .text-super,
-  .card.card-theme .form-container-widget label,
-  .card.card-theme .form-container-widget .text-mandatory,
-  .card.card-theme .form-container-widget .fa,
   .card.card-theme,
   .edit-mode-link {
     color: #fff !important;
@@ -643,16 +636,6 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
     outline: none !important;
   }
 }
-.bg-dark-image,
-.bg-brand-primary,
-.bg-brand-secondary,
-.bg-grey,
-.bg-greydark,
-.bg-greymiddle {
-  .card .form-container-widget label { color: $theme-grey!important; }
-  .card .form-container-widget .text-mandatory { color: red!important; }
-  .card .form-container-widget .fa { color: #ccc!important; }
-  }
 
 .bg-dark-image,
 .bg-brand-primary,

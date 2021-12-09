@@ -16,3 +16,30 @@
     cursor: help;
   }
 }
+
+.bg-dark-image,
+.bg-brand-primary,
+.bg-brand-secondary,
+.bg-grey,
+.bg-greydark,
+.bg-greymiddle {
+  .form-container-widget label,
+  .form-container-widget .text-mandatory,
+  .form-container-widget .fa,
+  .form-container-widget .text-super,
+  .card.card-theme .form-container-widget label,
+  .card.card-theme .form-container-widget .text-mandatory,
+  .card.card-theme .form-container-widget .fa {
+    color: #fff !important;
+  }
+
+  .card .form-container-widget label {
+    color: $theme-grey !important;
+  }
+  .card .form-container-widget .text-mandatory {
+    color: red !important;
+  }
+  .card .form-container-widget .fa {
+    color: #ccc !important;
+  }
+}

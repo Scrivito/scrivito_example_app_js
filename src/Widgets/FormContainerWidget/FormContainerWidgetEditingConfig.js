@@ -36,7 +36,8 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
     submittingMessage: "Submitting...",
     submittedMessage:
       "Your message has been successfully sent. Thank you for your request. We will get back to you as soon as possible.",
-    failedMessage: "Form submission failed",
+    failedMessage:
+      "We are sorry, your request could not be completed. Please try again later.",
     content: () => [
       new FormTextInputWidget({ required: true }),
       new TextWidget({

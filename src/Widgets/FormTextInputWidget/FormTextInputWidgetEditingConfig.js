@@ -20,5 +20,5 @@ Scrivito.provideEditingConfig("FormTextInputWidget", {
     placeholder: "Your email address",
     type: "email",
   },
-  properties: ["required", "label", "placeholder", "type", "helpText"],
+  properties: ["type", "label", "placeholder", "required", "helpText"],
 });

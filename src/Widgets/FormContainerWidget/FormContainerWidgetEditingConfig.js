@@ -41,7 +41,7 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
     content: () => [
       new FormTextInputWidget({ required: true }),
       new TextWidget({
-        text: "<p>By submitting you agree to the terms and conditions of our privacy policy.</p>",
+        text: "<p>By submitting, you agree to the terms and conditions of our privacy policy.</p>",
       }),
       new FormSubmitButtonWidget(),
     ],

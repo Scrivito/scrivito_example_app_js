@@ -40,13 +40,15 @@ export const defaultPageInitialContent = {
 };
 
 export function defaultPageProperties(obj) {
-  const properties = ["title", "navigationHeight", "navigationBackgroundImage"];
-
-  if (obj.get("navigationBackgroundImage")) {
-    properties.push("navigationBackgroundImageGradient");
-  }
-
-  return properties;
+  return [
+    "title",
+    "navigationHeight",
+    "navigationBackgroundImage",
+    [
+      "navigationBackgroundImageGradient",
+      { enabled: !!obj.get("navigationBackgroundImage") },
+    ],
+  ];
 }
 
 export const defaultPageValidations = [

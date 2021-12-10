@@ -47,8 +47,8 @@ Scrivito.provideEditingConfig("SectionWidget", {
       title: "Background image",
     },
   },
-  properties: [
-    "backgroundColor",
+  properties: (widget) => [
+    ["backgroundColor", { enabled: !widget.get("backgroundImage") }],
     "backgroundImage",
     "useFullWidth",
     "useFullHeight",

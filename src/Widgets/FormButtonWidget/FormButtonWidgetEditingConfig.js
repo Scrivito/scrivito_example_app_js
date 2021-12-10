@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
 import formButtonWidgetIcon from "../../assets/images/form_button_widget.svg";
 
-Scrivito.provideEditingConfig("FormSubmitButtonWidget", {
+Scrivito.provideEditingConfig("FormButtonWidget", {
   title: "Form Button",
   thumbnail: formButtonWidgetIcon,
   attributes: {

@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 
-Scrivito.provideComponent("FormSubmitButtonWidget", ({ widget }) => (
+Scrivito.provideComponent("FormButtonWidget", ({ widget }) => (
   <WrapIfClassName
     className={
       ["center", "right"].includes(widget.get("alignment")) &&

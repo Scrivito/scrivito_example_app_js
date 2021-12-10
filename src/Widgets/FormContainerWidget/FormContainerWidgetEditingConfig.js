@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 import formContainerWidgetIcon from "../../assets/images/form_container_widget.svg";
-import FormSubmitButtonWidget from "../FormSubmitButtonWidget/FormSubmitButtonWidgetClass";
+import FormButtonWidget from "../FormButtonWidget/FormButtonWidgetClass";
 import FormInputFieldWidget from "../FormInputFieldWidget/FormInputFieldWidgetClass";
 import TextWidget from "../TextWidget/TextWidgetClass";
 import { pseudoRandom32CharHex } from "./pseudoRandom32CharHex";
@@ -43,7 +43,7 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
       new TextWidget({
         text: "<p>By submitting, you agree to the terms and conditions of our privacy policy.</p>",
       }),
-      new FormSubmitButtonWidget(),
+      new FormButtonWidget(),
     ],
   },
 });

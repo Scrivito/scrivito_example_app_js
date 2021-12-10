@@ -6,7 +6,7 @@ import TextWidget from "../TextWidget/TextWidgetClass";
 import { pseudoRandom32CharHex } from "./pseudoRandom32CharHex";
 
 Scrivito.provideEditingConfig("FormContainerWidget", {
-  title: "Form Container",
+  title: "Form",
   thumbnail: formContainerWidgetIcon,
   attributes: {
     formId: {

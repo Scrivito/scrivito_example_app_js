@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
 import formContainerWidgetIcon from "../../assets/images/form_container_widget.svg";
 import FormSubmitButtonWidget from "../FormSubmitButtonWidget/FormSubmitButtonWidgetClass";
-import FormTextInputWidget from "../FormTextInputWidget/FormTextInputWidgetClass";
+import FormInputFieldWidget from "../FormInputFieldWidget/FormInputFieldWidgetClass";
 import TextWidget from "../TextWidget/TextWidgetClass";
 import { pseudoRandom32CharHex } from "./pseudoRandom32CharHex";
 
@@ -39,7 +39,7 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
     failedMessage:
       "We are sorry, your request could not be completed. Please try again later.",
     content: () => [
-      new FormTextInputWidget({ required: true }),
+      new FormInputFieldWidget({ required: true }),
       new TextWidget({
         text: "<p>By submitting, you agree to the terms and conditions of our privacy policy.</p>",
       }),

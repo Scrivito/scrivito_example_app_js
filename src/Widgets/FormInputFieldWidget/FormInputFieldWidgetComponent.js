@@ -2,7 +2,7 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import { UncontrolledPopover, PopoverBody } from "reactstrap";
 
-Scrivito.provideComponent("FormTextInputWidget", ({ widget }) => {
+Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
   const id = `form_text_input_widget_${widget.id()}`;
   const questionMarkId = `${id}_question_mark`;
   const mandatoryId = `${id}_mandatory`;

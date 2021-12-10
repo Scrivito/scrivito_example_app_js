@@ -1,9 +1,9 @@
 import * as Scrivito from "scrivito";
-import formTextInputWidgetIcon from "../../assets/images/form_text_input_widget.svg";
+import formInputFieldWidgetIcon from "../../assets/images/form_input_field_widget.svg";
 
 Scrivito.provideEditingConfig("FormTextInputWidget", {
   title: "Form Input Field",
-  thumbnail: formTextInputWidgetIcon,
+  thumbnail: formInputFieldWidgetIcon,
   attributes: {
     required: { title: "Mandatory" },
     type: {

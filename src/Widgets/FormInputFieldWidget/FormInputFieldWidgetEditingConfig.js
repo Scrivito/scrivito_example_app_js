@@ -11,6 +11,11 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
       values: [
         { value: "email", title: "Email" },
         { value: "name", title: "Name" },
+        { value: "given_name", title: "Given name" },
+        { value: "family_name", title: "Family name" },
+        { value: "middle_name", title: "Middle name" },
+        { value: "company", title: "Company" },
+        { value: "phone_number", title: "Telephone number" },
       ],
     },
     helpText: { title: "Help Text" },

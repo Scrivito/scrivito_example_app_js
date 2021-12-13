@@ -11,7 +11,15 @@ const FormInputFieldWidget = Scrivito.provideWidgetClass(
       type: [
         "enum",
         {
-          values: ["email", "name"],
+          values: [
+            "email",
+            "name",
+            "given_name",
+            "family_name",
+            "middle_name",
+            "company",
+            "phone_number",
+          ],
         },
       ],
     },

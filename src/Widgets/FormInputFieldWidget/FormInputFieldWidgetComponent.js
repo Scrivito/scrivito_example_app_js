@@ -60,7 +60,7 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
         className="form-control"
         id={id}
         name={type}
-        maxLength="250"
+        maxLength={calculateMaxLength(type)}
         placeholder={widget.get("placeholder")}
         type={calculateType(type)}
         required={widget.get("required")}
@@ -69,9 +69,17 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
   );
 });
 
+function calculateMaxLength(fieldName) {
+  return fieldName === "phone_number" ? "50" : "250";
+}
+
 function calculateType(type) {
   if (type === "email") {
     return "email";
+  }
+
+  if (type === "phone_number") {
+    return "tel";
   }
 
   return "text";

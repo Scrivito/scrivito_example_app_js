@@ -1,5 +1,7 @@
 import * as Scrivito from "scrivito";
 import formContainerWidgetIcon from "../../assets/images/form_container_widget.svg";
+import ColumnContainerWidget from "../ColumnContainerWidget/ColumnContainerWidgetClass";
+import ColumnWidget from "../ColumnWidget/ColumnWidgetClass";
 import FormButtonWidget from "../FormButtonWidget/FormButtonWidgetClass";
 import FormInputFieldWidget from "../FormInputFieldWidget/FormInputFieldWidgetClass";
 import TextWidget from "../TextWidget/TextWidgetClass";
@@ -40,7 +42,59 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
     failedMessage:
       "We are sorry, your request could not be completed. Please try again later.",
     content: () => [
-      new FormInputFieldWidget({ required: true }),
+      new ColumnContainerWidget({
+        columns: [
+          new ColumnWidget({
+            colSize: 6,
+            content: [
+              new FormInputFieldWidget({
+                type: "name",
+                label: "Name",
+                placeholder: "Your name",
+                required: true,
+              }),
+            ],
+          }),
+          new ColumnWidget({
+            colSize: 6,
+            content: [
+              new FormInputFieldWidget({
+                type: "family_name",
+                label: "Family name",
+                placeholder: "Your family name",
+                required: true,
+              }),
+            ],
+          }),
+        ],
+      }),
+
+      new ColumnContainerWidget({
+        columns: [
+          new ColumnWidget({
+            colSize: 6,
+            content: [new FormInputFieldWidget({ required: true })],
+          }),
+          new ColumnWidget({
+            colSize: 6,
+            content: [
+              new FormInputFieldWidget({
+                type: "company",
+                label: "Company",
+                placeholder: "Your company",
+              }),
+            ],
+          }),
+        ],
+      }),
+
+      new FormInputFieldWidget({
+        type: "custom_text_area",
+        customFieldName: "custom_message",
+        label: "Message",
+        placeholder: "Your message",
+        required: true,
+      }),
       new TextWidget({
         text: "<p>By submitting, you agree to the terms and conditions of our privacy policy.</p>",
       }),

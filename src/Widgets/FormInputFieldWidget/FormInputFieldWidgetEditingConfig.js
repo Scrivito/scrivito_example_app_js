@@ -7,8 +7,10 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
   attributes: {
     required: { title: "Mandatory" },
     type: {
-      title: "Input Type",
+      title: "Input type",
       values: [
+        { value: "custom_input", title: "Custom single-line" },
+        { value: "custom_text_area", title: "Custom multi-line" },
         { value: "email", title: "Email" },
         { value: "name", title: "Name" },
         { value: "given_name", title: "Given name" },
@@ -18,12 +20,24 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
         { value: "phone_number", title: "Telephone number" },
       ],
     },
-    helpText: { title: "Help Text" },
+    customFieldName: { title: "Custom field name" },
+    helpText: { title: "Help text" },
   },
   initialContent: {
     label: "Email",
     placeholder: "Your email address",
     type: "email",
+    customFieldName: "custom_field_name",
   },
-  properties: ["type", "label", "placeholder", "required", "helpText"],
+  properties: (widget) => [
+    "type",
+    [
+      "customFieldName",
+      { enabled: !!widget.get("type")?.startsWith("custom_") },
+    ],
+    "label",
+    "placeholder",
+    "required",
+    "helpText",
+  ],
 });

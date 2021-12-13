@@ -56,15 +56,28 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
         </>
       ) : null}
 
-      <input
-        className="form-control"
-        id={id}
-        name={type}
-        maxLength={calculateMaxLength(type)}
-        placeholder={widget.get("placeholder")}
-        type={calculateType(type)}
-        required={widget.get("required")}
-      />
+      {type === "custom_text_area" ? (
+        <textarea
+          className="form-control"
+          id={id}
+          rows="3"
+          name={widget.get("customFieldName")}
+          placeholder={widget.get("placeholder")}
+          required={widget.get("required")}
+        />
+      ) : (
+        <input
+          className="form-control"
+          id={id}
+          name={
+            type?.startsWith("custom_") ? widget.get("customFieldName") : type
+          }
+          maxLength={calculateMaxLength(type)}
+          placeholder={widget.get("placeholder")}
+          type={calculateType(type)}
+          required={widget.get("required")}
+        />
+      )}
     </div>
   );
 });

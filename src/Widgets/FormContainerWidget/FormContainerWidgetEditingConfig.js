@@ -107,5 +107,32 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
         return "For form containers to work, a Neoletter instance must be specified in the site settings.";
       }
     },
+
+    [
+      "submittingMessage",
+      (submittingMessage) => {
+        if (!submittingMessage) {
+          return "Specify the message to be displayed during form submission.";
+        }
+      },
+    ],
+
+    [
+      "submittedMessage",
+      (submittedMessage) => {
+        if (!submittedMessage) {
+          return "Specify the message to be displayed after successful form submission.";
+        }
+      },
+    ],
+
+    [
+      "failedMessage",
+      (failedMessage) => {
+        if (!failedMessage) {
+          return "Specify the message to be displayed after form submission failed.";
+        }
+      },
+    ],
   ],
 });

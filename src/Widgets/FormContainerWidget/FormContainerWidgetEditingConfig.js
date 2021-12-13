@@ -134,5 +134,18 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
         }
       },
     ],
+
+    [
+      "formId",
+      (formId) => {
+        if (!formId) {
+          return "Specify the form ID.";
+        }
+
+        if (formId.match(/^[0-9a-fA-F]{32}$/) === null) {
+          return "Specify a valid form ID (32 character hex value).";
+        }
+      },
+    ],
   ],
 });

@@ -34,6 +34,9 @@ Scrivito.provideEditingConfig("Homepage", {
       title: "Divider logo",
       description: "Used in the divider widget",
     },
+    neoletterInstance: {
+      title: "Neoletter instance",
+    },
     facebookAppId: {
       title: "Facebook app ID",
       description:
@@ -80,6 +83,7 @@ Scrivito.provideEditingConfig("Homepage", {
         "logoWhite",
         "dividerLogo",
         "cookieConsentLink",
+        "neoletterInstance",
         "facebookAppId",
         "twitterSite",
         "googleMapsApiKey",

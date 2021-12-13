@@ -3,6 +3,7 @@ import formContainerWidgetIcon from "../../assets/images/form_container_widget.s
 import FormButtonWidget from "../FormButtonWidget/FormButtonWidgetClass";
 import FormInputFieldWidget from "../FormInputFieldWidget/FormInputFieldWidgetClass";
 import TextWidget from "../TextWidget/TextWidgetClass";
+import { neoletterInstance } from "./neoletterInstance";
 import { pseudoRandom32CharHex } from "./pseudoRandom32CharHex";
 
 Scrivito.provideEditingConfig("FormContainerWidget", {
@@ -46,4 +47,11 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
       new FormButtonWidget(),
     ],
   },
+  validations: [
+    () => {
+      if (!neoletterInstance()) {
+        return "For form containers to work, a Neoletter instance must be specified in the site settings.";
+      }
+    },
+  ],
 });

@@ -1,10 +1,14 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+import { neoletterInstance } from "./neoletterInstance";
 import { scrollIntoView } from "./scrollIntoView";
 
 import "./FormContainerWidget.scss";
 
 Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
+  // TODO: Adjust final API endpoint, once available
+  const formEndpoint = `https://dxhub-neoletter-api.justrelate.io/instances/${neoletterInstance()}/rest/form_submissions`;
+
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [successfullySent, setSuccessfullySent] = React.useState(false);
   const [submissionFailed, setSubmissionFailed] = React.useState(false);
@@ -38,7 +42,7 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
 
   return (
     <div className="form-container-widget">
-      <form method="post" onSubmit={onSubmit}>
+      <form method="post" action={formEndpoint} onSubmit={onSubmit}>
         <input type="hidden" name="form_id" value={widget.get("formId")} />
         <Scrivito.ContentTag content={widget} attribute="content" />
       </form>

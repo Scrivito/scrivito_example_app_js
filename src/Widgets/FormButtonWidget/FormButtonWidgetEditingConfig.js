@@ -10,7 +10,6 @@ Scrivito.provideEditingConfig("FormButtonWidget", {
     },
     alignment: {
       title: "Alignment",
-      description: "Default: Full width",
       values: [
         { value: "left", title: "Left" },
         { value: "center", title: "Center" },
@@ -24,4 +23,14 @@ Scrivito.provideEditingConfig("FormButtonWidget", {
     buttonText: "send message",
     alignment: "block",
   },
+  validations: [
+    [
+      "alignment",
+      (alignment) => {
+        if (!alignment) {
+          return "Select the alignment.";
+        }
+      },
+    ],
+  ],
 });

@@ -7,7 +7,9 @@ import "./FormContainerWidget.scss";
 
 Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
   // TODO: Adjust final API endpoint, once available
-  const formEndpoint = `https://dxhub-neoletter-api.justrelate.io/instances/${neoletterInstance()}/rest/form_submissions`;
+  const formEndpoint = neoletterInstance()
+    ? `https://dxhub-neoletter-api.justrelate.io/instances/${neoletterInstance()}/rest/form_submissions`
+    : "";
 
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [successfullySent, setSuccessfullySent] = React.useState(false);
@@ -51,11 +53,15 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
 
   async function onSubmit(element) {
     element.preventDefault();
+    if (!formEndpoint) {
+      return;
+    }
+
     scrollIntoView(element.target);
 
     indicateProgress();
     try {
-      await submit(element.target);
+      await submit(element.target, formEndpoint);
       indicateSuccess();
     } catch (e) {
       indicateFailure();
@@ -81,11 +87,8 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
   }
 });
 
-async function submit(formElement) {
-  const formData = new FormData(formElement);
-  const formProps = Object.fromEntries(formData);
-
-  // TODO: Implement actual submission
-  console.log("submitting", formProps);
-  return new Promise((resolve) => setTimeout(resolve, 3000));
+async function submit(formElement, formEndpoint) {
+  const body = new URLSearchParams(new FormData(formElement));
+  // console.log("submitting", Object.fromEntries(body.entries()));
+  await fetch(formEndpoint, { method: "post", body });
 }

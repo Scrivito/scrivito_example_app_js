@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import { neoletterInstance } from "./utils/neoletterInstance";
-import { scrollIntoView } from "./scrollIntoView";
+import { scrollIntoView } from "./utils/scrollIntoView";
 
 import "./FormContainerWidget.scss";
 

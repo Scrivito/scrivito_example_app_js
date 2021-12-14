@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 import formCheckboxWidgetIcon from "../../assets/images/form_checkbox_widget.svg";
-import { customFieldNameValidation } from "../FormContainerWidget/customFieldNameValidation";
+import { customFieldNameValidation } from "../FormContainerWidget/validations/customFieldNameValidation";
 import { typeValidation } from "../FormContainerWidget/typeValidation";
 
 Scrivito.provideEditingConfig("FormCheckboxWidget", {

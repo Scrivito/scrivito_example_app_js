@@ -24,7 +24,7 @@ Scrivito.provideComponent("FormCheckboxWidget", ({ widget }) => {
       />
 
       <Scrivito.ContentTag
-        className="form-check-label ml-3"
+        className="form-check-label"
         content={widget}
         attribute="label"
         tag="label"

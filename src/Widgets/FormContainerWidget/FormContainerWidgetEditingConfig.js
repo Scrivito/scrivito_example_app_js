@@ -89,7 +89,7 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
       }),
 
       new FormInputFieldWidget({
-        type: "custom_text_area",
+        type: "custom_textarea",
         customFieldName: "custom_message",
         label: "Message",
         placeholder: "Your message",

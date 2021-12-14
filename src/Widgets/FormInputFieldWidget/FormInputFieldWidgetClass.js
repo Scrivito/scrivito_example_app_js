@@ -20,7 +20,7 @@ const FormInputFieldWidget = Scrivito.provideWidgetClass(
             "company",
             "phone_number",
             "custom_input",
-            "custom_text_area",
+            "custom_textarea",
           ],
         },
       ],

@@ -56,7 +56,7 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
         </>
       ) : null}
 
-      {type === "custom_text_area" ? (
+      {type === "custom_textarea" ? (
         <textarea
           className="form-control"
           id={id}

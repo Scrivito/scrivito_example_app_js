@@ -19,7 +19,7 @@ export const customFieldNameValidation = [
     }
 
     if (customFieldName.length > 50) {
-      return "Custom field names may be up to 50 characters long.";
+      return `Custom field names may be up to 50 characters long. This name is ${customFieldName.length} characters long.`;
     }
   },
 ];

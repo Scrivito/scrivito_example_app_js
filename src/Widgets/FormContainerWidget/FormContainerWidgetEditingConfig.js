@@ -6,7 +6,7 @@ import FormButtonWidget from "../FormButtonWidget/FormButtonWidgetClass";
 import FormInputFieldWidget from "../FormInputFieldWidget/FormInputFieldWidgetClass";
 import TextWidget from "../TextWidget/TextWidgetClass";
 import { neoletterInstance } from "./utils/neoletterInstance";
-import { pseudoRandom32CharHex } from "./pseudoRandom32CharHex";
+import { pseudoRandom32CharHex } from "./utils/pseudoRandom32CharHex";
 
 Scrivito.provideEditingConfig("FormContainerWidget", {
   title: "Form",

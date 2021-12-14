@@ -1,13 +1,14 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import { UncontrolledPopover, PopoverBody } from "reactstrap";
+import { getFieldName } from "../FormContainerWidget/utils/getFieldName";
 
 Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
   const id = `form_text_input_widget_${widget.id()}`;
   const questionMarkId = `${id}_question_mark`;
   const mandatoryId = `${id}_mandatory`;
 
-  const type = widget.get("type");
+  const fieldName = getFieldName(widget);
   const labelOptions = {};
   if (!Scrivito.isInPlaceEditingActive()) {
     labelOptions.htmlFor = id;
@@ -56,12 +57,12 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
         </>
       ) : null}
 
-      {type === "custom_textarea" ? (
+      {widget.get("type") === "custom_textarea" ? (
         <textarea
           className="form-control"
           id={id}
           rows="3"
-          name={widget.get("customFieldName")}
+          name={fieldName}
           placeholder={widget.get("placeholder")}
           required={widget.get("required")}
         />
@@ -69,12 +70,10 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
         <input
           className="form-control"
           id={id}
-          name={
-            type?.startsWith("custom_") ? widget.get("customFieldName") : type
-          }
-          maxLength={calculateMaxLength(type)}
+          name={fieldName}
+          maxLength={calculateMaxLength(fieldName)}
           placeholder={widget.get("placeholder")}
-          type={calculateType(type)}
+          type={calculateType(fieldName)}
           required={widget.get("required")}
         />
       )}

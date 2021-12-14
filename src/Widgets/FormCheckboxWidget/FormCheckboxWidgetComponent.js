@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import { UncontrolledPopover, PopoverBody } from "reactstrap";
+import { getFieldName } from "../FormContainerWidget/utils/getFieldName";
 
 Scrivito.provideComponent("FormCheckboxWidget", ({ widget }) => {
   const id = `form_checkbox_widget_${widget.id()}`;
@@ -18,11 +19,7 @@ Scrivito.provideComponent("FormCheckboxWidget", ({ widget }) => {
         className="form-check-input"
         id={id}
         type="checkbox"
-        name={
-          widget.get("type") === "custom"
-            ? widget.get("customFieldName")
-            : widget.get("type")
-        }
+        name={getFieldName(widget)}
         required={widget.get("required")}
       />
 

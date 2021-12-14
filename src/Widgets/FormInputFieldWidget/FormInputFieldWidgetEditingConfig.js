@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
 import formInputFieldWidgetIcon from "../../assets/images/form_input_field_widget.svg";
 import { customFieldNameValidation } from "../FormContainerWidget/validations/customFieldNameValidation";
-import { typeValidation } from "../FormContainerWidget/typeValidation";
+import { typeValidation } from "../FormContainerWidget/validations/typeValidation";
 
 Scrivito.provideEditingConfig("FormInputFieldWidget", {
   title: "Form Input Field",

@@ -11,7 +11,7 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
     type: {
       title: "Input type",
       values: [
-        { value: "custom_input", title: "Custom single-line" },
+        { value: "custom_text", title: "Custom single-line" },
         { value: "custom_textarea", title: "Custom multi-line" },
         { value: "email", title: "Email" },
         { value: "name", title: "Name" },

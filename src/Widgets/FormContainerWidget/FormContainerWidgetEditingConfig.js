@@ -5,7 +5,7 @@ import ColumnWidget from "../ColumnWidget/ColumnWidgetClass";
 import FormButtonWidget from "../FormButtonWidget/FormButtonWidgetClass";
 import FormInputFieldWidget from "../FormInputFieldWidget/FormInputFieldWidgetClass";
 import TextWidget from "../TextWidget/TextWidgetClass";
-import { neoletterInstance } from "./neoletterInstance";
+import { neoletterInstance } from "./utils/neoletterInstance";
 import { pseudoRandom32CharHex } from "./pseudoRandom32CharHex";
 
 Scrivito.provideEditingConfig("FormContainerWidget", {

@@ -4,5 +4,5 @@ export default function filenameFromUrl(url) {
     return "/index.html";
   }
 
-  return `${pathname}/index.html`;
+  return `${pathname}.html`;
 }

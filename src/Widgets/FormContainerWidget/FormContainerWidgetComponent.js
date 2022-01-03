@@ -6,9 +6,8 @@ import { scrollIntoView } from "./utils/scrollIntoView";
 import "./FormContainerWidget.scss";
 
 Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
-  // TODO: Adjust final API endpoint, once available
   const formEndpoint = neoletterInstance()
-    ? `https://dxhub-neoletter-api.justrelate.io/instances/${neoletterInstance()}/rest/form_submissions`
+    ? `https://api.justrelate.com/neoletter/${neoletterInstance()}/rest/form_submissions`
     : "";
 
   const [isSubmitting, setIsSubmitting] = React.useState(false);

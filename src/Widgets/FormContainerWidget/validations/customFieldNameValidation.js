@@ -1,8 +1,10 @@
+import { isCustomType } from "../utils/isCustomType";
+
 export const customFieldNameValidation = [
   "customFieldName",
 
   (customFieldName, { widget }) => {
-    if (!widget.get("type")?.startsWith("custom")) {
+    if (!isCustomType(widget.get("type"))) {
       return;
     }
 

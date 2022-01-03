@@ -5,6 +5,7 @@ import FormInputFieldWidget from "../FormInputFieldWidget/FormInputFieldWidgetCl
 import TextWidget from "../TextWidget/TextWidgetClass";
 import { neoletterInstance } from "./utils/neoletterInstance";
 import { pseudoRandom32CharHex } from "./utils/pseudoRandom32CharHex";
+import { getFormContainer } from "./utils/getFormContainer";
 
 Scrivito.provideEditingConfig("FormContainerWidget", {
   title: "Form",
@@ -67,7 +68,11 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
     ],
   },
   validations: [
-    () => {
+    (widget) => {
+      if (getFormContainer(widget)) {
+        return "Needs to be outside of a form.";
+      }
+
       if (!neoletterInstance()) {
         return "For form containers to work, a Neoletter instance must be specified in the site settings.";
       }

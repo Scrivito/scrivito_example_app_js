@@ -1,6 +1,7 @@
 import * as Scrivito from "scrivito";
 import formCheckboxWidgetIcon from "../../assets/images/form_checkbox_widget.svg";
 import { customFieldNameValidation } from "../FormContainerWidget/validations/customFieldNameValidation";
+import { insideFormContainerValidation } from "../FormContainerWidget/validations/insideFormContainerValidation";
 import { typeValidation } from "../FormContainerWidget/validations/typeValidation";
 
 Scrivito.provideEditingConfig("FormCheckboxWidget", {
@@ -30,5 +31,9 @@ Scrivito.provideEditingConfig("FormCheckboxWidget", {
     customFieldName: "custom_field_name",
     label: "Please send me your free printed product catalog.",
   },
-  validations: [typeValidation, customFieldNameValidation],
+  validations: [
+    typeValidation,
+    customFieldNameValidation,
+    insideFormContainerValidation,
+  ],
 });

@@ -1,5 +1,6 @@
 import * as Scrivito from "scrivito";
 import formButtonWidgetIcon from "../../assets/images/form_button_widget.svg";
+import { insideFormContainerValidation } from "../FormContainerWidget/validations/insideFormContainerValidation";
 
 Scrivito.provideEditingConfig("FormButtonWidget", {
   title: "Form Button",
@@ -24,6 +25,7 @@ Scrivito.provideEditingConfig("FormButtonWidget", {
     alignment: "block",
   },
   validations: [
+    insideFormContainerValidation,
     [
       "alignment",
       (alignment) => {

@@ -6,6 +6,7 @@ import TextWidget from "../TextWidget/TextWidgetClass";
 import { neoletterInstance } from "./utils/neoletterInstance";
 import { pseudoRandom32CharHex } from "./utils/pseudoRandom32CharHex";
 import { getFormContainer } from "./utils/getFormContainer";
+import { widgets } from "./utils/widgets";
 
 Scrivito.provideEditingConfig("FormContainerWidget", {
   title: "Form",
@@ -71,6 +72,10 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
     (widget) => {
       if (getFormContainer(widget)) {
         return "Needs to be outside of a form.";
+      }
+
+      if (widgets(widget).every((w) => w.objClass() !== "FormButtonWidget")) {
+        return "A submit button is missing.";
       }
 
       if (!neoletterInstance()) {

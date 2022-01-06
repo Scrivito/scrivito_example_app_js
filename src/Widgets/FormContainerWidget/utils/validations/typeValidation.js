@@ -1,5 +1,5 @@
-import { isCustomType } from "../utils/isCustomType";
-import { isFieldNameUnique } from "../utils/isFieldNameUnique";
+import { isCustomType } from "../isCustomType";
+import { isFieldNameUnique } from "../isFieldNameUnique";
 
 export const typeValidation = [
   "type",

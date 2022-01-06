@@ -1,4 +1,4 @@
-import { getFormContainer } from "../utils/getFormContainer";
+import { getFormContainer } from "../getFormContainer";
 
 export function insideFormContainerValidation(widget) {
   if (!getFormContainer(widget)) {

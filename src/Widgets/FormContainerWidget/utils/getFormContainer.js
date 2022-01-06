@@ -1,3 +1,5 @@
+import * as Scrivito from "scrivito";
+
 /** Returns the first `FormContainerWidget` container it can find. `null` otherwise. */
 export function getFormContainer(childWidget) {
   let candidate = childWidget.container();
@@ -6,7 +8,7 @@ export function getFormContainer(childWidget) {
       return candidate;
     }
     candidate = candidate.container();
-  } while (candidate.container);
+  } while (candidate instanceof Scrivito.Widget);
 
   return null;
 }

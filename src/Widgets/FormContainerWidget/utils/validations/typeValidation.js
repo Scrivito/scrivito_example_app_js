@@ -9,10 +9,10 @@ export const typeValidation = [
     }
 
     if (!isCustomType(type) && !isFieldNameUnique(widget)) {
-      return `There must be only one element with the input type "${type.replace(
+      return `There must be only one element with the input type “${type.replace(
         /_/,
         " "
-      )}".`;
+      )}”.`;
     }
   },
 ];

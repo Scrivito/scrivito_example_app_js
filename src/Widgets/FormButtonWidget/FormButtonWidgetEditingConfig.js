@@ -23,7 +23,7 @@ Scrivito.provideEditingConfig("FormButtonWidget", {
   properties: ["buttonText", "alignment"],
   initialContent: {
     buttonText: "send message",
-    alignment: "block",
+    alignment: "center",
   },
   validations: [
     () => {

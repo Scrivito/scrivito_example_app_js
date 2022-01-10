@@ -21,7 +21,7 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
         { value: "family_name", title: "Family name" },
         { value: "middle_name", title: "Middle name" },
         { value: "company", title: "Company" },
-        { value: "phone_number", title: "Telephone number" },
+        { value: "phone_number", title: "Phone number" },
       ],
     },
     customFieldName: { title: "Custom field name" },

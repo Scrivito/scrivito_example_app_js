@@ -26,7 +26,7 @@ export const customFieldNameValidation = [
     }
 
     if (!isFieldNameUnique(widget)) {
-      return "There is at least one other element with the same custom field name.";
+      return "Specify a unique custom field name. There is at least one other element with the same custom field name.";
     }
   },
 ];

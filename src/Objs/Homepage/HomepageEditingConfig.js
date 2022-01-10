@@ -110,5 +110,17 @@ Scrivito.provideEditingConfig("Homepage", {
         }
       },
     ],
+    [
+      "neoletterInstance",
+      (neoletterInstance) => {
+        if (!neoletterInstance) {
+          return;
+        }
+
+        if (neoletterInstance.match(/^[0-9a-fA-F]{32}$/) === null) {
+          return "Provide a valid Neoletter instance (32 character hex value).";
+        }
+      },
+    ],
   ],
 });

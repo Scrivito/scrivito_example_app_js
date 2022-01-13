@@ -13,8 +13,8 @@ Scrivito.provideEditingConfig("FormCheckboxWidget", {
     type: {
       title: "Input type",
       values: [
-        { value: "custom", title: "Custom" },
         { value: "accept_terms", title: "Accept terms" },
+        { value: "custom", title: "Custom" },
       ],
     },
     customFieldName: { title: "Custom field name" },

@@ -23,8 +23,9 @@ const FormInputFieldWidget = Scrivito.provideWidgetClass(
           ],
         },
       ],
-      customType: ["enum", { values: ["single_line", "multi_line"] }],
+      customType: ["enum", { values: ["single_line", "multi_line", "hidden"] }],
       customFieldName: "string",
+      customHiddenValue: "string",
     },
     extractTextAttributes: [],
   }

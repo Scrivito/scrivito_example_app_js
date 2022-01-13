@@ -5,11 +5,21 @@ import { getFieldName } from "../FormContainerWidget/utils/getFieldName";
 import { isCustomType } from "../FormContainerWidget/utils/isCustomType";
 
 Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
+  const fieldName = getFieldName(widget);
+  if (isCustomType(widget) && widget.get("customType") === "hidden") {
+    return (
+      <input
+        type="hidden"
+        name={fieldName}
+        value={widget.get("customHiddenValue")}
+      />
+    );
+  }
+
   const id = `form_text_input_widget_${widget.id()}`;
   const questionMarkId = `${id}_question_mark`;
   const mandatoryId = `${id}_mandatory`;
 
-  const fieldName = getFieldName(widget);
   const labelOptions = {};
   if (!Scrivito.isInPlaceEditingActive()) {
     labelOptions.htmlFor = id;

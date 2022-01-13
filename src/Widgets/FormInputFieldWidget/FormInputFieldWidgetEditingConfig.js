@@ -34,9 +34,9 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
     helpText: { title: "Help text" },
   },
   initialContent: {
-    label: "Email",
-    placeholder: "Your email address",
-    type: "email",
+    label: "Custom field",
+    placeholder: "Your custom field",
+    type: "custom",
     customType: "single_line",
     customFieldName: "custom_field_name",
   },

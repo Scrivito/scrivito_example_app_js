@@ -69,7 +69,12 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
           }),
         ],
       }),
-      new FormInputFieldWidget({ required: true }),
+      new FormInputFieldWidget({
+        label: "Email",
+        placeholder: "Your email address",
+        type: "email",
+        required: true,
+      }),
       new FormInputFieldWidget({
         type: "company",
         label: "Company",

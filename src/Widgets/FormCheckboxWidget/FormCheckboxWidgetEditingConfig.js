@@ -29,7 +29,7 @@ Scrivito.provideEditingConfig("FormCheckboxWidget", {
   ],
   initialContent: {
     type: "custom",
-    customFieldName: "custom_field_name",
+    customFieldName: "custom_checkbox",
     label: "Please send me your free printed product catalog.",
   },
   validations: [

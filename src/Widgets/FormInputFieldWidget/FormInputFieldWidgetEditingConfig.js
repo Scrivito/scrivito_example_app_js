@@ -35,7 +35,7 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
   },
   properties: (widget) => [
     "type",
-    ["customFieldName", { enabled: isCustomType(widget.get("type")) }],
+    ["customFieldName", { enabled: isCustomType(widget) }],
     "label",
     "placeholder",
     "required",

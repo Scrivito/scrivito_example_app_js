@@ -8,7 +8,7 @@ export const typeValidation = [
       return "Select the input type.";
     }
 
-    if (!isCustomType(type) && !isFieldNameUnique(widget)) {
+    if (!isCustomType(widget) && !isFieldNameUnique(widget)) {
       return `There must be only one element with the input type “${type.replace(
         /_/,
         " "

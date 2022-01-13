@@ -5,7 +5,7 @@ export const customFieldNameValidation = [
   "customFieldName",
 
   (customFieldName, { widget }) => {
-    if (!isCustomType(widget.get("type"))) {
+    if (!isCustomType(widget)) {
       return;
     }
 

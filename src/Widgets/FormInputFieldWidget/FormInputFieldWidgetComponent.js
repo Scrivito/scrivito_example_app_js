@@ -2,6 +2,7 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import { UncontrolledPopover, PopoverBody } from "reactstrap";
 import { getFieldName } from "../FormContainerWidget/utils/getFieldName";
+import { isCustomType } from "../FormContainerWidget/utils/isCustomType";
 
 Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
   const id = `form_text_input_widget_${widget.id()}`;
@@ -57,7 +58,7 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
         </>
       ) : null}
 
-      {widget.get("type") === "custom_textarea" ? (
+      {isCustomType(widget) && widget.get("customType") === "multi_line" ? (
         <textarea
           className="form-control"
           id={id}

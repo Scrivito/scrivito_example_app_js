@@ -13,8 +13,6 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
     type: {
       title: "Input type",
       values: [
-        { value: "custom_text", title: "Custom single-line" },
-        { value: "custom_textarea", title: "Custom multi-line" },
         { value: "email", title: "Email" },
         { value: "name", title: "Name" },
         { value: "given_name", title: "Given name" },
@@ -22,6 +20,14 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
         { value: "middle_name", title: "Middle name" },
         { value: "company", title: "Company" },
         { value: "phone_number", title: "Phone number" },
+        { value: "custom", title: "Custom" },
+      ],
+    },
+    customType: {
+      title: "Custom input type",
+      values: [
+        { value: "single_line", title: "Single-line" },
+        { value: "multi_line", title: "Multi-line" },
       ],
     },
     customFieldName: { title: "Custom field name" },
@@ -31,18 +37,34 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
     label: "Email",
     placeholder: "Your email address",
     type: "email",
+    customType: "single_line",
     customFieldName: "custom_field_name",
   },
-  properties: (widget) => [
-    "type",
-    ["customFieldName", { enabled: isCustomType(widget) }],
-    "label",
-    "placeholder",
-    "required",
-    "helpText",
-  ],
+  properties: (widget) => {
+    if (widget.get("type") === "custom") {
+      return [
+        "type",
+        "customType",
+        "customFieldName",
+        "label",
+        "placeholder",
+        "required",
+        "helpText",
+      ];
+    }
+
+    return ["type", "label", "placeholder", "required", "helpText"];
+  },
   validations: [
     typeValidation,
+    [
+      "customType",
+      (customType, { widget }) => {
+        if (isCustomType(widget) && !customType) {
+          return "Select the custom input type.";
+        }
+      },
+    ],
     customFieldNameValidation,
     insideFormContainerValidation,
   ],

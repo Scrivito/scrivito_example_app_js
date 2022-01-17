@@ -20,13 +20,10 @@ Scrivito.provideEditingConfig("FormCheckboxWidget", {
     customFieldName: { title: "Field name" },
     helpText: { title: "Help text" },
   },
-  properties: (widget) => [
-    "type",
-    ["customFieldName", { enabled: isCustomType(widget) }],
-    "label",
-    "required",
-    "helpText",
-  ],
+  properties: (widget) =>
+    isCustomType(widget)
+      ? ["type", "customFieldName", "label", "required", "helpText"]
+      : ["type", "label", "required", "helpText"],
   initialContent: {
     type: "custom",
     customFieldName: "custom_checkbox",

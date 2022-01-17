@@ -47,12 +47,7 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
       <form method="post" action={formEndpoint} onSubmit={onSubmit}>
         <input type="hidden" name="form_id" value={widget.get("formId")} />
         {widget.get("hiddenFields").map((hiddenField) => (
-          <input
-            key={hiddenField.id()}
-            type="hidden"
-            name={getFieldName(hiddenField)}
-            value={hiddenField.get("customHiddenValue")}
-          />
+          <HiddenField key={hiddenField.id()} widget={hiddenField} />
         ))}
         <Scrivito.ContentTag content={widget} attribute="content" />
       </form>
@@ -100,3 +95,17 @@ async function submit(formElement, formEndpoint) {
   // console.log("submitting", Object.fromEntries(body.entries()));
   await fetch(formEndpoint, { method: "post", body });
 }
+
+const HiddenField = Scrivito.connect(({ widget }) => {
+  const name = getFieldName(widget);
+  if (!name) {
+    return null;
+  }
+
+  const value = widget.get("customHiddenValue");
+  if (!value) {
+    return null;
+  }
+
+  return <input type="hidden" name={name} value={value} />;
+});

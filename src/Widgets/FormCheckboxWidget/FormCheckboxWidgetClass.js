@@ -8,7 +8,6 @@ const FormCheckboxWidget = Scrivito.provideWidgetClass("FormCheckboxWidget", {
     required: "boolean",
     helpText: "html",
   },
-  extractTextAttributes: [],
 });
 
 export default FormCheckboxWidget;

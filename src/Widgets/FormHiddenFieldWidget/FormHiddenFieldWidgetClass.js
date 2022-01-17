@@ -8,7 +8,6 @@ const FormHiddenFieldWidget = Scrivito.provideWidgetClass(
       customFieldName: "string",
       hiddenValue: "string",
     },
-    extractTextAttributes: [],
   }
 );
 

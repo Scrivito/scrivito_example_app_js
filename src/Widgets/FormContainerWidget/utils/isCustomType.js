@@ -1,3 +1,3 @@
 export function isCustomType(widget) {
-  return widget.get("type") === "custom";
+  return !widget.attributeDefinitions().type || widget.get("type") === "custom";
 }

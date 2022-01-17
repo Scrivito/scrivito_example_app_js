@@ -28,14 +28,9 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
       values: [
         { value: "single_line", title: "Single-line" },
         { value: "multi_line", title: "Multi-line" },
-        { value: "hidden", title: "Hidden" },
       ],
     },
-    customFieldName: { title: "Field name" },
-    customHiddenValue: {
-      title: "Hidden value",
-      description: "This value is sent on every submission of the form.",
-    },
+    customFieldName: { title: "Custom field name" },
     helpText: { title: "Help text" },
   },
   initialContent: {
@@ -47,17 +42,15 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
   },
   properties: (widget) => {
     if (widget.get("type") === "custom") {
-      return widget.get("customType") === "hidden"
-        ? ["type", "customType", "customFieldName", "customHiddenValue"]
-        : [
-            "type",
-            "customType",
-            "customFieldName",
-            "label",
-            "placeholder",
-            "required",
-            "helpText",
-          ];
+      return [
+        "type",
+        "customType",
+        "customFieldName",
+        "label",
+        "placeholder",
+        "required",
+        "helpText",
+      ];
     }
 
     return ["type", "label", "placeholder", "required", "helpText"];

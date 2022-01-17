@@ -26,9 +26,17 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
     failedMessage: {
       title: "Message shown if form submission failed",
     },
+    hiddenFields: {
+      title: "Hidden fields",
+    },
   },
   properties: ["submittingMessage", "submittedMessage", "failedMessage"],
   propertiesGroups: [
+    {
+      title: "Hidden fields",
+      key: "FormContainerWidgetHiddenFields",
+      properties: ["hiddenFields"],
+    },
     {
       title: "System",
       key: "FormContainerWidgetSystem",

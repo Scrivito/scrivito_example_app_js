@@ -7,6 +7,7 @@ const FormContainerWidget = Scrivito.provideWidgetClass("FormContainerWidget", {
     failedMessage: "string",
     submittedMessage: "string",
     submittingMessage: "string",
+    hiddenFields: ["widgetlist", { only: "FormHiddenFieldWidget" }],
   },
   extractTextAttributes: ["content"],
 });

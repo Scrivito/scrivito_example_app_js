@@ -102,10 +102,7 @@ const HiddenField = Scrivito.connect(({ widget }) => {
     return null;
   }
 
-  const value = widget.get("customHiddenValue");
-  if (!value) {
-    return null;
-  }
-
-  return <input type="hidden" name={name} value={value} />;
+  return (
+    <input type="hidden" name={name} value={widget.get("customHiddenValue")} />
+  );
 });

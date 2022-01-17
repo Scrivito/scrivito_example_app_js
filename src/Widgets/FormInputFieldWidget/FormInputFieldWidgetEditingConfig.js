@@ -30,7 +30,7 @@ Scrivito.provideEditingConfig("FormInputFieldWidget", {
         { value: "multi_line", title: "Multi-line" },
       ],
     },
-    customFieldName: { title: "Custom field name" },
+    customFieldName: { title: "Field name" },
     helpText: { title: "Help text" },
   },
   initialContent: {

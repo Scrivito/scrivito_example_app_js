@@ -17,7 +17,7 @@ Scrivito.provideEditingConfig("FormCheckboxWidget", {
         { value: "custom", title: "Custom" },
       ],
     },
-    customFieldName: { title: "Custom field name" },
+    customFieldName: { title: "Field name" },
     helpText: { title: "Help text" },
   },
   properties: (widget) => [

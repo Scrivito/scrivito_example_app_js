@@ -5,7 +5,7 @@ const BlogPost = Scrivito.provideObjClass("BlogPost", {
   attributes: {
     author: ["reference", { only: "Author" }],
     body: ["widgetlist", { only: "SectionWidget" }],
-    publishedAt: "date",
+    publishedAt: "datetime",
     subtitle: "string",
     tags: "stringlist",
     title: "string",

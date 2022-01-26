@@ -96,14 +96,7 @@ function webpackConfig(env = {}) {
         },
         {
           test: /\.(jpg|png|eot|svg|ttf|woff|woff2|gif)$/,
-          use: [
-            {
-              loader: "file-loader",
-              options: {
-                name: "assets/[name].[contenthash].[ext]",
-              },
-            },
-          ],
+          type: "asset/resource",
         },
       ],
     },
@@ -114,6 +107,7 @@ function webpackConfig(env = {}) {
           ? "[name].js"
           : "assets/[name].[contenthash].js",
       chunkFilename: "assets/chunk-[id].[contenthash].js",
+      assetModuleFilename: "assets/[name].[contenthash][ext]",
       path: path.join(__dirname, BUILD_DIR),
     },
     plugins: [

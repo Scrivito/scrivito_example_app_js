@@ -57,7 +57,7 @@
   width: calc(50% - 2px);
 }
 .gle-preview > .grid-col-7 {
-  width: calc(58.333333333333336% -2px);
+  width: calc(58.333333333333336% - 2px);
 }
 .gle-preview > .grid-col-8 {
   width: calc(66.66666666666666% - 2px);
@@ -108,35 +108,40 @@
   margin: 12px 2px 2px 2px;
 }
 .gle-preview > [class*="grid-col-"] .alignment.fullHeight {
-  background: rgba(222,222,222,.6);
+  background: rgba(222, 222, 222, 0.6);
   box-shadow: 0 0 0 1px #888 inset;
-  margin: 2px; position: relative;
+  margin: 2px;
+  position: relative;
   height: 81%;
 }
 
-
 .gle-preview > [class*="grid-col-"] .alignment.fullHeight:before {
-  content: '';
+  content: "";
   background: transparent;
   border-color: transparent;
   border-style: solid;
   border-width: 4px;
   border-bottom-color: #777;
-  width: 0; margin: 0;
-  position: absolute; top: -1px; left: 11px;
+  width: 0;
+  margin: 0;
+  position: absolute;
+  top: -1px;
+  left: 11px;
 }
 
 .gle-preview > [class*="grid-col-"] .alignment.fullHeight:after {
-  content: '';
+  content: "";
   background: transparent;
   border-color: transparent;
   border-style: solid;
   border-width: 4px;
   border-top-color: #777;
-  width: 0; margin: 0;
-  position: absolute; bottom: -1px; left: 11px;
+  width: 0;
+  margin: 0;
+  position: absolute;
+  bottom: -1px;
+  left: 11px;
 }
-
 
 /* -- grid layout editor - editor -- */
 

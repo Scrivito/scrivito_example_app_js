@@ -136,7 +136,9 @@ function webpackConfig(env = {}) {
         ],
       }),
       new MiniCssExtractPlugin({
-        filename: "assets/[name].[contenthash].css",
+        filename: env.production
+          ? "assets/[name].[contenthash].css"
+          : "assets/[name].css",
       }),
       new HtmlWebpackPlugin({
         filename: "catch_all_index.html",

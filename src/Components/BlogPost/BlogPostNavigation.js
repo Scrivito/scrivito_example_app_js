@@ -36,7 +36,7 @@ const BlogPostNextLink = Scrivito.connect(({ currentBlogPost }) => {
   const sameDateNextBlogPost = Scrivito.getClass("BlogPost")
     .where("publishedAt", "equals", currentDate)
     .and("_id", "isGreaterThan", currentBlogPost.id())
-    .order(["_id", "asc"])
+    .order("_id", "asc")
     .first();
 
   const newerPost =
@@ -66,7 +66,7 @@ const BlogPostPreviousLink = Scrivito.connect(({ currentBlogPost }) => {
   const sameDatePreviousBlogPost = Scrivito.getClass("BlogPost")
     .where("publishedAt", "equals", currentDate)
     .and("_id", "isLessThan", currentBlogPost.id())
-    .order(["_id", "desc"])
+    .order("_id", "desc")
     .first();
 
   const olderPost =

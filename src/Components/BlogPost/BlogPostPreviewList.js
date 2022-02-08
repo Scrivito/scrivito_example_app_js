@@ -10,7 +10,10 @@ const BlogPostPreviewList = Scrivito.connect(
   ({ maxItems, author, tag, filterBlogPostId }) => {
     let blogPosts = Scrivito.getClass("BlogPost")
       .all()
-      .order("publishedAt", "desc");
+      .order([
+        ["publishedAt", "desc"],
+        ["_id", "desc"],
+      ]);
     if (author) {
       blogPosts = blogPosts.and("author", "refersTo", author);
     }

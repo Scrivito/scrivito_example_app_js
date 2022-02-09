@@ -8,7 +8,7 @@ import "./FormContainerWidget.scss";
 
 Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
   const formEndpoint = neoletterInstance()
-    ? `https://api.justrelate.com/neoletter/${neoletterInstance()}/rest/form_submissions`
+    ? `https://api.justrelate.com/neoletter/instances/${neoletterInstance()}/form_submissions`
     : "";
 
   const [isSubmitting, setIsSubmitting] = React.useState(false);

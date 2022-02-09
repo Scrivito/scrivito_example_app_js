@@ -1,5 +1,10 @@
+import loadable from "@loadable/component";
 import * as Scrivito from "scrivito";
 import iconWidgetIcon from "../../assets/images/icon_widget.svg";
+
+const LoadableIconEditorTab = loadable(() =>
+  import("../../Components/ScrivitoExtensions/IconEditorTab")
+);
 
 Scrivito.provideEditingConfig("IconWidget", {
   title: "Icon",
@@ -34,7 +39,7 @@ Scrivito.provideEditingConfig("IconWidget", {
   propertiesGroups: [
     {
       title: "Icon",
-      component: "IconEditorTab",
+      component: LoadableIconEditorTab,
       key: "icon-group",
     },
     {

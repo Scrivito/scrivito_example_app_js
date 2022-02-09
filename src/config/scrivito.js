@@ -5,6 +5,7 @@ export function configureScrivito(options) {
     adoptUi: true,
     optimizedWidgetLoading: true,
     strictSearchOperators: true,
+    contentTagsForEmptyAttributes: false,
     tenant: process.env.SCRIVITO_TENANT,
   };
 

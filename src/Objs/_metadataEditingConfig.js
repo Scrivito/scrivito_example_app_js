@@ -1,3 +1,5 @@
+import loadable from "@loadable/component";
+
 export const metadataEditingConfigAttributes = {
   metaDataDescription: {
     title: "Page description",
@@ -17,6 +19,10 @@ export const metadataInitialContent = {
   robotsIndex: "yes",
 };
 
+const LoadableSocialCardsTab = loadable(() =>
+  import("../Components/ScrivitoExtensions/SocialCardsTab")
+);
+
 export const metadataPropertiesGroups = [
   {
     title: "Metadata",
@@ -25,7 +31,7 @@ export const metadataPropertiesGroups = [
   },
   {
     title: "Social cards",
-    component: "SocialCardsTab",
+    component: LoadableSocialCardsTab,
     properties: ["tcCreator", "tcDescription", "ogDescription"],
     key: "social-cards-group",
   },

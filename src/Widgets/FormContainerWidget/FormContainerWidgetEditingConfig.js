@@ -7,7 +7,6 @@ import FormInputFieldWidget from "../FormInputFieldWidget/FormInputFieldWidgetCl
 import TextWidget from "../TextWidget/TextWidgetClass";
 import { pseudoRandom32CharHex } from "./utils/pseudoRandom32CharHex";
 import { getFormContainer } from "./utils/getFormContainer";
-import { widgets } from "./utils/widgets";
 
 Scrivito.provideEditingConfig("FormContainerWidget", {
   title: "Form",
@@ -109,7 +108,7 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
         return "Needs to be outside of a form.";
       }
 
-      if (widgets(widget).every((w) => w.objClass() !== "FormButtonWidget")) {
+      if (widget.widgets().every((w) => w.objClass() !== "FormButtonWidget")) {
         return "A submit button is missing.";
       }
     },

@@ -1,6 +1,5 @@
 import { getFieldName } from "./getFieldName";
 import { getFormContainer } from "./getFormContainer";
-import { widgets } from "./widgets";
 
 export function isFieldNameUnique(widget) {
   const fieldName = getFieldName(widget);
@@ -13,9 +12,11 @@ export function isFieldNameUnique(widget) {
     return true;
   }
 
-  const otherWidget = widgets(formContainer).find(
-    (child) => getFieldName(child) === fieldName && child.id() !== widget.id()
-  );
+  const otherWidget = formContainer
+    .widgets()
+    .find(
+      (child) => getFieldName(child) === fieldName && child.id() !== widget.id()
+    );
 
   return !otherWidget;
 }

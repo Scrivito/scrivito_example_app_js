@@ -20,7 +20,7 @@ export const metadataInitialContent = {
 };
 
 const LoadableSocialCardsTab = loadable(() =>
-  import("../Components/ScrivitoExtensions/SocialCardsTab")
+  import("../Components/EditorTabs/SocialCardsTab")
 );
 
 export const metadataPropertiesGroups = [

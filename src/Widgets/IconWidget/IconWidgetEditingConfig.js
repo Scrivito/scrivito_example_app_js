@@ -3,7 +3,7 @@ import * as Scrivito from "scrivito";
 import iconWidgetIcon from "../../assets/images/icon_widget.svg";
 
 const LoadableIconEditorTab = loadable(() =>
-  import("../../Components/ScrivitoExtensions/IconEditorTab")
+  import("../../Components/EditorTabs/IconEditorTab")
 );
 
 Scrivito.provideEditingConfig("IconWidget", {

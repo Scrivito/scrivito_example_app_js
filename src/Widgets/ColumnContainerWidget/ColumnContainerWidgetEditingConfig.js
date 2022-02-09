@@ -4,7 +4,7 @@ import columnContainerWidgetIcon from "../../assets/images/column_container_widg
 import ColumnWidget from "../ColumnWidget/ColumnWidgetClass";
 
 const LoadableColumnsEditorTab = loadable(() =>
-  import("../../Components/ScrivitoExtensions/ColumnsEditorTab")
+  import("../../Components/EditorTabs/ColumnsEditorTab")
 );
 
 Scrivito.provideEditingConfig("ColumnContainerWidget", {

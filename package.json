@@ -84,6 +84,6 @@
     "prerender": "SCRIVITO_PRERENDER=true npm run build && node buildNode/prerender_content.js",
     "start": "webpack serve",
     "eslint": "eslint --max-warnings 0 *.js src/",
-    "es-check": "npm run build && es-check es5 --not=build/assets/scrivito_extensions. './build/**/*.js'"
+    "es-check": "npm run build && es-check es5 './build/**/*.js'"
   }
 }

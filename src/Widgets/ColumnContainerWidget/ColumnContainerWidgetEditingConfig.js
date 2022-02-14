@@ -1,3 +1,4 @@
+import loadable from "@loadable/component";
 import * as Scrivito from "scrivito";
 import columnContainerWidgetIcon from "../../assets/images/column_container_widget.svg";
 import ColumnWidget from "../ColumnWidget/ColumnWidgetClass";
@@ -8,7 +9,9 @@ Scrivito.provideEditingConfig("ColumnContainerWidget", {
   propertiesGroups: [
     {
       title: "Columns layout",
-      component: "ColumnsEditorTab",
+      component: loadable(() =>
+        import("../../Components/EditorTabs/ColumnsEditorTab")
+      ),
       key: "columns-layout-group",
     },
   ],

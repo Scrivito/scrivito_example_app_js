@@ -1,3 +1,5 @@
+import loadable from "@loadable/component";
+
 export const metadataEditingConfigAttributes = {
   metaDataDescription: {
     title: "Page description",
@@ -25,7 +27,9 @@ export const metadataPropertiesGroups = [
   },
   {
     title: "Social cards",
-    component: "SocialCardsTab",
+    component: loadable(() =>
+      import("../Components/EditorTabs/SocialCardsTab")
+    ),
     properties: ["tcCreator", "tcDescription", "ogDescription"],
     key: "social-cards-group",
   },

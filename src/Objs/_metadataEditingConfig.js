@@ -19,10 +19,6 @@ export const metadataInitialContent = {
   robotsIndex: "yes",
 };
 
-const LoadableSocialCardsTab = loadable(() =>
-  import("../Components/EditorTabs/SocialCardsTab")
-);
-
 export const metadataPropertiesGroups = [
   {
     title: "Metadata",
@@ -31,7 +27,9 @@ export const metadataPropertiesGroups = [
   },
   {
     title: "Social cards",
-    component: LoadableSocialCardsTab,
+    component: loadable(() =>
+      import("../Components/EditorTabs/SocialCardsTab")
+    ),
     properties: ["tcCreator", "tcDescription", "ogDescription"],
     key: "social-cards-group",
   },

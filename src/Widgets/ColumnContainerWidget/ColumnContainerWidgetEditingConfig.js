@@ -3,17 +3,15 @@ import * as Scrivito from "scrivito";
 import columnContainerWidgetIcon from "../../assets/images/column_container_widget.svg";
 import ColumnWidget from "../ColumnWidget/ColumnWidgetClass";
 
-const LoadableColumnsEditorTab = loadable(() =>
-  import("../../Components/EditorTabs/ColumnsEditorTab")
-);
-
 Scrivito.provideEditingConfig("ColumnContainerWidget", {
   title: "Columns",
   thumbnail: columnContainerWidgetIcon,
   propertiesGroups: [
     {
       title: "Columns layout",
-      component: LoadableColumnsEditorTab,
+      component: loadable(() =>
+        import("../../Components/EditorTabs/ColumnsEditorTab")
+      ),
       key: "columns-layout-group",
     },
   ],

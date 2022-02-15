@@ -9,7 +9,7 @@ Scrivito.provideEditingConfig("FeaturePanelWidget", {
     {
       title: "Icon",
       component: loadable(() =>
-        import("../../Components/EditorTabs/IconEditorTab")
+        import("../../Components/ScrivitoExtensions/IconEditorTab")
       ),
       key: "icon-group",
     },

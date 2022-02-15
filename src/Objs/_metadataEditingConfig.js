@@ -28,7 +28,7 @@ export const metadataPropertiesGroups = [
   {
     title: "Social cards",
     component: loadable(() =>
-      import("../Components/EditorTabs/SocialCardsTab")
+      import("../Components/ScrivitoExtensions/SocialCardsTab")
     ),
     properties: ["tcCreator", "tcDescription", "ogDescription"],
     key: "social-cards-group",

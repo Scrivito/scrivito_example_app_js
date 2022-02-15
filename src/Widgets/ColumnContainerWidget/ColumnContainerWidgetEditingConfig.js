@@ -10,7 +10,7 @@ Scrivito.provideEditingConfig("ColumnContainerWidget", {
     {
       title: "Columns layout",
       component: loadable(() =>
-        import("../../Components/EditorTabs/ColumnsEditorTab")
+        import("../../Components/ScrivitoExtensions/ColumnsEditorTab")
       ),
       key: "columns-layout-group",
     },

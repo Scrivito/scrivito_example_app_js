@@ -47,17 +47,13 @@ Scrivito.provideEditingConfig("HeadlineWidget", {
     showMargin: {
       title: "Show margin?",
       description: "A margin adds space around this headline. Default: Yes",
-      values: [
-        { value: "yes", title: "Yes" },
-        { value: "no", title: "No" },
-      ],
     },
   },
   properties: ["style", "level", "alignment", "showDividingLine", "showMargin"],
   initialContent: {
     alignment: "left",
     headline: "Lorem Ipsum",
-    showMargin: "yes",
+    showMargin: true,
     style: "h2",
   },
   validations: [

@@ -2,7 +2,7 @@ import * as Scrivito from "scrivito";
 
 const AddressWidget = Scrivito.provideWidgetClass("AddressWidget", {
   attributes: {
-    showLogo: ["enum", { values: ["yes", "no"] }],
+    showLogo: "boolean",
     showBorderBottom: ["enum", { values: ["yes", "no"] }],
 
     locationName: "string",

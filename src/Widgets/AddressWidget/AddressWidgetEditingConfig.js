@@ -16,10 +16,6 @@ Scrivito.provideEditingConfig("AddressWidget", {
     showLogo: {
       title: "Show brand logo?",
       description: "Default: Yes",
-      values: [
-        { value: "yes", title: "Yes" },
-        { value: "no", title: "No" },
-      ],
     },
     locationName: {
       title: "Location name",
@@ -79,7 +75,7 @@ Scrivito.provideEditingConfig("AddressWidget", {
   ],
   initialContent: {
     showBorderBottom: "no",
-    showLogo: "yes",
+    showLogo: true,
     addressFormat: "USA",
   },
 });

@@ -9,14 +9,10 @@ Scrivito.provideEditingConfig("DividerWidget", {
       title: "Show logo?",
       description:
         'The divider logo can be changed on the homepage in the "Site settings". Default: Yes',
-      values: [
-        { value: "yes", title: "Yes" },
-        { value: "no", title: "No" },
-      ],
     },
   },
   properties: ["showLogo"],
   initialContent: {
-    showLogo: "yes",
+    showLogo: true,
   },
 });

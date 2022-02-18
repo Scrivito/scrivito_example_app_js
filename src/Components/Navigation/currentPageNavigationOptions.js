@@ -78,7 +78,7 @@ function pageNavigationOptions(obj) {
   const backgroundImage = obj.get("navigationBackgroundImage") || null;
 
   const useGradient =
-    backgroundImage && obj.get("navigationBackgroundImageGradient") === "yes";
+    backgroundImage && obj.get("navigationBackgroundImageGradient");
 
   const navigationHeight = obj.get("navigationHeight") || "small";
   let heightClassName = null;

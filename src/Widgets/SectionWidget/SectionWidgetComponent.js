@@ -25,7 +25,7 @@ Scrivito.provideComponent("SectionWidget", ({ widget }) => {
   }
 
   let contentClassName = "container";
-  if (widget.get("useFullWidth") === "yes") {
+  if (widget.get("useFullWidth")) {
     contentClassName = "container-fluid gutter0";
   }
 

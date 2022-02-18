@@ -22,10 +22,6 @@ Scrivito.provideEditingConfig("SectionWidget", {
     useFullWidth: {
       title: "Use full width?",
       description: "Default: No",
-      values: [
-        { value: "yes", title: "Yes" },
-        { value: "no", title: "No" },
-      ],
     },
     useFullHeight: {
       title: "Use full screen height?",
@@ -58,6 +54,5 @@ Scrivito.provideEditingConfig("SectionWidget", {
     backgroundColor: "white",
     showPadding: "yes",
     useFullHeight: "no",
-    useFullWidth: "no",
   },
 });

@@ -63,7 +63,7 @@ class ThumbnailGalleryComponent extends React.Component {
     return (
       <div>
         <TagList
-          showTags={widget.get("showTags") === "yes"}
+          showTags={widget.get("showTags")}
           tags={allTags(images)}
           currentTag={this.state.currentTag}
           setTag={this.setTag}

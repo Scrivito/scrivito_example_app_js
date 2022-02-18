@@ -46,9 +46,7 @@ class EventOverviewWidgetComponent extends React.Component {
     return (
       <div>
         <TagList
-          showTags={
-            !filterTags.length && this.props.widget.get("showTags") === "yes"
-          }
+          showTags={!filterTags.length && this.props.widget.get("showTags")}
           currentTag={this.state.currentTag}
           setTag={this.setTag}
           tags={tags}

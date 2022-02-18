@@ -8,15 +8,11 @@ export const metadataEditingConfigAttributes = {
   robotsIndex: {
     title: "Should this page be indexed?",
     description: "If not, search engines will ignore this page. Default: Yes",
-    values: [
-      { value: "yes", title: "Yes" },
-      { value: "no", title: "No" },
-    ],
   },
 };
 
 export const metadataInitialContent = {
-  robotsIndex: "yes",
+  robotsIndex: true,
 };
 
 export const metadataPropertiesGroups = [

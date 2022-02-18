@@ -24,7 +24,7 @@ export default async function prerenderSitemap(targetDir, objClassesWhitelist) {
 function prerenderSitemapSearch(objClassesWhitelist) {
   return Scrivito.Obj.onSite("default")
     .where("_objClass", "equals", objClassesWhitelist)
-    .andNot("robotsIndex", "equals", "no");
+    .and("robotsIndex", "equals", true);
 }
 
 function pageToSitemapUrl(page) {

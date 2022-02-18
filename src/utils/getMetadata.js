@@ -12,8 +12,7 @@ function getMetadata(page) {
   ];
   const extractedText = Scrivito.extractText(page, { length: 330 });
 
-  const robotsIndex = page.get("robotsIndex");
-  if (robotsIndex === "no") {
+  if (!page.get("robotsIndex")) {
     meta.push({ name: "robots", content: "noindex" });
   }
 

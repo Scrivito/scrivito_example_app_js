@@ -20,7 +20,7 @@ Scrivito.provideComponent("SectionWidget", ({ widget }) => {
 
   sectionClassNames.push(`bg-${backgroundColor}`);
 
-  if (widget.get("showPadding") === "no") {
+  if (!widget.get("showPadding")) {
     sectionClassNames.push("no-padding");
   }
 
@@ -29,7 +29,7 @@ Scrivito.provideComponent("SectionWidget", ({ widget }) => {
     contentClassName = "container-fluid gutter0";
   }
 
-  if (widget.get("useFullHeight") === "yes") {
+  if (widget.get("useFullHeight")) {
     sectionClassNames.push("full-height");
   }
 

@@ -15,7 +15,7 @@ Scrivito.provideComponent("AddressWidget", ({ widget }) => (
       />
       <SchemaDotOrg content={widget} />
     </address>
-    {widget.get("showBorderBottom") === "yes" && <div className="b-bottom" />}
+    {widget.get("showBorderBottom") && <div className="b-bottom" />}
   </div>
 ));
 

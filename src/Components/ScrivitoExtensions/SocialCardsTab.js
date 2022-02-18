@@ -45,125 +45,64 @@ const SocialCardsTab = Scrivito.connect(({ obj }) => {
 
 export default SocialCardsTab;
 
-const TwitterInput = Scrivito.connect(({ obj }) => {
-  const validationsForCreator = Scrivito.validationResultsFor(obj, "tcCreator");
-  const creatorValidationClass = validationsClassName(validationsForCreator);
-
-  const validationsForDescription = Scrivito.validationResultsFor(
-    obj,
-    "tcDescription"
-  );
-  const descriptionValidationClass = validationsClassName(
-    validationsForDescription
-  );
-
-  return (
-    <div>
-      <div className="scrivito_detail_label">
-        <span className="headline">Twitter</span>
-      </div>
-      <div className={`scrivito_detail_label ${creatorValidationClass}`}>
-        {creatorValidationClass && (
-          <i className="scrivito_icon scrivito_icon_error"></i>
-        )}
-        <span>Creator</span>
-      </div>
-      <Scrivito.ContentTag
-        content={obj}
-        attribute="tcCreator"
-        className={`input ${creatorValidationClass}`}
-      />
-      <ValidationMessages validations={validationsForCreator} />
-      <div className="scrivito_notice_body">
-        Twitter handle of the tweet creator. Start with {"@"}
-      </div>
-      <div className="scrivito_detail_label">
-        <span>Image</span>
-      </div>
-      <Scrivito.ImageTag
-        content={obj}
-        attribute="tcImage"
-        className="seo_card_img"
-      />
-      <div className="scrivito_notice_body">Add or replace the image here.</div>
-      <div className="scrivito_detail_label">
-        <span>Title</span>
-      </div>
-      <Scrivito.ContentTag
-        content={obj}
-        attribute="tcTitle"
-        className="input"
-      />
-      <div className={`scrivito_detail_label ${descriptionValidationClass}`}>
-        {descriptionValidationClass && (
-          <i className="scrivito_icon scrivito_icon_error"></i>
-        )}
-        <span>Description</span>
-      </div>
-      <Scrivito.ContentTag
-        content={obj}
-        attribute="tcDescription"
-        className={`input ${descriptionValidationClass}`}
-      />
-      <ValidationMessages validations={validationsForDescription} />
-      <div className="scrivito_notice_body">Limit to 200 characters</div>
+const TwitterInput = Scrivito.connect(({ obj }) => (
+  <div>
+    <div className="scrivito_detail_label">
+      <span className="headline">Twitter</span>
     </div>
-  );
-});
-
-const FacebookInput = Scrivito.connect(({ obj }) => {
-  const validationsForDescription = Scrivito.validationResultsFor(
-    obj,
-    "ogDescription"
-  );
-  const descriptionValidationClass = validationsClassName(
-    validationsForDescription
-  );
-
-  return (
-    <div>
-      <div className="scrivito_detail_label">
-        <span className="headline">Facebook</span>
-      </div>
-      <div className="scrivito_detail_label">
-        <span>Image</span>
-      </div>
-      <Scrivito.ImageTag
-        content={obj}
-        attribute="ogImage"
-        className="seo_card_img"
-      />
-      <div className="scrivito_notice_body">Add or replace the image here.</div>
-      <div className="scrivito_detail_label">
-        <span>Title</span>
-      </div>
-      <Scrivito.ContentTag
-        content={obj}
-        attribute="ogTitle"
-        className="input"
-      />
-      <div className="scrivito_notice_body">
-        Add a catchy title for the post.
-      </div>
-      <div className={`scrivito_detail_label ${descriptionValidationClass}`}>
-        {descriptionValidationClass && (
-          <i className="scrivito_icon scrivito_icon_error"></i>
-        )}
-        <span>Description</span>
-      </div>
-      <Scrivito.ContentTag
-        content={obj}
-        attribute="ogDescription"
-        className={`input ${descriptionValidationClass}`}
-      />
-      <ValidationMessages validations={validationsForDescription} />
-      <div className="scrivito_notice_body">
-        What is this post about and why would someone want to read it? Limit to
-        300 characters.
-      </div>
+    <EditAttribute
+      content={obj}
+      attribute="tcCreator"
+      title="Creator"
+      description="Twitter handle of the tweet creator. Start with @"
+    />
+    <div className="scrivito_detail_label">
+      <span>Image</span>
     </div>
-  );
-});
+    <Scrivito.ImageTag
+      content={obj}
+      attribute="tcImage"
+      className="seo_card_img"
+    />
+    <div className="scrivito_notice_body">Add or replace the image here.</div>
+    <EditAttribute content={obj} attribute="tcTitle" title="Title" />
+    <EditAttribute
+      content={obj}
+      attribute="tcDescription"
+      title="Description"
+      description="Limit to 200 characters"
+    />
+  </div>
+));
+
+const FacebookInput = Scrivito.connect(({ obj }) => (
+  <div>
+    <div className="scrivito_detail_label">
+      <span className="headline">Facebook</span>
+    </div>
+    <div className="scrivito_detail_label">
+      <span>Image</span>
+    </div>
+    <Scrivito.ImageTag
+      content={obj}
+      attribute="ogImage"
+      className="seo_card_img"
+    />
+    <div className="scrivito_notice_body">Add or replace the image here.</div>
+    <EditAttribute
+      content={obj}
+      attribute="ogTitle"
+      title="Title"
+      description="Add a catchy title for the post."
+    />
+    <EditAttribute
+      content={obj}
+      attribute="ogDescription"
+      title="Description"
+      description="What is this post about and why would someone want to read it? Limit to 300 characters."
+    />
+  </div>
+));
 
 const TwitterPreview = Scrivito.connect(({ obj }) => (
   <div>
@@ -205,21 +144,6 @@ const FacebookPreview = Scrivito.connect(({ obj }) => (
   </div>
 ));
 
-const ValidationMessages = ({ validations }) => (
-  <div>
-    {validations.map((validation) => (
-      <div
-        key={`${validation.severity}${validation.message}`}
-        className={`scrivito_validation_notice scrivito_${validation.severity}`}
-      >
-        <span className="scrivito_validation_message">
-          {validation.message}
-        </span>
-      </div>
-    ))}
-  </div>
-);
-
 function OptionalImage({ src }) {
   if (!src) {
     return null;
@@ -248,17 +172,47 @@ function lookupMetadata(obj, value) {
   return "";
 }
 
-function findHighestSeverity(validations) {
-  if (validations.length) {
-    const highestSeverityValidation =
-      validations.find((v) => v.severity === "error") ||
-      validations.find((v) => v.severity === "warning") ||
-      validations.find((v) => v.severity === "info");
-    return highestSeverityValidation.severity;
-  }
-}
+const EditAttribute = Scrivito.connect(
+  ({ content, attribute, title, description }) => {
+    const validationResults = Scrivito.validationResultsFor(content, attribute);
+    const highestSeverity = findHighestSeverity(validationResults);
+    const severityClass = highestSeverity && `scrivito_${highestSeverity}`;
 
-function validationsClassName(validations) {
-  const highestSeverity = findHighestSeverity(validations);
-  return highestSeverity ? `scrivito_${highestSeverity}` : "";
+    return (
+      <>
+        <div className={`scrivito_detail_label ${severityClass}`}>
+          {severityClass && (
+            <i className="scrivito_icon scrivito_icon_error"></i>
+          )}
+          <span>{title}</span>
+        </div>
+        <Scrivito.ContentTag
+          content={content}
+          attribute={attribute}
+          className={`input ${severityClass}`}
+        />
+        <div>
+          {validationResults.map((v) => (
+            <div
+              key={`${v.severity}${v.message}`}
+              className={`scrivito_validation_notice scrivito_${v.severity}`}
+            >
+              <span className="scrivito_validation_message">{v.message}</span>
+            </div>
+          ))}
+        </div>
+        {description && (
+          <div className="scrivito_notice_body">{description}</div>
+        )}
+      </>
+    );
+  }
+);
+
+function findHighestSeverity(validationResults) {
+  const highestSeverityValidation =
+    validationResults.find((v) => v.severity === "error") ||
+    validationResults.find((v) => v.severity === "warning") ||
+    validationResults.find((v) => v.severity === "info");
+  return highestSeverityValidation?.severity;
 }

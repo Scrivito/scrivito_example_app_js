@@ -62,7 +62,7 @@ function jobNavigationOptions(obj) {
 }
 
 function homepageNavigationOptions(obj) {
-  const isLandingPage = obj.get("showAsLandingPage") === "yes";
+  const isLandingPage = obj.get("showAsLandingPage");
   const navigationOptions = pageNavigationOptions(obj);
 
   return { ...navigationOptions, isLandingPage };

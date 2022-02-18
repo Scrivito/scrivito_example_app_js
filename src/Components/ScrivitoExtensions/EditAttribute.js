@@ -18,7 +18,7 @@ const EditAttribute = Scrivito.connect(
         <Scrivito.ContentTag
           content={content}
           attribute={attribute}
-          className={`input ${severityClass}`}
+          className={`seo_card_input ${severityClass}`}
         />
         <div>
           {validationResults.map((v) => (

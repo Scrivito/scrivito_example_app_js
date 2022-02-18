@@ -14,9 +14,7 @@ const SocialCardsTab = Scrivito.connect(({ obj }) => {
       <div className="scrivito_detail_content">
         <div className="row">
           <div className="col-sm-6">
-            <div className="seo_card_input">
-              <TwitterInput obj={obj} />
-            </div>
+            <TwitterInput obj={obj} />
           </div>
           <div className="col-sm-6">
             <div className="seo_card_preview">
@@ -29,9 +27,7 @@ const SocialCardsTab = Scrivito.connect(({ obj }) => {
       <div className="scrivito_detail_content">
         <div className="row">
           <div className="col-sm-6">
-            <div className="seo_card_input">
-              <FacebookInput obj={obj} />
-            </div>
+            <FacebookInput obj={obj} />
           </div>
           <div className="col-sm-6">
             <div className="seo_card_preview">

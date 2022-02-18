@@ -28,7 +28,7 @@
 
 // -- forms -- //
 
-.seo_card_input .input {
+.seo_card_input {
   background: #f3f3f3;
   border-radius: 3px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -42,7 +42,7 @@
   min-height: 30px;
   line-height: 30px;
 }
-.seo_card_input .input:focus { box-shadow: 0 0 0 2px #577fb6 inset!important; }
+.seo_card_input:focus { box-shadow: 0 0 0 2px #577fb6 inset!important; }
 
 .scrivito_detail_content {
   border-top: 2px solid rgba(0, 0, 0, 0.1);
@@ -114,7 +114,7 @@ $blueDarken: #0085ac;
 }
 
 .scrivito_validation_notice,
-.seo_card_input .input {
+.seo_card_input {
   margin-bottom: 5px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
@@ -144,7 +144,7 @@ $blueDarken: #0085ac;
 
 
 
-.seo_card_input .input {
+.seo_card_input {
   background-color: #fff;
 }
 
@@ -257,7 +257,7 @@ $blueDarken: #0085ac;
   .scrivito_notice_body { color: #aaa !important; }
 
 
-  .seo_card_input .input {
+  .seo_card_input {
     background: rgba(222, 222, 222, 0.2);
     color: #eee;
   }

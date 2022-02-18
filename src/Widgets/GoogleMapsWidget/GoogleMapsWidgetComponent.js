@@ -101,7 +101,7 @@ function getMapUrl({ width, height, address, apiKey, zoom }) {
 }
 
 const Widgets = Scrivito.connect(({ widget, mapType }) => {
-  if (widget.get("showWidgets") !== "yes") {
+  if (!widget.get("showWidgets")) {
     return null;
   }
 

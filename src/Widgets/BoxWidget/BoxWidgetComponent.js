@@ -6,7 +6,7 @@ Scrivito.provideComponent("BoxWidget", ({ widget }) => {
   if (widget.get("boxStyle") !== "white") {
     classNames.push("card-theme");
   }
-  if (widget.get("useOffset") === "yes") {
+  if (widget.get("useOffset")) {
     classNames.push("box-offset");
   }
 

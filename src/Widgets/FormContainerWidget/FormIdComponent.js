@@ -25,7 +25,7 @@ const FormIdComponent = Scrivito.connect(({ widget }) => (
           ).then((url) => window.open(url, "_blank"));
         }}
       >
-        View form submission data
+        Register form or view submissions
       </button>
     </div>
   </div>

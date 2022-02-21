@@ -55,7 +55,7 @@ const TwitterInput = Scrivito.connect(({ obj }) => (
     <Scrivito.ImageTag
       content={obj}
       attribute="tcImage"
-      className="seo_card_img"
+      className="social_card_img"
     />
     <div className="scrivito_notice_body">Add or replace the image here.</div>
     <ContentProperty content={obj} attribute="tcTitle" title="Title" />
@@ -79,7 +79,7 @@ const FacebookInput = Scrivito.connect(({ obj }) => (
     <Scrivito.ImageTag
       content={obj}
       attribute="ogImage"
-      className="seo_card_img"
+      className="social_card_img"
     />
     <div className="scrivito_notice_body">Add or replace the image here.</div>
     <ContentProperty
@@ -98,7 +98,7 @@ const FacebookInput = Scrivito.connect(({ obj }) => (
 ));
 
 const TwitterPreview = Scrivito.connect(({ obj }) => (
-  <div className="seo_card_preview">
+  <div className="social_card_preview">
     <div className="scrivito_detail_label">
       <span className="headline">Twitter preview</span>
       <span>Twitter (Summary card with large image)</span>
@@ -108,7 +108,7 @@ const TwitterPreview = Scrivito.connect(({ obj }) => (
     </div>
 
     <div className="card twitter_card">
-      <div className="seo_card_img">
+      <div className="social_card_img">
         <OptionalImage src={lookupMetadata(obj, "twitter:image")} />
       </div>
       <div className="card_text">
@@ -120,13 +120,13 @@ const TwitterPreview = Scrivito.connect(({ obj }) => (
 ));
 
 const FacebookPreview = Scrivito.connect(({ obj }) => (
-  <div className="seo_card_preview">
+  <div className="social_card_preview">
     <div className="scrivito_detail_label">
       <span className="headline">Facebook preview</span>
       <span>Facebook (Article style)</span>
     </div>
     <div className="card fb_card">
-      <div className="seo_card_img">
+      <div className="social_card_img">
         <OptionalImage src={lookupMetadata(obj, "og:image")} />
       </div>
       <div className="card_text">

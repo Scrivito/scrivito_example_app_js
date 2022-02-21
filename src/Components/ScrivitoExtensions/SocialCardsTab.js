@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import EditAttribute from "./EditAttribute";
+import EditAttribute from "./ContentProperty";
 import getMetadata from "../../utils/getMetadata";
 
 const SocialCardsTab = Scrivito.connect(({ obj }) => {

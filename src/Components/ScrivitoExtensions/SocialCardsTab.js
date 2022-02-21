@@ -17,9 +17,7 @@ const SocialCardsTab = Scrivito.connect(({ obj }) => {
             <TwitterInput obj={obj} />
           </div>
           <div className="col-sm-6">
-            <div className="seo_card_preview">
-              <TwitterPreview obj={obj} />
-            </div>
+            <TwitterPreview obj={obj} />
           </div>
         </div>
       </div>
@@ -30,9 +28,7 @@ const SocialCardsTab = Scrivito.connect(({ obj }) => {
             <FacebookInput obj={obj} />
           </div>
           <div className="col-sm-6">
-            <div className="seo_card_preview">
-              <FacebookPreview obj={obj} />
-            </div>
+            <FacebookPreview obj={obj} />
           </div>
         </div>
       </div>
@@ -102,7 +98,7 @@ const FacebookInput = Scrivito.connect(({ obj }) => (
 ));
 
 const TwitterPreview = Scrivito.connect(({ obj }) => (
-  <div>
+  <div className="seo_card_preview">
     <div className="scrivito_detail_label">
       <span className="headline">Twitter preview</span>
       <span>Twitter (Summary card with large image)</span>
@@ -124,7 +120,7 @@ const TwitterPreview = Scrivito.connect(({ obj }) => (
 ));
 
 const FacebookPreview = Scrivito.connect(({ obj }) => (
-  <div>
+  <div className="seo_card_preview">
     <div className="scrivito_detail_label">
       <span className="headline">Facebook preview</span>
       <span>Facebook (Article style)</span>

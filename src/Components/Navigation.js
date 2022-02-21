@@ -10,14 +10,14 @@ import isVideoObj from "../utils/isVideoObj";
 import urlFromBinary from "../utils/urlFromBinary";
 
 function ActualNavigation({
-  isLandingPage,
+  showAsLandingPage,
   bootstrapNavbarClassNames,
   toggleSearch,
   scrolled,
   navigationStyle,
   showSearch,
 }) {
-  if (isLandingPage) {
+  if (showAsLandingPage) {
     return <LandingPageNavigation navigationStyle={navigationStyle} />;
   }
 
@@ -90,7 +90,7 @@ class Navigation extends React.Component {
       backgroundImage,
       heightClassName,
       useGradient,
-      isLandingPage,
+      showAsLandingPage,
     } = currentPageNavigationOptions();
 
     const topSectionClassNames = ["navbar-fixed"];
@@ -165,7 +165,7 @@ class Navigation extends React.Component {
         >
           <BackgroundVideo videoUrl={videoUrl} />
           <ActualNavigation
-            isLandingPage={isLandingPage}
+            showAsLandingPage={showAsLandingPage}
             bootstrapNavbarClassNames={bootstrapNavbarClassNames}
             toggleSearch={this.toggleSearch}
             showSearch={this.state.showSearch}

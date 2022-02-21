@@ -7,6 +7,7 @@ import FormInputFieldWidget from "../FormInputFieldWidget/FormInputFieldWidgetCl
 import TextWidget from "../TextWidget/TextWidgetClass";
 import { pseudoRandom32CharHex } from "./utils/pseudoRandom32CharHex";
 import { getFormContainer } from "./utils/getFormContainer";
+import FormIdComponent from "./FormIdComponent";
 
 Scrivito.provideEditingConfig("FormContainerWidget", {
   title: "Form",
@@ -40,6 +41,7 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
       title: "System",
       key: "FormContainerWidgetSystem",
       properties: ["formId"],
+      component: FormIdComponent,
     },
   ],
   initialContent: {

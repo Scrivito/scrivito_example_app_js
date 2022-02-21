@@ -38,8 +38,8 @@ Scrivito.provideEditingConfig("FormContainerWidget", {
       properties: ["hiddenFields"],
     },
     {
-      title: "System",
-      key: "FormContainerWidgetSystem",
+      title: "Form submissions",
+      key: "FormContainerWidgetFormSubmissions",
       properties: ["formId"],
       component: FormIdComponent,
     },

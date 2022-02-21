@@ -104,29 +104,23 @@ $blueDarken: #0085ac;
     box-shadow: 0 0 0 2px $blue inset;
   }
 }
-.scrivito_validation_notice {
-  &.scrivito_error {
-    border-left: 2px solid $red;
-  }
-  &.scrivito_warning {
-    border-left: 2px solid $yellow;
-  }
-  &.scrivito_info {
-    border-left: 2px solid $blue;
-  }
-}
 
 .scrivito_validation_notice {
   border-left-width: 7px !important;
   padding: 5px 10px;
+  font-size: 14px;
+  font-weight: normal;
 
   &.scrivito_error {
+    border-left: 2px solid $red;
     color: $red;
   }
   &.scrivito_warning {
+    border-left: 2px solid $yellow;
     color: $yellowDarken;
   }
   &.scrivito_info {
+    border-left: 2px solid $blue;
     color: $blueDarken;
   }
 }
@@ -139,11 +133,6 @@ $blueDarken: #0085ac;
 }
 .scrivito_dark .scrivito_validation_notice * {
   color: #eee !important;
-}
-
-.scrivito_validation_notice {
-  font-size: 14px;
-  font-weight: normal;
 }
 
 .scrivito_icon_error {

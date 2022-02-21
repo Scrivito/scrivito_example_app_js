@@ -108,7 +108,7 @@ const TwitterPreview = Scrivito.connect(({ obj }) => (
     </div>
 
     <div className="card twitter_card">
-      <div className="seo_card_preview_img">
+      <div className="seo_card_img">
         <OptionalImage src={lookupMetadata(obj, "twitter:image")} />
       </div>
       <div className="card_text">
@@ -126,7 +126,7 @@ const FacebookPreview = Scrivito.connect(({ obj }) => (
       <span>Facebook (Article style)</span>
     </div>
     <div className="card fb_card">
-      <div className="seo_card_preview_img">
+      <div className="seo_card_img">
         <OptionalImage src={lookupMetadata(obj, "og:image")} />
       </div>
       <div className="card_text">

@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 
-const EditAttribute = Scrivito.connect(
+const ContentProperty = Scrivito.connect(
   ({ content, attribute, title, description }) => {
     const validationResults = Scrivito.validationResultsFor(content, attribute);
     const highestSeverity = findHighestSeverity(validationResults);
@@ -38,7 +38,7 @@ const EditAttribute = Scrivito.connect(
   }
 );
 
-export default EditAttribute;
+export default ContentProperty;
 
 function findHighestSeverity(validationResults) {
   const highestSeverityValidation =

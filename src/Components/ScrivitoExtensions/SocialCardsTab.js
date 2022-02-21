@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import EditAttribute from "./ContentProperty";
+import ContentProperty from "./ContentProperty";
 import getMetadata from "../../utils/getMetadata";
 
 const SocialCardsTab = Scrivito.connect(({ obj }) => {
@@ -43,7 +43,7 @@ const TwitterInput = Scrivito.connect(({ obj }) => (
     <div className="scrivito_detail_label">
       <span className="headline">Twitter</span>
     </div>
-    <EditAttribute
+    <ContentProperty
       content={obj}
       attribute="tcCreator"
       title="Creator"
@@ -58,8 +58,8 @@ const TwitterInput = Scrivito.connect(({ obj }) => (
       className="seo_card_img"
     />
     <div className="scrivito_notice_body">Add or replace the image here.</div>
-    <EditAttribute content={obj} attribute="tcTitle" title="Title" />
-    <EditAttribute
+    <ContentProperty content={obj} attribute="tcTitle" title="Title" />
+    <ContentProperty
       content={obj}
       attribute="tcDescription"
       title="Description"
@@ -82,13 +82,13 @@ const FacebookInput = Scrivito.connect(({ obj }) => (
       className="seo_card_img"
     />
     <div className="scrivito_notice_body">Add or replace the image here.</div>
-    <EditAttribute
+    <ContentProperty
       content={obj}
       attribute="ogTitle"
       title="Title"
       description="Add a catchy title for the post."
     />
-    <EditAttribute
+    <ContentProperty
       content={obj}
       attribute="ogDescription"
       title="Description"

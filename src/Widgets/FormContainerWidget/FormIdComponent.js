@@ -25,7 +25,7 @@ const FormIdComponent = Scrivito.connect(({ widget }) => (
           ).then((url) => window.open(url, "_blank"));
         }}
       >
-        View this form in Neoletter
+        View form submission data
       </button>
     </div>
   </div>

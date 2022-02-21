@@ -14,20 +14,16 @@ const FormIdComponent = Scrivito.connect(({ widget }) => (
       />
 
       {neoletterInstance() && widget.get("formId") && (
-        <button
-          type="button"
-          className="btn btn-primary btn-sm"
-          onClick={() => {
-            Scrivito.load(
-              () =>
-                `https://neoletter.com/i/${neoletterInstance()}/forms/${widget.get(
-                  "formId"
-                )}`
-            ).then((url) => window.open(url, "_blank"));
-          }}
+        <a
+          className="scrivito_button scrivito_blue"
+          href={`https://neoletter.com/i/${neoletterInstance()}/forms/${widget.get(
+            "formId"
+          )}`}
+          target="_blank"
+          rel="noreferrer"
         >
           Register form or view submissions
-        </button>
+        </a>
       )}
     </div>
   </div>

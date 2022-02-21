@@ -5,7 +5,7 @@ import metadataAttributes from "../_metadataAttributes";
 const Homepage = Scrivito.provideObjClass("Homepage", {
   attributes: {
     ...defaultPageAttributes,
-    showAsLandingPage: ["enum", { values: ["yes", "no"] }],
+    showAsLandingPage: "boolean",
     cookieConsentLink: "link",
     contentTitle: "string",
     childOrder: "referencelist",

@@ -20,16 +20,16 @@ Scrivito.provideComponent("SectionWidget", ({ widget }) => {
 
   sectionClassNames.push(`bg-${backgroundColor}`);
 
-  if (widget.get("showPadding") === "no") {
+  if (!widget.get("showPadding")) {
     sectionClassNames.push("no-padding");
   }
 
   let contentClassName = "container";
-  if (widget.get("useFullWidth") === "yes") {
+  if (widget.get("useFullWidth")) {
     contentClassName = "container-fluid gutter0";
   }
 
-  if (widget.get("useFullHeight") === "yes") {
+  if (widget.get("useFullHeight")) {
     sectionClassNames.push("full-height");
   }
 

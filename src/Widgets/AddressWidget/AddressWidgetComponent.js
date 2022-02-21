@@ -5,7 +5,7 @@ import SchemaDotOrg from "../../Components/SchemaDotOrg";
 
 Scrivito.provideComponent("AddressWidget", ({ widget }) => (
   <div>
-    {widget.get("showLogo") !== "no" && <Logo />}
+    {widget.get("showLogo") && <Logo />}
     <address>
       <Address addressWidget={widget} />
       <Table
@@ -15,7 +15,7 @@ Scrivito.provideComponent("AddressWidget", ({ widget }) => (
       />
       <SchemaDotOrg content={widget} />
     </address>
-    {widget.get("showBorderBottom") === "yes" && <div className="b-bottom" />}
+    {widget.get("showBorderBottom") && <div className="b-bottom" />}
   </div>
 ));
 

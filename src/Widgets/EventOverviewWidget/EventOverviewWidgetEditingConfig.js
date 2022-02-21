@@ -18,15 +18,10 @@ Scrivito.provideEditingConfig("EventOverviewWidget", {
     showTags: {
       title: "Show list of tags?",
       description: "Default: No",
-      values: [
-        { value: "yes", title: "Yes" },
-        { value: "no", title: "No" },
-      ],
     },
   },
   properties: ["maxItems", "showTags", "tags"],
   initialContent: {
     maxItems: 0,
-    showTags: "no",
   },
 });

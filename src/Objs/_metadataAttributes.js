@@ -1,7 +1,7 @@
 const metadataAttributes = {
   // Meta tags
   metaDataDescription: "string",
-  robotsIndex: ["enum", { values: ["yes", "no"] }],
+  robotsIndex: "boolean",
   // Twitter attributes
   tcCreator: "string",
   tcDescription: "string",

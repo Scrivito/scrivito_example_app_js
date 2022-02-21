@@ -3,7 +3,7 @@ import * as Scrivito from "scrivito";
 const CarouselWidget = Scrivito.provideWidgetClass("CarouselWidget", {
   attributes: {
     images: ["referencelist", { only: ["Image"] }],
-    showDescription: ["enum", { values: ["yes", "no"] }],
+    showDescription: "boolean",
     descriptionLogo: ["reference", { only: ["Image"] }],
     description: "widgetlist",
   },

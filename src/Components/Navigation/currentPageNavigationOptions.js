@@ -29,7 +29,7 @@ function currentPageNavigationOptions() {
     navigationStyle: "solidWhite",
     backgroundImage: null,
     heightClassName: null,
-    isLandingPage: false,
+    showAsLandingPage: false,
     useGradient: false,
   };
 }
@@ -62,23 +62,23 @@ function jobNavigationOptions(obj) {
 }
 
 function homepageNavigationOptions(obj) {
-  const isLandingPage = obj.get("showAsLandingPage") === "yes";
+  const showAsLandingPage = obj.get("showAsLandingPage");
   const navigationOptions = pageNavigationOptions(obj);
 
-  return { ...navigationOptions, isLandingPage };
+  return { ...navigationOptions, showAsLandingPage };
 }
 
 function landingPageNavigationOptions(obj) {
   const navigationOptions = pageNavigationOptions(obj);
 
-  return { ...navigationOptions, isLandingPage: true };
+  return { ...navigationOptions, showAsLandingPage: true };
 }
 
 function pageNavigationOptions(obj) {
   const backgroundImage = obj.get("navigationBackgroundImage") || null;
 
   const useGradient =
-    backgroundImage && obj.get("navigationBackgroundImageGradient") === "yes";
+    backgroundImage && obj.get("navigationBackgroundImageGradient");
 
   const navigationHeight = obj.get("navigationHeight") || "small";
   let heightClassName = null;

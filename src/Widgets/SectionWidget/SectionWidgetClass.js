@@ -3,9 +3,9 @@ import * as Scrivito from "scrivito";
 const SectionWidget = Scrivito.provideWidgetClass("SectionWidget", {
   attributes: {
     content: "widgetlist",
-    useFullWidth: ["enum", { values: ["yes", "no"] }],
-    useFullHeight: ["enum", { values: ["yes", "no"] }],
-    showPadding: ["enum", { values: ["yes", "no"] }],
+    useFullWidth: "boolean",
+    useFullHeight: "boolean",
+    showPadding: "boolean",
     backgroundColor: [
       "enum",
       {

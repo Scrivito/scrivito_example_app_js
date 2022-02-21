@@ -107,7 +107,7 @@ class BaseCarousel extends React.Component {
 const Carousel = Scrivito.connect(BaseCarousel);
 
 const DescriptionBox = Scrivito.connect(({ widget }) => {
-  if (widget.get("showDescription") !== "yes") {
+  if (!widget.get("showDescription")) {
     return null;
   }
 

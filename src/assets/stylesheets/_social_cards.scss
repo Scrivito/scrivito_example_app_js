@@ -14,7 +14,9 @@
   min-height: 30px;
   line-height: 30px;
 }
-.seo_card_input:focus { box-shadow: 0 0 0 2px #577fb6 inset!important; }
+.seo_card_input:focus {
+  box-shadow: 0 0 0 2px #577fb6 inset !important;
+}
 
 .scrivito_detail_content {
   border-top: 2px solid rgba(0, 0, 0, 0.1);
@@ -66,21 +68,21 @@ $blueDarken: #0085ac;
     span,
     .scrivito_icon,
     .scrivito_icon:hover {
-      color: $red!important;
+      color: $red !important;
     }
   }
   &.scrivito_warning {
     span,
     .scrivito_icon,
     .scrivito_icon:hover {
-      color: $yellowDarken!important;
+      color: $yellowDarken !important;
     }
   }
   &.scrivito_info {
     span,
     .scrivito_icon,
     .scrivito_icon:hover {
-      color: $blue!important;
+      color: $blue !important;
     }
   }
 }
@@ -114,14 +116,13 @@ $blueDarken: #0085ac;
   }
 }
 
-
-
 .seo_card_input {
   background-color: #fff;
 }
 
 .scrivito_validation_notice {
-  border-left-width: 7px !important; padding: 5px 10px;
+  border-left-width: 7px !important;
+  padding: 5px 10px;
 
   &.scrivito_error {
     color: $red;
@@ -134,9 +135,15 @@ $blueDarken: #0085ac;
   }
 }
 
-.scrivito_validation_notice * { color: #666 !important; }
-.scrivito_dark .scrivito_validation_notice { background: rgba(255, 255, 255, 0.1);}
-.scrivito_dark .scrivito_validation_notice * { color: #eee !important; }
+.scrivito_validation_notice * {
+  color: #666 !important;
+}
+.scrivito_dark .scrivito_validation_notice {
+  background: rgba(255, 255, 255, 0.1);
+}
+.scrivito_dark .scrivito_validation_notice * {
+  color: #eee !important;
+}
 
 .scrivito_validation_notice {
   font-size: 14px;
@@ -213,7 +220,6 @@ $blueDarken: #0085ac;
   }
 }
 
-
 // --------------------------------------------------------------- //
 // scrivito_dark adaptions
 // --------------------------------------------------------------- //
@@ -225,19 +231,32 @@ $blueDarken: #0085ac;
     color: #eee;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
   }
-  .scrivito_detail_label span.headline { color: #aaa; }
-  .scrivito_notice_body { color: #aaa !important; }
-
+  .scrivito_detail_label span.headline {
+    color: #aaa;
+  }
+  .scrivito_notice_body {
+    color: #aaa !important;
+  }
 
   .seo_card_input {
     background: rgba(222, 222, 222, 0.2);
     color: #eee;
   }
 
-  [data-scrivito-editors-placeholder]:empty:not(:focus):before { color: #aaa!important;}
+  [data-scrivito-editors-placeholder]:empty:not(:focus):before {
+    color: #aaa !important;
+  }
 
-  .seo_card_preview .card { background: rgba(222, 222, 222, 0.2); }
-  .seo_card_preview .card_text h5 { color: #ccc!important;}
-  .seo_card_preview .card_text p { color:#ddd!important;}
-  .seo_card_preview .creator { color: #5e86be;}
+  .seo_card_preview .card {
+    background: rgba(222, 222, 222, 0.2);
+  }
+  .seo_card_preview .card_text h5 {
+    color: #ccc !important;
+  }
+  .seo_card_preview .card_text p {
+    color: #ddd !important;
+  }
+  .seo_card_preview .creator {
+    color: #5e86be;
+  }
 }

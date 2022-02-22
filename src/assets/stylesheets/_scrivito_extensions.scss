@@ -201,8 +201,7 @@ $blueDarken: #0085ac;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #fcfcfc;
   border-radius: 3px;
-  -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 20%);
-  box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+  @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -215,20 +214,39 @@ $blueDarken: #0085ac;
     color: #333;
     background: lighten(#fcfcfc, 10%);
   }
+  &:active {
+    cursor: pointer;
+    color: #333;
+    background: darken(#fcfcfc, 5%);
+  }
+}
+
+.scrivito_button.scrivito_disabled,
+.scrivito_button.scrivito_disabled:hover,
+.scrivito_button.scrivito_disabled:active {
+  color: #aaa !important;
+  cursor: not-allowed;
+  background: #eee;
 }
 
 a.scrivito_button,
 a.scrivito_button:hover,
-a.scrivito_button:focus {
+a.scrivito_button:focus,
+a.scrivito_button:active {
   text-decoration: none;
 }
 
 .scrivito_button.scrivito_blue {
   background: #426698 !important;
   color: #fff;
-  &:focus,
-  &:hover {
+
+  &:hover:not(.scrivito_disabled) {
     background: lighten(#426698, 10%) !important;
+    color: #fff;
+  }
+
+  &:active:not(.scrivito_disabled) {
+    background: darken(#426698, 5%) !important;
     color: #fff;
   }
 }

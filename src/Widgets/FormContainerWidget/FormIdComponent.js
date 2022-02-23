@@ -22,8 +22,8 @@ const FormIdComponent = Scrivito.connect(({ widget }) => {
         />
 
         <a
-          className={`scrivito_button scrivito_blue${
-            !formSubmissionsHref ? " scrivito_disabled" : ""
+          className={`scrivito_button ${
+            formSubmissionsHref ? "scrivito_blue" : "scrivito_disabled"
           }`}
           href={formSubmissionsHref}
           target="_blank"

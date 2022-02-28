@@ -20,7 +20,7 @@ const ColumnsEditorTab = Scrivito.connect(({ widget }) => {
 
 export default ColumnsEditorTab;
 
-function ColumnsEditor({ widget, readOnly, currentGrid }) {
+const ColumnsEditor = Scrivito.connect(({ widget, readOnly, currentGrid }) => {
   const originalContents = React.useMemo(
     () => calculateContents(widget),
     [widget]
@@ -160,7 +160,7 @@ function ColumnsEditor({ widget, readOnly, currentGrid }) {
     distributeContents(widget.get("columns"), originalContents);
     adjustColSize(widget.get("columns"), newGrid);
   }
-}
+});
 
 function calculateContents(widget) {
   return widget.get("columns").map((column) => column.get("content"));

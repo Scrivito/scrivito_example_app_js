@@ -29,7 +29,7 @@ const FormIdComponent = Scrivito.connect(({ widget }) => {
           target="_blank"
           rel="noreferrer"
         >
-          Register form or view submissions
+          View submissions
         </a>
       </div>
     </div>

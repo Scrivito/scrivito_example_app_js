@@ -8,16 +8,8 @@ orbs:
 environment:
   SCRIVITO_TENANT: "1234567890abcdef1234567890abcdef"
 
-jobs:
-  build:
-    machine:
-      image: ubuntu-2004:202111-02
-    steps:
-      - checkout
-      - node/install
-      - run: npm run build
-
 workflows:
-  build_and_test:
+  run-npm-command:
     jobs:
-      - build
+      - node/run:
+        npm-run: build

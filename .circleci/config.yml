@@ -18,9 +18,12 @@ jobs:
       - run:
           name: Install correct npm version
           command: |
+            echo "Node version"
+            node --version
+            echo ""
             dpkg --compare-versions `npm -v` ge 7.10 || npm i -g npm@^7.10
             echo ""
-            node --version
+            echo "NPM version"
             npm --version
       - node/install-packages
       - run: npm run << parameters.npm-run-command >>
@@ -29,6 +32,7 @@ workflows:
   main:
     jobs:
       - execute-npm:
+          name: Foobar
           npm-run-command: build
       - execute-npm:
           npm-run-command: eslint

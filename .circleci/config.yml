@@ -6,7 +6,7 @@ orbs:
 executors:
   linux:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:lts
   macos:
     macos:
       xcode: 13.2.0

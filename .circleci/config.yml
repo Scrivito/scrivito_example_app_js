@@ -32,9 +32,11 @@ workflows:
   main:
     jobs:
       - execute-npm:
-          name: Foobar
+          name: npm run build
           npm-run-command: build
       - execute-npm:
+          name: npm run eslint
           npm-run-command: eslint
       - execute-npm:
+          name: npm run es-check
           npm-run-command: es-check

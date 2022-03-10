@@ -3,6 +3,9 @@ version: 2.1
 orbs:
   node: circleci/node@5.0
 
+environment:
+  SCRIVITO_TENANT: "1234567890abcdef1234567890abcdef"
+
 executors:
   linux:
     docker:

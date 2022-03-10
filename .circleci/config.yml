@@ -13,6 +13,8 @@ jobs:
     machine:
       image: ubuntu-2004:202111-02
     steps:
+      - checkout
+      - node/install
       - run: npm run build
 
 workflows:

@@ -3,9 +3,6 @@ version: 2.1
 orbs:
   node: circleci/node@5.0
 
-environment:
-  SCRIVITO_TENANT: "1234567890abcdef1234567890abcdef"
-
 executors:
   linux:
     docker:
@@ -17,8 +14,21 @@ executors:
     machine:
       image: ubuntu-2004:202111-01
 
+jobs:
+  execute-npm:
+    parameters:
+      npm-run-command:
+        type: string
+    executor: machine
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          name: npm run << parameters.npm-run-command >>
+          command: npm run << parameters.npm-run-command >>
+
 workflows:
   integration-tests_prod-release:
     jobs:
-      - node/run:
-          npm-run: build
+      - execute-npm:
+          npm-run-command: build

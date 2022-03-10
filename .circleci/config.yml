@@ -3,17 +3,6 @@ version: 2.1
 orbs:
   node: circleci/node@5.0
 
-executors:
-  linux:
-    docker:
-      - image: cimg/node:lts
-  macos:
-    macos:
-      xcode: 13.2.0
-  machine:
-    machine:
-      image: ubuntu-2004:202111-01
-
 jobs:
   execute-npm:
     parameters:
@@ -36,7 +25,7 @@ jobs:
           command: npm run << parameters.npm-run-command >>
 
 workflows:
-  integration-tests_prod-release:
+  main:
     jobs:
       - execute-npm:
           npm-run-command: build

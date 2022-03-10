@@ -1,15 +1,315 @@
 version: 2.1
 
-# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
-# See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   node: circleci/node@5.0
+  orb-tools: circleci/orb-tools@10.0
+  shellcheck: circleci/shellcheck@2.2
+  jq: circleci/jq@2.2
 
-environment:
-  SCRIVITO_TENANT: "1234567890abcdef1234567890abcdef"
+# Pipeline parameters
+parameters:
+  # These pipeline parameters are required by the "trigger-integration-tests-workflow"
+  # job, by default.
+  run-integration-tests:
+    type: boolean
+    default: false
+  dev-orb-version:
+    type: string
+    default: "dev:alpha"
+
+integration-tests:
+  &integration-tests [
+    integration-test-install-specified-version,
+    integration-test-install-lts,
+    node-npm-jest-test-job,
+    node-yarn-jest-test-job,
+    node-test-results-file-job,
+    node-test-no-junit,
+    integration-test-install-latest,
+    integration-test-override-ci,
+    integration-test-yarn,
+    integration-test-yarn-berry,
+  ]
+
+executors:
+  linux:
+    docker:
+      - image: cimg/base:stable
+  macos:
+    macos:
+      xcode: 13.2.0
+  machine:
+    machine:
+      image: ubuntu-2004:202111-01
+
+commands:
+  check-uploaded-test-results:
+    parameters:
+      job-name:
+        type: string
+      expected-tests:
+        type: integer
+    steps:
+      - run:
+          name: check for << parameters.job-name >> test results
+          command: |
+            export TEST_JOB_NUMBER=$(jq '.items[] | select(.name == "<< parameters.job-name >>") | .job_number' workflow.json)
+            curl --request GET \
+                 --url https://circleci.com/api/v2/project/gh/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/$TEST_JOB_NUMBER/tests \
+                 --header 'authorization: Basic $CIRCLE_TOKEN' \
+            | jq '.items | length | if . != << parameters.expected-tests >> then halt_error else . end'
+jobs:
+  # Install Node.js into a non-node container.
+  integration-test-install-specified-version:
+    parameters:
+      os:
+        type: executor
+    executor: <<parameters.os>>
+    steps:
+      - checkout
+      - node/install:
+          node-version: "16.13"
+          install-yarn: true # Test the install of YARN
+          yarn-version: "1.22.5"
+      - run:
+          command: |
+            if ! node --version | grep -q "16"; then
+              echo "Node version 16 not found"
+              exit 1
+            fi
+  integration-test-install-latest:
+    parameters:
+      os:
+        type: executor
+    executor: <<parameters.os>>
+    steps:
+      - checkout
+      - node/install:
+          node-version: "latest"
+      - run:
+          name: Check that latest Node.js is installed.
+          command: |
+            NODE_ORB_INSTALL_VERSION=$(nvm ls-remote | tail -n1 | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+')
+            echo "Latest Node version = $NODE_ORB_INSTALL_VERSION"
+            echo "Installed version: $(node --version)"
+            if ! node --version | grep -q "$NODE_ORB_INSTALL_VERSION"; then
+              echo "Error: Installed version is different from the latest version."
+              exit 1
+            fi
+  integration-test-use-nvmrc-version:
+    parameters:
+      os:
+        type: executor
+    executor: <<parameters.os>>
+    steps:
+      - checkout
+      - run: echo '16.13' > .nvmrc
+      - node/install
+
+  integration-test-install-lts:
+    parameters:
+      os:
+        type: executor
+    executor: <<parameters.os>>
+    steps:
+      - checkout
+      - node/install
+      - run:
+          name: Check that the latest LTS version of Node.js is installed.
+          command: |
+            NODE_ORB_INSTALL_VERSION=$(nvm ls-remote | grep 'Latest LTS' | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+')
+            echo "Latest Node LTS version = $NODE_ORB_INSTALL_VERSION"
+            echo "Installed version: $(node --version)"
+            if ! node --version | grep -q "$NODE_ORB_INSTALL_VERSION"; then
+              echo "Error: Installed version is different from the latest LTS version."
+              exit 1
+            fi
+  integration-test-override-ci:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          override-ci-command: npm install
+          cache-path: ~/project/node_modules
+          cache-version: override-v3
+          app-dir: "~/project/sample"
+      - run: cd ~/project/sample && npm run test
+  integration-test-yarn:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-version: yarn-v3
+          app-dir: "~/project/sample"
+      - run: cd ~/project/sample && yarn test
+  integration-test-yarn-berry:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn-berry
+          cache-version: yarn-berry-v1
+          app-dir: "~/project/sample"
+      - run: cd ~/project/sample && yarn test
+
+  check-test-results-uploaded:
+    executor:
+      name: node/default
+    steps:
+      - jq/install
+      - run:
+          name: fetch workflow
+          command: |
+            curl --request GET \
+                 --url https://circleci.com/api/v2/workflow/$CIRCLE_WORKFLOW_ID/job \
+                 --header 'authorization: Basic $CIRCLE_TOKEN' > workflow.json
+      - check-uploaded-test-results:
+          job-name: node-npm-jest-test-job
+          expected-tests: 1
+      - check-uploaded-test-results:
+          job-name: node-yarn-jest-test-job
+          expected-tests: 1
+      - check-uploaded-test-results:
+          job-name: node-test-results-file-job
+          expected-tests: 1
+      - check-uploaded-test-results:
+          job-name: node-npm-mocha-test-job
+          expected-tests: 1
+      - check-uploaded-test-results:
+          job-name: node-yarn-mocha-test-job
+          expected-tests: 1
 
 workflows:
-  run-npm-command:
+  # This `lint-pack_validate_publish-dev` workflow will run on any commit.
+  lint_pack-validate_publish-dev:
+    unless: << pipeline.parameters.run-integration-tests >>
     jobs:
+      - orb-tools/lint
+      # pack your orb YAML files to a single orb.yml
+      # validate the orb.yml file to ensure it is well-formed
+      - orb-tools/pack
+      - shellcheck/check:
+          dir: ./src/scripts
+          exclude: SC2148,SC2016
+
+      # release dev version of orb, for testing & possible publishing.
+      # orb will be published as dev:alpha and dev:${CIRCLE_SHA1:0:7}.
+      # requires a CircleCI API token to be stored as CIRCLE_TOKEN (default)
+      # https://circleci.com/docs/2.0/managing-api-tokens
+      # store CIRCLE_TOKEN as a project env var or Contexts resource
+      # if using Contexts, add your context below
+      - orb-tools/publish-dev:
+          orb-name: circleci/node
+          context: orb-publisher
+          requires:
+            - orb-tools/pack
+            - orb-tools/lint
+            - shellcheck/check
+
+      # trigger an integration workflow to test the
+      # dev:${CIRCLE_SHA1:0:7} version of your orb
+      - orb-tools/trigger-integration-tests-workflow:
+          name: trigger-integration-dev
+          context: orb-publisher
+          requires:
+            - orb-tools/publish-dev
+
+  # This `integration-tests_prod-release` workflow will only run
+  # when the run-integration-tests pipeline parameter is set to true.
+  # It is meant to be triggered by the "trigger-integration-tests-workflow"
+  # job, and run tests on <your orb>@dev:${CIRCLE_SHA1:0:7}.
+  integration-tests_prod-release:
+    when: << pipeline.parameters.run-integration-tests >>
+    jobs:
+      # your integration test jobs go here: essentially, run all your orb's
+      # jobs and commands to ensure they behave as expected. or, run other
+      # integration tests of your choosing
+      - integration-test-install-specified-version:
+          matrix:
+            parameters:
+              os: [linux, macos, machine]
+      - integration-test-install-latest:
+          matrix:
+            parameters:
+              os: [linux, macos, machine]
+      - integration-test-install-lts:
+          matrix:
+            parameters:
+              os: [linux, macos, machine]
+      - node/test:
+          name: node-npm-jest-test-job
+          app-dir: "~/project/sample"
+          cache-version: v4
+          test-results-for: jest
+      - node/test:
+          name: node-yarn-jest-test-job
+          app-dir: "~/project/sample"
+          cache-version: v4
+          test-results-for: jest
+          pkg-manager: yarn
+      - node/test:
+          name: node-npm-mocha-test-job
+          app-dir: "~/project/sample"
+          cache-version: v4
+          test-results-for: mocha
+          run-command: testmocha
+      - node/test:
+          name: node-yarn-mocha-test-job
+          app-dir: "~/project/sample"
+          cache-version: v4
+          test-results-for: mocha
+          pkg-manager: yarn
+          run-command: testmocha
+      - node/test:
+          name: node-yarn-mocha-with-test-result-path-job
+          app-dir: "~/project/sample"
+          cache-version: v4
+          test-results-for: mocha
+          pkg-manager: yarn
+          run-command: testmocha
+          test-results-path: sample/test-results.xml
+      - node/test:
+          name: node-test-results-file-job
+          app-dir: "~/project/sample"
+          cache-version: v4
+          test-results-path: sample/other-junit.xml
+      - node/test:
+          name: node-test-no-junit
+          app-dir: "~/project/sample"
+          cache-version: v4
+      - check-test-results-uploaded:
+          requires:
+            - node-npm-jest-test-job
+            - node-yarn-jest-test-job
+            - node-npm-mocha-test-job
+            - node-yarn-mocha-test-job
+            - node-test-results-file-job
       - node/run:
-        npm-run: build
+          name: node-run-job
+          app-dir: "~/project/sample"
+          cache-version: v4
+          npm-run: build
+      - node/run:
+          name: node-run-job
+          app-dir: "~/project/sample"
+          cache-version: v5
+          yarn-run: build
+      - integration-test-override-ci
+      - integration-test-yarn
+      - integration-test-yarn-berry
+      - orb-tools/dev-promote-prod-from-commit-subject:
+          orb-name: circleci/node
+          context: orb-publisher
+          add-pr-comment: true
+          bot-token-variable: GHI_TOKEN
+          bot-user: orb-publisher
+          fail-if-semver-not-indicated: true
+          publish-version-tag: true
+          ssh-fingerprints: 2a:2b:49:ea:64:7d:39:4a:58:17:18:17:b2:5c:f6:a8
+          requires: *integration-tests
+          filters:
+            branches:
+              only: master

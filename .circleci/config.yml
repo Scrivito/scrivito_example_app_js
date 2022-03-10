@@ -16,14 +16,20 @@ executors:
 
 jobs:
   execute-npm:
-    environment:
-      SCRIVITO_TENANT: "1234567890abcdef1234567890abcdef"
     parameters:
       npm-run-command:
         type: string
-    executor: linux
+    docker:
+      - image: cimg/node:lts
+    environment:
+      SCRIVITO_TENANT: "1234567890abcdef1234567890abcdef"
     steps:
       - checkout
+      - run:
+          name: Node and npm versions
+          command: |
+            node --version
+            npm --version
       - node/install-packages
       - run:
           name: npm run << parameters.npm-run-command >>

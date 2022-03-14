@@ -1,4 +1,4 @@
-import loadable from "@loadable/component";
+import SocialCardsTab from "../Components/ScrivitoExtensions/SocialCardsTab";
 
 export const metadataEditingConfigAttributes = {
   metaDataDescription: {
@@ -23,9 +23,7 @@ export const metadataPropertiesGroups = [
   },
   {
     title: "Social cards",
-    component: loadable(() =>
-      import("../Components/ScrivitoExtensions/SocialCardsTab")
-    ),
+    component: SocialCardsTab,
     properties: ["tcCreator", "tcDescription", "ogDescription"],
     key: "social-cards-group",
   },

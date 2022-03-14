@@ -37,3 +37,8 @@ function hydrateApp() {
     Scrivito.updateContent()
   );
 }
+
+if (Scrivito.isEditorLoggedIn()) {
+  import("./Objs/editingConfigs");
+  import("./Widgets/editingConfigs");
+}

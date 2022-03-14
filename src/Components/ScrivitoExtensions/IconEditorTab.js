@@ -5,7 +5,7 @@ import IconComponent from "../Icon";
 import IconSearch from "./IconEditorTab/IconSearch";
 import IconSearchResults from "./IconEditorTab/IconSearchResults";
 
-const IconEditorTab = Scrivito.connect(({ widget }) => {
+function IconEditorTab({ widget }) {
   const [searchValue, setSearchValue] = React.useState("");
   const currentIcon = widget.get("icon");
 
@@ -51,6 +51,6 @@ const IconEditorTab = Scrivito.connect(({ widget }) => {
 
     widget.update({ icon });
   }
-});
+}
 
 export default IconEditorTab;

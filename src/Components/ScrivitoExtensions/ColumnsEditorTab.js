@@ -4,7 +4,7 @@ import Draggable from "react-draggable";
 import { flatten, isEqual, last, take, takeRight, times } from "lodash-es";
 import ColumnWidget from "../../Widgets/ColumnWidget/ColumnWidgetClass";
 
-const ColumnsEditorTab = Scrivito.connect(({ widget }) => {
+function ColumnsEditorTab({ widget }) {
   const includedWidgetIds = calculateContentIds(calculateContents(widget));
 
   return (
@@ -16,7 +16,7 @@ const ColumnsEditorTab = Scrivito.connect(({ widget }) => {
       currentGrid={gridOfWidget(widget)}
     />
   );
-});
+}
 
 export default ColumnsEditorTab;
 

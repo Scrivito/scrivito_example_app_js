@@ -3,7 +3,7 @@ import * as Scrivito from "scrivito";
 import ContentProperty from "./ContentProperty";
 import getMetadata from "../../utils/getMetadata";
 
-const SocialCardsTab = Scrivito.connect(({ obj }) => {
+function SocialCardsTab({ obj }) {
   const uiContext = Scrivito.uiContext();
   if (uiContext === undefined) {
     return null;
@@ -34,7 +34,7 @@ const SocialCardsTab = Scrivito.connect(({ obj }) => {
       </div>
     </div>
   );
-});
+}
 
 export default SocialCardsTab;
 

@@ -58,12 +58,7 @@ function webpackConfig(env = {}) {
       rules: [
         {
           test: /\.js$/,
-          include: [
-            path.join(__dirname, "src"),
-            path.join(__dirname, "node_modules/autotrack"),
-            path.join(__dirname, "node_modules/dom-utils"), // sub-dependency of autotrack
-            path.join(__dirname, "node_modules/fuse.js"),
-          ],
+          include: [path.join(__dirname, "src")],
           use: [
             {
               loader: "babel-loader",

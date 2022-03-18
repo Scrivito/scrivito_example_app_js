@@ -73,7 +73,7 @@ function webpackConfig(env = {}) {
                       shippedProposals: true,
                       useBuiltIns: "usage",
                       corejs: "3",
-                      targets: { browsers: ["defaults"] },
+                      targets: { browsers: ["defaults", "not IE > 0"] },
                     },
                   ],
                 ],

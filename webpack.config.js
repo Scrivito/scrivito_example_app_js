@@ -74,6 +74,13 @@ function webpackConfig(env = {}) {
                       useBuiltIns: "usage",
                       corejs: "3",
                       targets: { browsers: ["defaults", "not IE > 0"] },
+                      include: [
+                        // "transform-classes" is needed for node in combination with spread
+                        // arguments (see [1]). Otherwise prerendering will fail.
+                        //
+                        // [1] https://babeljs.io/docs/en/babel-preset-env/#include
+                        "transform-classes",
+                      ],
                     },
                   ],
                 ],

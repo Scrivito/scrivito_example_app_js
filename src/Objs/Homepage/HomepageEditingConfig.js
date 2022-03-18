@@ -34,9 +34,6 @@ Scrivito.provideEditingConfig("Homepage", {
       title: "Divider logo",
       description: "Used in the divider widget",
     },
-    neoletterInstance: {
-      title: "Neoletter instance",
-    },
     facebookAppId: {
       title: "Facebook app ID",
       description:
@@ -83,7 +80,6 @@ Scrivito.provideEditingConfig("Homepage", {
         "logoWhite",
         "dividerLogo",
         "cookieConsentLink",
-        "neoletterInstance",
         "facebookAppId",
         "twitterSite",
         "googleMapsApiKey",
@@ -107,18 +103,6 @@ Scrivito.provideEditingConfig("Homepage", {
       (trackingId) => {
         if (trackingId && !trackingId.startsWith("UA-")) {
           return 'Provide a Universal Analytics property (starts with "UA-"). See https://support.google.com/analytics/answer/10269537 for details.';
-        }
-      },
-    ],
-    [
-      "neoletterInstance",
-      (neoletterInstance) => {
-        if (!neoletterInstance) {
-          return;
-        }
-
-        if (neoletterInstance.match(/^[0-9a-fA-F]{32}$/) === null) {
-          return "Provide a valid Neoletter instance (32 character hex value).";
         }
       },
     ],

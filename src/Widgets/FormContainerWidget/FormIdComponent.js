@@ -1,15 +1,13 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import ContentProperty from "../../Components/ScrivitoExtensions/ContentProperty";
-import { neoletterInstance } from "./utils/neoletterInstance";
 
 const FormIdComponent = Scrivito.connect(({ widget }) => {
-  const formSubmissionsHref =
-    neoletterInstance() && widget.get("formId")
-      ? `https://neoletter.com/i/${neoletterInstance()}/forms/${widget.get(
-          "formId"
-        )}`
-      : null;
+  const formSubmissionsHref = widget.get("formId")
+    ? `https://neoletter.com/i/${
+        process.env.SCRIVITO_TENANT
+      }/forms/${widget.get("formId")}`
+    : null;
 
   return (
     <div className="scrivito_detail_content">

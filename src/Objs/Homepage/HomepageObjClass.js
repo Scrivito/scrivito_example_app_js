@@ -13,7 +13,6 @@ export const Homepage = Scrivito.provideObjClass("Homepage", {
     logoDark: ["reference", { only: ["Image"] }],
     logoWhite: ["reference", { only: ["Image"] }],
     dividerLogo: ["reference", { only: ["Image"] }],
-    neoletterInstance: "string",
     facebookAppId: "string",
     twitterSite: "string",
     googleMapsApiKey: "string",

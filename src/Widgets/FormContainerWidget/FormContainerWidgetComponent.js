@@ -1,15 +1,12 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import { getFieldName } from "./utils/getFieldName";
-import { neoletterInstance } from "./utils/neoletterInstance";
 import { scrollIntoView } from "./utils/scrollIntoView";
 
 import "./FormContainerWidget.scss";
 
 Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
-  const formEndpoint = neoletterInstance()
-    ? `https://api.justrelate.com/neoletter/instances/${neoletterInstance()}/form_submissions`
-    : "";
+  const formEndpoint = `https://api.justrelate.com/neoletter/instances/${process.env.SCRIVITO_TENANT}/form_submissions`;
 
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [successfullySent, setSuccessfullySent] = React.useState(false);
@@ -56,9 +53,6 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
 
   async function onSubmit(element) {
     element.preventDefault();
-    if (!formEndpoint) {
-      return;
-    }
 
     scrollIntoView(element.target);
 

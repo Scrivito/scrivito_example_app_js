@@ -58,12 +58,7 @@ function webpackConfig(env = {}) {
       rules: [
         {
           test: /\.js$/,
-          include: [
-            path.join(__dirname, "src"),
-            path.join(__dirname, "node_modules/autotrack"),
-            path.join(__dirname, "node_modules/dom-utils"), // sub-dependency of autotrack
-            path.join(__dirname, "node_modules/fuse.js"),
-          ],
+          include: [path.join(__dirname, "src")],
           use: [
             {
               loader: "babel-loader",
@@ -78,7 +73,14 @@ function webpackConfig(env = {}) {
                       shippedProposals: true,
                       useBuiltIns: "usage",
                       corejs: "3",
-                      targets: { browsers: ["defaults"] },
+                      targets: { browsers: ["defaults", "not IE > 0"] },
+                      include: [
+                        // "transform-classes" is needed for node in combination with spread
+                        // arguments (see [1]). Otherwise prerendering will fail.
+                        //
+                        // [1] https://babeljs.io/docs/en/babel-preset-env/#include
+                        "transform-classes",
+                      ],
                     },
                   ],
                 ],

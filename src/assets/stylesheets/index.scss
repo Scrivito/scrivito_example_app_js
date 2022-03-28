@@ -852,14 +852,6 @@ section.navbar-fixed {
   }
 }
 
-/* IE11 Flexbox bug with max-width */
-_:-ms-fullscreen,
-:root .card img {
-  max-height: 200px;
-  margin: 0 auto;
-  display: block;
-}
-
 /* box-card
 =================================================================== */
 
@@ -990,17 +982,6 @@ body,
 }
 .content-wrapper {
   flex: 1;
-}
-
-/* weird stuff for IE11 */
-
-_:-ms-fullscreen,
-:root #application > div {
-  display: block;
-}
-_:-ms-fullscreen,
-:root .content-wrapper {
-  flex: 0;
 }
 
 /* cookie box

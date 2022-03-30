@@ -61,6 +61,10 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
       await submit(element.target, formEndpoint);
       indicateSuccess();
     } catch (e) {
+      setTimeout(() => {
+        throw e;
+      }, 0);
+
       indicateFailure();
     }
   }

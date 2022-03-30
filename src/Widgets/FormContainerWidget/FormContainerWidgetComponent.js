@@ -87,7 +87,12 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
 async function submit(formElement, formEndpoint) {
   const body = new URLSearchParams(new FormData(formElement));
   // console.log("submitting", Object.fromEntries(body.entries()));
-  await fetch(formEndpoint, { method: "post", body });
+  const response = await fetch(formEndpoint, { method: "post", body });
+  if (!response.ok) {
+    throw new Error(
+      `Response was not successful. Status code: ${response.status}.`
+    );
+  }
 }
 
 const HiddenField = Scrivito.connect(({ widget }) => {

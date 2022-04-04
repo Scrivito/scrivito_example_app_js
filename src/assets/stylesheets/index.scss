@@ -14,11 +14,11 @@ $slick-font-path: "~slick-carousel/slick/fonts/";
 @font-face {
   font-family: "slick_swap";
   font-display: swap;
-  src: url($slick-font-path+"slick.eot");
-  src: url($slick-font-path+"slick.eot?#iefix") format("embedded-opentype"),
-    url($slick-font-path+"slick.woff") format("woff"),
-    url($slick-font-path+"slick.ttf") format("truetype"),
-    url($slick-font-path+"slick.svg#slick") format("svg");
+  src: url($slick-font-path + "slick.eot");
+  src: url($slick-font-path + "slick.eot?#iefix") format("embedded-opentype"),
+    url($slick-font-path + "slick.woff") format("woff"),
+    url($slick-font-path + "slick.ttf") format("truetype"),
+    url($slick-font-path + "slick.svg#slick") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -637,13 +637,10 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
     .h6,
     .card.card-theme,
     .edit-mode-link {
-      color: $theme-grey!important;
+      color: $theme-grey !important;
     }
   }
 }
-
-
-
 
 footer {
   .bg-dark-image,
@@ -1064,9 +1061,12 @@ img.cookie-img {
   }
   .cookie-button {
     width: 48%;
-    margin: 10px 5px 0 0!important;
+    margin: 10px 5px 0 0 !important;
   }
-  .cookie-button + .cookie-button { margin: 10px 0 0 0!important; float: right; }
+  .cookie-button + .cookie-button {
+    margin: 10px 0 0 0 !important;
+    float: right;
+  }
   .cookie-box {
     padding: 10px 20px;
   }

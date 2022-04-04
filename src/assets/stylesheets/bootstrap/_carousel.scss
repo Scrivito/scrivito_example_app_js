@@ -59,7 +59,6 @@
   }
 }
 
-
 //
 // Left/right controls for nav
 //
@@ -85,19 +84,27 @@
     color: $carousel-control-color;
     text-decoration: none;
     outline: 0;
-    opacity: .9;
+    opacity: 0.9;
   }
 }
 .carousel-control-prev {
   left: 0;
   @if $enable-gradients {
-    background: linear-gradient(90deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, .001));
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.001)
+    );
   }
 }
 .carousel-control-next {
   right: 0;
   @if $enable-gradients {
-    background: linear-gradient(270deg, rgba(0, 0, 0, .25), rgba(0, 0, 0, .001));
+    background: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.001)
+    );
   }
 }
 
@@ -116,7 +123,6 @@
 .carousel-control-next-icon {
   background-image: $carousel-control-next-icon-bg;
 }
-
 
 // Optional indicator pips
 //
@@ -145,7 +151,7 @@
     margin-right: $carousel-indicator-spacer;
     margin-left: $carousel-indicator-spacer;
     text-indent: -999px;
-    background-color: rgba($carousel-indicator-active-bg, .5);
+    background-color: rgba($carousel-indicator-active-bg, 0.5);
 
     // Use pseudo classes to increase the hit area by 10px on top and bottom.
     &::before {
@@ -172,7 +178,6 @@
     background-color: $carousel-indicator-active-bg;
   }
 }
-
 
 // Optional captions
 //

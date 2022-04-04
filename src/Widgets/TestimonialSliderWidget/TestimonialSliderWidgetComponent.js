@@ -66,10 +66,7 @@ function sliderSettings(testimonials) {
     infinite: true,
     speed: 500,
     dotsClass: "testimonial-slider-widget--quote-portrait-wrapper",
-    customPaging: (i) => {
-      const image = testimonialAuthorImages[i];
-      return <a>{image}</a>;
-    },
+    customPaging: (i) => <button>{testimonialAuthorImages[i]}</button>,
   };
 }
 

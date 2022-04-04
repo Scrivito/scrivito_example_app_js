@@ -32,7 +32,8 @@
     text-align: center;
     height: 75px;
 
-    a {
+    button {
+      all: unset;
       display: inline-block;
       vertical-align: middle;
 
@@ -47,7 +48,7 @@
       }
     }
 
-    a:hover,
+    button:hover,
     .slick-active {
       .image {
         width: 75px;

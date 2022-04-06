@@ -66,7 +66,11 @@ function sliderSettings(testimonials) {
     infinite: true,
     speed: 500,
     dotsClass: "testimonial-slider-widget--quote-portrait-wrapper",
-    customPaging: (i) => <button>{testimonialAuthorImages[i]}</button>,
+    customPaging: (i) => (
+      <button aria-label="Show testimonial">
+        {testimonialAuthorImages[i]}
+      </button>
+    ),
   };
 }
 

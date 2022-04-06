@@ -30,12 +30,17 @@ export const SearchBox = Scrivito.connect(
                 ref={this.inputRef}
               />
               <div className="input-group-btn">
-                <button type="submit" className="btn btn-search">
+                <button
+                  type="submit"
+                  className="btn btn-search"
+                  aria-label="Search"
+                >
                   <i className="fa fa-search" aria-hidden="true" />
                 </button>
                 <button
                   type="button"
                   className="btn btn-clear-white"
+                  aria-label="Close search"
                   onClick={this.props.toggleSearch}
                 >
                   <i className="fa fa-times-circle " aria-hidden="true" />

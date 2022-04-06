@@ -20,7 +20,7 @@ function IconComponent({ icon, size, link }) {
   const title = link.title() || "";
 
   return (
-    <Scrivito.LinkTag to={link}>
+    <Scrivito.LinkTag to={link} aria-label={title}>
       <Icon icon={icon} size={size} title={title} />
     </Scrivito.LinkTag>
   );

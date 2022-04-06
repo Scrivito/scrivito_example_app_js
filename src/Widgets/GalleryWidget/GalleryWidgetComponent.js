@@ -61,7 +61,7 @@ function sliderSettings(images) {
       const image = images[i];
 
       return (
-        <button className="tab">
+        <button className="tab" aria-label="Show image">
           <Scrivito.BackgroundImageTag
             className="image"
             style={{

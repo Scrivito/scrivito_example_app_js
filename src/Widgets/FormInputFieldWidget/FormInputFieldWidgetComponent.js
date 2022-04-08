@@ -83,7 +83,14 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
 });
 
 function calculateMaxLength(fieldName) {
-  return fieldName === "phone_number" ? "50" : "250";
+  switch (fieldName) {
+    case "phone_number":
+      return "50";
+    case "email":
+      return "120";
+    default:
+      return "250";
+  }
 }
 
 function calculateType(type) {

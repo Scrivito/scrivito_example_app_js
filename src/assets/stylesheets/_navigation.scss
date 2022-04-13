@@ -1,8 +1,16 @@
 @import "src/assets/stylesheets/variables";
-@import "src/assets/stylesheets/bootstrap/functions";
-@import "src/assets/stylesheets/bootstrap/variables";
-@import "src/assets/stylesheets/bootstrap/mixins/text-hide";
-@import "src/assets/stylesheets/bootstrap/mixins/transition";
+@import "src/assets/stylesheets/bootstrap5/functions";
+@import "src/assets/stylesheets/bootstrap5/variables";
+@import "src/assets/stylesheets/bootstrap5/mixins/transition";
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus {
+  text-decoration: none;
+}
 
 /* .bg-dark-image .navbar-brand { background: $logo-white no-repeat center center / contain; } */
 .bg-dark-image {
@@ -164,9 +172,13 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 
   &-brand {
-    /* background: $logo-dark no-repeat center center / contain; */
+    display: inline-block;
     width: 120px;
-    @include text-hide;
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
     height: 75px;
     padding: 25px 0;
 

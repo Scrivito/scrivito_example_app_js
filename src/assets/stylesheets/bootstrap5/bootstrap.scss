@@ -7,6 +7,7 @@
 
 // scss-docs-start import-stack
 // Configuration
+
 @import "functions";
 @import "variables";
 @import "mixins";
@@ -24,26 +25,26 @@
 @import "buttons";
 @import "transitions";
 @import "dropdown";
-@import "button-group";
+// @import "button-group";
 @import "nav";
 @import "navbar";
 @import "card";
-@import "accordion";
+// @import "accordion";
 @import "breadcrumb";
 @import "pagination";
-@import "badge";
-@import "alert";
-@import "progress";
-@import "list-group";
-@import "close";
-@import "toasts";
-@import "modal";
-@import "tooltip";
-@import "popover";
+// @import "badge";
+// @import "alert";
+// @import "progress";
+// @import "list-group";
+// @import "close";
+// @import "toasts";
+// @import "modal";
+// @import "tooltip";
+// @import "popover";
 @import "carousel";
-@import "spinners";
-@import "offcanvas";
-@import "placeholders";
+// @import "spinners";
+// @import "offcanvas";
+// @import "placeholders";
 
 // Helpers
 @import "helpers";

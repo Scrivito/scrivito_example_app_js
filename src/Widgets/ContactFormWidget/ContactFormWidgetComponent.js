@@ -24,7 +24,7 @@ Scrivito.provideComponent("ContactFormWidget", ({ widget }) => {
 
   return (
     <div className={classNames.join(" ")}>
-      <form className="row" method="post">
+      <form className="row g-2" method="post">
         <input type="hidden" name="form-name" value="contact" />
         <div className="d-none">
           <label>
@@ -32,70 +32,72 @@ Scrivito.provideComponent("ContactFormWidget", ({ widget }) => {
           </label>
         </div>
         <div className="col-sm-6">
-          <div className="form-group">
-            <label htmlFor="contactName">Your name</label>
-            <input
-              className="form-control form-control-lg"
-              id="contactName"
-              name="contactName"
-              placeholder="Name"
-              type="text"
-              required
-            />
-          </div>
+          <label htmlFor="contactName" className="form-label">
+            Your name
+          </label>
+          <input
+            className="form-control form-control-lg"
+            id="contactName"
+            name="contactName"
+            placeholder="Name"
+            type="text"
+            required
+          />
         </div>
         <div className="col-sm-6">
-          <div className="form-group">
-            <label htmlFor="contactFamilyName">Family name</label>
-            <input
-              className="form-control form-control-lg"
-              id="contactFamilyName"
-              name="contactFamilyName"
-              placeholder="Family name"
-              type="text"
-              required
-            />
-          </div>
+          <label htmlFor="contactFamilyName" className="form-label">
+            Family name
+          </label>
+          <input
+            className="form-control form-control-lg"
+            id="contactFamilyName"
+            name="contactFamilyName"
+            placeholder="Family name"
+            type="text"
+            required
+          />
         </div>
         <div className="col-sm-6">
-          <div className="form-group">
-            <label htmlFor="contactEmail">Email address</label>
-            <input
-              className="form-control form-control-lg"
-              id="contactEmail"
-              name="contactEmail"
-              placeholder="Email"
-              type="email"
-              required
-            />
-          </div>
+          <label htmlFor="contactEmail" className="form-label">
+            Email address
+          </label>
+          <input
+            className="form-control form-control-lg"
+            id="contactEmail"
+            name="contactEmail"
+            placeholder="Email"
+            type="email"
+            required
+          />
         </div>
         <div className="col-sm-6">
-          <div className="form-group">
-            <label htmlFor="contactCompany">Company (optional)</label>
-            <input
-              className="form-control form-control-lg"
-              id="contactCompany"
-              name="contactCompany"
-              placeholder="Company"
-              type="text"
-            />
-          </div>
+          <label htmlFor="contactCompany" className="form-label">
+            Company (optional)
+          </label>
+          <input
+            className="form-control form-control-lg"
+            id="contactCompany"
+            name="contactCompany"
+            placeholder="Company"
+            type="text"
+          />
         </div>
         <div className="col-sm-12">
-          <div className="form-group">
-            <label htmlFor="contactMessage">Message</label>
-            <textarea
-              className="form-control form-control-lg"
-              rows="3"
-              id="contactMessage"
-              name="contactMessage"
-              placeholder="Your Message..."
-              required
-            />
-          </div>
+          <label htmlFor="contactMessage" className="form-label">
+            Message
+          </label>
+          <textarea
+            className="form-control form-control-lg"
+            rows="3"
+            id="contactMessage"
+            name="contactMessage"
+            placeholder="Your Message..."
+            required
+          />
+        </div>
+        <div className="col-sm-12">
           {widget.get("agreementText") && (
-            <div className="form-group form-check">
+            <div className="form-check">
               <input
                 className="form-check-input"
                 id="agreementTextCheck"
@@ -109,7 +111,7 @@ Scrivito.provideComponent("ContactFormWidget", ({ widget }) => {
               </label>
             </div>
           )}
-          <button className="btn btn-primary btn-block" type="submit">
+          <button className="btn btn-primary btn-block mt-3" type="submit">
             {widget.get("buttonText") || "send message"}
           </button>
         </div>

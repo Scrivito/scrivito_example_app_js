@@ -7,9 +7,12 @@ Scrivito.provideComponent("HeadlineWidget", ({ widget }) => {
   const style = widget.get("style") || "h2";
   const level = widget.get("level") || style;
   const classNames = ["headline-widget", style];
-  if (widget.get("alignment")) {
-    classNames.push(`text-${widget.get("alignment")}`);
+
+  const alignment = alignmentClassName(widget.get("alignment"));
+  if (alignment) {
+    classNames.push(alignment);
   }
+
   if (widget.get("showDividingLine")) {
     classNames.push("b-bottom");
   }
@@ -32,3 +35,19 @@ Scrivito.provideComponent("HeadlineWidget", ({ widget }) => {
     </>
   );
 });
+
+function alignmentClassName(widgetAlignment) {
+  if (widgetAlignment === "left") {
+    return "text-start";
+  }
+
+  if (widgetAlignment === "center") {
+    return "text-center";
+  }
+
+  if (widgetAlignment === "right") {
+    return "text-end";
+  }
+
+  return "";
+}

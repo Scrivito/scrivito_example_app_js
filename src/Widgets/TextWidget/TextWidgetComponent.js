@@ -2,10 +2,7 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 
 Scrivito.provideComponent("TextWidget", ({ widget }) => {
-  const classNames = [];
-  if (widget.get("alignment")) {
-    classNames.push(`text-${widget.get("alignment")}`);
-  }
+  const classNames = [alignmentClassName(widget.get("alignment"))];
 
   return (
     <Scrivito.ContentTag
@@ -16,3 +13,19 @@ Scrivito.provideComponent("TextWidget", ({ widget }) => {
     />
   );
 });
+
+function alignmentClassName(widgetAlignment) {
+  if (widgetAlignment === "left") {
+    return "text-start";
+  }
+
+  if (widgetAlignment === "center") {
+    return "text-center";
+  }
+
+  if (widgetAlignment === "right") {
+    return "text-end";
+  }
+
+  return "";
+}

@@ -16,10 +16,7 @@ Scrivito.provideComponent("ImageWidget", ({ widget }) => {
     image = <Scrivito.LinkTag to={link}>{image}</Scrivito.LinkTag>;
   }
 
-  const classNames = [];
-  if (["center", "right"].includes(widget.get("alignment"))) {
-    classNames.push(`text-${widget.get("alignment")}`);
-  }
+  const classNames = [alignmentClassName(widget.get("alignment"))];
 
   return (
     <AnimateOnReveal animation={widget.get("animation")}>
@@ -37,6 +34,18 @@ function alternativeText(widget) {
   const image = widget.get("image");
   if (image) {
     return image.get("alternativeText");
+  }
+
+  return "";
+}
+
+function alignmentClassName(widgetAlignment) {
+  if (widgetAlignment === "center") {
+    return "text-center";
+  }
+
+  if (widgetAlignment === "right") {
+    return "text-end";
   }
 
   return "";

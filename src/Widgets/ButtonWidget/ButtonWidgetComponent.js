@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
+import { WrapIfClassName } from "../../Components/WrapIfClassName";
 import { alignmentClassName } from "../../utils/alignmentClassName";
 
 Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
@@ -31,7 +32,3 @@ Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
     </WrapIfClassName>
   );
 });
-
-function WrapIfClassName({ className, children }) {
-  return className ? <div className={className}>{children}</div> : children;
-}

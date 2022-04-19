@@ -15,10 +15,6 @@ Scrivito.provideComponent("TextWidget", ({ widget }) => {
 });
 
 function alignmentClassName(widgetAlignment) {
-  if (widgetAlignment === "left") {
-    return "text-start";
-  }
-
   if (widgetAlignment === "center") {
     return "text-center";
   }

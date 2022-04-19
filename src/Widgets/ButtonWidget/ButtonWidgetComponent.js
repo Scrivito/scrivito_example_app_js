@@ -22,7 +22,7 @@ Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
   }
 
   return (
-    <WrapIfClassName className={wrapperClassName(alignment)}>
+    <WrapIfClassName className={alignmentClassName(alignment)}>
       <Scrivito.LinkTag to={target} className={classNames.join(" ")}>
         {text}
         <i className="fa fa-angle-right fa-4" aria-hidden="true" />
@@ -35,7 +35,7 @@ function WrapIfClassName({ className, children }) {
   return className ? <div className={className}>{children}</div> : children;
 }
 
-function wrapperClassName(widgetAlignment) {
+function alignmentClassName(widgetAlignment) {
   if (widgetAlignment === "center") {
     return "text-center";
   }

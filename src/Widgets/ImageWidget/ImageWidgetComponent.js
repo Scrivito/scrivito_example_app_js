@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import AnimateOnReveal from "../../Components/AnimateOnReveal";
+import { alignmentClassName } from "../../utils/alignmentClassName";
 
 Scrivito.provideComponent("ImageWidget", ({ widget }) => {
   let image = (
@@ -34,18 +35,6 @@ function alternativeText(widget) {
   const image = widget.get("image");
   if (image) {
     return image.get("alternativeText");
-  }
-
-  return "";
-}
-
-function alignmentClassName(widgetAlignment) {
-  if (widgetAlignment === "center") {
-    return "text-center";
-  }
-
-  if (widgetAlignment === "right") {
-    return "text-end";
   }
 
   return "";

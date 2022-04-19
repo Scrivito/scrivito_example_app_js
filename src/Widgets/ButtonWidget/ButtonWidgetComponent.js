@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
+import { alignmentClassName } from "../../utils/alignmentClassName";
 
 Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
   const target = widget.get("target");
@@ -33,16 +34,4 @@ Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
 
 function WrapIfClassName({ className, children }) {
   return className ? <div className={className}>{children}</div> : children;
-}
-
-function alignmentClassName(widgetAlignment) {
-  if (widgetAlignment === "center") {
-    return "text-center";
-  }
-
-  if (widgetAlignment === "right") {
-    return "text-end";
-  }
-
-  return "";
 }

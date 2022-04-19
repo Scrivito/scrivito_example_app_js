@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import IconComponent from "../../Components/Icon";
+import { alignmentClassName } from "../../utils/alignmentClassName";
 
 function IconWidgetComponent({ widget }) {
   const icon = widget.get("icon");
@@ -18,18 +19,6 @@ function IconWidgetComponent({ widget }) {
   }
 
   return <IconComponent icon={icon} size={size} link={link} />;
-}
-
-function alignmentClassName(widgetAlignment) {
-  if (widgetAlignment === "center") {
-    return "text-center";
-  }
-
-  if (widgetAlignment === "right") {
-    return "text-end";
-  }
-
-  return "";
 }
 
 Scrivito.provideComponent("IconWidget", IconWidgetComponent);

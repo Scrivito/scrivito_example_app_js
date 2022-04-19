@@ -17,11 +17,9 @@ Scrivito.provideComponent("ImageWidget", ({ widget }) => {
     image = <Scrivito.LinkTag to={link}>{image}</Scrivito.LinkTag>;
   }
 
-  const classNames = [alignmentClassName(widget.get("alignment"))];
-
   return (
     <AnimateOnReveal animation={widget.get("animation")}>
-      <div className={classNames.join(" ")}>{image}</div>
+      <div className={alignmentClassName(widget.get("alignment"))}>{image}</div>
     </AnimateOnReveal>
   );
 });

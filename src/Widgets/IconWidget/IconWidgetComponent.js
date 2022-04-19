@@ -7,11 +7,11 @@ function IconWidgetComponent({ widget }) {
   const link = widget.get("link");
   const size = widget.get("size");
 
-  const outerClassName = alignmentClassName(widget.get("alignment"));
+  const wrapperClassName = alignmentClassName(widget.get("alignment"));
 
-  if (outerClassName) {
+  if (wrapperClassName) {
     return (
-      <div className={outerClassName}>
+      <div className={wrapperClassName}>
         <IconComponent icon={icon} size={size} link={link} />
       </div>
     );

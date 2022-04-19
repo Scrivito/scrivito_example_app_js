@@ -5,13 +5,13 @@ import { WrapIfClassName } from "../../Components/WrapIfClassName";
 import { alignmentClassName } from "../../utils/alignmentClassName";
 
 function IconWidgetComponent({ widget }) {
-  const icon = widget.get("icon");
-  const link = widget.get("link");
-  const size = widget.get("size");
-
   return (
     <WrapIfClassName className={alignmentClassName(widget.get("alignment"))}>
-      <IconComponent icon={icon} size={size} link={link} />
+      <IconComponent
+        icon={widget.get("icon")}
+        size={widget.get("size")}
+        link={widget.get("link")}
+      />
     </WrapIfClassName>
   );
 }

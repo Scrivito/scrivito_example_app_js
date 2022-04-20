@@ -9,7 +9,7 @@
   .contact-form-widget--card-white-transparent {
     background: rgba(255, 255, 255, 0.1);
     margin: 10px 0;
-    padding: 30px 20px;
+    padding: 10px 20px 20px 20px;
     width: 100%;
 
     .checkbox label {
@@ -19,7 +19,7 @@
     }
 
     label {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
       line-height: 16px;
       color: rgba(255, 255, 255, 0.7);
@@ -33,7 +33,7 @@
   .contact-form-widget--card-white-transparent {
     background: rgba(0, 0, 0, 0.1);
     margin: 10px 0;
-    padding: 30px 20px;
+    padding: 10px 20px 20px 20px;
     width: 100%;
 
     .checkbox label {
@@ -54,7 +54,7 @@
 .contact-form-widget {
   &--card-padding {
     margin: 10px 0;
-    padding: 30px 20px;
+    padding: 10px 20px 20px 20px;
     width: 100%;
 
     .checkbox label {
@@ -81,12 +81,12 @@
     }
 
     label {
-      font-size: 11px;
+      font-size: 13px;
       line-height: 16px;
       color: #bbb;
       font-weight: 400;
       padding: 2px 5px;
-      margin: 0 0 0 10px;
+      margin: 0 0 5px 10px;
       background: #fff;
       position: relative;
       z-index: 1;

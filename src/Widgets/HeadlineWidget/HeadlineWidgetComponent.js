@@ -2,14 +2,18 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import { kebabCase } from "lodash-es";
 import "./HeadlineWidget.scss";
+import { alignmentClassName } from "../../utils/alignmentClassName";
 
 Scrivito.provideComponent("HeadlineWidget", ({ widget }) => {
   const style = widget.get("style") || "h2";
   const level = widget.get("level") || style;
   const classNames = ["headline-widget", style];
-  if (widget.get("alignment")) {
-    classNames.push(`text-${widget.get("alignment")}`);
+
+  const alignment = alignmentClassName(widget.get("alignment"));
+  if (alignment) {
+    classNames.push(alignment);
   }
+
   if (widget.get("showDividingLine")) {
     classNames.push("b-bottom");
   }

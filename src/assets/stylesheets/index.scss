@@ -1,5 +1,5 @@
 /*!
- * Bootstrap v4
+ * Bootstrap v5.1.3
  */
 
 @import "variables";
@@ -35,7 +35,7 @@ $slick-font-family: "slick_swap";
 
 /* imports
 ================================================== */
-@import "bootstrap/bootstrap";
+@import "bootstrap5/bootstrap";
 @import "_navigation";
 @import "_blog";
 @import "_scrivito_extensions";
@@ -212,11 +212,11 @@ h6,
 .bg-greydark .b-bottom:after {
   background: rgba(111, 111, 111, 0.7);
 }
-.text-left.b-bottom:after {
+.text-start.b-bottom:after {
   left: 0%;
   margin: 0;
 }
-.text-right.b-bottom:after {
+.text-end.b-bottom:after {
   left: auto;
   right: 0%;
   margin: 0;
@@ -352,6 +352,12 @@ small,
   vertical-align: middle;
   padding: 13px 20px 10px;
   margin: 0 0 10px 0;
+  white-space: nowrap;
+}
+.btn:hover,
+.btn:active,
+.btn:focus {
+  text-decoration: none;
 }
 .btn .fa {
   padding: 0 0 3px 15px;
@@ -365,7 +371,7 @@ small,
 .btn-info,
 .btn-warning,
 .btn-danger {
-  color: #fff;
+  color: #fff !important;
   .fa {
     color: #fff;
   }
@@ -415,6 +421,10 @@ small,
   bottom: 30px;
   left: 50%;
   margin: 0 0 0 -25px;
+}
+
+.btn-block {
+  width: 100%;
 }
 
 /* animated hamburger
@@ -1091,8 +1101,8 @@ img.cookie-img {
 =================================================================== */
 
 @media (max-width: 767px) {
-  .text-right,
-  .text-left {
+  .text-end,
+  .text-start {
     text-align: center;
   }
 }

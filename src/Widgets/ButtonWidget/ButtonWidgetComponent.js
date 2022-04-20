@@ -1,6 +1,8 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
+import { WrapIfClassName } from "../../Components/WrapIfClassName";
+import { alignmentClassName } from "../../utils/alignmentClassName";
 
 Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
   const target = widget.get("target");
@@ -21,11 +23,8 @@ Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
     classNames.push("btn-block");
   }
 
-  const wrapperClassName =
-    ["center", "right"].includes(alignment) && `text-${alignment}`;
-
   return (
-    <WrapIfClassName className={wrapperClassName}>
+    <WrapIfClassName className={alignmentClassName(alignment)}>
       <Scrivito.LinkTag to={target} className={classNames.join(" ")}>
         {text}
         <i className="fa fa-angle-right fa-4" aria-hidden="true" />
@@ -33,7 +32,3 @@ Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
     </WrapIfClassName>
   );
 });
-
-function WrapIfClassName({ className, children }) {
-  return className ? <div className={className}>{children}</div> : children;
-}

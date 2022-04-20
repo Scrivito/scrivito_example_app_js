@@ -12,9 +12,8 @@ const PreviewImage = Scrivito.connect(({ item }) => {
     item.get("navigationBackgroundImage") ||
     item.get("titleImage") ||
     item.get("image");
-  if (!image || isVideoObj(image)) {
-    return null;
-  }
+  if (!image || isVideoObj(image)) return null;
+
   return (
     <Scrivito.LinkTag to={item} className="search-result-item--image">
       <Scrivito.ImageTag content={image} alt={image.get("alternativeText")} />
@@ -26,23 +25,15 @@ const Details = Scrivito.connect(({ item }) => {
   const details = [];
 
   const date = item.get("publishedAt") || item.lastChanged();
-  if (date) {
-    details.push(fromNow(date));
-  }
+  if (date) details.push(fromNow(date));
 
   const author = item.get("author");
-  if (author) {
-    details.push(`by ${author.get("title")}`);
-  }
+  if (author) details.push(`by ${author.get("title")}`);
 
   const tags = item.get("tags");
-  if (tags && tags.length) {
-    details.push(`tags: ${tags.join(", ")}`);
-  }
+  if (tags && tags.length) details.push(`tags: ${tags.join(", ")}`);
 
-  if (!details.length) {
-    return null;
-  }
+  if (!details.length) return null;
 
   return <small>{details.join(" // ")}</small>;
 });

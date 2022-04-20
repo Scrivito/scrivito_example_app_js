@@ -52,8 +52,6 @@ Scrivito.provideEditingConfig("TestimonialWidget", {
     const parts = [widget.get("author"), truncate(widget.get("testimonial"))];
     const summary = parts.filter((e) => e).join(" - ");
 
-    if (summary) {
-      return `Testimonial: ${summary}`;
-    }
+    if (summary) return `Testimonial: ${summary}`;
   },
 });

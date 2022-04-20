@@ -13,9 +13,7 @@ class ErrorBoundary extends React.Component {
   }
 
   render() {
-    if (!this.state.hasError) {
-      return this.props.children;
-    }
+    if (!this.state.hasError) return this.props.children;
 
     return (
       <React.Fragment>

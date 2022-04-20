@@ -12,9 +12,7 @@ class Intercom extends React.Component {
   componentDidMount() {
     Scrivito.load(() => {
       const rootPage = Scrivito.Obj.root();
-      if (!rootPage) {
-        return undefined;
-      }
+      if (!rootPage) return undefined;
       return rootPage.get("intercomAppId");
     }).then((intercomAppId) => {
       if (intercomAppId) {
@@ -27,9 +25,7 @@ class Intercom extends React.Component {
   }
 
   render() {
-    if (!this.state.intercomAppId) {
-      return null;
-    }
+    if (!this.state.intercomAppId) return null;
 
     return (
       <Helmet>

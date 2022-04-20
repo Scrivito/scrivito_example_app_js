@@ -4,10 +4,7 @@ import InPlaceEditingPlaceholder from "./InPlaceEditingPlaceholder";
 
 function Footer() {
   const root = Scrivito.Obj.root();
-
-  if (!root) {
-    return null;
-  }
+  if (!root) return null;
 
   return (
     <React.Fragment>

@@ -6,9 +6,7 @@ function SingleIcon({ icon, setWidgetIcon, currentIcon }) {
   const cssIcon = `fa-${icon.id}`;
 
   const aClassNames = [];
-  if (currentIcon === cssIcon) {
-    aClassNames.push("active");
-  }
+  if (currentIcon === cssIcon) aClassNames.push("active");
 
   return (
     <div className="fa-hover col-md-3 col-sm-4">

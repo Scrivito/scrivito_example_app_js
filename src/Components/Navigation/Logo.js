@@ -12,17 +12,13 @@ function logoObj({ scrolled, navigationStyle }) {
   }
 
   const root = Scrivito.Obj.root();
-  if (root) {
-    return root.get(logoVersion);
-  }
+  if (root) return root.get(logoVersion);
 
   return undefined;
 }
 
 function Logo({ scrolled, navigationStyle }) {
-  if (!Scrivito.Obj.root()) {
-    return null;
-  }
+  if (!Scrivito.Obj.root()) return null;
 
   const logo = logoObj({ scrolled, navigationStyle });
 

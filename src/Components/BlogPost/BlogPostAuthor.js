@@ -4,12 +4,8 @@ import AuthorImage from "../AuthorImage";
 import isImage from "../../utils/isImage";
 
 function BlogPostAuthor({ author }) {
-  if (!author) {
-    return null;
-  }
-  if (author.objClass() !== "Author") {
-    return null;
-  }
+  if (!author) return null;
+  if (author.objClass() !== "Author") return null;
 
   return (
     <section className="bg-white">

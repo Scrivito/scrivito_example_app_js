@@ -43,9 +43,7 @@ function blogPostNavigationOptions(obj) {
   let backgroundImage = obj.get("titleImage");
   if (!backgroundImage) {
     const blog = Scrivito.Obj.getByPermalink("blog");
-    if (blog) {
-      backgroundImage = blog.get("navigationBackgroundImage");
-    }
+    if (blog) backgroundImage = blog.get("navigationBackgroundImage");
   }
 
   return imageWithMediumHeightOrMinHeight(backgroundImage);
@@ -82,9 +80,7 @@ function pageNavigationOptions(obj) {
 
   const navigationHeight = obj.get("navigationHeight") || "small";
   let heightClassName = null;
-  if (navigationHeight !== "small") {
-    heightClassName = navigationHeight;
-  }
+  if (navigationHeight !== "small") heightClassName = navigationHeight;
 
   let navigationStyle = "solidWhite";
   if (backgroundImage || navigationHeight !== "small") {

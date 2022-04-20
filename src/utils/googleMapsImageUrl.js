@@ -115,18 +115,12 @@ function toColor(value) {
 }
 
 function computeTag(featureType, elementType) {
-  if (!featureType && !elementType) {
-    return "feature:all";
-  }
+  if (!featureType && !elementType) return "feature:all";
 
   const target = [];
 
-  if (featureType) {
-    target.push(`feature:${featureType}`);
-  }
-  if (elementType) {
-    target.push(`element:${elementType}`);
-  }
+  if (featureType) target.push(`feature:${featureType}`);
+  if (elementType) target.push(`element:${elementType}`);
 
   return target.join(separator);
 }

@@ -9,9 +9,7 @@ function AllIcons({ setWidgetIcon, currentIcon, hide }) {
     const result = {};
     fontAwesomeIcons.forEach((icon) =>
       icon.categories.forEach((category) => {
-        if (!result[category]) {
-          result[category] = [];
-        }
+        if (!result[category]) result[category] = [];
         result[category].push(icon);
       })
     );
@@ -22,9 +20,7 @@ function AllIcons({ setWidgetIcon, currentIcon, hide }) {
     setTimeout(() => setInitialRender(false), 10);
   }, []);
 
-  if (hide) {
-    return null;
-  }
+  if (hide) return null;
 
   return (
     <React.Fragment>
@@ -88,9 +84,7 @@ function Category({ category, icons, currentIcon, setWidgetIcon }) {
           const cssIcon = `fa-${icon.id}`;
 
           const aClassNames = [];
-          if (currentIcon === cssIcon) {
-            aClassNames.push("active");
-          }
+          if (currentIcon === cssIcon) aClassNames.push("active");
 
           // Note: It is up to 10% faster to inline the SingleIcon component,
           // instead of creating one SingleIcon component for each of the 675 icons.

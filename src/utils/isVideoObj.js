@@ -1,12 +1,8 @@
 function isVideoObj(obj) {
-  if (!obj) {
-    return false;
-  }
+  if (!obj) return false;
 
   const contentType = obj.contentType();
-  if (!contentType) {
-    return false;
-  }
+  if (!contentType) return false;
 
   return contentType.startsWith("video/");
 }

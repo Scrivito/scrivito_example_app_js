@@ -55,12 +55,8 @@ const NavChild = Scrivito.connect(BaseNavChild);
 
 const NavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
   const classNames = ["nav-item"];
-  if (open) {
-    classNames.push("open");
-  }
-  if (isActive(child)) {
-    classNames.push("active");
-  }
+  if (open) classNames.push("open");
+  if (isActive(child)) classNames.push("active");
 
   return (
     <li className={classNames.join(" ")} {...otherProps}>
@@ -74,12 +70,8 @@ const NavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
 const Dropdown = Scrivito.connect(
   ({ child, open, toggleDropdown, ...otherProps }) => {
     const classNames = ["nav-item"];
-    if (open) {
-      classNames.push("open");
-    }
-    if (isActive(child)) {
-      classNames.push("active");
-    }
+    if (open) classNames.push("open");
+    if (isActive(child)) classNames.push("active");
 
     return (
       <li className={classNames.join(" ")} {...otherProps}>
@@ -112,14 +104,10 @@ const Dropdown = Scrivito.connect(
 );
 
 function isActive(page) {
-  if (!Scrivito.currentPage()) {
-    return false;
-  }
+  if (!Scrivito.currentPage()) return false;
 
   const currentPath = Scrivito.currentPage().path();
-  if (currentPath) {
-    return currentPath.startsWith(page.path());
-  }
+  if (currentPath) return currentPath.startsWith(page.path());
 
   if (Scrivito.currentPage().objClass() === "BlogPost") {
     return page.objClass() === "Blog";

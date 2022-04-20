@@ -31,9 +31,7 @@ const ColumnsEditor = Scrivito.connect(({ widget, readOnly, currentGrid }) => {
       <Alignment
         alignment={widget.get("alignment")}
         setAlignment={(alignment) => {
-          if (!readOnly) {
-            widget.update({ alignment });
-          }
+          if (!readOnly) widget.update({ alignment });
         }}
         readOnly={readOnly}
       />
@@ -149,12 +147,8 @@ const ColumnsEditor = Scrivito.connect(({ widget, readOnly, currentGrid }) => {
   );
 
   function adjustGrid(newGrid) {
-    if (readOnly) {
-      return;
-    }
-    if (isEqual(currentGrid, newGrid)) {
-      return;
-    }
+    if (readOnly) return;
+    if (isEqual(currentGrid, newGrid)) return;
 
     adjustNumberOfColumns(widget, newGrid.length);
     distributeContents(widget.get("columns"), originalContents);
@@ -172,10 +166,7 @@ function calculateContentIds(contents) {
 
 function PresetGrid({ currentGrid, adjustGrid, title, grid, readOnly }) {
   const classNames = readOnly ? ["gle-preview"] : ["gle-preview", "clickable"];
-
-  if (isEqual(currentGrid, grid)) {
-    classNames.push("active");
-  }
+  if (isEqual(currentGrid, grid)) classNames.push("active");
 
   return (
     <div
@@ -302,16 +293,12 @@ class GridLayoutEditor extends React.Component {
       this.gridRulerRef.current.firstChild.getBoundingClientRect().width + 10;
 
     if (this.state.draggableGrid !== draggableGrid) {
-      this.setState({
-        draggableGrid,
-      });
+      this.setState({ draggableGrid });
     }
   }
 
   onDragStop({ colIndex, deltaColSize }) {
-    if (deltaColSize === 0) {
-      return;
-    }
+    if (deltaColSize === 0) return;
 
     const newGrid = [...this.props.currentGrid];
     newGrid[colIndex] += deltaColSize;
@@ -321,9 +308,7 @@ class GridLayoutEditor extends React.Component {
   }
 
   adjustNumberOfColumns(wantedCols) {
-    if (wantedCols > 6 || wantedCols < 1) {
-      return;
-    }
+    if (wantedCols > 6 || wantedCols < 1) return;
 
     if (wantedCols === 5) {
       this.props.adjustGrid([2, 2, 2, 2, 4]);
@@ -427,9 +412,7 @@ function gridOfWidget(containerWidget) {
 
 function adjustNumberOfColumns(containerWidget, desiredLength) {
   const columns = containerWidget.get("columns");
-  if (columns.length === desiredLength) {
-    return;
-  }
+  if (columns.length === desiredLength) return;
 
   const newColumns = times(desiredLength).map(
     (index) => columns[index] || new ColumnWidget({})
@@ -462,9 +445,7 @@ function adjustColSize(columns, newGrid) {
 }
 
 function AlignmentDescription({ alignment }) {
-  if (alignment !== "stretch") {
-    return null;
-  }
+  if (alignment !== "stretch") return null;
 
   return (
     <div className="scrivito_notice_body">

@@ -25,13 +25,8 @@ Scrivito.provideComponent("LinkWidget", ({ widget }) => {
 });
 
 const LinkTitle = Scrivito.connect(({ link }) => {
-  if (link.title()) {
-    return link.title();
-  }
-
-  if (link.isInternal()) {
-    return link.obj().get("title");
-  }
+  if (link.title()) return link.title();
+  if (link.isInternal()) return link.obj().get("title");
 
   return link.url();
 });

@@ -9,9 +9,7 @@ function SearchResultsTagList({ tags, params }) {
       showTags={tags.length}
       setTag={(newTag) => {
         const newParams = { q: params.q };
-        if (newTag) {
-          newParams.tag = newTag;
-        }
+        if (newTag) newParams.tag = newTag;
 
         Scrivito.navigateTo(() => Scrivito.currentPage(), newParams);
       }}

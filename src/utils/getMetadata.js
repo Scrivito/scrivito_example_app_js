@@ -17,9 +17,7 @@ function getMetadata(page) {
   }
 
   const description = page.get("metaDataDescription");
-  if (description) {
-    meta.push({ name: "description", content: description });
-  }
+  if (description) meta.push({ name: "description", content: description });
 
   const root = Scrivito.Obj.root();
   if (root) {
@@ -29,15 +27,11 @@ function getMetadata(page) {
     }
 
     const twitterSite = root.get("twitterSite");
-    if (twitterSite) {
-      meta.push({ name: "twitter:site", content: twitterSite });
-    }
+    if (twitterSite) meta.push({ name: "twitter:site", content: twitterSite });
   }
 
   const tcCreator = page.get("tcCreator");
-  if (tcCreator) {
-    meta.push({ name: "twitter:creator", content: tcCreator });
-  }
+  if (tcCreator) meta.push({ name: "twitter:creator", content: tcCreator });
 
   const tcDescription =
     page.get("tcDescription") ||
@@ -53,14 +47,10 @@ function getMetadata(page) {
     "image",
   ]);
 
-  if (tcImage) {
-    meta.push({ name: "twitter:image", content: tcImage });
-  }
+  if (tcImage) meta.push({ name: "twitter:image", content: tcImage });
 
   const tcTitle = page.get("tcTitle") || page.get("title");
-  if (tcTitle) {
-    meta.push({ name: "twitter:title", content: tcTitle });
-  }
+  if (tcTitle) meta.push({ name: "twitter:title", content: tcTitle });
 
   const ogDescription =
     page.get("ogDescription") ||
@@ -76,14 +66,10 @@ function getMetadata(page) {
     "image",
   ]);
 
-  if (ogImage) {
-    meta.push({ property: "og:image", content: ogImage });
-  }
+  if (ogImage) meta.push({ property: "og:image", content: ogImage });
 
   const ogTitle = page.get("ogTitle") || page.get("title");
-  if (ogTitle) {
-    meta.push({ property: "og:title", content: ogTitle });
-  }
+  if (ogTitle) meta.push({ property: "og:title", content: ogTitle });
 
   return meta;
 }
@@ -92,13 +78,11 @@ function firstImageUrlForAttributes(obj, attributes) {
   let url;
 
   attributes.forEach((attribute) => {
-    if (url) {
-      return;
-    }
+    if (url) return;
+
     const binary = obj.get(attribute);
-    if (isVideoObj(binary)) {
-      return;
-    }
+    if (isVideoObj(binary)) return;
+
     url = urlFromBinary(binary);
   });
 

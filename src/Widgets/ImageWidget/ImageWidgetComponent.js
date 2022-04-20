@@ -26,14 +26,10 @@ Scrivito.provideComponent("ImageWidget", ({ widget }) => {
 
 function alternativeText(widget) {
   const widgetAlternativeText = widget.get("alternativeText");
-  if (widgetAlternativeText) {
-    return widgetAlternativeText;
-  }
+  if (widgetAlternativeText) return widgetAlternativeText;
 
   const image = widget.get("image");
-  if (image) {
-    return image.get("alternativeText");
-  }
+  if (image) return image.get("alternativeText");
 
   return "";
 }

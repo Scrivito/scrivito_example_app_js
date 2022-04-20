@@ -3,12 +3,8 @@ import * as Scrivito from "scrivito";
 
 Scrivito.provideComponent("BoxWidget", ({ widget }) => {
   const classNames = ["card"];
-  if (widget.get("boxStyle") !== "white") {
-    classNames.push("card-theme");
-  }
-  if (widget.get("useOffset")) {
-    classNames.push("box-offset");
-  }
+  if (widget.get("boxStyle") !== "white") classNames.push("card-theme");
+  if (widget.get("useOffset")) classNames.push("box-offset");
 
   return (
     <Scrivito.WidgetTag className={classNames.join(" ")}>

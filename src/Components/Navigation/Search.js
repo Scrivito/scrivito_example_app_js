@@ -53,9 +53,7 @@ export const SearchBox = Scrivito.connect(
     }
 
     initFocus() {
-      if (this.props.showSearch) {
-        this.inputRef.current.focus();
-      }
+      if (this.props.showSearch) this.inputRef.current.focus();
     }
 
     onChange(event) {

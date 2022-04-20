@@ -13,9 +13,7 @@ function Icon({ icon, size, title }) {
 }
 
 function IconComponent({ icon, size, link }) {
-  if (!link) {
-    return <Icon icon={icon} size={size} />;
-  }
+  if (!link) return <Icon icon={icon} size={size} />;
 
   const title = link.title() || "";
 

@@ -19,9 +19,7 @@ Scrivito.provideComponent("ButtonWidget", ({ widget }) => {
   classNames.push(widget.get("style") || "btn-primary");
 
   const alignment = widget.get("alignment");
-  if (alignment === "block") {
-    classNames.push("btn-block");
-  }
+  if (alignment === "block") classNames.push("btn-block");
 
   return (
     <WrapIfClassName className={alignmentClassName(alignment)}>

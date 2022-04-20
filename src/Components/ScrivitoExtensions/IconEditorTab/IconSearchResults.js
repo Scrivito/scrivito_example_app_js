@@ -13,9 +13,7 @@ function IconSearchResults({ searchValue, setWidgetIcon, currentIcon }) {
     return new Fuse(fontAwesomeIcons, fuseOptions);
   }, []);
 
-  if (!searchValue.length) {
-    return null;
-  }
+  if (!searchValue.length) return null;
 
   const results = fuse.search(searchValue);
 

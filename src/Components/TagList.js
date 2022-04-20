@@ -2,9 +2,7 @@ import * as React from "react";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 function TagList({ showTags, tags, currentTag, setTag }) {
-  if (!showTags) {
-    return null;
-  }
+  if (!showTags) return null;
 
   const onClick = (e, tag) => {
     e.preventDefault();

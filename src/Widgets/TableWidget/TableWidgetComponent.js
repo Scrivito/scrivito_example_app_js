@@ -55,14 +55,10 @@ Scrivito.provideComponent("TableWidget", ({ widget }) => (
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const AddMoreRows = Scrivito.connect(
   ({ widget, title, attribute, maxRows }) => {
-    if (!Scrivito.isInPlaceEditingActive()) {
-      return null;
-    }
+    if (!Scrivito.isInPlaceEditingActive()) return null;
 
     const currentRows = widget.get(attribute);
-    if (maxRows && currentRows.length >= maxRows) {
-      return null;
-    }
+    if (maxRows && currentRows.length >= maxRows) return null;
 
     return (
       <tr>

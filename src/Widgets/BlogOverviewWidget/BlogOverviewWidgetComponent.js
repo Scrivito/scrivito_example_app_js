@@ -6,9 +6,7 @@ Scrivito.provideComponent("BlogOverviewWidget", ({ widget }) => {
   let { tag } = Scrivito.currentPageParams();
 
   const tags = widget.get("tags");
-  if (!tag && tags.length) {
-    tag = tags;
-  }
+  if (!tag && tags.length) tag = tags;
 
   return (
     <BlogPostPreviewList

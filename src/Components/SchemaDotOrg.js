@@ -50,9 +50,7 @@ function dataFromItem(item) {
 
 function pruneEmptyValues(data) {
   let prunedData = mapValues(data, (subData) => {
-    if (isPlainObject(subData)) {
-      return pruneEmptyValues(subData);
-    }
+    if (isPlainObject(subData)) return pruneEmptyValues(subData);
     return subData;
   });
 
@@ -61,9 +59,7 @@ function pruneEmptyValues(data) {
   const keysWithoutAt = Object.keys(prunedData).filter(
     (sd) => !sd.startsWith("@")
   );
-  if (keysWithoutAt.length) {
-    return prunedData;
-  }
+  if (keysWithoutAt.length) return prunedData;
   return {};
 }
 

@@ -68,9 +68,7 @@ function StaticGoogleMap({ address, apiKey, zoom, children }) {
 }
 
 function scaleMapSize(width, height) {
-  if (!width || !height || width <= maxWidth) {
-    return { width, height };
-  }
+  if (!width || !height || width <= maxWidth) return { width, height };
 
   const factor = height / width;
   const adjustedHeight = Math.round(maxWidth * factor);
@@ -93,17 +91,13 @@ function getMapUrl({ width, height, address, apiKey, zoom }) {
     ie: "UTF8",
   };
 
-  if (apiKey) {
-    params.key = apiKey;
-  }
+  if (apiKey) params.key = apiKey;
 
   return googleMapsImageUrl(params);
 }
 
 const Widgets = Scrivito.connect(({ widget, mapType }) => {
-  if (!widget.get("showWidgets")) {
-    return null;
-  }
+  if (!widget.get("showWidgets")) return null;
 
   const containerClasses = ["container", "container-initial"];
   if (mapType === "interactive") {

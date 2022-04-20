@@ -82,9 +82,7 @@ const fallbackImageUrl =
   "testimonial_slider_widget_fallback_author.jpeg";
 
 const AddTestimonial = ({ widget }) => {
-  if (!Scrivito.isInPlaceEditingActive()) {
-    return null;
-  }
+  if (!Scrivito.isInPlaceEditingActive()) return null;
 
   return (
     <div className="text-center">

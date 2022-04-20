@@ -10,16 +10,10 @@ Scrivito.provideComponent("HeadlineWidget", ({ widget }) => {
   const classNames = ["headline-widget", style];
 
   const alignment = alignmentClassName(widget.get("alignment"));
-  if (alignment) {
-    classNames.push(alignment);
-  }
+  if (alignment) classNames.push(alignment);
 
-  if (widget.get("showDividingLine")) {
-    classNames.push("b-bottom");
-  }
-  if (!widget.get("showMargin")) {
-    classNames.push("no-margin");
-  }
+  if (widget.get("showDividingLine")) classNames.push("b-bottom");
+  if (!widget.get("showMargin")) classNames.push("no-margin");
 
   return (
     <>

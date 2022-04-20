@@ -21,14 +21,10 @@ Scrivito.provideComponent("AddressWidget", ({ widget }) => (
 
 const Logo = Scrivito.connect(() => {
   const root = Scrivito.Obj.root();
-  if (!root) {
-    return null;
-  }
+  if (!root) return null;
 
   const logo = root.get("logoDark");
-  if (!logo) {
-    return null;
-  }
+  if (!logo) return null;
 
   return (
     <Scrivito.LinkTag to={root}>
@@ -83,10 +79,7 @@ const Address = Scrivito.connect(({ addressWidget }) => {
 
 function Table(props) {
   const lines = Object.entries(props).filter(([_prop, value]) => value);
-
-  if (!lines.length) {
-    return null;
-  }
+  if (!lines.length) return null;
 
   return (
     <table>

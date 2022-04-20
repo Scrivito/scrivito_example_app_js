@@ -110,9 +110,7 @@ const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {
     "gutter0",
     "thumbnail-gallery-widget",
   ];
-  if (currentTag && !tags.includes(currentTag)) {
-    classNames.push("squeezed");
-  }
+  if (currentTag && !tags.includes(currentTag)) classNames.push("squeezed");
 
   return (
     <div className={classNames.join(" ")}>

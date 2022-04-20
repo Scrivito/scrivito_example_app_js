@@ -34,9 +34,7 @@ Scrivito.provideComponent("CarouselWidget", ({ widget }) => {
 });
 
 const DescriptionBox = Scrivito.connect(({ widget }) => {
-  if (!widget.get("showDescription")) {
-    return null;
-  }
+  if (!widget.get("showDescription")) return null;
 
   return (
     <div className="container">

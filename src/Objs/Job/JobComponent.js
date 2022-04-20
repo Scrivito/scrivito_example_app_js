@@ -34,9 +34,7 @@ Scrivito.provideComponent("Job", ({ page }) => (
 const JobDatePosted = Scrivito.connect(({ page }) => {
   const datePosted = page.get("datePosted");
 
-  if (!datePosted && !Scrivito.isInPlaceEditingActive()) {
-    return null;
-  }
+  if (!datePosted && !Scrivito.isInPlaceEditingActive()) return null;
 
   return (
     <Scrivito.ContentTag content={page} attribute="datePosted" tag="span">
@@ -54,9 +52,7 @@ const JobDatePosted = Scrivito.connect(({ page }) => {
 const JobValidThrough = Scrivito.connect(({ page }) => {
   const validThrough = page.get("validThrough");
 
-  if (!validThrough && !Scrivito.isInPlaceEditingActive()) {
-    return null;
-  }
+  if (!validThrough && !Scrivito.isInPlaceEditingActive()) return null;
 
   return (
     <h2 className="h5">

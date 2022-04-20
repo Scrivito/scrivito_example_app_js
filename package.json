@@ -11,7 +11,8 @@
     "private": true
   },
   "overrides": {
-    "cli-table3@<0.6.1": "^0.6.1"
+    "cli-table3@<0.6.1": "^0.6.1",
+    "async@<2.0.0": "^2.6.4"
   },
   "dependencies": {
     "@babel/core": "^7.16.7",

@@ -16,9 +16,7 @@ dotenv.config();
 
 // Extend headersCsp with custom endpoint URL
 const endpoint = process.env.SCRIVITO_ENDPOINT;
-if (endpoint) {
-  headersCsp["script-src"].push(`https://${endpoint}`);
-}
+if (endpoint) headersCsp["script-src"].push(`https://${endpoint}`);
 
 const BUILD_DIR = "build";
 

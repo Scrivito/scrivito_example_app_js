@@ -20,9 +20,7 @@ export default async function prerenderObjs(
   const files = [];
   const storeFile = async (file) => {
     const storedFile = await storeResult(targetDir, file);
-    if (storedFile) {
-      files.push(storedFile);
-    }
+    if (storedFile) files.push(storedFile);
   };
 
   const objsGroups = chunk(objs, 10);
@@ -45,9 +43,7 @@ export default async function prerenderObjs(
   );
 
   console.timeEnd("[prerenderObjs]");
-  if (failedCount) {
-    reportError(`Skipped ${failedCount} objs due to failures.`);
-  }
+  if (failedCount) reportError(`Skipped ${failedCount} objs due to failures.`);
 
   return files;
 }

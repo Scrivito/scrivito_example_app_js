@@ -124,12 +124,12 @@ class Navigation extends React.Component {
           topSectionStyle.background = [
             {
               image:
-                "radial-gradient(ellipse at center, rgba(61,65,66,.5) 0%," +
-                " rgba(61,65,66,1) 90%)",
+                "radial-gradient(ellipse at center, rgba(58, 65, 81,.5) 0%," +
+                " rgba(58, 65, 81,1) 90%)",
             },
             {
               image:
-                "linear-gradient(to bottom, rgba(61,65,66,0) 0%, rgba(61,65,66,1) 90%)",
+                "linear-gradient(to bottom, rgba(58, 65, 81,0) 0%, rgba(58, 65, 81,1) 90%)",
             },
           ];
           if (!isVideoObj(backgroundImage)) {
@@ -142,7 +142,7 @@ class Navigation extends React.Component {
           topSectionStyle.background = [
             {
               image:
-                "linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))",
+                "linear-gradient(rgba(58, 65, 81, 0.7), rgba(58, 65, 81, 0.7))",
             },
           ];
           if (!isVideoObj(backgroundImage)) {

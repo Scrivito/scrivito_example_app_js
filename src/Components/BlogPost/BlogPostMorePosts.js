@@ -3,12 +3,8 @@ import * as Scrivito from "scrivito";
 import BlogPostPreviewList from "./BlogPostPreviewList";
 
 function BlogPostMorePosts({ author, filterBlogPostId }) {
-  if (!author) {
-    return null;
-  }
-  if (author.objClass() !== "Author") {
-    return null;
-  }
+  if (!author) return null;
+  if (author.objClass() !== "Author") return null;
 
   return (
     <section className="bg-white">

@@ -5,9 +5,7 @@ import getMetadata from "../../utils/getMetadata";
 
 function SocialCardsTab({ obj }) {
   const uiContext = Scrivito.uiContext();
-  if (uiContext === undefined) {
-    return null;
-  }
+  if (uiContext === undefined) return null;
 
   return (
     <div className={`scrivito_${uiContext.theme}`}>
@@ -138,9 +136,7 @@ const FacebookPreview = Scrivito.connect(({ obj }) => (
 ));
 
 function OptionalImage({ src }) {
-  if (!src) {
-    return null;
-  }
+  if (!src) return null;
 
   return <img src={src} alt="seo-card-preview-img" />;
 }
@@ -150,16 +146,12 @@ function lookupMetadata(obj, value) {
 
   if (value.includes("og:")) {
     const ogData = metadata.find((x) => x.property === value);
-    if (ogData) {
-      return ogData.content;
-    }
+    if (ogData) return ogData.content;
   }
 
   if (value.includes("twitter:")) {
     const twitterData = metadata.find((x) => x.name === value);
-    if (twitterData) {
-      return twitterData.content;
-    }
+    if (twitterData) return twitterData.content;
   }
 
   return "";

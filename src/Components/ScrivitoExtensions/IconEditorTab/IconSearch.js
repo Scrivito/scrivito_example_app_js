@@ -33,9 +33,7 @@ function IconSearch({ setSearchValue, searchValue }) {
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 function ClearSearchButton({ setSearchValue, searchValue }) {
-  if (!searchValue.length) {
-    return null;
-  }
+  if (!searchValue.length) return null;
 
   return (
     <a

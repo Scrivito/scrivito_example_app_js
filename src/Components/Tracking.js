@@ -25,9 +25,7 @@ export default function Tracking() {
 function configureGoogleAnalytics() {
   return Scrivito.load(() => {
     const rootPage = Scrivito.Obj.root();
-    if (!rootPage) {
-      return undefined;
-    }
+    if (!rootPage) return undefined;
     return rootPage.get("googleAnalyticsTrackingId");
   }).then((trackingId) => {
     if (trackingId) {

@@ -1,9 +1,7 @@
 import * as React from "react";
 
 function ScrollToNextSectionLink({ heightClassName }) {
-  if (heightClassName !== "full-height") {
-    return null;
-  }
+  if (heightClassName !== "full-height") return null;
 
   return (
     <a

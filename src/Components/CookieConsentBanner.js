@@ -13,9 +13,7 @@ function CookieConsentBanner() {
     setVisible(cookieConsentChoice === "undecided");
   }, [cookieConsentChoice]);
 
-  if (!visible || !consentUrl) {
-    return null;
-  }
+  if (!visible || !consentUrl) return null;
 
   return (
     <CookieBanner
@@ -75,15 +73,11 @@ function CookieBanner(props) {
 function cookieConsentUrl() {
   const root = Scrivito.Obj.root();
 
-  if (!root) {
-    return null;
-  }
+  if (!root) return null;
 
   const cookieConsentLink = root.get("cookieConsentLink");
 
-  if (!cookieConsentLink) {
-    return null;
-  }
+  if (!cookieConsentLink) return null;
 
   return {
     url: Scrivito.urlFor(cookieConsentLink),

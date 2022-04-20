@@ -4,10 +4,7 @@ import formatDate from "../../utils/formatDate";
 
 function BlogPostDate({ post }) {
   const date = post.get("publishedAt");
-
-  if (!date) {
-    return null;
-  }
+  if (!date) return null;
 
   return (
     <Scrivito.ContentTag

@@ -14,12 +14,8 @@ const BlogPostPreviewList = Scrivito.connect(
         ["publishedAt", "desc"],
         ["_id", "desc"],
       ]);
-    if (author) {
-      blogPosts = blogPosts.and("author", "refersTo", author);
-    }
-    if (tag) {
-      blogPosts = blogPosts.and("tags", "equals", tag);
-    }
+    if (author) blogPosts = blogPosts.and("author", "refersTo", author);
+    if (tag) blogPosts = blogPosts.and("tags", "equals", tag);
     if (filterBlogPostId) {
       blogPosts = blogPosts.andNot("id", "equals", filterBlogPostId);
     }
@@ -58,9 +54,7 @@ const BlogPostPreviewList = Scrivito.connect(
 );
 
 const MonthHeadline = Scrivito.connect(({ date }) => {
-  if (!date) {
-    return null;
-  }
+  if (!date) return null;
 
   return (
     <div className="blog-timeline--divider">
@@ -108,9 +102,7 @@ const BlogPostPreview = Scrivito.connect(({ post }) => (
 
 const BlogPostTitleImage = Scrivito.connect(({ post }) => {
   const titleImage = post.get("titleImage");
-  if (!isImage(titleImage)) {
-    return null;
-  }
+  if (!isImage(titleImage)) return null;
 
   return (
     <Scrivito.LinkTag to={post}>

@@ -3,9 +3,7 @@ import * as Scrivito from "scrivito";
 import BlogPostDate from "./BlogPostDate";
 
 const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {
-  if (!currentPost || !currentPost.get("publishedAt")) {
-    return null;
-  }
+  if (!currentPost || !currentPost.get("publishedAt")) return null;
 
   return (
     <section className="bg-nav-content">
@@ -49,9 +47,7 @@ const BlogPostNextLink = Scrivito.connect(({ currentBlogPost }) => {
       ])
       .first();
 
-  if (!newerPost) {
-    return null;
-  }
+  if (!newerPost) return null;
 
   return (
     <Scrivito.LinkTag to={newerPost}>
@@ -79,9 +75,7 @@ const BlogPostPreviousLink = Scrivito.connect(({ currentBlogPost }) => {
       ])
       .first();
 
-  if (!olderPost) {
-    return null;
-  }
+  if (!olderPost) return null;
 
   return (
     <Scrivito.LinkTag to={olderPost}>

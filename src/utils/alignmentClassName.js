@@ -7,5 +7,5 @@ export function alignmentClassName(widgetAlignment) {
     return "text-end";
   }
 
-  return "";
+  return null;
 }

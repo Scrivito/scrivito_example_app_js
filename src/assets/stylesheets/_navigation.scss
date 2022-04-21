@@ -70,23 +70,25 @@
   }
 
   > li {
+    transition: background-color 0.15s ease-in-out;
+
     &:hover > a,
     &:focus > a {
       background: transparent;
     }
 
-    &.open > {
-      a,
-      .menu-toggle {
-        background: $nav-hover !important;
+    &.open {
+      background: $nav-hover !important;
+      > a,
+      > .menu-toggle {
         color: #fff !important;
       }
     }
 
     &.active {
+      background: $primary !important;
       > a,
       > .menu-toggle {
-        background: $primary !important;
         color: #fff !important;
       }
     }
@@ -147,18 +149,7 @@
     }
 
     &.active > {
-      a:hover,
-      a:focus {
-        background: $primary;
-        color: #fff;
-      }
-    }
-  }
-
-  li {
-    &.active > {
-      a,
-      .menu-toggle {
+      a {
         background: $primary !important;
         color: #fff !important;
       }

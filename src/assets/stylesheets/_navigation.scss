@@ -227,7 +227,8 @@
       }
 
       .fa {
-        color: $btn-link-disabled-color;
+        opacity: 0.5;
+        cursor: not-allowed;
       }
     }
 
@@ -308,8 +309,11 @@
   }
 }
 
-.bg-white .menu-toggle .fa {
-  color: $primary;
+.bg-white {
+  .navbar-search-toggle .fa,
+  .menu-toggle .fa {
+    color: $primary !important;
+  }
 }
 
 .active .menu-toggle .fa {

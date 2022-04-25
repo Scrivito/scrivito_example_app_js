@@ -303,17 +303,17 @@
 .bg-white {
   .navbar-search-toggle .fa,
   .menu-toggle .fa {
-    color: $primary !important;
+    color: $theme-greydark !important;
   }
 }
 
 .active .menu-toggle .fa {
-  color: #fff;
+  color: #fff !important;
 }
 
 .open {
   .menu-toggle .fa {
-    color: #fff;
+    color: #fff !important;
     transform: rotate(180deg);
   }
 
@@ -323,9 +323,11 @@
 }
 
 .scrolled {
-  .navbar-search-toggle .fa,
-  .nav-item:not(.active) .menu-toggle .fa {
+  .navbar-search-toggle .fa {
     color: $primary;
+  }
+  .nav-item:not(.active) .menu-toggle .fa {
+    color: $theme-greydark;
   }
 }
 
@@ -660,6 +662,7 @@
 
     .active .nav-link {
       border: 1px solid $primary;
+      color: $primary !important;
     }
 
     .nav-link {

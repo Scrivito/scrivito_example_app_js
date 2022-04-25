@@ -83,7 +83,7 @@
     label {
       font-size: 13px;
       line-height: 16px;
-      color: #bbb;
+      color: #888;
       font-weight: 400;
       padding: 2px 5px;
       margin: 0 0 5px 10px;
@@ -97,7 +97,7 @@
       border: 1px solid $theme-greylight;
 
       &:focus {
-        box-shadow: 0 0 0 2px $secondary;
+        box-shadow: 0 0 0 2px $primary;
       }
     }
   }

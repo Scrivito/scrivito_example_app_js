@@ -301,7 +301,9 @@
 }
 
 .bg-white {
-  .navbar-search-toggle .fa,
+  .navbar-search-toggle .fa {
+    color: $primary !important;
+  }
   .menu-toggle .fa {
     color: $theme-greydark !important;
   }

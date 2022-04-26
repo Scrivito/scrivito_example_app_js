@@ -14,11 +14,12 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
   }
 
   return (
-    <div className="form-group">
+    <div className="mb-3">
       <Scrivito.ContentTag
         content={widget}
         attribute="label"
         tag="label"
+        className="form-label"
         {...labelOptions}
       />
       {widget.get("required") ? (

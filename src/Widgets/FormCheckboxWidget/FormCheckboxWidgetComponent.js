@@ -12,7 +12,7 @@ Scrivito.provideComponent("FormCheckboxWidget", ({ widget }) => {
   }
 
   return (
-    <div className="form-check form-check-inline mb-2">
+    <div className="form-check mb-3">
       <input
         className="form-check-input"
         id={id}

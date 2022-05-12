@@ -15,11 +15,9 @@ const ContentProperty = Scrivito.connect(
           )}
           <span>{title}</span>
         </div>
-        <Scrivito.ContentTag
-          content={content}
-          attribute={attribute}
-          className={`content_property_input ${severityClass}`}
-        />
+        <div className={`content_property_input ${severityClass}`}>
+          <Scrivito.ContentTag content={content} attribute={attribute} />
+        </div>
         <div>
           {validationResults.map((v) => (
             <div

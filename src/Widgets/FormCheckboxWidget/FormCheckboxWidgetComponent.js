@@ -30,8 +30,8 @@ Scrivito.provideComponent("FormCheckboxWidget", ({ widget }) => {
       />
       {widget.get("required") ? (
         <OverlayTrigger
-          placement="bottom"
-          trigger="click"
+          placement="top"
+          trigger="hover"
           overlay={
             <Popover>
               <Popover.Body>mandatory</Popover.Body>
@@ -44,8 +44,8 @@ Scrivito.provideComponent("FormCheckboxWidget", ({ widget }) => {
 
       {widget.get("helpText") ? (
         <OverlayTrigger
-          placement="bottom"
-          trigger="click"
+          placement="top"
+          trigger="hover"
           overlay={
             <Popover>
               <Popover.Body>

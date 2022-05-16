@@ -8,12 +8,10 @@
   .text-mandatory {
     font-weight: bold;
     color: $secondary;
+    cursor: default;
   }
   .fa {
     color: #ccc;
-  }
-  .help-cursor:hover {
-    cursor: help;
   }
 }
 

@@ -32,7 +32,7 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
             </Popover>
           }
         >
-          <span className="text-mandatory help-cursor">*</span>
+          <span className="text-mandatory">*</span>
         </OverlayTrigger>
       ) : null}
 
@@ -50,7 +50,7 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
             </Popover>
           }
         >
-          <i className="fa fa-question-circle-o fa-1x ml-1 help-cursor"></i>
+          <i className="fa fa-question-circle-o fa-1x ml-1"></i>
         </OverlayTrigger>
       ) : null}
 

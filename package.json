@@ -24,7 +24,7 @@
     "autotrack": "^2.4.1",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
-    "content-security-policy-builder": "^2.1.0",
+    "content-security-policy-builder": "^2.1.1",
     "copy-webpack-plugin": "^7.0.0",
     "core-js": "^3.20.2",
     "css-loader": "^6.5.1",

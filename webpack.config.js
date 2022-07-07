@@ -52,6 +52,9 @@ function webpackConfig(env = {}) {
       scrivito_extensions: "./scrivito_extensions.js",
     },
     target: "web",
+    optimization: {
+      runtimeChunk: "single",
+    },
     module: {
       rules: [
         {

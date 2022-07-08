@@ -23,7 +23,9 @@ export default function App() {
             <div className="content-wrapper">
               <Navigation />
               <Scrivito.CurrentPage />
-              <NotFoundErrorPage />
+              <Scrivito.NotFoundErrorPage>
+                <NotFoundErrorPage />
+              </Scrivito.NotFoundErrorPage>
             </div>
             <Footer />
             <CurrentPageMetadata />

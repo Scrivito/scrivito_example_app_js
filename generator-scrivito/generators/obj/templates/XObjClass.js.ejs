@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
 import metadataAttributes from "../_metadataAttributes";
 
-const <%= objClassName %> = Scrivito.provideObjClass("<%= objClassName %>", {
+export const <%= objClassName %> = Scrivito.provideObjClass("<%= objClassName %>", {
   attributes: {
     title: "string",
     body: ["widgetlist", { only: "SectionWidget" }],
@@ -9,5 +9,3 @@ const <%= objClassName %> = Scrivito.provideObjClass("<%= objClassName %>", {
   },
   extractTextAttributes: ["body"],
 });
-
-export default <%= objClassName %>;

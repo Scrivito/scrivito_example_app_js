@@ -1,9 +1,11 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import AuthorImage from "../AuthorImage";
-import isImage from "../../utils/isImage";
+import { AuthorImage } from "../AuthorImage";
+import { isImage } from "../../utils/isImage";
 
-function BlogPostAuthor({ author }) {
+export const BlogPostAuthor = Scrivito.connect(function BlogPostAuthor({
+  author,
+}) {
   if (!author) return null;
   if (author.objClass() !== "Author") return null;
 
@@ -17,7 +19,7 @@ function BlogPostAuthor({ author }) {
       </div>
     </section>
   );
-}
+});
 
 const AuthorImageAndDescription = Scrivito.connect(({ author }) => {
   if (!isImage(author.get("image"))) {
@@ -50,5 +52,3 @@ const AuthorDescription = Scrivito.connect(({ author }) => (
     <p>{author.get("description")}</p>
   </React.Fragment>
 ));
-
-export default Scrivito.connect(BlogPostAuthor);

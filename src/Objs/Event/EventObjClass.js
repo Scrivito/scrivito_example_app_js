@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
-import metadataAttributes from "../_metadataAttributes";
+import { metadataAttributes } from "../_metadataAttributes";
 
-const Event = Scrivito.provideObjClass("Event", {
+export const Event = Scrivito.provideObjClass("Event", {
   attributes: {
     body: ["widgetlist", { only: "SectionWidget" }],
     date: "date",
@@ -23,5 +23,3 @@ const Event = Scrivito.provideObjClass("Event", {
     "body",
   ],
 });
-
-export default Event;

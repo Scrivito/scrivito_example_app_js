@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import formatDate from "../../utils/formatDate";
+import { formatDate } from "../../utils/formatDate";
 
-function BlogPostDate({ post }) {
+export const BlogPostDate = Scrivito.connect(function BlogPostDate({ post }) {
   const date = post.get("publishedAt");
   if (!date) return null;
 
@@ -17,6 +17,4 @@ function BlogPostDate({ post }) {
       {formatDate(date, "mm/dd")}
     </Scrivito.ContentTag>
   );
-}
-
-export default Scrivito.connect(BlogPostDate);
+});

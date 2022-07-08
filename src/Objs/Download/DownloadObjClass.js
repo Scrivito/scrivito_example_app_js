@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const Download = Scrivito.provideObjClass("Download", {
+export const Download = Scrivito.provideObjClass("Download", {
   attributes: {
     blob: "binary",
     tags: "stringlist",
@@ -8,5 +8,3 @@ const Download = Scrivito.provideObjClass("Download", {
   },
   extractTextAttributes: ["blob:text"],
 });
-
-export default Download;

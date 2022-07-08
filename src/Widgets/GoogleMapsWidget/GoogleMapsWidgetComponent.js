@@ -2,8 +2,8 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import useResizeObserver from "use-resize-observer";
 
-import googleMapsApiKey from "../../utils/googleMapsApiKey";
-import googleMapsImageUrl from "../../utils/googleMapsImageUrl";
+import { googleMapsApiKey } from "../../utils/googleMapsApiKey";
+import { googleMapsImageUrl } from "../../utils/googleMapsImageUrl";
 import "./GoogleMapsWidget.scss";
 
 const maxWidth = 640;

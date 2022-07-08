@@ -1,4 +1,4 @@
-function dataFromAddressWidget(addressWidget) {
+export function dataFromAddressWidget(addressWidget) {
   return {
     "@type": "Place",
     name: addressWidget.get("locationName"),
@@ -18,5 +18,3 @@ function addressFromAddressWidget(addressWidget) {
     addressCountry: addressWidget.get("locationCountry"),
   };
 }
-
-export default dataFromAddressWidget;

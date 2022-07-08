@@ -1,4 +1,4 @@
-import SocialCardsTab from "../Components/ScrivitoExtensions/SocialCardsTab";
+import { SocialCardsTab } from "../Components/ScrivitoExtensions/SocialCardsTab";
 
 export const metadataEditingConfigAttributes = {
   metaDataDescription: {

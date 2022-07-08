@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const ImageWidget = Scrivito.provideWidgetClass("ImageWidget", {
+export const ImageWidget = Scrivito.provideWidgetClass("ImageWidget", {
   attributes: {
     image: ["reference", { only: "Image" }],
     alignment: ["enum", { values: ["left", "center", "right"] }],
@@ -21,5 +21,3 @@ const ImageWidget = Scrivito.provideWidgetClass("ImageWidget", {
     ],
   },
 });
-
-export default ImageWidget;

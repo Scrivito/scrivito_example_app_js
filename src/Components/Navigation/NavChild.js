@@ -51,7 +51,7 @@ class BaseNavChild extends React.Component {
   }
 }
 
-const NavChild = Scrivito.connect(BaseNavChild);
+export const NavChild = Scrivito.connect(BaseNavChild);
 
 const NavSingleChild = Scrivito.connect(({ child, open, ...otherProps }) => {
   const classNames = ["nav-item"];
@@ -115,5 +115,3 @@ function isActive(page) {
 
   return false;
 }
-
-export default NavChild;

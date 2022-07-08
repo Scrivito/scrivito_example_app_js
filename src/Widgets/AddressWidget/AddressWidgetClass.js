@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const AddressWidget = Scrivito.provideWidgetClass("AddressWidget", {
+export const AddressWidget = Scrivito.provideWidgetClass("AddressWidget", {
   attributes: {
     showLogo: "boolean",
     showBorderBottom: "boolean",
@@ -29,5 +29,3 @@ const AddressWidget = Scrivito.provideWidgetClass("AddressWidget", {
     "email",
   ],
 });
-
-export default AddressWidget;

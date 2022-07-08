@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import BlogPostDate from "./BlogPostDate";
+import { BlogPostDate } from "./BlogPostDate";
 
-const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {
+export const BlogPostNavigation = Scrivito.connect(({ currentPost }) => {
   if (!currentPost || !currentPost.get("publishedAt")) return null;
 
   return (
@@ -83,5 +83,3 @@ const BlogPostPreviousLink = Scrivito.connect(({ currentBlogPost }) => {
     </Scrivito.LinkTag>
   );
 });
-
-export default BlogPostNavigation;

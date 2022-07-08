@@ -17,7 +17,10 @@ function logoObj({ scrolled, navigationStyle }) {
   return undefined;
 }
 
-function Logo({ scrolled, navigationStyle }) {
+export const Logo = Scrivito.connect(function Logo({
+  scrolled,
+  navigationStyle,
+}) {
   if (!Scrivito.Obj.root()) return null;
 
   const logo = logoObj({ scrolled, navigationStyle });
@@ -27,6 +30,4 @@ function Logo({ scrolled, navigationStyle }) {
       <Scrivito.ImageTag content={logo} alt="Logo" />
     </Scrivito.LinkTag>
   );
-}
-
-export default Scrivito.connect(Logo);
+});

@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 
-class SearchInput extends React.Component {
+export class SearchInput extends React.Component {
   constructor(props) {
     super(props);
 
@@ -47,5 +47,3 @@ class SearchInput extends React.Component {
     Scrivito.navigateTo(() => Scrivito.currentPage(), { q: this.state.q });
   }
 }
-
-export default SearchInput;

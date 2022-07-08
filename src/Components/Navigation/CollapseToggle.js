@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function CollapseToggle({ expanded, toggleExpanded }) {
+export function CollapseToggle({ expanded, toggleExpanded }) {
   const classNames = ["navbar-toggler"];
   if (!expanded) classNames.push("collapsed");
 
@@ -19,5 +19,3 @@ function CollapseToggle({ expanded, toggleExpanded }) {
     </button>
   );
 }
-
-export default CollapseToggle;

@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const TableWidget = Scrivito.provideWidgetClass("TableWidget", {
+export const TableWidget = Scrivito.provideWidgetClass("TableWidget", {
   attributes: {
     rows: ["widgetlist", { only: "TableRowWidget" }],
     summaryRows: ["widgetlist", { only: "TableRowWidget" }],
@@ -10,5 +10,3 @@ const TableWidget = Scrivito.provideWidgetClass("TableWidget", {
     header4: "string",
   },
 });
-
-export default TableWidget;

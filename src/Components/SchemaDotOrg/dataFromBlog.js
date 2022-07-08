@@ -1,7 +1,7 @@
-import urlFromBinary from "../../utils/urlFromBinary";
-import isVideoObj from "../../utils/isVideoObj";
+import { urlFromBinary } from "../../utils/urlFromBinary";
+import { isVideoObj } from "../../utils/isVideoObj";
 
-function dataFromBlog(blog) {
+export function dataFromBlog(blog) {
   const schema = {
     "@context": "http://schema.org",
     "@type": "Blog",
@@ -15,5 +15,3 @@ function dataFromBlog(blog) {
 
   return schema;
 }
-
-export default dataFromBlog;

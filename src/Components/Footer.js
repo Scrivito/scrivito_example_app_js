@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import InPlaceEditingPlaceholder from "./InPlaceEditingPlaceholder";
+import { InPlaceEditingPlaceholder } from "./InPlaceEditingPlaceholder";
 
-function Footer() {
+export const Footer = Scrivito.connect(function Footer() {
   const root = Scrivito.Obj.root();
   if (!root) return null;
 
@@ -20,6 +20,4 @@ function Footer() {
       />
     </React.Fragment>
   );
-}
-
-export default Scrivito.connect(Footer);
+});

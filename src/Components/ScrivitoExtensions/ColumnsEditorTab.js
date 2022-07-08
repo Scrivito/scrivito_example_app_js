@@ -2,9 +2,9 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import Draggable from "react-draggable";
 import { flatten, isEqual, last, take, takeRight, times } from "lodash-es";
-import ColumnWidget from "../../Widgets/ColumnWidget/ColumnWidgetClass";
+import { ColumnWidget } from "../../Widgets/ColumnWidget/ColumnWidgetClass";
 
-function ColumnsEditorTab({ widget }) {
+export function ColumnsEditorTab({ widget }) {
   const includedWidgetIds = calculateContentIds(calculateContents(widget));
 
   return (
@@ -17,8 +17,6 @@ function ColumnsEditorTab({ widget }) {
     />
   );
 }
-
-export default ColumnsEditorTab;
 
 const ColumnsEditor = Scrivito.connect(({ widget, readOnly, currentGrid }) => {
   const originalContents = React.useMemo(

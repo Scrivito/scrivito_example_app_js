@@ -1,11 +1,11 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import AllIcons from "./IconEditorTab/AllIcons";
-import IconComponent from "../Icon";
-import IconSearch from "./IconEditorTab/IconSearch";
-import IconSearchResults from "./IconEditorTab/IconSearchResults";
+import { AllIcons } from "./IconEditorTab/AllIcons";
+import { IconComponent } from "../Icon";
+import { IconSearch } from "./IconEditorTab/IconSearch";
+import { IconSearchResults } from "./IconEditorTab/IconSearchResults";
 
-function IconEditorTab({ widget }) {
+export function IconEditorTab({ widget }) {
   const [searchValue, setSearchValue] = React.useState("");
   const currentIcon = widget.get("icon");
 
@@ -52,5 +52,3 @@ function IconEditorTab({ widget }) {
     widget.update({ icon });
   }
 }
-
-export default IconEditorTab;

@@ -1,8 +1,8 @@
 import * as Scrivito from "scrivito";
-import defaultPageAttributes from "../_defaultPageAttributes";
-import metadataAttributes from "../_metadataAttributes";
+import { defaultPageAttributes } from "../_defaultPageAttributes";
+import { metadataAttributes } from "../_metadataAttributes";
 
-const Homepage = Scrivito.provideObjClass("Homepage", {
+export const Homepage = Scrivito.provideObjClass("Homepage", {
   attributes: {
     ...defaultPageAttributes,
     showAsLandingPage: "boolean",
@@ -23,5 +23,3 @@ const Homepage = Scrivito.provideObjClass("Homepage", {
   extractTextAttributes: ["navigationSection", "body"],
   onlyAsRoot: true,
 });
-
-export default Homepage;

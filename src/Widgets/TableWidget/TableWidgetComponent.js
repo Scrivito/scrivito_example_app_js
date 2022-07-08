@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 
-import placeholderCss from "../../utils/placeholderCss";
-import TableRowWidget from "../TableRowWidget/TableRowWidgetClass";
-import TableRowWidgetComponent from "../TableRowWidget/TableRowWidgetComponent";
+import { placeholderCss } from "../../utils/placeholderCss";
+import { TableRowWidget } from "../TableRowWidget/TableRowWidgetClass";
+import { TableRowWidgetComponent } from "../TableRowWidget/TableRowWidgetComponent";
 import "./TableWidget.scss";
 
 Scrivito.provideComponent("TableWidget", ({ widget }) => (

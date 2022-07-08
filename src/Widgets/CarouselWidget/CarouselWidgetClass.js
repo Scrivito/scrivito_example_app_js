@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const CarouselWidget = Scrivito.provideWidgetClass("CarouselWidget", {
+export const CarouselWidget = Scrivito.provideWidgetClass("CarouselWidget", {
   attributes: {
     images: ["referencelist", { only: ["Image"] }],
     showDescription: "boolean",
@@ -9,5 +9,3 @@ const CarouselWidget = Scrivito.provideWidgetClass("CarouselWidget", {
   },
   extractTextAttributes: ["description"],
 });
-
-export default CarouselWidget;

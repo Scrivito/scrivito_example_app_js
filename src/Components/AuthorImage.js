@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import InPlaceEditingPlaceholder from "./InPlaceEditingPlaceholder";
-import isImage from "../utils/isImage";
+import { InPlaceEditingPlaceholder } from "./InPlaceEditingPlaceholder";
+import { isImage } from "../utils/isImage";
 
-function AuthorImage({ image }) {
+export const AuthorImage = Scrivito.connect(function AuthorImage({ image }) {
   if (!isImage(image)) {
     return (
       <InPlaceEditingPlaceholder center>
@@ -24,6 +24,4 @@ function AuthorImage({ image }) {
       }}
     />
   );
-}
-
-export default Scrivito.connect(AuthorImage);
+});

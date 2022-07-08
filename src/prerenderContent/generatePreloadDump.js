@@ -1,4 +1,4 @@
-export default function generatePreloadDump(preloadDump) {
+export function generatePreloadDump(preloadDump) {
   return `window.preloadDump = ${stringLiteral(preloadDump)};`;
 }
 

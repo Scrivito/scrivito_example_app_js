@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Helmet } from "react-helmet-async";
 
-class ErrorBoundary extends React.Component {
+export class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
 
@@ -50,5 +50,3 @@ const backgroundImage = [
   "linear-gradient(rgba(46, 53, 60, 0.7), rgba(46, 53, 60, 0.7))",
   "url(https://long-lasting-assets.scrivitojs.com/scrivito_example_app_js/500_error.jpeg)",
 ].join(", ");
-
-export default ErrorBoundary;

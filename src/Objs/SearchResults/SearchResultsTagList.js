@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import TagList from "../../Components/TagList";
+import { TagList } from "../../Components/TagList";
 
-function SearchResultsTagList({ tags, params }) {
+export function SearchResultsTagList({ tags, params }) {
   return (
     <TagList
       tags={tags}
@@ -17,5 +17,3 @@ function SearchResultsTagList({ tags, params }) {
     />
   );
 }
-
-export default SearchResultsTagList;

@@ -1,10 +1,10 @@
 import * as Scrivito from "scrivito";
 import { truncate } from "lodash-es";
-import dataFromAuthor from "./dataFromAuthor";
-import formatDate from "../../utils/formatDate";
-import urlFromBinary from "../../utils/urlFromBinary";
+import { dataFromAuthor } from "./dataFromAuthor";
+import { formatDate } from "../../utils/formatDate";
+import { urlFromBinary } from "../../utils/urlFromBinary";
 
-function dataFromBlogPost(blogPost) {
+export function dataFromBlogPost(blogPost) {
   const description = Scrivito.extractText(blogPost, { length: 330 });
   return {
     "@context": "http://schema.org",
@@ -19,5 +19,3 @@ function dataFromBlogPost(blogPost) {
     keywords: blogPost.get("tags").join(", "),
   };
 }
-
-export default dataFromBlogPost;

@@ -1,4 +1,4 @@
-const defaultPageAttributes = {
+export const defaultPageAttributes = {
   body: ["widgetlist", { only: "SectionWidget" }],
   navigationBackgroundImage: ["reference", { only: ["Image", "Video"] }],
   navigationBackgroundImageGradient: "boolean",
@@ -11,5 +11,3 @@ const defaultPageAttributes = {
   navigationSection: "widgetlist",
   title: "string",
 };
-
-export default defaultPageAttributes;

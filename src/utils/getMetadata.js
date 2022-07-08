@@ -1,9 +1,9 @@
 import * as Scrivito from "scrivito";
 import { truncate } from "lodash-es";
-import urlFromBinary from "./urlFromBinary";
-import isVideoObj from "./isVideoObj";
+import { urlFromBinary } from "./urlFromBinary";
+import { isVideoObj } from "./isVideoObj";
 
-function getMetadata(page) {
+export function getMetadata(page) {
   const meta = [
     { name: "twitter:card", content: "summary_large_image" },
     { name: "prerender-status-code", content: "200" },
@@ -88,5 +88,3 @@ function firstImageUrlForAttributes(obj, attributes) {
 
   return url;
 }
-
-export default getMetadata;

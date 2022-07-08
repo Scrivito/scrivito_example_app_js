@@ -1,5 +1,5 @@
-import HeadlineWidget from "../Widgets/HeadlineWidget/HeadlineWidgetClass";
-import SectionWidget from "../Widgets/SectionWidget/SectionWidgetClass";
+import { HeadlineWidget } from "../Widgets/HeadlineWidget/HeadlineWidgetClass";
+import { SectionWidget } from "../Widgets/SectionWidget/SectionWidgetClass";
 
 export const defaultPageEditingConfigAttributes = {
   title: {

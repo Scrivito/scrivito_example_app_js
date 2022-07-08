@@ -2,7 +2,7 @@ import * as React from "react";
 import Zoom from "react-reveal-iframe/Zoom";
 import Fade from "react-reveal-iframe/Fade";
 
-function AnimateOnReveal({ animation, children }) {
+export function AnimateOnReveal({ animation, children }) {
   switch (animation) {
     case "zoomIn":
       return <Zoom>{children}</Zoom>;
@@ -18,5 +18,3 @@ function AnimateOnReveal({ animation, children }) {
       return children;
   }
 }
-
-export default AnimateOnReveal;

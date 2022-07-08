@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import * as Scrivito from "scrivito";
 import "./Objs";
 import "./Widgets";
-import App from "./App";
+import { App } from "./App";
 import { configure } from "./config";
 import "./assets/stylesheets/index.scss";
 

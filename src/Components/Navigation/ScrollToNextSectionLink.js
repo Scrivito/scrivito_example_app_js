@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function ScrollToNextSectionLink({ heightClassName }) {
+export function ScrollToNextSectionLink({ heightClassName }) {
   if (heightClassName !== "full-height") return null;
 
   return (
@@ -13,5 +13,3 @@ function ScrollToNextSectionLink({ heightClassName }) {
     </a>
   );
 }
-
-export default ScrollToNextSectionLink;

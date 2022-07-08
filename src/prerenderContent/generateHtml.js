@@ -1,4 +1,4 @@
-export default async function generateHtml({
+export async function generateHtml({
   objId,
   htmlAttributes,
   headContent,

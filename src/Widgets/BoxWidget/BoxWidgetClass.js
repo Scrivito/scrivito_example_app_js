@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const BoxWidget = Scrivito.provideWidgetClass("BoxWidget", {
+export const BoxWidget = Scrivito.provideWidgetClass("BoxWidget", {
   attributes: {
     body: "widgetlist",
     boxStyle: ["enum", { values: ["transparent", "white"] }],
@@ -8,5 +8,3 @@ const BoxWidget = Scrivito.provideWidgetClass("BoxWidget", {
   },
   extractTextAttributes: ["body"],
 });
-
-export default BoxWidget;

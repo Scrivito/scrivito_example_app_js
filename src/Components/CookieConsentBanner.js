@@ -3,27 +3,29 @@ import * as Scrivito from "scrivito";
 import { useCookieConsent } from "./CookieConsentContext";
 import cookieConsentIcon from "../assets/images/cookie_consent_icon.svg";
 
-function CookieConsentBanner() {
-  const consentUrl = cookieConsentUrl();
-  const [visible, setVisible] = React.useState(false);
-  const { cookieConsentChoice, acceptCookieConsent, declineCookieConsent } =
-    useCookieConsent();
+export const CookieConsentBanner = Scrivito.connect(
+  function CookieConsentBanner() {
+    const consentUrl = cookieConsentUrl();
+    const [visible, setVisible] = React.useState(false);
+    const { cookieConsentChoice, acceptCookieConsent, declineCookieConsent } =
+      useCookieConsent();
 
-  React.useEffect(() => {
-    setVisible(cookieConsentChoice === "undecided");
-  }, [cookieConsentChoice]);
+    React.useEffect(() => {
+      setVisible(cookieConsentChoice === "undecided");
+    }, [cookieConsentChoice]);
 
-  if (!visible || !consentUrl) return null;
+    if (!visible || !consentUrl) return null;
 
-  return (
-    <CookieBanner
-      url={consentUrl.url}
-      title={consentUrl.title}
-      onAccept={acceptCookieConsent}
-      onDecline={declineCookieConsent}
-    />
-  );
-}
+    return (
+      <CookieBanner
+        url={consentUrl.url}
+        title={consentUrl.title}
+        onAccept={acceptCookieConsent}
+        onDecline={declineCookieConsent}
+      />
+    );
+  }
+);
 
 function CookieBanner(props) {
   return (
@@ -84,5 +86,3 @@ function cookieConsentUrl() {
     title: cookieConsentLink.title() || "Learn more »",
   };
 }
-
-export default Scrivito.connect(CookieConsentBanner);

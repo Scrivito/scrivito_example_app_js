@@ -27,6 +27,6 @@ function PlainTableRowWidgetComponent({ widget, header2, header3, header4 }) {
   );
 }
 
-const TableRowWidgetComponent = Scrivito.connect(PlainTableRowWidgetComponent);
-
-export default TableRowWidgetComponent;
+export const TableRowWidgetComponent = Scrivito.connect(
+  PlainTableRowWidgetComponent
+);

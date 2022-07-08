@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const TestimonialSliderWidget = Scrivito.provideWidgetClass(
+export const TestimonialSliderWidget = Scrivito.provideWidgetClass(
   "TestimonialSliderWidget",
   {
     attributes: {
@@ -8,5 +8,3 @@ const TestimonialSliderWidget = Scrivito.provideWidgetClass(
     },
   }
 );
-
-export default TestimonialSliderWidget;

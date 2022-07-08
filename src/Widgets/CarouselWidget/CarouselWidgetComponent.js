@@ -2,7 +2,7 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import Carousel from "react-bootstrap/Carousel";
 
-import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
+import { InPlaceEditingPlaceholder } from "../../Components/InPlaceEditingPlaceholder";
 import "./CarouselWidget.scss";
 
 Scrivito.provideComponent("CarouselWidget", ({ widget }) => {

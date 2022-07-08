@@ -3,7 +3,7 @@ import * as Scrivito from "scrivito";
 import { Helmet } from "react-helmet-async";
 import { useCookieConsent } from "./CookieConsentContext";
 
-export default function Tracking() {
+export function Tracking() {
   const [trackingEnabled, setTrackingEnabled] = React.useState(false);
   const { cookieConsentChoice } = useCookieConsent();
 

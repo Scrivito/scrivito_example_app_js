@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const TableRowWidget = Scrivito.provideWidgetClass("TableRowWidget", {
+export const TableRowWidget = Scrivito.provideWidgetClass("TableRowWidget", {
   attributes: {
     cell1: "string",
     cell2: [
@@ -19,5 +19,3 @@ const TableRowWidget = Scrivito.provideWidgetClass("TableRowWidget", {
   onlyInside: "TableWidget",
   extractTextAttributes: ["cell1", "cell2", "cell3", "cell4"],
 });
-
-export default TableRowWidget;

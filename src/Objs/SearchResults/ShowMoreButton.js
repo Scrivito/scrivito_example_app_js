@@ -1,7 +1,7 @@
 import * as React from "react";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
+export function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
   if (currentMaxItems >= totalCount) return null;
 
   return (
@@ -17,5 +17,3 @@ function ShowMoreButton({ currentMaxItems, totalCount, onClick }) {
   );
 }
 /* eslint-enable jsx-a11y/anchor-is-valid */
-
-export default ShowMoreButton;

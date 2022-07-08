@@ -1,11 +1,11 @@
 import * as Scrivito from "scrivito";
 import loadable from "@loadable/component";
 import formContainerWidgetIcon from "../../assets/images/form_container_widget.svg";
-import ColumnContainerWidget from "../ColumnContainerWidget/ColumnContainerWidgetClass";
-import ColumnWidget from "../ColumnWidget/ColumnWidgetClass";
-import FormButtonWidget from "../FormButtonWidget/FormButtonWidgetClass";
-import FormInputFieldWidget from "../FormInputFieldWidget/FormInputFieldWidgetClass";
-import TextWidget from "../TextWidget/TextWidgetClass";
+import { ColumnContainerWidget } from "../ColumnContainerWidget/ColumnContainerWidgetClass";
+import { ColumnWidget } from "../ColumnWidget/ColumnWidgetClass";
+import { FormButtonWidget } from "../FormButtonWidget/FormButtonWidgetClass";
+import { FormInputFieldWidget } from "../FormInputFieldWidget/FormInputFieldWidgetClass";
+import { TextWidget } from "../TextWidget/TextWidgetClass";
 import { pseudoRandom32CharHex } from "./utils/pseudoRandom32CharHex";
 import { getFormContainer } from "./utils/getFormContainer";
 

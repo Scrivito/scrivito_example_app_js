@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import ContentProperty from "../../Components/ScrivitoExtensions/ContentProperty";
+import { ContentProperty } from "../../Components/ScrivitoExtensions/ContentProperty";
 
-const FormIdComponent = Scrivito.connect(({ widget }) => {
+export const FormIdComponent = Scrivito.connect(({ widget }) => {
   const formSubmissionsHref = widget.get("formId")
     ? `https://neoletter.com/i/${
         process.env.SCRIVITO_TENANT
@@ -33,5 +33,3 @@ const FormIdComponent = Scrivito.connect(({ widget }) => {
     </div>
   );
 });
-
-export default FormIdComponent;

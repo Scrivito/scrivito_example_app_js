@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const FormInputFieldWidget = Scrivito.provideWidgetClass(
+export const FormInputFieldWidget = Scrivito.provideWidgetClass(
   "FormInputFieldWidget",
   {
     attributes: {
@@ -28,5 +28,3 @@ const FormInputFieldWidget = Scrivito.provideWidgetClass(
     },
   }
 );
-
-export default FormInputFieldWidget;

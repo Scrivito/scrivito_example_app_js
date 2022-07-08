@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const FormHiddenFieldWidget = Scrivito.provideWidgetClass(
+export const FormHiddenFieldWidget = Scrivito.provideWidgetClass(
   "FormHiddenFieldWidget",
   {
     onlyInside: "FormContainerWidget",
@@ -10,5 +10,3 @@ const FormHiddenFieldWidget = Scrivito.provideWidgetClass(
     },
   }
 );
-
-export default FormHiddenFieldWidget;

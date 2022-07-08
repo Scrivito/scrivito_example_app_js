@@ -1,10 +1,10 @@
 import * as Scrivito from "scrivito";
 import { chunk } from "lodash-es";
-import prerenderObj from "./prerenderObj";
+import { prerenderObj } from "./prerenderObj";
 import { reportError } from "./reportError";
 import { storeResult } from "./storeResult";
 
-export default async function prerenderObjs(
+export async function prerenderObjs(
   targetDir,
   objClassesBlacklist,
   assetManifest

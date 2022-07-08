@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
-import metadataAttributes from "../_metadataAttributes";
+import { metadataAttributes } from "../_metadataAttributes";
 
-const BlogPost = Scrivito.provideObjClass("BlogPost", {
+export const BlogPost = Scrivito.provideObjClass("BlogPost", {
   attributes: {
     author: ["reference", { only: "Author" }],
     body: ["widgetlist", { only: "SectionWidget" }],
@@ -14,5 +14,3 @@ const BlogPost = Scrivito.provideObjClass("BlogPost", {
   },
   extractTextAttributes: ["body"],
 });
-
-export default BlogPost;

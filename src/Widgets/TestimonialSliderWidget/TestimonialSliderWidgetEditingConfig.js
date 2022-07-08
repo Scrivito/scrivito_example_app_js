@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 import testimonialSliderWidgetIcon from "../../assets/images/testimonial_slider_widget.svg";
-import TestimonialWidget from "../TestimonialWidget/TestimonialWidgetClass";
+import { TestimonialWidget } from "../TestimonialWidget/TestimonialWidgetClass";
 
 Scrivito.provideEditingConfig("TestimonialSliderWidget", {
   title: "Testimonial Slider",

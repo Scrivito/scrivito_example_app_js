@@ -1,9 +1,11 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import navigateToBlogWithTag from "../../utils/navigateToBlogWithTag";
+import { navigateToBlogWithTag } from "../../utils/navigateToBlogWithTag";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-function BlogPostTagList({ tags }) {
+export const BlogPostTagList = Scrivito.connect(function BlogPostTagList({
+  tags,
+}) {
   return (
     <section>
       <div className="container">
@@ -29,7 +31,5 @@ function BlogPostTagList({ tags }) {
       </div>
     </section>
   );
-}
+});
 /* eslint-enable jsx-a11y/anchor-is-valid */
-
-export default Scrivito.connect(BlogPostTagList);

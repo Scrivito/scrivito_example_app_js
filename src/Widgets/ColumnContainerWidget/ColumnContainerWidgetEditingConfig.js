@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
 import columnContainerWidgetIcon from "../../assets/images/column_container_widget.svg";
-import ColumnsEditorTab from "../../Components/ScrivitoExtensions/ColumnsEditorTab";
-import ColumnWidget from "../ColumnWidget/ColumnWidgetClass";
+import { ColumnsEditorTab } from "../../Components/ScrivitoExtensions/ColumnsEditorTab";
+import { ColumnWidget } from "../ColumnWidget/ColumnWidgetClass";
 
 Scrivito.provideEditingConfig("ColumnContainerWidget", {
   title: "Columns",

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function IconSearch({ setSearchValue, searchValue }) {
+export function IconSearch({ setSearchValue, searchValue }) {
   return (
     <div id="search">
       <label htmlFor="search-input">
@@ -48,5 +48,3 @@ function ClearSearchButton({ setSearchValue, searchValue }) {
   );
 }
 /* eslint-enable jsx-a11y/anchor-is-valid */
-
-export default IconSearch;

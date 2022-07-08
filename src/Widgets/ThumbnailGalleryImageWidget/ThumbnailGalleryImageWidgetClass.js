@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const ThumbnailGalleryImageWidget = Scrivito.provideWidgetClass(
+export const ThumbnailGalleryImageWidget = Scrivito.provideWidgetClass(
   "ThumbnailGalleryImageWidget",
   {
     onlyInside: "ThumbnailGalleryWidget",
@@ -12,5 +12,3 @@ const ThumbnailGalleryImageWidget = Scrivito.provideWidgetClass(
     },
   }
 );
-
-export default ThumbnailGalleryImageWidget;

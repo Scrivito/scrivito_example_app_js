@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 import jobObjIcon from "../../assets/images/job_obj.svg";
-import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
+import { SectionWidget } from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,

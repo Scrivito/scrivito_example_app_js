@@ -1,8 +1,11 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import BlogPostPreviewList from "./BlogPostPreviewList";
+import { BlogPostPreviewList } from "./BlogPostPreviewList";
 
-function BlogPostMorePosts({ author, filterBlogPostId }) {
+export const BlogPostMorePosts = Scrivito.connect(function BlogPostMorePosts({
+  author,
+  filterBlogPostId,
+}) {
   if (!author) return null;
   if (author.objClass() !== "Author") return null;
 
@@ -19,6 +22,4 @@ function BlogPostMorePosts({ author, filterBlogPostId }) {
       </div>
     </section>
   );
-}
-
-export default Scrivito.connect(BlogPostMorePosts);
+});

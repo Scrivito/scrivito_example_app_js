@@ -1,8 +1,8 @@
 import * as Scrivito from "scrivito";
-import metadataAttributes from "../_metadataAttributes";
-import defaultPageAttributes from "../_defaultPageAttributes";
+import { metadataAttributes } from "../_metadataAttributes";
+import { defaultPageAttributes } from "../_defaultPageAttributes";
 
-const Page = Scrivito.provideObjClass("Page", {
+export const Page = Scrivito.provideObjClass("Page", {
   attributes: {
     ...defaultPageAttributes,
     childOrder: "referencelist",
@@ -10,5 +10,3 @@ const Page = Scrivito.provideObjClass("Page", {
   },
   extractTextAttributes: ["navigationSection", "body"],
 });
-
-export default Page;

@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import ContentProperty from "./ContentProperty";
-import getMetadata from "../../utils/getMetadata";
+import { ContentProperty } from "./ContentProperty";
+import { getMetadata } from "../../utils/getMetadata";
 
-function SocialCardsTab({ obj }) {
+export function SocialCardsTab({ obj }) {
   const uiContext = Scrivito.uiContext();
   if (uiContext === undefined) return null;
 
@@ -33,8 +33,6 @@ function SocialCardsTab({ obj }) {
     </div>
   );
 }
-
-export default SocialCardsTab;
 
 const TwitterInput = Scrivito.connect(({ obj }) => (
   <div>

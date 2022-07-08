@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
-import metadataAttributes from "../_metadataAttributes";
+import { metadataAttributes } from "../_metadataAttributes";
 
-const Author = Scrivito.provideObjClass("Author", {
+export const Author = Scrivito.provideObjClass("Author", {
   attributes: {
     title: "string",
     description: "string",
@@ -10,5 +10,3 @@ const Author = Scrivito.provideObjClass("Author", {
   },
   extractTextAttributes: ["description"],
 });
-
-export default Author;

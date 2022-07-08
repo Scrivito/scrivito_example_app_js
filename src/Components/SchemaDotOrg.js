@@ -3,14 +3,14 @@ import * as Scrivito from "scrivito";
 import isEmpty from "is-empty";
 import escapeHtml from "escape-html";
 import { isPlainObject } from "lodash-es";
-import dataFromAuthor from "./SchemaDotOrg/dataFromAuthor";
-import dataFromEvent from "./SchemaDotOrg/dataFromEvent";
-import dataFromJob from "./SchemaDotOrg/dataFromJob";
-import dataFromBlog from "./SchemaDotOrg/dataFromBlog";
-import dataFromBlogPost from "./SchemaDotOrg/dataFromBlogPost";
-import dataFromAddressWidget from "./SchemaDotOrg/dataFromAddressWidget";
+import { dataFromAuthor } from "./SchemaDotOrg/dataFromAuthor";
+import { dataFromEvent } from "./SchemaDotOrg/dataFromEvent";
+import { dataFromJob } from "./SchemaDotOrg/dataFromJob";
+import { dataFromBlog } from "./SchemaDotOrg/dataFromBlog";
+import { dataFromBlogPost } from "./SchemaDotOrg/dataFromBlogPost";
+import { dataFromAddressWidget } from "./SchemaDotOrg/dataFromAddressWidget";
 
-const SchemaDotOrg = Scrivito.connect(({ content }) => {
+export const SchemaDotOrg = Scrivito.connect(({ content }) => {
   const data = pruneEmptyValues(dataFromItem(content));
 
   return (
@@ -78,5 +78,3 @@ function pickBy(data, fn) {
     Object.entries(data).filter(([_key, value]) => fn(value))
   );
 }
-
-export default SchemaDotOrg;

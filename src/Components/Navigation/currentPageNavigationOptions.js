@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
-import isVideoObj from "../../utils/isVideoObj";
+import { isVideoObj } from "../../utils/isVideoObj";
 
-function currentPageNavigationOptions() {
+export function currentPageNavigationOptions() {
   if (Scrivito.currentPage()) {
     switch (Scrivito.currentPage().objClass()) {
       case "Blog":
@@ -131,5 +131,3 @@ function imageWithMediumHeightOrMinHeight(image) {
     heightClassName: "min-height",
   };
 }
-
-export default currentPageNavigationOptions;

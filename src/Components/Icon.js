@@ -12,7 +12,7 @@ function Icon({ icon, size, title }) {
   );
 }
 
-function IconComponent({ icon, size, link }) {
+export function IconComponent({ icon, size, link }) {
   if (!link) return <Icon icon={icon} size={size} />;
 
   const title = link.title() || "";
@@ -23,5 +23,3 @@ function IconComponent({ icon, size, link }) {
     </Scrivito.LinkTag>
   );
 }
-
-export default IconComponent;

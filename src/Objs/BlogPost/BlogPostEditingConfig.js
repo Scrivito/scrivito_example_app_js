@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 import blogPostObjIcon from "../../assets/images/blog_post_obj.svg";
-import SectionWidget from "../../Widgets/SectionWidget/SectionWidgetClass";
+import { SectionWidget } from "../../Widgets/SectionWidget/SectionWidgetClass";
 import {
   metadataEditingConfigAttributes,
   metadataInitialContent,

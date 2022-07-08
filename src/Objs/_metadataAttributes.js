@@ -1,4 +1,4 @@
-const metadataAttributes = {
+export const metadataAttributes = {
   // Meta tags
   metaDataDescription: "string",
   robotsIndex: "boolean",
@@ -12,5 +12,3 @@ const metadataAttributes = {
   ogImage: ["reference", { only: ["Image"] }],
   ogTitle: "string",
 };
-
-export default metadataAttributes;

@@ -1,7 +1,9 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 
-function NavigationSection({ heightClassName }) {
+export const NavigationSection = Scrivito.connect(function NavigationSection({
+  heightClassName,
+}) {
   if (!["full-height", "medium-height"].includes(heightClassName)) return null;
 
   if (!Scrivito.currentPage()) return null;
@@ -16,6 +18,4 @@ function NavigationSection({ heightClassName }) {
       attribute="navigationSection"
     />
   );
-}
-
-export default Scrivito.connect(NavigationSection);
+});

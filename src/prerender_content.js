@@ -3,8 +3,8 @@ import fse from "fs-extra";
 import "./Objs";
 import "./Widgets";
 import { configure } from "./config";
-import prerenderObjs from "./prerenderContent/prerenderObjs";
-import prerenderSitemap from "./prerenderContent/prerenderSitemap";
+import { prerenderObjs } from "./prerenderContent/prerenderObjs";
+import { prerenderSitemap } from "./prerenderContent/prerenderSitemap";
 import { extendRedirects } from "./prerenderContent/extendRedirects";
 import { reportError } from "./prerenderContent/reportError";
 

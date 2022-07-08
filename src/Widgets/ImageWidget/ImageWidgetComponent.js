@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import AnimateOnReveal from "../../Components/AnimateOnReveal";
+import { AnimateOnReveal } from "../../Components/AnimateOnReveal";
 import { alignmentClassName } from "../../utils/alignmentClassName";
 
 Scrivito.provideComponent("ImageWidget", ({ widget }) => {

@@ -1,4 +1,4 @@
-const placeholderCss = {
+export const placeholderCss = {
   color: "rgba(64, 64, 64, 0.53)",
   display: "inline-block",
   fontSize: "13px",
@@ -7,5 +7,3 @@ const placeholderCss = {
   lineHeight: "28px",
   verticalAlign: "middle",
 };
-
-export default placeholderCss;

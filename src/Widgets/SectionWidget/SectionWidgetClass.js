@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const SectionWidget = Scrivito.provideWidgetClass("SectionWidget", {
+export const SectionWidget = Scrivito.provideWidgetClass("SectionWidget", {
   attributes: {
     content: "widgetlist",
     useFullWidth: "boolean",
@@ -24,5 +24,3 @@ const SectionWidget = Scrivito.provideWidgetClass("SectionWidget", {
   },
   extractTextAttributes: ["content"],
 });
-
-export default SectionWidget;

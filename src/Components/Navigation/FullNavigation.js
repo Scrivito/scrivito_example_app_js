@@ -1,11 +1,11 @@
 import * as React from "react";
 import Collapse from "react-bootstrap/Collapse";
-import CollapseToggle from "./CollapseToggle";
-import Logo from "./Logo";
-import Nav from "./Nav";
+import { CollapseToggle } from "./CollapseToggle";
+import { Logo } from "./Logo";
+import { Nav } from "./Nav";
 import { SearchBox, SearchIcon } from "./Search";
 
-class FullNavigation extends React.Component {
+export class FullNavigation extends React.Component {
   constructor(props) {
     super(props);
 
@@ -69,5 +69,3 @@ class FullNavigation extends React.Component {
     );
   }
 }
-
-export default FullNavigation;

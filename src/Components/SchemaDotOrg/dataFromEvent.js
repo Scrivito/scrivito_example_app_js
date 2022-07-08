@@ -1,8 +1,8 @@
 import * as Scrivito from "scrivito";
-import formatDate from "../../utils/formatDate";
-import urlFromBinary from "../../utils/urlFromBinary";
+import { formatDate } from "../../utils/formatDate";
+import { urlFromBinary } from "../../utils/urlFromBinary";
 
-function dataFromEvent(event) {
+export function dataFromEvent(event) {
   return {
     "@context": "http://schema.org",
     "@type": "Event",
@@ -33,5 +33,3 @@ function addressFromEvent(event) {
     addressCountry: event.get("locationCountry"),
   };
 }
-
-export default dataFromEvent;

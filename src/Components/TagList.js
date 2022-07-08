@@ -1,7 +1,7 @@
 import * as React from "react";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-function TagList({ showTags, tags, currentTag, setTag }) {
+export function TagList({ showTags, tags, currentTag, setTag }) {
   if (!showTags) return null;
 
   const onClick = (e, tag) => {
@@ -51,5 +51,3 @@ function TagList({ showTags, tags, currentTag, setTag }) {
   );
 }
 /* eslint-enable jsx-a11y/anchor-is-valid */
-
-export default TagList;

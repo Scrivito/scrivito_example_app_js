@@ -1,8 +1,8 @@
 import * as React from "react";
 import { take } from "lodash-es";
-import fontAwesomeIcons from "./fontAwesomeIcons";
+import { fontAwesomeIcons } from "./fontAwesomeIcons";
 
-function AllIcons({ setWidgetIcon, currentIcon, hide }) {
+export function AllIcons({ setWidgetIcon, currentIcon, hide }) {
   const [initialRender, setInitialRender] = React.useState(true);
 
   const categoryMap = React.useMemo(() => {
@@ -110,5 +110,3 @@ function Category({ category, icons, currentIcon, setWidgetIcon }) {
   );
 }
 /* eslint-enable jsx-a11y/anchor-is-valid */
-
-export default AllIcons;

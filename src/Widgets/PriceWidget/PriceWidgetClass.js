@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const PriceWidget = Scrivito.provideWidgetClass("PriceWidget", {
+export const PriceWidget = Scrivito.provideWidgetClass("PriceWidget", {
   onlyInside: "TableRowWidget",
   attributes: {
     currency: "string",
@@ -9,5 +9,3 @@ const PriceWidget = Scrivito.provideWidgetClass("PriceWidget", {
   },
   extractTextAttributes: ["price", "currency", "period"],
 });
-
-export default PriceWidget;

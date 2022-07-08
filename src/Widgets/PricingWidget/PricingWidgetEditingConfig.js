@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 import pricingWidgetIcon from "../../assets/images/pricing_widget.svg";
-import PricingSpecWidget from "../PricingSpecWidget/PricingSpecWidgetClass";
+import { PricingSpecWidget } from "../PricingSpecWidget/PricingSpecWidgetClass";
 
 Scrivito.provideEditingConfig("PricingWidget", {
   title: "Pricing",

@@ -1,6 +1,6 @@
-import urlFromBinary from "../../utils/urlFromBinary";
+import { urlFromBinary } from "../../utils/urlFromBinary";
 
-function dataFromAuthor(author) {
+export function dataFromAuthor(author) {
   return {
     "@context": "http://schema.org",
     "@type": "Person",
@@ -9,5 +9,3 @@ function dataFromAuthor(author) {
     image: urlFromBinary(author.get("image")),
   };
 }
-
-export default dataFromAuthor;

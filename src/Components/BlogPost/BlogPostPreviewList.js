@@ -1,12 +1,12 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import { groupBy, truncate } from "lodash-es";
-import BlogPostDate from "./BlogPostDate";
-import formatDate from "../../utils/formatDate";
-import InPlaceEditingPlaceholder from "../InPlaceEditingPlaceholder";
-import isImage from "../../utils/isImage";
+import { BlogPostDate } from "./BlogPostDate";
+import { formatDate } from "../../utils/formatDate";
+import { InPlaceEditingPlaceholder } from "../InPlaceEditingPlaceholder";
+import { isImage } from "../../utils/isImage";
 
-const BlogPostPreviewList = Scrivito.connect(
+export const BlogPostPreviewList = Scrivito.connect(
   ({ maxItems, author, tag, filterBlogPostId }) => {
     let blogPosts = Scrivito.getClass("BlogPost")
       .all()
@@ -114,5 +114,3 @@ const BlogPostTitleImage = Scrivito.connect(({ post }) => {
     </Scrivito.LinkTag>
   );
 });
-
-export default BlogPostPreviewList;

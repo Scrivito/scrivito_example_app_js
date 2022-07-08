@@ -1,4 +1,4 @@
-function isVideoObj(obj) {
+export function isVideoObj(obj) {
   if (!obj) return false;
 
   const contentType = obj.contentType();
@@ -6,5 +6,3 @@ function isVideoObj(obj) {
 
   return contentType.startsWith("video/");
 }
-
-export default isVideoObj;

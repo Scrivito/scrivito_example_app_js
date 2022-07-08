@@ -4,7 +4,7 @@ import fromNow from "moment-from-now";
 import Highlighter from "react-highlight-words";
 import { truncate } from "lodash-es";
 
-import isVideoObj from "../../utils/isVideoObj";
+import { isVideoObj } from "../../utils/isVideoObj";
 import "./SearchResultItem.scss";
 
 const PreviewImage = Scrivito.connect(({ item }) => {
@@ -38,7 +38,10 @@ const Details = Scrivito.connect(({ item }) => {
   return <small>{details.join(" // ")}</small>;
 });
 
-function SearchResultItem({ resultItem, q }) {
+export const SearchResultItem = Scrivito.connect(function SearchResultItem({
+  resultItem,
+  q,
+}) {
   const searchWords = q.split(/\s+/);
   const extractedText = Scrivito.extractText(resultItem, { length: 220 });
   const textToHighlight = truncate(extractedText, {
@@ -78,6 +81,4 @@ function SearchResultItem({ resultItem, q }) {
       </div>
     </div>
   );
-}
-
-export default Scrivito.connect(SearchResultItem);
+});

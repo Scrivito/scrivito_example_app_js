@@ -1,9 +1,9 @@
 import * as React from "react";
 import Fuse from "fuse.js";
-import fontAwesomeIcons from "./fontAwesomeIcons";
-import SingleIcon from "./SingleIcon";
+import { fontAwesomeIcons } from "./fontAwesomeIcons";
+import { SingleIcon } from "./SingleIcon";
 
-function IconSearchResults({ searchValue, setWidgetIcon, currentIcon }) {
+export function IconSearchResults({ searchValue, setWidgetIcon, currentIcon }) {
   const fuse = React.useMemo(() => {
     const fuseOptions = {
       threshold: 0.2,
@@ -39,5 +39,3 @@ function IconSearchResults({ searchValue, setWidgetIcon, currentIcon }) {
     </div>
   );
 }
-
-export default IconSearchResults;

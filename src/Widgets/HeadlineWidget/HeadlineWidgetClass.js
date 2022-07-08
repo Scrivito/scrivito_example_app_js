@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const HeadlineWidget = Scrivito.provideWidgetClass("HeadlineWidget", {
+export const HeadlineWidget = Scrivito.provideWidgetClass("HeadlineWidget", {
   attributes: {
     headline: "string",
     level: ["enum", { values: ["h1", "h2", "h3", "h4", "h5", "h6"] }],
@@ -11,5 +11,3 @@ const HeadlineWidget = Scrivito.provideWidgetClass("HeadlineWidget", {
   },
   extractTextAttributes: ["headline"],
 });
-
-export default HeadlineWidget;

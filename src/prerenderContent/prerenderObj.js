@@ -3,13 +3,13 @@ import * as ReactDOMServer from "react-dom/server";
 import * as Scrivito from "scrivito";
 import { HelmetProvider } from "react-helmet-async";
 
-import App, { helmetContext } from "../App";
-import contentHash from "./contentHash";
-import filenameFromUrl from "./filenameFromUrl";
-import generateHtml from "./generateHtml";
-import generatePreloadDump from "./generatePreloadDump";
+import { App, helmetContext } from "../App";
+import { contentHash } from "./contentHash";
+import { filenameFromUrl } from "./filenameFromUrl";
+import { generateHtml } from "./generateHtml";
+import { generatePreloadDump } from "./generatePreloadDump";
 
-export default async function prerenderObj(obj, assetManifest) {
+export async function prerenderObj(obj, assetManifest) {
   HelmetProvider.canUseDOM = false;
 
   const { result, preloadDump } = await Scrivito.renderPage(obj, () => {

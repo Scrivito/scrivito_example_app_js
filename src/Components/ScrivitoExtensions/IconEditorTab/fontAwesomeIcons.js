@@ -1,4 +1,4 @@
-const fontAwesomeIcons = [
+export const fontAwesomeIcons = [
   {
     name: "Glass",
     id: "glass",
@@ -4042,5 +4042,3 @@ const fontAwesomeIcons = [
     categories: ["Brand icons"],
   },
 ];
-
-export default fontAwesomeIcons;

@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
-import formatDate from "../../utils/formatDate";
+import { formatDate } from "../../utils/formatDate";
 
-function dataFromJob(job) {
+export function dataFromJob(job) {
   return {
     "@context": "http://schema.org",
     "@type": "JobPosting",
@@ -37,5 +37,3 @@ function addressFromJob(job) {
     addressCountry: job.get("locationCountry"),
   };
 }
-
-export default dataFromJob;

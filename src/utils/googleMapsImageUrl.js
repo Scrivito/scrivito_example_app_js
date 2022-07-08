@@ -150,7 +150,7 @@ function stylingParamsArray() {
   return googleStyles.map((i) => computeStyle(i)).map((i) => ["style", i]);
 }
 
-function googleMapsImageUrl(params) {
+export function googleMapsImageUrl(params) {
   const paramsArray = Object.entries(params).concat(stylingParamsArray());
   const flattenParams = paramsArray
     .map(([key, value]) => `${key}=${value}`)
@@ -159,5 +159,3 @@ function googleMapsImageUrl(params) {
 
   return encodeURI(uri);
 }
-
-export default googleMapsImageUrl;

@@ -1,5 +1,5 @@
 import * as Scrivito from "scrivito";
-import IconEditorTab from "../../Components/ScrivitoExtensions/IconEditorTab";
+import { IconEditorTab } from "../../Components/ScrivitoExtensions/IconEditorTab";
 import iconWidgetIcon from "../../assets/images/icon_widget.svg";
 
 Scrivito.provideEditingConfig("IconWidget", {

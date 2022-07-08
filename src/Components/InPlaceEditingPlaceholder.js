@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import placeholderCss from "../utils/placeholderCss";
+import { placeholderCss } from "../utils/placeholderCss";
 
-const InPlaceEditingPlaceholder = ({ children, center, block }) => {
+export const InPlaceEditingPlaceholder = ({ children, center, block }) => {
   if (!Scrivito.isInPlaceEditingActive()) return null;
 
   const innerSpan = <span style={placeholderCss}>{children}</span>;
@@ -13,5 +13,3 @@ const InPlaceEditingPlaceholder = ({ children, center, block }) => {
 
   return innerSpan;
 };
-
-export default InPlaceEditingPlaceholder;

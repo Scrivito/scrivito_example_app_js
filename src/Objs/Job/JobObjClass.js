@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
-import metadataAttributes from "../_metadataAttributes";
+import { metadataAttributes } from "../_metadataAttributes";
 
-const Job = Scrivito.provideObjClass("Job", {
+export const Job = Scrivito.provideObjClass("Job", {
   attributes: {
     body: ["widgetlist", { only: "SectionWidget" }],
     image: ["reference", { only: ["Image"] }],
@@ -39,5 +39,3 @@ const Job = Scrivito.provideObjClass("Job", {
   },
   extractTextAttributes: ["body"],
 });
-
-export default Job;

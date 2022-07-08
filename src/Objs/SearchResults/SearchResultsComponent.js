@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import ShowMoreButton from "./ShowMoreButton";
-import SearchInput from "./SearchInput";
-import SearchResultItem from "./SearchResultItem";
-import SearchResultsTagList from "./SearchResultsTagList";
+import { ShowMoreButton } from "./ShowMoreButton";
+import { SearchInput } from "./SearchInput";
+import { SearchResultItem } from "./SearchResultItem";
+import { SearchResultsTagList } from "./SearchResultsTagList";
 
 class SearchResultsComponent extends React.Component {
   constructor(props) {

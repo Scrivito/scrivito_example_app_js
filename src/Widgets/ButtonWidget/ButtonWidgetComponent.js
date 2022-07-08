@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import InPlaceEditingPlaceholder from "../../Components/InPlaceEditingPlaceholder";
+import { InPlaceEditingPlaceholder } from "../../Components/InPlaceEditingPlaceholder";
 import { WrapIfClassName } from "../../Components/WrapIfClassName";
 import { alignmentClassName } from "../../utils/alignmentClassName";
 

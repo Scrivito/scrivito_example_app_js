@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 
-const ThumbnailGalleryWidget = Scrivito.provideWidgetClass(
+export const ThumbnailGalleryWidget = Scrivito.provideWidgetClass(
   "ThumbnailGalleryWidget",
   {
     attributes: {
@@ -9,5 +9,3 @@ const ThumbnailGalleryWidget = Scrivito.provideWidgetClass(
     },
   }
 );
-
-export default ThumbnailGalleryWidget;

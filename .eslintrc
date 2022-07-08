@@ -24,6 +24,7 @@
     "btoa": true
   },
   "rules": {
+    "prefer-arrow-callback": [2, { "allowNamedFunctions": true }],
     "class-methods-use-this": [
       2,
       {

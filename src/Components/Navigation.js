@@ -108,8 +108,9 @@ export const Navigation = Scrivito.connect(
       }
 
       let videoUrl = "";
-      if (isVideoObj(backgroundImage))
+      if (isVideoObj(backgroundImage)) {
         videoUrl = urlFromBinary(backgroundImage);
+      }
 
       const topSectionStyle = {};
       if (navigationStyle === "transparentDark") {

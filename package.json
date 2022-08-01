@@ -10,9 +10,6 @@
   "repository": {
     "private": true
   },
-  "overrides": {
-    "lodash@4.17.15": "^4.17.20"
-  },
   "dependencies": {
     "@babel/core": "^7.18.5",
     "@babel/eslint-parser": "^7.18.2",
@@ -30,7 +27,7 @@
     "css-loader": "^6.7.1",
     "dateformat": "^5.0.3",
     "dotenv": "^16.0.1",
-    "es-check": "^6.2.1",
+    "es-check": "^7.0.0",
     "escape-html": "^1.0.3",
     "eslint": "^8.18.0",
     "eslint-config-airbnb": "^19.0.4",

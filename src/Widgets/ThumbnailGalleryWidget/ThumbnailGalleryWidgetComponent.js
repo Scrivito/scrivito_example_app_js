@@ -1,14 +1,14 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+import Slider from "react-slick";
 import loadable from "@loadable/component";
 
-import { fullScreenWidthPixels } from "../../utils/fullScreenWidthPixels";
 import { InPlaceEditingPlaceholder } from "../../Components/InPlaceEditingPlaceholder";
 import { TagList } from "../../Components/TagList";
 import { isImage } from "../../utils/isImage";
 import "./ThumbnailGalleryWidget.scss";
 
-const ReactBnbGallery = loadable(() => import("react-bnb-gallery"));
+const Modal = loadable(() => import("react-bootstrap/Modal"));
 
 Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
   const [currentImage, setCurrentImage] = React.useState(0);
@@ -18,7 +18,6 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
   const images = widget
     .get("images")
     .filter((subWidget) => isImage(subWidget.get("image")));
-  const lightboxImages = images.map((image) => lightboxOptions(image));
 
   if (!images.length) {
     return (
@@ -47,15 +46,57 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
             />
           ))}
         </div>
-        <ReactBnbGallery
+        <Modal
           show={lightboxIsOpen}
-          backgroundColor="rgba(22,22,22,.9)"
-          zIndex={1000000} // same value as .cookie-box
-          activePhotoIndex={currentImage}
-          photos={lightboxImages}
-          onClose={closeLightbox}
-          wrap={false}
-        />
+          onHide={closeLightbox}
+          centered
+          size="xl"
+          restoreFocus={false}
+          className="thumbnail-gallery-widget--modal"
+          // TODO: Add zindex={1000000} // same value as .cookie-box
+        >
+          <button
+            type="button"
+            className="close-button"
+            aria-label="Close"
+            onClick={closeLightbox}
+          >
+            TODO: REMOVE CLOSE LABEL
+          </button>
+          <Slider
+            dots
+            dotsClass="slick-dots slick-thumb"
+            infinite
+            speed={500}
+            initialSlide={currentImage}
+            customPaging={(i) => (
+              <button
+                aria-label={`Show ${[
+                  images[i].get("title"),
+                  images[i].get("subtitle"),
+                ].join(" - ")}`}
+              >
+                <Scrivito.BackgroundImageTag
+                  className="image"
+                  style={{ background: { image: images[i].get("image") } }}
+                />
+              </button>
+            )}
+          >
+            {images.map((image) => (
+              <div key={image.id()}>
+                <Scrivito.ImageTag
+                  content={image}
+                  attribute="image"
+                  alt={image.get("alternativeText")}
+                />
+                <h3 className="photo-caption">
+                  {[image.get("title"), image.get("subtitle")].join(" - ")}
+                </h3>
+              </div>
+            ))}
+          </Slider>
+        </Modal>
       </div>
     </div>
   );
@@ -122,21 +163,4 @@ function allTags(images) {
 
   // sort tags
   return uniqueTags.sort();
-}
-
-function lightboxOptions(galleryImageWidget) {
-  const image = galleryImageWidget.get("image");
-  const binary = image.get("blob");
-  const srcUrl = binary.optimizeFor({ width: fullScreenWidthPixels() }).url();
-  const alt = image.get("alternativeText");
-
-  return {
-    photo: srcUrl,
-    thumbnail: srcUrl,
-    caption: [
-      galleryImageWidget.get("title"),
-      galleryImageWidget.get("subtitle"),
-    ].join(" - "),
-    alt,
-  };
 }

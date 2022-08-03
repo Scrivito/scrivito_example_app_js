@@ -24,27 +24,6 @@ class ThumbnailGalleryComponent extends React.Component {
     this.setTag = this.setTag.bind(this);
   }
 
-  openLightbox(index, event) {
-    event.preventDefault();
-    this.setState({
-      currentImage: index,
-      lightboxIsOpen: true,
-    });
-  }
-
-  closeLightbox() {
-    this.setState({
-      currentImage: 0,
-      lightboxIsOpen: false,
-    });
-  }
-
-  setTag(tag) {
-    this.setState({
-      currentTag: tag,
-    });
-  }
-
   render() {
     const { widget } = this.props;
     const images = widget
@@ -91,6 +70,27 @@ class ThumbnailGalleryComponent extends React.Component {
         </div>
       </div>
     );
+  }
+
+  openLightbox(index, event) {
+    event.preventDefault();
+    this.setState({
+      currentImage: index,
+      lightboxIsOpen: true,
+    });
+  }
+
+  closeLightbox() {
+    this.setState({
+      currentImage: 0,
+      lightboxIsOpen: false,
+    });
+  }
+
+  setTag(tag) {
+    this.setState({
+      currentTag: tag,
+    });
   }
 }
 

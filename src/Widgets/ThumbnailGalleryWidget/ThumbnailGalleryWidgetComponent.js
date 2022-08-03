@@ -10,7 +10,7 @@ import "./ThumbnailGalleryWidget.scss";
 
 const ReactBnbGallery = loadable(() => import("react-bnb-gallery"));
 
-function ThumbnailGalleryComponent({ widget }) {
+Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
   const [currentImage, setCurrentImage] = React.useState(0);
   const [lightboxIsOpen, setLightboxIsOpen] = React.useState(false);
   const [currentTag, setCurrentTag] = React.useState("");
@@ -71,9 +71,7 @@ function ThumbnailGalleryComponent({ widget }) {
     setCurrentImage(0);
     setLightboxIsOpen(false);
   }
-}
-
-Scrivito.provideComponent("ThumbnailGalleryWidget", ThumbnailGalleryComponent);
+});
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {

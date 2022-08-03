@@ -1,6 +1,6 @@
 import * as React from "react";
-import Zoom from "react-reveal-iframe/Zoom";
-import Fade from "react-reveal-iframe/Fade";
+import Zoom from "@successtar/react-reveal/Zoom";
+import Fade from "@successtar/react-reveal/Fade";
 
 export function AnimateOnReveal({ animation, children }) {
   switch (animation) {

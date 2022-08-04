@@ -10,91 +10,68 @@ import "./ThumbnailGalleryWidget.scss";
 
 const ReactBnbGallery = loadable(() => import("react-bnb-gallery"));
 
-class ThumbnailGalleryComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentImage: 0,
-      lightboxIsOpen: false,
-      currentTag: "",
-    };
+Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
+  const [currentImage, setCurrentImage] = React.useState(0);
+  const [lightboxIsOpen, setLightboxIsOpen] = React.useState(false);
+  const [currentTag, setCurrentTag] = React.useState("");
 
-    this.openLightbox = this.openLightbox.bind(this);
-    this.closeLightbox = this.closeLightbox.bind(this);
-    this.setTag = this.setTag.bind(this);
-  }
+  const images = widget
+    .get("images")
+    .filter((subWidget) => isImage(subWidget.get("image")));
+  const lightboxImages = images.map((image) => lightboxOptions(image));
 
-  openLightbox(index, event) {
-    event.preventDefault();
-    this.setState({
-      currentImage: index,
-      lightboxIsOpen: true,
-    });
-  }
-
-  closeLightbox() {
-    this.setState({
-      currentImage: 0,
-      lightboxIsOpen: false,
-    });
-  }
-
-  setTag(tag) {
-    this.setState({
-      currentTag: tag,
-    });
-  }
-
-  render() {
-    const { widget } = this.props;
-    const images = widget
-      .get("images")
-      .filter((subWidget) => isImage(subWidget.get("image")));
-    const lightboxImages = images.map((image) => lightboxOptions(image));
-
-    if (!images.length) {
-      return (
-        <InPlaceEditingPlaceholder center>
-          Select images in the widget properties.
-        </InPlaceEditingPlaceholder>
-      );
-    }
-
+  if (!images.length) {
     return (
-      <div>
-        <TagList
-          showTags={widget.get("showTags")}
-          tags={allTags(images)}
-          currentTag={this.state.currentTag}
-          setTag={this.setTag}
-        />
-        <div>
-          <div className="row thumbnail-gallery-widget--wrapper">
-            {images.map((image, imageIndex) => (
-              <Thumbnail
-                key={image.id()}
-                widget={image}
-                openLightbox={(event) => this.openLightbox(imageIndex, event)}
-                currentTag={this.state.currentTag}
-              />
-            ))}
-          </div>
-          <ReactBnbGallery
-            show={this.state.lightboxIsOpen}
-            backgroundColor="rgba(22,22,22,.9)"
-            zIndex={1000000} // same value as .cookie-box
-            activePhotoIndex={this.state.currentImage}
-            photos={lightboxImages}
-            onClose={this.closeLightbox}
-            wrap={false}
-          />
-        </div>
-      </div>
+      <InPlaceEditingPlaceholder center>
+        Select images in the widget properties.
+      </InPlaceEditingPlaceholder>
     );
   }
-}
 
-Scrivito.provideComponent("ThumbnailGalleryWidget", ThumbnailGalleryComponent);
+  return (
+    <div>
+      <TagList
+        showTags={widget.get("showTags")}
+        tags={allTags(images)}
+        currentTag={currentTag}
+        setTag={setCurrentTag}
+      />
+      <div>
+        <div className="row thumbnail-gallery-widget--wrapper">
+          {images.map((image, imageIndex) => (
+            <Thumbnail
+              key={image.id()}
+              widget={image}
+              openLightbox={(event) => openLightbox(imageIndex, event)}
+              currentTag={currentTag}
+            />
+          ))}
+        </div>
+        <ReactBnbGallery
+          show={lightboxIsOpen}
+          backgroundColor="rgba(22,22,22,.9)"
+          zIndex={1000000} // same value as .cookie-box
+          activePhotoIndex={currentImage}
+          photos={lightboxImages}
+          onClose={closeLightbox}
+          wrap={false}
+        />
+      </div>
+    </div>
+  );
+
+  function openLightbox(index, event) {
+    event.preventDefault();
+
+    setCurrentImage(index);
+    setLightboxIsOpen(true);
+  }
+
+  function closeLightbox() {
+    setCurrentImage(0);
+    setLightboxIsOpen(false);
+  }
+});
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Thumbnail = Scrivito.connect(({ widget, openLightbox, currentTag }) => {

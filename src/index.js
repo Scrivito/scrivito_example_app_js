@@ -15,20 +15,11 @@ if (window.preloadDump) {
     dumpLoaded ? hydrateApp() : renderApp();
   });
 } else {
-  window.prerenderReady = false;
-  renderApp(() =>
-    Scrivito.finishLoading().then(() => {
-      window.prerenderReady = true;
-    })
-  );
+  renderApp();
 }
 
-function renderApp(renderCallback) {
-  ReactDOM.render(
-    <App />,
-    document.getElementById("application"),
-    renderCallback
-  );
+function renderApp() {
+  ReactDOM.render(<App />, document.getElementById("application"));
 }
 
 function hydrateApp() {

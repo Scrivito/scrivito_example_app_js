@@ -1,14 +1,14 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+import Slider from "react-slick";
 import loadable from "@loadable/component";
 
-import { fullScreenWidthPixels } from "../../utils/fullScreenWidthPixels";
 import { InPlaceEditingPlaceholder } from "../../Components/InPlaceEditingPlaceholder";
 import { TagList } from "../../Components/TagList";
 import { isImage } from "../../utils/isImage";
 import "./ThumbnailGalleryWidget.scss";
 
-const ReactBnbGallery = loadable(() => import("react-bnb-gallery"));
+const Modal = loadable(() => import("react-bootstrap/Modal"));
 
 Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
   const [currentImage, setCurrentImage] = React.useState(0);
@@ -18,7 +18,6 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
   const images = widget
     .get("images")
     .filter((subWidget) => isImage(subWidget.get("image")));
-  const lightboxImages = images.map((image) => lightboxOptions(image));
 
   if (!images.length) {
     return (
@@ -47,15 +46,71 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
             />
           ))}
         </div>
-        <ReactBnbGallery
+        <Modal
           show={lightboxIsOpen}
-          backgroundColor="rgba(22,22,22,.9)"
-          zIndex={1000000} // same value as .cookie-box
-          activePhotoIndex={currentImage}
-          photos={lightboxImages}
-          onClose={closeLightbox}
-          wrap={false}
-        />
+          onHide={closeLightbox}
+          centered
+          size="xl"
+          restoreFocus={false}
+          className="thumbnail-gallery-widget--modal"
+        >
+          <button
+            type="button"
+            className="slick-slide-close-button"
+            aria-label="Close"
+            onClick={closeLightbox}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              style={{
+                height: "2em",
+                width: "2em",
+                display: "block",
+                fill: "#fff",
+              }}
+            >
+              <path
+                d="M23.25 24c-.19 0-.38-.07-.53-.22L12 13.06 1.28 23.78c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06L10.94 12 .22 1.28C-.07.99-.07.51.22.22s.77-.29 1.06 0L12 10.94 22.72.22c.29-.29.77-.29 1.06 0s.29.77 0 1.06L13.06 12l10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22"
+                fillRule="evenodd"
+              />
+            </svg>
+          </button>
+          <Slider
+            dots
+            dotsClass="slick-dots slick-thumb"
+            infinite
+            speed={500}
+            initialSlide={currentImage}
+            customPaging={(i) => (
+              <button
+                aria-label={`Show ${[
+                  images[i].get("title"),
+                  images[i].get("subtitle"),
+                ].join(" - ")}`}
+              >
+                <Scrivito.BackgroundImageTag
+                  className="image"
+                  style={{ background: { image: images[i].get("image") } }}
+                />
+              </button>
+            )}
+            nextArrow={<SliderNextArrow />}
+            prevArrow={<SliderPrevArrow />}
+          >
+            {images.map((image) => (
+              <div className="image-wrapper" key={image.id()}>
+                <Scrivito.ImageTag
+                  content={image}
+                  attribute="image"
+                  alt={image.get("alternativeText")}
+                />
+                <h3 className="photo-caption">
+                  {[image.get("title"), image.get("subtitle")].join(" - ")}
+                </h3>
+              </div>
+            ))}
+          </Slider>
+        </Modal>
       </div>
     </div>
   );
@@ -124,19 +179,36 @@ function allTags(images) {
   return uniqueTags.sort();
 }
 
-function lightboxOptions(galleryImageWidget) {
-  const image = galleryImageWidget.get("image");
-  const binary = image.get("blob");
-  const srcUrl = binary.optimizeFor({ width: fullScreenWidthPixels() }).url();
-  const alt = image.get("alternativeText");
+function SliderNextArrow(props) {
+  return (
+    <button className="slider-next-arrow" onClick={props.onClick}>
+      <svg
+        viewBox="0 0 18 18"
+        aria-hidden="true"
+        style={{ height: "2.8em", width: "2.8em", fill: "#fff" }}
+      >
+        <path
+          d="M4.29 1.71A1 1 0 1 1 5.71.3l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1-1.42-1.41l7.29-7.29z"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+  );
+}
 
-  return {
-    photo: srcUrl,
-    thumbnail: srcUrl,
-    caption: [
-      galleryImageWidget.get("title"),
-      galleryImageWidget.get("subtitle"),
-    ].join(" - "),
-    alt,
-  };
+function SliderPrevArrow(props) {
+  return (
+    <button className="slider-prev-arrow" onClick={props.onClick}>
+      <svg
+        viewBox="0 0 18 18"
+        aria-hidden="true"
+        style={{ height: "2.8em", width: "2.8em", fill: "#fff" }}
+      >
+        <path
+          d="M13.7 16.29a1 1 0 1 1-1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8A1 1 0 1 1 13.7 1.7L6.41 8.99z"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+  );
 }

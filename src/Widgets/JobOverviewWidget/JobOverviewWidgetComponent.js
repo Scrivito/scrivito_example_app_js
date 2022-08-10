@@ -23,8 +23,8 @@ Scrivito.provideComponent("JobOverviewWidget", ({ widget }) => {
 
   return (
     <div className="row">
-      {jobs.map((job, index) => (
-        <JobItem key={job.id()} job={job} index={index} />
+      {jobs.map((job) => (
+        <JobItem key={job.id()} job={job} />
       ))}
     </div>
   );

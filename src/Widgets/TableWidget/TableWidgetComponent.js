@@ -17,9 +17,9 @@ Scrivito.provideComponent("TableWidget", ({ widget }) => (
       </tr>
     </thead>
     <tbody>
-      {widget.get("rows").map((rowWidget, index) => (
+      {widget.get("rows").map((rowWidget) => (
         <TableRowWidgetComponent
-          key={`${rowWidget.id()}${index}`}
+          key={rowWidget.id()}
           widget={rowWidget}
           header2={widget.get("header2")}
           header3={widget.get("header3")}

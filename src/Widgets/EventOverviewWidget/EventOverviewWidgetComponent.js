@@ -53,8 +53,8 @@ class EventOverviewWidgetComponent extends React.Component {
         />
         <section className="bg-white">
           <div className="row">
-            {events.map((event, index) => (
-              <EventItem key={`${event.id()}${index}`} event={event} />
+            {events.map((event) => (
+              <EventItem key={event.id()} event={event} />
             ))}
           </div>
         </section>

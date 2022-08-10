@@ -19,8 +19,8 @@ Scrivito.provideComponent("CarouselWidget", ({ widget }) => {
   return (
     <div className="carousel-widget">
       <Carousel className="carousel-images">
-        {images.map((image) => (
-          <Carousel.Item key={image.id()}>
+        {images.map((image, index) => (
+          <Carousel.Item key={`${image.id()}-${index}`}>
             <Scrivito.ImageTag
               content={image}
               alt={image.get("alternativeText")}

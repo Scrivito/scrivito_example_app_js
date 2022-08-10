@@ -39,7 +39,7 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
         <div className="row thumbnail-gallery-widget--wrapper">
           {images.map((image, imageIndex) => (
             <Thumbnail
-              key={image.id()}
+              key={`${image.id()}${imageIndex}`}
               widget={image}
               openLightbox={(event) => openLightbox(imageIndex, event)}
               currentTag={currentTag}
@@ -97,8 +97,8 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
             nextArrow={<SliderNextArrow />}
             prevArrow={<SliderPrevArrow />}
           >
-            {images.map((image) => (
-              <div className="image-wrapper" key={image.id()}>
+            {images.map((image, index) => (
+              <div className="image-wrapper" key={`${image.id()}-${index}`}>
                 <Scrivito.ImageTag
                   content={image}
                   attribute="image"

@@ -62,11 +62,11 @@ class SearchResultsComponent extends React.Component {
 
         <section className="bg-white no-padding">
           <div className="container">
-            {searchResults.map((resultItem, index) => (
+            {searchResults.map((resultItem) => (
               <SearchResultItem
                 resultItem={resultItem}
                 q={this.query()}
-                key={index}
+                key={resultItem.id()}
               />
             ))}
           </div>

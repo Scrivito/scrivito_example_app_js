@@ -79,7 +79,6 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
             dots
             dotsClass="slick-dots slick-thumb"
             infinite
-            speed={500}
             initialSlide={currentImage}
             customPaging={(i) => (
               <button

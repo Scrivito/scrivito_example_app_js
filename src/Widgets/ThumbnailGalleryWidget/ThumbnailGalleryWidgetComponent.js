@@ -60,20 +60,7 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
             aria-label="Close"
             onClick={closeLightbox}
           >
-            <svg
-              viewBox="0 0 24 24"
-              style={{
-                height: "2em",
-                width: "2em",
-                display: "block",
-                fill: "#fff",
-              }}
-            >
-              <path
-                d="M23.25 24c-.19 0-.38-.07-.53-.22L12 13.06 1.28 23.78c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06L10.94 12 .22 1.28C-.07.99-.07.51.22.22s.77-.29 1.06 0L12 10.94 22.72.22c.29-.29.77-.29 1.06 0s.29.77 0 1.06L13.06 12l10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22"
-                fillRule="evenodd"
-              />
-            </svg>
+            <i className="fa fa-times" aria-hidden="true"></i>
           </button>
           <Slider
             dots
@@ -181,16 +168,7 @@ function allTags(images) {
 function SliderNextArrow({ onClick }) {
   return (
     <button className="slider-next-arrow" onClick={onClick}>
-      <svg
-        viewBox="0 0 18 18"
-        aria-hidden="true"
-        style={{ height: "2.8em", width: "2.8em", fill: "#fff" }}
-      >
-        <path
-          d="M4.29 1.71A1 1 0 1 1 5.71.3l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1-1.42-1.41l7.29-7.29z"
-          fillRule="evenodd"
-        />
-      </svg>
+      <i className="fa fa-angle-right" aria-hidden="true" />
     </button>
   );
 }
@@ -198,16 +176,7 @@ function SliderNextArrow({ onClick }) {
 function SliderPrevArrow({ onClick }) {
   return (
     <button className="slider-prev-arrow" onClick={onClick}>
-      <svg
-        viewBox="0 0 18 18"
-        aria-hidden="true"
-        style={{ height: "2.8em", width: "2.8em", fill: "#fff" }}
-      >
-        <path
-          d="M13.7 16.29a1 1 0 1 1-1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8A1 1 0 1 1 13.7 1.7L6.41 8.99z"
-          fillRule="evenodd"
-        />
-      </svg>
+      <i className="fa fa-angle-left" aria-hidden="true" />
     </button>
   );
 }

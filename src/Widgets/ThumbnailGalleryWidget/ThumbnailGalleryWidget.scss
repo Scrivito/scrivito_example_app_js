@@ -121,6 +121,11 @@
       right: 15px;
       z-index: 111;
       -webkit-appearance: button;
+
+      .fa {
+        color: white;
+        font-size: 32px;
+      }
     }
 
     .slider-next-arrow,
@@ -134,10 +139,9 @@
       height: 100%;
       z-index: 111;
 
-      svg {
-        vertical-align: middle;
-        height: 45px;
-        width: 45px;
+      .fa {
+        color: white;
+        font-size: 100px;
       }
     }
 
@@ -153,18 +157,16 @@
       .slider-prev-arrow {
         left: 0px;
 
-        svg {
-          height: 25px;
-          width: 25px;
+        .fa {
+          font-size: 55px;
         }
       }
 
       .slider-next-arrow {
         right: 0px;
 
-        svg {
-          height: 25px;
-          width: 25px;
+        .fa {
+          font-size: 55px;
         }
       }
     }

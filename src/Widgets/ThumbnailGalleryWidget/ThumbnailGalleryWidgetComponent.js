@@ -178,9 +178,9 @@ function allTags(images) {
   return uniqueTags.sort();
 }
 
-function SliderNextArrow(props) {
+function SliderNextArrow({ onClick }) {
   return (
-    <button className="slider-next-arrow" onClick={props.onClick}>
+    <button className="slider-next-arrow" onClick={onClick}>
       <svg
         viewBox="0 0 18 18"
         aria-hidden="true"
@@ -195,9 +195,9 @@ function SliderNextArrow(props) {
   );
 }
 
-function SliderPrevArrow(props) {
+function SliderPrevArrow({ onClick }) {
   return (
-    <button className="slider-prev-arrow" onClick={props.onClick}>
+    <button className="slider-prev-arrow" onClick={onClick}>
       <svg
         viewBox="0 0 18 18"
         aria-hidden="true"

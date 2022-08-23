@@ -104,14 +104,10 @@ const Dropdown = Scrivito.connect(
 );
 
 function isActive(page) {
-  if (!Scrivito.currentPage()) return false;
+  const currentPage = Scrivito.currentPage();
+  if (!currentPage) return false;
 
-  const currentPath = Scrivito.currentPage().path();
-  if (currentPath) return currentPath.startsWith(page.path());
+  if (currentPage.objClass() === "BlogPost") return page.objClass() === "Blog";
 
-  if (Scrivito.currentPage().objClass() === "BlogPost") {
-    return page.objClass() === "Blog";
-  }
-
-  return false;
+  return Scrivito.isOnCurrentPath(page);
 }

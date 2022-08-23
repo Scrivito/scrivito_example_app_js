@@ -14,12 +14,12 @@ import { CookieConsentProvider } from "./Components/CookieConsentContext";
 
 export const helmetContext = {};
 
-export function App() {
+export function App({ callback }) {
   return (
     <ErrorBoundary>
       <CookieConsentProvider>
         <HelmetProvider context={helmetContext}>
-          <div>
+          <div ref={callback}>
             <div className="content-wrapper">
               <Navigation />
               <Scrivito.CurrentPage />

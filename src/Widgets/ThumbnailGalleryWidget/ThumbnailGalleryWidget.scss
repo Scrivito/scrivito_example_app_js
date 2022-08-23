@@ -1,4 +1,3 @@
-@import "~react-bnb-gallery/dist/style.css";
 @import "src/assets/stylesheets/variables";
 @import "src/assets/stylesheets/mixins";
 @import "src/assets/stylesheets/bootstrap5/functions";
@@ -98,6 +97,166 @@
     max-width: 0;
     opacity: 0;
   }
+
+  // --  modal content stylings -- //
+
+  &--modal {
+    padding: 0 !important;
+
+    .modal-dialog,
+    .modal-content {
+      background: transparent;
+      border: none;
+      position: static;
+    }
+
+    .slick-slide-close-button {
+      cursor: pointer;
+      background: none transparent;
+      border: 0;
+      display: block;
+      padding: 0.5rem;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 111;
+      -webkit-appearance: button;
+
+      .fa {
+        color: white;
+        font-size: 32px;
+      }
+    }
+
+    .slider-next-arrow,
+    .slider-prev-arrow {
+      all: initial;
+
+      position: absolute;
+      display: block;
+      cursor: pointer;
+      top: 0;
+      height: 100%;
+      z-index: 111;
+
+      .fa {
+        color: white;
+        font-size: 100px;
+      }
+    }
+
+    .slider-prev-arrow {
+      left: -25px;
+    }
+
+    .slider-next-arrow {
+      right: -25px;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      .slider-prev-arrow {
+        left: 0px;
+
+        .fa {
+          font-size: 55px;
+        }
+      }
+
+      .slider-next-arrow {
+        right: 0px;
+
+        .fa {
+          font-size: 55px;
+        }
+      }
+    }
+
+    .slick-slide {
+      .image-wrapper {
+        display: block;
+        overflow: hidden;
+        background: transparent;
+        height: auto;
+        position: relative;
+        padding-top: 50%;
+
+        &:focus-visible {
+          outline: none;
+        }
+
+        img {
+          display: block;
+          background: transparent;
+          max-height: calc(100% - 30px);
+          max-width: 100%;
+          object-fit: contain;
+          margin: 0 auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+      }
+
+      .photo-caption {
+        color: #fff;
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 20px;
+        text-align: center;
+        margin: 0;
+        position: relative;
+        text-shadow: 0 0 2px black;
+      }
+    }
+
+    .slick-dots {
+      bottom: auto;
+
+      li {
+        width: 58px;
+        height: 50px;
+        border-radius: 4px;
+        border: 2px solid transparent;
+        box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.25);
+        opacity: 0.7;
+
+        button:before {
+          display: none;
+        }
+      }
+
+      li.slick-active {
+        border: 2px solid #eee;
+        opacity: 1;
+      }
+    }
+
+    .slick-thumb li button {
+      cursor: pointer;
+      position: relative;
+      display: block;
+      overflow: hidden;
+      background: transparent;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      -webkit-appearance: button;
+
+      .image {
+        width: 58px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+.modal-backdrop.show {
+  opacity: 1 !important;
+  background-color: rgba(22, 22, 22, 0.9) !important;
 }
 
 .gallery-modal .gallery-modal--container {

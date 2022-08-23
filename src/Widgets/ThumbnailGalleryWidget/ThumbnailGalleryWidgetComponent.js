@@ -1,14 +1,14 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+import Slider from "react-slick";
 import loadable from "@loadable/component";
 
-import { fullScreenWidthPixels } from "../../utils/fullScreenWidthPixels";
 import { InPlaceEditingPlaceholder } from "../../Components/InPlaceEditingPlaceholder";
 import { TagList } from "../../Components/TagList";
 import { isImage } from "../../utils/isImage";
 import "./ThumbnailGalleryWidget.scss";
 
-const ReactBnbGallery = loadable(() => import("react-bnb-gallery"));
+const Modal = loadable(() => import("react-bootstrap/Modal"));
 
 Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
   const [currentImage, setCurrentImage] = React.useState(0);
@@ -18,7 +18,6 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
   const images = widget
     .get("images")
     .filter((subWidget) => isImage(subWidget.get("image")));
-  const lightboxImages = images.map((image) => lightboxOptions(image));
 
   if (!images.length) {
     return (
@@ -40,22 +39,64 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
         <div className="row thumbnail-gallery-widget--wrapper">
           {images.map((image, imageIndex) => (
             <Thumbnail
-              key={image.id()}
+              key={`${image.id()}${imageIndex}`}
               widget={image}
               openLightbox={(event) => openLightbox(imageIndex, event)}
               currentTag={currentTag}
             />
           ))}
         </div>
-        <ReactBnbGallery
+        <Modal
           show={lightboxIsOpen}
-          backgroundColor="rgba(22,22,22,.9)"
-          zIndex={1000000} // same value as .cookie-box
-          activePhotoIndex={currentImage}
-          photos={lightboxImages}
-          onClose={closeLightbox}
-          wrap={false}
-        />
+          onHide={closeLightbox}
+          centered
+          size="xl"
+          restoreFocus={false}
+          className="thumbnail-gallery-widget--modal"
+        >
+          <button
+            type="button"
+            className="slick-slide-close-button"
+            aria-label="Close"
+            onClick={closeLightbox}
+          >
+            <i className="fa fa-times" aria-hidden="true"></i>
+          </button>
+          <Slider
+            dots
+            dotsClass="slick-dots slick-thumb"
+            infinite
+            initialSlide={currentImage}
+            customPaging={(i) => (
+              <button
+                aria-label={`Show ${[
+                  images[i].get("title"),
+                  images[i].get("subtitle"),
+                ].join(" - ")}`}
+              >
+                <Scrivito.BackgroundImageTag
+                  className="image"
+                  style={{ background: { image: images[i].get("image") } }}
+                />
+              </button>
+            )}
+            nextArrow={<SliderNextArrow />}
+            prevArrow={<SliderPrevArrow />}
+          >
+            {images.map((image, index) => (
+              <div className="image-wrapper" key={`${image.id()}${index}`}>
+                <Scrivito.ImageTag
+                  content={image}
+                  attribute="image"
+                  alt={image.get("alternativeText")}
+                />
+                <h3 className="photo-caption">
+                  {[image.get("title"), image.get("subtitle")].join(" - ")}
+                </h3>
+              </div>
+            ))}
+          </Slider>
+        </Modal>
       </div>
     </div>
   );
@@ -124,19 +165,18 @@ function allTags(images) {
   return uniqueTags.sort();
 }
 
-function lightboxOptions(galleryImageWidget) {
-  const image = galleryImageWidget.get("image");
-  const binary = image.get("blob");
-  const srcUrl = binary.optimizeFor({ width: fullScreenWidthPixels() }).url();
-  const alt = image.get("alternativeText");
+function SliderNextArrow({ onClick }) {
+  return (
+    <button className="slider-next-arrow" onClick={onClick}>
+      <i className="fa fa-angle-right" aria-hidden="true" />
+    </button>
+  );
+}
 
-  return {
-    photo: srcUrl,
-    thumbnail: srcUrl,
-    caption: [
-      galleryImageWidget.get("title"),
-      galleryImageWidget.get("subtitle"),
-    ].join(" - "),
-    alt,
-  };
+function SliderPrevArrow({ onClick }) {
+  return (
+    <button className="slider-prev-arrow" onClick={onClick}>
+      <i className="fa fa-angle-left" aria-hidden="true" />
+    </button>
+  );
 }

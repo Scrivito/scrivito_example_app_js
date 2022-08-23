@@ -84,7 +84,7 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
             prevArrow={<SliderPrevArrow />}
           >
             {images.map((image, index) => (
-              <div className="image-wrapper" key={`${image.id()}-${index}`}>
+              <div className="image-wrapper" key={`${image.id()}${index}`}>
                 <Scrivito.ImageTag
                   content={image}
                   attribute="image"

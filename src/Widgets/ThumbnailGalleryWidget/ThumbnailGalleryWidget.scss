@@ -180,6 +180,10 @@
         position: relative;
         padding-top: 50%;
 
+        &:focus-visible {
+          outline: none;
+        }
+
         img {
           display: block;
           background: transparent;

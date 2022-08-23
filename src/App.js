@@ -19,20 +19,22 @@ export function App({ callback }) {
     <ErrorBoundary>
       <CookieConsentProvider>
         <HelmetProvider context={helmetContext}>
-          <div ref={callback}>
-            <div className="content-wrapper">
-              <Navigation />
-              <Scrivito.CurrentPage />
-              <Scrivito.NotFoundErrorPage>
-                <NotFoundErrorPage />
-              </Scrivito.NotFoundErrorPage>
+          <React.Suspense>
+            <div ref={callback}>
+              <div className="content-wrapper">
+                <Navigation />
+                <Scrivito.CurrentPage />
+                <Scrivito.NotFoundErrorPage>
+                  <NotFoundErrorPage />
+                </Scrivito.NotFoundErrorPage>
+              </div>
+              <Footer />
+              <CurrentPageMetadata />
+              <CookieConsentBanner />
+              <Tracking />
+              <Intercom />
             </div>
-            <Footer />
-            <CurrentPageMetadata />
-            <CookieConsentBanner />
-            <Tracking />
-            <Intercom />
-          </div>
+          </React.Suspense>
         </HelmetProvider>
       </CookieConsentProvider>
     </ErrorBoundary>

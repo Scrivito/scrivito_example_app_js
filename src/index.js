@@ -25,7 +25,11 @@ function renderApp() {
 function hydrateApp() {
   ReactDOM.hydrateRoot(
     document.getElementById("application"),
-    <App appWrapperRef={Scrivito.updateContent} />
+    <App
+      appWrapperRef={(el) => {
+        if (el) Scrivito.updateContent();
+      }}
+    />
   );
 }
 

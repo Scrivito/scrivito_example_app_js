@@ -25,7 +25,7 @@ function renderApp() {
 function hydrateApp() {
   ReactDOM.hydrateRoot(
     document.getElementById("application"),
-    <App callback={Scrivito.updateContent} />
+    <App appWrapperRef={Scrivito.updateContent} />
   );
 }
 

@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import * as ReactDOM from "react-dom/client";
 import * as Scrivito from "scrivito";
 import "./Objs";
 import "./Widgets";
@@ -19,12 +19,17 @@ if (window.preloadDump) {
 }
 
 function renderApp() {
-  ReactDOM.render(<App />, document.getElementById("application"));
+  ReactDOM.createRoot(document.getElementById("application")).render(<App />);
 }
 
 function hydrateApp() {
-  ReactDOM.hydrate(<App />, document.getElementById("application"), () =>
-    Scrivito.updateContent()
+  ReactDOM.hydrateRoot(
+    document.getElementById("application"),
+    <App
+      appWrapperRef={(el) => {
+        if (el) Scrivito.updateContent();
+      }}
+    />
   );
 }
 

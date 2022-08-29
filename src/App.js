@@ -14,25 +14,27 @@ import { CookieConsentProvider } from "./Components/CookieConsentContext";
 
 export const helmetContext = {};
 
-export function App() {
+export function App({ appWrapperRef }) {
   return (
     <ErrorBoundary>
       <CookieConsentProvider>
         <HelmetProvider context={helmetContext}>
-          <div>
-            <div className="content-wrapper">
-              <Navigation />
-              <Scrivito.CurrentPage />
-              <Scrivito.NotFoundErrorPage>
-                <NotFoundErrorPage />
-              </Scrivito.NotFoundErrorPage>
+          <React.Suspense>
+            <div ref={appWrapperRef}>
+              <div className="content-wrapper">
+                <Navigation />
+                <Scrivito.CurrentPage />
+                <Scrivito.NotFoundErrorPage>
+                  <NotFoundErrorPage />
+                </Scrivito.NotFoundErrorPage>
+              </div>
+              <Footer />
+              <CurrentPageMetadata />
+              <CookieConsentBanner />
+              <Tracking />
+              <Intercom />
             </div>
-            <Footer />
-            <CurrentPageMetadata />
-            <CookieConsentBanner />
-            <Tracking />
-            <Intercom />
-          </div>
+          </React.Suspense>
         </HelmetProvider>
       </CookieConsentProvider>
     </ErrorBoundary>

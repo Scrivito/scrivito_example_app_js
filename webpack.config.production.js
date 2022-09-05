@@ -1,4 +1,5 @@
 const path = require("path");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const { SourceMapDevToolPlugin } = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
@@ -20,6 +21,7 @@ function prodWebpackConfig(env = {}) {
 
   const sharedPlugins = filterPlugins(
     devPlugins,
+    ReactRefreshWebpackPlugin,
     SourceMapDevToolPlugin,
     isPrerendering ? undefined : WebpackManifestPlugin
   );

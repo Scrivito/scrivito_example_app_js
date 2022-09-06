@@ -9,6 +9,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const Webpackbar = require("webpackbar");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const headersCsp = require("./public/_headersCsp.json");
 
 // load ".env"
@@ -61,6 +62,7 @@ function webpackConfig(env = {}) {
             {
               loader: "babel-loader",
               options: {
+                plugins: env.production ? [] : ["react-refresh/babel"],
                 presets: [
                   "@babel/preset-react",
                   [
@@ -152,6 +154,7 @@ function webpackConfig(env = {}) {
         template: "_scrivito_extensions.html",
         chunks: ["scrivito_extensions"],
       }),
+      new ReactRefreshWebpackPlugin({ overlay: false }),
       new webpack.SourceMapDevToolPlugin({}),
       new WebpackManifestPlugin({ fileName: "asset-manifest.json" }),
     ],

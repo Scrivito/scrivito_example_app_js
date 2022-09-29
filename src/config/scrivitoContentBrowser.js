@@ -1,6 +1,8 @@
 import * as Scrivito from "scrivito";
 
 export function configureScrivitoContentBrowser() {
+  if (typeof window === "undefined") return;
+
   Scrivito.configureContentBrowser({
     filters: ({ _validObjClasses }) => {
       if (_validObjClasses) {

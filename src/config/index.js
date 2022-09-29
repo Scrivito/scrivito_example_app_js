@@ -8,9 +8,7 @@ export function configure(options) {
   configureScrivito(options);
   configureObjClassForContentType();
 
-  if (typeof window !== "undefined") {
-    configureScrivitoContentBrowser();
-    configureHistory();
-    configureWindowScrivito();
-  }
+  configureScrivitoContentBrowser();
+  configureHistory();
+  configureWindowScrivito();
 }

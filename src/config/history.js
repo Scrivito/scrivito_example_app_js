@@ -16,6 +16,6 @@ let currentHistory;
 export function getHistory() {
   if (typeof window === "undefined") return;
 
-  currentHistory ||= createBrowserHistory();
+  if (!currentHistory) currentHistory = createBrowserHistory();
   return currentHistory;
 }

@@ -2,11 +2,23 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import { getFieldName } from "./utils/getFieldName";
 import { scrollIntoView } from "./utils/scrollIntoView";
+import { getHistory } from "../../config/history";
 
 import "./FormContainerWidget.scss";
 
 Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
   const formEndpoint = `https://api.justrelate.com/neoletter/instances/${process.env.SCRIVITO_TENANT}/form_submissions`;
+
+  const [browserLocation, setBrowserLocation] = React.useState(null);
+  React.useEffect(() => {
+    const history = getHistory();
+    if (!history) return;
+    setBrowserLocation(locationToUrl(history.location));
+
+    return history.listen(({ location }) =>
+      setBrowserLocation(locationToUrl(location))
+    );
+  }, []);
 
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [successfullySent, setSuccessfullySent] = React.useState(false);
@@ -43,6 +55,11 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
     <div className="form-container-widget">
       <form method="post" action={formEndpoint} onSubmit={onSubmit}>
         <input type="hidden" name="form_id" value={widget.get("formId")} />
+        <input
+          type="hidden"
+          name="url"
+          value={browserLocation || Scrivito.urlFor(widget.obj())}
+        />
         {widget.get("hiddenFields").map((hiddenField) => (
           <HiddenField key={hiddenField.id()} widget={hiddenField} />
         ))}
@@ -107,3 +124,7 @@ const HiddenField = Scrivito.connect(({ widget }) => {
 
   return <input type="hidden" name={name} value={widget.get("hiddenValue")} />;
 });
+
+function locationToUrl(location) {
+  return `${window.location.origin}${location.pathname}${location.search}`;
+}

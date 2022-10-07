@@ -3,11 +3,10 @@ import * as Scrivito from "scrivito";
 import { getFieldName } from "./utils/getFieldName";
 import { scrollIntoView } from "./utils/scrollIntoView";
 import { getHistory } from "../../config/history";
-import { ENABLE_NEOLETTER_FORM_BUILDER } from "../../App";
 
 import "./FormContainerWidget.scss";
 
-ENABLE_NEOLETTER_FORM_BUILDER &&
+process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
   Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
     const formEndpoint = `https://api.justrelate.com/neoletter/instances/${process.env.SCRIVITO_TENANT}/form_submissions`;
 

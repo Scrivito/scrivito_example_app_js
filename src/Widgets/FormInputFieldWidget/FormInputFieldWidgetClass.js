@@ -1,8 +1,7 @@
 import * as Scrivito from "scrivito";
-import { ENABLE_NEOLETTER_FORM_BUILDER } from "../../App";
 
 export const FormInputFieldWidget =
-  ENABLE_NEOLETTER_FORM_BUILDER &&
+  process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
   Scrivito.provideWidgetClass("FormInputFieldWidget", {
     attributes: {
       label: "string",

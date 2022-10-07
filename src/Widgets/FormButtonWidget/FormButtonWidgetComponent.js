@@ -1,8 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import { ENABLE_NEOLETTER_FORM_BUILDER } from "../../App";
 
-ENABLE_NEOLETTER_FORM_BUILDER &&
+process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
   Scrivito.provideComponent("FormButtonWidget", ({ widget }) => (
     <WrapIfClassName
       className={

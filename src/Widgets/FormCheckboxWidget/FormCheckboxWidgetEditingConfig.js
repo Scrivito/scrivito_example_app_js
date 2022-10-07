@@ -4,9 +4,8 @@ import { isCustomType } from "../FormContainerWidget/utils/isCustomType";
 import { customFieldNameValidation } from "../FormContainerWidget/utils/validations/customFieldNameValidation";
 import { insideFormContainerValidation } from "../FormContainerWidget/utils/validations/insideFormContainerValidation";
 import { typeValidation } from "../FormContainerWidget/utils/validations/typeValidation";
-import { ENABLE_NEOLETTER_FORM_BUILDER } from "../../App";
 
-ENABLE_NEOLETTER_FORM_BUILDER &&
+process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
   Scrivito.provideEditingConfig("FormCheckboxWidget", {
     title: "Form Checkbox",
     thumbnail: formCheckboxWidgetIcon,

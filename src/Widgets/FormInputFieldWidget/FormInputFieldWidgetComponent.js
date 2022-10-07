@@ -3,9 +3,8 @@ import * as Scrivito from "scrivito";
 import { Popover, OverlayTrigger } from "react-bootstrap";
 import { getFieldName } from "../FormContainerWidget/utils/getFieldName";
 import { isCustomType } from "../FormContainerWidget/utils/isCustomType";
-import { ENABLE_NEOLETTER_FORM_BUILDER } from "../../App";
 
-ENABLE_NEOLETTER_FORM_BUILDER &&
+process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
   Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
     const id = `form_text_input_widget_${widget.id()}`;
 

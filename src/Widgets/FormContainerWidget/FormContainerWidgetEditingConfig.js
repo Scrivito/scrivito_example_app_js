@@ -8,9 +8,8 @@ import { FormInputFieldWidget } from "../FormInputFieldWidget/FormInputFieldWidg
 import { TextWidget } from "../TextWidget/TextWidgetClass";
 import { pseudoRandom32CharHex } from "./utils/pseudoRandom32CharHex";
 import { getFormContainer } from "./utils/getFormContainer";
-import { ENABLE_NEOLETTER_FORM_BUILDER } from "../../App";
 
-ENABLE_NEOLETTER_FORM_BUILDER &&
+process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
   Scrivito.provideEditingConfig("FormContainerWidget", {
     title: "Form",
     thumbnail: formContainerWidgetIcon,

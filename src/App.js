@@ -13,7 +13,6 @@ import { Tracking } from "./Components/Tracking";
 import { CookieConsentProvider } from "./Components/CookieConsentContext";
 
 export const helmetContext = {};
-export const ENABLE_NEOLETTER_FORM_BUILDER = false;
 
 export function App({ appWrapperRef }) {
   return (

@@ -1,9 +1,8 @@
 import { truncate } from "lodash-es";
 import * as Scrivito from "scrivito";
 import { customFieldNameValidation } from "../FormContainerWidget/utils/validations/customFieldNameValidation";
-import { ENABLE_NEOLETTER_FORM_BUILDER } from "../../App";
 
-ENABLE_NEOLETTER_FORM_BUILDER &&
+process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
   Scrivito.provideEditingConfig("FormHiddenFieldWidget", {
     title: "Hidden Field",
     attributes: {

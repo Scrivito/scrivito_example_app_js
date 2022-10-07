@@ -1,8 +1,9 @@
 import * as Scrivito from "scrivito";
+import { ENABLE_NEOLETTER_FORM_BUILDER } from "../../App";
 
-export const FormCheckboxWidget = Scrivito.provideWidgetClass(
-  "FormCheckboxWidget",
-  {
+export const FormCheckboxWidget =
+  ENABLE_NEOLETTER_FORM_BUILDER &&
+  Scrivito.provideWidgetClass("FormCheckboxWidget", {
     attributes: {
       type: ["enum", { values: ["custom", "accept_terms"] }],
       customFieldName: "string",
@@ -10,5 +11,4 @@ export const FormCheckboxWidget = Scrivito.provideWidgetClass(
       required: "boolean",
       helpText: "html",
     },
-  }
-);
+  });

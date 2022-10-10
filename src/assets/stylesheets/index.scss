@@ -1133,6 +1133,11 @@ img.cookie-img {
   }
 }
 
+/* popover styles used in forms
+=================================================================== */
+
+.popover p:last-of-type { margin: 0; }
+
 /* disable selection, see https://stackoverflow.com/a/4407335/881759 for details
 ================================================== */
 .noselect {

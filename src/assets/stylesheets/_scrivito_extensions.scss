@@ -183,3 +183,70 @@ $blueDarken: #0085ac;
     color: #aaa !important;
   }
 }
+
+.scrivito_button {
+  display: inline-block;
+  color: #555;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 14px;
+  text-align: center;
+  padding: 8px 10px;
+  margin: 0 10px 10px 0;
+  position: relative;
+  z-index: 1;
+  vertical-align: middle;
+  min-width: 90px;
+  min-height: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fcfcfc;
+  border-radius: 3px;
+  @include box-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  &:focus,
+  &:hover {
+    cursor: pointer;
+    color: #333;
+    background: lighten(#fcfcfc, 10%);
+  }
+  &:active {
+    cursor: pointer;
+    color: #333;
+    background: darken(#fcfcfc, 5%);
+  }
+}
+
+.scrivito_button.scrivito_disabled,
+.scrivito_button.scrivito_disabled:hover,
+.scrivito_button.scrivito_disabled:active {
+  color: #aaa !important;
+  cursor: not-allowed;
+  background: #eee;
+}
+
+a.scrivito_button,
+a.scrivito_button:hover,
+a.scrivito_button:focus,
+a.scrivito_button:active {
+  text-decoration: none;
+}
+
+.scrivito_button.scrivito_blue {
+  background: #426698 !important;
+  color: #fff;
+
+  &:hover:not(.scrivito_disabled) {
+    background: lighten(#426698, 10%) !important;
+    color: #fff;
+  }
+
+  &:active:not(.scrivito_disabled) {
+    background: darken(#426698, 5%) !important;
+    color: #fff;
+  }
+}

@@ -1,4 +1,5 @@
 import * as Scrivito from "scrivito";
+import loadable from "@loadable/component";
 import formContainerWidgetIcon from "../../assets/images/form_container_widget.svg";
 import { ColumnContainerWidget } from "../ColumnContainerWidget/ColumnContainerWidgetClass";
 import { ColumnWidget } from "../ColumnWidget/ColumnWidgetClass";
@@ -7,7 +8,6 @@ import { FormInputFieldWidget } from "../FormInputFieldWidget/FormInputFieldWidg
 import { TextWidget } from "../TextWidget/TextWidgetClass";
 import { pseudoRandom32CharHex } from "./utils/pseudoRandom32CharHex";
 import { getFormContainer } from "./utils/getFormContainer";
-import { FormIdComponent } from "./FormIdComponent";
 
 process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
   Scrivito.provideEditingConfig("FormContainerWidget", {
@@ -42,7 +42,9 @@ process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
         title: "Form submissions",
         key: "FormContainerWidgetFormSubmissions",
         properties: ["formId"],
-        component: FormIdComponent,
+        component: loadable(
+          async () => (await import("./FormIdComponent")).FormIdComponent
+        ),
       },
     ],
     initialContent: {

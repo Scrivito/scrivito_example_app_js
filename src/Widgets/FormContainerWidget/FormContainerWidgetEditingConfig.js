@@ -42,7 +42,9 @@ process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
         title: "Form submissions",
         key: "FormContainerWidgetFormSubmissions",
         properties: ["formId"],
-        component: loadable(() => import("./FormIdComponent")),
+        component: loadable(
+          async () => (await import("./FormIdComponent")).FormIdComponent
+        ),
       },
     ],
     initialContent: {

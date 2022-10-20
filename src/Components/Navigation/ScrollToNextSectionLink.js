@@ -5,7 +5,7 @@ export function ScrollToNextSectionLink({ heightClassName }) {
 
   return (
     <a
-      href="#mainContent"
+      href="#nextSection"
       className="btn-round btn-white-transparent hidden-xs"
       aria-label="Scroll to next section"
     >

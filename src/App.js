@@ -23,7 +23,7 @@ export function App({ appWrapperRef }) {
             <div ref={appWrapperRef}>
               <div className="content-wrapper">
                 <Navigation />
-                <div className="mainContent">
+                <div id="mainContent">
                   <Scrivito.CurrentPage />
                 </div>
                 <Scrivito.NotFoundErrorPage>

@@ -168,7 +168,6 @@ export const Navigation = Scrivito.connect(
             <NavigationSection heightClassName={heightClassName} />
             <ScrollToNextSectionLink heightClassName={heightClassName} />
           </Scrivito.BackgroundImageTag>
-          <div id="mainContent" />
         </React.Fragment>
       );
     }

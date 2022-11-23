@@ -134,16 +134,7 @@ const HiddenField = Scrivito.connect(({ widget }) => {
 
 const HoneypotField = () => (
   <div aria-hidden="true" className="winnie-the-pooh">
-    <label className="form-label" htmlFor="phone">
-      Phone number
-    </label>
-    <input
-      autoComplete="off"
-      type="tel"
-      id="phone"
-      name="fax"
-      placeholder="Your phone number"
-    />
+    <input autoComplete="off" name="fax" tabIndex="-1" />
   </div>
 );
 

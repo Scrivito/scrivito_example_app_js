@@ -67,6 +67,9 @@ process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
           {widget.get("hiddenFields").map((hiddenField) => (
             <HiddenField key={hiddenField.id()} widget={hiddenField} />
           ))}
+
+          <HoneypotField />
+
           <Scrivito.ContentTag content={widget} attribute="content" />
         </form>
       </div>
@@ -128,6 +131,12 @@ const HiddenField = Scrivito.connect(({ widget }) => {
 
   return <input type="hidden" name={name} value={widget.get("hiddenValue")} />;
 });
+
+const HoneypotField = () => (
+  <div aria-hidden="true" className="winnie-the-pooh">
+    <input autoComplete="off" name="fax" tabIndex="-1" />
+  </div>
+);
 
 function locationToUrl(location) {
   return `${window.location.origin}${location.pathname}${location.search}`;

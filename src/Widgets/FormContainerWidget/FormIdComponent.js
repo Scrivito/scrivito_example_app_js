@@ -4,7 +4,7 @@ import { ContentProperty } from "../../Components/ScrivitoExtensions/ContentProp
 
 export const FormIdComponent = Scrivito.connect(({ widget }) => {
   const formSubmissionsHref = widget.get("formId")
-    ? `https://neoletter.com/i/${
+    ? `https://edit.neoletter.com/i/${
         process.env.SCRIVITO_TENANT
       }/forms/${widget.get("formId")}`
     : null;

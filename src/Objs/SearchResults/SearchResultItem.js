@@ -12,8 +12,9 @@ const PreviewImage = Scrivito.connect(({ item }) => {
     item.get("navigationBackgroundImage") ||
     item.get("titleImage") ||
     item.get("image");
-  if (image instanceof Scrivito.Binary) return null;  
-  if (!image || isVideoObj(image)) return null;
+  if (!image) return null;
+  if (!(image instanceof Scrivito.Obj)) return null;
+  if (isVideoObj(image)) return null;
 
   return (
     <Scrivito.LinkTag to={item} className="search-result-item--image">

@@ -12,6 +12,7 @@ const PreviewImage = Scrivito.connect(({ item }) => {
     item.get("navigationBackgroundImage") ||
     item.get("titleImage") ||
     item.get("image");
+  if (image instanceof Scrivito.Binary) return null;  
   if (!image || isVideoObj(image)) return null;
 
   return (

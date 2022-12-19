@@ -11,4 +11,6 @@ export const metadataAttributes = {
   ogDescription: "string",
   ogImage: ["reference", { only: ["Image"] }],
   ogTitle: "string",
+  // The order of the child pages
+  childOrder: "referencelist",
 };

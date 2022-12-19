@@ -8,7 +8,6 @@ export const Homepage = Scrivito.provideObjClass("Homepage", {
     showAsLandingPage: "boolean",
     cookieConsentLink: "link",
     contentTitle: "string",
-    childOrder: "referencelist",
     footer: ["widgetlist", { only: "SectionWidget" }],
     logoDark: ["reference", { only: ["Image"] }],
     logoWhite: ["reference", { only: ["Image"] }],

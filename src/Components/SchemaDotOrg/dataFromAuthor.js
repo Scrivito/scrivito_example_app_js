@@ -1,4 +1,4 @@
-import { urlFromBinary } from "../../utils/urlFromBinary";
+import { urlFromBinaryObj } from "../../utils/urlFromBinary";
 
 export function dataFromAuthor(author) {
   return {
@@ -6,6 +6,6 @@ export function dataFromAuthor(author) {
     "@type": "Person",
     name: author.get("title"),
     description: author.get("description"),
-    image: urlFromBinary(author.get("image")),
+    image: urlFromBinaryObj(author.get("image")),
   };
 }

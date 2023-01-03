@@ -1,16 +1,16 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import { urlFromBinary } from "../../utils/urlFromBinary";
+import { urlFromBinaryObj } from "../../utils/urlFromBinary";
 import { videoPlaceholder } from "./videoPlaceholder";
 
 Scrivito.provideComponent("VideoWidget", ({ widget }) => {
-  const videoUrl = urlFromBinary(widget.get("source"));
+  const videoUrl = urlFromBinaryObj(widget.get("source"));
 
   if (!videoUrl && !Scrivito.isInPlaceEditingActive()) {
     return null;
   }
 
-  const posterUrl = urlFromBinary(widget.get("poster"));
+  const posterUrl = urlFromBinaryObj(widget.get("poster"));
   const src = posterUrl ? videoUrl : `${videoUrl}#t=0.01`;
 
   let style = {};

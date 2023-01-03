@@ -1,4 +1,4 @@
-export function urlFromBinary(binary) {
+export function urlFromBinaryObj(binary) {
   if (!binary) return null;
 
   const blob = binary.get("blob");

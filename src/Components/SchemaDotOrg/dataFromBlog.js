@@ -1,4 +1,4 @@
-import { urlFromBinary } from "../../utils/urlFromBinary";
+import { urlFromBinaryObj } from "../../utils/urlFromBinary";
 import { isImageObj } from "../../utils/isImageObj";
 
 export function dataFromBlog(blog) {
@@ -9,7 +9,7 @@ export function dataFromBlog(blog) {
   };
 
   const backgroundObj = blog.get("navigationBackgroundImage");
-  if (isImageObj(backgroundObj)) schema.image = urlFromBinary(backgroundObj);
+  if (isImageObj(backgroundObj)) schema.image = urlFromBinaryObj(backgroundObj);
 
   return schema;
 }

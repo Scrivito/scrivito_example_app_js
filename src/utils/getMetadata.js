@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 import { truncate } from "lodash-es";
-import { urlFromBinary } from "./urlFromBinary";
+import { urlFromBinaryObj } from "./urlFromBinary";
 import { isImageObj } from "./isImageObj";
 
 export function getMetadata(page) {
@@ -82,7 +82,7 @@ function firstImageUrlForAttributes(obj, attributes) {
     const binary = obj.get(attribute);
     if (!isImageObj(binary)) return;
 
-    url = urlFromBinary(binary);
+    url = urlFromBinaryObj(binary);
   });
 
   return url;

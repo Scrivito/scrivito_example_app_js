@@ -4,7 +4,7 @@ import { groupBy, truncate } from "lodash-es";
 import { BlogPostDate } from "./BlogPostDate";
 import { formatDate } from "../../utils/formatDate";
 import { InPlaceEditingPlaceholder } from "../InPlaceEditingPlaceholder";
-import { isImageObj } from "../../utils/isImage";
+import { isImageObj } from "../../utils/isImageObj";
 
 export const BlogPostPreviewList = Scrivito.connect(
   ({ maxItems, author, tag, filterBlogPostId }) => {

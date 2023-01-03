@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import { InPlaceEditingPlaceholder } from "./InPlaceEditingPlaceholder";
-import { isImageObj } from "../utils/isImage";
+import { isImageObj } from "../utils/isImageObj";
 
 export const AuthorImage = Scrivito.connect(function AuthorImage({ image }) {
   if (!isImageObj(image)) {

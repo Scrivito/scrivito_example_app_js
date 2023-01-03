@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import { AuthorImage } from "../AuthorImage";
-import { isImageObj } from "../../utils/isImage";
+import { isImageObj } from "../../utils/isImageObj";
 
 export const BlogPostAuthor = Scrivito.connect(function BlogPostAuthor({
   author,

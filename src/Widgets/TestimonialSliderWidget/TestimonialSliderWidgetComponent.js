@@ -4,7 +4,7 @@ import Slider from "react-slick";
 
 import { placeholderCss } from "../../utils/placeholderCss";
 import { TestimonialWidget } from "../TestimonialWidget/TestimonialWidgetClass";
-import { isImageObj } from "../../utils/isImage";
+import { isImageObj } from "../../utils/isImageObj";
 import "./TestimonialSliderWidget.scss";
 
 Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {

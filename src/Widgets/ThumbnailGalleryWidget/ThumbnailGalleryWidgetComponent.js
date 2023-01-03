@@ -5,7 +5,7 @@ import loadable from "@loadable/component";
 
 import { InPlaceEditingPlaceholder } from "../../Components/InPlaceEditingPlaceholder";
 import { TagList } from "../../Components/TagList";
-import { isImageObj } from "../../utils/isImage";
+import { isImageObj } from "../../utils/isImageObj";
 import "./ThumbnailGalleryWidget.scss";
 
 const Modal = loadable(() => import("react-bootstrap/Modal"));

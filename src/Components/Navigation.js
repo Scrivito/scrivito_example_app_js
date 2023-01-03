@@ -7,7 +7,7 @@ import { LandingPageNavigation } from "./Navigation/LandingPageNavigation";
 import { NavigationSection } from "./Navigation/NavigationSection";
 import { ScrollToNextSectionLink } from "./Navigation/ScrollToNextSectionLink";
 import { isVideoObj } from "../utils/isVideoObj";
-import { urlFromBinaryObj } from "../utils/urlFromBinary";
+import { urlFromBinaryObj } from "../utils/urlFromBinaryObj";
 
 function ActualNavigation({
   showAsLandingPage,

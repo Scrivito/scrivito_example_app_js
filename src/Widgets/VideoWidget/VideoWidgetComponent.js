@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import { urlFromBinaryObj } from "../../utils/urlFromBinary";
+import { urlFromBinaryObj } from "../../utils/urlFromBinaryObj";
 import { videoPlaceholder } from "./videoPlaceholder";
 
 Scrivito.provideComponent("VideoWidget", ({ widget }) => {

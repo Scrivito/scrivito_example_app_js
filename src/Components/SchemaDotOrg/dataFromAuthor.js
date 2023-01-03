@@ -1,4 +1,4 @@
-import { urlFromBinaryObj } from "../../utils/urlFromBinary";
+import { urlFromBinaryObj } from "../../utils/urlFromBinaryObj";
 
 export function dataFromAuthor(author) {
   return {

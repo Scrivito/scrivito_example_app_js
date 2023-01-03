@@ -1,4 +1,4 @@
-import { urlFromBinaryObj } from "../../utils/urlFromBinary";
+import { urlFromBinaryObj } from "../../utils/urlFromBinaryObj";
 import { isImageObj } from "../../utils/isImageObj";
 
 export function dataFromBlog(blog) {

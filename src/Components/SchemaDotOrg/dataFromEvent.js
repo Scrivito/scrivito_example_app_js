@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 import { formatDate } from "../../utils/formatDate";
-import { urlFromBinaryObj } from "../../utils/urlFromBinary";
+import { urlFromBinaryObj } from "../../utils/urlFromBinaryObj";
 
 export function dataFromEvent(event) {
   return {

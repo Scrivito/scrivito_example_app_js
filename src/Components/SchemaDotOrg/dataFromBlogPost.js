@@ -2,7 +2,7 @@ import * as Scrivito from "scrivito";
 import { truncate } from "lodash-es";
 import { dataFromAuthor } from "./dataFromAuthor";
 import { formatDate } from "../../utils/formatDate";
-import { urlFromBinaryObj } from "../../utils/urlFromBinary";
+import { urlFromBinaryObj } from "../../utils/urlFromBinaryObj";
 
 export function dataFromBlogPost(blogPost) {
   const description = Scrivito.extractText(blogPost, { length: 330 });

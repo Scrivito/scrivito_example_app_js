@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import { InPlaceEditingPlaceholder } from "./InPlaceEditingPlaceholder";
-import { isImage } from "../utils/isImage";
+import { isImageObj } from "../utils/isImage";
 
 export const AuthorImage = Scrivito.connect(function AuthorImage({ image }) {
-  if (!isImage(image)) {
+  if (!isImageObj(image)) {
     return (
       <InPlaceEditingPlaceholder center>
         Click here to select an author image.

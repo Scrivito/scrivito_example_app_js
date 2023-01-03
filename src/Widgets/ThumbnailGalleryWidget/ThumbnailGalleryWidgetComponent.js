@@ -5,7 +5,7 @@ import loadable from "@loadable/component";
 
 import { InPlaceEditingPlaceholder } from "../../Components/InPlaceEditingPlaceholder";
 import { TagList } from "../../Components/TagList";
-import { isImage } from "../../utils/isImage";
+import { isImageObj } from "../../utils/isImage";
 import "./ThumbnailGalleryWidget.scss";
 
 const Modal = loadable(() => import("react-bootstrap/Modal"));
@@ -17,7 +17,7 @@ Scrivito.provideComponent("ThumbnailGalleryWidget", ({ widget }) => {
 
   const images = widget
     .get("images")
-    .filter((subWidget) => isImage(subWidget.get("image")));
+    .filter((subWidget) => isImageObj(subWidget.get("image")));
 
   if (!images.length) {
     return (

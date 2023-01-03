@@ -4,7 +4,7 @@ import Slider from "react-slick";
 
 import { placeholderCss } from "../../utils/placeholderCss";
 import { TestimonialWidget } from "../TestimonialWidget/TestimonialWidgetClass";
-import { isImage } from "../../utils/isImage";
+import { isImageObj } from "../../utils/isImage";
 import "./TestimonialSliderWidget.scss";
 
 Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
@@ -43,7 +43,7 @@ Scrivito.provideComponent("TestimonialSliderWidget", ({ widget }) => {
 function sliderSettings(testimonials) {
   const testimonialAuthorImages = testimonials.map((testimonial) => {
     const authorImage = testimonial.get("authorImage");
-    if (!isImage(authorImage)) {
+    if (!isImageObj(authorImage)) {
       return (
         <img
           key={testimonial.id()}

@@ -79,10 +79,10 @@ function firstImageUrlForAttributes(obj, attributes) {
   attributes.forEach((attribute) => {
     if (url) return;
 
-    const binary = obj.get(attribute);
-    if (!isImageObj(binary)) return;
+    const image = obj.get(attribute);
+    if (!isImageObj(image)) return;
 
-    url = urlFromBinaryObj(binary);
+    url = urlFromBinaryObj(image);
   });
 
   return url;

@@ -7,7 +7,7 @@ import { LandingPageNavigation } from "./Navigation/LandingPageNavigation";
 import { NavigationSection } from "./Navigation/NavigationSection";
 import { ScrollToNextSectionLink } from "./Navigation/ScrollToNextSectionLink";
 import { isVideoObj } from "../utils/isVideoObj";
-import { urlFromBinary } from "../utils/urlFromBinary";
+import { urlFromBinaryObj } from "../utils/urlFromBinaryObj";
 
 function ActualNavigation({
   showAsLandingPage,
@@ -109,7 +109,7 @@ export const Navigation = Scrivito.connect(
 
       let videoUrl = "";
       if (isVideoObj(backgroundImage)) {
-        videoUrl = urlFromBinary(backgroundImage);
+        videoUrl = urlFromBinaryObj(backgroundImage);
       }
 
       const topSectionStyle = {};

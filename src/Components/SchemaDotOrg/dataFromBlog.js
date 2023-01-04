@@ -1,5 +1,5 @@
-import { urlFromBinary } from "../../utils/urlFromBinary";
-import { isVideoObj } from "../../utils/isVideoObj";
+import { urlFromBinaryObj } from "../../utils/urlFromBinaryObj";
+import { isImageObj } from "../../utils/isImageObj";
 
 export function dataFromBlog(blog) {
   const schema = {
@@ -9,9 +9,7 @@ export function dataFromBlog(blog) {
   };
 
   const backgroundObj = blog.get("navigationBackgroundImage");
-  if (backgroundObj && !isVideoObj(backgroundObj)) {
-    schema.image = urlFromBinary(backgroundObj);
-  }
+  if (isImageObj(backgroundObj)) schema.image = urlFromBinaryObj(backgroundObj);
 
   return schema;
 }

@@ -1,7 +1,7 @@
 import * as Scrivito from "scrivito";
 import { truncate } from "lodash-es";
-import { urlFromBinary } from "./urlFromBinary";
-import { isVideoObj } from "./isVideoObj";
+import { urlFromBinaryObj } from "./urlFromBinaryObj";
+import { isImageObj } from "./isImageObj";
 
 export function getMetadata(page) {
   const meta = [
@@ -79,10 +79,10 @@ function firstImageUrlForAttributes(obj, attributes) {
   attributes.forEach((attribute) => {
     if (url) return;
 
-    const binary = obj.get(attribute);
-    if (isVideoObj(binary)) return;
+    const image = obj.get(attribute);
+    if (!isImageObj(image)) return;
 
-    url = urlFromBinary(binary);
+    url = urlFromBinaryObj(image);
   });
 
   return url;

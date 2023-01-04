@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
 import { AuthorImage } from "../AuthorImage";
-import { isImage } from "../../utils/isImage";
+import { isImageObj } from "../../utils/isImageObj";
 
 export const BlogPostAuthor = Scrivito.connect(function BlogPostAuthor({
   author,
@@ -22,7 +22,7 @@ export const BlogPostAuthor = Scrivito.connect(function BlogPostAuthor({
 });
 
 const AuthorImageAndDescription = Scrivito.connect(({ author }) => {
-  if (!isImage(author.get("image"))) {
+  if (!isImageObj(author.get("image"))) {
     return (
       <div className="col-md-12 col-sm-12 col-xs-12">
         <AuthorDescription author={author} />

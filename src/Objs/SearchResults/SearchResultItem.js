@@ -4,7 +4,7 @@ import fromNow from "moment-from-now";
 import Highlighter from "react-highlight-words";
 import { truncate } from "lodash-es";
 
-import { isVideoObj } from "../../utils/isVideoObj";
+import { isImageObj } from "../../utils/isImageObj";
 import "./SearchResultItem.scss";
 
 const PreviewImage = Scrivito.connect(({ item }) => {
@@ -12,9 +12,7 @@ const PreviewImage = Scrivito.connect(({ item }) => {
     item.get("navigationBackgroundImage") ||
     item.get("titleImage") ||
     item.get("image");
-  if (!image) return null;
-  if (!(image instanceof Scrivito.Obj)) return null;
-  if (isVideoObj(image)) return null;
+  if (!isImageObj(image)) return null;
 
   return (
     <Scrivito.LinkTag to={item} className="search-result-item--image">

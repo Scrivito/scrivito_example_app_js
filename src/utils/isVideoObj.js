@@ -1,5 +1,7 @@
+import * as Scrivito from "scrivito";
+
 export function isVideoObj(obj) {
-  if (!obj) return false;
+  if (!(obj instanceof Scrivito.Obj)) return false;
 
   const contentType = obj.contentType();
   if (!contentType) return false;

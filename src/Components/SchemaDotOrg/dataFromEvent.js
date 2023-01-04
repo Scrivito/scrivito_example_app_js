@@ -1,6 +1,6 @@
 import * as Scrivito from "scrivito";
 import { formatDate } from "../../utils/formatDate";
-import { urlFromBinary } from "../../utils/urlFromBinary";
+import { urlFromBinaryObj } from "../../utils/urlFromBinaryObj";
 
 export function dataFromEvent(event) {
   return {
@@ -10,7 +10,7 @@ export function dataFromEvent(event) {
     url: Scrivito.urlFor(event),
     startDate: formatDate(event.get("date"), "yyyy-mm-dd"),
     location: locationFromEvent(event),
-    image: urlFromBinary(event.get("image")),
+    image: urlFromBinaryObj(event.get("image")),
     description: event.get("metaDataDescription"),
   };
 }

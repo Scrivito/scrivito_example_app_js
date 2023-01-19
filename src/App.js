@@ -16,9 +16,9 @@ export const helmetContext = {};
 
 export function App({ appWrapperRef }) {
   return (
-    <ErrorBoundary>
-      <CookieConsentProvider>
-        <HelmetProvider context={helmetContext}>
+    <HelmetProvider context={helmetContext}>
+      <ErrorBoundary>
+        <CookieConsentProvider>
           <React.Suspense>
             <div ref={appWrapperRef}>
               <div className="content-wrapper">
@@ -37,8 +37,8 @@ export function App({ appWrapperRef }) {
               <Intercom />
             </div>
           </React.Suspense>
-        </HelmetProvider>
-      </CookieConsentProvider>
-    </ErrorBoundary>
+        </CookieConsentProvider>
+      </ErrorBoundary>
+    </HelmetProvider>
   );
 }

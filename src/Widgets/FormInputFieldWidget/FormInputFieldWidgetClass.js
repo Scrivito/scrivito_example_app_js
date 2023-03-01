@@ -1,8 +1,8 @@
 import * as Scrivito from "scrivito";
 
-export const FormInputFieldWidget =
-  process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
-  Scrivito.provideWidgetClass("FormInputFieldWidget", {
+export const FormInputFieldWidget = Scrivito.provideWidgetClass(
+  "FormInputFieldWidget",
+  {
     attributes: {
       label: "string",
       placeholder: "string",
@@ -26,4 +26,5 @@ export const FormInputFieldWidget =
       customType: ["enum", { values: ["single_line", "multi_line"] }],
       customFieldName: "string",
     },
-  });
+  }
+);

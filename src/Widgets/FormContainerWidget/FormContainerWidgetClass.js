@@ -1,8 +1,8 @@
 import * as Scrivito from "scrivito";
 
-export const FormContainerWidget =
-  process.env.ENABLE_NEOLETTER_FORM_BUILDER &&
-  Scrivito.provideWidgetClass("FormContainerWidget", {
+export const FormContainerWidget = Scrivito.provideWidgetClass(
+  "FormContainerWidget",
+  {
     attributes: {
       content: "widgetlist",
       formId: "string",
@@ -12,4 +12,5 @@ export const FormContainerWidget =
       hiddenFields: ["widgetlist", { only: "FormHiddenFieldWidget" }],
     },
     extractTextAttributes: ["content"],
-  });
+  }
+);

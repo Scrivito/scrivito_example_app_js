@@ -73,10 +73,6 @@
       "rules": { "import/first": 0 }
     },
     {
-      "files": ["src/Widgets/ContactFormWidget/ContactFormWidgetComponent.js"],
-      "rules": { "import/no-webpack-loader-syntax": 0 }
-    },
-    {
       "files": ["webpack.config.*"],
       "rules": {
         "import/no-commonjs": 0,

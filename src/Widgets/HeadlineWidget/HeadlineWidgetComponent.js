@@ -19,7 +19,7 @@ Scrivito.provideComponent("HeadlineWidget", ({ widget }) => {
     <>
       <span
         className="headline-widget--anchor"
-        id={kebabCase(widget.get("headline"))}
+        id={kebabCase(widget.get("headline").toLowerCase())}
       ></span>
       <Scrivito.ContentTag
         tag={level}

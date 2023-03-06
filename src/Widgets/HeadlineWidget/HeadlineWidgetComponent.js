@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import { kebabCase } from "lodash-es";
+import * as speakingUrl from "speakingurl";
 import "./HeadlineWidget.scss";
 import { alignmentClassName } from "../../utils/alignmentClassName";
 
@@ -19,7 +19,7 @@ Scrivito.provideComponent("HeadlineWidget", ({ widget }) => {
     <>
       <span
         className="headline-widget--anchor"
-        id={kebabCase(widget.get("headline"))}
+        id={speakingUrl(widget.get("headline"))}
       ></span>
       <Scrivito.ContentTag
         tag={level}

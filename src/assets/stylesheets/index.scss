@@ -279,7 +279,7 @@ img,
 
 mark,
 .mark {
-  background-color: $secondary;
+  background-color: $primary;
   color: #fff;
   padding: 0 0.2em;
 }
@@ -625,13 +625,13 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 
   a:not(.btn) {
-    color: $secondary;
+    color: lighten($primary, 10%);
     text-decoration: none;
   }
   a:hover:not(.btn),
   a:active:not(.btn),
   a:focus:not(.btn) {
-    color: darken($secondary, 5%);
+    color: lighten($primary, 15%);
     text-decoration: underline;
     outline: none !important;
   }
@@ -702,7 +702,7 @@ footer {
   .card .fa,
   a:not(.btn) .fa,
   .fact-widget .value {
-    color: $secondary !important;
+    color: $primary !important;
   }
 }
 
@@ -1136,7 +1136,9 @@ img.cookie-img {
 /* popover styles used in forms
 =================================================================== */
 
-.popover p:last-of-type { margin: 0; }
+.popover p:last-of-type {
+  margin: 0;
+}
 
 /* disable selection, see https://stackoverflow.com/a/4407335/881759 for details
 ================================================== */

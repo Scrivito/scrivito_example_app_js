@@ -26,7 +26,6 @@
 
     &--quantity {
       color: $theme-grey;
-      margin-top: 40px;
 
       .dollar {
         font-size: 40px;
@@ -35,7 +34,8 @@
       }
 
       .price {
-        font-size: 85px;
+        font-size: 65px;
+        font-weight: 700;
       }
 
       .period {

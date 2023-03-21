@@ -47,8 +47,22 @@ $slick-font-family: "slick_swap";
 /* fonts
 ================================================== */
 @import "_fontawesome";
-@import "_pt_sans_narrow";
-@import "_source_sans_pro";
+
+/* manrope-medium 500 */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""), url("../fonts/Manrope-Medium-500.woff2") format("woff2");
+}
+
+/* manrope bold 700 */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/Manrope-Bold-700.woff2") format("woff2");
+}
 
 /* gutter with zero space
 ================================================== */
@@ -93,10 +107,10 @@ html {
 }
 
 body {
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: normal;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
   font-size: 16px;
-  line-height: 1.5em;
+  line-height: 1.7;
   color: $theme-greymiddle;
   background: transparent;
 }
@@ -152,40 +166,37 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "PT Sans Narrow", sans-serif;
-  font-weight: 400;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
   color: $theme-greydark;
-  margin: 0 0 15px 0;
+  margin: 0 0 15px 0 !important;
   padding: 0;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 h1,
 .h1 {
-  font-size: 60px;
-  line-height: 70px;
+  font-size: 40px;
+  line-height: 50px;
 }
 h2,
 .h2 {
-  font-size: 42px;
-  line-height: 50px;
+  font-size: 35px;
+  line-height: 45px;
 }
 h3,
 .h3 {
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 25px;
+  line-height: 35px;
 }
 h4,
 .h4 {
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 300;
   font-size: 22px;
   line-height: 30px;
   color: $theme-greymiddle;
 }
 h5,
 .h5 {
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
 }
 h6,
@@ -279,7 +290,7 @@ img,
 
 mark,
 .mark {
-  background-color: $secondary;
+  background-color: $primary;
   color: #fff;
   padding: 0 0.2em;
 }
@@ -308,7 +319,7 @@ small,
 }
 
 .hero-bold {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-weight: 700;
   font-size: 180px;
   text-transform: uppercase;
@@ -320,8 +331,8 @@ small,
   color: $primary !important;
 }
 .hero-small {
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 300;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
   font-size: 30px;
   line-height: 1;
   margin: 0 0 40px 0;
@@ -348,7 +359,6 @@ small,
 .btn {
   border-radius: 0;
   font-weight: 700;
-  text-transform: uppercase;
   vertical-align: middle;
   padding: 13px 20px 10px;
   margin: 0 0 10px 0;
@@ -625,13 +635,13 @@ $easing: cubic-bezier(0.7, 0, 0, 0.7);
   }
 
   a:not(.btn) {
-    color: $secondary;
+    color: lighten($primary, 10%);
     text-decoration: none;
   }
   a:hover:not(.btn),
   a:active:not(.btn),
   a:focus:not(.btn) {
-    color: darken($secondary, 5%);
+    color: lighten($primary, 15%);
     text-decoration: underline;
     outline: none !important;
   }
@@ -702,7 +712,7 @@ footer {
   .card .fa,
   a:not(.btn) .fa,
   .fact-widget .value {
-    color: $secondary !important;
+    color: $primary !important;
   }
 }
 
@@ -779,8 +789,8 @@ section.navbar-fixed {
   line-height: 62px;
   border: 10px solid #fff;
   display: block;
-  font-family: "PT Sans Narrow", sans-serif;
-  font-weight: 700;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
   text-align: center;
   background: $primary;
   border-radius: 50%;
@@ -912,8 +922,8 @@ section.navbar-fixed {
   border-radius: 50%;
   line-height: 60px;
   text-align: center;
-  font-family: "PT Sans Narrow", sans-serif;
-  font-weight: 600;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
 }
 .box-card .box-image {
   display: block;
@@ -1136,7 +1146,9 @@ img.cookie-img {
 /* popover styles used in forms
 =================================================================== */
 
-.popover p:last-of-type { margin: 0; }
+.popover p:last-of-type {
+  margin: 0;
+}
 
 /* disable selection, see https://stackoverflow.com/a/4407335/881759 for details
 ================================================== */
@@ -1243,12 +1255,12 @@ img.cookie-img {
 @media (max-width: $screen-xs-max) {
   h1,
   .h1 {
-    font-size: 40px;
+    font-size: 35px;
     line-height: 50px;
   }
   h2,
   .h2 {
-    font-size: 35px;
+    font-size: 30px;
     line-height: 45px;
   }
 }

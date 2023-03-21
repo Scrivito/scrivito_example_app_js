@@ -201,12 +201,11 @@
 
       .photo-caption {
         color: #fff;
-        font-family: "Source Sans Pro", sans-serif;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 1rem;
         line-height: 20px;
         text-align: center;
-        margin: 0;
+        margin: 0 !important;
         position: relative;
         text-shadow: 0 0 2px black;
       }
@@ -267,7 +266,6 @@
     border: none;
   }
   .photo-caption {
-    font-family: "Source Sans Pro", sans-serif;
     color: white;
   }
 }

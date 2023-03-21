@@ -31,7 +31,6 @@
   thead {
     th {
       font-size: 13px;
-      font-weight: 400;
       padding: 10px 20px;
       text-align: center;
 
@@ -44,7 +43,6 @@
   tbody {
     th {
       font-size: 20px;
-      font-weight: 400;
       padding: 20px;
       border-top: 2px solid rgba(99, 99, 99, 0.1);
       border-right: 2px solid rgba(99, 99, 99, 0.1);
@@ -88,7 +86,6 @@
   tfoot {
     th {
       font-size: 20px;
-      font-weight: 400;
       padding: 20px;
       border: 2px solid rgba(99, 99, 99, 0.1);
     }
@@ -131,7 +128,6 @@
     td:before {
       content: attr(data-th) "";
       font-size: 11px;
-      font-weight: 400;
       display: block;
       line-height: 0;
       text-align: left;

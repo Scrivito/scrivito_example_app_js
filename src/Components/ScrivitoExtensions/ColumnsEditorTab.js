@@ -6,15 +6,19 @@ import { ColumnWidget } from "../../Widgets/ColumnWidget/ColumnWidgetClass";
 
 export function ColumnsEditorTab({ widget }) {
   const includedWidgetIds = calculateContentIds(calculateContents(widget));
+  const uiContext = Scrivito.uiContext();
+  if (uiContext === undefined) return null;
 
   return (
-    <ColumnsEditor
-      // reset component whenever a concurrent widget addition/deletion happened
-      key={includedWidgetIds.join("-")}
-      widget={widget}
-      readOnly={!Scrivito.canWrite()}
-      currentGrid={gridOfWidget(widget)}
-    />
+    <div className={`scrivito_${uiContext.theme}`}>
+      <ColumnsEditor
+        // reset component whenever a concurrent widget addition/deletion happened
+        key={includedWidgetIds.join("-")}
+        widget={widget}
+        readOnly={!Scrivito.canWrite()}
+        currentGrid={gridOfWidget(widget)}
+      />
+    </div>
   );
 }
 

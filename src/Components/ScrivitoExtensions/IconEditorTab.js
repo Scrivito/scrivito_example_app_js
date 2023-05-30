@@ -9,7 +9,7 @@ export function IconEditorTab({ widget }) {
   const [searchValue, setSearchValue] = React.useState("");
   const currentIcon = widget.get("icon");
   const uiContext = Scrivito.uiContext();
-  if (uiContext === undefined) return null;
+  if (!uiContext) return null;
 
   return (
     <div className={`scrivito_${uiContext.theme}`}>

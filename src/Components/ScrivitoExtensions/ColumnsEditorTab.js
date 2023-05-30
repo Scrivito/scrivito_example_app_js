@@ -7,7 +7,7 @@ import { ColumnWidget } from "../../Widgets/ColumnWidget/ColumnWidgetClass";
 export function ColumnsEditorTab({ widget }) {
   const includedWidgetIds = calculateContentIds(calculateContents(widget));
   const uiContext = Scrivito.uiContext();
-  if (uiContext === undefined) return null;
+  if (!uiContext) return null;
 
   return (
     <div className={`scrivito_${uiContext.theme}`}>

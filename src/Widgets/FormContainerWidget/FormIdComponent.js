@@ -9,7 +9,7 @@ export const FormIdComponent = Scrivito.connect(({ widget }) => {
       }/forms/${widget.get("formId")}`
     : null;
   const uiContext = Scrivito.uiContext();
-  if (uiContext === null) return null;
+  if (!uiContext) return null;
 
   return (
     <div className={`scrivito_${uiContext.theme}`}>

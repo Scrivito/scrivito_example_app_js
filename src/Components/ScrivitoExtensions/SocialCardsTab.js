@@ -5,7 +5,7 @@ import { getMetadata } from "../../utils/getMetadata";
 
 export function SocialCardsTab({ obj }) {
   const uiContext = Scrivito.uiContext();
-  if (uiContext === null) return null;
+  if (!uiContext) return null;
 
   return (
     <div className={`scrivito_${uiContext.theme}`}>

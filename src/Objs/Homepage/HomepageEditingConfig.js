@@ -49,12 +49,6 @@ Scrivito.provideEditingConfig("Homepage", {
       description:
         "Needs to be requested at https://developers.google.com/maps/web/",
     },
-    googleAnalyticsTrackingId: {
-      title: "Google Analytics tracking ID",
-      description:
-        "Needs to be requested under your GA property settings." +
-        " See https://analytics.google.com for details.",
-    },
     intercomAppId: {
       title: "Intercom app ID",
       description: "Register at https://www.intercom.com/",
@@ -83,7 +77,6 @@ Scrivito.provideEditingConfig("Homepage", {
         "facebookAppId",
         "twitterSite",
         "googleMapsApiKey",
-        "googleAnalyticsTrackingId",
         "intercomAppId",
       ],
       key: "site-settings-group",
@@ -94,17 +87,5 @@ Scrivito.provideEditingConfig("Homepage", {
     ...defaultPageInitialContent,
     ...metadataInitialContent,
   },
-  validations: [
-    ...defaultPageValidations,
-    ...metadataValidations,
-    [
-      "googleAnalyticsTrackingId",
-
-      (trackingId) => {
-        if (trackingId && !trackingId.startsWith("UA-")) {
-          return 'Provide a Universal Analytics property (starts with "UA-"). See https://support.google.com/analytics/answer/10269537 for details.';
-        }
-      },
-    ],
-  ],
+  validations: [...defaultPageValidations, ...metadataValidations],
 });

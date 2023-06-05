@@ -1,1 +1,1 @@
-// Paste your tracking code (e.g. Google Analytics) here.
+// This file is for executing JavaScript code after the user has given cookie consent.

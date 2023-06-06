@@ -10,6 +10,8 @@
     font-weight: bold;
     padding: 6px 3px 0 3px;
     color: #2b7bb9;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .card {
     border-radius: 4px;

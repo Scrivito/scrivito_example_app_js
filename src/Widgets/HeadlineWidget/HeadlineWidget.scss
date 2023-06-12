@@ -1,9 +1,0 @@
-.headline-widget {
-  // Fix navigation overlapping anchor issue
-  // See .navbar "min-height" value
-  // Source: https://stackoverflow.com/a/38106970/881759
-  &--anchor {
-    position: relative;
-    top: -75px;
-  }
-}

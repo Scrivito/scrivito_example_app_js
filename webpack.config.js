@@ -3,7 +3,6 @@ const dotenv = require("dotenv");
 const path = require("path");
 const process = require("process");
 const webpack = require("webpack");
-const lodash = require("lodash");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -180,7 +179,7 @@ function webpackConfig(env = {}) {
 }
 
 function devServerCspHeader() {
-  const directives = lodash.cloneDeep(headersCsp);
+  const directives = JSON.parse(JSON.stringify(headersCsp));
 
   // allow 'unsafe-eval' for webpack hot code reloading
   directives["script-src"].push("'unsafe-eval'");

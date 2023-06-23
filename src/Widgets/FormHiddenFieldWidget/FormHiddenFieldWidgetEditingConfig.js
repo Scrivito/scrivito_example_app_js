@@ -17,7 +17,26 @@ Scrivito.provideEditingConfig("FormHiddenFieldWidget", {
   initialContent: {
     customFieldName: "custom_hidden_field",
   },
-  validations: [customFieldNameValidation],
+  validations: [
+    customFieldNameValidation,
+    (widget) => {
+      if (
+        widget
+          .container()
+          .get("hiddenFields")
+          .map((w) => w.id())
+          .includes(widget.id())
+      ) {
+        return;
+      }
+
+      return {
+        message:
+          "Usually hidden fields should be added in the widget properties of the form container.",
+        severity: "info",
+      };
+    },
+  ],
   titleForContent: (widget) =>
     truncate(
       `Hidden: ${[widget.get("customFieldName"), widget.get("hiddenValue")]

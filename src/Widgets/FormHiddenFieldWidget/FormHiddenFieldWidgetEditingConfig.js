@@ -19,7 +19,10 @@ Scrivito.provideEditingConfig("FormHiddenFieldWidget", {
   },
   validations: [customFieldNameValidation],
   titleForContent: (widget) =>
-    [widget.get("customFieldName"), truncate(widget.get("hiddenValue"))]
-      .filter((e) => e)
-      .join(": "),
+    truncate(
+      `Hidden: ${[widget.get("customFieldName"), widget.get("hiddenValue")]
+        .filter((e) => e)
+        .join(" - ")}`,
+      { length: 36 }
+    ),
 });

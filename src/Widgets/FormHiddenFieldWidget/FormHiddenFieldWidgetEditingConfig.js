@@ -30,8 +30,7 @@ Scrivito.provideEditingConfig("FormHiddenFieldWidget", {
       }
 
       return {
-        message:
-          "Usually hidden fields should be added in the widget properties of the form container.",
+        message: "Hidden fields should be added in the properties of the form.",
         severity: "info",
       };
     },

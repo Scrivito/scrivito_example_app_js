@@ -1,4 +1,3 @@
-import { truncate } from "lodash-es";
 import * as Scrivito from "scrivito";
 import formHiddenFieldWidgetIcon from "../../assets/images/form_hidden_field_widget.svg";
 import { customFieldNameValidation } from "../FormContainerWidget/utils/validations/customFieldNameValidation";
@@ -38,10 +37,7 @@ Scrivito.provideEditingConfig("FormHiddenFieldWidget", {
     },
   ],
   titleForContent: (widget) =>
-    truncate(
-      `Hidden: ${[widget.get("customFieldName"), widget.get("hiddenValue")]
-        .filter((e) => e)
-        .join(" - ")}`,
-      { length: 36 }
-    ),
+    `Hidden: ${[widget.get("customFieldName"), widget.get("hiddenValue")]
+      .filter((e) => e)
+      .join(" - ")}`,
 });

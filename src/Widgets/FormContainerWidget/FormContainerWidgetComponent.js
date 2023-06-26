@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
-import { getFieldName } from "./utils/getFieldName";
 import { scrollIntoView } from "./utils/scrollIntoView";
 import { getHistory } from "../../config/history";
 
@@ -60,9 +59,9 @@ Scrivito.provideComponent("FormContainerWidget", ({ widget }) => {
           name="url"
           value={browserLocation || Scrivito.urlFor(widget.obj())}
         />
-        {widget.get("hiddenFields").map((hiddenField) => (
-          <HiddenField key={hiddenField.id()} widget={hiddenField} />
-        ))}
+        <Scrivito.InPlaceEditingOff>
+          <Scrivito.ContentTag content={widget} attribute="hiddenFields" />
+        </Scrivito.InPlaceEditingOff>
 
         <HoneypotField />
 
@@ -118,15 +117,6 @@ async function submit(formElement, formEndpoint) {
     );
   }
 }
-
-const HiddenField = Scrivito.connect(({ widget }) => {
-  const name = getFieldName(widget);
-  if (!name) {
-    return null;
-  }
-
-  return <input type="hidden" name={name} value={widget.get("hiddenValue")} />;
-});
 
 const HoneypotField = () => (
   <div aria-hidden="true" className="winnie-the-pooh">

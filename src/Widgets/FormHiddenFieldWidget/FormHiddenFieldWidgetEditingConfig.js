@@ -3,7 +3,7 @@ import formHiddenFieldWidgetIcon from "../../assets/images/form_hidden_field_wid
 import { customFieldNameValidation } from "../FormContainerWidget/utils/validations/customFieldNameValidation";
 
 Scrivito.provideEditingConfig("FormHiddenFieldWidget", {
-  title: "Hidden Field",
+  title: "Hidden Form Field",
   thumbnail: formHiddenFieldWidgetIcon,
   attributes: {
     customFieldName: { title: "Field name" },
@@ -37,7 +37,10 @@ Scrivito.provideEditingConfig("FormHiddenFieldWidget", {
     },
   ],
   titleForContent: (widget) =>
-    `Hidden: ${[widget.get("customFieldName"), widget.get("hiddenValue")]
+    `Hidden Form Field: ${[
+      widget.get("customFieldName"),
+      widget.get("hiddenValue"),
+    ]
       .filter((e) => e)
       .join(" - ")}`,
 });

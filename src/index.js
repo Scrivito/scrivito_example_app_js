@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom/client";
 import * as Scrivito from "scrivito";
 import "./Objs";
 import "./Widgets";
+import "./Data";
 import { App } from "./App";
 import { configure } from "./config";
 import "./assets/stylesheets/index.scss";
@@ -36,4 +37,5 @@ function hydrateApp() {
 if (Scrivito.isEditorLoggedIn()) {
   import("./Objs/editingConfigs");
   import("./Widgets/editingConfigs");
+  import("./Data/editingConfigs");
 }

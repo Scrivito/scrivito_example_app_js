@@ -118,6 +118,7 @@ function webpackConfig(env = {}) {
         SCRIVITO_ENDPOINT: "",
         SCRIVITO_ORIGIN: scrivitoOrigin,
         SCRIVITO_TENANT: "",
+        ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE: false,
       }),
       new Webpackbar(),
       new CopyWebpackPlugin({

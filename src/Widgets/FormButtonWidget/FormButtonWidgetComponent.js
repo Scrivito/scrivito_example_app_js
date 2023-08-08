@@ -1,13 +1,9 @@
 import * as React from "react";
 import * as Scrivito from "scrivito";
+import { alignmentClassName } from "../../utils/alignmentClassName";
 
 Scrivito.provideComponent("FormButtonWidget", ({ widget }) => (
-  <WrapIfClassName
-    className={
-      ["center", "right"].includes(widget.get("alignment")) &&
-      `text-${widget.get("alignment")}`
-    }
-  >
+  <WrapIfClassName className={alignmentClassName(widget.get("alignment"))}>
     <button
       className={`btn btn-primary${
         widget.get("alignment") === "block" ? " btn-block" : ""

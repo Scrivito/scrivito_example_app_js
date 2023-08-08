@@ -30,7 +30,7 @@ cd scrivito_example_app_js/
 
 ### Install/check prerequisites
 
-Make sure that you have [![node ≥ 14.0](https://img.shields.io/badge/node-≥%2014.0-blue.svg)](https://nodejs.org) and [![npm ≥ 7.0](https://img.shields.io/badge/npm-≥%207.0-blue.svg)](https://www.npmjs.com/get-npm) installed.
+Make sure that you have [![node ≥ 18.0](https://img.shields.io/badge/node-≥%2018.0-blue.svg)](https://nodejs.org) and [![npm ≥ 7.0](https://img.shields.io/badge/npm-≥%207.0-blue.svg)](https://www.npmjs.com/get-npm) installed.
 
 ```
 node -v

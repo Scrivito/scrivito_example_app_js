@@ -14,12 +14,11 @@ Scrivito.provideEditingConfig("FormCheckboxWidget", {
       title: "Input type",
       values: [
         { value: "accept_terms", title: "Accept terms" },
-        { value: "custom", title: "Custom" },
-      ].concat(
-        process.env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE
+        ...(process.env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE
           ? [{ value: "subscription", title: "Subscription" }]
-          : []
-      ),
+          : []),
+        { value: "custom", title: "Custom" },
+      ],
     },
     customFieldName: { title: "Field name" },
     helpText: { title: "Help text" },

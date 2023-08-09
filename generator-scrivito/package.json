@@ -5,8 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=7.0.0"
+    "node": ">=18.0.0"
   },
   "private": true,
   "repository": {

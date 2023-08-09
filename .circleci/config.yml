@@ -15,16 +15,6 @@ jobs:
     steps:
       - checkout
       - node/install
-      - run:
-          name: Install correct npm version
-          command: |
-            echo "Node version"
-            node --version
-            echo ""
-            dpkg --compare-versions `npm -v` ge 7.10 || npm i -g npm@^7.10
-            echo ""
-            echo "NPM version"
-            npm --version
       - node/install-packages
       - run: npm run << parameters.npm-run-command >>
 

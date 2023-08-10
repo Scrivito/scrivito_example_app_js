@@ -10,7 +10,7 @@ Scrivito.provideComponent("FormButtonWidget", ({ widget }) => (
       }`}
       type="submit"
     >
-      {widget.get("buttonText")}
+      <Scrivito.ContentTag tag="span" content={widget} attribute="buttonText" />
     </button>
   </WrapIfClassName>
 ));

@@ -120,7 +120,7 @@ async function submit(formElement, formEndpoint) {
 
 const HoneypotField = () => (
   <div aria-hidden="true" className="winnie-the-pooh">
-    <input autoComplete="off" name="fax" tabIndex="-1" />
+    <input autoComplete="off" role="presentation" name="fax" tabIndex="-1" />
   </div>
 );
 

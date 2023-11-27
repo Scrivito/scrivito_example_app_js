@@ -3,6 +3,7 @@ import * as Scrivito from "scrivito";
 export function configureScrivito(options) {
   const config = {
     adoptUi: true,
+    autoConvertAttributes: true, // Details: https://www.scrivito.com/automatic-type-conversions-0cff08a7795d5d3c
     optimizedWidgetLoading: true,
     strictSearchOperators: true,
     contentTagsForEmptyAttributes: false,

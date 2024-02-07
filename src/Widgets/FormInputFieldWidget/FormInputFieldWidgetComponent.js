@@ -8,10 +8,6 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
   const id = `form_text_input_widget_${widget.id()}`;
 
   const fieldName = getFieldName(widget);
-  const labelOptions = {};
-  if (!Scrivito.isInPlaceEditingActive()) {
-    labelOptions.htmlFor = id;
-  }
 
   return (
     <div className="mb-3">
@@ -20,7 +16,7 @@ Scrivito.provideComponent("FormInputFieldWidget", ({ widget }) => {
         attribute="label"
         tag="label"
         className="form-label"
-        {...labelOptions}
+        htmlFor={id}
       />
       {widget.get("required") ? (
         <OverlayTrigger

@@ -6,11 +6,6 @@ import { getFieldName } from "../FormContainerWidget/utils/getFieldName";
 Scrivito.provideComponent("FormCheckboxWidget", ({ widget }) => {
   const id = `form_checkbox_widget_${widget.id()}`;
 
-  const labelOptions = {};
-  if (!Scrivito.isInPlaceEditingActive()) {
-    labelOptions.htmlFor = id;
-  }
-
   return (
     <div className="form-check mb-3">
       <input
@@ -26,7 +21,7 @@ Scrivito.provideComponent("FormCheckboxWidget", ({ widget }) => {
         content={widget}
         attribute="label"
         tag="label"
-        {...labelOptions}
+        htmlFor={id}
       />
       {widget.get("required") ? (
         <OverlayTrigger

@@ -2,10 +2,10 @@ import * as React from "react";
 import * as Scrivito from "scrivito";
 import { InPlaceEditingPlaceholder } from "../../Components/InPlaceEditingPlaceholder";
 
-class RedirectComponent extends React.Component {
-  componentDidMount() {
+Scrivito.provideComponent("Redirect", ({ page }) => {
+  React.useEffect(() => {
     Scrivito.load(() => {
-      const link = this.props.page.get("link");
+      const link = page.get("link");
       const url = link && Scrivito.urlFor(link);
 
       return { link, url };
@@ -18,21 +18,17 @@ class RedirectComponent extends React.Component {
         window.location.replace(url);
       }
     });
+  }, [page]);
+
+  const link = page.get("link");
+
+  if (!link) {
+    return (
+      <InPlaceEditingPlaceholder center>
+        Select a link in the redirect page properties.
+      </InPlaceEditingPlaceholder>
+    );
   }
 
-  render() {
-    const link = this.props.page.get("link");
-
-    if (!link) {
-      return (
-        <InPlaceEditingPlaceholder center>
-          Select a link in the redirect page properties.
-        </InPlaceEditingPlaceholder>
-      );
-    }
-
-    return null;
-  }
-}
-
-Scrivito.provideComponent("Redirect", RedirectComponent);
+  return null;
+});

@@ -1,3 +1,64 @@
+:root {
+  --jr-grey-dark: #111418;
+  --jr-grey-middle: #1d2229;
+  --jr-grey-light: #272d37;
+  --jr-grey-light-hover: #3a4353;
+  --jr-blue-light: #426698;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+// --------------------------------------------------------------- //
+// editor styles adaptions
+// --------------------------------------------------------------- //
+
+.scrivito_detail_content {
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  margin: 0;
+  padding: 15px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.scrivito_detail_content:first-of-type {
+  border: none;
+}
+
+.scrivito_detail_label {
+  display: block;
+  padding: 0;
+  width: 100%;
+}
+.scrivito_detail_label span {
+  color: #444;
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 7px 3px 6px 3px;
+}
+.scrivito_notice_body {
+  color: #666;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 0 10px;
+}
+.scrivito_notice_body:empty {
+  padding: 0;
+}
+
+.scrivito_dark {
+  .scrivito_detail_label span {
+    color: #eee;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+  .scrivito_notice_body {
+    color: #aaa !important;
+  }
+}
+
 // -- forms -- //
 
 .content_property_input {
@@ -162,7 +223,7 @@ $blueDarken: #0085ac;
 // --------------------------------------------------------------- //
 
 .scrivito_dark {
-  background: #3f3f3f;
+  background: var(--jr-grey-middle);
 
   .scrivito_detail_label span {
     color: #eee;

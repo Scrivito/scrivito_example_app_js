@@ -4,17 +4,18 @@ import { InPlaceEditingPlaceholder } from "../../Components/InPlaceEditingPlaceh
 
 Scrivito.provideComponent("Redirect", ({ page }) => {
   const link = page.get("link");
-  const url = link && Scrivito.urlFor(link);
 
   React.useEffect(() => {
     if (!link) return;
 
-    if (link.isExternal()) {
-      window.top.location.replace(url);
-    } else {
-      window.location.replace(url);
-    }
-  }, [link, url]);
+    Scrivito.load(() => Scrivito.urlFor(link)).then((url) => {
+      if (link.isExternal()) {
+        window.top.location.replace(url);
+      } else {
+        window.location.replace(url);
+      }
+    });
+  }, [link]);
 
   if (!link) {
     return (

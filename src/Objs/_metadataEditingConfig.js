@@ -24,7 +24,15 @@ export const metadataPropertiesGroups = [
   {
     title: "Social cards",
     component: SocialCardsTab,
-    properties: ["tcCreator", "tcDescription", "ogDescription"],
+    properties: [
+      "ogDescription",
+      "ogImage",
+      "ogTitle",
+      "tcCreator",
+      "tcDescription",
+      "tcImage",
+      "tcTitle",
+    ],
     key: "social-cards-group",
   },
 ];

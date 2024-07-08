@@ -18,7 +18,7 @@ export const AuthorImage = Scrivito.connect(function AuthorImage({ image }) {
       style={{
         background: { image },
 
-        // relative square in css - see git history for link to explanation
+        // relative square in css - see d29318acaa903a74672938b2cd85d6d1c678eaab for a link to an explanation
         width: "100%",
         paddingBottom: "100%",
       }}

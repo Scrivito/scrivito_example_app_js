@@ -22,8 +22,9 @@ const BUILD_DIR = "build";
 
 function webpackConfig(env = {}) {
   if (
-    !process.env.SCRIVITO_TENANT ||
-    process.env.SCRIVITO_TENANT === "your_scrivito_tenant_id"
+    !env.ESLINT &&
+    (!process.env.SCRIVITO_TENANT ||
+      process.env.SCRIVITO_TENANT === "your_scrivito_tenant_id")
   ) {
     throw new Error(
       'Environment variable "SCRIVITO_TENANT" is not defined!' +

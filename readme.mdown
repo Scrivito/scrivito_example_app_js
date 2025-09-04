@@ -1,6 +1,6 @@
 # Scrivito Example App JS
 
-> **⚠️ DEPRECATED**: This repository is deprecated and is no longer maintained. Please use the new [Scrivito Portal App](https://github.com/Scrivito/scrivito-portal-app) instead.
+> **📍 Development has moved forward!** This repository remains a valuable resource for getting familiar with Scrivito implementation patterns, but active development now focuses on the new **[Scrivito Portal App](https://github.com/Scrivito/scrivito-portal-app)** featuring data integration, a modern build environment with full TypeScript support, and a lot more.
 
 [![CMS: Scrivito](https://img.shields.io/badge/CMS-Scrivito-brightgreen.svg)](https://scrivito.com) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Travis build status](https://img.shields.io/travis/Scrivito/scrivito_example_app_js/master.svg)](https://travis-ci.org/Scrivito/scrivito_example_app_js) [![GitHub last commit](https://img.shields.io/github/last-commit/Scrivito/scrivito_example_app_js.svg)](https://github.com/Scrivito/scrivito_example_app_js) [![GitHub top language](https://img.shields.io/github/languages/top/Scrivito/scrivito_example_app_js.svg)](https://github.com/Scrivito/scrivito_example_app_js)
 
